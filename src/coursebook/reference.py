@@ -30,6 +30,8 @@ def tokens(text):
 
 
 def fetch(root, pack):
+    if pack.get("path"):  # a local folder instead of a git repository
+        return Path(pack["path"])
     repo = Path(root) / "reference" / "repo"
     if not (repo / ".git").exists():
         repo.parent.mkdir(parents=True, exist_ok=True)

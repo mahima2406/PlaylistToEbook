@@ -7,6 +7,13 @@ dependencies = ["yt-dlp==2026.8.19", "youtube-transcript-api==1.2.4", "httpx==0.
 
 [dependency-groups]
 dev = ["pytest==9.1.1"]
+listings = [
+    "matplotlib>=3.11.2",
+    "pandas>=3.0.6",
+    "tiktoken>=0.14.0",
+    "torch>=2.4",
+    "tqdm>=4.70.1",
+]
 
 [project.scripts]
 coursebook = "coursebook.cli:main"
@@ -17,3 +24,11 @@ build-backend = "hatchling.build"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]

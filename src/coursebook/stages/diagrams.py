@@ -29,7 +29,9 @@ def validate_mermaid(source):
         return ['mermaid must start with "flowchart LR" or "flowchart TD"']
     errors = []
     for n, line in enumerate(lines[1:], 2):
-        body = line.replace("-->", "").replace("---", "").replace("-.->", "")
+        body = line
+        for arrow in ("-.->", "==>", "-->", "---", "--", "==", "-.-"):
+            body = body.replace(arrow, "")
         if FORBIDDEN.search(body):
             errors.append(f"mermaid line {n}: styling, HTML, comments or click handlers are not allowed")
         if line.count('"') % 2:
@@ -42,7 +44,9 @@ def validate_mermaid(source):
     return errors
 
 
-def validate_diagrams(obj, paragraph_ids, sentence_ids, limit):
+def validate_diagrams(obj, paragraph_ids, sentence_ids, limit, check_mermaid=False):
+    """Structure, placement and claims. Mermaid safety is checked per diagram afterwards
+    (an unsafe diagram is dropped and counted, not allowed to fail the chapter)."""
     diagrams = obj.get("diagrams")
     if not isinstance(diagrams, list):
         return ["'diagrams' must be a list"]
@@ -53,7 +57,8 @@ def validate_diagrams(obj, paragraph_ids, sentence_ids, limit):
             errors.append(f"{where}: after_paragraph must be one of the supplied paragraph IDs")
         if not str(d.get("title", "")).strip() or not str(d.get("caption", "")).strip():
             errors.append(f"{where}: title and caption are required")
-        errors += [f"{where}: {e}" for e in validate_mermaid(d.get("mermaid", ""))]
+        if check_mermaid:
+            errors += [f"{where}: {e}" for e in validate_mermaid(d.get("mermaid", ""))]
         claims = d.get("claims")
         if not isinstance(claims, list) or not claims:
             errors.append(f"{where}: list every relationship the diagram shows in 'claims'")
@@ -77,6 +82,12 @@ def diagram_chapter(gateway, chapter, verified, index, cutoff, limit):
     kept, dropped = [], []
     for n, proposal in enumerate(proposed, 1):
         did = f"{chapter['id']}.fig{n}"
+        unsafe = validate_mermaid(proposal.get("mermaid", ""))
+        if unsafe:
+            dropped.append({"id": did, "title": proposal.get("title"), "reason": "; ".join(unsafe), "claims": [],
+                            "after_paragraph": proposal.get("after_paragraph"), "caption": proposal.get("caption"),
+                            "mermaid": proposal.get("mermaid", ""), "passed": False})
+            continue
         record = _judge_diagram(gateway, did, proposal, sentences, index, cutoff)
         if not record["passed"]:
             failing = [c for c in record["claims"] if not passes(c, cutoff)]
@@ -85,7 +96,7 @@ def diagram_chapter(gateway, chapter, verified, index, cutoff, limit):
                            + "\n".join(f"- {c['text']}: {c['verdict']} ({c['reason']})" for c in failing)}]
             revised = gateway.call_json("writer", ask, stage="diagram", input_id=did + ":repair",
                                         max_completion_tokens=16000, validate=lambda o: check(o, 1))["parsed"]["diagrams"]
-            if revised:
+            if revised and not validate_mermaid(revised[0].get("mermaid", "")):
                 record = {**_judge_diagram(gateway, did, revised[0], sentences, index, cutoff), "repaired": True,
                           "first_attempt": record["claims"]}
         (kept if record["passed"] else dropped).append(record)

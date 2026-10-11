@@ -46,6 +46,9 @@ def answer(body):
         return {"scores": {c: {"score": 4, "evidence": "ok"} for c in
                            ["clarity", "flow", "book_voice", "definitions_first", "concision", "reader_fit", "title_fit"]},
                 "improvements": ["more examples"]}
+    if system.startswith("You turn numbers stated"):
+        sid = re.findall(r"^(\S+) \|", user, re.M)[0]
+        return {"checks": [{"sentence_id": sid, "expected": 3, "expression": "len(ids)", "tolerance": 0}]}
     if system.startswith("You choose code listings"):
         ref = re.findall(r"^(ref:\S+) \(under heading", user, re.M)[0]
         return {"listings": [{"ref": ref, "caption": "Encodes text into IDs."}]}
@@ -427,3 +430,60 @@ def test_exported_package_has_no_caption_text_and_rebuilds_identically(built, tm
     rec.write_text(rec.read_text().replace("A fictional fact.", "A tampered fact."))
     checked = verify_package(CONFIG, target)
     assert not checked["ok"] and any("changed" in p for p in checked["problems"])
+
+
+def test_web_edition_has_hover_sources_with_short_quotes(built):
+    root, _ = built
+    build_book(root, CONFIG, root / "out")
+    web = (root / "out" / "web" / "ch01.qmd").read_text()
+    pdf = (root / "out" / "book" / "ch01.qmd").read_text()
+    assert "[^src-ch01-s01-p01]" in web and "watch?v=vidA&t=" in web and "“vidA caption line" in web
+    assert "[^src-" not in pdf  # the printed book stays clean
+    import json as _json
+    assert _json.loads((root / "out" / "web" / "_quarto.yml").read_text())["format"]["html"]["footnotes-hover"]
+
+
+def test_listings_execute_and_stated_numbers_become_checks(built, tmp_path):
+    from coursebook.stages.listings import run_listings
+    from coursebook.stages.runcode import run_code, numbers_in, validate_checks
+    root, outline = built
+    repo = tmp_path / "refrepo"
+    repo.mkdir()
+    nb = {"cells": [{"cell_type": "code", "source": ["ids = [1, 2, 3]  # fixture fact caption line\n", "print(ids)"]}]}
+    (repo / "nb.ipynb").write_text(json.dumps(nb))
+    pack = {**PACK, "path": str(repo)}
+    config = {**CONFIG, "reference_pack": pack}
+    from coursebook.reference import build_index
+    build_index(root, pack)
+    rec = read(root / "stages" / "extract" / "vidA.json")
+    rec["output"]["points"][0]["kind"] = "code"
+    write(root / "stages" / "extract" / "vidA.json", rec)
+    run_listings(root, live_gateway(root), config, outline)
+    vrec = read(root / "stages" / "verify" / "ch01.s01.json")
+    vrec["output"]["paragraphs"][0]["sentences"][1]["text"] = "The list holds 3 token IDs."
+    write(root / "stages" / "verify" / "ch01.s01.json", vrec)
+    result = run_code(root, live_gateway(root), config, outline, timeout=60)
+    run = next(iter(result["listings"].values()))
+    assert run["status"] == "ran" and "[1, 2, 3]" in run["output"]
+    assert run["checks"][0]["passed"] is True and run["checks"][0]["value"] == 3
+    book, _, metrics = build_book(root, config, root / "out")
+    assert "Checked by running the code" in (book / "ch01.qmd").read_text()
+    assert metrics["code_run"]["checks_passed"] == 1
+    assert numbers_in("about 124 million parameters and 50,257 tokens") == [124e6, 50257.0]
+    bad = validate_checks({"checks": [{"sentence_id": "s", "expected": 9, "expression": "__import__('os')", "tolerance": 0}]},
+                          {"s": {"text": "There are 3 IDs."}})
+    assert any("does not appear" in e for e in bad) and any("side-effect-free" in e for e in bad)
+
+
+def test_why_prints_the_full_trail_and_heatmap_is_drawn(built):
+    from coursebook.why import trail
+    root, _ = built
+    text = trail(root, "ch01.s01.p01")
+    assert "ch01 · Fixture chapter" in text and "cites L01 0:00" in text and "“vidA caption line" in text
+    assert "judge  final: supported" in text and "watch?v=vidA&t=0s" in text
+    with pytest.raises(ValueError):
+        trail(root, "ch09.s01.p01")
+    book, _, _ = build_book(root, CONFIG, root / "out")
+    assert (book / "figures" / "coverage.svg").read_text().count("<rect") == 1
+    assert "figures/coverage.pdf" in (book / "sources.qmd").read_text()
+    assert "figures/coverage.svg" in (root / "out" / "web" / "sources.qmd").read_text()

@@ -72,3 +72,26 @@ def render_vector(source, out_dir):
     if result.returncode != 0 or not target.exists():
         raise ValueError(f"Chrome could not render a diagram: {result.stderr[-500:]}")
     return target
+
+
+SVG_PAGE = """<!doctype html><html><head><meta charset="utf-8"><style>html,body{{margin:0;padding:0;background:#fff}}
+@page{{size:{w}px {h}px;margin:0}}</style></head><body>{svg}</body></html>"""
+
+
+def svg_to_pdf(svg_path):
+    """Print an SVG (with explicit width/height) to a vector PDF next to it; None without Chrome."""
+    import re as _re
+    chrome = find_chrome()
+    if not chrome:
+        return None
+    svg_path = Path(svg_path)
+    svg = svg_path.read_text()
+    w = int(float(_re.search(r'width="([\d.]+)', svg).group(1)))
+    h = int(float(_re.search(r'height="([\d.]+)', svg).group(1)))
+    target = svg_path.with_suffix(".pdf")
+    with tempfile.TemporaryDirectory() as tmp:
+        page = Path(tmp) / "figure.html"
+        page.write_text(SVG_PAGE.format(w=w + 2, h=h + 2, svg=svg))
+        subprocess.run([chrome, "--headless=new", "--disable-gpu", "--no-pdf-header-footer", "--virtual-time-budget=3000",
+                        f"--print-to-pdf={target}", page.as_uri()], capture_output=True, text=True, timeout=120)
+    return target if target.exists() else None

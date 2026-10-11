@@ -538,6 +538,12 @@ def test_app_api_lists_books_reports_progress_and_guards_paths(built, tmp_path):
         assert locked.value.code == 403
         ok = urllib.request.Request(url + "/api/books/main/approve", data=b"{}", method="POST", headers={"X-Build-Code": "letmein"})
         assert json.loads(urllib.request.urlopen(ok).read())["approved"] is True
+        messy = urllib.request.Request(url + "/api/books/main/approve", data=b"{}", method="POST", headers={"X-Build-Code": " LetMeIn%"})
+        assert urllib.request.urlopen(messy).status == 200  # pasted spaces, case and a shell's % marker are ignored
+        with pytest.raises(urllib.error.HTTPError) as wrong:
+            urllib.request.urlopen(urllib.request.Request(url + "/api/books/main/approve", data=b"{}", method="POST",
+                                                          headers={"X-Build-Code": "letmeout"}))
+        assert wrong.value.code == 403 and json.loads(wrong.value.read())["code"] == "bad_access_code"
     finally:
         os.environ.pop("COURSEBOOK_BUILD_CODE", None)
         server.shutdown()

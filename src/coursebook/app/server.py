@@ -15,6 +15,7 @@ import hmac
 import json
 import mimetypes
 import os
+import re
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
 
@@ -107,6 +108,10 @@ def book_detail(book):
                  "points_placed", "points_dropped", "diagrams_kept", "listings", "evaluator")}}
 
 
+def normalize_code(text):
+    return re.sub(r"[^a-z0-9]", "", str(text or "").lower())
+
+
 class Handler(BaseHTTPRequestHandler):
     library = None
     worker = None
@@ -165,14 +170,19 @@ class Handler(BaseHTTPRequestHandler):
         return self._file(target) if target else self._json({"error": "not found"}, 404)
 
     def _allowed(self):
-        """Starting or changing a build needs the access code when COURSEBOOK_BUILD_CODE is set (public deployments)."""
+        """Starting or changing a build needs the access code when COURSEBOOK_BUILD_CODE is set (public deployments).
+        Codes are compared on their letters and digits only, ignoring case, so pasted spaces, line breaks or a
+        shell's '%' end-of-output marker don't lock anyone out."""
         code = os.environ.get("COURSEBOOK_BUILD_CODE")
-        return not code or hmac.compare_digest(self.headers.get("X-Build-Code", ""), code)
+        return not code or hmac.compare_digest(normalize_code(self.headers.get("X-Build-Code", "")), normalize_code(code))
 
     def do_POST(self):
         parts = [p for p in self.path.split("/") if p]
         if not self._allowed():
-            return self._json({"error": "This deployment needs an access code to build. Ask the owner for one."}, 403)
+            given = normalize_code(self.headers.get("X-Build-Code", ""))
+            return self._json({"error": "That access code isn't right. Check it and try again." if given else
+                               "This deployment needs an access code to build. Ask the owner for one.",
+                               "code": "bad_access_code" if given else "access_code_required"}, 403)
         length = int(self.headers.get("Content-Length") or 0)
         try:
             body = json.loads(self.rfile.read(length) or b"{}") if length else {}

@@ -445,6 +445,7 @@ def test_web_edition_has_hover_sources_with_short_quotes(built):
 
 
 def test_listings_execute_and_stated_numbers_become_checks(built, tmp_path):
+    pytest.importorskip("torch", reason="needs the optional listings group: uv sync --group listings")
     from coursebook.stages.listings import run_listings
     from coursebook.stages.runcode import run_code, numbers_in, validate_checks
     root, outline = built

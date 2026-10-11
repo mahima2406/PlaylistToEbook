@@ -17,7 +17,6 @@ jobs:
   # and check every file and every rebuilt book source against PACKAGE.json.
   rebuild:
     runs-on: ubuntu-latest
-    if: hashFiles('book-data/PACKAGE.json') != ''
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6

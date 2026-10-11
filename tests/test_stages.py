@@ -18,7 +18,7 @@ from coursebook.stages.outline import approve, approval_is_current
 from coursebook.stages.write import validate_section
 
 SETTINGS = {"base": "https://fake.example/v1", "key": "k", "header": "api-key",
-            "roles": {"writer": "writer-dep", "judge": "judge-dep"}}
+            "roles": {"writer": "writer-dep", "judge": "judge-dep", "evaluator": "eval-dep"}}
 CONFIG = {"title": "Fixture Book", "reader": "A programmer.", "playlist_url": "https://example.com/list",
           "verify": {"confidence_cutoff": 0.7}, "llm": {"concurrency": 2}}
 PLANT_MARK = "PLANTEDFALSEHOOD"
@@ -30,6 +30,36 @@ def answer(body):
         keys = re.findall(r"^\[(\w+)\]", user, re.M)
         return {"points": [{"kind": "definition", "text": f"Point from line {k}.", "lines": [k], "importance": 3}
                            for k in keys[:2]]}
+    if system.startswith("You infer the intended reader"):
+        line = re.findall(r"^\[([\w-]+@\w+)\]", user, re.M)[0]
+        item = {"value": "A programmer.", "status": "inferred", "evidence": [line]}
+        return {"primary_learning_outcome": item, "reader_profile": item, "known_prior_skills": [item],
+                "unknown_prior_skills": [{"value": "Calculus", "status": "unknown", "evidence": []}],
+                "instructional_modes": [item], "representations_to_preserve": [],
+                "uncertainties_to_validate": ["math level"], "editorial_rules": ["define terms first"]}
+    if system.startswith("You are an independent auditor of a technical book"):
+        n = len(re.findall(r"^S\d+:", user, re.M))
+        return {"verdicts": [{"id": f"S{k}", "verdict": "supported", "material": False, "reason": ""} for k in range(1, n + 1)]}
+    if system.startswith("You are an independent auditor checking"):
+        return {"ideas": [{"idea": "an idea", "core": True, "in_book": True}]}
+    if system.startswith("You are an independent reviewer of one chapter"):
+        return {"scores": {c: {"score": 4, "evidence": "ok"} for c in
+                           ["clarity", "flow", "book_voice", "definitions_first", "concision", "reader_fit", "title_fit"]},
+                "improvements": ["more examples"]}
+    if system.startswith("You choose code listings"):
+        ref = re.findall(r"^(ref:\S+) \(under heading", user, re.M)[0]
+        return {"listings": [{"ref": ref, "caption": "Encodes text into IDs."}]}
+    if system.startswith("You check whether a code excerpt"):
+        return {"verdict": "matches", "reason": ""}
+    if system.startswith("You compare sentences from a book"):
+        n = len(re.findall(r"^S\d+:", user, re.M))
+        return {"verdicts": [{"id": f"S{k}", "verdict": "contradicts" if k == 1 else "agrees", "material": k == 1,
+                              "reason": "reference uses a different value"} for k in range(1, n + 1)]}
+    if "Group the lectures" in system:
+        numbers = [int(n) for n in re.findall(r"^Lecture (\d+):", user, re.M)]
+        half = len(numbers) // 2
+        return {"chapters": [{"title": "Part one", "summary": "First.", "lectures": numbers[:half]},
+                             {"title": "Part two", "summary": "Second.", "lectures": numbers[half:]}]}
     if system.startswith("You are the editor"):
         refs = re.findall(r"^(P\d+) \|", user, re.M)
         return {"chapters": [{"title": "Fixture chapter", "summary": "Learn the fixture.",
@@ -77,14 +107,16 @@ def provider(request):
                                                   "message": {"content": json.dumps(answer(body))}}]})
 
 
-def fixture_data(tmp_path, n_lines=6):
-    raw = {"title": "Fixture playlist", "entries": [{"id": "vidA", "title": "Lecture A", "duration": 60}]}
+def fixture_data(tmp_path, n_lines=6, videos=("vidA",)):
+    raw = {"title": "Fixture playlist", "entries": [{"id": v, "title": f"Lecture {v[-1]}", "duration": 60} for v in videos]}
     write(tmp_path / "manifest.json", {"source_snapshot": snapshot(tmp_path, "playlist", raw),
                                        "source_hash": digest(raw), "entries": normalize_manifest(raw)})
-    captions = {"segments": [{"text": f"caption line {n}", "start": n * 10.0, "duration": 4.0} for n in range(n_lines)]}
-    write(tmp_path / "evidence" / "vidA.json",
-          {"snapshot": snapshot(tmp_path, "captions", captions), "source_hash": digest(captions),
-           "items": evidence_from_segments("vidA", captions["segments"])})
+    for video in videos:
+        captions = {"segments": [{"text": f"{video} caption line {n}", "start": n * 10.0, "duration": 4.0}
+                                 for n in range(n_lines)]}
+        write(tmp_path / "evidence" / f"{video}.json",
+              {"snapshot": snapshot(tmp_path, "captions", captions), "source_hash": digest(captions),
+               "items": evidence_from_segments(video, captions["segments"])})
 
 
 def live_gateway(tmp_path, offline=False):
@@ -163,7 +195,7 @@ def test_book_is_draft_until_outline_is_approved(built):
     assert approval_is_current(root)
     report_after = build_book(root, CONFIG, root / "out") and read(root / "out" / "evaluation_report.json")
     assert "the outline has not been approved by a reviewer" not in report_after["draft_reasons"]
-    assert "the blinded audit has not been run" in report_after["draft_reasons"]
+    assert "the evaluator agent has not run" in report_after["draft_reasons"]
 
 
 def test_tampered_caption_snapshot_is_rejected(built):
@@ -262,3 +294,136 @@ def test_interactive_review_records_accept_and_quit(built):
     answers = iter(["a"])
     made = interactive(root, CONFIG, live_gateway(root), "Reviewer", ask=lambda _: next(answers), show=lambda *_: None)
     assert made == 1 and open_items(root) == []
+
+
+def test_large_books_plan_chapters_then_outline_each(tmp_path, monkeypatch):
+    monkeypatch.chdir(__import__("pathlib").Path(__file__).parents[1])
+    fixture_data(tmp_path, videos=("vidA", "vidB", "vidC", "vidD", "vidE"))
+    outline = run(tmp_path, CONFIG, live_gateway(tmp_path), until="outline", log=lambda *_: None)
+    assert [c["title"] for c in outline["chapters"]] == ["Part one", "Part two"]
+    assert [c["id"] for c in outline["chapters"]] == ["ch01", "ch02"]
+    placed = [i for c in outline["chapters"] for s in c["sections"] for i in s["point_ids"]]
+    assert len(placed) == len(set(placed)) == 10  # 2 points per lecture, each placed once
+
+
+def test_plan_must_keep_lectures_in_order_exactly_once():
+    from coursebook.stages.outline import validate_plan
+    assert validate_plan({"chapters": [{"title": "A", "lectures": [1, 2]}, {"title": "B", "lectures": [4]}]}, [1, 2, 4]) == []
+    assert validate_plan({"chapters": [{"title": "A", "lectures": [2, 1]}, {"title": "B", "lectures": [4]}]}, [1, 2, 4])
+    assert validate_plan({"chapters": [{"title": "A", "lectures": [1]}, {"title": "B", "lectures": [4]}]}, [1, 2, 4])
+
+
+def test_extraction_drops_invented_line_ids_and_counts_them():
+    from coursebook.stages.extract import keep_valid_lines
+    points = [{"lines": ["1", "999"]}, {"lines": ["998"]}, {"lines": [2]}]
+    kept, dropped = keep_valid_lines(points, {"1", "2"})
+    assert [p["lines"] for p in kept] == [["1"], ["2"]] and dropped == 1
+
+
+def test_forgotten_points_are_placed_next_to_their_neighbour():
+    from coursebook.stages.outline import place_missing
+    parsed = {"chapters": [{"sections": [{"points": ["P1", "P2"]}, {"points": ["P4"]}]}], "dropped": [{"point": "P5"}]}
+    assert place_missing(parsed, ["P1", "P2", "P3", "P4", "P5"]) == ["P3"]
+    assert parsed["chapters"][0]["sections"][0]["points"] == ["P1", "P2", "P3"]
+
+
+def test_writer_drops_invented_citations_and_uncited_facts():
+    from coursebook.stages.write import keep_valid_cites
+    paragraphs = [{"sentences": [{"text": "a", "type": "F", "cites": ["v@1", "v@99"]},
+                                 {"text": "b", "type": "F", "cites": ["v@98"]},
+                                 {"text": "c", "type": "C", "cites": []}]}]
+    kept, dropped = keep_valid_cites(paragraphs, {"v@1"})
+    assert [s["text"] for s in kept[0]["sentences"]] == ["a", "c"] and kept[0]["sentences"][0]["cites"] == ["v@1"]
+    assert dropped == 1
+
+
+def test_reader_profile_is_evidence_linked_and_can_feed_prompts(built):
+    from coursebook.stages.reader import reader_for_prompts, reader_markdown
+    root, _ = built
+    record = runner.load(root, "reader", "book")
+    assert record["contract"]["reader_profile"]["evidence"]
+    assert reader_for_prompts(root, CONFIG) == CONFIG["reader"]  # off by default
+    enabled = {**CONFIG, "reader_profile": {"enabled": True}}
+    assert reader_for_prompts(root, enabled).startswith("# reader.md")
+    assert "Calculus" in reader_markdown(record) and "[unknown]" in reader_markdown(record)
+
+
+def test_evaluator_agent_scores_book_and_gates_release(built):
+    from coursebook.stages.evaluator import run_evaluator
+    root, _ = built
+    config = {**CONFIG, "evaluation": {"grounding_sample": 5, "coverage_clips": 2, "clip_seconds": 30,
+                                       "thresholds": {"independent_support": 0.95, "material_errors_per_100": 2,
+                                                      "core_ideas_missed": 0.1, "quality_min_average": 3.5}}}
+    result = run_evaluator(root, live_gateway(root), config)
+    assert result["passed"] and result["metrics"]["independent_support"] == 1.0
+    assert result["metrics"]["agreement_with_judge"] == 1.0 and result["metrics"]["quality_average"] == 4.0
+    _, _, metrics = build_book(root, config, root / "out")
+    report = read(root / "out" / "evaluation_report.json")
+    assert "the evaluator agent has not run" not in report["draft_reasons"]
+    assert sorted(metrics["brief"]) == ["concept_map.md", "coverage.md", "learning_path.md",
+                                        "pipeline.md", "rationale.md", "reader.md"]
+    assert "Independent support rate" in (root / "out" / "brief" / "rationale.md").read_text()
+
+
+PACK = {"enabled": True, "name": "demo/ref", "repo": "https://example.com/ref", "commit": "abc1234", "license": "MIT",
+        "include": ["*.ipynb"], "listings_per_section": 1, "crosscheck_min_score": 0.0}
+
+
+def fake_reference(root):
+    chunks = [{"id": "ref:nb.ipynb#cell1", "path": "nb.ipynb", "kind": "code", "heading": "Fixture",
+               "text": "ids = tokenizer.encode(text)  # fixture fact caption line"},
+              {"id": "ref:nb.ipynb#cell2", "path": "nb.ipynb", "kind": "code", "heading": "Fixture", "text": "print(ids)"},
+              {"id": "ref:nb.ipynb#cell3", "path": "nb.ipynb", "kind": "text", "heading": "Fixture", "text": "A fictional fact explained."}]
+    write(root / "reference" / "index.json", {"repo": PACK["repo"], "commit": PACK["commit"], "license": "MIT",
+                                              "name": PACK["name"], "include": PACK["include"], "chunks": chunks})
+
+
+def test_listings_are_verbatim_reference_code_and_rendered_with_source(built):
+    from coursebook.stages.listings import run_listings
+    root, outline = built
+    fake_reference(root)
+    # give the section a code point so it asks for listings
+    rec = read(root / "stages" / "extract" / "vidA.json")
+    rec["output"]["points"][0]["kind"] = "code"
+    write(root / "stages" / "extract" / "vidA.json", rec)
+    config = {**CONFIG, "reference_pack": PACK}
+    result = run_listings(root, live_gateway(root), config, outline)
+    listing = result[0]["listings"][0]
+    assert listing["code"].startswith("ids = tokenizer.encode(text)") and "print(ids)" in listing["code"]
+    book, _, metrics = build_book(root, config, root / "out")
+    chapter = (book / "ch01.qmd").read_text()
+    assert "```python" in chapter and "demo/ref" in chapter and "MIT" in chapter and metrics["listings"] == 1
+
+
+def test_reference_conflicts_reach_reviewer_and_notes_render(built):
+    from coursebook.stages.crosscheck import run_crosscheck
+    from coursebook.review import open_conflicts, decide_conflict
+    root, outline = built
+    fake_reference(root)
+    config = {**CONFIG, "reference_pack": PACK}
+    checked = run_crosscheck(root, live_gateway(root), config, outline)
+    assert checked[0]["conflicts"]
+    _, _, metrics = build_book(root, config, root / "out")
+    report = read(root / "out" / "evaluation_report.json")
+    assert any("conflicts with the reference" in r for r in report["draft_reasons"])
+    item = open_conflicts(root)[0]
+    decide_conflict(root, item, "note", "Reviewer", note="the reference uses a different value")
+    assert open_conflicts(root) == []
+    book, _, _ = build_book(root, config, root / "out")
+    assert "The course's reference code differs here: the reference uses a different value" in (book / "ch01.qmd").read_text()
+
+
+def test_exported_package_has_no_caption_text_and_rebuilds_identically(built, tmp_path):
+    from coursebook.export import export_package, verify_package
+    root, _ = built
+    target = tmp_path / "book-data"
+    result = export_package(root, CONFIG, target)
+    assert result["files"] > 0
+    everything = "".join(p.read_text() for p in target.rglob("*.json*"))
+    assert "vidA caption line 1" not in everything  # caption text never leaves data/
+    assert not (target / "cache").exists() and not (target / "evidence").exists()
+    assert verify_package(CONFIG, target)["ok"]
+    rec = next((target / "stages" / "verify").glob("*.json"))
+    rec.write_text(rec.read_text().replace("A fictional fact.", "A tampered fact."))
+    checked = verify_package(CONFIG, target)
+    assert not checked["ok"] and any("changed" in p for p in checked["problems"])

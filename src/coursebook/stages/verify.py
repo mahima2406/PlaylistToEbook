@@ -11,7 +11,7 @@ from pathlib import Path
 from ..core import digest
 from .. import runner
 from .segment import format_lines
-from .write import validate_section, source_lines, clean_text
+from .write import validate_section, source_lines, clean_text, keep_valid_cites
 
 JUDGE_PROMPT = Path("prompts/judge.txt")
 REWRITE_PROMPT = Path("prompts/rewrite.txt")
@@ -116,8 +116,9 @@ def rewrite_paragraph(gateway, paragraph, verdicts, lines, item, outline_text=No
                                             + f"Paragraph with fact-check results:\n{listing}\n\n"
                                             f"Source caption lines:\n{format_lines(lines, full_ids=True)}"}]
     result = gateway.call_json("writer", messages, stage="rewrite", input_id=item, max_completion_tokens=16000,
-                               validate=lambda o: validate_section(o, allowed, roadmap=bool(outline_text)))
-    sentences = [s for p in result["parsed"]["paragraphs"] for s in p["sentences"]]
+                               validate=lambda o: validate_section(o, allowed, roadmap=bool(outline_text), lenient_cites=True))
+    paragraphs, _ = keep_valid_cites(result["parsed"]["paragraphs"], allowed)
+    sentences = [s for p in paragraphs for s in p["sentences"]]
     return {"id": paragraph["id"], "sentences": [
         {"id": f"{paragraph['id']}.r{n:02d}", "text": clean_text(s["text"]), "type": s["type"], "cites": s["cites"]}
         for n, s in enumerate(sentences, 1)]}

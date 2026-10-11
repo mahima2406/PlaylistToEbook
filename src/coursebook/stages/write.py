@@ -20,7 +20,9 @@ PROMPT = Path("prompts/write.txt")
 TAGS = {"F", "T", "C", "R"}
 
 
-def validate_section(obj, allowed_ids, roadmap=False):
+def validate_section(obj, allowed_ids, roadmap=False, lenient_cites=False):
+    """Structural and tag rules. With lenient_cites, citations outside allowed_ids are
+    not errors here; `keep_valid_cites` removes them afterwards and counts them."""
     errors = []
     paragraphs = obj.get("paragraphs")
     if not isinstance(paragraphs, list) or not paragraphs:
@@ -42,10 +44,10 @@ def validate_section(obj, allowed_ids, roadmap=False):
                 continue
             if tag in ("C", "R") and cites:
                 errors.append(f"{where}: {'connective' if tag == 'C' else 'roadmap'} sentences must not cite")
-            if tag in ("F", "T") and not cites:
+            if tag in ("F", "T") and not cites and not lenient_cites:
                 errors.append(f"{where}: {tag} sentence needs at least one citation")
             unknown = [c for c in cites if c not in allowed_ids and not str(c).startswith("ref:")]
-            if unknown:
+            if unknown and not lenient_cites:
                 errors.append(f"{where}: citations not in the supplied lines: {unknown[:3]}")
             if tag == "F" and any(str(c).startswith("ref:") for c in cites):
                 errors.append(f"{where}: F sentences cite captions only; use T for reference-pack claims")
@@ -81,9 +83,9 @@ def write_section(gateway, config, chapter, section, neighbours, points, segment
     allowed = {x["id"] for x in lines}
     messages = section_messages(config, chapter, section, neighbours, points, lines)
     try:
-        result = gateway.call_json("writer", messages, stage="write", input_id=section["id"],
-                                   validate=lambda o: validate_section(o, allowed), max_completion_tokens=32000)
-        paragraphs = result["parsed"]["paragraphs"]
+        result = gateway.call_json("writer", messages, stage="write", input_id=section["id"], max_completion_tokens=32000,
+                                   validate=lambda o: validate_section(o, allowed, lenient_cites=True))
+        paragraphs, invalid = keep_valid_cites(result["parsed"]["paragraphs"], allowed)
     except TruncatedOutput:
         if len(points) < 2:
             raise
@@ -91,7 +93,9 @@ def write_section(gateway, config, chapter, section, neighbours, points, segment
         first = write_section(gateway, config, chapter, {**section, "id": section["id"] + "a"}, neighbours, points[:half], segments)
         second = write_section(gateway, config, chapter, {**section, "id": section["id"] + "b"}, neighbours, points[half:], segments)
         paragraphs = first["paragraphs"] + second["paragraphs"]
-    return {"section_id": section["id"], "paragraphs": assign_ids(paragraphs, section["id"])}
+        invalid = first.get("invalid_citation_sentences", 0) + second.get("invalid_citation_sentences", 0)
+    return {"section_id": section["id"], "paragraphs": assign_ids(paragraphs, section["id"]),
+            "invalid_citation_sentences": invalid}
 
 
 TAG_IN_TEXT = re.compile(r"^\s*\[(?:F|T|C|R)\]\s*")
@@ -100,6 +104,22 @@ TAG_IN_TEXT = re.compile(r"^\s*\[(?:F|T|C|R)\]\s*")
 def clean_text(text):
     """Collapse whitespace and drop a tag the model wrote into the text itself ("[F] ...")."""
     return TAG_IN_TEXT.sub("", " ".join(str(text).split()))
+
+
+def keep_valid_cites(paragraphs, allowed_ids):
+    """Remove invented citations; drop factual sentences left with none. Returns (paragraphs, dropped_count)."""
+    out, dropped = [], 0
+    for paragraph in paragraphs:
+        sentences = []
+        for s in paragraph["sentences"]:
+            cites = [c for c in s["cites"] if c in allowed_ids or str(c).startswith("ref:")]
+            if s["type"] in ("F", "T") and not cites:
+                dropped += 1
+                continue
+            sentences.append({**s, "cites": cites})
+        if sentences:
+            out.append({**paragraph, "sentences": sentences})
+    return out, dropped
 
 
 def assign_ids(paragraphs, prefix):

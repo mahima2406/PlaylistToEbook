@@ -57,7 +57,8 @@ def render_vector(source, out_dir):
         return None
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
-    target = out_dir / f"{digest({'src': source, 'mermaid': digest(mermaid_js.read_text())})[:16]}.pdf"
+    # Named by the diagram source only, so book sources stay identical across machines.
+    target = out_dir / f"{digest(source)[:16]}.pdf"
     if target.exists():
         return target
     with tempfile.TemporaryDirectory() as tmp:

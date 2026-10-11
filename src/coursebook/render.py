@@ -109,12 +109,12 @@ def metrics(sections, plants, extracts, outline, diagrams=None):
         "points_extracted": len(points),
         "points_placed": len(placed),
         "points_dropped": len(outline["dropped"]),
+        "points_auto_placed": len(outline.get("auto_placed", [])),
         "core_points_dropped": sum(1 for d in outline["dropped"]
                                    if next(p for p in points if p["id"] == d["point_id"])["importance"] == 3),
         "chunks_without_points": [i["chunk"] for e in extracts.values() for i in e["inventory"] if i["flag"]],
         "diagrams_kept": sum(len(d["diagrams"]) for d in (diagrams or {}).values()),
         "diagrams_dropped": sum(len(d["dropped"]) for d in (diagrams or {}).values()),
-        "audit": "not run",
     }
 
 
@@ -128,10 +128,16 @@ def draft_reasons(root, m, missing_lectures):
         reasons.append("the outline has not been approved by a reviewer")
     if m["review_queue_open"]:
         reasons.append(f"{m['review_queue_open']} sentences are waiting in the review queue")
+    if m.get("reference_conflicts_open"):
+        reasons.append(f"{m['reference_conflicts_open']} conflicts with the reference are waiting for the reviewer")
     if m["plants_planted"] == 0:
         reasons.append("the planted-claim test has not been run")
-    if m["audit"] == "not run":
-        reasons.append("the blinded audit has not been run")
+    evaluation = runner.load(root, "evaluation", "book")
+    if evaluation is None:
+        reasons.append("the evaluator agent has not run")
+    elif not evaluation["passed"]:
+        failed = [k.replace("_", " ") for k, ok in evaluation["checks"].items() if not ok]
+        reasons.append("evaluator agent checks failed: " + ", ".join(failed))
     if missing_lectures:
         reasons.append(f"{len(missing_lectures)} lectures of the playlist are not covered")
     return reasons
@@ -162,18 +168,30 @@ def box(title, paragraphs):
 
 
 def figure(diagram, figures_dir):
-    """Vector PDF via headless Chrome when available; otherwise a Quarto mermaid block."""
-    from .figures import render_vector
-    caption = md(diagram["caption"])
+    """Book sources always reference figures/<hash>.pdf and keep the Mermaid source next to it;
+    the PDF step draws the vector file. Sources are therefore identical on every machine."""
+    from .core import digest
+    name = digest(diagram["mermaid"].strip())[:16]
+    if figures_dir:
+        Path(figures_dir).mkdir(parents=True, exist_ok=True)
+        (Path(figures_dir) / f"{name}.mmd").write_text(diagram["mermaid"].strip())
     label_id = "fig-" + diagram["id"].replace(".", "-")
-    vector = render_vector(diagram["mermaid"], figures_dir) if figures_dir else None
-    if vector:
-        return [f"![{caption}](figures/{vector.name}){{#{label_id} width=85%}}", ""]
-    return ["```{mermaid}", f"%%| label: {label_id}", f'%%| fig-cap: "{caption.replace(chr(34), chr(39))}"',
-            diagram["mermaid"], "```", ""]
+    return [f"![{md(diagram['caption'])}](figures/{name}.pdf){{#{label_id} width=85%}}", ""]
 
 
-def chapter_md(chapter, units, diagrams, lines, label, titles, figures_dir=None):
+def listing_md(listing, pack, number):
+    note = " (excerpt)" if listing["truncated"] else ""
+    return [f"*Listing {number}{note}: {md(listing['caption'])} Source: {md(pack.get('name', 'reference'))}, "
+            f"`{listing['path']}`, {md(pack.get('license', ''))}, commit {pack.get('commit', '')[:7]}.*", "",
+            "```python", listing["code"], "```", ""]
+
+
+def notes_md(paragraph):
+    notes = [s["note"] for s in paragraph["sentences"] if s.get("note")]
+    return [f"> **Note.** The course's reference code differs here: {md(n)}" for n in notes] + ([""] if notes else [])
+
+
+def chapter_md(chapter, units, diagrams, lines, label, titles, figures_dir=None, listings=None, pack=None):
     out = [f"# {md(chapter['title'])}", ""]
     sources = based_on(unit_cites(*[units[s["id"]] for s in chapter["sections"]]), lines, titles, label)
     if sources:
@@ -191,8 +209,11 @@ def chapter_md(chapter, units, diagrams, lines, label, titles, figures_dir=None)
         out += [f"## {md(section['title'])}", ""]
         for paragraph in units[section["id"]]["paragraphs"]:
             out += [paragraph_md(paragraph), ""]
+            out += notes_md(paragraph)
             for d in figures.get(paragraph["id"], []):
                 out += figure(d, figures_dir)
+        for k, listing in enumerate((listings or {}).get(section["id"], []), 1):
+            out += listing_md(listing, pack or {}, f"{section['id'].replace('ch', '').replace('.s', '.')}.{k}")
     takeaways = units.get(f"{chapter['id']}.take")
     if takeaways:
         out += box("Key takeaways", takeaways["paragraphs"])
@@ -207,6 +228,10 @@ def build_book(root, config, destination):
     manifest = read(root / "manifest.json")
     from .review import load_decisions, apply_decisions, open_items, queue_items
     units, plants, diagrams, extracts = collect(root, outline)
+    listings = {s["id"]: (runner.load(root, "listings", s["id"]) or {}).get("listings", [])
+                for c in outline["chapters"] for s in c["sections"]}
+    crosschecks = [runner.load(root, "crosscheck", s["id"]) for c in outline["chapters"] for s in c["sections"]]
+    crosschecks = [c for c in crosschecks if c]
     decisions = load_decisions(root)
     units = {k: apply_decisions(v, decisions) for k, v in units.items()}
     label = {e["video_id"]: f"L{e['playlist_index']:02d}" for e in manifest["entries"] if e["video_id"]}
@@ -218,8 +243,19 @@ def build_book(root, config, destination):
     covered = set(outline["lectures"])
     missing = [e for e in manifest["entries"] if e["video_id"] not in covered]
     m = metrics(units, plants, extracts, outline, diagrams)
+    evaluation = runner.load(root, "evaluation", "book")
+    if evaluation:
+        em = evaluation["metrics"]
+        m["evaluator"] = (f"{'passed' if evaluation['passed'] else 'failed'}: support {em['independent_support']}, "
+                          f"material errors {em['material_errors_per_100']}/100, core ideas missed {em['core_ideas_missed']}, "
+                          f"quality {em['quality_average']}/5")
+        m["evaluator_metrics"] = em
     queued = queue_items(root)
+    from .review import open_conflicts
     m["review_queue_open"] = len(open_items(root))
+    m["listings"] = sum(len(v) for v in listings.values())
+    m["crosscheck"] = {k: sum(c["counts"][k] for c in crosschecks) for k in ("agrees", "contradicts", "not_covered")} if crosschecks else None
+    m["reference_conflicts_open"] = len(open_conflicts(root))
     m["review_decisions"] = {d: sum(1 for i in queued if decisions.get(i["sentence_id"], {}).get("decision") == d)
                              for d in ("accept", "edit", "remove")}
     reasons = draft_reasons(root, m, missing)
@@ -236,7 +272,8 @@ def build_book(root, config, destination):
         chapter_files.append("intro.qmd")
     for chapter in outline["chapters"]:
         name = f"{chapter['id']}.qmd"
-        (book / name).write_text(chapter_md(chapter, units, diagrams, lines, label, titles, book / "figures"))
+        (book / name).write_text(chapter_md(chapter, units, diagrams, lines, label, titles, book / "figures",
+                                            listings, config.get("reference_pack")))
         chapter_files.append(name)
 
     (book / "index.qmd").write_text(front_matter(config, manifest, outline, m, reasons, status, missing, label))
@@ -253,6 +290,14 @@ def build_book(root, config, destination):
                               "fig-width": 5.5}}}
     yml["book"] = {k: v for k, v in yml["book"].items() if v is not None}
     (book / "_quarto.yml").write_text(json.dumps(yml, indent=2))  # JSON is valid YAML
+    from .brief import write_brief
+    gates = {"capture": f"{len(covered)} of {len(manifest['entries'])} lectures available",
+             "reader profile": "inferred" if runner.load(root, "reader", "book") else "missing",
+             "outline approval": "current" if approval_is_current(root) else "missing or stale",
+             "review queue": f"{m['review_queue_open']} open",
+             "evaluator agent": m.get("evaluator", "not run"),
+             "release": status}
+    m["brief"] = write_brief(root, config, destination, manifest, outline, label, m, reasons, gates)
     write(destination / "evaluation_report.json", {"status": status, "draft_reasons": reasons, **m,
                                                    "lectures_covered": sorted(label[v] for v in covered),
                                                    "lectures_missing": [label[e["video_id"]] for e in missing if e["video_id"]]})
@@ -261,6 +306,11 @@ def build_book(root, config, destination):
 
 def render(root, config, destination="output"):
     book, status, m = build_book(root, config, destination)
+    from .figures import render_vector
+    for source in sorted((book / "figures").glob("*.mmd")):
+        if not render_vector(source.read_text(), book / "figures"):
+            raise ValueError("Drawing diagrams needs Google Chrome or Chromium (set COURSEBOOK_CHROME), "
+                             "or set diagrams.enabled to false")
     quarto = shutil.which("quarto")
     if not quarto:
         raise ValueError("Quarto is not installed; see README (quarto + quarto install tinytex)")
@@ -343,7 +393,11 @@ def report_appendix(m, reasons, status):
             ("Teaching points extracted / placed / dropped", f"{m['points_extracted']} / {m['points_placed']} / {m['points_dropped']}"),
             ("Core points dropped", m["core_points_dropped"]),
             ("Diagrams kept / dropped by the checker", f"{m['diagrams_kept']} / {m['diagrams_dropped']}"),
-            ("Blinded audit", m["audit"])]
+            ("Code listings from the reference", m.get("listings", 0)),
+            ("Cross-check vs reference (agrees / contradicts / not covered)",
+             " / ".join(str((m.get("crosscheck") or {}).get(k, 0)) for k in ("agrees", "contradicts", "not_covered"))),
+            ("Open conflicts with the reference", m.get("reference_conflicts_open", 0)),
+            ("Evaluator agent", m.get("evaluator", "not run"))]
     out = ["# Evaluation report", "", f"Status: **{status}**.", "", "| Measure | Value |", "|---|---|"]
     out += [f"| {a} | {b} |" for a, b in rows]
     out += ["", "## Planted claims by type", "", "| Type | Caught / planted |", "|---|---|"]

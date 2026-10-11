@@ -1,6 +1,9 @@
 """Stage 3: each ~15 min chunk -> teaching points with caption-line citations.
 
 A truncated answer splits the chunk at a window boundary and retries both halves.
+Citations to lines outside the chunk are invented by definition: they are removed,
+and a point left with no valid citation is dropped and counted in the inventory
+(`invalid_points`), so the loss is visible instead of failing the whole run.
 The per-lecture inventory counts points per chunk and flags chunks with none,
 so missing content is visible rather than silent.
 """
@@ -30,9 +33,17 @@ def validate_points(obj, allowed_keys):
         lines = point.get("lines")
         if not lines or not isinstance(lines, list):
             errors.append(f"{where}: lines must be a non-empty list")
-        elif not set(map(str, lines)) <= allowed_keys:
-            errors.append(f"{where}: unknown line IDs {sorted(set(map(str, lines)) - allowed_keys)[:5]}")
     return errors
+
+
+def keep_valid_lines(points, allowed_keys):
+    """Drop invented line IDs; return (points with >= 1 valid line, number of points dropped)."""
+    kept = []
+    for point in points:
+        valid = [str(k) for k in point["lines"] if str(k) in allowed_keys]
+        if valid:
+            kept.append({**point, "lines": valid})
+    return kept, len(points) - len(kept)
 
 
 def _extract_windows(gateway, entry, segmented, window_ids, prompt, depth=0):
@@ -49,9 +60,10 @@ def _extract_windows(gateway, entry, segmented, window_ids, prompt, depth=0):
         if depth >= 2 or len(window_ids) < 2:
             raise
         half = len(window_ids) // 2
-        return (_extract_windows(gateway, entry, segmented, window_ids[:half], prompt, depth + 1)
-                + _extract_windows(gateway, entry, segmented, window_ids[half:], prompt, depth + 1))
-    return result["parsed"]["points"]
+        first = _extract_windows(gateway, entry, segmented, window_ids[:half], prompt, depth + 1)
+        second = _extract_windows(gateway, entry, segmented, window_ids[half:], prompt, depth + 1)
+        return first[0] + second[0], first[1] + second[1]
+    return keep_valid_lines(result["parsed"]["points"], allowed)
 
 
 def extract_lecture(gateway, entry, segmented, workers=4):
@@ -60,7 +72,7 @@ def extract_lecture(gateway, entry, segmented, workers=4):
                             segmented["chunks"], workers=workers)
     vid = entry["video_id"]
     points, inventory = [], []
-    for chunk, chunk_points in zip(segmented["chunks"], per_chunk):
+    for chunk, (chunk_points, invalid) in zip(segmented["chunks"], per_chunk):
         for point in chunk_points:
             points.append({"id": f"{vid}:p{len(points) + 1:03d}", "video_id": vid,
                            "lecture": entry["playlist_index"], "kind": point["kind"],
@@ -69,6 +81,7 @@ def extract_lecture(gateway, entry, segmented, workers=4):
         inventory.append({"chunk": chunk["id"], "start": chunk["start"], "end": chunk["end"],
                           "points": len(chunk_points),
                           "core_points": sum(1 for p in chunk_points if p["importance"] == 3),
+                          "invalid_points": invalid,
                           "flag": "no points extracted" if not chunk_points else None})
     return {"video_id": vid, "points": points, "inventory": inventory}
 

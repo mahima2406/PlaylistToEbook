@@ -16,26 +16,58 @@
       "gpt-5.2": {
         "input": 1.75,
         "output": 14.0
+      },
+      "gpt-5.2-chat": {
+        "input": 1.75,
+        "output": 14.0
       }
     },
     "prices_note": "Estimated Azure Global Standard rates (azurespeed.com, Oct 2026, Data Zone minus ~10%). Check your Azure invoice and correct these.",
-    "concurrency": 4,
-    "expected_versions": {}
+    "concurrency": 8,
+    "expected_versions": {},
+    "roles": {
+      "evaluator": "gpt-5.2-chat"
+    }
   },
   "verify": {
     "confidence_cutoff": 0.7,
     "cutoff_note": "Provisional (plan R2-11): re-fit on plant misses + audit errors at the day-8 gate."
   },
-  "lectures": [
-    8,
-    10
-  ],
-  "lectures_note": "Slice (plan D18). Remove to build every captured lecture.",
   "frame": {
     "intro_lecture": 1
   },
   "diagrams": {
     "enabled": true,
     "per_chapter": 3
+  },
+  "reader_profile": {
+    "enabled": false,
+    "note": "When true, the inferred reader.md (with the 'reader' text above as an explicit override) is given to every writing prompt instead of the one-line reader brief. Turning it on re-writes the book."
+  },
+  "evaluation": {
+    "grounding_sample": 60,
+    "coverage_clips": 20,
+    "clip_seconds": 120,
+    "thresholds": {
+      "independent_support": 0.95,
+      "material_errors_per_100": 2,
+      "core_ideas_missed": 0.1,
+      "quality_min_average": 3.5
+    }
+  },
+  "reference_pack": {
+    "enabled": true,
+    "name": "rasbt/LLMs-from-scratch",
+    "repo": "https://github.com/rasbt/LLMs-from-scratch",
+    "commit": "cdbd33e6d57a71e20ea31434841095fac50cecd8",
+    "license": "Apache-2.0",
+    "include": [
+      "ch0*/01_main-chapter-code/ch0*.ipynb",
+      "ch02/01_main-chapter-code/dataloader.ipynb",
+      "ch03/01_main-chapter-code/multihead-attention.ipynb",
+      "ch0*/01_main-chapter-code/*.py"
+    ],
+    "listings_per_section": 2,
+    "crosscheck_min_score": 0.18
   }
 }

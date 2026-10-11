@@ -253,7 +253,10 @@ class Gateway:
 
 def gateway_from_config(root, config, *, offline=False, client=None, sleep=time.sleep):
     llm = config.get("llm", {})
-    return Gateway(root, settings_from_env(), budget_usd=llm.get("budget_usd"),
+    settings = settings_from_env()
+    for role, deployment in (llm.get("roles") or {}).items():
+        settings["roles"][role] = os.environ.get(f"COURSEBOOK_{role.upper()}_MODEL") or deployment
+    return Gateway(root, settings, budget_usd=llm.get("budget_usd"),
                    prices=llm.get("prices_usd_per_1m"), offline=offline,
                    expected_versions=llm.get("expected_versions"), client=client, sleep=sleep)
 

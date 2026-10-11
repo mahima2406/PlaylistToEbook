@@ -19,17 +19,26 @@ def main():
     cap.add_argument("--limit", type=int, default=1)
     run = sub.add_parser("run", help="Segment, extract, outline, frame, write, verify, takeaways, diagrams, plant test")
     run.add_argument("--lectures", type=lecture_list, help="playlist positions, e.g. 8,10 (default: config or all captured)")
-    run.add_argument("--until", choices=["segment", "extract", "outline", "frame", "write", "verify",
-                                         "takeaways", "diagrams", "plants"], default="plants")
+    run.add_argument("--until", choices=["segment", "extract", "reader", "outline", "frame", "write", "verify",
+                                         "takeaways", "diagrams", "plants", "listings", "crosscheck"], default="crosscheck")
     run.add_argument("--only", help="limit write/verify to sections starting with this id, e.g. ch01 or ch01.s03")
     run.add_argument("--offline", action="store_true", help="replay from the model cache; never call the API")
     approve = sub.add_parser("approve", help="Approve the current outline")
     approve.add_argument("--by", required=True, help="reviewer name")
+    evaluate = sub.add_parser("evaluate", help="Independent evaluator agent: grounding, coverage and quality audits")
+    evaluate.add_argument("--offline", action="store_true")
+    evaluate.add_argument("--seed", type=int, default=0, help="sample seed (change to draw a fresh sample)")
     render = sub.add_parser("render", help="Build the Quarto book and PDF from verified sections (no model calls)")
     render.add_argument("--output", type=Path, default=Path("output"))
     review = sub.add_parser("review", help="Work through queued sentences: accept, edit (re-checked) or remove")
     review.add_argument("--by", help="reviewer name (required unless --list)")
     review.add_argument("--list", action="store_true", help="list open items and exit")
+    export = sub.add_parser("export", help="Write a shareable book-data package (no raw captions)")
+    export.add_argument("--to", type=Path, default=Path("book-data"))
+    verify = sub.add_parser("verify-package", help="Check a book-data package and rebuild the book from it")
+    verify.add_argument("--package", type=Path, default=Path("book-data"))
+    verify.add_argument("--pdf", action="store_true", help="also render the PDF (needs Quarto)")
+    verify.add_argument("--out", type=Path, help="keep the rebuilt book here")
     sub.add_parser("status", help="Show stage progress, spend, review queue and approvals")
     args = parser.parse_args()
     try:
@@ -54,6 +63,20 @@ def main():
         elif args.command == "approve":
             from .stages.outline import approve as approve_outline
             print(json.dumps(approve_outline(args.data, args.by), indent=2))
+        elif args.command == "evaluate":
+            from .llm import gateway_from_config
+            from .stages.evaluator import run_evaluator
+            result = run_evaluator(args.data, gateway_from_config(args.data, config, offline=args.offline), config, args.seed)
+            print(json.dumps({"passed": result["passed"], **result["metrics"], "checks": result["checks"]}, indent=2))
+        elif args.command == "export":
+            from .export import export_package
+            print(json.dumps(export_package(args.data, config, args.to), indent=2))
+        elif args.command == "verify-package":
+            from .export import verify_package
+            result = verify_package(config, args.package, args.pdf, args.out)
+            print(json.dumps(result, indent=2))
+            if not result["ok"]:
+                raise SystemExit(1)
         elif args.command == "render":
             from .render import render as render_book
             print(json.dumps(render_book(args.data, config, args.output), indent=2))
@@ -81,8 +104,9 @@ def print_status(root, config):
     spent = Gateway(root, run_id="status").spent_usd()
     print("stages:", json.dumps(runner.counts(root)))
     print(f"spent: ${spent:.2f}" + (f" of ${budget:.2f} budget" if budget else ""))
-    from .review import queue_items, open_items
+    from .review import queue_items, open_items, open_conflicts, conflict_items
     print(f"review queue: {len(open_items(root))} open of {len(queue_items(root))}")
+    print(f"reference conflicts: {len(open_conflicts(root))} open of {len(conflict_items(root))}")
     print("outline approval:", "current" if approval_is_current(root) else "missing or stale")
 
 

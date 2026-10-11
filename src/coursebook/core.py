@@ -33,6 +33,20 @@ def snapshot(root, kind, payload):
     return str(path.relative_to(root))
 
 
+# Why a lecture could not be captured, as named reasons (the book and the release gate use these)
+AVAILABILITY_REASONS = {"subscriber_only": "members_only", "premium_only": "premium_only",
+                        "private": "private", "needs_auth": "sign_in_required"}
+ERROR_REASONS = {"TranscriptsDisabled": "no_captions", "NoTranscriptFound": "no_captions_in_language",
+                 "AgeRestricted": "age_restricted", "IpBlocked": "blocked_by_youtube", "RequestBlocked": "blocked_by_youtube",
+                 "PoTokenRequired": "blocked_by_youtube", "VideoUnavailable": "unavailable_video",
+                 "InvalidVideoId": "unavailable_video", "VideoUnplayable": "unplayable"}
+REASON_TEXT = {"members_only": "members-only on YouTube", "premium_only": "YouTube Premium only", "private": "private",
+               "sign_in_required": "requires sign-in", "no_captions": "captions turned off",
+               "no_captions_in_language": "no captions in the configured language", "age_restricted": "age-restricted",
+               "blocked_by_youtube": "YouTube blocked the caption request", "unavailable_video": "unavailable or deleted",
+               "unplayable": "not playable", "capture_failed": "capture failed"}
+
+
 def normalize_manifest(raw):
     entries = raw.get("entries") or []
     if not entries:
@@ -46,6 +60,7 @@ def normalize_manifest(raw):
                        "title": entry.get("title") or "Unavailable video",
                        "duration": entry.get("duration"),
                        "access": "unprobed" if entry.get("id") else "unavailable",
+                       "availability": entry.get("availability"),
                        "reuse_permission": "not_established"})
     return result
 
@@ -95,6 +110,14 @@ def capture(root, config, limit):
         if not video_id:
             reports.append({"playlist_index": entry["playlist_index"], "status": "blocked", "reason": "unavailable_video"})
             continue
+        if entry.get("availability") in AVAILABILITY_REASONS:  # YouTube says no public access: don't request it
+            reports.append({"video_id": video_id, "playlist_index": entry["playlist_index"], "status": "blocked",
+                            "reason": AVAILABILITY_REASONS[entry["availability"]]})
+            continue
+        if (root / "evidence" / f"{video_id}.json").exists():
+            items = read(root / "evidence" / f"{video_id}.json")["items"]
+            reports.append({"video_id": video_id, "status": "captured", "segments": len(items), "reused": True})
+            continue
         try:
             transcript = YouTubeTranscriptApi().fetch(video_id, languages=config["languages"])
             raw = {"video_id": video_id, "language": transcript.language_code,
@@ -107,7 +130,9 @@ def capture(root, config, limit):
             reports.append({"video_id": video_id, "status": "captured", "segments": len(evidence)})
         except Exception as exc:
             # Do not serialize exception text: upstream URLs may contain tokens.
-            reports.append({"video_id": video_id, "status": "blocked", "error_type": type(exc).__name__})
+            reports.append({"video_id": video_id, "playlist_index": entry["playlist_index"], "status": "blocked",
+                            "reason": ERROR_REASONS.get(type(exc).__name__, "capture_failed"),
+                            "error_type": type(exc).__name__})
     write(root / "capture_report.json", reports)
     return reports
 

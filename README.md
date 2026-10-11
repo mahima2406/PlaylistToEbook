@@ -84,3 +84,12 @@ on a cache miss.
   covered.
 - Captions are automatic and can be misheard. Raw captions and the model cache stay
   in `data/` (git-ignored) because reuse rights are not established.
+
+## Deploy (public site)
+
+The UI is served by Vercel; builds run on an Azure VM (they take hours and need Quarto, LaTeX, Chrome and PyTorch).
+Vercel rewrites `/api/*` and `/books/*` to the VM. The VM reaches Azure OpenAI with its managed identity, so no key
+is copied off your machine. Starting a build on the public site needs the access code in `deploy/.build-code`.
+
+    bash deploy/push.sh            # code + built book to the VM, environment, setup (idempotent)
+    bash deploy/vercel/build.sh    # front end to Vercel

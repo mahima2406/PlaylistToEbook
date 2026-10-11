@@ -45,7 +45,7 @@
     "note": "When true, the inferred reader.md (with the 'reader' text above as an explicit override) is given to every writing prompt instead of the one-line reader brief. Turning it on re-writes the book."
   },
   "evaluation": {
-    "grounding_sample": 60,
+    "grounding_sample": 200,
     "coverage_clips": 20,
     "clip_seconds": 120,
     "thresholds": {
@@ -53,7 +53,9 @@
       "material_errors_per_100": 2,
       "core_ideas_missed": 0.1,
       "quality_min_average": 3.5
-    }
+    },
+    "grounding_votes": 3,
+    "grounding_note": "Each sampled sentence is judged 3 times in shuffled batches and the majority verdict counts: single evaluator runs changed their verdict on 8% of sentences between identical runs (measured 2026-10-11), so one run cannot resolve a 95% threshold. The threshold itself is unchanged."
   },
   "reference_pack": {
     "enabled": true,
@@ -69,5 +71,14 @@
     ],
     "listings_per_section": 2,
     "crosscheck_min_score": 0.18
-  }
+  },
+  "edition": {
+    "name": "Public Lectures Edition",
+    "excluded_reasons": [
+      "members_only"
+    ],
+    "note": "Lectures whose capture reason is listed here are declared out of scope: the release gate does not count them, and the book names them with their reason. Empty this list after capturing them (e.g. with a channel membership) and rebuild."
+  },
+  "author": "Compiled by Mahima Arora",
+  "date": "11 October 2026"
 }

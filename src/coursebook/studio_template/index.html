@@ -1,0 +1,495 @@
+<title>Coursebook Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: app shell; left rail of seven views (stacks on top on phones); every view = sketched header + working panels */
+:root {
+  --paper: #fbfaf6; --card: #ffffff; --ink: #23303d; --muted: #66707b; --rule: #e1e4e3;
+  --pen: #2c63c9; --pen-soft: #e6eefb; --marker: #f6cf4a; --marker-ink: #4d3a00;
+  --good: #2f8a57; --good-soft: #e3f3ea; --warn: #b8741a; --warn-soft: #fbf0dc; --bad: #c4462b; --bad-soft: #fbe7e2;
+  --f-hand: "Caveat", "Comic Sans MS", cursive; --f-head: "Kalam", "Comic Sans MS", cursive;
+  --f-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif; --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #13181e; --card: #1a2129; --ink: #e6ebef; --muted: #9ba6b1; --rule: #2e3945; --pen: #82abff; --pen-soft: #1e2b44;
+  --marker: #e3b830; --marker-ink: #1c1500; --good: #6cc996; --good-soft: #17301f; --warn: #e5a54a; --warn-soft: #33270f;
+  --bad: #f08466; --bad-soft: #3a1d16; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #13181e; --card: #1a2129; --ink: #e6ebef; --muted: #9ba6b1; --rule: #2e3945; --pen: #82abff; --pen-soft: #1e2b44;
+  --marker: #e3b830; --marker-ink: #1c1500; --good: #6cc996; --good-soft: #17301f; --warn: #e5a54a; --warn-soft: #33270f;
+  --bad: #f08466; --bad-soft: #3a1d16; color-scheme: dark }
+
+* { box-sizing: border-box }
+[hidden] { display: none !important }
+html, body { height: 100% }
+body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.55; padding-inline: 0; padding-block: 0 }
+button { font: inherit; color: inherit }
+a { color: var(--pen) }
+.shell { display: grid; grid-template-columns: 220px minmax(0, 1fr); min-height: 100% }
+@media (max-width: 860px) { .shell { grid-template-columns: minmax(0, 1fr) } }
+.rail { border-right: 1.5px solid var(--rule); padding-block: 22px 16px; padding-inline: 16px; display: grid; gap: 18px; align-content: start;
+  position: sticky; top: env(safe-area-inset-top, 0px); height: 100vh; overflow-y: auto }
+@media (max-width: 860px) { .rail { position: static; height: auto; border-right: 0; border-bottom: 1.5px solid var(--rule); padding-block: 14px 10px } }
+.brand { font-family: var(--f-head); font-size: 26px; line-height: 1; font-weight: 700 }
+.brand small { display: block; font-family: var(--f-hand); font-size: 19px; color: var(--muted); font-weight: 500; margin-top: 4px }
+nav.views { display: grid; gap: 4px }
+@media (max-width: 860px) { nav.views { display: flex; overflow-x: auto; gap: 6px; padding-bottom: 4px } }
+nav.views button { text-align: left; border: 1.5px solid transparent; background: none; border-radius: 10px; padding: 7px 10px; cursor: pointer;
+  display: flex; align-items: center; gap: 10px; white-space: nowrap; font-weight: 500 }
+nav.views button svg { width: 22px; height: 22px; flex: none }
+nav.views button[aria-selected="true"] { border-color: var(--pen); background: var(--pen-soft); color: var(--pen) }
+nav.views button:hover { border-color: var(--rule) }
+nav.views button:focus-visible, .btn:focus-visible, .chip:focus-visible, .para:focus-visible { outline: 2px solid var(--pen); outline-offset: 2px }
+.rail-foot { font-size: 12.5px; color: var(--muted) }
+main { padding-block: 22px 60px; padding-inline: clamp(16px, 3vw, 36px); min-width: 0 }
+.view { display: grid; gap: 18px; max-width: 1180px }
+.view-head { display: grid; gap: 6px }
+.view-head h1 { font-family: var(--f-head); font-size: clamp(28px, 4vw, 40px); margin: 0; line-height: 1.1; text-wrap: balance }
+.view-head p { margin: 0; color: var(--muted); max-width: 70ch }
+.hand { font-family: var(--f-hand); font-size: 21px; color: var(--pen); line-height: 1.15 }
+.card { background: var(--card); border: 1.5px solid var(--rule); border-radius: 12px; padding: 16px 18px; min-width: 0 }
+.card h2 { font-family: var(--f-head); font-size: 21px; margin: 0 0 10px }
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px }
+.grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px }
+@media (max-width: 900px) { .grid2, .grid3 { grid-template-columns: minmax(0, 1fr) } }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px }
+.tile { background: var(--card); border: 1.5px dashed var(--rule); border-radius: 12px; padding: 12px 14px; display: grid; gap: 2px }
+.tile b { font-family: var(--f-hand); font-size: 36px; line-height: 1; color: var(--pen); font-variant-numeric: tabular-nums }
+.tile span { color: var(--muted); font-size: 13px; line-height: 1.35 }
+.pill { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; border-radius: 999px; padding: 2px 10px; border: 1.5px solid currentColor; white-space: nowrap }
+.pill.good { color: var(--good); background: var(--good-soft) } .pill.warn { color: var(--warn); background: var(--warn-soft) }
+.pill.bad { color: var(--bad); background: var(--bad-soft) } .pill.pen { color: var(--pen); background: var(--pen-soft) }
+.pill.mute { color: var(--muted) }
+.btn { border: 1.5px solid var(--ink); background: var(--card); border-radius: 10px; padding: 7px 14px; cursor: pointer; font-weight: 600 }
+.btn.primary { background: var(--pen); border-color: var(--pen); color: #fff }
+.btn.good { border-color: var(--good); color: var(--good) } .btn.bad { border-color: var(--bad); color: var(--bad) } .btn.warn { border-color: var(--warn); color: var(--warn) }
+.chip { border: 1.5px solid var(--rule); background: var(--card); border-radius: 999px; padding: 3px 11px; cursor: pointer; font-size: 13px }
+.chip[aria-pressed="true"] { border-color: var(--pen); color: var(--pen); background: var(--pen-soft) }
+.muted { color: var(--muted) }
+.mono { font-family: var(--f-mono); font-size: 12.5px }
+ul.clean { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px }
+.sk { color: var(--ink); overflow-x: auto } .sk svg { display: block; width: 100%; height: auto; min-width: 560px }
+svg text { fill: currentColor } svg .t { font-family: var(--f-hand); font-size: 20px } svg .ts { font-family: var(--f-hand); font-size: 16px; fill: var(--muted) }
+svg .tp { font-family: var(--f-hand); font-size: 19px; fill: var(--pen) }
+svg .ln { stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round }
+svg .bx { fill: var(--card); stroke: currentColor; stroke-width: 2 } svg .bp { fill: var(--card); stroke: var(--pen); stroke-width: 2.6 }
+svg .bm { fill: var(--marker); stroke: var(--marker); stroke-width: 2 } svg .tm { fill: var(--marker-ink) }
+svg .rough { filter: url(#rough) }
+
+/* book */
+.reader { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 18px; align-items: start }
+@media (max-width: 1000px) { .reader { grid-template-columns: minmax(0, 1fr) } }
+.toc { position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow-y: auto; display: grid; gap: 4px }
+@media (max-width: 1000px) { .toc { position: static; max-height: 260px } }
+.toc button { text-align: left; background: none; border: 0; padding: 4px 6px; border-radius: 6px; cursor: pointer; font-size: 13.5px; color: var(--muted) }
+.toc button.ch { font-weight: 600; color: var(--ink); font-size: 14px; margin-top: 6px }
+.toc button[aria-current="true"] { background: var(--pen-soft); color: var(--pen) }
+.page { background: var(--card); border: 1.5px solid var(--rule); border-radius: 14px; padding: clamp(18px, 3vw, 38px); min-width: 0 }
+.page h2.chapter { font-family: var(--f-head); font-size: clamp(26px, 3.4vw, 34px); margin: 0 0 4px; line-height: 1.15 }
+.page h3.section { font-family: var(--f-body); font-size: 20px; margin: 28px 0 8px; font-weight: 600 }
+.from { font-size: 13px; color: var(--muted); margin-bottom: 8px }
+.para { position: relative; padding: 6px 10px 6px 12px; margin: 0 -10px 6px -12px; border-radius: 8px; border-left: 3px solid transparent; cursor: pointer; max-width: 72ch; font-size: 16px; line-height: 1.7 }
+.para:hover { background: var(--pen-soft) } .para.active { background: var(--pen-soft); border-left-color: var(--pen) }
+.para .badge { position: absolute; right: -6px; top: 6px; font-size: 11px }
+.s-F, .s-C, .s-R { } .para .s-flag { text-decoration: underline wavy var(--warn) }
+.box { border: 1.5px solid var(--pen); background: var(--pen-soft); border-radius: 12px; padding: 12px 16px; margin: 14px 0; max-width: 74ch }
+.box .h { font-family: var(--f-hand); font-size: 22px; color: var(--pen); margin-bottom: 4px }
+.box ul { margin: 0; padding-left: 20px; display: grid; gap: 4px }
+pre.code { background: var(--paper); border: 1.5px solid var(--rule); border-radius: 10px; padding: 12px; overflow-x: auto; font-family: var(--f-mono); font-size: 12.5px; line-height: 1.5; margin: 6px 0 }
+.listing { margin: 16px 0; max-width: 78ch } .listing .cap { font-size: 13px; color: var(--muted) }
+.board { border: 1.5px dashed var(--pen); border-radius: 12px; padding: 10px 14px; margin: 12px 0; max-width: 74ch }
+.drawer { position: fixed; top: 0; right: 0; height: 100%; width: min(460px, 100%); background: var(--card); border-left: 2px solid var(--pen);
+  box-shadow: -12px 0 30px rgba(0,0,0,.12); padding: 18px 20px calc(18px + env(safe-area-inset-bottom, 0px)); overflow-y: auto; z-index: 20; display: grid; gap: 12px; align-content: start }
+.drawer .close { justify-self: end }
+.sent { border: 1.5px solid var(--rule); border-radius: 10px; padding: 10px 12px; display: grid; gap: 6px }
+.sent .head { display: flex; flex-wrap: wrap; gap: 6px; align-items: center }
+.cite { display: grid; grid-template-columns: 70px minmax(0, 1fr); gap: 8px; font-size: 13px }
+.cite a { font-family: var(--f-mono); font-size: 12px; white-space: nowrap }
+.q { color: var(--muted); font-style: italic }
+
+/* review */
+.rv { display: grid; gap: 14px; max-width: 820px }
+.progress { height: 10px; background: var(--rule); border-radius: 999px; overflow: hidden } .progress div { height: 100%; background: var(--pen) }
+.actions { display: flex; flex-wrap: wrap; gap: 10px }
+textarea { width: 100%; min-height: 70px; font: inherit; border: 1.5px solid var(--rule); border-radius: 10px; padding: 8px; background: var(--paper); color: var(--ink) }
+
+/* coverage */
+.heat { overflow-x: auto } table.hm { border-collapse: separate; border-spacing: 3px; font-size: 12.5px }
+table.hm th { font-weight: 600; color: var(--muted); padding: 2px 6px; white-space: nowrap }
+table.hm td { width: 54px; height: 26px; text-align: center; border-radius: 6px; font-variant-numeric: tabular-nums }
+.strip { display: grid; grid-template-columns: repeat(auto-fill, minmax(26px, 1fr)); gap: 4px }
+.cell { aspect-ratio: 1; border-radius: 5px; display: grid; place-items: center; font-size: 10.5px; font-weight: 600 }
+.cell.on { background: var(--pen); color: #fff } .cell.off { background: repeating-linear-gradient(45deg, var(--rule) 0 4px, transparent 4px 8px); color: var(--muted) }
+table.plain { border-collapse: collapse; width: 100%; font-size: 14px } table.plain td, table.plain th { padding: 7px 8px; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top }
+table.plain th { font-size: 12px; color: var(--muted); font-weight: 600 }
+.bar { height: 12px; background: var(--rule); border-radius: 999px; overflow: hidden; min-width: 80px } .bar > div { height: 100%; border-radius: 999px }
+
+/* brief */
+.md h1 { font-family: var(--f-head); font-size: 26px; margin: 0 0 8px } .md h2 { font-size: 18px; margin: 18px 0 6px }
+.md table { border-collapse: collapse; font-size: 13.5px; display: block; overflow-x: auto } .md td, .md th { border-bottom: 1px solid var(--rule); padding: 5px 8px; text-align: left }
+.md ul { padding-left: 20px } .md p { max-width: 75ch } .md code { font-family: var(--f-mono); font-size: 12.5px }
+.empty { border: 1.5px dashed var(--rule); border-radius: 12px; padding: 20px; color: var(--muted); text-align: center }
+.loading { padding: 40px; font-family: var(--f-hand); font-size: 26px; color: var(--muted) }
+@media (prefers-reduced-motion: no-preference) { .para, nav.views button { transition: background .15s, border-color .15s } }
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="rough" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="2.4"/></filter>
+    <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1,1 L9,5 L1,9" fill="none" stroke="#8a949e" stroke-width="1.8" stroke-linecap="round"/></marker>
+  </defs>
+</svg>
+
+<div class="shell">
+  <aside class="rail">
+    <div class="brand">Coursebook<small>studio</small></div>
+    <nav class="views" id="nav" aria-label="Views"></nav>
+    <div class="rail-foot" id="foot"></div>
+  </aside>
+  <main id="main"><div class="loading">opening the book…</div></main>
+</div>
+<div class="drawer" id="drawer" hidden role="dialog" aria-label="Evidence trail"></div>
+
+<script>
+(function () {
+  "use strict";
+  const ICON = {
+    overview: '<path d="M4 18h16M6 18V9l6-4 6 4v9"/>',
+    pipeline: '<rect x="2" y="9" width="5" height="6" rx="1"/><rect x="10" y="9" width="5" height="6" rx="1"/><rect x="17" y="9" width="5" height="6" rx="1"/><path d="M7 12h3M15 12h2"/>',
+    book: '<path d="M4 5h7v14H4zM13 5h7v14h-7z"/>',
+    review: '<circle cx="9" cy="8" r="3"/><path d="M4 19c1-4 9-4 10 0M15 12l2 2 4-5"/>',
+    coverage: '<rect x="3" y="3" width="5" height="5"/><rect x="10" y="3" width="5" height="5"/><rect x="17" y="3" width="4" height="5"/><rect x="3" y="10" width="5" height="5"/><rect x="10" y="10" width="5" height="5"/><rect x="3" y="17" width="5" height="4"/>',
+    checks: '<path d="M4 20V4M4 20h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/>',
+    brief: '<path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 12h7M9 16h5"/>'
+  };
+  const VIEWS = [["overview", "Overview"], ["pipeline", "Pipeline"], ["book", "Book"], ["review", "Review"], ["coverage", "Coverage"], ["checks", "Checks"], ["brief", "6W brief"]];
+  const $ = (s, el = document) => el.querySelector(s);
+  const esc = (t) => String(t ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const pct = (x) => x == null ? "–" : (100 * x).toFixed(1) + "%";
+  const store = { get(k, d) { try { const v = localStorage.getItem("cbs:" + k); return v == null ? d : JSON.parse(v); } catch { return d; } },
+                  set(k, v) { try { localStorage.setItem("cbs:" + k, JSON.stringify(v)); } catch {} } };
+  let D = null, view = store.get("view", "overview"), bookPos = store.get("bookPos", null);
+
+  function nav() {
+    $("#nav").innerHTML = VIEWS.map(([k, label]) => `<button type="button" data-v="${k}" aria-selected="${k === view}">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${ICON[k]}</svg>${label}
+      ${k === "review" && D && D.queue.length ? `<span class="pill warn" style="margin-left:auto">${D.queue.length - Object.keys(store.get("practice", {})).length}</span>` : ""}</button>`).join("");
+    $("#nav").querySelectorAll("button").forEach((b) => b.addEventListener("click", () => go(b.dataset.v)));
+  }
+  function go(v) { view = v; store.set("view", v); closeDrawer(); nav(); render(); window.scrollTo(0, 0); }
+
+  function statusPill() {
+    return D.course.status === "DRAFT" ? '<span class="pill warn">● draft</span>' : '<span class="pill good">● reviewed release</span>';
+  }
+
+  /* ---------- overview ---------- */
+  function overview() {
+    const m = D.metrics, chapters = D.chapters.length, covered = D.lectures.filter((l) => l.covered).length;
+    const hours = (D.lectures.reduce((a, l) => a + l.minutes, 0) / 60).toFixed(1);
+    return `<section class="view">
+      <div class="view-head"><span class="hand">a course, turned into a book you can check</span>
+        <h1>${esc(D.course.title)}</h1>
+        <p>${D.lectures.length} lectures · ${hours} hours of video · ${covered} lectures with public captions · ${statusPill()}</p></div>
+      <div class="card sk">${heroSketch()}</div>
+      <div class="tiles">
+        <div class="tile"><b>${(m.words || 0).toLocaleString()}</b><span>words in ${chapters} chapters</span></div>
+        <div class="tile"><b>${pct(m.support_rate_final)}</b><span>of facts backed by the lecture lines they cite</span></div>
+        <div class="tile"><b>${m.plants_caught ?? "–"}/${m.plants_planted ?? "–"}</b><span>planted false facts caught</span></div>
+        <div class="tile"><b>${m.points_placed ?? "–"}</b><span>ideas placed · ${m.points_dropped ?? 0} left out with a reason</span></div>
+        <div class="tile"><b>$${D.pipeline.total_cost}</b><span>AI cost so far, of a $${D.pipeline.budget} budget</span></div>
+        <div class="tile"><b>${D.queue.length}</b><span>sentences waiting for the reviewer</span></div>
+      </div>
+      <div class="grid2">
+        <div class="card"><h2>Lectures</h2><div class="strip">${D.lectures.map((l) => `<div class="cell ${l.covered ? "on" : "off"}" title="${esc(l.label + " · " + l.title + (l.covered ? " · " + l.points + " ideas" : " · not available"))}">${esc(l.label.replace("L", ""))}</div>`).join("")}</div>
+          <p class="muted" style="margin:10px 0 0;font-size:13px">Filled: captions available and in the book. Hatched: members-only or unavailable, listed as gaps rather than guessed.</p></div>
+        <div class="card"><h2>What still stands between this and release</h2>
+          ${D.course.reasons.length ? `<ul class="clean">${D.course.reasons.map((r) => `<li><span class="pill warn">open</span> ${esc(r)}</li>`).join("")}</ul>` : '<p><span class="pill good">clear</span> All release conditions are met.</p>'}</div>
+      </div>
+      <div class="card"><h2>Who it's written for</h2><p style="margin:0">${esc(D.reader_contract ? D.reader_contract.reader_profile.value : D.course.reader)}</p>
+        ${D.reader_contract ? `<p class="muted" style="margin:6px 0 0;font-size:13px">Goal: ${esc(D.reader_contract.primary_learning_outcome.value)}</p>` : ""}</div>
+    </section>`;
+  }
+  function heroSketch() {
+    return `<svg viewBox="0 0 860 210" role="img" aria-label="A playlist goes into the engine; a book comes out, organised by idea, with every fact traced and checked.">
+      <g class="rough"><rect class="bx" x="20" y="60" width="150" height="90" rx="8"/><path class="ln" d="M40,85 h110 M40,105 h110 M40,125 h110"/>
+      <path class="ln" d="M180,105 h70" marker-end="url(#ar)"/><rect class="bp" x="260" y="45" width="220" height="120" rx="14"/>
+      <circle class="ln" cx="320" cy="105" r="22"/><circle class="ln" cx="320" cy="105" r="8"/><circle class="ln" cx="405" cy="95" r="30"/><circle class="ln" cx="405" cy="95" r="11"/>
+      <path class="ln" d="M490,105 h70" marker-end="url(#ar)"/><path class="ln" d="M575,50 h110 v120 h-110 z"/><path class="ln" d="M685,50 l20,-12 v120 l-20,12"/>
+      <rect class="bm" x="715" y="40" width="135" height="30" rx="14"/><rect class="bm" x="715" y="92" width="135" height="30" rx="14"/><rect class="bm" x="715" y="144" width="135" height="30" rx="14"/></g>
+      <text class="t" x="95" y="180" text-anchor="middle">${D.lectures.length} lectures</text><text class="tp" x="370" y="192" text-anchor="middle">the engine</text>
+      <text class="t" x="630" y="200" text-anchor="middle">the book</text>
+      <text class="t tm" x="782" y="62" text-anchor="middle" style="font-size:17px">by idea</text><text class="t tm" x="782" y="114" text-anchor="middle" style="font-size:17px">every fact traced</text><text class="t tm" x="782" y="166" text-anchor="middle" style="font-size:17px">rebuilds the same</text></svg>`;
+  }
+
+  /* ---------- pipeline ---------- */
+  const STEPS = [["segment", "label lines"], ["extract", "find ideas"], ["reader", "profile reader"], ["outline", "plan chapters"], ["frame", "set the scene"],
+    ["write", "write"], ["verify", "check"], ["takeaways", "takeaways"], ["diagrams", "diagrams"], ["plants", "plant test"], ["listings", "code listings"],
+    ["crosscheck", "cross-check"], ["frames", "board figures"], ["runcode", "run code"], ["evaluation", "evaluator agent"]];
+  function pipeline() {
+    const st = D.pipeline.stages, cost = D.pipeline.cost;
+    const costKey = { segment: null, extract: "extract", reader: "reader", outline: "outline", frame: "intro", write: "write", verify: "judge", takeaways: "takeaways",
+      diagrams: "diagram", plants: "plant", listings: "listings", crosscheck: "crosscheck", frames: "frames", runcode: "checks", evaluation: "evaluate" };
+    const maxCost = Math.max(...Object.values(cost).map((c) => c.cost), 0.01);
+    const w = 132, gap = 18, perRow = 5;
+    let boxes = "";
+    STEPS.forEach(([k, label], i) => {
+      const row = Math.floor(i / perRow), col = row % 2 ? perRow - 1 - (i % perRow) : i % perRow;
+      const x = 14 + col * (w + gap), y = 20 + row * 110, done = st[k];
+      boxes += `<g class="rough"><rect class="${done ? "bp" : "bx"}" x="${x}" y="${y}" width="${w}" height="64" rx="10" ${done ? "" : 'style="stroke-dasharray:6 5"'}/></g>
+        <text class="t" x="${x + w / 2}" y="${y + 28}" text-anchor="middle" style="font-size:18px">${label}</text>
+        <text class="ts" x="${x + w / 2}" y="${y + 50}" text-anchor="middle">${done ? done + " stored" : "not run yet"}</text>`;
+      if (i < STEPS.length - 1) {
+        const nrow = Math.floor((i + 1) / perRow);
+        if (nrow === row) { const ax = row % 2 ? x - 4 : x + w + 2; boxes += `<path class="ln" d="M${ax},${y + 32} h${row % 2 ? -gap + 6 : gap - 6}" marker-end="url(#ar)"/>`; }
+        else { boxes += `<path class="ln" d="M${x + w / 2},${y + 66} v${110 - 70}" marker-end="url(#ar)"/>`; }
+      }
+    });
+    const rows = Object.entries(cost).filter(([k]) => k !== "undefined" && k !== "probe" && k !== "draft").sort((a, b) => b[1].cost - a[1].cost);
+    return `<section class="view">
+      <div class="view-head"><span class="hand">small checkable steps on one memory shelf</span><h1>Pipeline</h1>
+        <p>Every step stores its result with a fingerprint of what went in; unchanged inputs are skipped and every AI answer is reused for free.</p></div>
+      <div class="card sk"><svg viewBox="0 0 ${14 + perRow * (w + gap)} ${20 + Math.ceil(STEPS.length / perRow) * 110}" role="img" aria-label="Pipeline steps and how many results each has stored.">${boxes}</svg></div>
+      <div class="grid2">
+        <div class="card"><h2>Spend by step</h2><table class="plain"><thead><tr><th>Step</th><th>AI calls</th><th>Reused</th><th style="width:40%">Cost</th></tr></thead><tbody>
+          ${rows.map(([k, c]) => `<tr><td>${esc(k)}</td><td class="mono">${c.calls}</td><td class="mono">${c.hits}</td><td><div style="display:flex;gap:8px;align-items:center"><div class="bar" style="flex:1"><div style="width:${(100 * c.cost / maxCost).toFixed(1)}%;background:var(--pen)"></div></div><span class="mono">$${c.cost.toFixed(2)}</span></div></td></tr>`).join("")}
+          </tbody></table></div>
+        <div class="card"><h2>Budget</h2><div class="bar" style="height:18px"><div style="width:${Math.min(100, 100 * D.pipeline.total_cost / (D.pipeline.budget || 1)).toFixed(1)}%;background:var(--good)"></div></div>
+          <p class="hand" style="margin:8px 0 0">$${D.pipeline.total_cost} of $${D.pipeline.budget}</p>
+          <p class="muted" style="font-size:13.5px">A hard ceiling is checked before every AI call. Rebuilding from the memory shelf costs nothing.</p></div>
+      </div></section>`;
+  }
+
+  /* ---------- book ---------- */
+  function sentenceSpan(s) {
+    const flag = s.v && s.v !== "supported" && s.v !== "ok" && !(s.review && s.review.decision);
+    return `<span class="s-${s.type}${flag ? " s-flag" : ""}">${esc(s.text)}</span>`;
+  }
+  function paraHtml(p, where) {
+    const flagged = p.s.some((s) => s.v && s.v !== "supported" && s.v !== "ok");
+    return `<p class="para" tabindex="0" data-where="${where}" data-pid="${esc(p.id)}">${p.s.map(sentenceSpan).join(" ")}
+      ${p.rewritten ? '<span class="badge pill mute" title="rewritten once after the check">↺</span>' : flagged ? '<span class="badge pill warn">?</span>' : ""}</p>
+      ${p.s.filter((s) => s.note).map((s) => `<div class="box" style="border-color:var(--warn);background:var(--warn-soft)"><div class="h" style="color:var(--warn)">Note</div>The course's reference code differs here: ${esc(s.note)}</div>`).join("")}
+      ${(p.boards || []).map(boardHtml).join("")}`;
+  }
+  function boardHtml(b) {
+    return `<div class="board"><div class="hand" style="font-size:18px">redrawn from the board · <a href="${esc(b.u)}" target="_blank" rel="noopener">${esc(b.at)}</a></div>
+      ${b.kind === "diagram" ? `<pre class="mermaid">${esc(b.mermaid)}</pre>` : `<pre class="code">${esc(b.latex)}</pre>`}
+      <div class="muted" style="font-size:13px">${esc(b.caption)}</div></div>`;
+  }
+  function boxList(title, paras, where) {
+    if (!paras || !paras.length) return "";
+    return `<div class="box"><div class="h">${title}</div><ul>${paras.map((p) => `<li class="para" tabindex="0" data-where="${where}" data-pid="${esc(p.id)}" style="margin:0;padding:2px 6px">${p.s.map(sentenceSpan).join(" ")}</li>`).join("")}</ul></div>`;
+  }
+  function listingHtml(l) {
+    const run = l.run;
+    let out = `<div class="listing"><div class="cap">Listing · ${esc(l.caption)} <span class="mono">${esc(l.path)}</span></div><pre class="code">${esc(l.code)}</pre>`;
+    if (run && run.status === "ran") {
+      if (run.output) out += `<div class="cap">Output (executed)</div><pre class="code">${esc(run.output.split("\n").slice(-12).join("\n"))}</pre>`;
+      out += run.checks.map((c) => `<div><span class="pill ${c.passed ? "good" : "bad"}">${c.passed ? "✓" : "✗"} checked by running</span> <span class="mono">${esc(c.expression)}</span> = ${c.value} <span class="muted">(text says ${c.expected})</span></div>`).join("");
+    } else if (run) out += `<div class="muted" style="font-size:13px">Not executed: ${esc(run.status)}</div>`;
+    return out + "</div>";
+  }
+  function book() {
+    const ci = bookPos ? bookPos.c : 0, ch = D.chapters[ci] || D.chapters[0];
+    const toc = `<button class="ch" data-c="-1" aria-current="${ci === -1}">Introduction</button>` + D.chapters.map((c, i) =>
+      `<button class="ch" data-c="${i}" aria-current="${i === ci}">${i + 1}. ${esc(c.title)}</button>` +
+      (i === ci ? c.sections.map((s) => `<button data-c="${i}" data-s="${esc(s.id)}">${esc(s.title)}</button>`).join("") : "")).join("");
+    let page;
+    if (ci === -1) {
+      page = `<h2 class="chapter">Introduction</h2>${D.intro.map((p) => paraHtml(p, "intro")).join("")}`;
+    } else {
+      page = `<h2 class="chapter">${ci + 1}. ${esc(ch.title)}</h2><p class="muted" style="margin-top:0">${esc(ch.summary)}</p>
+        ${ch.opener.map((p) => paraHtml(p, "open")).join("")}${boxList("At a glance", ch.glance, "glance")}
+        ${ch.sections.map((s) => `<h3 class="section" id="sec-${esc(s.id)}">${esc(s.title)}</h3><div class="from">from ${esc(s.from.join(", "))}</div>
+          ${s.p.map((p) => paraHtml(p, "sec")).join("")}${s.listings.map(listingHtml).join("")}`).join("")}
+        ${boxList("Key takeaways", ch.takeaways, "take")}`;
+    }
+    return `<section class="view">
+      <div class="view-head"><span class="hand">click any paragraph to see where it came from</span><h1>Book</h1>
+        <p>Wavy underline: still waiting for the reviewer. ↺: rewritten once after the check. Dashed boxes: figures redrawn from the lecture's screen.</p></div>
+      <div class="reader"><nav class="toc card" aria-label="Chapters">${toc}</nav><article class="page" id="page">${page}</article></div></section>`;
+  }
+  function findPara(pid) {
+    const look = (arr) => (arr || []).find((p) => p.id === pid);
+    let hit = look(D.intro); if (hit) return hit;
+    for (const c of D.chapters) {
+      hit = look(c.opener) || look(c.glance) || look(c.takeaways); if (hit) return hit;
+      for (const s of c.sections) { hit = look(s.p); if (hit) return hit; }
+    }
+  }
+  function verdictPill(v) {
+    if (!v) return "";
+    const cls = { supported: "good", ok: "good", partial: "warn", unsupported: "bad", claim_in_connective: "bad", roadmap_mismatch: "bad" }[v] || "mute";
+    return `<span class="pill ${cls}">${esc(v)}</span>`;
+  }
+  function openTrail(pid) {
+    const p = findPara(pid); if (!p) return;
+    document.querySelectorAll(".para.active").forEach((e) => e.classList.remove("active"));
+    document.querySelectorAll(`[data-pid="${CSS.escape(pid)}"]`).forEach((e) => e.classList.add("active"));
+    const kinds = { F: "fact", C: "transition", R: "roadmap", T: "technical" };
+    $("#drawer").innerHTML = `<button class="btn close" type="button" id="closeD">Close</button>
+      <div><div class="hand">evidence trail</div><div class="mono muted">${esc(pid)}${p.rewritten ? " · rewritten once after the check" : ""}</div></div>
+      ${p.s.map((s) => `<div class="sent"><div class="head"><span class="pill pen">${kinds[s.type] || s.type}</span>${verdictPill(s.v)}${s.c != null ? `<span class="muted mono">${s.c}</span>` : ""}
+          ${s.first && s.first !== s.v ? `<span class="muted" style="font-size:12px">first check: ${esc(s.first)}</span>` : ""}
+          ${s.review ? `<span class="pill good">reviewer: ${esc(s.review.decision)}</span>` : ""}</div>
+        <div>${esc(s.text)}</div>
+        ${s.cites.map((c) => `<div class="cite"><a href="${esc(c.u)}" target="_blank" rel="noopener">${esc(c.l)} ${esc(c.t)}</a><span class="q">${c.q ? "“" + esc(c.q) + "”" : ""}</span></div>`).join("")}
+        ${s.why && s.v !== "supported" ? `<div class="muted" style="font-size:13px">checker: ${esc(s.why)}</div>` : ""}
+        ${s.ref ? `<div style="font-size:13px"><span class="pill ${s.ref.verdict === "contradicts" ? "bad" : s.ref.verdict === "agrees" ? "good" : "mute"}">reference: ${esc(s.ref.verdict.replace("_", " "))}</span> <span class="muted">${esc(s.ref.reason || "")}</span></div>` : ""}
+        ${s.type !== "F" && !s.cites.length ? `<div class="muted" style="font-size:13px">${s.type === "C" ? "Transitions make no claim, so they cite nothing; the checker confirms that." : "Roadmap sentences describe the book itself and are checked against the outline."}</div>` : ""}
+      </div>`).join("")}`;
+    $("#drawer").hidden = false;
+    $("#closeD").addEventListener("click", closeDrawer);
+  }
+  function closeDrawer() { $("#drawer").hidden = true; document.querySelectorAll(".para.active").forEach((e) => e.classList.remove("active")); }
+
+  /* ---------- review ---------- */
+  function review() {
+    const done = store.get("practice", {}), items = D.queue, left = items.filter((i) => !done[i.id]);
+    const cur = left[0];
+    return `<section class="view">
+      <div class="view-head"><span class="hand">the few sentences the checker couldn't settle</span><h1>Review</h1>
+        <p>Practice here; this page remembers your choices only in this browser. Record real decisions with <span class="mono">coursebook review --by "Name"</span>, which re-checks any edit.</p></div>
+      <div class="rv">
+        <div class="progress" role="progressbar" aria-valuenow="${items.length - left.length}" aria-valuemax="${items.length}"><div style="width:${items.length ? (100 * (items.length - left.length) / items.length).toFixed(1) : 100}%"></div></div>
+        <div class="muted">${items.length - left.length} of ${items.length} decided</div>
+        ${cur ? `<div class="card" style="display:grid;gap:12px">
+            <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">${verdictPill(cur.verdict)}<span class="muted mono">confidence ${cur.conf}</span><span class="muted mono">${esc(cur.id)}</span></div>
+            <div style="font-size:18px">${esc(cur.text)}</div>
+            <div class="box" style="border-color:var(--warn);background:var(--warn-soft);margin:0"><div class="h" style="color:var(--warn)">why it was flagged</div>${esc(cur.reason)}</div>
+            <div><div class="hand" style="font-size:18px">what the lecture says</div>${cur.cites.map((c) => `<div class="cite"><a href="${esc(c.u)}" target="_blank" rel="noopener">${esc(c.l)} ${esc(c.t)}</a><span class="q">“${esc(c.q)}”</span></div>`).join("")}</div>
+            ${cur.context ? `<div class="muted" style="font-size:13.5px"><b>Paragraph:</b> ${esc(cur.context)}</div>` : ""}
+            <label for="fix" class="muted" style="font-size:13px">Your fixed sentence (for "Fix")</label><textarea id="fix">${esc(cur.text)}</textarea>
+            <div class="actions"><button class="btn good" data-d="keep">Keep</button><button class="btn warn" data-d="fix">Fix</button><button class="btn bad" data-d="cut">Cut</button><button class="btn" data-d="skip">Skip for now</button></div>
+          </div>` : `<div class="empty">Queue cleared in practice. ${Object.keys(done).length ? `<button class="btn" id="resetP" style="margin-left:8px">Start over</button>` : ""}</div>`}
+        ${Object.keys(done).length ? `<div class="card"><h2>Your practice decisions</h2><ul class="clean">${Object.entries(done).map(([id, d]) => `<li><span class="pill ${d.d === "keep" ? "good" : d.d === "cut" ? "bad" : "warn"}">${esc(d.d)}</span> <span class="mono muted">${esc(id)}</span>${d.text ? ` → ${esc(d.text)}` : ""}</li>`).join("")}</ul></div>` : ""}
+      </div></section>`;
+  }
+
+  /* ---------- coverage ---------- */
+  function coverage() {
+    const cv = D.coverage, max = Math.max(1, ...Object.values(cv.matrix));
+    const head = `<tr><th></th>${cv.chapters.map((c) => `<th title="${esc(cv.titles[c])}">${esc(c)}</th>`).join("")}<th>total</th></tr>`;
+    const rows = cv.lectures.map((l) => {
+      const cells = cv.chapters.map((c) => { const n = cv.matrix[l + "|" + c] || 0; const a = n ? 0.15 + 0.85 * n / max : 0;
+        return `<td style="background:color-mix(in srgb, var(--pen) ${(a * 100).toFixed(0)}%, transparent);color:${a > 0.55 ? "#fff" : "var(--ink)"}" title="${l} → ${c}: ${n} ideas">${n || ""}</td>`; }).join("");
+      const tot = cv.chapters.reduce((s, c) => s + (cv.matrix[l + "|" + c] || 0), 0);
+      return `<tr><th>${esc(l)}</th>${cells}<td class="mono">${tot}</td></tr>`; }).join("");
+    const reasons = {}; cv.dropped.forEach((d) => { const k = /duplic/i.test(d.reason) ? "duplicate" : /logist|recap|summary|next lecture|course/i.test(d.reason) ? "course logistics / recap" : "other"; (reasons[k] = reasons[k] || []).push(d); });
+    const filt = store.get("dropFilter", "all");
+    const shown = filt === "all" ? cv.dropped : (reasons[filt] || []);
+    return `<section class="view">
+      <div class="view-head"><span class="hand">where every part of the course ended up</span><h1>Coverage</h1>
+        <p>Rows are lectures, columns are chapters; each cell counts the ideas that lecture contributes to that chapter. Every idea is placed somewhere or left out with a written reason.</p></div>
+      <div class="card heat"><table class="hm"><thead>${head}</thead><tbody>${rows}</tbody></table></div>
+      <div class="card"><h2>Left out, with reasons (${cv.dropped.length})</h2>
+        <div class="actions" style="margin-bottom:10px">${["all", ...Object.keys(reasons)].map((k) => `<button class="chip" data-f="${esc(k)}" aria-pressed="${k === filt}">${esc(k)}${k === "all" ? "" : " · " + reasons[k].length}</button>`).join("")}</div>
+        <table class="plain"><thead><tr><th>From</th><th>Idea</th><th>Reason</th></tr></thead><tbody>
+        ${shown.slice(0, 150).map((d) => `<tr><td class="mono">${esc(d.l)}</td><td>${esc(d.text)}</td><td class="muted">${esc(d.reason)}</td></tr>`).join("")}</tbody></table>
+        ${shown.length > 150 ? `<p class="muted">Showing 150 of ${shown.length}.</p>` : ""}</div></section>`;
+  }
+
+  /* ---------- checks ---------- */
+  function checks() {
+    const m = D.metrics, types = m.plants_by_type || {}, ev = D.evaluation;
+    const bar = (v, max, color) => `<div class="bar" style="flex:1"><div style="width:${max ? (100 * v / max).toFixed(1) : 0}%;background:${color}"></div></div>`;
+    const plantRows = Object.entries(types).map(([t, n]) => `<div style="display:flex;gap:10px;align-items:center"><span style="width:150px">${esc(t.replace("_", " "))}</span>${bar(n.caught, n.planted, "var(--good)")}<span class="mono">${n.caught}/${n.planted}</span></div>`).join("");
+    const cr = m.crosscheck, code = m.code_run, boards = m.board_figures;
+    return `<section class="view">
+      <div class="view-head"><span class="hand">how you can tell it's right, in numbers</span><h1>Checks</h1>
+        <p>A checker reads every sentence against its cited lines; deliberately planted false sentences measure how good it is; an independent evaluator agent re-checks samples; code is run; the board is redrawn and checked.</p></div>
+      <div class="tiles">
+        <div class="tile"><b>${pct(m.support_rate_first_pass)}</b><span>facts backed on the first check</span></div>
+        <div class="tile"><b>${pct(m.support_rate_final)}</b><span>after one rewrite of weak paragraphs</span></div>
+        <div class="tile"><b>${m.paragraphs_rewritten ?? "–"}</b><span>paragraphs rewritten</span></div>
+        <div class="tile"><b>${m.real_sentences_flagged_in_plant_run ?? "–"}/${m.real_sentences_in_plant_run ?? "–"}</b><span>true sentences wrongly flagged</span></div>
+      </div>
+      <div class="grid2">
+        <div class="card"><h2>Planted false facts caught, by type</h2><div style="display:grid;gap:8px">${plantRows || '<div class="empty">Plant test not run yet.</div>'}</div>
+          ${D.plant_misses.length ? `<details style="margin-top:10px"><summary class="hand" style="font-size:18px;cursor:pointer">the ${D.plant_misses.length} it missed</summary><ul class="clean" style="margin-top:8px">${D.plant_misses.map((p) => `<li><span class="pill mute">${esc(p.type.replace("_", " "))}</span> ${esc(p.text)}</li>`).join("")}</ul></details>` : ""}</div>
+        <div class="card"><h2>Evaluator agent</h2>${ev ? `<span class="pill ${ev.passed ? "good" : "bad"}">${ev.passed ? "passed" : "not passed"}</span>
+          <table class="plain" style="margin-top:8px"><tbody>
+            <tr><td>Facts backed (independent sample of ${ev.metrics.grounding_sample})</td><td class="mono">${pct(ev.metrics.independent_support)}</td></tr>
+            <tr><td>Misleading errors per 100</td><td class="mono">${ev.metrics.material_errors_per_100}</td></tr>
+            <tr><td>Core ideas missed (random clips)</td><td class="mono">${pct(ev.metrics.core_ideas_missed)}</td></tr>
+            <tr><td>Reading score (1–5)</td><td class="mono">${ev.metrics.quality_average}</td></tr>
+            <tr><td>Agrees with the checker</td><td class="mono">${pct(ev.metrics.agreement_with_judge)}</td></tr></tbody></table>` :
+          '<div class="empty">Not run yet. <span class="mono">coursebook evaluate</span> sends a third, independent AI to audit samples of the finished book.</div>'}</div>
+      </div>
+      <div class="grid3">
+        <div class="card"><h2>Reference cross-check</h2>${cr ? `<div style="display:grid;gap:6px"><div><span class="pill good">agrees</span> ${cr.agrees}</div><div><span class="pill bad">contradicts</span> ${cr.contradicts}</div><div><span class="pill mute">not covered</span> ${cr.not_covered}</div></div>` : '<div class="empty">Not run yet.</div>'}</div>
+        <div class="card"><h2>Code run</h2>${code ? `<p style="margin:0">${code.listings_ran} of ${code.listings} listings ran</p><p style="margin:4px 0 0"><span class="pill good">${code.checks_passed} numbers confirmed</span> <span class="pill ${code.checks_failed ? "bad" : "mute"}">${code.checks_failed} disagree</span></p>` : `<div class="empty">${m.listings ? m.listings + " listings found; run <span class='mono'>coursebook run-code</span>" : "Not run yet."}</div>`}</div>
+        <div class="card"><h2>Board figures</h2>${boards ? `<p style="margin:0"><span class="hand" style="font-size:30px">${boards.kept}</span> kept of ${boards.looked_at} moments read</p><p class="muted" style="font-size:13px">Each checked against the frame and the speech.</p>` : '<div class="empty">Not run yet.</div>'}</div>
+      </div></section>`;
+  }
+
+  /* ---------- brief ---------- */
+  const W = [["reader.md", "who / what"], ["coverage.md", "how much"], ["concept_map.md", "where"], ["learning_path.md", "when"], ["pipeline.md", "how"], ["rationale.md", "why"]];
+  function mdToHtml(md) {
+    const lines = md.split("\n"); let out = "", inTable = false, inList = false, inCode = false;
+    const inline = (t) => esc(t).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/_\[(.+?)\]_/g, '<span class="muted">[$1]</span>').replace(/\*(.+?)\*/g, "<i>$1</i>").replace(/`(.+?)`/g, "<code>$1</code>");
+    for (const l of lines) {
+      if (l.startsWith("```")) { if (inCode) { out += "</pre>"; inCode = false; } else { out += '<pre class="code">'; inCode = true; } continue; }
+      if (inCode) { out += esc(l) + "\n"; continue; }
+      if (l.startsWith("|")) { if (/^\|[-:| ]+\|$/.test(l)) continue; const cells = l.split("|").slice(1, -1);
+        if (!inTable) { out += "<table>"; inTable = true; out += "<tr>" + cells.map((c) => `<th>${inline(c.trim())}</th>`).join("") + "</tr>"; continue; }
+        out += "<tr>" + cells.map((c) => `<td>${inline(c.trim())}</td>`).join("") + "</tr>"; continue; }
+      if (inTable) { out += "</table>"; inTable = false; }
+      if (/^\s*(-|\d+\.)\s/.test(l)) { if (!inList) { out += "<ul>"; inList = true; } out += `<li>${inline(l.replace(/^\s*(-|\d+\.)\s/, ""))}</li>`; continue; }
+      if (inList) { out += "</ul>"; inList = false; }
+      if (l.startsWith("## ")) out += `<h2>${inline(l.slice(3))}</h2>`; else if (l.startsWith("# ")) out += `<h1>${inline(l.slice(2))}</h1>`;
+      else if (l.trim()) out += `<p>${inline(l)}</p>`;
+    }
+    return out + (inTable ? "</table>" : "") + (inList ? "</ul>" : "") + (inCode ? "</pre>" : "");
+  }
+  function brief() {
+    const cur = store.get("brief", "reader.md");
+    return `<section class="view">
+      <div class="view-head"><span class="hand">six questions, one markdown page each</span><h1>6W brief</h1>
+        <p>Regenerated with every build. reader.md is the one page that feeds back into the writing.</p></div>
+      <div class="actions">${W.map(([f, w]) => `<button class="chip" data-b="${f}" aria-pressed="${f === cur}">${w} · ${f}</button>`).join("")}</div>
+      <div class="card md">${D.brief[cur] ? mdToHtml(D.brief[cur]) : '<div class="empty">Not generated yet.</div>'}</div></section>`;
+  }
+
+  /* ---------- render + events ---------- */
+  function render() {
+    const m = $("#main");
+    m.innerHTML = { overview, pipeline, book, review, coverage, checks, brief }[view]();
+    if (view === "book") {
+      m.querySelectorAll(".toc button").forEach((b) => b.addEventListener("click", () => {
+        bookPos = { c: +b.dataset.c }; store.set("bookPos", bookPos); render();
+        if (b.dataset.s) setTimeout(() => document.getElementById("sec-" + b.dataset.s)?.scrollIntoView({ behavior: "smooth" }), 30);
+      }));
+      m.querySelectorAll("[data-pid]").forEach((el) => {
+        el.addEventListener("click", () => openTrail(el.dataset.pid));
+        el.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openTrail(el.dataset.pid); } });
+      });
+      try { if (window.mermaid && window.mermaid.run) window.mermaid.run({ nodes: m.querySelectorAll("pre.mermaid") }); } catch {}
+    }
+    if (view === "review") {
+      m.querySelectorAll("[data-d]").forEach((b) => b.addEventListener("click", () => {
+        const left = D.queue.filter((i) => !store.get("practice", {})[i.id]); const cur = left[0]; if (!cur) return;
+        const done = store.get("practice", {});
+        if (b.dataset.d === "skip") { D.queue.push(D.queue.splice(D.queue.indexOf(cur), 1)[0]); }
+        else { done[cur.id] = { d: b.dataset.d, text: b.dataset.d === "fix" ? $("#fix").value.trim() : "" }; store.set("practice", done); }
+        nav(); render();
+      }));
+      $("#resetP")?.addEventListener("click", () => { store.set("practice", {}); nav(); render(); });
+    }
+    if (view === "coverage") m.querySelectorAll("[data-f]").forEach((b) => b.addEventListener("click", () => { store.set("dropFilter", b.dataset.f); render(); }));
+    if (view === "brief") m.querySelectorAll("[data-b]").forEach((b) => b.addEventListener("click", () => { store.set("brief", b.dataset.b); render(); }));
+  }
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeDrawer(); });
+
+  const load = window.__STUDIO_DATA ? Promise.resolve(window.__STUDIO_DATA)
+    : fetch("data.json").then((r) => { if (!r.ok) throw new Error("data.json " + r.status); return r.json(); });
+  load.then((data) => {
+    D = data;
+    $("#foot").innerHTML = `${statusPill()}<div style="margin-top:6px">${D.lectures.filter((l) => l.covered).length} lectures · ${D.chapters.length} chapters</div>`;
+    nav(); render();
+  }).catch((err) => {
+    $("#main").innerHTML = `<div class="empty">Couldn't load the book data (${esc(err.message)}). Regenerate it with <span class="mono">coursebook studio</span>.</div>`;
+  });
+})();
+</script>

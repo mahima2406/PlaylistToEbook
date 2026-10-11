@@ -33,6 +33,15 @@ def main():
     review = sub.add_parser("review", help="Work through queued sentences: accept, edit (re-checked) or remove")
     review.add_argument("--by", help="reviewer name (required unless --list)")
     review.add_argument("--list", action="store_true", help="list open items and exit")
+    review.add_argument("--take-low-risk", action="store_true",
+                        help="record every low-risk recommendation as your decision, then stop")
+    review.add_argument("--high-risk-only", action="store_true", help="walk only items whose recommendation is high risk")
+    sub.add_parser("triage", help="Propose a decision for every open review item (the reviewer still decides)")
+    sw = sub.add_parser("sweep", help="Independent grounding check of every factual sentence, with evaluator-checked fixes")
+    sw.add_argument("--fix", action="store_true", help="propose rewordings for the sentences the sweep flagged")
+    sw.add_argument("--apply", action="store_true", help="record the proposals as your decisions (needs --by)")
+    sw.add_argument("--by", help="reviewer name for --apply")
+    sw.add_argument("--votes", type=int, default=1, help="judge each sentence N times; the majority counts")
     runcode = sub.add_parser("run-code", help="Execute reference listings and check stated numbers (needs --group listings)")
     runcode.add_argument("--timeout", type=int, default=900, help="seconds per notebook")
     export = sub.add_parser("export", help="Write a shareable book-data package (no raw captions)")
@@ -43,6 +52,11 @@ def main():
     verify.add_argument("--out", type=Path, help="keep the rebuilt book here")
     frames = sub.add_parser("frames", help="Redraw whiteboard/screen figures from the video (opt-in media access)")
     frames.add_argument("--allow-media-download", action="store_true", help="read the video stream to grab single frames")
+    studio = sub.add_parser("studio", help="Build the Studio: a browsable product view of the book")
+    studio.add_argument("--output", type=Path, default=Path("output/studio"))
+    studio.add_argument("--single-file", action="store_true", help="one self-contained studio.html")
+    app = sub.add_parser("app", help="Open the Coursebook app: paste a playlist, watch the book build, read it")
+    app.add_argument("--port", type=int, default=8800)
     why = sub.add_parser("why", help="Show the full trail behind a sentence or paragraph, e.g. ch02.s03.p01")
     why.add_argument("item_id")
     sub.add_parser("status", help="Show stage progress, spend, review queue and approvals")
@@ -83,7 +97,8 @@ def main():
             rows = result["listings"].values()
             print(json.dumps({"listings": len(rows), "ran": sum(r["status"] == "ran" for r in rows),
                               "checks_passed": sum(c["passed"] is True for r in rows for c in r["checks"]),
-                              "checks_failed": sum(c["passed"] is False for r in rows for c in r["checks"])}, indent=2))
+                              "checks_failed": sum(c["passed"] is False for r in rows for c in r["checks"]),
+                              "checks_discarded": result.get("checks_discarded", 0)}, indent=2))
         elif args.command == "frames":
             from .llm import gateway_from_config
             from .stages.frames import run_frames
@@ -93,6 +108,12 @@ def main():
             from collections import Counter as _C
             print(json.dumps({"looked_at": summary["looked_at"], "kept": summary["kept"],
                               "outcomes": _C(r.get("status") for r in summary["frames"])}, indent=2))
+        elif args.command == "studio":
+            from .studio import build_studio
+            print(json.dumps(build_studio(args.data, config, args.output, args.single_file), indent=2))
+        elif args.command == "app":
+            from .app.server import serve
+            serve(".", args.port)
         elif args.command == "why":
             from .why import trail
             print(trail(args.data, args.item_id))
@@ -108,16 +129,42 @@ def main():
         elif args.command == "render":
             from .render import render as render_book
             print(json.dumps(render_book(args.data, config, args.output), indent=2))
+        elif args.command == "sweep":
+            from .llm import gateway_from_config
+            from . import sweep as sw
+            if args.apply:
+                if not args.by:
+                    raise ValueError("pass --by \"Your Name\" to record who made each decision")
+                print(json.dumps({"decisions_recorded": sw.apply_fixes(args.data, args.by)}))
+            elif args.fix:
+                recs = sw.propose_fixes(args.data, gateway_from_config(args.data, config))
+                print(json.dumps({"proposals": len(recs), "edits": sum(r["decision"] == "edit" for r in recs.values()),
+                                  "removals": sum(r["decision"] == "remove" for r in recs.values())}, indent=2))
+            else:
+                r = sw.sweep(args.data, gateway_from_config(args.data, config), votes=args.votes,
+                             tag="sweep" if args.votes == 1 else "sweep2")
+                print(json.dumps({k: r[k] for k in ("sentences", "supported", "rate", "votes", "self_disagreement")}, indent=2))
+        elif args.command == "triage":
+            from .llm import gateway_from_config
+            from .triage import run_triage, summary
+            recs = run_triage(args.data, config, gateway_from_config(args.data, config))
+            print(json.dumps({"recommendations": len(recs), "by_kind": summary(recs)}, indent=2))
         elif args.command == "review":
-            from .review import open_items, interactive
+            from .review import open_items, interactive, take_low_risk
+            from .triage import load_recommendations, current_recommendation
             if args.list:
+                recs = load_recommendations(args.data)
                 for item in open_items(args.data):
-                    print(f"{item['sentence_id']}  {item['verdict']} ({item['confidence']:.2f})  {item['sentence']['text'][:90]}")
+                    rec = current_recommendation(recs, item) or {}
+                    print(f"{item['sentence_id']}  {item['verdict']} ({item['confidence']:.2f})  "
+                          f"{('-> ' + rec['decision'] + '/' + rec['risk']) if rec else ''}  {item['sentence']['text'][:80]}")
             elif not args.by:
                 raise ValueError("pass --by \"Your Name\" to record who made each decision")
+            elif args.take_low_risk:
+                take_low_risk(args.data, args.by)
             else:
                 from .llm import gateway_from_config
-                interactive(args.data, config, gateway_from_config(args.data, config), args.by)
+                interactive(args.data, config, gateway_from_config(args.data, config), args.by, only_high=args.high_risk_only)
         else:
             print_status(args.data, config)
     except (ValueError, KeyError, FileNotFoundError, LLMError) as exc:

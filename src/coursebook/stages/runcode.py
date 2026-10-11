@@ -5,7 +5,9 @@
          side-effect-free Python expression)
     per notebook: child process runs cells 0..last listing cell (time-limited)
         → listing ran? its printed output · each check: value == expected (± tolerance)?
-Failed checks mean the book states a number the code does not produce; they block release.
+A failed check goes to the judge: if its expression measures a different quantity than the
+sentence (wrong index, toy configuration), the check is discarded; otherwise the disagreement
+is real and blocks release until the reviewer decides.
 Needs the optional `listings` dependency group (uv sync --group listings).
 """
 import json
@@ -19,6 +21,7 @@ from ..reference import load_index, pack_hash, fetch
 from .. import runner
 
 PROMPT = Path("prompts/numeric_checks.txt")
+CONFIRM_PROMPT = Path("prompts/check_confirm.txt")
 FORBIDDEN = re.compile(r"import|__|\bopen\s*\(|\bexec\b|\beval\b|\bcompile\b|\bos\.|\bsys\.|subprocess|[;\n]|\binput\s*\(|globals|locals|getattr|setattr|delattr")
 SCALE = {"thousand": 1e3, "million": 1e6, "billion": 1e9}
 
@@ -36,7 +39,9 @@ def _close(a, b, tol):
     return abs(a - b) <= max(tol * abs(b), 1e-9)
 
 
-def validate_checks(obj, sentences):
+def validate_checks(obj, sentences, strict=True):
+    """With strict=False only structure is enforced; `keep_valid_checks` then drops checks whose
+    number is not in the sentence or whose expression is unsafe (counted, not fatal)."""
     checks = obj.get("checks")
     if not isinstance(checks, list):
         return ["'checks' must be a list"]
@@ -48,14 +53,21 @@ def validate_checks(obj, sentences):
             continue
         if not isinstance(c.get("expected"), (int, float)):
             errors.append(f"check {n}: expected must be a number")
-        elif not any(_close(v, float(c["expected"]), 1e-9) for v in numbers_in(s["text"])):
+        elif strict and not any(_close(v, float(c["expected"]), 1e-9) for v in numbers_in(s["text"])):
             errors.append(f"check {n}: {c['expected']} does not appear in the sentence")
         expr = str(c.get("expression", ""))
-        if not expr.strip() or FORBIDDEN.search(expr):
+        if strict and (not expr.strip() or FORBIDDEN.search(expr)):
             errors.append(f"check {n}: expression must be a single side-effect-free expression")
         if not isinstance(c.get("tolerance", 0), (int, float)) or not 0 <= c.get("tolerance", 0) <= 0.05:
             errors.append(f"check {n}: tolerance must be between 0 and 0.05")
     return errors
+
+
+def keep_valid_checks(checks, sentences):
+    kept = [c for c in checks if c.get("sentence_id") in sentences
+            and any(_close(v, float(c["expected"]), 1e-9) for v in numbers_in(sentences[c["sentence_id"]]["text"]))
+            and str(c.get("expression", "")).strip() and not FORBIDDEN.search(str(c["expression"]))]
+    return kept, len(checks) - len(kept)
 
 
 def last_cell(chunks, listing):
@@ -79,12 +91,14 @@ def propose_checks(gateway, section_id, listing, sentences):
     result = gateway.call_json("writer", [{"role": "system", "content": PROMPT.read_text()},
                                           {"role": "user", "content": f"Sentences:\n{listing_text}\n\nCode:\n{listing['code']}"}],
                                stage="checks", input_id=listing["id"], max_completion_tokens=8000,
-                               validate=lambda o: validate_checks(o, numeric))
+                               validate=lambda o: validate_checks(o, numeric, strict=False))
+    kept, _ = keep_valid_checks(result["parsed"]["checks"], numeric)
     return [{**c, "check_id": f"{listing['id']}.chk{n}", "sentence_text": numeric[c["sentence_id"]]["text"]}
-            for n, c in enumerate(result["parsed"]["checks"], 1)]
+            for n, c in enumerate(kept, 1)]
 
 
 def execute(repo, notebook, stops, last, timeout):
+    repo = Path(repo).resolve()  # the child changes into the notebook's folder, so paths must be absolute
     with tempfile.TemporaryDirectory() as tmp:
         job, out = Path(tmp) / "job.json", Path(tmp) / "result.json"
         job.write_text(json.dumps({"notebook": str(repo / notebook), "workdir": str((repo / notebook).parent),
@@ -141,10 +155,11 @@ def run_code(root, gateway, config, outline, timeout=900):
             for listing, start, end in items:
                 if run.get("timeout") or run.get("crashed"):
                     status = "not run (time limit)" if run.get("timeout") else "not run (crashed)"
-                    results[listing["id"]] = {"status": status, "output": "", "checks": []}
+                    results[listing["id"]] = {"status": status, "output": "", "checks": [], "error": run.get("crashed")}
                     continue
-                err = run.get("error")
-                ok = not err or err["cell"] > end
+                own = {int(k): v for k, v in run.get("errors", {}).items() if start <= int(k) <= end}
+                ok = not own
+                err = {"cell": min(own), "error": own[min(own)]} if own else None
                 output = "".join(run["outputs"].get(str(k), "") for k in range(start, end + 1)).strip()
                 values = {c["check_id"]: c for c in run["stops"].get(str(end), {}).get("checks", [])}
                 rows = []
@@ -157,5 +172,43 @@ def run_code(root, gateway, config, outline, timeout=900):
         return {"torch": torch_version, "commit": pack["commit"], "listings": results}
 
     inputs = {"pack": pack_hash(index), "listings": {l["id"]: digest(l) for l in listings},
-              "checks": {k: digest(v) for k, v in checks.items()}, "torch": torch_version, "v": 1}
-    return runner.run(root, "runcode", "book", inputs, compute)
+              "checks": {k: digest(v) for k, v in checks.items()}, "torch": torch_version, "v": 3}
+    record = runner.run(root, "runcode", "book", inputs, compute)
+    by_id = {l["id"]: l for l in listings}
+    confirm_inputs = {"runcode": digest(record), "prompt": digest(CONFIRM_PROMPT.read_text()), "v": 2}
+    return runner.run(root, "runconfirm", "book", confirm_inputs, lambda: confirm_failures(gateway, record, by_id))
+
+
+def confirm_failures(gateway, record, listings):
+    """Ask the judge about every failed check; drop checks that measured the wrong thing."""
+    out = {**record, "listings": {}}
+    discarded = 0
+    for lid, run in record["listings"].items():
+        rows = []
+        for c in run["checks"]:
+            if c["passed"] is False and c.get("value") is None:
+                discarded += 1  # the expression could not be evaluated: a broken check, not a book error
+                continue
+            if c["passed"] is False:
+                prompt = (f"Sentence: {c['sentence_text']}\nStated number: {c['expected']:g}\n"
+                          f"Check expression: {c['expression']}\nValue produced: {c['value']:g}\n\nCode:\n{listings[lid]['code']}")
+                verdict = gateway.call_json("judge", [{"role": "system", "content": CONFIRM_PROMPT.read_text()},
+                                                      {"role": "user", "content": prompt}],
+                                            stage="checkconfirm", input_id=c["check_id"], max_completion_tokens=2000,
+                                            validate=lambda o: [] if all(isinstance(o.get(k), bool) for k in ("same_quantity", "consistent"))
+                                            else ["same_quantity and consistent must be true or false"])
+                v = verdict["parsed"]
+                if not v["same_quantity"]:
+                    discarded += 1
+                    continue
+                c = {**c, "passed": True, "within_claim": v.get("reason", "")} if v["consistent"] else \
+                    {**c, "confirmed_by_judge": v.get("reason", "")}
+            rows.append(c)
+        out["listings"][lid] = {**run, "checks": rows}
+    out["checks_discarded"] = discarded
+    return out
+
+
+def load_code_run(root):
+    """The confirmed code-run record (falls back to the raw run before confirmation exists)."""
+    return runner.load(root, "runconfirm", "book") or runner.load(root, "runcode", "book")

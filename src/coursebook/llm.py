@@ -82,7 +82,28 @@ def settings_from_env():
     header = "api-key" if os.environ.get("AZURE_OPENAI_BASE_URL") else "Authorization"
     roles = {"writer": os.environ.get("COURSEBOOK_MODEL"),
              "judge": os.environ.get("COURSEBOOK_JUDGE_MODEL") or os.environ.get("COURSEBOOK_MODEL")}
+    if os.environ.get("AZURE_OPENAI_AUTH") == "managed-identity":  # on an Azure VM: no key, the VM's identity signs in
+        key, header = ManagedIdentityToken(), "Authorization"
     return {"base": base.rstrip("/"), "key": key, "header": header, "roles": roles}
+
+
+class ManagedIdentityToken:
+    """Bearer token for Azure OpenAI from the VM's managed identity (instance metadata service), refreshed before expiry."""
+    URL = ("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01"
+           "&resource=https%3A%2F%2Fcognitiveservices.azure.com")
+
+    def __init__(self):
+        self._token, self._expires, self._lock = None, 0, threading.Lock()
+
+    def __bool__(self):
+        return True
+
+    def __str__(self):
+        with self._lock:
+            if time.time() > self._expires - 300:
+                data = httpx.get(self.URL, headers={"Metadata": "true"}, timeout=10).raise_for_status().json()
+                self._token, self._expires = data["access_token"], int(data["expires_on"])
+            return self._token
 
 
 class Gateway:
@@ -147,7 +168,7 @@ class Gateway:
     def _post(self, request):
         if not self.settings.get("key"):
             raise ProviderConfig("No API key; fill in .env (see .env.example)")
-        value = self.settings["key"] if self.settings["header"] == "api-key" else f"Bearer {self.settings['key']}"
+        value = str(self.settings["key"]) if self.settings["header"] == "api-key" else f"Bearer {self.settings['key']}"
         client = self.client or httpx.Client(timeout=300)
         url = self.settings["base"] + "/chat/completions"
         for attempt in range(len(RETRY_DELAYS) + 1):

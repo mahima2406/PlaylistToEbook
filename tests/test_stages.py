@@ -5,6 +5,7 @@ with minimal valid JSON derived from the request itself, so every stage, the
 runner cache, offline replay, plant exclusion and the release gate are exercised.
 """
 import json
+import os
 import re
 import httpx
 import pytest
@@ -487,3 +488,178 @@ def test_why_prints_the_full_trail_and_heatmap_is_drawn(built):
     assert (book / "figures" / "coverage.svg").read_text().count("<rect") == 1
     assert "figures/coverage.pdf" in (book / "sources.qmd").read_text()
     assert "figures/coverage.svg" in (root / "out" / "web" / "sources.qmd").read_text()
+
+
+def test_studio_bundles_the_book_with_evidence_trails(built, tmp_path):
+    from coursebook.studio import build_studio, studio_data
+    root, _ = built
+    data = studio_data(root, CONFIG)
+    sentence = data["chapters"][0]["sections"][0]["p"][0]["s"][1]
+    assert sentence["cites"][0]["u"].startswith("https://www.youtube.com/watch?v=vidA")
+    assert sentence["v"] == "supported" and set(data["brief"]) >= {"reader.md", "rationale.md"}
+    single = build_studio(root, CONFIG, tmp_path / "s", single_file=True)
+    page = (tmp_path / "s" / "studio.html").read_text()
+    assert "window.__STUDIO_DATA = " in page and "Coursebook Studio" in page and single["size_mb"] > 0
+
+
+def test_app_api_lists_books_reports_progress_and_guards_paths(built, tmp_path):
+    import threading, urllib.request, urllib.error, shutil as _sh
+    from http.server import ThreadingHTTPServer
+    from coursebook.app.server import Handler
+    from coursebook.app.jobs import Library
+    root, _ = built
+    base = root.parent / (root.name + "_repo")
+    base.mkdir()
+    _sh.copytree(root, base / "data")
+    write(base / "config.json", {**CONFIG, "languages": ["en"], "llm": {"budget_usd": 10}})
+    Handler.library, Handler.worker = Library(base), None
+    server = ThreadingHTTPServer(("127.0.0.1", 0), Handler)
+    threading.Thread(target=server.serve_forever, daemon=True).start()
+    url = f"http://127.0.0.1:{server.server_address[1]}"
+    try:
+        books = json.loads(urllib.request.urlopen(url + "/api/books").read())
+        assert books[0]["id"] == "main" and books[0]["captured"] == 1
+        detail = json.loads(urllib.request.urlopen(url + "/api/books/main").read())
+        assert detail["outline"][0]["title"] == "Fixture chapter" and detail["counts"]["verify"] == 1
+        req = urllib.request.Request(url + "/api/books", data=b'{"playlist_url": "https://example.com/not-a-playlist"}', method="POST")
+        with pytest.raises(urllib.error.HTTPError) as bad:
+            urllib.request.urlopen(req)
+        assert bad.value.code == 400
+        with pytest.raises(urllib.error.HTTPError) as trav:
+            urllib.request.urlopen(url + "/books/main/web/../../config.json")
+        assert trav.value.code == 404
+        assert b"made into a <em>book</em>" in urllib.request.urlopen(url + "/").read()
+        assert urllib.request.urlopen(url + "/api/books/sample").status == 200
+        os.environ["COURSEBOOK_BUILD_CODE"] = "letmein"
+        assert json.loads(urllib.request.urlopen(url + "/api/books/config").read()) == {"build_code_required": True}
+        with pytest.raises(urllib.error.HTTPError) as locked:
+            urllib.request.urlopen(urllib.request.Request(url + "/api/books/main/approve", data=b"{}", method="POST"))
+        assert locked.value.code == 403
+        ok = urllib.request.Request(url + "/api/books/main/approve", data=b"{}", method="POST", headers={"X-Build-Code": "letmein"})
+        assert json.loads(urllib.request.urlopen(ok).read())["approved"] is True
+    finally:
+        os.environ.pop("COURSEBOOK_BUILD_CODE", None)
+        server.shutdown()
+
+
+def test_managed_identity_token_is_fetched_and_cached(monkeypatch):
+    from coursebook import llm
+    calls = []
+
+    class Reply:
+        def raise_for_status(self):
+            return self
+
+        def json(self):
+            return {"access_token": "tok", "expires_on": str(int(llm.time.time()) + 3600)}
+    monkeypatch.setattr(llm.httpx, "get", lambda *a, **k: calls.append(k["headers"]) or Reply())
+    monkeypatch.setenv("AZURE_OPENAI_AUTH", "managed-identity")
+    monkeypatch.setenv("AZURE_OPENAI_BASE_URL", "https://example.openai.azure.com/openai/v1")
+    settings = llm.settings_from_env()
+    assert settings["header"] == "Authorization" and str(settings["key"]) == "tok" == str(settings["key"])
+    assert calls == [{"Metadata": "true"}]
+
+
+def test_failed_checks_are_confirmed_by_judge():
+    from coursebook.stages.runcode import confirm_failures
+
+    class Judge:
+        def call_json(self, role, messages, *, input_id, **kw):
+            verdicts = {"a": {"same_quantity": False, "consistent": False},   # wrong axis: drop
+                        "b": {"same_quantity": True, "consistent": True},     # a bound the value meets: pass
+                        "c": {"same_quantity": True, "consistent": False}}    # real disagreement: keep failed
+            return {"parsed": {**verdicts[input_id], "reason": "r"}}
+
+    def check(cid, passed, value=1.0):
+        return {"check_id": cid, "passed": passed, "value": value, "expected": 2, "expression": "x", "sentence_text": "s 2"}
+    record = {"torch": "t", "listings": {"L": {"status": "ran", "checks": [
+        check("a", False), check("b", False), check("c", False), check("d", False, None), check("e", True)]}}}
+    out = confirm_failures(Judge(), record, {"L": {"code": "x = 1"}})
+    rows = {c["check_id"]: c["passed"] for c in out["listings"]["L"]["checks"]}
+    assert rows == {"b": True, "c": False, "e": True}
+    assert out["checks_discarded"] == 2
+
+
+def test_capture_names_why_each_lecture_is_missing(tmp_path, monkeypatch):
+    import youtube_transcript_api
+    from youtube_transcript_api._errors import TranscriptsDisabled
+    from coursebook.core import capture, normalize_manifest
+
+    class Api:
+        def fetch(self, video_id, languages):
+            raise TranscriptsDisabled(video_id)
+    monkeypatch.setattr(youtube_transcript_api, "YouTubeTranscriptApi", Api)
+    entries = normalize_manifest({"entries": [{"id": "pubVideo01", "title": "a"},
+                                              {"id": "memVideo02", "title": "b", "availability": "subscriber_only"},
+                                              None]})
+    write(tmp_path / "manifest.json", {"entries": entries})
+    reports = {r.get("video_id") or r["playlist_index"]: r for r in capture(tmp_path, {"languages": ["en"]}, 10)}
+    assert reports["memVideo02"]["reason"] == "members_only"
+    assert reports["pubVideo01"] == {"video_id": "pubVideo01", "playlist_index": 1, "status": "blocked",
+                                     "reason": "no_captions", "error_type": "TranscriptsDisabled"}
+    assert reports[3]["reason"] == "unavailable_video"
+
+
+def test_edition_declares_scope_without_hiding_other_gaps(tmp_path):
+    from coursebook.render import edition_scope
+    write(tmp_path / "capture_report.json", [{"video_id": "m1", "status": "blocked", "reason": "members_only"},
+                                             {"video_id": "x2", "status": "blocked", "reason": "no_captions"}])
+    missing = [{"video_id": "m1", "playlist_index": 3}, {"video_id": "x2", "playlist_index": 4}]
+    name, declared, undeclared = edition_scope(tmp_path, {"edition": {"name": "Public Lectures Edition",
+                                                                      "excluded_reasons": ["members_only"]}}, missing)
+    assert name == "Public Lectures Edition"
+    assert [e["video_id"] for e in declared] == ["m1"] and [e["video_id"] for e in undeclared] == ["x2"]
+    _, declared, undeclared = edition_scope(tmp_path, {}, missing)  # no edition: every gap still counts
+    assert declared == [] and len(undeclared) == 2
+
+
+def test_low_risk_recommendations_become_recorded_decisions_high_risk_wait(built):
+    from coursebook.review import open_items, sentence_hash, take_low_risk, load_decisions
+    from coursebook.triage import _recs_path, open_numeric
+    root, _ = built
+    unit_path = root / "stages" / "verify" / "ch01.s01.json"
+    record = read(unit_path)
+    first, second = record["output"]["paragraphs"][0]["sentences"][:2]
+    record["output"]["queue"] = [{"sentence_id": s["id"], "verdict": "partial", "confidence": 0.5, "reason": "test",
+                                  "text": s["text"], "cites": s["cites"], "status": "open"} for s in (first, second)]
+    write(unit_path, record)
+    write(_recs_path(root), {
+        first["id"]: {"kind": "queue", "decision": "edit", "text": "A narrower claim.", "reason": "r", "risk": "low",
+                      "sentence_hash": sentence_hash(first)},
+        second["id"]: {"kind": "queue", "decision": "remove", "reason": "r", "risk": "high",
+                       "sentence_hash": sentence_hash(second)}})
+    assert take_low_risk(root, "Reviewer", show=lambda *_: None) == 1
+    decisions = load_decisions(root)
+    assert decisions[first["id"]]["decision"] == "edit" and decisions[first["id"]]["reviewer"] == "Reviewer"
+    assert [i["sentence_id"] for i in open_items(root)] == [second["id"]]  # high risk stays for the human
+    assert open_numeric(root) == []
+
+
+def test_sweep_proposals_apply_only_while_the_sentence_is_unchanged(built):
+    from coursebook.review import sentence_hash, load_decisions
+    from coursebook.sweep import apply_fixes
+    root, _ = built
+    unit = read(root / "stages" / "verify" / "ch01.s01.json")["output"]
+    a, b = unit["paragraphs"][0]["sentences"][:2]
+    write(root / "reviews" / "sweep-recs.json", {
+        a["id"]: {"decision": "edit", "text": "Narrower.", "risk": "low", "evaluator": "supported", "sentence_hash": sentence_hash(a)},
+        b["id"]: {"decision": "remove", "risk": "high", "sentence_hash": "stale"}})
+    assert apply_fixes(root, "Reviewer") == 1
+    d = load_decisions(root)
+    assert d[a["id"]]["text"] == "Narrower." and d[a["id"]]["via"] == "book-wide evaluator sweep" and b["id"] not in d
+
+
+def test_sentence_decision_counts_after_a_conflict_edit(built):
+    from coursebook.review import queue_items, open_items, decide_conflict, decide, after_conflict, load_decisions
+    root, _ = built
+    unit_path = root / "stages" / "verify" / "ch01.s01.json"
+    record = read(unit_path)
+    s = record["output"]["paragraphs"][0]["sentences"][1]
+    record["output"]["queue"] = [{"sentence_id": s["id"], "verdict": "partial", "confidence": 0.5, "reason": "t",
+                                  "text": s["text"], "cites": s["cites"], "status": "open"}]
+    write(unit_path, record)
+    item = queue_items(root)[0]
+    decide_conflict(root, {"key": "conflict:" + s["id"], "sentence": s, "refs": [], "reason": "r"}, "edit", "R", text="Edited once.")
+    later = after_conflict(s, load_decisions(root))
+    decide(root, {"sentence_id": s["id"], "sentence": later}, "edit", "R", "Edited twice.")
+    assert open_items(root) == []

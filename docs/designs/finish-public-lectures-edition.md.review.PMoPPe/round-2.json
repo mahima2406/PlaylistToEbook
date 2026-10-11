@@ -1,0 +1,108 @@
+{
+  "version": 2,
+  "round": 2,
+  "document": "/Users/mahimaarora/Projects/coursebook/docs/designs/finish-public-lectures-edition.md",
+  "quality_score": 7,
+  "dimensions": {
+    "completeness": "ISSUES",
+    "consistency": "ISSUES",
+    "clarity": "ISSUES",
+    "scope": "PASS",
+    "feasibility": "ISSUES"
+  },
+  "findings": [
+    {
+      "id": "R2-1",
+      "dimension": "completeness",
+      "severity": "blocking",
+      "changed_text": "3. If it isn't supported, it goes to the review queue.",
+      "problem": "The rule for every text change sends unsupported new or edited sentences to the review queue, but the only Mahima review session (Next Steps 3) comes before the evaluator re-run, the second evaluator pass and the PDF-read fixes (Next Steps 4). Any sentence those later steps send to the queue has no scheduled reviewer, so either '0 open review-queue items' fails or the items get cleared without her, which contradicts 'Mahima decides everything'.",
+      "remedy": "Add a short follow-up Mahima review pass after the last text change (after Next Steps 4, before export), or state that later fixes may only remove sentences or apply supported edits, with anything queued going to that follow-up pass. Measure the queue count after it."
+    },
+    {
+      "id": "R2-2",
+      "dimension": "consistency",
+      "severity": "blocking",
+      "changed_text": "Every count in the Success Criteria is measured after the last text change",
+      "problem": "The document says every count is measured after the last text change, and the trust receipt and README read the final `evaluation_report.json`. In Next Steps 4, though, the evaluator runs before the full PDF read and its fixes, which change text. The evaluator numbers on the receipt, the README and the release-gate decision therefore describe an earlier text than the one shipped. The budget allows only 2 evaluator runs, both used in step 4.",
+      "remedy": "Either re-run the evaluator (and plants/numeric checks as needed) after the PDF-read fixes and budget that run, or restrict PDF-read fixes to layout and non-text changes. Any text fix would then trigger a re-run before the final render."
+    },
+    {
+      "id": "R2-3",
+      "dimension": "consistency",
+      "severity": "blocking",
+      "changed_text": "Book 2 is dropped if the main book's steps 1–8 aren't done with a day to spare.",
+      "problem": "The drop rule requires the main book's steps 1–8 to be done before Book 2. Step 8 is the fresh-clone proof, but Next Steps schedule Book 2 (step 5) before the push and the fresh-clone proof (Next Steps 6–7). As written, the rule can never let Book 2 run in its scheduled slot. It is also unclear whether building Book 2 after the proof would change the certified commit.",
+      "remedy": "Make the order and cut-off agree. Either Book 2 runs after the fresh-clone proof, with its artifacts going only into the release (not the certified commit), or the drop rule refers to steps 1–7 (through export) and the proof runs after Book 2."
+    },
+    {
+      "id": "R2-4",
+      "dimension": "feasibility",
+      "severity": "blocking",
+      "changed_text": "It passes the automatic gates (judge, plants, evaluator), and Mahima's review is skipped.",
+      "problem": "Book 2 is run 'with no code changes', skips Mahima's review, and gets a 'Pipeline demonstration (unreviewed)' label on its title page. The pipeline's release gate (`draft_reasons`) counts an unapproved outline and open review-queue items, and may require outline approval before generation. The document never says how Book 2 gets past outline approval, how the gate treats its open queue (it will presumably stamp DRAFT), how the custom label reaches the title page without code changes, or what happens if its evaluator targets miss ('passes the automatic gates' is stated as a fact, not a condition).",
+      "remedy": "Specify the mechanism. For example: outline auto-approved via a recorded command by Mahima; the label set through `edition.name` in Book 2's config; the DRAFT stamp kept or replaced by the label. State the rule for an evaluator miss (ship it labelled with the measured numbers, or drop it)."
+    },
+    {
+      "id": "R2-5",
+      "dimension": "clarity",
+      "severity": "minor",
+      "changed_text": "creates a GitHub release with",
+      "problem": "The fresh-clone proof certifies a `release-candidate` SHA, then Mahima merges it. A non-fast-forward merge creates a new SHA, so the released commit may not be the certified one, and Next Steps 8 doesn't say whether a merge counts as 'anything changed'.",
+      "remedy": "Require a fast-forward merge, or tag and release the certified SHA directly. Name that SHA in the release notes."
+    },
+    {
+      "id": "R2-6",
+      "dimension": "feasibility",
+      "severity": "minor",
+      "changed_text": "soften the text to \"around 11\"",
+      "problem": "The sentence cites the lecture, where the lecturer gave 'a value such as 10'. Rewriting it to 'around 11' makes the cited caption say something different from the text. The judge may then mark it unsupported, which would send it back to the queue.",
+      "remedy": "Phrase the edit so it stays faithful to the caption and the code. For example, keep the lecturer's illustrative 10 and add that the executed code gives about 11. Or confirm that the re-judge passes before proposing it."
+    },
+    {
+      "id": "R2-7",
+      "dimension": "completeness",
+      "severity": "minor",
+      "changed_text": "Mahima reviews the new queue, roughly 1–2 h more.",
+      "problem": "The full-coverage branch omits re-approving the outline (21 new lectures change the chapter plan), new reference conflicts and numeric checks for the new lectures, and the fresh-clone proof on the new commit. 'Then steps 5–10' covers the proof only implicitly.",
+      "remedy": "List outline re-approval and the conflict and numeric-check pass in the branch, and confirm it re-runs steps 7–8 on a new release-candidate commit."
+    },
+    {
+      "id": "R2-8",
+      "dimension": "completeness",
+      "severity": "minor",
+      "changed_text": "A test checks the report and the export for them.",
+      "problem": "The requirement covers the capture report, logs, `book-data/` and the repo, but the test only checks the report and the export. Logs, which are the likeliest place for yt-dlp to echo authenticated URLs, are unchecked.",
+      "remedy": "Extend the test to captured log output, or state that capture logs are not persisted or committed."
+    },
+    {
+      "id": "R2-9",
+      "dimension": "consistency",
+      "severity": "minor",
+      "changed_text": "this is the only option where every number in the note can be green",
+      "problem": "The rationale for B assumes every number can be green, but step 4 and the Success Criteria now allow B to ship with DRAFT and a reported evaluator miss.",
+      "remedy": "Reword it to say B gives the best chance of all-green numbers and reports honestly when one misses."
+    }
+  ],
+  "prior": [
+    {"id": "R1-1", "status": "resolved", "evidence": "Recommended step 8 and Next Steps 6-8: the fresh-clone proof runs on the pushed release-candidate commit, names its SHA, and repeats if anything changes.", "current_id": null},
+    {"id": "R1-2", "status": "resolved", "evidence": "Premise 3 and step 7: the package is committed in the repo at book-data/ through `coursebook export --to book-data`, and step 8 uses `--package book-data`.", "current_id": null},
+    {"id": "R1-3", "status": "resolved", "evidence": "The step 8 pass condition defines file hashes against PACKAGE.json, sha256 source fingerprints, and PDF page count plus extracted text, and explicitly does not compare PDF bytes.", "current_id": null},
+    {"id": "R1-4", "status": "resolved", "evidence": "The revised premise and step 4: evaluator results feed draft_reasons, and a miss keeps DRAFT with the measured number shown, with no override. Success Criteria match.", "current_id": null},
+    {"id": "R1-5", "status": "persisting", "evidence": "The rule for every text change now re-cites and re-judges edits, but unsupported sentences produced in Next Steps 4 reach the queue after Mahima's only review session (Next Steps 3), so the zero queue count after the last text change is still not ensured.", "current_id": "R2-1"},
+    {"id": "R1-6", "status": "resolved", "evidence": "Step 3: numeric fixes are proposed by Claude and accepted or overridden by Mahima. Next Steps no longer have Claude applying them directly.", "current_id": null},
+    {"id": "R1-7", "status": "resolved", "evidence": "Step 3: the third disagreement is resolved by a text edit Mahima accepts, and nothing is suppressed in the checker. Success Criteria record this.", "current_id": null},
+    {"id": "R1-8", "status": "resolved", "evidence": "Step 5: a deterministic pick of the first sentence with a supported verdict at confidence >= 0.9 and a passing code check.", "current_id": null},
+    {"id": "R1-9", "status": "persisting", "evidence": "Receipt and README numbers are now generated from the final artifacts, but the final evaluator run (Next Steps 4) comes before the PDF-read text fixes, so the evaluator figures are not re-measured after the last text change.", "current_id": "R2-2"},
+    {"id": "R1-10", "status": "resolved", "evidence": "Step 9 and Next Steps 5: Book 2 is built before sending, with a 2 h / $8 timebox and a drop rule. The new order-versus-cut-off conflict is tracked separately as R2-3.", "current_id": null},
+    {"id": "R1-11", "status": "resolved", "evidence": "Step 9: Book 2 ships labelled 'Pipeline demonstration (unreviewed)' on its title page and in the release notes, and never replaces the main claim. The gate mechanics are tracked as R2-4.", "current_id": null},
+    {"id": "R1-12", "status": "resolved", "evidence": "Step 1 generates labels and counts from config.json plus the capture report. The full-coverage branch lists capture, rerun, review, evaluator, steps 5-10 and a $60 budget.", "current_id": null},
+    {"id": "R1-13", "status": "resolved", "evidence": "Step 3: re-estimated at about 2 h, with batch acceptance after 3 spot checks per low-risk group.", "current_id": null},
+    {"id": "R1-14", "status": "resolved", "evidence": "The Budget line breaks down per-step costs (about $15-20) and adds a stop rule at $25.", "current_id": null},
+    {"id": "R1-15", "status": "resolved", "evidence": "Step 2: cookie values, paths and authenticated URLs are never persisted, and a test checks the report and export. A log-coverage gap remains as minor R2-8.", "current_id": null},
+    {"id": "R1-16", "status": "resolved", "evidence": "The Distribution Plan states CI exists (test on every push, rebuild/pdf once PACKAGE.json is committed), that rebuild/pdf have not run yet, and that both must be green on the submitted commit.", "current_id": null},
+    {"id": "R1-17", "status": "resolved", "evidence": "Distribution Plan: the live app is omitted, and the deploy status is stated as half done and frozen.", "current_id": null},
+    {"id": "R1-18", "status": "resolved", "evidence": "Approaches Considered now lists B as chosen, with a summary and rationale.", "current_id": null},
+    {"id": "R1-19", "status": "resolved", "evidence": "Distribution Plan names the published claude.ai architecture artifact, says it already exists, and says its URL comes from the artifact list.", "current_id": null}
+  ]
+}

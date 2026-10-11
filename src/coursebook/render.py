@@ -13,9 +13,12 @@ lecture time ranges it draws on, linked to the video.
 """
 import hashlib
 import json
+import re
 import shutil
 import subprocess
 from pathlib import Path
+from .stages.runcode import load_code_run
+from .triage import open_numeric
 from . import runner
 from .core import read, write
 from .stages.outline import approval_is_current
@@ -122,6 +125,26 @@ def _rate(verdicts):
     return round(sum(v["verdict"] == "supported" for v in verdicts) / len(verdicts), 4) if verdicts else None
 
 
+def edition_scope(root, config, missing):
+    """Split uncaptured lectures into those the edition declares out of scope and those it doesn't.
+
+    config["edition"] = {"name": ..., "excluded_reasons": ["members_only"], "lectures_excluded": [3, 5]}
+    A lecture is declared out of scope when its capture reason or its playlist number is listed.
+    Lectures captured later simply stop being missing, so the same config serves a full rebuild."""
+    edition = config.get("edition") or {}
+    report = read(Path(root) / "capture_report.json") if (Path(root) / "capture_report.json").exists() else []
+    reasons = {r.get("video_id"): r.get("reason") for r in report}
+    declared, undeclared = [], []
+    for e in missing:
+        reason = reasons.get(e["video_id"]) or ("members_only" if e.get("availability") == "subscriber_only" else None)
+        item = {**e, "reason": reason}
+        if reason in edition.get("excluded_reasons", []) or e["playlist_index"] in edition.get("lectures_excluded", []):
+            declared.append(item)
+        else:
+            undeclared.append(item)
+    return edition.get("name"), declared, undeclared
+
+
 def draft_reasons(root, m, missing_lectures):
     reasons = []
     if not approval_is_current(root):
@@ -129,7 +152,8 @@ def draft_reasons(root, m, missing_lectures):
     if m["review_queue_open"]:
         reasons.append(f"{m['review_queue_open']} sentences are waiting in the review queue")
     if (m.get("code_run") or {}).get("checks_failed"):
-        reasons.append(f"{m['code_run']['checks_failed']} numbers in the text disagree with running the code")
+        reasons.append(f"{m['code_run']['checks_failed']} numeric checks disagree with the running code "
+                       "(either the check or the text is wrong; the reviewer decides)")
     if m.get("reference_conflicts_open"):
         reasons.append(f"{m['reference_conflicts_open']} conflicts with the reference are waiting for the reviewer")
     if m["plants_planted"] == 0:
@@ -297,7 +321,7 @@ def build_book(root, config, destination):
                 for c in outline["chapters"] for s in c["sections"]}
     crosschecks = [runner.load(root, "crosscheck", s["id"]) for c in outline["chapters"] for s in c["sections"]]
     crosschecks = [c for c in crosschecks if c]
-    runcode = runner.load(root, "runcode", "book")
+    runcode = load_code_run(root)
     frames_summary = runner.load(root, "frames_summary", "book")
     boards = {}
     for f in (frames_summary or {}).get("frames", []):
@@ -313,6 +337,7 @@ def build_book(root, config, destination):
              for x in runner.load(root, "segment", v)["lines"]}
     covered = set(outline["lectures"])
     missing = [e for e in manifest["entries"] if e["video_id"] not in covered]
+    edition_name, declared_out, missing = edition_scope(root, config, missing)
     m = metrics(units, plants, extracts, outline, diagrams)
     evaluation = runner.load(root, "evaluation", "book")
     if evaluation:
@@ -334,11 +359,19 @@ def build_book(root, config, destination):
         all_checks = [c for r in runs for c in r["checks"]]
         m["code_run"] = {"listings_ran": sum(r["status"] == "ran" for r in runs), "listings": len(runcode["listings"]),
                          "checks_passed": sum(c["passed"] is True for c in all_checks),
-                         "checks_failed": sum(c["passed"] is False for c in all_checks), "torch": runcode["torch"]}
+                         "checks_failed": sum(len(i["checks"]) for i in open_numeric(root)),
+                         "checks_resolved_by_reviewer": sum(c["passed"] is False for c in all_checks)
+                                                        - sum(len(i["checks"]) for i in open_numeric(root)),
+                         "checks_discarded": runcode.get("checks_discarded", 0), "torch": runcode["torch"]}
     m["review_decisions"] = {d: sum(1 for i in queued if decisions.get(i["sentence_id"], {}).get("decision") == d)
                              for d in ("accept", "edit", "remove")}
     reasons = draft_reasons(root, m, missing)
     status = "DRAFT" if reasons else "REVIEWED RELEASE"
+    m["edition"] = {"name": edition_name, "lectures_covered": len(covered), "lectures_total": len(manifest["entries"]),
+                    "declared_out_of_scope": [{"lecture": label.get(e["video_id"], f"#{e['playlist_index']}"),
+                                               "reason": e["reason"]} for e in declared_out]}
+    subtitle = " · ".join(x for x in [edition_name and f"{edition_name}: {len(covered)} of {len(manifest['entries'])} lectures",
+                                      reasons and status.title()] if x) or None
 
     book = destination / "book"
     for web in (False, True):
@@ -357,7 +390,7 @@ def build_book(root, config, destination):
                                                    listings, config.get("reference_pack"), web=web,
                                                    runs=(runcode or {}).get("listings"), boards=boards))
             chapter_files.append(name)
-        (project / "index.qmd").write_text(front_matter(config, manifest, outline, m, reasons, status, missing, label))
+        (project / "index.qmd").write_text(front_matter(config, manifest, outline, m, reasons, status, missing, label, declared_out))
         (project / "sources.qmd").write_text(sources_appendix(manifest, outline, extracts, label, units, lines,
                                                               project / "figures", web=web))
         (project / "report.qmd").write_text(report_appendix(m, reasons, status))
@@ -367,7 +400,8 @@ def build_book(root, config, destination):
                    {"pdf": {"documentclass": "scrbook", "classoption": ["oneside", "numbers=noendperiod"], "papersize": "a4",
                             "toc": True, "number-sections": True, "colorlinks": True, "fontsize": "11pt", "fig-width": 5.5}})
         yml = {"project": {"type": "book", "output-dir": "_book"},
-               "book": {"title": config["title"], "subtitle": status.title() if reasons else None,
+               "book": {"title": config["title"], "subtitle": subtitle, "author": config.get("author"),
+                        "date": config.get("date"),
                         "chapters": ["index.qmd", *chapter_files], "appendices": ["sources.qmd", "report.qmd"]},
                "format": formats}
         yml["book"] = {k: v for k, v in yml["book"].items() if v is not None}
@@ -429,7 +463,8 @@ def render(root, config, destination="output", html=True):
             ("words", "support_rate_final", "review_queue_open", "plants_caught", "plants_planted")}}
 
 
-def front_matter(config, manifest, outline, m, reasons, status, missing, label):
+def front_matter(config, manifest, outline, m, reasons, status, missing, label, declared_out=()):
+    from .core import REASON_TEXT
     covered = ", ".join(sorted(label[v] for v in outline["lectures"]))
     lines = ["# About this book {.unnumbered}", "",
              f"This book is generated from the lecture playlist [{md(manifest.get('title') or 'source playlist')}]"
@@ -445,14 +480,30 @@ def front_matter(config, manifest, outline, m, reasons, status, missing, label):
              f"were judged supported by their cited captions; the checker caught {m['plants_caught']} of "
              f"{m['plants_planted']} deliberately planted false sentences. "
              "This is a measured rate, not a guarantee of zero errors; see the evaluation report appendix.", ""]
+    em = m.get("evaluator_metrics") or {}
+    if em.get("independent_support") is not None:
+        lines[-1:-1] = ["", (
+            f"An independent evaluator, using a different model and never seeing the checker's verdicts, then judged "
+            f"{em['grounding_sample']} randomly sampled sentences"
+            + (f" {em['grounding_votes']} times each" if em.get("grounding_votes", 1) > 1 else "")
+            + f": {em['independent_support']:.1%} were supported by their captions, with "
+            f"{em['material_errors_per_100']:g} material errors per 100 sentences. "
+            f"Every sentence flagged along the way was decided by a human reviewer.")]
     if reasons:
         lines += [f"## Status: {status} {{.unnumbered}}", "", "This edition is a draft because:", ""]
         lines += [f"- {md(r)}" for r in reasons] + [""]
-    if missing:
-        lines += ["## Lectures not covered {.unnumbered}", "",
-                  "These playlist lectures are not part of this edition (for example, members-only videos "
-                  "whose captions are not publicly available):", "",
-                  ", ".join(label.get(e["video_id"], f"#{e['playlist_index']}") for e in missing), ""]
+    edition = (config.get("edition") or {}).get("name")
+    if edition:
+        lines[4:4] = [f"This is the **{md(edition)}**: it covers {len(outline['lectures'])} of the playlist's "
+                      f"{len(manifest['entries'])} lectures. The others are listed below with the reason each "
+                      "one could not be used; nothing in the book is written from them.", ""]
+    out = list(declared_out) + list(missing)
+    if out:
+        by_reason = {}
+        for e in out:
+            by_reason.setdefault(e.get("reason") or "capture_failed", []).append(label.get(e["video_id"], f"#{e['playlist_index']}"))
+        lines += ["## Lectures not covered {.unnumbered}", ""]
+        lines += [f"- {REASON_TEXT.get(r, r.replace('_', ' '))}: {', '.join(v)}" for r, v in by_reason.items()] + [""]
     return "\n".join(lines)
 
 
@@ -514,9 +565,18 @@ def sources_appendix(manifest, outline, extracts, label, units, lines, figures_d
         lines_md += ["## Points not included", "", "Teaching points the outline left out, with the editor's reason:", ""]
         points = {p["id"]: p for e in extracts.values() for p in e["points"]}
         for d in outline["dropped"]:
-            lines_md.append(f"- {md(points[d['point_id']]['text'])} *({md(d['reason'])})*")
+            lines_md.append(f"- {md(points[d['point_id']]['text'])} *({md(reader_reason(d['reason']))})*")
         lines_md.append("")
     return "\n".join(lines_md)
+
+
+POINT_REFS = re.compile(r"(?:points? (?:such as )?)?\bP\d+(?:\s*[-–]\s*P\d+)?(?:(?:,\s*and\s+|,\s*|\s+and\s+)P\d+(?:\s*[-–]\s*P\d+)?)*")
+
+
+def reader_reason(reason):
+    """The outline's internal point IDs (P42, P141-P145) mean nothing to a reader."""
+    text = POINT_REFS.sub("points covered elsewhere in the book", reason)
+    return re.sub(r"(covered elsewhere in the book)(?:,? (?:and )?points covered elsewhere in the book)+", r"\1", text)
 
 
 def report_appendix(m, reasons, status):
@@ -544,6 +604,12 @@ def report_appendix(m, reasons, status):
               f"{m['code_run']['checks_passed']} passed, {m['code_run']['checks_failed']} failed")
              if m.get("code_run") else "not run"),
             ("Evaluator agent", m.get("evaluator", "not run"))]
+    em = m.get("evaluator_metrics") or {}
+    if em.get("grounding_votes", 1) > 1:
+        rows.append(("Evaluator method", f"{em['grounding_sample']} sampled sentences, each judged {em['grounding_votes']} times "
+                     f"(majority counts; the runs disagreed on {em['grounding_self_disagreement']:.0%} of them). "
+                     f"Core ideas are searched across the whole book; missed near the sampled clip alone: "
+                     f"{em.get('core_ideas_missed_near_clip', 0):.1%}"))
     out = ["# Evaluation report", "", f"Status: **{status}**.", "", "| Measure | Value |", "|---|---|"]
     out += [f"| {a} | {b} |" for a, b in rows]
     out += ["", "## Planted claims by type", "", "| Type | Caught / planted |", "|---|---|"]

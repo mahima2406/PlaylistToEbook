@@ -47,9 +47,19 @@ def queue_items(root):
     return items
 
 
+def after_conflict(sentence, decisions):
+    """The sentence as apply_decisions sees it when its sentence-level decision is checked
+    (a reviewer's conflict edit is applied first)."""
+    conflict = decisions.get("conflict:" + sentence["id"])
+    if conflict and conflict["sentence_hash"] == sentence_hash(sentence) and conflict["decision"] == "edit":
+        return {**sentence, "text": conflict["text"], "reviewed": True}
+    return sentence
+
+
 def is_decided(item, decisions):
     decision = decisions.get(item["sentence_id"])
-    return bool(decision) and decision["sentence_hash"] == sentence_hash(item["sentence"])
+    return bool(decision) and decision["sentence_hash"] in (sentence_hash(item["sentence"]),
+                                                            sentence_hash(after_conflict(item["sentence"], decisions)))
 
 
 def open_items(root):
@@ -149,12 +159,37 @@ def caption_lines(root, outline, config, sentence):
     return [index.lines[c] for c in sentence["cites"] if c in index.lines]
 
 
-def interactive(root, config, gateway, reviewer, ask=input, show=print):
-    """Walk through open items one by one. Returns the number of decisions made."""
+def _show_rec(show, rec):
+    if not rec:
+        return
+    extra = (f' -> "{rec["text"]}"' if rec.get("text") else "") + (f' (note: "{rec["note"]}")' if rec.get("note") else "")
+    check = f'  [checker on it: {rec["check"]["verdict"]} {rec["check"]["confidence"]:.2f}]' if rec.get("check") else ""
+    show(f"\nRECOMMENDED ({rec['risk']} risk): {rec['decision'].upper()}{extra}{check}\n  why: {rec['reason']}")
+
+
+def take_low_risk(root, reviewer, show=print):
+    """Apply every current low-risk recommendation as the reviewer's decision. Returns how many."""
+    from .triage import all_open, apply_recommendation, current_recommendation, load_recommendations
+    recs, made = load_recommendations(root), 0
+    for item in all_open(root):
+        rec = current_recommendation(recs, item)
+        if rec and rec["risk"] == "low":
+            apply_recommendation(root, item, rec, reviewer)
+            made += 1
+    show(f"Took {made} low-risk recommendations as {reviewer}'s decisions; {len(all_open(root))} items still open.")
+    return made
+
+
+def interactive(root, config, gateway, reviewer, ask=input, show=print, only_high=False):
+    """Walk through open items one by one (Enter takes the recommendation). Returns the number of decisions made."""
     from .stages.verify import passes
+    from .triage import apply_recommendation, current_recommendation, load_recommendations, open_numeric
+    recs = load_recommendations(root)
     outline = runner.load(root, "outline", "book")
     items = open_items(root)
-    if not items and not open_conflicts(root):
+    if only_high:
+        items = [i for i in items if (current_recommendation(recs, i) or {}).get("risk") != "low"]
+    if not items and not open_conflicts(root) and not open_numeric(root):
         show("Review queue is empty.")
         return 0
     cutoff = config.get("verify", {}).get("confidence_cutoff", 0.7)
@@ -175,13 +210,17 @@ def interactive(root, config, gateway, reviewer, ask=input, show=print):
             for line in lines:
                 show(f"  {int(line['start']) // 60}:{int(line['start']) % 60:02d}  {line['text']}")
             show(f"  video: https://www.youtube.com/watch?v={lines[0]['video_id']}&t={int(lines[0]['start'])}s")
+        rec = current_recommendation(recs, item)
+        _show_rec(show, rec)
         while True:
-            choice = ask("\n[a]ccept  [e]dit  [r]emove  [s]kip  [q]uit > ").strip().lower()[:1]
+            choice = ask(f"\n{'[Enter] take recommendation  ' if rec else ''}[a]ccept  [e]dit  [r]emove  [s]kip  [q]uit > ").strip().lower()[:1]
             if choice == "q":
                 return made
             if choice == "s":
                 break
-            if choice == "a":
+            if choice == "" and rec:
+                apply_recommendation(root, item, rec, reviewer)
+            elif choice == "a":
                 decide(root, item, "accept", reviewer)
             elif choice == "r":
                 decide(root, item, "remove", reviewer)
@@ -198,18 +237,25 @@ def interactive(root, config, gateway, reviewer, ask=input, show=print):
                 continue
             made += 1
             break
-    for n, item in enumerate(open_conflicts(root), 1):
+    conflicts = open_conflicts(root)
+    if only_high:
+        conflicts = [c for c in conflicts if (current_recommendation(recs, c) or {}).get("risk") != "low"]
+    for n, item in enumerate(conflicts, 1):
         show("\n" + "=" * 78)
-        show(f"[conflict {n}] {item['sentence_id']}: the reference disagrees")
+        show(f"[conflict {n}/{len(conflicts)}] {item['sentence_id']}: the reference disagrees")
         show(f"\nBOOK SAYS: {item['sentence']['text']}\n\nWHY IT CONFLICTS: {item['reason']}")
         show("\nREFERENCE: " + ", ".join(item["refs"]))
+        rec = current_recommendation(recs, item)
+        _show_rec(show, rec)
         while True:
-            choice = ask("\n[k]eep lecture  [n]ote both  [e]dit  [s]kip  [q]uit > ").strip().lower()[:1]
+            choice = ask(f"\n{'[Enter] take recommendation  ' if rec else ''}[k]eep lecture  [n]ote both  [e]dit  [s]kip  [q]uit > ").strip().lower()[:1]
             if choice == "q":
                 return made
             if choice == "s":
                 break
-            if choice == "k":
+            if choice == "" and rec:
+                apply_recommendation(root, item, rec, reviewer)
+            elif choice == "k":
                 decide_conflict(root, item, "keep", reviewer)
             elif choice == "n":
                 note = ask("Note to print (Enter = checker's reason): ").strip()
@@ -223,6 +269,37 @@ def interactive(root, config, gateway, reviewer, ask=input, show=print):
                 continue
             made += 1
             break
-    remaining = len(open_items(root)) + len(open_conflicts(root))
+    from .triage import decide_numeric
+    for n, item in enumerate(open_numeric(root), 1):
+        show("\n" + "=" * 78)
+        show(f"[number {n}] {item['sentence_id']}: the text disagrees with the executed reference code")
+        show(f"\nBOOK SAYS: {item['sentence']['text']}")
+        for c in item["checks"]:
+            show(f"  code: {c['expression']} = {c['value']:g}   (text says {c['expected']:g})")
+        rec = current_recommendation(recs, item)
+        _show_rec(show, rec)
+        while True:
+            choice = ask(f"\n{'[Enter] take recommendation  ' if rec else ''}[e]dit  [d]ismiss check  [s]kip  [q]uit > ").strip().lower()[:1]
+            if choice == "q":
+                return made
+            if choice == "s":
+                break
+            if choice == "" and rec:
+                apply_recommendation(root, item, rec, reviewer)
+            elif choice == "e":
+                text = ask("New sentence: ").strip()
+                if not text:
+                    continue
+                decide_numeric(root, item, "edit", reviewer, text, recheck(gateway, root, outline, config, item, text))
+            elif choice == "d":
+                reason = ask("Why the check does not apply: ").strip()
+                if not reason:
+                    continue
+                decide_numeric(root, item, "dismiss", reviewer, reason=reason)
+            else:
+                continue
+            made += 1
+            break
+    remaining = len(open_items(root)) + len(open_conflicts(root)) + len(open_numeric(root))
     show(f"\nDone: {made} decisions; {remaining} still open.")
     return made

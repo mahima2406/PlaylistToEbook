@@ -1,0 +1,168 @@
+{
+  "version": 2,
+  "round": 1,
+  "document": "/Users/mahimaarora/Projects/coursebook/docs/designs/finish-public-lectures-edition.md",
+  "quality_score": 6,
+  "dimensions": {
+    "completeness": "ISSUES",
+    "consistency": "ISSUES",
+    "clarity": "ISSUES",
+    "scope": "ISSUES",
+    "feasibility": "ISSUES"
+  },
+  "findings": [
+    {
+      "id": "R1-1",
+      "dimension": "feasibility",
+      "severity": "blocking",
+      "changed_text": null,
+      "problem": "The fresh-clone proof (Next Steps 5) runs before Mahima commits and pushes (Next Steps 6). A clone taken then contains none of this plan's changes (edition config, gate change, cookies flag, fixed text, trust receipt), so it cannot prove that the submitted repo rebuilds the submitted book.",
+      "remedy": "Reorder so the fresh-clone proof runs against the pushed commit (or a pushed release-candidate branch/tag) after Mahima pushes, and re-run it if anything changes before sending. State which commit or tag the proof certifies."
+    },
+    {
+      "id": "R1-2",
+      "dimension": "completeness",
+      "severity": "blocking",
+      "changed_text": null,
+      "problem": "Premise 3 and Recommended step 7 rebuild 'from the shipped book-data package' on a fresh clone, but the document never says where a cloner gets that package. Step 8 attaches it only to a GitHub release, which Mahima creates in Next Steps 6, after the fresh-clone proof in step 5. Whether the package is committed in the repo or downloaded from the release, and what command fetches it, is undefined.",
+      "remedy": "Decide where the package lives (committed path, or a release asset with a documented download command and checksum), and make the README path and the fresh-clone proof use exactly that source."
+    },
+    {
+      "id": "R1-3",
+      "dimension": "feasibility",
+      "severity": "blocking",
+      "changed_text": null,
+      "problem": "Step 7 says to 'confirm the manuscript and PDF match', and Success Criteria require that `verify-package` reports a match. Rebuilt PDFs are usually not byte-identical, because of timestamps, document IDs and font subsetting. The comparison method for the PDF is undefined, so this criterion may be unachievable or may get quietly weakened.",
+      "remedy": "Define the match: for example, a manuscript source hash plus `verify-package`, and for the PDF either a deterministic build (fixed SOURCE_DATE_EPOCH or metadata) with a byte hash, or an extracted-text/page-count comparison. Name which one is the pass condition."
+    },
+    {
+      "id": "R1-4",
+      "dimension": "consistency",
+      "severity": "blocking",
+      "changed_text": null,
+      "problem": "The revised premise says the edition passes 'every other gate', and Success Criteria say no DRAFT stamp appears and the release gate passes. Step 4 allows shipping with an evaluator target still missed. The document never says whether evaluator results are part of `draft_reasons`. If they are, an honest miss keeps the DRAFT stamp. If they are not, 'passing every other gate' overstates the edition.",
+      "remedy": "State whether evaluator targets feed the release gate. If they do, specify how a reported miss is handled (for example, a declared known-limit that the gate accepts, shown on the trust receipt). If they don't, reword the premise."
+    },
+    {
+      "id": "R1-5",
+      "dimension": "completeness",
+      "severity": "blocking",
+      "changed_text": null,
+      "problem": "Several steps change the book text after the review queue is cleared or alongside it: evaluator-driven fixes, the targeted pass that adds missed core ideas, re-evaluation fixes and PDF-read fixes. The document never says that new or edited sentences go back through citation, the second-model check and Mahima's review. Without that, newly generated text can bypass the no-hallucination guarantee, and '0 open review-queue items' could be measured on a stale state.",
+      "remedy": "Require every new or edited factual sentence to be re-cited, re-judged and routed to the review queue (or to an explicit Mahima approval), and measure the Success Criteria zero-counts after the last text change before render."
+    },
+    {
+      "id": "R1-6",
+      "dimension": "consistency",
+      "severity": "blocking",
+      "changed_text": null,
+      "problem": "Recommended step 3 puts the 3 numeric disagreements into Mahima's review and says 'Nothing is auto-accepted without her'. Next Steps 2 has Claude 'Fix the numeric errors' before her review session. These assign the decision to different people.",
+      "remedy": "Pick one. Either Claude prepares the numeric fixes as recommendations that Mahima accepts in the review session, or Claude applies them directly as an explicit exception, recorded with its evidence."
+    },
+    {
+      "id": "R1-7",
+      "dimension": "completeness",
+      "severity": "blocking",
+      "changed_text": null,
+      "problem": "The Problem Statement says 3 numbers disagree with the code but only two are real errors. Success Criteria require 0 failing numeric checks. The document never says how the third disagreement (presumably a checker or extraction problem) is resolved: fix the check, add a tolerance, or exclude it with a reason.",
+      "remedy": "Specify the resolution for the third disagreement and how it is recorded, so that '0 failing numeric checks' is achieved without silently suppressing a check."
+    },
+    {
+      "id": "R1-8",
+      "dimension": "feasibility",
+      "severity": "blocking",
+      "changed_text": null,
+      "problem": "The trust receipt picks its sentence 'by the same rule as the app's `/api/books/sample`' and promises to show 'the code check that confirms it'. Only 69 numbers were code-confirmed, so a sentence picked by a general sample rule will usually have no code check, and the page cannot be built as described.",
+      "remedy": "Define the selection rule for the receipt: for example, a deterministic pick among sentences that have a supported verdict and a passing code check. Alternatively, drop the code-check element when the chosen sentence has none."
+    },
+    {
+      "id": "R1-9",
+      "dimension": "completeness",
+      "severity": "blocking",
+      "changed_text": null,
+      "problem": "The trust receipt and the README results table quote 'honest numbers' (22/43, 106/120 planted errors caught, support %, core-ideas missed). Steps 3, 4 and 6 change the text after those numbers were measured, so hand-copied figures risk being stale or wrong on the very page that claims auditability.",
+      "remedy": "Require the receipt and README numbers to be generated from the final run's artifacts (or re-measured after the last text change), and state which runs the 106/120 and evaluator figures come from."
+    },
+    {
+      "id": "R1-10",
+      "dimension": "consistency",
+      "severity": "blocking",
+      "changed_text": null,
+      "problem": "Recommended step 9 and the Distribution Plan put Book 2 in the release, and Success Criteria list it, but Next Steps 6 sends the submission before Next Steps 7 builds Book 2. Either the release is modified after the CEO has the note, or Book 2 never ships. The cut-off is also not defined beyond 'deadline unknown'.",
+      "remedy": "Decide the order. Either Book 2 is built before the release and send, with a timebox and a drop rule, or it is explicitly a post-submission follow-up with its own short note. Make Next Steps, Recommended step 9 and Distribution agree."
+    },
+    {
+      "id": "R1-11",
+      "dimension": "completeness",
+      "severity": "blocking",
+      "changed_text": null,
+      "problem": "Book 2 is described as run 'through the unchanged pipeline', but the pipeline requires outline approval, a review queue, the release gate and evaluator targets. The document never says whether Book 2 must pass the same gates (and take more of Mahima's review time and budget) or ship labelled as a DRAFT/unreviewed demonstration. Shipping an ungated book next to the flagship would undercut the no-hallucination claim.",
+      "remedy": "State the bar for Book 2: either the full gates with Mahima's review time and budget estimated, or an explicit 'unreviewed demonstration' label on its PDF and in the release notes."
+    },
+    {
+      "id": "R1-12",
+      "dimension": "completeness",
+      "severity": "blocking",
+      "changed_text": null,
+      "problem": "The full-coverage Open Question says 're-capture with the cookies flag and rebuild... Everything else in the plan stays'. That path also has to remove or empty the edition config, change the title page, 'Based on' lines, README, trust receipt counts and gate behaviour, and send roughly 21 new lectures' sentences through check and review. None of that is specified, and the hard-coded '22 of 43' wording would become wrong.",
+      "remedy": "Derive the edition label and counts from `config.json` and the capture report rather than hard-coding them, and list the extra steps (review time, evaluator re-run, budget against the $10–20 constraint) for the full-coverage branch."
+    },
+    {
+      "id": "R1-13",
+      "dimension": "feasibility",
+      "severity": "minor",
+      "changed_text": null,
+      "problem": "The 1-hour estimate for Mahima to accept or override 126 pre-sorted items (53 sentences, 70 conflicts, 3 numeric) allows under 30 seconds each, including reading the caption evidence. The estimate looks optimistic.",
+      "remedy": "Re-estimate, or state that low-risk categories (for example, conflicts with the same resolution) can be batch-accepted after spot checks."
+    },
+    {
+      "id": "R1-14",
+      "dimension": "feasibility",
+      "severity": "minor",
+      "changed_text": null,
+      "problem": "The $10–20 Azure budget is not broken down across targeted generation, re-judging edited sentences, 2 evaluator passes and Book 2, so there is no evidence it suffices.",
+      "remedy": "Give a rough per-step cost estimate, or a stop rule when the budget is reached."
+    },
+    {
+      "id": "R1-15",
+      "dimension": "completeness",
+      "severity": "minor",
+      "changed_text": null,
+      "problem": "The `--cookies-from-browser` passthrough reads browser session cookies. The document doesn't say that cookie data, cookie paths or authenticated URLs must never land in the capture report, logs, the book-data package or commits.",
+      "remedy": "Add a requirement that cookie material is never persisted or exported, plus a test or check on the capture report and package."
+    },
+    {
+      "id": "R1-16",
+      "dimension": "clarity",
+      "severity": "minor",
+      "changed_text": null,
+      "problem": "The Distribution Plan claims CI 'covering test, rebuild and pdf', but no step creates or verifies that CI, and a rebuild job needs the book-data package (R1-2). It is unclear whether this CI exists and passes today.",
+      "remedy": "State whether CI already exists. If not, add a step to create it or drop the claim, and require a green run on the submitted commit."
+    },
+    {
+      "id": "R1-17",
+      "dimension": "scope",
+      "severity": "minor",
+      "changed_text": null,
+      "problem": "The Distribution Plan links the live app 'only if the deploy is finished', but the Constraints freeze the deploy with no more work. That leaves it unclear whether the deploy is already finished or whether this invites unplanned deploy work.",
+      "remedy": "State the current deploy status and decide now: link it as read-only as-is, or omit it."
+    },
+    {
+      "id": "R1-18",
+      "dimension": "clarity",
+      "severity": "minor",
+      "changed_text": null,
+      "problem": "Approaches Considered lists A and C, and C refers to 'Everything in B', but B appears only under Recommended Approach, without a parallel summary or tradeoff in the comparison.",
+      "remedy": "Add B to Approaches Considered with a one-line summary and why it was chosen."
+    },
+    {
+      "id": "R1-19",
+      "dimension": "clarity",
+      "severity": "minor",
+      "changed_text": null,
+      "problem": "The submission note links 'the architecture page', which is not defined anywhere else in the document.",
+      "remedy": "Name the page (path or URL) and say whether it exists or must be written."
+    }
+  ],
+  "prior": []
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://20-230-94-107.sslip.io/api/:path*"
+    },
+    {
+      "source": "/books/:path*",
+      "destination": "https://20-230-94-107.sslip.io/books/:path*"
+    }
+  ],
+  "outputDirectory": "public",
+  "framework": null,
+  "buildCommand": ""
+}

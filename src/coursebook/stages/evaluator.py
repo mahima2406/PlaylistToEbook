@@ -18,7 +18,7 @@ from .. import runner
 from .segment import format_lines
 from .verify import LineIndex
 
-PROMPTS = {k: Path(f"prompts/eval_{k}.txt") for k in ("grounding", "coverage", "quality")}
+PROMPTS = {k: Path(f"prompts/eval_{k}.txt") for k in ("grounding", "coverage", "coverage_book", "quality")}
 CRITERIA = ["clarity", "flow", "book_voice", "definitions_first", "concision", "reader_fit", "title_fit"]
 BATCH = 15
 
@@ -39,7 +39,7 @@ def _validate_grounding(obj, n):
     return errors
 
 
-def audit_grounding(gateway, sentences, index, seed):
+def audit_grounding(gateway, sentences, index, seed, vote=0):
     out = []
     for start in range(0, len(sentences), BATCH):
         batch = sentences[start:start + BATCH]
@@ -49,12 +49,34 @@ def audit_grounding(gateway, sentences, index, seed):
             context = [x for x in index.context(s["cites"]) if x["id"] not in set(s["cites"])]
             blocks.append(f"S{n}: {s['text']}\n  cited:\n{format_lines(cited, True)}\n  context:\n{format_lines(context, True)}")
         result = gateway.call_json("evaluator", [{"role": "system", "content": PROMPTS["grounding"].read_text()},
-                                                 {"role": "user", "content": "\n\n".join(blocks)}],
+                                                 {"role": "user", "content": "\n\n".join(blocks)
+                                                  + (f"\n\n(independent audit pass {vote + 1})" if vote else "")}],
                                    stage="evaluate", input_id=f"grounding#{seed}#{start // BATCH}",
                                    validate=lambda o, k=len(batch): _validate_grounding(o, k), max_completion_tokens=16000)
         by_id = {v["id"]: v for v in result["parsed"]["verdicts"]}
         out += [{"sentence_id": s["id"], "text": s["text"], **{k: by_id[f"S{n}"].get(k) for k in ("verdict", "material", "reason")}}
                 for n, s in enumerate(batch, 1)]
+    return out
+
+
+def audit_grounding_majority(gateway, sentences, index, seed, votes=3):
+    """Judge each sentence `votes` times in differently shuffled batches; the majority verdict counts.
+
+    Single runs of the evaluator disagree with themselves on a measurable share of sentences
+    (batch neighbours and sampling change the call), so one run is too noisy for a 95% gate."""
+    runs = []
+    for k in range(votes):
+        order = sentences[:]
+        random.Random(f"{seed}:vote{k}").shuffle(order)
+        runs.append({g["sentence_id"]: g for g in audit_grounding(gateway, order, index, f"{seed}:vote{k}", vote=k)})
+    out = []
+    for s in sentences:
+        votes_for = [r[s["id"]] for r in runs]
+        ok = sum(v["verdict"] == "supported" for v in votes_for)
+        worst = next((v for v in votes_for if v["verdict"] != "supported"), votes_for[0])
+        majority = "supported" if ok * 2 > len(votes_for) else worst["verdict"]
+        out.append({**(votes_for[0] if majority == "supported" else worst), "verdict": majority,
+                    "votes": [v["verdict"] for v in votes_for]})
     return out
 
 
@@ -85,9 +107,36 @@ def audit_coverage(gateway, segments, units, clips, seconds, rng):
                                    stage="evaluate", input_id=f"coverage#{video}@{int(start)}",
                                    validate=_validate_coverage, max_completion_tokens=8000)
         ideas = result["parsed"]["ideas"]
+        for i in ideas:
+            i["near_clip"] = i["in_book"]
+        unseen = [i for i in ideas if i["core"] and not i["in_book"]]
+        if unseen:  # the book teaches each idea once, citing where it was first taught: search the whole book
+            listing = "\n\n".join(f"IDEA {n}: {i['idea']}\n" + "\n".join(f"  [{s['id']}] {s['text']}" for s in nearest(i["idea"], sentences))
+                                  for n, i in enumerate(unseen, 1))
+            found = gateway.call_json("evaluator", [{"role": "system", "content": PROMPTS["coverage_book"].read_text()},
+                                                    {"role": "user", "content": listing}],
+                                      stage="evaluate", input_id=f"coverage-book#{video}@{int(start)}",
+                                      validate=lambda o: [] if isinstance(o.get("ideas"), list) else ["ideas must be a list"],
+                                      max_completion_tokens=4000)["parsed"]["ideas"]
+            for f in found:
+                if isinstance(f.get("n"), int) and 1 <= f["n"] <= len(unseen) and f.get("in_book") is True:
+                    unseen[f["n"] - 1].update(in_book=True, found_at=f.get("sentence_id"))
         results.append({"video_id": video, "start": int(start), "end": int(start + seconds), "ideas": ideas,
-                        "core": sum(i["core"] for i in ideas), "core_missed": sum(i["core"] and not i["in_book"] for i in ideas)})
+                        "core": sum(i["core"] for i in ideas), "core_missed": sum(i["core"] and not i["in_book"] for i in ideas),
+                        "core_missed_near_clip": sum(i["core"] and not i["near_clip"] for i in ideas)})
     return results
+
+
+def _words(text):
+    import re
+    return {w for w in re.findall(r"[a-z0-9]+", text.lower()) if len(w) > 2}
+
+
+def nearest(idea, sentences, k=8):
+    """Book sentences sharing the most (rarer-first) words with the idea; plain lexical retrieval."""
+    want = _words(idea)
+    scored = sorted(sentences, key=lambda s: -len(want & _words(s["text"])))
+    return scored[:k]
 
 
 def _validate_quality(obj):
@@ -126,7 +175,9 @@ def evaluate(gateway, config, root, outline, decisions, reader_text, seed=0):
     units = final_units(root, outline, decisions)
     factual = [s for u in units.values() for p in u["paragraphs"] for s in p["sentences"] if s["type"] == "F"]
     sample = rng.sample(factual, min(settings.get("grounding_sample", 60), len(factual)))
-    grounding = audit_grounding(gateway, sample, index, seed)
+    votes = settings.get("grounding_votes", 1)
+    grounding = (audit_grounding_majority(gateway, sample, index, seed, votes) if votes > 1
+                 else audit_grounding(gateway, sample, index, seed))
     coverage = audit_coverage(gateway, segments, units, settings.get("coverage_clips", 20),
                               settings.get("clip_seconds", 120), rng)
     quality = audit_quality(gateway, outline, units, reader_text)
@@ -138,13 +189,16 @@ def evaluate(gateway, config, root, outline, decisions, reader_text, seed=0):
     core = sum(c["core"] for c in coverage)
     missed = sum(c["core_missed"] for c in coverage)
     metrics = {
-        "grounding_sample": len(grounding),
+        "grounding_sample": len(grounding), "grounding_votes": votes,
+        "grounding_self_disagreement": round(sum(len(set(g["votes"])) > 1 for g in grounding) / len(grounding), 4)
+                                       if grounding and votes > 1 else None,
         "independent_support": round(supported / len(grounding), 4) if grounding else None,
         "material_errors_per_100": round(100 * material / len(grounding), 2) if grounding else None,
         "agreement_with_judge": round(sum((g["verdict"] == "supported") == (judge[g["sentence_id"]]["verdict"] == "supported")
                                           for g in agree) / len(agree), 4) if agree else None,
         "coverage_clips": len(coverage), "core_ideas_seen": core,
         "core_ideas_missed": round(missed / core, 4) if core else None,
+        "core_ideas_missed_near_clip": round(sum(c.get("core_missed_near_clip", c["core_missed"]) for c in coverage) / core, 4) if core else None,
         "quality_average": round(sum(q["average"] for q in quality) / len(quality), 2) if quality else None,
     }
     t = settings.get("thresholds", {})
@@ -168,6 +222,6 @@ def run_evaluator(root, gateway, config, seed=0):
     reader_text = reader_for_prompts(root, config)
     inputs = {"verify": {s["id"]: runner.output_hash(root, "verify", s["id"]) for c in outline["chapters"] for s in c["sections"]},
               "decisions": digest(decisions), "reader": digest(reader_text), "settings": config.get("evaluation"),
-              "prompts": {k: digest(p.read_text()) for k, p in PROMPTS.items()}, "seed": seed, "v": 1}
+              "prompts": {k: digest(p.read_text()) for k, p in PROMPTS.items()}, "seed": seed, "v": 3}
     return runner.run(root, "evaluation", "book", inputs,
                       lambda: evaluate(gateway, config, root, outline, decisions, reader_text, seed))

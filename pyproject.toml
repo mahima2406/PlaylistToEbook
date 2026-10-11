@@ -1,0 +1,19 @@
+[project]
+name = "coursebook"
+version = "0.1.0"
+description = "An evidence-traceable YouTube course to book assignment"
+requires-python = ">=3.11,<3.14"
+dependencies = ["yt-dlp==2026.8.19", "youtube-transcript-api==1.2.4", "httpx==0.28.1", "python-dotenv==1.2.4", "reportlab==5.0.1", "pypdf==6.20.0", "pymupdf==1.28.2"]
+
+[dependency-groups]
+dev = ["pytest==9.1.1"]
+
+[project.scripts]
+coursebook = "coursebook.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

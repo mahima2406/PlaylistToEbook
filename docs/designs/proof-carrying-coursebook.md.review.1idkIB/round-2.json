@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "round": 2,
+  "document": "/Users/mahimaarora/Projects/coursebook/docs/designs/proof-carrying-coursebook.md",
+  "quality_score": 8,
+  "dimensions": {
+    "completeness": "ISSUES",
+    "consistency": "ISSUES",
+    "clarity": "ISSUES",
+    "scope": "PASS",
+    "feasibility": "ISSUES"
+  },
+  "findings": [
+    {
+      "id": "R2-1",
+      "dimension": "consistency",
+      "problem": "The Citation contract defines line IDs as `VIDEO@S` (whole seconds, shown as h:mm:ss, valid past 60 minutes), but pipeline stage 2 still names windows `VIDEO@mm:ss`, and stage 3 (`window_ids`), stage 6 ('against cited windows') and stage 8 ('caption windows +/-60 s') still key on those window IDs. The window ID format for lectures longer than 60 minutes (up to 94 min here) is therefore still ambiguous, and the pipeline diagram disagrees with the contract.",
+      "remedy": "Give windows the same seconds-based ID scheme as lines (for example `VIDEO@S` of the window start, or `VIDEO@S-E`), and update stages 2, 3, 6 and 8 in the pipeline diagram so they use the contract's IDs and say whether the judge receives the cited lines or their enclosing windows."
+    },
+    {
+      "id": "R2-2",
+      "dimension": "feasibility",
+      "problem": "Writers must cite individual caption lines and the judge checks against them, but stage 2 outputs windows as 'plain text' (to remove JSON overhead) and stage 3 teaching points carry only `window_ids`. If line IDs are stripped in segmentation, the writer has no line IDs to cite and the citation-ID gate cannot validate them.",
+      "remedy": "Specify a compact segment format that keeps a line ID (or second offset) on every caption line inside each window, and state that the write and verify prompts receive these line-tagged windows."
+    },
+    {
+      "id": "R2-3",
+      "dimension": "completeness",
+      "problem": "In private-data mode the captions may not be republished, yet the rendering contract shows readers the quoted caption lines in HTML hovers, and CI 'replays rendering from the cache'. Publishing the quoted lines in the book would republish the captions the private mode exists to withhold, and the document does not say what the reader sees in that mode.",
+      "remedy": "Define the private-mode rendering: for example, popovers and margin keys show timestamps and video links only (or a short quote limit justified by the rights answer), and state which committed artifact the renderer reads in that mode."
+    },
+    {
+      "id": "R2-4",
+      "dimension": "clarity",
+      "problem": "The Citation contract says `validate_chapter` enforces the sentence-type rules (factual, technical, connective), but `validate_chapter` is described as the cheap, deterministic citation-ID gate. It cannot tell a factual sentence from a connective one unless something labels each sentence's type, and the contract assigns the 'no factual claim' check to the judge.",
+      "remedy": "State that the writer emits a type tag per sentence, that `validate_chapter` checks only tag/citation consistency (factual needs a caption line, technical may add a ref, connective has none), and that the judge separately verifies connective sentences carry no claim."
+    },
+    {
+      "id": "R2-5",
+      "dimension": "consistency",
+      "problem": "The Planted-claim contract fixes 20 plants per chapter (4 of each of 5 types), but Next Steps step 4 and the Cross-Model first build still say to plant 10 false claims in the one-chapter slice, which cannot cover 5 types at 4 each.",
+      "remedy": "Use the contract's 20-per-chapter protocol in Next Steps (or explicitly state a reduced 10-plant slice and its type mix), and note that the Cross-Model section records the earlier proposal."
+    },
+    {
+      "id": "R2-6",
+      "dimension": "consistency",
+      "problem": "The success criterion 'Every code listing runs in CI' contradicts the Code-in-CI contract, where `display` listings (anything loading GPT-2 weights or datasets) never execute, and the cut line, which may reduce the code stage to display-only listings.",
+      "remedy": "Restate the criterion as 'every `exec` listing runs in CI and every `display` listing is labeled as not executed', and report the exec/display counts in the evaluation report."
+    },
+    {
+      "id": "R2-7",
+      "dimension": "consistency",
+      "problem": "The Success Criteria require HTML and PDF with figures, but the cut line defines the minimum submittable book as PDF only and drops figures, HTML popovers and Pages first. The criteria do not distinguish the minimum book from stretch goals, so taking the cut line would mean failing the stated success criteria.",
+      "remedy": "Split the Success Criteria into a minimum (matching the cut line) and stretch items (figures, HTML edition, Pages, full second playlist), or tag each criterion with its cut-line tier."
+    },
+    {
+      "id": "R2-8",
+      "dimension": "consistency",
+      "problem": "Build order days 11-12 say the second playlist 'builds from config alone', which reintroduces the ambiguity the Config schema and Success Criteria resolved ('no code changes', config plus its own data).",
+      "remedy": "Reword the build-order row to 'builds with no code changes (config plus its own captions, cache and approvals)'."
+    },
+    {
+      "id": "R2-9",
+      "dimension": "completeness",
+      "problem": "The second playlist needs its own outline approval and review records, or `make release` and the CI release job fail and its build is DRAFT-watermarked. The document does not say whether the second playlist must pass the full release gate (outline approval, review queue, audit) or whether a DRAFT build is the accepted CI outcome, and its human time is not in the effort estimate.",
+      "remedy": "State the expected gate level for the second playlist (for example, offline replay plus outline approval, DRAFT allowed, no audit) and add its human review time to the estimate."
+    },
+    {
+      "id": "R2-10",
+      "dimension": "feasibility",
+      "problem": "The disagreement workflow sends 'any difference between the lecture and the reference (in a claim or in code)' to the review queue and blocks release while any is unresolved. Dr Dandekar's lecture code and Raschka's repository are different courses, so nearly every mapped listing will differ in naming or structure. The document does not say how a disagreement is detected or what counts as a material difference, and the human-time estimate covers only the 40-80 flagged paragraphs, not this queue.",
+      "remedy": "Define the detection mechanism (for example, the judge reports a conflict when the caption-backed and reference-backed verdicts differ on a claim) and a materiality rule (differences in behaviour or facts, not naming or style), and add an estimated disagreement-queue size and review time."
+    },
+    {
+      "id": "R2-11",
+      "dimension": "feasibility",
+      "problem": "Routing to human review depends on 'judge confidence < 0.7', but model-reported confidence is usually poorly calibrated, so the threshold may send too few or too many paragraphs to review. Nothing ties the 0.7 value to evidence.",
+      "remedy": "State that the confidence threshold is calibrated on the slice using the planted claims and the audit sample (for example, chosen so that all caught plants fall below it), and record the chosen value and its basis in the evaluation report."
+    },
+    {
+      "id": "R2-12",
+      "dimension": "completeness",
+      "problem": "The capture fallback relies on local Whisper over 31 h of audio, which requires downloading the lectures' audio, and this starts on day 1. Open Question 4 checks the terms of service only for video frames before stage 8, so the audio download is unexamined even though it happens first.",
+      "remedy": "Extend Open Question 4 (or the capture stage) to cover the audio download for the Whisper fallback, and say what capture does if downloading is not permitted."
+    },
+    {
+      "id": "R2-13",
+      "dimension": "clarity",
+      "problem": "The coaching section says 'every feature is now an optional stage', but citations and the claim check are mandatory. Only the code, figures and reference-pack checks are optional (Premise 5, Config schema). The observation overstates what the plan does.",
+      "remedy": "Reword to say the playlist-specific features (code, figures, reference pack) became optional stages, while citations and verification remain the mandatory core."
+    }
+  ],
+  "prior": [
+    {"id": "R1-1", "status": "resolved", "evidence": "'Source rights: two replay modes' defines public and private replay (private: hashes plus cached outputs, CI replays writing/judging/rendering, raw-caption checks run locally), and the success criterion now says 'in whichever replay mode ... the release notes declare'. Private-mode rendering of quotes is tracked separately as new R2-3.", "current_id": null},
+    {"id": "R1-2", "status": "resolved", "evidence": "'Frames are never committed. Their hashes are stored in the manifest and used as the cache key ... Diagram checks against the frames run only locally.'", "current_id": null},
+    {"id": "R1-3", "status": "resolved", "evidence": "The Problem Statement restates 'no hallucinations' as a measurable guarantee (every factual sentence cited and judged, a published blinded-audit rate, a release-gate threshold), and the front matter states the guarantee and its measured rate 'rather than promising zero'.", "current_id": null},
+    {"id": "R1-4", "status": "resolved", "evidence": "The Citation contract fixes the evidence unit (the caption line, `VIDEO@S`), sentence-level IDs in data, and one marker per paragraph for readers, which matches 'What Makes This Cool' and stage 5. Leftover window-ID usage in stages 2/3/6/8 is tracked under R2-1.", "current_id": null},
+    {"id": "R1-5", "status": "resolved", "evidence": "Citation contract rendering: one source marker per paragraph, an HTML hover, a PDF margin key, a source list per chapter, 'No per-sentence footnotes, so no footnote-label collisions.'", "current_id": null},
+    {"id": "R1-6", "status": "resolved", "evidence": "Citation contract defines factual, technical (may cite `ref:<path>#L<a>-<b>`) and connective (exempt, judge-checked) sentence types. How `validate_chapter` learns sentence types is a new refinement, R2-4.", "current_id": null},
+    {"id": "R1-7", "status": "resolved", "evidence": "Planted-claim contract: model-generated, 20 per chapter across 5 typed categories, inserted into an `eval/plant/` copy, judge blinded, catch rate by type, release from the main tree only, with a test that no planted ID or text reaches outputs. The slice-count mismatch is new R2-5.", "current_id": null},
+    {"id": "R1-8", "status": "resolved", "evidence": "Blinded audit contract names the auditor (Mahima or a peer), the sample (100 auto-passed claims spread across chapters and kinds, plus 20 plants), the blinding (the auditor never sees the judge verdict), the material-error rubric, the >2/100 gate and the remediation loop.", "current_id": null},
+    {"id": "R1-9", "status": "resolved", "evidence": "'Edits and re-checking': every rewritten or human-edited paragraph is re-extracted and re-judged, and its review record is tied to the post-edit hash via `review_is_current`. Stage 6 also says the rewrite is 're-judged'.", "current_id": null},
+    {"id": "R1-10", "status": "resolved", "evidence": "'Lecture vs reference disagreements' routes them to the review queue with three outcomes (lecture, reference, both with a reader note), and unresolved disagreements block release. Detection and queue size are new R2-10.", "current_id": null},
+    {"id": "R1-11", "status": "resolved", "evidence": "Premise 5: '\"External check\" means the configured reference pack only. A general web-search stage is out of scope.'", "current_id": null},
+    {"id": "R1-12", "status": "resolved", "evidence": "'Approvals and builds': records are committed under `data/<playlist>/approvals/` and tied to content hashes; `make book` adds a DRAFT watermark and lists reasons; `make release` and the CI release job fail on missing or stale approvals.", "current_id": null},
+    {"id": "R1-13", "status": "resolved", "evidence": "The Config schema says 'A new playlist needs no code changes' and lists the expected per-playlist data, and the Success Criteria say 'no code changes (config plus its own data)'. Residual build-order wording is new R2-8.", "current_id": null},
+    {"id": "R1-14", "status": "resolved", "evidence": "The Config schema lists fields and per-stage `enabled` flags, and Premise 5 says disabled stages leave no book section and are reported as 'skipped (disabled)'.", "current_id": null},
+    {"id": "R1-15", "status": "resolved", "evidence": "'Code in CI' contract: pinned CPU-only PyTorch, exec/display tags, tiny configs, fixed seeds, no downloads, Quarto `freeze` before hashing, and assertions only on deterministic quantities. The success-criterion conflict is new R2-6.", "current_id": null},
+    {"id": "R1-16", "status": "resolved", "evidence": "Code mapping is a model proposal approved together with the outline (stage 4 and the disagreements contract), and lecture/reference code divergence goes through the disagreement workflow.", "current_id": null},
+    {"id": "R1-17", "status": "resolved", "evidence": "Stage 8: diagram claims are judged against caption windows +/-60 s; on failure the figure is dropped, the prose kept and the drop counted in the report.", "current_id": null},
+    {"id": "R1-18", "status": "resolved", "evidence": "'Effort and cost' estimates capture (~45 min API, 3-4 h Whisper fallback), starts full capture on day 1 in the background (also in the build order), and estimates human hours (outline ~1 h, queue ~3-5 h, audit ~2 h).", "current_id": null},
+    {"id": "R1-19", "status": "resolved", "evidence": "The 'Cut line' defines a minimum submittable book, an ordered drop list and day-7/day-10 checkpoints. The mismatch with the Success Criteria is new R2-7.", "current_id": null},
+    {"id": "R1-20", "status": "resolved", "evidence": "'Effort and cost' gives per-stage call counts, ~5-8M tokens per run and a $150 ceiling enforced by `budget_usd`, and stage 4 uses per-lecture-group outlines merged to stay inside the context window.", "current_id": null},
+    {"id": "R1-21", "status": "resolved", "evidence": "'Thresholds' defines 15-minute chunks, importance 3/2/1 with 3 = must be placed, and review routing on partial/unsupported or confidence < 0.7. Calibration of 0.7 is new R2-11.", "current_id": null},
+    {"id": "R1-22", "status": "persisting", "evidence": "The model-version half is resolved (cache entries record the API-reported model version, and a change invalidates them). The window ID is still `VIDEO@mm:ss` in pipeline stage 2 and is still used by stages 3, 6 and 8, so the format past 60 minutes remains undefined for windows.", "current_id": "R2-1"}
+  ]
+}

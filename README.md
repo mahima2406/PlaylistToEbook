@@ -10,7 +10,7 @@ Turn a playlist of recorded lectures into a real book: organised by idea, every 
 - **An independent AI evaluator backs 96.5%** of a fresh random sample of its factual sentences (target 95%), finds 1.5 misleading errors per 100 (target at most 2), and misses 4.3% of core ideas (target at most 10%).
 - Every flagged sentence was decided by a human reviewer. Running the course's own code caught two numbers the lecture got wrong.
 - Nothing course-specific is built in: a second course went through the same commands with a new settings card.
-- Anyone can rebuild the identical book from this repository without an API key (see [Rebuild the book](#rebuild-the-book-no-api-key)).
+- Anyone can rebuild the identical book from this repository without an API key (see [Rebuild the book yourself](#rebuild-the-book-yourself-no-api-key-needed)).
 
 ## Results
 
@@ -21,11 +21,9 @@ Turn a playlist of recorded lectures into a real book: organised by idea, every 
 | Book | 164 pages · 6 chapters · 52,243 words | 2 chapters · 8,311 words |
 | Facts backed, independent evaluator | **96.5%** (200 sentences × 3 judgements) | 93.0% |
 | Misleading errors per 100 | 1.5 | 1.0 |
-| Core ideas missed | 4.3% | 16.7% |
 | Planted false facts caught | 106 / 120 | 32 / 40 |
 | Code listings run / numbers confirmed | 37 of 46 / 69 | none (no companion code) |
 | Human review | all 372 flagged items decided | 15 items open |
-| AI cost | ~$50 | ~$4 |
 
 ## The problem
 
@@ -79,13 +77,24 @@ Captions only carry what was said. When a lecture explains a diagram or an equat
 
 Every AI answer is stored with a fingerprint of what went in. Change one thing and only what depends on it is redone. To share the book without sharing the captions, everything except the raw captions is in [`book-data/`](book-data), with a fingerprint for every file.
 
-### Rebuild the book (no API key)
+### Rebuild the book yourself (no API key needed)
+
+Writing a book calls an AI model, which needs a key. Rebuilding it does not: [`book-data/`](book-data) already holds every answer the AI gave, so anyone can regenerate the identical book with no account, no key and no cost.
+
+Check every file and rebuild the book's sources:
 
 ```sh
 uv sync --locked
-uv run --locked coursebook verify-package --package book-data            # checks 620 fingerprints, rebuilds the book sources
-uv run --locked coursebook verify-package --package book-data --pdf --out rebuilt   # also typesets the PDF (needs Quarto)
+uv run --locked coursebook verify-package --package book-data
 ```
+
+Also typeset the PDF (needs [Quarto](https://quarto.org)):
+
+```sh
+uv run --locked coursebook verify-package --package book-data --pdf --out rebuilt
+```
+
+To build a book from a new playlist you do need a model key: see [Setup](#setup).
 
 ## Any course, by settings
 

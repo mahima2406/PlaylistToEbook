@@ -99,11 +99,12 @@ def write_section(gateway, config, chapter, section, neighbours, points, segment
 
 
 TAG_IN_TEXT = re.compile(r"^\s*\[(?:F|T|C|R)\]\s*")
+CITE_IN_TEXT = re.compile(r"\s*\[(?:[A-Za-z0-9_-]{6,}@\d+(?:\s*,\s*[A-Za-z0-9_-]{6,}@\d+)*|ref:[^\]]+)\]")  # a citation id typed into the prose
 
 
 def clean_text(text):
-    """Collapse whitespace and drop a tag the model wrote into the text itself ("[F] ...")."""
-    return TAG_IN_TEXT.sub("", " ".join(str(text).split()))
+    """Collapse whitespace and drop tags or citation ids the model wrote into the text itself ("[F] ...", "[vid@12]")."""
+    return CITE_IN_TEXT.sub("", TAG_IN_TEXT.sub("", " ".join(str(text).split())))
 
 
 def keep_valid_cites(paragraphs, allowed_ids):

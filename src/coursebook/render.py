@@ -406,6 +406,10 @@ def build_book(root, config, destination):
                "format": formats}
         yml["book"] = {k: v for k, v in yml["book"].items() if v is not None}
         (project / "_quarto.yml").write_text(json.dumps(yml, indent=2))  # JSON is valid YAML
+    leaks = [f.name for f in (destination / "book").glob("*.qmd")
+             if re.search(r"\\?\[[A-Za-z0-9_-]{6,}\\?@\d+\\?\]", f.read_text())]
+    if leaks:
+        raise ValueError(f"Internal citation ids reached the book text in {leaks}; fix clean_text before publishing")
     from .brief import write_brief
     gates = {"capture": f"{len(covered)} of {len(manifest['entries'])} lectures available",
              "reader profile": "inferred" if runner.load(root, "reader", "book") else "missing",

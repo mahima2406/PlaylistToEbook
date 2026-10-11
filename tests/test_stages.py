@@ -663,3 +663,27 @@ def test_sentence_decision_counts_after_a_conflict_edit(built):
     later = after_conflict(s, load_decisions(root))
     decide(root, {"sentence_id": s["id"], "sentence": later}, "edit", "R", "Edited twice.")
     assert open_items(root) == []
+
+
+def test_judge_splits_refused_batches_and_queues_the_unjudgeable_sentence():
+    from coursebook.llm import ProviderRefusal
+    from coursebook.stages.verify import judge, REFUSED
+
+    class Gate:
+        def call_json(self, role, messages, *, stage, input_id, validate, **kw):
+            body = messages[1]["content"]
+            if "FORBIDDEN" in body:
+                raise ProviderRefusal("blocked")
+            n = body.count("[CONNECTIVE]")
+            return {"parsed": {"verdicts": [{"id": f"S{i}", "verdict": "ok", "confidence": 0.9} for i in range(1, n + 1)]}}
+    sentences = [{"id": f"s{i}", "type": "C", "text": "FORBIDDEN text" if i == 2 else f"fine {i}", "cites": []} for i in range(4)]
+    out = judge(Gate(), sentences, None, "unit")
+    assert out["s2"]["reason"] == REFUSED and out["s2"]["confidence"] == 0.0
+    assert all(out[f"s{i}"]["verdict"] == "ok" for i in (0, 1, 3))
+
+
+def test_citation_ids_typed_into_prose_never_reach_the_page():
+    from coursebook.stages.write import clean_text
+    assert clean_text("A model.[3dWzNZXA8DY@153][3dWzNZXA8DY@157]") == "A model."
+    assert clean_text("See [abcdefgh123@4, abcdefgh123@9] here.") == "See here."
+    assert clean_text("Keep [1, 2] and x@5.") == "Keep [1, 2] and x@5."

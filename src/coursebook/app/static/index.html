@@ -84,6 +84,9 @@ main { max-width: 1320px; margin: 0 auto; padding: 0 var(--gut) }
 .buildbar input:focus { border-color: #b5b5b5 }
 @media (max-width: 560px) { .buildbar { flex-direction: column } }
 details.opts { width: min(640px, 100%); text-align: left }
+.showcase { display: grid; gap: 14px; justify-items: center; width: min(720px, 100%) }
+.cmd { display: flex; gap: 8px; align-items: center; width: 100%; background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 6px 6px 6px 14px }
+.cmd code { flex: 1; min-width: 0; overflow-x: auto; white-space: nowrap; font-family: var(--mono); font-size: 13px; text-align: left }
 details.opts summary { list-style: none; cursor: pointer; font-family: var(--mono); font-size: 13px; color: var(--dim); text-align: center }
 details.opts summary::-webkit-details-marker { display: none }
 .opt-grid { display: grid; grid-template-columns: minmax(0, 1fr) 120px; gap: 8px; margin-top: 10px }
@@ -291,6 +294,9 @@ details.ch ol { margin: 0; padding-left: 20px; color: var(--dim); font-size: 14p
         <p class="lede in d2">paste a lecture playlist. coursebook reads every lecture, plans chapters by idea, writes the book and checks each sentence against the moment it was said.</p>
         <div class="drawing in d2">${ART.book}</div>
         <span class="pill in d3">[every fact cited to the second]</span>
+        ${cfg.static ? `<div class="showcase in d3"><p class="lede">This is a read-only showcase: open the finished books below. Building a new book runs on your own machine, because YouTube blocks caption requests from cloud servers.</p>
+          <div class="cmd"><code>git clone https://github.com/mahima2406/PlaylistToEbook && cd PlaylistToEbook && uv run coursebook app</code><button class="btn soft" id="copy" type="button">copy</button></div>
+          <a class="btn dark" href="#/library">open the books</a></div>` : `
         <form class="buildbar in d3" id="f">
           <label for="url" style="position:absolute;left:-9999px">Playlist link</label>
           <input id="url" required placeholder="youtube.com/playlist?list=…" autocomplete="off">
@@ -300,7 +306,7 @@ details.ch ol { margin: 0; padding-left: 20px; color: var(--dim); font-size: 14p
         <details class="opts in d4"><summary>[options]</summary>
           <div class="opt-grid"><label><span>who is it for?</span><input id="reader" placeholder="a python developer new to ML"></label>
             <label><span>limit</span><select id="budget"><option value="25">$25</option><option value="50" selected>$50</option><option value="150">$150</option></select></label></div></details>
-        <p class="err" id="ferr" hidden></p>
+        <p class="err" id="ferr" hidden></p>`}
       </section>
 
       <section class="sec center">
@@ -366,7 +372,12 @@ details.ch ol { margin: 0; padding-left: 20px; color: var(--dim); font-size: 14p
         <a class="btn dark" href="#/" id="close-cta">paste a playlist</a>
       </section>`;
     $("#close-cta").addEventListener("click", (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); setTimeout(() => $("#url").focus(), 450); });
-    $("#f").addEventListener("submit", async (e) => {
+    $("#copy")?.addEventListener("click", async (e) => {
+      const code = e.currentTarget.previousElementSibling, b = e.currentTarget;
+      try { await navigator.clipboard.writeText(code.textContent); b.textContent = "copied"; }
+      catch (ex) { const r = document.createRange(); r.selectNodeContents(code); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); b.textContent = "selected"; }
+    });
+    $("#f")?.addEventListener("submit", async (e) => {
       e.preventDefault();
       const go = $("#go"), err = $("#ferr"); go.disabled = true; go.textContent = "starting…"; err.hidden = true;
       if ($("#code")) store.set("buildCode", $("#code").value.trim());
@@ -413,6 +424,7 @@ details.ch ol { margin: 0; padding-left: 20px; color: var(--dim); font-size: 14p
     try { d = await api("/api/books/" + encodeURIComponent(id)); }
     catch (ex) { $("#app").innerHTML = `<div class="empty" style="margin-top:140px">${esc(ex.message)}. <a class="br" href="#/library">back to the library</a></div>`; return; }
     const r = d.report || {}, building = d.status === "running" || d.status === "queued", a = quiet ? "" : "in";
+    if (d.static) { d.approved = true; }
     const dot = { done: "ink", now: "live", fail: "", todo: "grey" };
     $("#app").innerHTML = `
       <section class="bhead"><div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center" class="${a}">${statusChip(d)}<a class="chip" href="${esc(d.playlist)}" target="_blank" rel="noopener" style="text-decoration:none">[playlist ↗]</a></div>

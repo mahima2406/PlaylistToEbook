@@ -87,18 +87,36 @@ def validate_verdicts(obj, sentences):
 JUDGE_BATCH = 15  # larger batches made gpt-5.2 exceed the 300 s request timeout
 
 
+REFUSED = "The model provider's content filter refused to check this sentence; a reviewer must check it against its captions."
+
+
+def _judge_batch(gateway, batch, index, input_id, outline_text):
+    """One judge call; if the provider's content filter refuses it, split the batch and retry the halves,
+    down to single sentences. A sentence that still cannot be checked is sent to the reviewer, never passed."""
+    from ..llm import ProviderRefusal
+    try:
+        result = gateway.call_json("judge", judge_messages(batch, index, outline_text), stage="judge", input_id=input_id,
+                                   validate=lambda o, b=batch: validate_verdicts(o, b), max_completion_tokens=32000)
+    except ProviderRefusal:
+        if len(batch) == 1:
+            s = batch[0]
+            verdict = "unsupported" if s["type"] == "F" else ("claim_in_connective" if s["type"] == "C" else "roadmap_mismatch")
+            return {s["id"]: {"verdict": verdict, "confidence": 0.0, "reason": REFUSED, "refused": True}}
+        half = len(batch) // 2
+        return {**_judge_batch(gateway, batch[:half], index, input_id + "a", outline_text),
+                **_judge_batch(gateway, batch[half:], index, input_id + "b", outline_text)}
+    by_n = {v["id"]: v for v in result["parsed"]["verdicts"]}
+    return {s["id"]: {"verdict": by_n[f"S{n}"]["verdict"], "confidence": float(by_n[f"S{n}"]["confidence"]),
+                      "reason": by_n[f"S{n}"].get("reason", "")}
+            for n, s in enumerate(batch, 1)}
+
+
 def judge(gateway, sentences, index, item, outline_text=None):
     """Verdict per sentence id, judged in batches of JUDGE_BATCH."""
     out = {}
     for start in range(0, len(sentences), JUDGE_BATCH):
-        batch = sentences[start:start + JUDGE_BATCH]
-        result = gateway.call_json("judge", judge_messages(batch, index, outline_text), stage="judge",
-                                   input_id=f"{item}#{start // JUDGE_BATCH}",
-                                   validate=lambda o, b=batch: validate_verdicts(o, b), max_completion_tokens=32000)
-        by_n = {v["id"]: v for v in result["parsed"]["verdicts"]}
-        out.update({s["id"]: {"verdict": by_n[f"S{n}"]["verdict"], "confidence": float(by_n[f"S{n}"]["confidence"]),
-                              "reason": by_n[f"S{n}"].get("reason", "")}
-                    for n, s in enumerate(batch, 1)})
+        out.update(_judge_batch(gateway, sentences[start:start + JUDGE_BATCH], index,
+                                f"{item}#{start // JUDGE_BATCH}", outline_text))
     return out
 
 
@@ -137,10 +155,17 @@ def verify_section(gateway, written, segments, index, cutoff, outline_text=None)
         if all(passes(verdicts[s["id"]], cutoff) for s in paragraph["sentences"]):
             final.append(paragraph)
             continue
-        revised = rewrite_paragraph(gateway, paragraph, verdicts, lines, paragraph["id"], outline_text)
-        revised_verdicts = judge(gateway, revised["sentences"], index, paragraph["id"] + ":rejudge", outline_text)
+        from ..llm import ProviderRefusal
+        try:
+            revised = rewrite_paragraph(gateway, paragraph, verdicts, lines, paragraph["id"], outline_text)
+        except ProviderRefusal:  # the filter refused the rewrite too: keep the original, the reviewer decides
+            revised = None
+        if revised is None:
+            revised, revised_verdicts = paragraph, {s["id"]: verdicts[s["id"]] for s in paragraph["sentences"]}
+        else:
+            revised_verdicts = judge(gateway, revised["sentences"], index, paragraph["id"] + ":rejudge", outline_text)
+            rewritten.append(paragraph["id"])
         verdicts.update(revised_verdicts)
-        rewritten.append(paragraph["id"])
         final.append(revised)
         for sentence in revised["sentences"]:
             v = revised_verdicts[sentence["id"]]

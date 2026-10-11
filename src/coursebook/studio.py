@@ -13,6 +13,7 @@ from collections import Counter
 from pathlib import Path
 from .stages.runcode import load_code_run
 from . import runner
+from .stages.write import clean_text
 from .core import read
 from .review import load_decisions, apply_decisions, queue_items, open_items, sentence_hash
 
@@ -49,7 +50,7 @@ def _sentences(paragraph, unit, lines, label, decisions, cross):
         f = unit.get("first_pass", {}).get(s["id"], {})
         d = decisions.get(s["id"])
         d = d if d and d.get("sentence_hash") == sentence_hash(s) else None
-        out.append({"id": s["id"], "type": s["type"], "text": s["text"], "cites": _cites(s["cites"], lines, label),
+        out.append({"id": s["id"], "type": s["type"], "text": clean_text(s["text"]), "cites": _cites(s["cites"], lines, label),
                     "v": v.get("verdict"), "c": round(v.get("confidence", 0), 2) if v else None, "why": v.get("reason", ""),
                     "first": f.get("verdict"), "review": d and {"decision": d["decision"], "by": d["reviewer"]},
                     "ref": cross.get(s["id"]), "note": s.get("note")})

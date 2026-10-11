@@ -2,6 +2,7 @@ import argparse
 import json
 from pathlib import Path
 from .core import read, inventory, capture
+from .llm import LLMError
 
 
 def main():
@@ -37,8 +38,8 @@ def main():
         else:
             from .build import build
             print(json.dumps(build(args.data, args.output, config, args.release), indent=2))
-    except (ValueError, KeyError, FileNotFoundError) as exc:
-        parser.exit(2, f"Blocked: {exc}\n")
+    except (ValueError, KeyError, FileNotFoundError, LLMError) as exc:
+        parser.exit(2, f"Blocked ({type(exc).__name__}): {exc}\n")
 
 
 if __name__ == "__main__":

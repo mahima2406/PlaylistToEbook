@@ -1,7 +1,25 @@
 {
   "playlist_url": "https://www.youtube.com/playlist?list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu",
   "title": "Building LLMs from Scratch: A Source-Grounded Companion",
-  "languages": ["en"],
+  "languages": [
+    "en"
+  ],
   "reader": "A Python programmer learning the concepts covered by the source course. Introduce prerequisites when supported by the supplied evidence; flag gaps.",
-  "chunk_characters": 160000
+  "chunk_characters": 160000,
+  "llm": {
+    "budget_usd": 150,
+    "prices_usd_per_1m": {
+      "gpt-5.4": {
+        "input": 2.5,
+        "output": 15.0
+      },
+      "gpt-5.2": {
+        "input": 1.75,
+        "output": 14.0
+      }
+    },
+    "prices_note": "Estimated Azure Global Standard rates (azurespeed.com, Oct 2026, Data Zone minus ~10%). Check your Azure invoice and correct these.",
+    "concurrency": 4,
+    "expected_versions": {}
+  }
 }

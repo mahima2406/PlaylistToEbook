@@ -30,6 +30,7 @@ This file is a plan. No code has changed.
 | D15 PDF engine / S9 | spec #8 | Quarto + LaTeX (TinyTeX) | – | approved | "LaTeX / TinyTeX"; margin-key spike in days 1-3 |
 | D16 small ops / S8 | spec #10 | `status`, planted-injection test, cache secret scan, concurrency, `--only`, cost meter | – | approved | "Approve all six", each with a test |
 | D17 miss audit / Outside voice | Codex #6 | 20 random 2-min clips per book, blind miss check | – | approved | "Add to audit": miss rate reported; an untaught importance-3 point blocks release |
+| D18 members-only lectures / user | capture 2026-10-11: 21/43 (odd-numbered 3-43) are members-only (VideoUnplayable) | build on the 22 public lectures; slice = L8 + L10; evaluator asked | – | approved | "go ahead" on: ask the evaluator, keep building on the public lectures, move the slice to L8+L10; missing lectures shown as excused gaps until they reply |
 
 ## Accepted scope
 
@@ -361,7 +362,7 @@ What's left toward the 12-month ideal: more source types and a public CLI.
   CEO plan 1 round (6/10, fixes applied, not re-reviewed).
 
 Approval readiness: PASS. Checked rows D1-D3, P1-P5, D5, REF, D6, DOC, D7.1-D7.4,
-D8-D17 against their quoted answers above.
+D8-D18 against their quoted answers above.
 
 ## GSTACK REVIEW REPORT
 

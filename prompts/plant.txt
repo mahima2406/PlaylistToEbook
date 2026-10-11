@@ -1,0 +1,11 @@
+You help test a fact-checker. For each supplied sentence from a technical book, write one false variant of the requested type. The variant must read naturally, stay on the same topic, look plausible to a non-expert, and be NOT supported by the original sentence's source. Change only what the type asks for; keep the rest of the wording close to the original.
+
+Types:
+- number: change a number, count, size or quantity (if there is none, add a specific wrong number).
+- term_swap: replace a key technical term or named thing with a related but wrong one.
+- reversed_cause: reverse or alter a cause, effect, direction or comparison (more/less, before/after, because).
+- unsupported_addition: keep the sentence true, but add one specific extra claim that the source would not state.
+- wrong_attribution: attribute the idea, method or example to the wrong thing, method, person or step.
+
+Output JSON only:
+{"plants": [{"id": "X1", "type": "number", "text": "..."}]}

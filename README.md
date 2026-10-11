@@ -1,82 +1,58 @@
 # Coursebook: YouTube playlist to book
 
-Evaluation assignment for playlist `PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu`.
-Status: implementation in progress. Synthetic tests are not evidence of source fidelity.
+Turns a lecture playlist into a book that carries its own evidence: every factual
+sentence cites the caption lines it came from, a second model checks each sentence
+against those lines, and the book reports how well that checker catches planted
+false claims. First target: "Building LLMs from scratch"
+(`PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu`). Nothing in the code is specific to that
+playlist; `config.json` holds the playlist, reader, models and budget.
+
+Design: `docs/designs/proof-carrying-coursebook.md`. Plan and decisions: `docs/PLAN.md`.
+Progress: `docs/STATUS.md`.
 
 ## Setup
 
-Install Python 3.11 and uv (https://docs.astral.sh/uv/getting-started/installation/).
-From the repository root:
+Python 3.11, [uv](https://docs.astral.sh/uv/getting-started/installation/), and
+[Quarto](https://quarto.org) with TinyTeX (`quarto install tinytex`) for the PDF.
 
 ```sh
 uv sync --locked
 uv run --locked pytest -q
-uv run --locked coursebook inventory
-uv run --locked coursebook capture --limit 1
+cp .env.example .env   # writer + judge deployments and key; never commit .env
 ```
 
-`yt-dlp` and `youtube-transcript-api` are project dependencies installed by uv.
-No global downloader, Codex session, gstack skill or browser login is required.
-The lockfile pins transitive packages. YouTube availability and rate limits are
-external dependencies; acquisition failures return nonzero and are recorded.
-
-## Fresh generation
-
-Copy `.env.example` to `.env` locally and fill in credentials, the model deployment
-name and the inference base URL. A Foundry project URL is not the inference URL.
-Never commit `.env`. Run:
+## Pipeline
 
 ```sh
-uv run --locked coursebook draft VIDEO_ID
-uv run --locked coursebook build
+uv run --locked coursebook inventory              # freeze the playlist (order, ids, titles)
+uv run --locked coursebook capture --limit 43     # captions -> content-addressed snapshots
+uv run --locked coursebook run                    # segment, extract, outline, write, verify, plant test
+uv run --locked coursebook approve --by "Name"    # approve the current outline (tied to its hash)
+uv run --locked coursebook render                 # output/book.pdf + evaluation_report.json
+uv run --locked coursebook status                 # progress, spend vs budget, review queue
 ```
 
-This writes draft `output/book.md`, `book.pdf`, `evaluation_report.json` and
-`run_manifest.json`. Model requests and responses are saved under `data/runs/`,
-without authentication headers. Fresh model output is not promised to be identical.
-No live model call is made by `build`. Model charges apply to `draft`.
-
-## Replay and review
-
-The data package must accompany a submitted book. It contains frozen playlist
-metadata, original captions, normalized evidence, saved chapters, model runs and
-review decisions. `build` reconstructs outputs from these files without network.
-Raw snapshots are content-addressed and checked at build time. Captions are
-preserved as returned; automatic captions may contain errors.
-
-For each chapter, a reviewer must inspect source material and final prose and
-write `data/reviews/VIDEO_ID.json` with `chapter_hash`, `source_hash`, `reviewer`,
-`support_review`, `visual_review`, `source_coverage_review`. The three review
-statuses must be `passed`. Hashes must refer to the exact reviewed artifacts.
-Do not mark these passed merely because an LLM agrees with itself. Store detailed
-review observations beside the decision. Editing prose invalidates prior review.
-
-```sh
-uv run --locked coursebook build --release
+```
+captions -> segment (line IDs, 30 s windows) -> extract (teaching points)
+  -> outline (concept chapters; human approval) -> write (tagged, cited sentences)
+  -> verify (judge each sentence; one rewrite; review queue) -> plants (catch-rate test)
+  -> render (Quarto + LaTeX, margin source keys, evaluation report)
 ```
 
-Release fails on missing chapters, unresolved gaps, stale or absent reviews.
-Evidence references prove traceability only; they do not establish semantic truth.
+Each stage stores its output with the hash of its inputs and is skipped when the
+inputs are unchanged. Every model response is cached by request hash, so
+`coursebook run --offline` rebuilds everything with no API calls and fails loudly
+on a cache miss. `run --lectures 8,10` and `--only ch01.s03` limit the work.
 
-## Architecture
+## What the guarantees mean
 
-Frozen playlist -> unchanged timed captions -> evidence -> candidate paragraphs
--> human claim/source/visual review -> Markdown + PDF + reports.
-
-The initial implementation uses inspectable JSON artifacts. SQLite migration,
-multimodal capture, structured teaching-point extraction, chunked drafting,
-whole-book editing and durable editorial patches remain planned. This is a
-deliberate pilot implementation, not a claim that the full Notion design exists.
-
-## Tests and limitations
-
-CI runs offline synthetic tests for order preservation, bad timestamps, fabricated
-references, source tampering, review staleness, deterministic PDF replay and blocked
-release. Real acquisition and paid model quality must be tested separately.
-The first PDF renderer supports prose with linked citations. Technical code blocks,
-equations, figures, Unicode typography and an automatic table of contents are not
-yet supported at eBook release quality. No full-playlist book has been verified.
-
-Source reuse permissions are tracked as unknown until established. Generated
-data is ignored by git by default; assemble an authorized submission data package
-explicitly. Do not distribute credentials or assume source redistribution rights.
+- Citation IDs are checked mechanically; whether a sentence is *supported* is a
+  model judgement, measured by the planted-claim test and (planned) a blinded
+  human audit. The book states its measured rates instead of promising zero errors.
+- The book is marked DRAFT, with reasons, until the outline is approved, the
+  review queue is empty, the audit has run and every lecture is covered.
+- 21 of the 43 lectures (the odd-numbered ones from 3 to 43) are members-only on
+  YouTube; their captions are not publicly retrievable. They are listed as not
+  covered.
+- Captions are automatic and can be misheard. Raw captions and the model cache stay
+  in `data/` (git-ignored) because reuse rights are not established.

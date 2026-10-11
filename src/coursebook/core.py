@@ -112,27 +112,5 @@ def capture(root, config, limit):
     return reports
 
 
-def validate_chapter(chapter, evidence):
-    ids = {item["id"] for item in evidence}
-    errors = []
-    seen = set()
-    if not chapter.get("sections"):
-        errors.append("No sections")
-    for section in chapter.get("sections", []):
-        if not section.get("paragraphs"):
-            errors.append("Empty section")
-        for paragraph in section.get("paragraphs", []):
-            pid = paragraph.get("id")
-            if not pid or pid in seen:
-                errors.append("Missing or duplicate paragraph ID")
-            seen.add(pid)
-            if not paragraph.get("text", "").strip():
-                errors.append(f"{pid}: empty prose")
-            refs = paragraph.get("evidence_ids", [])
-            if not refs or not set(refs) <= ids:
-                errors.append(f"{pid}: missing or invalid evidence references")
-    return errors
-
-
 def review_is_current(chapter, review):
     return review.get("chapter_hash") == digest(chapter)

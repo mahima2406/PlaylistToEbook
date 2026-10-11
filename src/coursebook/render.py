@@ -205,7 +205,10 @@ def build_book(root, config, destination):
     if outline is None:
         raise ValueError("No outline; run the pipeline first")
     manifest = read(root / "manifest.json")
+    from .review import load_decisions, apply_decisions, open_items, queue_items
     units, plants, diagrams, extracts = collect(root, outline)
+    decisions = load_decisions(root)
+    units = {k: apply_decisions(v, decisions) for k, v in units.items()}
     label = {e["video_id"]: f"L{e['playlist_index']:02d}" for e in manifest["entries"] if e["video_id"]}
     titles = {e["video_id"]: e["title"] for e in manifest["entries"] if e["video_id"]}
     segment_ids = set(outline["lectures"]) | {c.split("@")[0] for u in units.values()
@@ -215,6 +218,10 @@ def build_book(root, config, destination):
     covered = set(outline["lectures"])
     missing = [e for e in manifest["entries"] if e["video_id"] not in covered]
     m = metrics(units, plants, extracts, outline, diagrams)
+    queued = queue_items(root)
+    m["review_queue_open"] = len(open_items(root))
+    m["review_decisions"] = {d: sum(1 for i in queued if decisions.get(i["sentence_id"], {}).get("decision") == d)
+                             for d in ("accept", "edit", "remove")}
     reasons = draft_reasons(root, m, missing)
     status = "DRAFT" if reasons else "REVIEWED RELEASE"
 
@@ -329,6 +336,8 @@ def report_appendix(m, reasons, status):
             ("Supported after one rewrite", f"{m['support_rate_final']:.1%}"),
             ("Paragraphs rewritten", m["paragraphs_rewritten"]),
             ("Open review-queue sentences", m["review_queue_open"]),
+            ("Reviewer decisions (accepted / edited / removed)",
+             " / ".join(str(m.get("review_decisions", {}).get(d, 0)) for d in ("accept", "edit", "remove"))),
             ("Planted false sentences caught", f"{m['plants_caught']} / {m['plants_planted']}"),
             ("Real sentences flagged in the plant run", f"{m['real_sentences_flagged_in_plant_run']} / {m['real_sentences_in_plant_run']}"),
             ("Teaching points extracted / placed / dropped", f"{m['points_extracted']} / {m['points_placed']} / {m['points_dropped']}"),

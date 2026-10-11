@@ -225,3 +225,40 @@ def test_chapters_name_their_lectures_once_and_paragraphs_carry_no_inline_keys(b
     assert chapter.count("*Based on [L01: Lecture A]") == 1
     assert ".aside" not in chapter and "watch?v=vidA&t=" not in chapter
     assert "watch?v=vidA&t=" in (book / "sources.qmd").read_text()
+
+
+def test_review_decisions_apply_and_go_stale_when_the_sentence_changes(built):
+    from coursebook.review import queue_items, open_items, decide, apply_decisions, load_decisions
+    root, _ = built
+    unit_path = root / "stages" / "verify" / "ch01.s01.json"
+    record = read(unit_path)
+    sentence = record["output"]["paragraphs"][0]["sentences"][1]
+    record["output"]["queue"] = [{"sentence_id": sentence["id"], "verdict": "partial", "confidence": 0.5,
+                                  "reason": "test", "text": sentence["text"], "cites": sentence["cites"], "status": "open"}]
+    write(unit_path, record)
+    item = queue_items(root)[0]
+    assert len(open_items(root)) == 1
+    decide(root, item, "edit", "Reviewer", "A narrower fictional fact.")
+    assert open_items(root) == []
+    applied = apply_decisions(record["output"], load_decisions(root))
+    assert applied["paragraphs"][0]["sentences"][1]["text"] == "A narrower fictional fact."
+    decide(root, item, "remove", "Reviewer")
+    applied = apply_decisions(record["output"], load_decisions(root))
+    assert all(s["id"] != sentence["id"] for p in applied["paragraphs"] for s in p["sentences"])
+    record["output"]["paragraphs"][0]["sentences"][1]["text"] = "Pipeline rewrote it."
+    write(unit_path, record)
+    assert len(open_items(root)) == 1  # decision was made on different text: stale, reopened
+
+
+def test_interactive_review_records_accept_and_quit(built):
+    from coursebook.review import interactive, open_items
+    root, _ = built
+    unit_path = root / "stages" / "verify" / "ch01.s01.json"
+    record = read(unit_path)
+    s1 = record["output"]["paragraphs"][0]["sentences"][1]
+    record["output"]["queue"] = [{"sentence_id": s1["id"], "verdict": "partial", "confidence": 0.5, "reason": "r",
+                                  "text": s1["text"], "cites": s1["cites"], "status": "open"}]
+    write(unit_path, record)
+    answers = iter(["a"])
+    made = interactive(root, CONFIG, live_gateway(root), "Reviewer", ask=lambda _: next(answers), show=lambda *_: None)
+    assert made == 1 and open_items(root) == []

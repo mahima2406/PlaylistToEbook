@@ -27,6 +27,9 @@ def main():
     approve.add_argument("--by", required=True, help="reviewer name")
     render = sub.add_parser("render", help="Build the Quarto book and PDF from verified sections (no model calls)")
     render.add_argument("--output", type=Path, default=Path("output"))
+    review = sub.add_parser("review", help="Work through queued sentences: accept, edit (re-checked) or remove")
+    review.add_argument("--by", help="reviewer name (required unless --list)")
+    review.add_argument("--list", action="store_true", help="list open items and exit")
     sub.add_parser("status", help="Show stage progress, spend, review queue and approvals")
     args = parser.parse_args()
     try:
@@ -54,6 +57,16 @@ def main():
         elif args.command == "render":
             from .render import render as render_book
             print(json.dumps(render_book(args.data, config, args.output), indent=2))
+        elif args.command == "review":
+            from .review import open_items, interactive
+            if args.list:
+                for item in open_items(args.data):
+                    print(f"{item['sentence_id']}  {item['verdict']} ({item['confidence']:.2f})  {item['sentence']['text'][:90]}")
+            elif not args.by:
+                raise ValueError("pass --by \"Your Name\" to record who made each decision")
+            else:
+                from .llm import gateway_from_config
+                interactive(args.data, config, gateway_from_config(args.data, config), args.by)
         else:
             print_status(args.data, config)
     except (ValueError, KeyError, FileNotFoundError, LLMError) as exc:
@@ -68,9 +81,8 @@ def print_status(root, config):
     spent = Gateway(root, run_id="status").spent_usd()
     print("stages:", json.dumps(runner.counts(root)))
     print(f"spent: ${spent:.2f}" + (f" of ${budget:.2f} budget" if budget else ""))
-    queue = [q for stage in ("verify", "frame", "takeaways")
-             for p in (Path(root) / "stages" / stage).glob("*.json") for q in read(p)["output"]["queue"]]
-    print(f"review queue: {sum(q['status'] == 'open' for q in queue)} open of {len(queue)}")
+    from .review import queue_items, open_items
+    print(f"review queue: {len(open_items(root))} open of {len(queue_items(root))}")
     print("outline approval:", "current" if approval_is_current(root) else "missing or stale")
 
 

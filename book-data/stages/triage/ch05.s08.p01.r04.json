@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch05.s08.p01.r04",
+  "inputs_hash": "7dbec41bdb5e1760cf8a7c1a14304c1589cec4d3ea24e2616246ee054b5e4693",
+  "output_hash": "b8428934127d431772dfcfabba3c0a3dc9a083d50380e7fbd8e34f9cb65952de",
+  "output": {
+    "decision": "edit",
+    "text": "The goal is to convert each email into tokens and make every item in a batch have the same token length, producing an input tensor together with a target tensor of labels \"0\" or \"1\".",
+    "reason": "The captions support tokenizing emails, equalizing token lengths, and forming input/target tensors with 0/1 labels, but not the added phrase \"for this classification task.\"",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.86,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "d7b8f29a0758a8736d540c2fb0e79ce6a4416ba7e57ca5d92e08bddc4cfc4f47"
+  }
+}

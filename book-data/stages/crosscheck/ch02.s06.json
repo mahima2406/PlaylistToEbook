@@ -1,0 +1,342 @@
+{
+  "stage": "crosscheck",
+  "item": "ch02.s06",
+  "inputs_hash": "a2fe6e31a6b0bb0f8d53739d96e4776604ffdbf1ddb73a696e4bcc83220f9d2a",
+  "output_hash": "8de35d4b277749a79befe4c8feaf8b09724faecff5168a39d8812956a26e294b",
+  "output": {
+    "section_id": "ch02.s06",
+    "checked": 28,
+    "counts": {
+      "agrees": 5,
+      "contradicts": 0,
+      "not_covered": 23
+    },
+    "results": [
+      {
+        "sentence_id": "ch02.s06.p01.02",
+        "text": "At one end of the spectrum is character-based tokenization, where characters rather than words are used as tokens.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell83",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell57",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References mention counting characters vs tokens and generating one word/token at a time, but do not describe character-based tokenization as using characters rather than words as tokens."
+      },
+      {
+        "sentence_id": "ch02.s06.p01.03",
+        "text": "For the sentence \"my hobby is playing cricket,\" this means tokens are individual characters such as \"m\", \"y\", \"h\", \"o\", and \"b\" instead of whole words.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell13",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell76",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell57"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explains tokenization can break text into smaller units including punctuation characters, and that BPE can break unknown words into subwords and individual characters, consistent with character-level tokens like individual letters."
+      },
+      {
+        "sentence_id": "ch02.s06.p01.04",
+        "text": "This leads to a very small vocabulary because every language has a fixed number of characters.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell90",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell63",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell57"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention a small vocabulary in an illustrative example but do not state that character-based tokenization yields a very small fixed vocabulary because languages have a fixed number of characters."
+      },
+      {
+        "sentence_id": "ch02.s06.p01.06",
+        "text": "Because any new sentence can always be broken into characters already in the vocabulary, character-based tokenization avoids the out-of-vocabulary problem.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell40",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell38"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference demonstrates out-of-vocabulary errors with a small word vocabulary and suggests using an <|unk|> token, but it does not state that character-level tokenization avoids OOV by always decomposing into known characters."
+      },
+      {
+        "sentence_id": "ch02.s06.p01.07",
+        "text": "It also removes the large-vocabulary problem of word-based tokenization, and the small vocabulary makes it computationally and memory efficient.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell40",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell108"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the reference discusses small vocabularies and shows OOV issues with word vocabularies, it does not claim character tokenization is computationally/memory efficient due to small vocabulary or that it removes the large-vocabulary problem."
+      },
+      {
+        "sentence_id": "ch02.s06.p02.r02",
+        "text": "When text is broken into individual characters, the meaning associated with words is completely lost.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell13",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell76",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell57"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not discuss semantic information loss from character-level tokenization."
+      },
+      {
+        "sentence_id": "ch02.s06.p02.r04",
+        "text": "The same issue appears with shared endings: \"tokenization\" and \"modernization\" have a common \"isation\" that is lost, and word-based tokenization does not capture the common root in \"old\" and \"older\" or the common \"est\" in \"finest\" and \"lowest.\"",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell54",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell27"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages do not address morphological sharing (common endings/roots) or limitations of word-based tokenization regarding such patterns."
+      },
+      {
+        "sentence_id": "ch02.s06.p02.r05",
+        "text": "Another major problem is that the tokenized sequence becomes much longer than the initial raw text.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell16",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell18"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show counting total characters in raw text but do not compare sequence lengths between tokenizations or claim character tokenization produces much longer sequences than raw text."
+      },
+      {
+        "sentence_id": "ch02.s06.p02.r06",
+        "text": "For example, \"dinosaur\" is one token with word-based tokenization but becomes eight separate character tokens with character-based tokenization.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell40",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell136"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference passage tokenizes the word \"dinosaur\" or states the exact token counts for word-based vs character-based tokenization."
+      },
+      {
+        "sentence_id": "ch02.s06.p02.r07",
+        "text": "The same pattern appears with \"hobby,\" which becomes five character tokens: \"h\", \"o\", \"b\", \"b\", and \"y.\"",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell18"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference passage tokenizes \"hobby\" or provides the character-token breakdown/count."
+      },
+      {
+        "sentence_id": "ch02.s06.p02.r08",
+        "text": "So character-level tokenization has a small fixed vocabulary and avoids out-of-vocabulary words, but it produces much longer token sequences, while the main problem with word-based tokenization is its large vocabulary.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell40",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell108"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references cover OOV in word vocabularies and use of small vocabularies for illustration, but do not present the summarized tradeoff statement contrasting character-level and word-level tokenization (vocab size, OOV, longer sequences)."
+      },
+      {
+        "sentence_id": "ch02.s06.p03.02",
+        "text": "Subword-based tokenization is another tokenization algorithm, and byte pair encoding is an example of a subword-based tokenization algorithm.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell40",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference includes a section titled BytePair encoding and discusses BPE tokenizers breaking words into subwords/characters, consistent with BPE being a subword-based tokenization algorithm."
+      },
+      {
+        "sentence_id": "ch02.s06.p03.03",
+        "text": "It is presented as a best-of-both-worlds approach between word tokenization and character tokenization.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell40",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell27"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited cells illustrate tokenization and applying it to text, but do not characterize subword tokenization as a 'best-of-both-worlds' between word- and character-level tokenization."
+      },
+      {
+        "sentence_id": "ch02.s06.p03.04",
+        "text": "The first rule is that frequently used words in the dataset should not be split into smaller subwords.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell16",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell76",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell29"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference states that BPE breaks down unknown words into subwords/characters, but it does not specify a rule that frequently used words should not be split."
+      },
+      {
+        "sentence_id": "ch02.s06.p03.05",
+        "text": "The second rule is that rare words should be split into smaller meaningful subwords, and this splitting can go down to the character level if needed.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell76",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly says BPE tokenizers break down unknown words into subwords and individual characters, consistent with splitting rare/unknown words down to the character level if needed."
+      },
+      {
+        "sentence_id": "ch02.s06.p03.06",
+        "text": "That is why subword tokenization combines features of word tokenization and character tokenization: frequent words are kept whole, while rare words can be broken down further.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell40",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell27"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited cells show tokenization examples but do not explain the principle that frequent words stay whole while rare words are broken down."
+      },
+      {
+        "sentence_id": "ch02.s06.p03.07",
+        "text": "It captures some root words that occur in many other words, such as treating \"boy\" as the common root in related forms.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell8",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell36"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references discuss embeddings, vocabulary construction, and perplexity, but do not discuss capturing roots like treating 'boy' as a common subword across related forms."
+      },
+      {
+        "sentence_id": "ch02.s06.p04.02",
+        "text": "If \"boy\" appears multiple times in the dataset, it is kept as a token and is not split further.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell126",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references provided are about transformers/attention and instruction following; they do not discuss BPE frequency-based retention of a token like 'boy'."
+      },
+      {
+        "sentence_id": "ch02.s06.p04.03",
+        "text": "But \"boys\" can be split into the meaningful subwords \"boy\" and \"s.\"",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell76",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell46",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell48"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the reference notes that BPE can break words into subwords/characters and shows encode/decode, it does not give the specific example of splitting 'boys' into 'boy' and 's'."
+      },
+      {
+        "sentence_id": "ch02.s06.p04.04",
+        "text": "The main essence of subword tokenization is that words are sometimes broken into smaller elements because those smaller elements appear very frequently.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell13"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference defines tokenization as breaking text into smaller units, but does not state the specific 'essence' that words are broken because the smaller elements are very frequent."
+      },
+      {
+        "sentence_id": "ch02.s06.p04.05",
+        "text": "In this example, \"boys\" is broken into \"boy\" and \"s\" because \"boy\" appears more frequently and \"s\" is also a token that appears very frequently.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell16"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The only frequency-related reference is a ham/spam class distribution example, not token/subword frequency or the 'boys' -> 'boy' + 's' rationale."
+      },
+      {
+        "sentence_id": "ch02.s06.p04.07",
+        "text": "Subword splitting helps the model learn that words such as \"token\", \"tokens\", and \"tokenizing\" share the same root and are similar in meaning.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell12",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell13",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references cover what tokenization is in general but do not discuss learning shared roots/meaning similarity across 'token', 'tokens', and 'tokenizing' due to subword splitting."
+      },
+      {
+        "sentence_id": "ch02.s06.p04.08",
+        "text": "It also helps the model learn that \"tokenization\" and \"modernization\" have different roots but share the suffix \"isation,\" which appears in the same syntactic situations.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell33",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages concern embedding dimensions, padding/collation, and tokenized input ids; they do not address suffix-sharing like 'isation' or syntactic usage patterns from subwords."
+      },
+      {
+        "sentence_id": "ch02.s06.p04.09",
+        "text": "A word like \"tokenization\" can therefore be broken into subword pieces that include a suffix token such as \"isation\" along with root-related tokens, helping the model learn common patterns across words.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell40"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference indicates an illustration of tokenization with a small vocabulary but does not discuss breaking 'tokenization' into pieces including a suffix token like 'isation' to learn cross-word patterns."
+      },
+      {
+        "sentence_id": "ch02.s06.p05.r02",
+        "text": "The tokens produced by byte pair encoding are subwords rather than full words or single characters, and they can encode root representations.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell76",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states that BPE tokenizers break down unknown words into subwords and individual characters, consistent with BPE producing subword units (not just full words) and enabling reuse of meaningful parts (roots)."
+      },
+      {
+        "sentence_id": "ch02.s06.p05.r03",
+        "text": "For example, the process can construct tokens such as \"old\" and \"est\".",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell33",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell97",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages do not mention specific example tokens like \"old\" and \"est\" or show BPE constructing those particular tokens."
+      },
+      {
+        "sentence_id": "ch02.s06.p05.r04",
+        "text": "A repeated part can be kept as its own token, while a less reusable word is split into reusable subwords and characters.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell76"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference notes that BPE breaks unknown words into subwords and individual characters, which is consistent with keeping reusable parts as tokens and splitting others into smaller reusable units."
+      },
+      {
+        "sentence_id": "ch02.s06.p05.r05",
+        "text": "That is why subword encoding keeps the out-of-vocabulary advantage of character-level tokenization while also capturing root meanings and avoiding the very large vocabulary of word-level encoding.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell40",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell120",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the references discuss unknown words and handling via special tokens and illustrate small-vocabulary tokenization, they do not explicitly compare subword encoding to character- and word-level encoding in terms of OOV advantages, capturing root meanings, or vocabulary size."
+      }
+    ],
+    "conflicts": []
+  }
+}

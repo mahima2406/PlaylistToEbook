@@ -1,0 +1,295 @@
+{
+  "stage": "crosscheck",
+  "item": "ch06.s02",
+  "inputs_hash": "b6f5e2a28a72babfc7c78a1e6fe510e8e35fcb00c9a070ee325faa48c42258ba",
+  "output_hash": "685464093f2c648369e980800dd0787053252824518dad54ec57bdb0d902710b",
+  "output": {
+    "section_id": "ch06.s02",
+    "checked": 20,
+    "counts": {
+      "agrees": 6,
+      "contradicts": 3,
+      "not_covered": 11
+    },
+    "results": [
+      {
+        "sentence_id": "ch06.s02.p01.02",
+        "text": "Formatting the dataset means converting entries with the three keys \"instruction\", \"input\", and \"output\" into the \"alpaka\" prompt style before feeding them to the large language model for fine-tuning.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell17",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell38",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ch07 explicitly states they use Alpaca-style prompt formatting and shows formatting inputs from entries containing instruction/input/output before passing to the LLM for finetuning."
+      },
+      {
+        "sentence_id": "ch06.s02.p01.03",
+        "text": "In this prompt style, the prompt starts with a fixed introductory instruction: \"below is an instruction that describes a task paired with an input that provides further context Write a response that appropriately completes the request\".",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell18",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell113",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell17"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The fixed intro in format_input is \"Below is an instruction that describes a task. Write a response that appropriately completes the request.\" It does not include \"paired with an input that provides further context\" and the sentence’s quoted string differs in content/punctuation."
+      },
+      {
+        "sentence_id": "ch06.s02.p01.04",
+        "text": "After that introduction, the prompt includes the dataset instruction, then the dataset input, and then the response taken from the dataset output.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell10",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell29",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell92"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References shown do not provide the full training-text construction order including appending the dataset output as the response; only general dataset prep notes are cited."
+      },
+      {
+        "sentence_id": "ch06.s02.p01.05",
+        "text": "That is the specific conversion applied to instruction-response data before training text is prepared.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell9",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell85",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell80"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited cells do not state that this specific conversion is the one applied before training text is prepared (they mention using a prepared instruction dataset and later response extraction)."
+      },
+      {
+        "sentence_id": "ch06.s02.p02.01",
+        "text": "The code begins by downloading the dataset and checking that it loaded correctly.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell64",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell45",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell144"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No provided reference passage shows downloading the instruction dataset and checking load correctness at the start; the cited refs are from other chapters and unrelated checks."
+      },
+      {
+        "sentence_id": "ch06.s02.p02.02",
+        "text": "It reports 1100 entries and verifies the contents by printing the 50th and 999th examples and confirming that they match the dataset.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell115",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell54"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference shown reports '1100 entries' or prints the 50th and 999th examples to verify contents."
+      },
+      {
+        "sentence_id": "ch06.s02.p02.03",
+        "text": "The conversion itself is handled by a function called \"format_input\".",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell77",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell118",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell99"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ch07 uses a function named format_input to produce the formatted input text (e.g., input_text = format_input(val_data[0]))."
+      },
+      {
+        "sentence_id": "ch06.s02.p02.04",
+        "text": "This function takes an entry containing the instruction, input, and output pair and converts it into the \"alpaka\" prompt.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell18",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell118",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell113"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "format_input only uses entry['instruction'] and (optionally) entry['input']; it does not incorporate entry['output'] when building the Alpaca prompt. Output is handled separately (e.g., desired_response built from data[50]['output'])."
+      },
+      {
+        "sentence_id": "ch06.s02.p02.05",
+        "text": "It builds the prompt from the instruction plus the input, and then appends the response as the output.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell79",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell17",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell81"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "format_input builds prompt from instruction + optional input only; it does not append the response/output. The notebook separately constructs desired_response with \"### Response:\\n{...['output']}\" when needed."
+      },
+      {
+        "sentence_id": "ch06.s02.p02.06",
+        "text": "For a single entry, that means taking the introductory first line, adding the instruction and the input, and then appending the desired response to obtain the full prompt.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell118",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell18",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell20"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ch07 shows model_input = format_input(data[50]) and desired_response = \"\\n\\n### Response:\\n\" + data[50]['output'], then prints the concatenation, matching intro+instruction+input plus appended desired response."
+      },
+      {
+        "sentence_id": "ch06.s02.p03.01",
+        "text": "Once each example is written in this prompt format, the next step is to turn it into token IDs.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell33",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell54",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell32"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided refs mention token IDs generally (ch02) and masking targets (ch07) but do not explicitly state the immediate next step after Alpaca formatting is converting each example into token IDs."
+      },
+      {
+        "sentence_id": "ch06.s02.p03.02",
+        "text": "Using the \"tick token\" library, the process is applied to the first instruction-input-output example, then to the second, and then to all examples in the dataset: convert to the \"alpaka\" format and convert that text into a bunch of token IDs.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell33",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell75"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No provided reference mentions using a 'tick token' (tiktoken) library or describes applying the process sequentially to first, second, then all examples in the dataset for Alpaca formatting plus token-ID conversion."
+      },
+      {
+        "sentence_id": "ch06.s02.p03.03",
+        "text": "To package that workflow in code, the next step is to create an instruction dataset class.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell29",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell57",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell56"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly says they implement an InstructionDataset class as the next step (cell29) and then use it to create data loaders (cells56-57)."
+      },
+      {
+        "sentence_id": "ch06.s02.p03.04",
+        "text": "This class takes the dataset in its original instruction-input-output form and first converts each entry into the \"alpaka\" style format.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell18",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell17",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell11"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference shows Alpaca-style prompt formatting via format_input(entry), which converts each instruction/input entry into the Alpaca prompt template (cells17-18)."
+      },
+      {
+        "sentence_id": "ch06.s02.p03.05",
+        "text": "It does that by using the \"format_input\" function to produce the first sentence, the instruction, and the input text, and then appending the response or output.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell79",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell18",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While format_input is defined in the reference, the provided passages do not show the InstructionDataset class using it and appending the response/output to build a full training text; the other cited cell (79) discusses isolating generated responses, not dataset construction."
+      },
+      {
+        "sentence_id": "ch06.s02.p04.01",
+        "text": "When an instance of this instruction dataset class is created, it first stores the dataset in \"self.data\".",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell29",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell56",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell57"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references mention implementing InstructionDataset but do not show its code or that it stores the raw dataset in self.data."
+      },
+      {
+        "sentence_id": "ch06.s02.p04.02",
+        "text": "Then, for each entry, it applies \"format_input\" and appends the response so that the full text in the \"alpaka\" format is created.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell18",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell118",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell96"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The passages show format_input usage in evaluation/generation contexts, but they do not show the dataset class applying format_input and appending entry['output'] to create full Alpaca-formatted text."
+      },
+      {
+        "sentence_id": "ch06.s02.p04.03",
+        "text": "After that, it tokenizes the formatted data by defining an empty list and appending token IDs to that list.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell29",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell18"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references state the InstructionDataset pre-tokenizes inputs, but they do not show the specific mechanism (e.g., initializing an empty list and appending token IDs) inside the class."
+      },
+      {
+        "sentence_id": "ch06.s02.p04.04",
+        "text": "For every prompt corresponding to an input-output pair, each token in the prompt is converted into a token ID and appended to the list.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell17",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited cells discuss prompt formatting and general token-ID concepts, but do not describe the dataset class converting each token in each prompt to token IDs and appending to a list."
+      },
+      {
+        "sentence_id": "ch06.s02.p04.05",
+        "text": "The result returned by the instruction dataset class is, for every dataset entry, the \"alpaka\" style prompt converted into a bunch of token IDs.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell17",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell29",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell18"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states the InstructionDataset pre-tokenizes all inputs and the chapter uses Alpaca-style formatting for prompts (cells17-18, 29), consistent with returning token IDs corresponding to the Alpaca-style prompts."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch06.s02.p01.03",
+        "text": "In this prompt style, the prompt starts with a fixed introductory instruction: \"below is an instruction that describes a task paired with an input that provides further context Write a response that appropriately completes the request\".",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell18",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell113",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell17"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The fixed intro in format_input is \"Below is an instruction that describes a task. Write a response that appropriately completes the request.\" It does not include \"paired with an input that provides further context\" and the sentence’s quoted string differs in content/punctuation."
+      },
+      {
+        "sentence_id": "ch06.s02.p02.04",
+        "text": "This function takes an entry containing the instruction, input, and output pair and converts it into the \"alpaka\" prompt.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell18",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell118",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell113"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "format_input only uses entry['instruction'] and (optionally) entry['input']; it does not incorporate entry['output'] when building the Alpaca prompt. Output is handled separately (e.g., desired_response built from data[50]['output'])."
+      },
+      {
+        "sentence_id": "ch06.s02.p02.05",
+        "text": "It builds the prompt from the instruction plus the input, and then appends the response as the output.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell79",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell17",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell81"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "format_input builds prompt from instruction + optional input only; it does not append the response/output. The notebook separately constructs desired_response with \"### Response:\\n{...['output']}\" when needed."
+      }
+    ]
+  }
+}

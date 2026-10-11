@@ -1,0 +1,245 @@
+{
+  "stage": "crosscheck",
+  "item": "ch02.s10",
+  "inputs_hash": "4930669966add92815a6835698d39fc2c04c36946735628cc61f615ce6b7be6f",
+  "output_hash": "0d6674feac8c85c194de672e92d9a0e59178c560ef2ae58eb8555fcdbdc7491f",
+  "output": {
+    "section_id": "ch02.s10",
+    "checked": 20,
+    "counts": {
+      "agrees": 5,
+      "contradicts": 0,
+      "not_covered": 15
+    },
+    "results": [
+      {
+        "sentence_id": "ch02.s10.p01.r02",
+        "text": "Token embeddings are also called vector embeddings, and they are sometimes called word embeddings, but \"word embeddings\" is not entirely accurate because tokens can be words, subwords, or even characters.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell8",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell130"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show token embeddings and discuss embeddings generally, but they do not state the synonymy with “vector embeddings” or discuss why “word embeddings” is an imprecise term due to tokens being subwords/characters."
+      },
+      {
+        "sentence_id": "ch02.s10.p01.r03",
+        "text": "A word-based tokenizer makes each token one word, but GPT uses byte pair encoding as a subword tokenizer, so even parts of words or characters can be individual tokens.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell76"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference uses a GPT-2 BPE tokenizer (tiktoken) and explicitly states BPE breaks unknown words into subwords and individual characters."
+      },
+      {
+        "sentence_id": "ch02.s10.p01.r04",
+        "text": "Computers require numerical representations of words, because they cannot understand words directly as inputs to a machine learning model or a large language model.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell36",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show building a vocabulary and discuss perplexity, but they do not explicitly claim computers cannot understand words directly and therefore require numerical representations."
+      },
+      {
+        "sentence_id": "ch02.s10.p01.r05",
+        "text": "Token embeddings are the step that converts token IDs into vectors.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell107",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell130",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell103"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The section “Creating token embeddings” and the code applying token_embedding_layer to token IDs/inputs demonstrates converting token IDs into embedding vectors."
+      },
+      {
+        "sentence_id": "ch02.s10.p02.02",
+        "text": "Assigning random numbers or token IDs to words does not capture semantic relationships between related words such as \"cat\" and \"kitten\".",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell36",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell37",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show assigning integer IDs via a vocab mapping but do not discuss the limitation that such IDs (or random numbers) fail to encode semantic relationships like cat/kitten."
+      },
+      {
+        "sentence_id": "ch02.s10.p02.03",
+        "text": "One-hot encoding has the same limitation: it does not capture semantic relationships between words such as \"dog\" and \"puppy\".",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell112",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell16",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference explains embedding layers are equivalent to one-hot + matrix multiplication and trainable, but it does not state that one-hot encoding fails to capture semantic relationships such as dog/puppy."
+      },
+      {
+        "sentence_id": "ch02.s10.p02.04",
+        "text": "Words carry meaning, so inputs to a large language model should exploit that meaning rather than discard it.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell54"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided reference passage is about freezing and finetuning layers and does not address whether inputs should exploit word meaning rather than discard it."
+      },
+      {
+        "sentence_id": "ch02.s10.p03.r01",
+        "text": "A more useful numerical representation is to encode each token as a vector whose dimensions correspond to features.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell125",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell54"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference discusses encoding input tokens into a 256-dimensional vector representation, consistent with representing each token as a vector with multiple dimensions/features."
+      },
+      {
+        "sentence_id": "ch02.s10.p03.r02",
+        "text": "For example, a vector can use features such as \"has a tail\", \"is eatable\", \"has four legs\", \"makes sound\", and \"is a pet\", with high values when a feature applies.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell34"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference shown is about softmax normalization and does not cover illustrative semantic feature dimensions like “has a tail” or “is a pet.”"
+      },
+      {
+        "sentence_id": "ch02.s10.p03.r03",
+        "text": "With this kind of representation, \"dog\" and \"cat\" are close to each other because similar dimensions have high or low values in both vectors.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell10"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference mentions high-dimensional embedding spaces and provides a 2D illustration, but it does not state that dog and cat are close because similar dimensions take similar values."
+      },
+      {
+        "sentence_id": "ch02.s10.p04.02",
+        "text": "Representing words as vectors can capture semantic meaning, allowing similar words to be grouped together and dissimilar words to be farther apart.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell36",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell91"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited references do not discuss embeddings capturing semantic meaning by grouping similar words and separating dissimilar ones."
+      },
+      {
+        "sentence_id": "ch02.s10.p04.03",
+        "text": "These vectors are called vector embeddings or token embeddings because each token is converted into a vector embedding.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell130",
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell6",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the references show token IDs being converted to vectors called token_embeddings, they do not explicitly make the naming claim that these vectors are called “vector embeddings or token embeddings” because each token is converted into a vector embedding."
+      },
+      {
+        "sentence_id": "ch02.s10.p04.04",
+        "text": "Representing words as vectors so that semantic relationships are preserved is called vector embedding, and it is also called token embedding.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss token embeddings and embedding dimensions in attention, but do not define “vector embedding” as also being called “token embedding,” nor explicitly equate the two terms."
+      },
+      {
+        "sentence_id": "ch02.s10.p04.05",
+        "text": "If token embeddings are trained properly, those vectors can carry meaning.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell103",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell130",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited cells show how token embeddings are created and combined with positional embeddings, but do not state that properly trained token embeddings carry meaning."
+      },
+      {
+        "sentence_id": "ch02.s10.p04.06",
+        "text": "The key takeaway is that vectors can capture semantic meaning.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell69",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell54"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The referenced passages cover computing query/key/value vectors and model freezing for finetuning, but do not state a takeaway that vectors capture semantic meaning."
+      },
+      {
+        "sentence_id": "ch02.s10.p04.07",
+        "text": "Because these embeddings retain the meaning of words, feeding them into a large language model makes a huge difference compared with feeding one-hot encodings or random token IDs.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference states that positional embeddings are combined with token embeddings for LLM input, but does not compare this to one-hot encodings or random token IDs or claim it makes a huge difference for meaning."
+      },
+      {
+        "sentence_id": "ch02.s10.p05.r02",
+        "text": "The vector embeddings discussed so far do not encode the position of a word in a sentence.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell131",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references indicate that positional embeddings are added to token embeddings to form input embeddings, implying token embeddings alone do not include position information."
+      },
+      {
+        "sentence_id": "ch02.s10.p05.r03",
+        "text": "A word’s position also matters for understanding sentence context.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell6",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell7",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell131"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited references mention absolute position embeddings but do not explicitly state that a word’s position matters for understanding sentence context."
+      },
+      {
+        "sentence_id": "ch02.s10.p05.r04",
+        "text": "That is why it is advantageous to encode positional information along with semantic meaning.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell54"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided reference (about freezing layers for finetuning) does not discuss encoding positional information alongside semantic meaning."
+      },
+      {
+        "sentence_id": "ch02.s10.p05.r05",
+        "text": "The main purpose of positional encoding is to inject positional information that token embeddings alone do not provide.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell130"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references explain that positional embeddings are added/combined with token embeddings to create LLM input embeddings, consistent with the idea that positional encodings inject position information not present in token embeddings alone."
+      }
+    ],
+    "conflicts": []
+  }
+}

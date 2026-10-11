@@ -1,0 +1,33 @@
+{
+  "stage": "listings",
+  "item": "ch02.s09",
+  "inputs_hash": "14ef515185e34b989f69c2df2f5ba9ce599abf65efd57705d999d0e9565f6a72",
+  "output_hash": "32229bdcc224771b28e891134ddedb0d0bfce4428732c2a5dae958ee4cab6dac",
+  "output": {
+    "section_id": "ch02.s09",
+    "listings": [
+      {
+        "id": "ch02.s09.code1",
+        "ref": "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73",
+        "path": "ch02/01_main-chapter-code/ch02.ipynb",
+        "caption": "This code creates a GPT-2 tokenizer by calling tiktoken.get_encoding(\"gpt2\").",
+        "code": "tokenizer = tiktoken.get_encoding(\"gpt2\")\n\ntext = (\n    \"Hello, do you like tea? <|endoftext|> In the sunlit terraces\"\n     \"of someunknownPlace.\"\n)\n\nintegers = tokenizer.encode(text, allowed_special={\"<|endoftext|>\"})\n\nprint(integers)\n\nstrings = tokenizer.decode(integers)\n\nprint(strings)",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The code instantiates the GPT-2 BPE tokenizer via tiktoken.get_encoding(\"gpt2\"), encodes a text into token IDs while allowing the special <|endoftext|> token, and decodes those IDs back to a string. It also includes an unknown-looking token (\"someunknownPlace\") to demonstrate BPE encoding without errors. The caption accurately describes the tokenizer creation step, and the rest of the code aligns with the section’s encode/decode demonstration."
+      }
+    ],
+    "rejected": [
+      {
+        "id": "ch02.s09.code2",
+        "ref": "ref:ch02/01_main-chapter-code/ch02.ipynb#cell75",
+        "path": "ch02/01_main-chapter-code/ch02.ipynb",
+        "caption": "This code decodes the token ID sequence stored in integers back into text and prints the resulting string.",
+        "code": "strings = tokenizer.decode(integers)\n\nprint(strings)",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The excerpt uses tiktoken’s decode method to turn a list of token IDs back into text and prints it, which aligns with the section’s encode/decode testing and reconstruction idea. However, it does not show creating the tokenizer with get_encoding(\"gpt2\"), encoding a sentence (including the 50256 end-of-text token), or the behavior on unknown/nonsense words. The caption accurately describes what the snippet does, but the snippet covers only a small subset of what the section teaches."
+      }
+    ]
+  }
+}

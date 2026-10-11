@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch05.s08.p04.03",
+  "inputs_hash": "71c4aac7be65a1545381b517927b8fda52e8a0386387f7f0d600e7cce7d7dd97",
+  "output_hash": "e36cd76a2406a547bef74bddca8e13ecdabb78d3208721c5ab0c279cdcd5e1ca",
+  "output": {
+    "decision": "edit",
+    "text": "If the maximum length is selected from the training data, this problem will not arise for the training sequences.",
+    "reason": "The caption supports a limited claim, while the reference shows longer validation or test sequences can still occur and be truncated.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.74,
+      "reason": "Cited lines support that selecting the maximum length from the data means 'this problem will not arise', but they do not specify 'for the training sequences' (the scope could be broader/unspecified)."
+    },
+    "kind": "conflict",
+    "sentence_hash": "b2957ec8d01e15936fde5c30225869dd69a3906d543c8849b112ca8eaa2df9f1"
+  }
+}

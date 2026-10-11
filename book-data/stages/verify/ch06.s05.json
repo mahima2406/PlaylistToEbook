@@ -1,0 +1,710 @@
+{
+  "stage": "verify",
+  "item": "ch06.s05",
+  "inputs_hash": "aa73ca779d716a0855b92ab4e6443721cf1c22bcc820c4da2c22bbb3a8ff1465",
+  "output_hash": "5ecfdee3ea8b9b510b8cfcca628904a99580ffb0f8ce90148b2ab2a7212f3bfd",
+  "output": {
+    "section_id": "ch06.s05",
+    "paragraphs": [
+      {
+        "id": "ch06.s05.p01",
+        "sentences": [
+          {
+            "id": "ch06.s05.p01.01",
+            "text": "How do the target token IDs tell the model what to generate, and why are they built from the input itself rather than from the response alone?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s05.p01.02",
+            "text": "For training, batches must include target token IDs because they represent what the model should generate and are used to compute the loss.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1946",
+              "bkUkcyL_Xxc@1948",
+              "bkUkcyL_Xxc@1950",
+              "bkUkcyL_Xxc@1952",
+              "bkUkcyL_Xxc@1955",
+              "bkUkcyL_Xxc@1956",
+              "bkUkcyL_Xxc@1959",
+              "bkUkcyL_Xxc@1961"
+            ]
+          },
+          {
+            "id": "ch06.s05.p01.03",
+            "text": "The key step is to create the target by shifting the input token IDs to the right by one position and adding a padding token \"50256\" at the end so that the target has the same length as the input.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@930",
+              "bkUkcyL_Xxc@931",
+              "bkUkcyL_Xxc@934",
+              "bkUkcyL_Xxc@936",
+              "bkUkcyL_Xxc@948",
+              "bkUkcyL_Xxc@950",
+              "bkUkcyL_Xxc@952",
+              "bkUkcyL_Xxc@955",
+              "bkUkcyL_Xxc@957",
+              "bkUkcyL_Xxc@1198",
+              "bkUkcyL_Xxc@1200",
+              "bkUkcyL_Xxc@1202",
+              "bkUkcyL_Xxc@1204",
+              "bkUkcyL_Xxc@1206"
+            ]
+          },
+          {
+            "id": "ch06.s05.p01.04",
+            "text": "If the input token IDs are \"0 1 2 3 4\", the target token IDs are \"1 2 3 4 50256\".",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@936",
+              "bkUkcyL_Xxc@938",
+              "bkUkcyL_Xxc@942",
+              "bkUkcyL_Xxc@945",
+              "bkUkcyL_Xxc@948",
+              "bkUkcyL_Xxc@950"
+            ]
+          },
+          {
+            "id": "ch06.s05.p01.05",
+            "text": "If the input token IDs are \"56 50256 50256 50256\", the target is formed by removing the first token, keeping the remaining tokens, and padding with an extra \"50256\".",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@957b",
+              "bkUkcyL_Xxc@960",
+              "bkUkcyL_Xxc@964",
+              "bkUkcyL_Xxc@966",
+              "bkUkcyL_Xxc@969",
+              "bkUkcyL_Xxc@971",
+              "bkUkcyL_Xxc@973"
+            ]
+          },
+          {
+            "id": "ch06.s05.p01.06",
+            "text": "This shifted-target construction is described as the most important step in the fine-tuning process, and it can be hard to grasp at first.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@974",
+              "bkUkcyL_Xxc@976",
+              "bkUkcyL_Xxc@979",
+              "bkUkcyL_Xxc@981"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s05.p02",
+        "sentences": [
+          {
+            "id": "ch06.s05.p02.r01",
+            "text": "The reason for the shift is that instruction fine-tuning still uses the next token prediction task.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1012",
+              "bkUkcyL_Xxc@1016",
+              "bkUkcyL_Xxc@1018"
+            ]
+          },
+          {
+            "id": "ch06.s05.p02.r02",
+            "text": "A shifted input-target sequence means that if the input is \"0\", the output should be \"1\"; if the input is \"0 1\", the target is \"2\"; if the input is \"0 1 2\", the target is \"3\"; and if the input is \"0 1 2 3\", the target is \"4\".",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1042",
+              "bkUkcyL_Xxc@1045",
+              "bkUkcyL_Xxc@1048",
+              "bkUkcyL_Xxc@1049",
+              "bkUkcyL_Xxc@1051",
+              "bkUkcyL_Xxc@1055",
+              "bkUkcyL_Xxc@1057"
+            ]
+          },
+          {
+            "id": "ch06.s05.p02.r03",
+            "text": "When the input reaches the full sequence, the model is at the end of the sentence.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1062",
+              "bkUkcyL_Xxc@1064"
+            ]
+          },
+          {
+            "id": "ch06.s05.p02.r04",
+            "text": "Training on the shifted sequence teaches the model sequentially to predict each next token.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1078",
+              "bkUkcyL_Xxc@1080",
+              "bkUkcyL_Xxc@1082",
+              "bkUkcyL_Xxc@1088",
+              "bkUkcyL_Xxc@1091",
+              "bkUkcyL_Xxc@1094",
+              "bkUkcyL_Xxc@1097"
+            ]
+          },
+          {
+            "id": "ch06.s05.p02.r05",
+            "text": "Although this setup includes some redundant training, it works through next token prediction so that once the model has seen the instruction and input, it predicts the response.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1097",
+              "bkUkcyL_Xxc@1099",
+              "bkUkcyL_Xxc@1101",
+              "bkUkcyL_Xxc@1102",
+              "bkUkcyL_Xxc@1103",
+              "bkUkcyL_Xxc@1106",
+              "bkUkcyL_Xxc@1107",
+              "bkUkcyL_Xxc@1110",
+              "bkUkcyL_Xxc@1111",
+              "bkUkcyL_Xxc@1113"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s05.p03",
+        "sentences": [
+          {
+            "id": "ch06.s05.p03.01",
+            "text": "This is the nonintuitive part of instruction fine-tuning.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s05.p03.02",
+            "text": "The input is the full sequence and the target is the full sequence shifted by one, not just the response alone.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1127",
+              "bkUkcyL_Xxc@1129",
+              "bkUkcyL_Xxc@1132",
+              "bkUkcyL_Xxc@1134",
+              "bkUkcyL_Xxc@1136",
+              "bkUkcyL_Xxc@1139",
+              "bkUkcyL_Xxc@1141"
+            ]
+          },
+          {
+            "id": "ch06.s05.p03.03",
+            "text": "The input sequence itself contains both the instruction-input part and the output part, because LLMs are trained with next token prediction.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1143",
+              "bkUkcyL_Xxc@1146",
+              "bkUkcyL_Xxc@1149",
+              "bkUkcyL_Xxc@1151",
+              "bkUkcyL_Xxc@1153"
+            ]
+          },
+          {
+            "id": "ch06.s05.p03.04",
+            "text": "By learning to predict the next token, the LLM learns to follow instructions and produce the response once enough of the prompt has been seen.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1155",
+              "bkUkcyL_Xxc@1158",
+              "bkUkcyL_Xxc@1160",
+              "bkUkcyL_Xxc@1162",
+              "bkUkcyL_Xxc@1165",
+              "bkUkcyL_Xxc@1167",
+              "bkUkcyL_Xxc@1170"
+            ]
+          },
+          {
+            "id": "ch06.s05.p03.05",
+            "text": "Instruction fine-tuning is very similar to pre-training because both use targets shifted by one token.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1170",
+              "bkUkcyL_Xxc@1172",
+              "bkUkcyL_Xxc@1173",
+              "bkUkcyL_Xxc@1175",
+              "bkUkcyL_Xxc@1177",
+              "bkUkcyL_Xxc@1179"
+            ]
+          },
+          {
+            "id": "ch06.s05.p03.06",
+            "text": "Even though this shifted-target setup is nonintuitive in instruction fine-tuning, it works because predicting the next token teaches the model to take the instruction and input and predict the response.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1179",
+              "bkUkcyL_Xxc@1181",
+              "bkUkcyL_Xxc@1183",
+              "bkUkcyL_Xxc@1187",
+              "bkUkcyL_Xxc@1189",
+              "bkUkcyL_Xxc@1191",
+              "bkUkcyL_Xxc@1194"
+            ]
+          },
+          {
+            "id": "ch06.s05.p03.07",
+            "text": "It may seem nonintuitive that the true values include the instruction and input as well as the response, but in next-word prediction the LLM learns to predict the response from the instruction and input.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2070",
+              "bkUkcyL_Xxc@2072",
+              "bkUkcyL_Xxc@2077",
+              "bkUkcyL_Xxc@2080",
+              "bkUkcyL_Xxc@2082",
+              "bkUkcyL_Xxc@2083",
+              "bkUkcyL_Xxc@2085",
+              "bkUkcyL_Xxc@2087",
+              "bkUkcyL_Xxc@2090",
+              "bkUkcyL_Xxc@2091",
+              "bkUkcyL_Xxc@2093",
+              "bkUkcyL_Xxc@2095",
+              "bkUkcyL_Xxc@2096"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s05.p04",
+        "sentences": [
+          {
+            "id": "ch06.s05.p04.01",
+            "text": "The batching code follows the same idea directly.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s05.p04.02",
+            "text": "A simple way to understand the batching code is that the inputs are padded to the same length and the targets are the inputs shifted to the right by one.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2056",
+              "bkUkcyL_Xxc@2059",
+              "bkUkcyL_Xxc@2060",
+              "bkUkcyL_Xxc@2062",
+              "bkUkcyL_Xxc@2064",
+              "bkUkcyL_Xxc@2066",
+              "bkUkcyL_Xxc@2068"
+            ]
+          },
+          {
+            "id": "ch06.s05.p04.03",
+            "text": "In the code, the targets are formed by taking the padded input from the second element onward, which works because an extra \"50256\" token was already added.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1986",
+              "bkUkcyL_Xxc@1988",
+              "bkUkcyL_Xxc@1990",
+              "bkUkcyL_Xxc@1993",
+              "bkUkcyL_Xxc@1995",
+              "bkUkcyL_Xxc@1997",
+              "bkUkcyL_Xxc@1999",
+              "bkUkcyL_Xxc@2002",
+              "bkUkcyL_Xxc@2005",
+              "bkUkcyL_Xxc@2007"
+            ]
+          },
+          {
+            "id": "ch06.s05.p04.04",
+            "text": "Custom collate draft two truncates the last token for the inputs so they have the correct length and shifts the input to the right by one to create the target tensor.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2117",
+              "bkUkcyL_Xxc@2119",
+              "bkUkcyL_Xxc@2122",
+              "bkUkcyL_Xxc@2124",
+              "bkUkcyL_Xxc@2126",
+              "bkUkcyL_Xxc@2128",
+              "bkUkcyL_Xxc@2130"
+            ]
+          },
+          {
+            "id": "ch06.s05.p04.05",
+            "text": "In the draft two example, each target row is the corresponding input row shifted right by one position, with a \"50256\" token appended at the end.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2155",
+              "bkUkcyL_Xxc@2156",
+              "bkUkcyL_Xxc@2158",
+              "bkUkcyL_Xxc@2160",
+              "bkUkcyL_Xxc@2162",
+              "bkUkcyL_Xxc@2164",
+              "bkUkcyL_Xxc@2167",
+              "bkUkcyL_Xxc@2169",
+              "bkUkcyL_Xxc@2171",
+              "bkUkcyL_Xxc@2173",
+              "bkUkcyL_Xxc@2175",
+              "bkUkcyL_Xxc@2177",
+              "bkUkcyL_Xxc@2180",
+              "bkUkcyL_Xxc@2182",
+              "bkUkcyL_Xxc@2184",
+              "bkUkcyL_Xxc@2186",
+              "bkUkcyL_Xxc@2188"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s05.p05",
+        "sentences": [
+          {
+            "id": "ch06.s05.p05.01",
+            "text": "One detail matters for the end of a sequence.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s05.p05.02",
+            "text": "One \"50256\" end-of-text token is kept because it teaches the LLM when to generate an end-of-text token to mark that the response is complete.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2235",
+              "bkUkcyL_Xxc@2237",
+              "bkUkcyL_Xxc@2238",
+              "bkUkcyL_Xxc@2242",
+              "bkUkcyL_Xxc@2245",
+              "bkUkcyL_Xxc@2247",
+              "bkUkcyL_Xxc@2249",
+              "bkUkcyL_Xxc@2251",
+              "bkUkcyL_Xxc@2255",
+              "bkUkcyL_Xxc@2257",
+              "bkUkcyL_Xxc@2259",
+              "bkUkcyL_Xxc@2262",
+              "bkUkcyL_Xxc@2265"
+            ]
+          },
+          {
+            "id": "ch06.s05.p05.03",
+            "text": "When padding-related \"50256\" tokens in the targets are later replaced with \"-100\", the first \"50256\" should be retained.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2205",
+              "bkUkcyL_Xxc@2207",
+              "bkUkcyL_Xxc@2209",
+              "bkUkcyL_Xxc@2212",
+              "bkUkcyL_Xxc@2214",
+              "bkUkcyL_Xxc@2235",
+              "bkUkcyL_Xxc@2237",
+              "bkUkcyL_Xxc@2238",
+              "bkUkcyL_Xxc@2242"
+            ]
+          },
+          {
+            "id": "ch06.s05.p05.04",
+            "text": "The first \"50256\" must be retained because it marks the end of a particular text, while the remaining \"50256\" token IDs are unnecessary and can be replaced with \"-100\".",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1324",
+              "bkUkcyL_Xxc@1327",
+              "bkUkcyL_Xxc@1330",
+              "bkUkcyL_Xxc@1333",
+              "bkUkcyL_Xxc@1335",
+              "bkUkcyL_Xxc@1338",
+              "bkUkcyL_Xxc@1339"
+            ]
+          },
+          {
+            "id": "ch06.s05.p05.05",
+            "text": "Retaining that first \"50256\" helps the LLM learn to generate end-of-text tokens as the signal that the response is complete.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2715",
+              "bkUkcyL_Xxc@2717",
+              "bkUkcyL_Xxc@2720",
+              "bkUkcyL_Xxc@2723",
+              "bkUkcyL_Xxc@2727",
+              "bkUkcyL_Xxc@2729",
+              "bkUkcyL_Xxc@2732",
+              "bkUkcyL_Xxc@2734",
+              "bkUkcyL_Xxc@2736",
+              "bkUkcyL_Xxc@2738",
+              "bkUkcyL_Xxc@2740"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch06.s05.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch06.s05.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch06.s05.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s05.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s05.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s05.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.91,
+        "reason": ""
+      },
+      "ch06.s05.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.73,
+        "reason": ""
+      },
+      "ch06.s05.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s05.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch06.s05.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.87,
+        "reason": ""
+      },
+      "ch06.s05.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch06.s05.p03.06": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s05.p03.07": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch06.s05.p04.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s05.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s05.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch06.s05.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s05.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s05.p05.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s05.p05.02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch06.s05.p05.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s05.p05.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s05.p05.05": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch06.s05.p02.r01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s05.p02.r02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s05.p02.r03": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch06.s05.p02.r04": {
+        "verdict": "supported",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch06.s05.p02.r05": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch06.s05.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch06.s05.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch06.s05.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s05.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s05.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s05.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.91,
+        "reason": ""
+      },
+      "ch06.s05.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s05.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.87,
+        "reason": ""
+      },
+      "ch06.s05.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch06.s05.p02.04": {
+        "verdict": "partial",
+        "confidence": 0.62,
+        "reason": "the cited lines support sequential next-token training over instruction/input/output, but do not explicitly state that this includes predicting the response tokens after the instruction and input"
+      },
+      "ch06.s05.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s05.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.73,
+        "reason": ""
+      },
+      "ch06.s05.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s05.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch06.s05.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.87,
+        "reason": ""
+      },
+      "ch06.s05.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch06.s05.p03.06": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s05.p03.07": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch06.s05.p04.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s05.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s05.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch06.s05.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s05.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s05.p05.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s05.p05.02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch06.s05.p05.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s05.p05.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s05.p05.05": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "ch06.s05.p02"
+    ],
+    "queue": []
+  }
+}

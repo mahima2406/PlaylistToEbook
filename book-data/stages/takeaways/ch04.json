@@ -1,0 +1,415 @@
+{
+  "stage": "takeaways",
+  "item": "ch04",
+  "inputs_hash": "87e0dd3bf5c085cb075afc1ed34b4cc4fc13920fd01fd87e6d5c6b646c3fa300",
+  "output_hash": "07d9d26dcfe0f2990cd6170a52b1457ca4a096014f096f95f6f2c02a6339937e",
+  "output": {
+    "section_id": "ch04.take",
+    "paragraphs": [
+      {
+        "id": "ch04.take.p01",
+        "sentences": [
+          {
+            "id": "ch04.take.p01.01",
+            "text": "The chapter builds a complete working GPT-2 style model by combining the previously implemented parts into one system that tokenizes text, forms embeddings, runs transformer blocks, applies final normalization, and produces logits.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@16",
+              "G3-JgHckzjw@21",
+              "G3-JgHckzjw@87",
+              "G3-JgHckzjw@97",
+              "G3-JgHckzjw@115",
+              "G3-JgHckzjw@119",
+              "G3-JgHckzjw@123",
+              "G3-JgHckzjw@127",
+              "G3-JgHckzjw@148",
+              "G3-JgHckzjw@150",
+              "G3-JgHckzjw@153",
+              "G3-JgHckzjw@158",
+              "G3-JgHckzjw@160",
+              "G3-JgHckzjw@163"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.take.p02",
+        "sentences": [
+          {
+            "id": "ch04.take.p02.01",
+            "text": "GPT is trained for next-token prediction, but before training its predictions can look random, so training is needed to make the predicted next token make sense.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@234",
+              "G3-JgHckzjw@239",
+              "G3-JgHckzjw@241",
+              "7TKCrt--bWI@145",
+              "7TKCrt--bWI@148",
+              "7TKCrt--bWI@150",
+              "7TKCrt--bWI@151",
+              "7TKCrt--bWI@156",
+              "7TKCrt--bWI@158",
+              "7TKCrt--bWI@160",
+              "7TKCrt--bWI@165",
+              "7TKCrt--bWI@169",
+              "7TKCrt--bWI@172",
+              "7TKCrt--bWI@174",
+              "7TKCrt--bWI@176"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.take.p03",
+        "sentences": [
+          {
+            "id": "ch04.take.p03.01",
+            "text": "The model uses a 50,257-token vocabulary and, in this implementation, keeps the original GPT-2 settings such as 768-dimensional embeddings, 12 attention heads, and 12 transformer layers while reducing the context length to 256 to make local training easier.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@642",
+              "G3-JgHckzjw@645",
+              "G3-JgHckzjw@654",
+              "7TKCrt--bWI@352",
+              "7TKCrt--bWI@355",
+              "7TKCrt--bWI@356",
+              "7TKCrt--bWI@367",
+              "7TKCrt--bWI@370",
+              "7TKCrt--bWI@372",
+              "7TKCrt--bWI@375",
+              "7TKCrt--bWI@377",
+              "7TKCrt--bWI@1360",
+              "7TKCrt--bWI@1363",
+              "7TKCrt--bWI@1366",
+              "7TKCrt--bWI@1371",
+              "7TKCrt--bWI@1373",
+              "7TKCrt--bWI@1376",
+              "7TKCrt--bWI@1377",
+              "Zxf-34voZss@1865",
+              "Zxf-34voZss@1871",
+              "Zxf-34voZss@1874",
+              "Zxf-34voZss@1877",
+              "Zxf-34voZss@1879",
+              "7TKCrt--bWI@1290",
+              "7TKCrt--bWI@1291",
+              "7TKCrt--bWI@1294",
+              "7TKCrt--bWI@1296",
+              "7TKCrt--bWI@1300",
+              "7TKCrt--bWI@1303",
+              "7TKCrt--bWI@1305",
+              "7TKCrt--bWI@1308",
+              "7TKCrt--bWI@1310",
+              "Zxf-34voZss@1862",
+              "Zxf-34voZss@1864",
+              "Zxf-34voZss@1885",
+              "Zxf-34voZss@1887",
+              "Zxf-34voZss@1889",
+              "Zxf-34voZss@1893",
+              "Zxf-34voZss@1895",
+              "Zxf-34voZss@1897",
+              "Zxf-34voZss@1900",
+              "Zxf-34voZss@1904"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.take.p04",
+        "sentences": [
+          {
+            "id": "ch04.take.p04.01",
+            "text": "Input tokens are arranged in batches, converted to token IDs, mapped to learned 768-dimensional token embeddings, combined with 768-dimensional positional embeddings, and added together to form the input embeddings.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@531",
+              "7TKCrt--bWI@535",
+              "7TKCrt--bWI@538",
+              "7TKCrt--bWI@540",
+              "7TKCrt--bWI@542",
+              "7TKCrt--bWI@544",
+              "G3-JgHckzjw@640",
+              "G3-JgHckzjw@642",
+              "G3-JgHckzjw@645",
+              "G3-JgHckzjw@658",
+              "G3-JgHckzjw@661",
+              "G3-JgHckzjw@664",
+              "G3-JgHckzjw@698",
+              "G3-JgHckzjw@700",
+              "G3-JgHckzjw@702",
+              "G3-JgHckzjw@703",
+              "G3-JgHckzjw@739",
+              "G3-JgHckzjw@742",
+              "G3-JgHckzjw@744",
+              "G3-JgHckzjw@746",
+              "G3-JgHckzjw@749",
+              "G3-JgHckzjw@752",
+              "G3-JgHckzjw@754",
+              "G3-JgHckzjw@757",
+              "G3-JgHckzjw@760",
+              "G3-JgHckzjw@763",
+              "G3-JgHckzjw@765",
+              "G3-JgHckzjw@768",
+              "G3-JgHckzjw@770",
+              "G3-JgHckzjw@844",
+              "G3-JgHckzjw@847",
+              "G3-JgHckzjw@849",
+              "G3-JgHckzjw@908",
+              "G3-JgHckzjw@910",
+              "G3-JgHckzjw@912",
+              "G3-JgHckzjw@915",
+              "G3-JgHckzjw@919",
+              "G3-JgHckzjw@919",
+              "G3-JgHckzjw@922",
+              "G3-JgHckzjw@923",
+              "G3-JgHckzjw@926",
+              "G3-JgHckzjw@928",
+              "G3-JgHckzjw@936",
+              "G3-JgHckzjw@939",
+              "G3-JgHckzjw@940",
+              "G3-JgHckzjw@942",
+              "G3-JgHckzjw@945"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.take.p05",
+        "sentences": [
+          {
+            "id": "ch04.take.p05.01",
+            "text": "Inside the Transformer block, dropout and layer normalization are used around masked multi-head attention, shortcut connections, and a feed-forward expansion-contraction network, while the token dimension stays at 768 throughout the block.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1049",
+              "G3-JgHckzjw@1073",
+              "G3-JgHckzjw@1078",
+              "G3-JgHckzjw@1080",
+              "G3-JgHckzjw@1121",
+              "G3-JgHckzjw@1124",
+              "G3-JgHckzjw@1126",
+              "G3-JgHckzjw@1165",
+              "G3-JgHckzjw@1167",
+              "G3-JgHckzjw@1170",
+              "G3-JgHckzjw@1331",
+              "G3-JgHckzjw@1333",
+              "G3-JgHckzjw@1334",
+              "G3-JgHckzjw@1352",
+              "G3-JgHckzjw@1354",
+              "G3-JgHckzjw@1356",
+              "G3-JgHckzjw@1410",
+              "G3-JgHckzjw@1413",
+              "G3-JgHckzjw@1415",
+              "G3-JgHckzjw@1500",
+              "G3-JgHckzjw@1504",
+              "G3-JgHckzjw@1539",
+              "G3-JgHckzjw@1541",
+              "G3-JgHckzjw@1543",
+              "G3-JgHckzjw@1547",
+              "G3-JgHckzjw@1557",
+              "G3-JgHckzjw@1558",
+              "G3-JgHckzjw@1563",
+              "G3-JgHckzjw@1566",
+              "G3-JgHckzjw@1569",
+              "G3-JgHckzjw@1572",
+              "G3-JgHckzjw@1576",
+              "G3-JgHckzjw@1578",
+              "G3-JgHckzjw@1580",
+              "G3-JgHckzjw@1583",
+              "G3-JgHckzjw@1632",
+              "G3-JgHckzjw@1634",
+              "G3-JgHckzjw@1636",
+              "G3-JgHckzjw@1653",
+              "G3-JgHckzjw@1656",
+              "G3-JgHckzjw@1659",
+              "G3-JgHckzjw@1673",
+              "G3-JgHckzjw@1675",
+              "G3-JgHckzjw@1677",
+              "G3-JgHckzjw@1679",
+              "G3-JgHckzjw@1682",
+              "G3-JgHckzjw@1686",
+              "G3-JgHckzjw@1688",
+              "G3-JgHckzjw@1805",
+              "G3-JgHckzjw@1806",
+              "G3-JgHckzjw@1808",
+              "G3-JgHckzjw@1811",
+              "G3-JgHckzjw@1813",
+              "G3-JgHckzjw@2771",
+              "G3-JgHckzjw@2773",
+              "G3-JgHckzjw@2776",
+              "G3-JgHckzjw@2778"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.take.p06",
+        "sentences": [
+          {
+            "id": "ch04.take.p06.r01",
+            "text": "The final output head changes each token representation from size 768 to vocabulary size 50,257, so the model returns logits with shape batch size by number of tokens by vocabulary size.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@2043",
+              "G3-JgHckzjw@2046",
+              "G3-JgHckzjw@2049",
+              "G3-JgHckzjw@2051",
+              "G3-JgHckzjw@2053",
+              "G3-JgHckzjw@2171",
+              "G3-JgHckzjw@2173",
+              "G3-JgHckzjw@2175",
+              "G3-JgHckzjw@2177",
+              "G3-JgHckzjw@2179",
+              "G3-JgHckzjw@2181",
+              "G3-JgHckzjw@2184",
+              "G3-JgHckzjw@2186",
+              "G3-JgHckzjw@2188",
+              "G3-JgHckzjw@2191",
+              "G3-JgHckzjw@2300",
+              "G3-JgHckzjw@2303",
+              "G3-JgHckzjw@2323",
+              "G3-JgHckzjw@3063",
+              "G3-JgHckzjw@3066",
+              "G3-JgHckzjw@3068",
+              "G3-JgHckzjw@3083",
+              "G3-JgHckzjw@3085",
+              "G3-JgHckzjw@3088",
+              "G3-JgHckzjw@3090",
+              "G3-JgHckzjw@3092",
+              "G3-JgHckzjw@3094",
+              "G3-JgHckzjw@3097",
+              "G3-JgHckzjw@3098"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.take.p07",
+        "sentences": [
+          {
+            "id": "ch04.take.p07.r01",
+            "text": "For pretraining, the data is split into training and validation sets, input-target pairs are made by shifting the input one position, cross-entropy loss is computed between logits and targets, and training proceeds over batches and epochs with loss.backward and optimizer.step.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@102",
+              "Zxf-34voZss@104",
+              "Zxf-34voZss@106",
+              "Zxf-34voZss@108",
+              "Zxf-34voZss@110",
+              "Zxf-34voZss@114",
+              "Zxf-34voZss@116",
+              "Zxf-34voZss@206",
+              "Zxf-34voZss@209",
+              "Zxf-34voZss@211",
+              "Zxf-34voZss@213",
+              "Zxf-34voZss@215",
+              "7TKCrt--bWI@2502",
+              "7TKCrt--bWI@2504",
+              "7TKCrt--bWI@2508",
+              "7TKCrt--bWI@2511",
+              "7TKCrt--bWI@2514",
+              "7TKCrt--bWI@2515",
+              "Zxf-34voZss@674",
+              "Zxf-34voZss@678",
+              "Zxf-34voZss@680",
+              "Zxf-34voZss@682",
+              "Zxf-34voZss@685",
+              "Zxf-34voZss@688",
+              "Zxf-34voZss@706",
+              "Zxf-34voZss@710",
+              "Zxf-34voZss@712",
+              "Zxf-34voZss@892",
+              "Zxf-34voZss@894",
+              "Zxf-34voZss@896",
+              "Zxf-34voZss@898",
+              "Zxf-34voZss@1371",
+              "Zxf-34voZss@1374",
+              "Zxf-34voZss@1375",
+              "Zxf-34voZss@1383",
+              "Zxf-34voZss@1385",
+              "Zxf-34voZss@1387"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch04.take.p01.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.take.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.take.p03.01": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch04.take.p04.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.take.p05.01": {
+        "verdict": "supported",
+        "confidence": 0.82,
+        "reason": ""
+      },
+      "ch04.take.p06.r01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.take.p07.r01": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch04.take.p01.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.take.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.take.p03.01": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch04.take.p04.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.take.p05.01": {
+        "verdict": "supported",
+        "confidence": 0.82,
+        "reason": ""
+      },
+      "ch04.take.p06.01": {
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "the cited lines support 768→50257 and logits shaped (batch, tokens, vocab), but they do not state that 'one row is used for each next-token prediction task' (they describe per-token logits, but not that specific phrasing/interpretation)."
+      },
+      "ch04.take.p07.01": {
+        "verdict": "partial",
+        "confidence": 0.74,
+        "reason": "the citations support train/validation split, shifted input-target construction, cross-entropy loss, loss.backward, optimizer.step, and batches/epochs, but they do not explicitly state that repeated backward passes and optimizer steps 'reduce the loss' over batches and epochs (goal/minimization is mentioned, not the empirical reduction claim)."
+      }
+    },
+    "rewritten": [
+      "ch04.take.p06",
+      "ch04.take.p07"
+    ],
+    "queue": []
+  }
+}

@@ -1,0 +1,280 @@
+{
+  "stage": "crosscheck",
+  "item": "ch05.s09",
+  "inputs_hash": "012bdab790bbee515828548349a68ad97d8d42ef6d931cc835056d1c1d2c6bc8",
+  "output_hash": "ba610727340b82f2d2d30a81a3d69996620313553fc3aa11f2402169c19ae4d9",
+  "output": {
+    "section_id": "ch05.s09",
+    "checked": 22,
+    "counts": {
+      "agrees": 9,
+      "contradicts": 0,
+      "not_covered": 13
+    },
+    "results": [
+      {
+        "sentence_id": "ch05.s09.p01.02",
+        "text": "Once the dataset is defined, it serves as the input to a data loader.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell76",
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell4",
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell7"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention data loaders and training but do not explicitly state the general relationship that a defined dataset serves as input to a data loader."
+      },
+      {
+        "sentence_id": "ch05.s09.p01.03",
+        "text": "When a dataset is passed to a data loader, the loader can be configured with a batch size and a number of workers for parallel processing.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell36",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell63",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell64"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The DataLoader instantiations explicitly set batch_size and num_workers when passing datasets to DataLoader."
+      },
+      {
+        "sentence_id": "ch05.s09.p01.04",
+        "text": "Here, the batch size is set to 8 and the number of workers is set to 0.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell63",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell36",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell51"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "In ch06 cell36 (and similarly ch07), batch_size is set to 8 and num_workers to 0."
+      },
+      {
+        "sentence_id": "ch05.s09.p01.05",
+        "text": "Setting the number of workers to 0 is only for simplicity, so no parallel processing is used.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell108",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While num_workers=0 is shown, the references do not state it is chosen only for simplicity or explicitly explain that it disables parallel data loading."
+      },
+      {
+        "sentence_id": "ch05.s09.p01.06",
+        "text": "Setting \"drop_last\" to True means the last batch is dropped if it is smaller than the others.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell94",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell36",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "drop_last=True is used and passed through, but the provided references do not explain its semantics (dropping a smaller last batch)."
+      },
+      {
+        "sentence_id": "ch05.s09.p01.07",
+        "text": "The train, validation, and test loaders are then created by instantiating \"DataLoader\" with the corresponding datasets as input.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell40",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell57",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell65"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The code shows train_loader/val_loader/test_loader created by calling DataLoader with the respective datasets (train_dataset, val_dataset, test_dataset)."
+      },
+      {
+        "sentence_id": "ch05.s09.p01.08",
+        "text": "After initialization, these loaders make it easy to extract batches such as the first, second, or eighth batch.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell140",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell98",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference demonstrates extracting a specific batch via an iterator (e.g., second_batch = next(data_iter)), supporting that loaders allow accessing sequential batches."
+      },
+      {
+        "sentence_id": "ch05.s09.p02.r02",
+        "text": "To test the training loader, iterate through it and print the input batch dimension and the label batch dimension.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell38",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "ch06 cell38 iterates through train_loader and then prints input_batch.shape and target_batch.shape to verify dimensions."
+      },
+      {
+        "sentence_id": "ch05.s09.p02.r03",
+        "text": "The input batch dimension is 8 by 120, and the label batch dimension is size 8.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell38",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference shows printing the shapes but does not include the actual printed values (8x120 and 8) in the provided excerpt."
+      },
+      {
+        "sentence_id": "ch05.s09.p02.r04",
+        "text": "In the training dataloader, each input batch therefore contains eight samples and 120 token ID positions per sample.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell127",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell92",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell37"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "ch06 cell37 states batches contain 8 training examples and each example consists of 120 tokens, matching the statement."
+      },
+      {
+        "sentence_id": "ch05.s09.p02.r05",
+        "text": "A label tensor of size 8 means there are 8 labels in the batch, and each label is either 0 or 1.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell78",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell76",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell21"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Labels are mapped ham->0 and spam->1, but the excerpts do not state that a size-8 label tensor implies each label is necessarily 0/1 (though likely) nor explicitly tie it to that tensor."
+      },
+      {
+        "sentence_id": "ch05.s09.p02.r06",
+        "text": "The token ID 50256 is the end-of-text token, and shorter text messages were padded with it so that all messages have the same number of token IDs.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell26",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell46"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "ch06 cell26 states <|endoftext|> is used as a padding token to pad messages to the longest length; elsewhere eos_id=50256 is used for <|endoftext|>, consistent with token 50256 being the end-of-text token used for padding."
+      },
+      {
+        "sentence_id": "ch05.s09.p03.02",
+        "text": "The training dataset has 1045 samples.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell10",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell29",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell23"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references discuss preparing/splitting datasets but do not state that the training dataset has 1045 samples."
+      },
+      {
+        "sentence_id": "ch05.s09.p03.03",
+        "text": "With batch size 8, the number of training batches is approximately 130, since 1045 divided by 8 is approximately 130.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell69",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell87",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell95"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references include loss/loader utilities but do not give the training-set size (1045) or show that batch size is 8 leading to ~130 training batches."
+      },
+      {
+        "sentence_id": "ch05.s09.p03.04",
+        "text": "Printing the length of the training loader gives the number of training batches, which is 130 here.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell87",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While len(data_loader) would yield the number of batches in PyTorch, the cited passages do not show that len(train_loader) equals 130."
+      },
+      {
+        "sentence_id": "ch05.s09.p03.05",
+        "text": "That count matches the earlier calculation.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell83",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not contain the earlier calculation or an explicit statement that a printed batch count matches it."
+      },
+      {
+        "sentence_id": "ch05.s09.p03.06",
+        "text": "The validation loader has 19 batches and the test loader has 38 batches.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell40",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell87",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell69"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "A print statement for the lengths of train/val/test loaders is shown, but the actual printed numbers (19 and 38) are not included in the provided reference text."
+      },
+      {
+        "sentence_id": "ch05.s09.p03.07",
+        "text": "Because 20% of the data is test and 10% is validation, the number of test batches is twice the number of validation batches.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell40",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell87",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell39"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not specify the exact test/validation split percentages or relate them to the batch counts."
+      },
+      {
+        "sentence_id": "ch05.s09.p03.08",
+        "text": "Overall, the dataloaders contain 130 training batches, 19 validation batches, and 38 test batches.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell40",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell26",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell87"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show code that would print batch counts but do not provide the specific totals 130/19/38."
+      },
+      {
+        "sentence_id": "ch05.s09.p04.r02",
+        "text": "One batch from the training loader has shape 8 by 120, and with 130 such batches, the full training loader can be viewed as a three-dimensional tensor of shape 130 by 8 by 120.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell65",
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell7",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell37"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states that batches contain 8 training examples each and each example consists of 120 tokens, which is consistent with a batch shape of 8×120; treating the loader as 130×8×120 depends on the unprovided fact that there are 130 training batches."
+      },
+      {
+        "sentence_id": "ch05.s09.p04.r03",
+        "text": "The test loader can be viewed as having dimensions 38 by 8 by 120.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell40",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell114"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not provide enough information to assert the test loader has 38 batches of shape 8×120, hence 38×8×120."
+      },
+      {
+        "sentence_id": "ch05.s09.p04.r04",
+        "text": "At this point, data preparation is complete, because the training, validation, and test loaders have been created and can provide input batches and label batches whenever they are needed.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell40",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell57",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell26"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references indicate instantiating training/validation/test data loaders, consistent with data preparation being complete once loaders can supply input/label batches as needed."
+      }
+    ],
+    "conflicts": []
+  }
+}

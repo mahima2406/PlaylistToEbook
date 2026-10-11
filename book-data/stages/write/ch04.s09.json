@@ -1,0 +1,460 @@
+{
+  "stage": "write",
+  "item": "ch04.s09",
+  "inputs_hash": "fd8dfcc653bd32dcc7aa9e09f2d37a8712d6de935884e1820fb0c9364e87787b",
+  "output_hash": "662a6c528e52f2e32e4eb4750bb1bcf2848bb45a78ce900e7aa75f606bfcccd1",
+  "output": {
+    "section_id": "ch04.s09",
+    "paragraphs": [
+      {
+        "id": "ch04.s09.p01",
+        "sentences": [
+          {
+            "id": "ch04.s09.p01.01",
+            "text": "How does raw text become the training examples needed to start pre-training a GPT model, and why does that preparation matter before the backward pass can even run?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s09.p01.02",
+            "text": "At this stage, pre-training means training the large language model by minimizing the loss function through backpropagation.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@12",
+              "Zxf-34voZss@19",
+              "Zxf-34voZss@55",
+              "Zxf-34voZss@58",
+              "Zxf-34voZss@634",
+              "Zxf-34voZss@650"
+            ]
+          },
+          {
+            "id": "ch04.s09.p01.03",
+            "text": "The loss calculation has already been established by comparing the LLM output with the target values to obtain training and validation losses.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@29",
+              "Zxf-34voZss@34",
+              "Zxf-34voZss@41",
+              "Zxf-34voZss@46",
+              "Zxf-34voZss@48"
+            ]
+          },
+          {
+            "id": "ch04.s09.p01.04",
+            "text": "The dataset used here is the book The Verdict, described as open source, with around 20,000 characters and about 5,000 to 5,500 tokens.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@76",
+              "Zxf-34voZss@81",
+              "Zxf-34voZss@87",
+              "Zxf-34voZss@93",
+              "Zxf-34voZss@97",
+              "Zxf-34voZss@99"
+            ]
+          },
+          {
+            "id": "ch04.s09.p01.05",
+            "text": "The first preprocessing step is to split this dataset into training and validation data with a training ratio of 0.9, using the initial 90% for training and the remaining 10% for validation.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@102",
+              "Zxf-34voZss@106",
+              "Zxf-34voZss@108",
+              "Zxf-34voZss@110",
+              "Zxf-34voZss@114",
+              "Zxf-34voZss@116"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s09.p02",
+        "sentences": [
+          {
+            "id": "ch04.s09.p02.01",
+            "text": "That split is only the beginning, because autoregressive language modeling still needs targets even though it does not use labels in the usual sense.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s09.p02.02",
+            "text": "Since LLMs are autoregressive models, they do not have labels, so the training and validation data must be divided internally into input-target pairs.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@121",
+              "Zxf-34voZss@126",
+              "Zxf-34voZss@131",
+              "Zxf-34voZss@133",
+              "Zxf-34voZss@136",
+              "Zxf-34voZss@139"
+            ]
+          },
+          {
+            "id": "ch04.s09.p02.03",
+            "text": "A data loader is the component that looks at the dataset and creates these input-target pairs.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@141",
+              "Zxf-34voZss@145",
+              "Zxf-34voZss@148",
+              "Zxf-34voZss@150"
+            ]
+          },
+          {
+            "id": "ch04.s09.p02.04",
+            "text": "The target is the true value, the actual value the LLM is supposed to approximate.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@196",
+              "Zxf-34voZss@199",
+              "Zxf-34voZss@201"
+            ]
+          },
+          {
+            "id": "ch04.s09.p02.05",
+            "text": "Input-target pairs are formed by shifting each input row one position to the right to create the corresponding target row.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@206",
+              "Zxf-34voZss@209",
+              "Zxf-34voZss@211",
+              "Zxf-34voZss@213",
+              "Zxf-34voZss@215"
+            ]
+          },
+          {
+            "id": "ch04.s09.p02.06",
+            "text": "To build the inputs, take spans whose length equals the context size, move through the dataset with a stride that is usually equal to the context size, and create the targets by shifting each input to the right.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@221",
+              "Zxf-34voZss@226",
+              "Zxf-34voZss@228",
+              "Zxf-34voZss@240",
+              "Zxf-34voZss@242",
+              "Zxf-34voZss@245",
+              "Zxf-34voZss@247",
+              "Zxf-34voZss@253",
+              "Zxf-34voZss@256",
+              "Zxf-34voZss@259",
+              "Zxf-34voZss@262",
+              "Zxf-34voZss@266",
+              "Zxf-34voZss@268"
+            ]
+          },
+          {
+            "id": "ch04.s09.p02.07",
+            "text": "The one-token-per-word example is only for illustration, because the actual tokenizer is a byte pair encoder.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@230",
+              "Zxf-34voZss@233",
+              "Zxf-34voZss@234",
+              "Zxf-34voZss@237"
+            ]
+          },
+          {
+            "id": "ch04.s09.p02.08",
+            "text": "After this split, there are many input batches and target batches.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@288",
+              "Zxf-34voZss@290",
+              "Zxf-34voZss@292",
+              "Zxf-34voZss@296"
+            ]
+          },
+          {
+            "id": "ch04.s09.p02.09",
+            "text": "In the example batch, the input has two samples, the target has two samples, and each sample contains four tokens.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@156",
+              "Zxf-34voZss@159",
+              "Zxf-34voZss@162",
+              "Zxf-34voZss@166",
+              "Zxf-34voZss@171",
+              "Zxf-34voZss@174"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s09.p03",
+        "sentences": [
+          {
+            "id": "ch04.s09.p03.01",
+            "text": "Once the data loader has produced batches, those batches can be sent through the model to obtain the values used in the loss.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s09.p03.02",
+            "text": "To get the LLM output, pass the input batches through the LLM architecture batch by batch.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@313",
+              "Zxf-34voZss@317",
+              "Zxf-34voZss@320",
+              "Zxf-34voZss@322",
+              "Zxf-34voZss@324"
+            ]
+          },
+          {
+            "id": "ch04.s09.p03.03",
+            "text": "This architecture includes tokenization, embedding, positional embedding, a dropout layer, transformer blocks, another normalization layer, and an output head that produces a logit tensor.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@330",
+              "Zxf-34voZss@333",
+              "Zxf-34voZss@335",
+              "Zxf-34voZss@337",
+              "Zxf-34voZss@339",
+              "Zxf-34voZss@359",
+              "Zxf-34voZss@361",
+              "Zxf-34voZss@364",
+              "Zxf-34voZss@367",
+              "Zxf-34voZss@369"
+            ]
+          },
+          {
+            "id": "ch04.s09.p03.04",
+            "text": "In the example, the logit tensor has shape 2 by 4 by 50257 because there are two samples, four tokens per sample, and a vocabulary size of 50257.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@371",
+              "Zxf-34voZss@377",
+              "Zxf-34voZss@380",
+              "Zxf-34voZss@390",
+              "Zxf-34voZss@393",
+              "Zxf-34voZss@395",
+              "Zxf-34voZss@397",
+              "Zxf-34voZss@399",
+              "Zxf-34voZss@403",
+              "Zxf-34voZss@405",
+              "Zxf-34voZss@409"
+            ]
+          },
+          {
+            "id": "ch04.s09.p03.05",
+            "text": "That tensor is then flattened by merging the first and second samples in the batch into a single tensor of shape 8 by 50257.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@409",
+              "Zxf-34voZss@410",
+              "Zxf-34voZss@414",
+              "Zxf-34voZss@415",
+              "Zxf-34voZss@418"
+            ]
+          },
+          {
+            "id": "ch04.s09.p03.06",
+            "text": "The raw logits are not probabilities, because the values associated with one token do not add up to one, so a softmax is needed to convert them into probability vectors.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@421",
+              "Zxf-34voZss@424",
+              "Zxf-34voZss@427",
+              "Zxf-34voZss@430",
+              "Zxf-34voZss@432",
+              "Zxf-34voZss@435",
+              "Zxf-34voZss@436"
+            ]
+          },
+          {
+            "id": "ch04.s09.p03.07",
+            "text": "After softmax, each value in a row is the probability that the corresponding token is the next token.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@439",
+              "Zxf-34voZss@441",
+              "Zxf-34voZss@443",
+              "Zxf-34voZss@445"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s09.p04",
+        "sentences": [
+          {
+            "id": "ch04.s09.p04.01",
+            "text": "These probability rows can be read as next-token predictions for progressively longer prefixes.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s09.p04.02",
+            "text": "For an input like \"I\", a trained model should assign the highest probability to the token for \"had\".",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@448",
+              "Zxf-34voZss@452",
+              "Zxf-34voZss@454",
+              "Zxf-34voZss@458",
+              "Zxf-34voZss@461",
+              "Zxf-34voZss@463"
+            ]
+          },
+          {
+            "id": "ch04.s09.p04.03",
+            "text": "For the input \"I had\", a trained model should assign the highest probability to the token for \"always\".",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@465",
+              "Zxf-34voZss@468",
+              "Zxf-34voZss@470",
+              "Zxf-34voZss@472",
+              "Zxf-34voZss@474"
+            ]
+          },
+          {
+            "id": "ch04.s09.p04.04",
+            "text": "For the input \"I had always thought\", a trained model should assign the highest probability to the token for \"Jack\".",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@477",
+              "Zxf-34voZss@484",
+              "Zxf-34voZss@488",
+              "Zxf-34voZss@498",
+              "Zxf-34voZss@501",
+              "Zxf-34voZss@506",
+              "Zxf-34voZss@508"
+            ]
+          },
+          {
+            "id": "ch04.s09.p04.05",
+            "text": "To evaluate the output against the target, collect the target token IDs and, for each probability row, extract the probability assigned to the correct target token.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@519",
+              "Zxf-34voZss@523",
+              "Zxf-34voZss@525",
+              "Zxf-34voZss@532",
+              "Zxf-34voZss@539",
+              "Zxf-34voZss@543",
+              "Zxf-34voZss@545",
+              "Zxf-34voZss@548",
+              "Zxf-34voZss@550",
+              "Zxf-34voZss@552"
+            ]
+          },
+          {
+            "id": "ch04.s09.p04.06",
+            "text": "The goal of training is to make these probabilities as close to one as possible so that the predicted next tokens match the target tokens.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@555",
+              "Zxf-34voZss@559",
+              "Zxf-34voZss@560",
+              "Zxf-34voZss@562",
+              "Zxf-34voZss@564",
+              "Zxf-34voZss@566",
+              "Zxf-34voZss@568",
+              "Zxf-34voZss@572",
+              "Zxf-34voZss@574"
+            ]
+          },
+          {
+            "id": "ch04.s09.p04.07",
+            "text": "When the model is not yet trained, those target-token probabilities are not close to one, so training uses cross-entropy loss through the negative log-likelihood.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@574",
+              "Zxf-34voZss@576",
+              "Zxf-34voZss@578",
+              "Zxf-34voZss@581",
+              "Zxf-34voZss@583"
+            ]
+          },
+          {
+            "id": "ch04.s09.p04.08",
+            "text": "The optimization objective is for the loss to decrease and get as close to zero as possible.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@586",
+              "Zxf-34voZss@589",
+              "Zxf-34voZss@591",
+              "Zxf-34voZss@593",
+              "Zxf-34voZss@594"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s09.p05",
+        "sentences": [
+          {
+            "id": "ch04.s09.p05.01",
+            "text": "With the data, targets, logits, and loss in place, pre-training becomes a parameter-optimization problem.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s09.p05.02",
+            "text": "Pre-training means optimizing all parameters in the GPT architecture so that, for the given inputs, the loss function is minimized.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@598",
+              "Zxf-34voZss@600",
+              "Zxf-34voZss@603",
+              "Zxf-34voZss@607",
+              "Zxf-34voZss@609",
+              "Zxf-34voZss@611",
+              "Zxf-34voZss@613",
+              "Zxf-34voZss@615"
+            ]
+          },
+          {
+            "id": "ch04.s09.p05.03",
+            "text": "It tries to make the LLM outputs as close as possible to the target tensor by doing backpropagation.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@630",
+              "Zxf-34voZss@634",
+              "Zxf-34voZss@636",
+              "Zxf-34voZss@641",
+              "Zxf-34voZss@644",
+              "Zxf-34voZss@647",
+              "Zxf-34voZss@650"
+            ]
+          },
+          {
+            "id": "ch04.s09.p05.04",
+            "text": "Once the loss function has been written down, the pre-training loop is conceptually simple because it mainly requires doing the backward pass.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@652",
+              "Zxf-34voZss@659",
+              "Zxf-34voZss@662",
+              "Zxf-34voZss@664",
+              "Zxf-34voZss@667"
+            ]
+          },
+          {
+            "id": "ch04.s09.p05.05",
+            "text": "Running that backward pass depends on first understanding how to calculate the loss, which in turn depends on understanding logits, LLM outputs, the GPT architecture, tokenization, positional embeddings, multi-head attention, dropout, and feed-forward networks.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@811",
+              "Zxf-34voZss@814",
+              "Zxf-34voZss@818",
+              "Zxf-34voZss@822",
+              "Zxf-34voZss@824",
+              "Zxf-34voZss@826",
+              "Zxf-34voZss@829",
+              "Zxf-34voZss@831",
+              "Zxf-34voZss@835",
+              "Zxf-34voZss@836",
+              "Zxf-34voZss@838",
+              "Zxf-34voZss@840",
+              "Zxf-34voZss@843",
+              "Zxf-34voZss@845"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

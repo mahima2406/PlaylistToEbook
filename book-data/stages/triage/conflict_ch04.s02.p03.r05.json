@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch04.s02.p03.r05",
+  "inputs_hash": "26a3e80feb8e90efe3148ed247b264771e619bdd349796d70bf32c7a7a626d86",
+  "output_hash": "10bffc2709dfb6d07b14b19f267408f3b0690ea5bf4280351d43f3c537bd1352",
+  "output": {
+    "decision": "edit",
+    "text": "The number of attention heads is the number of self-attention heads within the multi-head attention mechanism.",
+    "reason": "The caption wording conflates heads with blocks, and this edit preserves the teaching point while matching the reference distinction.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.7,
+      "reason": "The cited lines support that 'number of attention heads' refers to the number of self-attention mechanism blocks within a Transformer, but they do not explicitly mention the multi-head attention mechanism as the context for these heads."
+    },
+    "kind": "conflict",
+    "sentence_hash": "d32fe2a05dc037b57b1e481c294a5a232f7343a90ed32bf4074f29381af4da6a"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch06.s08",
+  "inputs_hash": "15e081fe98f243a13176f59892405d12cece417b8d18a1f00fc16247d0bee2dc",
+  "output_hash": "fbb9e201bdf8ece4bea0298e4eac2f2e59bac563607bff050105e05c18050bd8",
+  "output": {
+    "section_id": "ch06.s08",
+    "listings": [],
+    "rejected": [
+      {
+        "id": "ch06.s08.code1",
+        "ref": "ref:ch06/01_main-chapter-code/ch06.ipynb#cell44",
+        "path": "ch06/01_main-chapter-code/ch06.ipynb",
+        "caption": "This code downloads GPT-2 parameters for a chosen model size, creates a GPTModel, loads the pretrained weights into it, and switches the model to evaluation mode.",
+        "code": "from gpt_download import download_and_load_gpt2\nfrom previous_chapters import GPTModel, load_weights_into_gpt\n# If the `previous_chapters.py` file is not available locally,\n# you can import it from the `llms-from-scratch` PyPI package.\n# For details, see: https://github.com/rasbt/LLMs-from-scratch/tree/main/pkg\n# E.g.,\n# from llms_from_scratch.ch04 import GPTModel\n# from llms_from_scratch.ch05 import download_and_load_gpt2, load_weights_into_gpt\n\nmodel_size = CHOOSE_MODEL.split(\" \")[-1].lstrip(\"(\").rstrip(\")\")\nsettings, params = download_and_load_gpt2(model_size=model_size, models_dir=\"gpt2\")\n\nmodel = GPTModel(BASE_CONFIG)\nload_weights_into_gpt(model, params)\nmodel.eval();",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The code does demonstrate loading pretrained GPT-2 weights into a GPTModel, which aligns with the section’s point about loading weights first. However, the section also teaches proceeding to training on a curated dataset using training/testing/validation data loaders, which this excerpt does not show. The caption accurately describes what the code does (download/load weights and set eval mode), but it doesn’t match the full process described by the section."
+      },
+      {
+        "id": "ch06.s08.code2",
+        "ref": "ref:ch07/01_main-chapter-code/ch07.ipynb#cell63",
+        "path": "ch07/01_main-chapter-code/ch07.ipynb",
+        "caption": "This code creates an InstructionDataset from the training data and wraps it in a shuffled DataLoader with a custom collate function and fixed batch settings.",
+        "code": "from torch.utils.data import DataLoader\n\n\nnum_workers = 0\nbatch_size = 8\n\ntorch.manual_seed(123)\n\ntrain_dataset = InstructionDataset(train_data, tokenizer)\ntrain_loader = DataLoader(\n    train_dataset,\n    batch_size=batch_size,\n    collate_fn=customized_collate_fn,\n    shuffle=True,\n    drop_last=True,\n    num_workers=num_workers\n)\n\nval_dataset = InstructionDataset(val_data, tokenizer)\nval_loader = DataLoader(\n    val_dataset,\n    batch_size=batch_size,\n    collate_fn=customized_collate_fn,\n    shuffle=False,\n    drop_last=False,\n    num_workers=num_workers\n)\n\ntest_dataset = InstructionDataset(test_data, tokenizer)\ntest_loader = DataLoader(",
+        "truncated": true,
+        "check": "partial",
+        "reason": "The excerpt demonstrates creating InstructionDataset instances and wrapping them in DataLoaders for train/val/test, which is related to using training/validation/testing data loaders. However, the section also teaches loading pre-trained weights first and then training on the curated dataset, which this code does not show. The caption is accurate for the training DataLoader portion but omits that the code also creates validation (and begins test) DataLoaders, so it understates the full excerpt."
+      }
+    ]
+  }
+}

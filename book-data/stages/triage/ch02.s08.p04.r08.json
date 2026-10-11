@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch02.s08.p04.r08",
+  "inputs_hash": "c5085c2b663c0929384732774e7c8305e54bc06549a5fe7551504ddb15c73344",
+  "output_hash": "68a88d10bc67b8edddd54286047d44ae8ed271614cda93eea8df0816c3a7f8f5",
+  "output": {
+    "decision": "edit",
+    "text": "The token \"old\" captures a root shared by both \"old\" and \"older\", preserving structure that was not captured here by word-level or character-level tokenization.",
+    "reason": "The captions support the shared-root point and say this structure was not captured in this example by word- and character-level tokenization, but not the broader claim that those methods generally miss it.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.9,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "c33dae71a39dabe488e4b620a799cfd3b2d3b6d77982f1df78d96ef666b938ba"
+  }
+}

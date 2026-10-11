@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch02.s15.p03.r03",
+  "inputs_hash": "4773671fac4e4731c4ac793006554a65d7c2ae2b0983d7c0c4a1abf0bc892e75",
+  "output_hash": "815d2c18b6cd84845925cef0ba0ccd043c57cc2e3c006351648997a509b8ef72",
+  "output": {
+    "decision": "edit",
+    "text": "The same input-output pairs can be viewed either as token ID sequences or in textual format showing the corresponding outputs.",
+    "reason": "The captions support both ID-based and textual views of the pairs, but not the specific claim that they show next-word targets.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "d224d7de0b5faeddc306dcb8811d05758fcd2cf67263eb7b29c939c492c85865"
+  }
+}

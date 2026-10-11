@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch04.s03.p02.r04",
+  "inputs_hash": "f28e1f6b867816869be46aab7c4764365cfd5576fdc7d1eeb8c55a324c0a7158",
+  "output_hash": "6b668ffc4ce4d06fcf21108ca6c8bcc6fafd4207c17ad4888d3e40326860e19a",
+  "output": {
+    "decision": "edit",
+    "text": "A token embedding vector is used to capture semantic meaning between words.",
+    "reason": "The captions support that token IDs are converted into token embedding vectors and that these vectors help preserve semantic meaning, but not the fuller definition as written.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "4d094b7820c60fe589d377c5a33552a629cd1c7f939119f5d73fa62273c76faa"
+  }
+}

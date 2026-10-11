@@ -1,0 +1,249 @@
+{
+  "stage": "write",
+  "item": "ch06.s10",
+  "inputs_hash": "8fab34d1679ab53ce2a65c7c57558fb952b1c4d15996a4bef466136e743a253c",
+  "output_hash": "0e368f5ac1739cc1f64371e2182fe236aa950ebf763b2ae2703f9f619c318c90",
+  "output": {
+    "section_id": "ch06.s10",
+    "paragraphs": [
+      {
+        "id": "ch06.s10.p01",
+        "sentences": [
+          {
+            "id": "ch06.s10.p01.01",
+            "text": "How close is a pre-trained model to the target behavior before any instruction fine-tuning, and why is it worth checking now?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s10.p01.02",
+            "text": "Before fine-tuning, it is useful to check a pre-trained LLM on one validation task by comparing its output with the expected response, even though the model has not been trained or fine-tuned on this dataset yet.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@788",
+              "__OiQznq4ao@790",
+              "__OiQznq4ao@795",
+              "__OiQznq4ao@797",
+              "__OiQznq4ao@799",
+              "__OiQznq4ao@802",
+              "__OiQznq4ao@804",
+              "__OiQznq4ao@806"
+            ]
+          },
+          {
+            "id": "ch06.s10.p01.03",
+            "text": "A concrete validation example uses the instruction to convert the active sentence \"The chef cooks the meal every day\" into the passive voice.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@816",
+              "__OiQznq4ao@818",
+              "__OiQznq4ao@820",
+              "__OiQznq4ao@822",
+              "__OiQznq4ao@827",
+              "__OiQznq4ao@829",
+              "__OiQznq4ao@831",
+              "__OiQznq4ao@836",
+              "__OiQznq4ao@838"
+            ]
+          },
+          {
+            "id": "ch06.s10.p01.04",
+            "text": "For this example, the correct output is \"The meal is cooked by the chef every day.\"",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@873",
+              "__OiQznq4ao@875",
+              "__OiQznq4ao@885",
+              "__OiQznq4ao@886"
+            ]
+          },
+          {
+            "id": "ch06.s10.p01.05",
+            "text": "Because the model has not been trained on this data at all, the goal is not to get the right answer yet, but to see how far its response is from the desired one.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@889",
+              "__OiQznq4ao@891",
+              "__OiQznq4ao@893",
+              "__OiQznq4ao@895"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s10.p02",
+        "sentences": [
+          {
+            "id": "ch06.s10.p02.01",
+            "text": "To do that, generation uses the previously defined \"generate\" function.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@897",
+              "__OiQznq4ao@899"
+            ]
+          },
+          {
+            "id": "ch06.s10.p02.02",
+            "text": "That function takes the maximum number of new tokens to generate and then produces new tokens based on the model and its weights.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@901",
+              "__OiQznq4ao@903",
+              "__OiQznq4ao@904",
+              "__OiQznq4ao@907",
+              "__OiQznq4ao@909",
+              "__OiQznq4ao@916",
+              "__OiQznq4ao@918"
+            ]
+          },
+          {
+            "id": "ch06.s10.p02.03",
+            "text": "In this setup, the model uses GPT-2 Medium pre-trained weights, the maximum number of new tokens is set to 35, the context length is 1024, the input text and model are passed in, and the generated token IDs are converted back into text.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@909",
+              "__OiQznq4ao@911",
+              "__OiQznq4ao@913",
+              "__OiQznq4ao@920",
+              "__OiQznq4ao@922",
+              "__OiQznq4ao@924",
+              "__OiQznq4ao@926",
+              "__OiQznq4ao@929",
+              "__OiQznq4ao@932",
+              "__OiQznq4ao@936",
+              "__OiQznq4ao@938",
+              "__OiQznq4ao@940",
+              "__OiQznq4ao@942",
+              "__OiQznq4ao@945",
+              "__OiQznq4ao@946"
+            ]
+          },
+          {
+            "id": "ch06.s10.p02.04",
+            "text": "One detail matters for instruction-following: the generated text includes the original input together with the model's continuation.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@957",
+              "__OiQznq4ao@958",
+              "__OiQznq4ao@961"
+            ]
+          },
+          {
+            "id": "ch06.s10.p02.05",
+            "text": "For instruction-following use, the part that matters is only the model-generated response, not a reprint of the input instruction.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@976",
+              "__OiQznq4ao@978",
+              "__OiQznq4ao@980",
+              "__OiQznq4ao@982",
+              "__OiQznq4ao@984",
+              "__OiQznq4ao@986"
+            ]
+          },
+          {
+            "id": "ch06.s10.p02.06",
+            "text": "To print only that response, subtract the length of the input instruction from the start of the generated text and print what remains.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@989",
+              "__OiQznq4ao@991",
+              "__OiQznq4ao@993",
+              "__OiQznq4ao@994",
+              "__OiQznq4ao@996",
+              "__OiQznq4ao@999",
+              "__OiQznq4ao@1001",
+              "__OiQznq4ao@1003"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s10.p03",
+        "sentences": [
+          {
+            "id": "ch06.s10.p03.01",
+            "text": "Once the input prefix is removed, the weakness of the pre-trained model becomes clear.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s10.p03.02",
+            "text": "In this example, the model's response is \"the chef cooks the meal every day,\" which repeats the original sentence instead of carrying out the instruction.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@1005",
+              "__OiQznq4ao@1007",
+              "__OiQznq4ao@1009",
+              "__OiQznq4ao@1011",
+              "__OiQznq4ao@1013"
+            ]
+          },
+          {
+            "id": "ch06.s10.p03.03",
+            "text": "The pre-trained model is not able to correctly follow the instruction, because it repeats the original input sentence, repeats part of the instruction, and fails to convert the active sentence to passive voice.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@1016",
+              "__OiQznq4ao@1018",
+              "__OiQznq4ao@1020",
+              "__OiQznq4ao@1021",
+              "__OiQznq4ao@1024",
+              "__OiQznq4ao@1030",
+              "__OiQznq4ao@1032",
+              "__OiQznq4ao@1033",
+              "__OiQznq4ao@1035",
+              "__OiQznq4ao@1038",
+              "__OiQznq4ao@1042",
+              "__OiQznq4ao@1044",
+              "__OiQznq4ao@1046",
+              "__OiQznq4ao@1049"
+            ]
+          },
+          {
+            "id": "ch06.s10.p03.04",
+            "text": "Without fine-tuning, simply loading pre-trained weights does a poor job on this instruction-following task and can even reproduce formatting such as \"### instruction\" in the response itself.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@1051",
+              "__OiQznq4ao@1053",
+              "__OiQznq4ao@1056",
+              "__OiQznq4ao@1059",
+              "__OiQznq4ao@1061",
+              "__OiQznq4ao@1063",
+              "__OiQznq4ao@1065",
+              "__OiQznq4ao@1067",
+              "__OiQznq4ao@1069"
+            ]
+          },
+          {
+            "id": "ch06.s10.p03.05",
+            "text": "Fine-tuning is needed to improve the model's ability to comprehend and appropriately respond to these requests.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@1075",
+              "__OiQznq4ao@1077",
+              "__OiQznq4ao@1080",
+              "__OiQznq4ao@1082",
+              "__OiQznq4ao@1084",
+              "__OiQznq4ao@1087"
+            ]
+          },
+          {
+            "id": "ch06.s10.p03.06",
+            "text": "Even larger pre-trained GPT-2 models, including a 774 million parameter version, still do not produce coherent instruction-following responses without fine-tuning.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@1089",
+              "__OiQznq4ao@1092",
+              "__OiQznq4ao@1095",
+              "__OiQznq4ao@1097",
+              "__OiQznq4ao@1102"
+            ]
+          }
+        ]
+      }
+    ],
+    "invalid_citation_sentences": 0
+  }
+}

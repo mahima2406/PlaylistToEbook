@@ -1,0 +1,323 @@
+{
+  "stage": "diagrams",
+  "item": "ch06",
+  "inputs_hash": "b0ae9bc6674260216dd827d422d96d47cce52860d08971a77b3f70699eb07310",
+  "output_hash": "0aad4596032157e859795e6b021bf02ca3e7ca50201ec05f1dc6b0573be006c3",
+  "output": {
+    "chapter": "ch06",
+    "diagrams": [
+      {
+        "id": "ch06.fig2",
+        "after_paragraph": "ch06.s07.p01",
+        "title": "Batch preparation pipeline",
+        "caption": "Instruction fine tuning batches are prepared by formatting prompts, tokenizing them, padding each batch, shifting inputs to form targets, and replacing extra padding targets with the ignore index.",
+        "mermaid": "flowchart LR\n  A[\"Instruction data\"] --> B[\"Alpaca prompt template\"]\n  B --> C[\"Token IDs\"]\n  C --> D[\"Pad with 50256 to batch max length\"]\n  D --> E[\"Create targets by shifting right by one\"]\n  E --> F[\"Keep first 50256 and replace remaining 50256 with -100\"]",
+        "claims": [
+          {
+            "id": "ch06.fig2.c1",
+            "type": "F",
+            "text": "The data is formatted with the Alpaca prompt template.",
+            "sentences": [
+              "ch06.s07.p01.04"
+            ],
+            "cites": [
+              "bkUkcyL_Xxc@1356",
+              "bkUkcyL_Xxc@1358",
+              "bkUkcyL_Xxc@2786",
+              "bkUkcyL_Xxc@2788"
+            ],
+            "verdict": "supported",
+            "confidence": 0.86,
+            "reason": ""
+          },
+          {
+            "id": "ch06.fig2.c2",
+            "type": "F",
+            "text": "The formatted prompt is converted into token IDs.",
+            "sentences": [
+              "ch06.s07.p01.05"
+            ],
+            "cites": [
+              "bkUkcyL_Xxc@1360",
+              "bkUkcyL_Xxc@1362",
+              "bkUkcyL_Xxc@2790",
+              "bkUkcyL_Xxc@2792"
+            ],
+            "verdict": "supported",
+            "confidence": 0.88,
+            "reason": ""
+          },
+          {
+            "id": "ch06.fig2.c3",
+            "type": "F",
+            "text": "Because tokenized samples do not all have equal length, each batch is padded with token 50256 so that every sample in that batch has the same length as the longest sample in the batch.",
+            "sentences": [
+              "ch06.s07.p01.06"
+            ],
+            "cites": [
+              "bkUkcyL_Xxc@1362",
+              "bkUkcyL_Xxc@1365",
+              "bkUkcyL_Xxc@1369",
+              "bkUkcyL_Xxc@1372",
+              "bkUkcyL_Xxc@1375",
+              "bkUkcyL_Xxc@1377",
+              "bkUkcyL_Xxc@1379",
+              "bkUkcyL_Xxc@1380",
+              "bkUkcyL_Xxc@2792",
+              "bkUkcyL_Xxc@2794",
+              "bkUkcyL_Xxc@2797",
+              "bkUkcyL_Xxc@2799",
+              "bkUkcyL_Xxc@2802",
+              "bkUkcyL_Xxc@2804"
+            ],
+            "verdict": "supported",
+            "confidence": 0.92,
+            "reason": ""
+          },
+          {
+            "id": "ch06.fig2.c4",
+            "type": "F",
+            "text": "After padding, target token IDs are created by shifting the input token IDs to the right by one.",
+            "sentences": [
+              "ch06.s07.p01.07"
+            ],
+            "cites": [
+              "bkUkcyL_Xxc@1383",
+              "bkUkcyL_Xxc@1385",
+              "bkUkcyL_Xxc@1389",
+              "bkUkcyL_Xxc@1391",
+              "bkUkcyL_Xxc@2807",
+              "bkUkcyL_Xxc@2809",
+              "bkUkcyL_Xxc@2811"
+            ],
+            "verdict": "supported",
+            "confidence": 0.84,
+            "reason": ""
+          },
+          {
+            "id": "ch06.fig2.c5",
+            "type": "F",
+            "text": "After targets are created, all 50256 tokens except the first are replaced with -100.",
+            "sentences": [
+              "ch06.s07.p01.08",
+              "ch06.s07.p01.09"
+            ],
+            "cites": [
+              "bkUkcyL_Xxc@1404",
+              "bkUkcyL_Xxc@1406",
+              "bkUkcyL_Xxc@1409",
+              "bkUkcyL_Xxc@1412",
+              "bkUkcyL_Xxc@1414",
+              "bkUkcyL_Xxc@1416",
+              "bkUkcyL_Xxc@1418",
+              "bkUkcyL_Xxc@1420",
+              "bkUkcyL_Xxc@1423",
+              "bkUkcyL_Xxc@2811",
+              "bkUkcyL_Xxc@2813",
+              "bkUkcyL_Xxc@2817",
+              "bkUkcyL_Xxc@2820"
+            ],
+            "verdict": "supported",
+            "confidence": 0.8,
+            "reason": ""
+          }
+        ],
+        "passed": true
+      },
+      {
+        "id": "ch06.fig3",
+        "after_paragraph": "ch06.s12.p03",
+        "title": "Three evaluation approaches",
+        "caption": "Instruction tuned models can be evaluated with a benchmark suite, human comparisons, or an evaluator LLM that compares model responses with reference outputs and assigns scores.",
+        "mermaid": "flowchart TD\n  A[\"Instruction tuned LLM evaluation\"] --> B[\"MMLU benchmark\"]\n  A --> C[\"Human preference comparison\"]\n  A --> D[\"Evaluator LLM scoring\"]\n  D --> E[\"Instruction input true output and model response kept together\"]\n  E --> F[\"Another LLM compares true output with model response and assigns a score\"]",
+        "claims": [
+          {
+            "id": "ch06.fig3.c1",
+            "type": "F",
+            "text": "Instruction fine tuned LLMs can be evaluated with MMLU.",
+            "sentences": [
+              "ch06.s12.p01.r02",
+              "ch06.s12.p01.r03",
+              "ch06.s12.p01.r07"
+            ],
+            "cites": [
+              "7m2jV7BOFkA@3010",
+              "7m2jV7BOFkA@3013",
+              "7m2jV7BOFkA@3018",
+              "7m2jV7BOFkA@3027",
+              "7m2jV7BOFkA@3033",
+              "7m2jV7BOFkA@3037",
+              "7m2jV7BOFkA@782",
+              "7m2jV7BOFkA@783",
+              "7m2jV7BOFkA@786",
+              "7m2jV7BOFkA@789",
+              "7m2jV7BOFkA@792",
+              "7m2jV7BOFkA@794",
+              "7m2jV7BOFkA@796",
+              "7m2jV7BOFkA@799",
+              "7m2jV7BOFkA@919",
+              "7m2jV7BOFkA@921",
+              "7m2jV7BOFkA@923",
+              "7m2jV7BOFkA@926",
+              "7m2jV7BOFkA@929",
+              "7m2jV7BOFkA@930",
+              "7m2jV7BOFkA@933",
+              "7m2jV7BOFkA@941",
+              "7m2jV7BOFkA@961",
+              "7m2jV7BOFkA@964"
+            ],
+            "verdict": "supported",
+            "confidence": 0.93,
+            "reason": ""
+          },
+          {
+            "id": "ch06.fig3.c2",
+            "type": "F",
+            "text": "Instruction fine tuned LLMs can be evaluated with human preference comparison.",
+            "sentences": [
+              "ch06.s12.p01.r02",
+              "ch06.s12.p02.r01"
+            ],
+            "cites": [
+              "7m2jV7BOFkA@3010",
+              "7m2jV7BOFkA@3013",
+              "7m2jV7BOFkA@3018",
+              "7m2jV7BOFkA@3027",
+              "7m2jV7BOFkA@3033",
+              "7m2jV7BOFkA@3037",
+              "7m2jV7BOFkA@782",
+              "7m2jV7BOFkA@783",
+              "7m2jV7BOFkA@941",
+              "7m2jV7BOFkA@944",
+              "7m2jV7BOFkA@946",
+              "7m2jV7BOFkA@948",
+              "7m2jV7BOFkA@950",
+              "7m2jV7BOFkA@961",
+              "7m2jV7BOFkA@964"
+            ],
+            "verdict": "supported",
+            "confidence": 0.93,
+            "reason": ""
+          },
+          {
+            "id": "ch06.fig3.c3",
+            "type": "F",
+            "text": "Instruction fine tuned LLMs can be evaluated by using another large language model to evaluate the model performance.",
+            "sentences": [
+              "ch06.s12.p01.r02",
+              "ch06.s12.p03.r01"
+            ],
+            "cites": [
+              "7m2jV7BOFkA@3010",
+              "7m2jV7BOFkA@3013",
+              "7m2jV7BOFkA@3018",
+              "7m2jV7BOFkA@3027",
+              "7m2jV7BOFkA@3033",
+              "7m2jV7BOFkA@3037",
+              "7m2jV7BOFkA@782",
+              "7m2jV7BOFkA@783",
+              "7m2jV7BOFkA@941",
+              "7m2jV7BOFkA@961",
+              "7m2jV7BOFkA@964",
+              "7m2jV7BOFkA@967",
+              "7m2jV7BOFkA@970",
+              "7m2jV7BOFkA@973",
+              "7m2jV7BOFkA@983",
+              "7m2jV7BOFkA@985",
+              "7m2jV7BOFkA@988",
+              "7m2jV7BOFkA@989",
+              "7m2jV7BOFkA@991",
+              "7m2jV7BOFkA@993"
+            ],
+            "verdict": "supported",
+            "confidence": 0.92,
+            "reason": ""
+          },
+          {
+            "id": "ch06.fig3.c4",
+            "type": "F",
+            "text": "In the evaluator LLM approach, the instruction, input, true output, and model response are kept together.",
+            "sentences": [
+              "ch06.s12.p03.r02"
+            ],
+            "cites": [
+              "7m2jV7BOFkA@1039",
+              "7m2jV7BOFkA@1041",
+              "7m2jV7BOFkA@1044",
+              "7m2jV7BOFkA@1046",
+              "7m2jV7BOFkA@1047",
+              "7m2jV7BOFkA@976",
+              "7m2jV7BOFkA@977",
+              "7m2jV7BOFkA@979",
+              "7m2jV7BOFkA@982",
+              "7m2jV7BOFkA@983",
+              "7m2jV7BOFkA@985",
+              "7m2jV7BOFkA@988",
+              "7m2jV7BOFkA@989",
+              "7m2jV7BOFkA@991",
+              "7m2jV7BOFkA@993"
+            ],
+            "verdict": "supported",
+            "confidence": 0.9,
+            "reason": ""
+          },
+          {
+            "id": "ch06.fig3.c5",
+            "type": "F",
+            "text": "In the evaluator LLM approach, another large language model compares the true output with the model response and assigns a score.",
+            "sentences": [
+              "ch06.s12.p03.r01",
+              "ch06.s12.p03.r02",
+              "ch06.s12.p03.r07"
+            ],
+            "cites": [
+              "7m2jV7BOFkA@1039",
+              "7m2jV7BOFkA@1041",
+              "7m2jV7BOFkA@1044",
+              "7m2jV7BOFkA@1046",
+              "7m2jV7BOFkA@1047",
+              "7m2jV7BOFkA@1455",
+              "7m2jV7BOFkA@1457",
+              "7m2jV7BOFkA@1459",
+              "7m2jV7BOFkA@1462",
+              "7m2jV7BOFkA@1465",
+              "7m2jV7BOFkA@1467",
+              "7m2jV7BOFkA@1469",
+              "7m2jV7BOFkA@1471",
+              "7m2jV7BOFkA@964",
+              "7m2jV7BOFkA@967",
+              "7m2jV7BOFkA@970",
+              "7m2jV7BOFkA@973",
+              "7m2jV7BOFkA@976",
+              "7m2jV7BOFkA@977",
+              "7m2jV7BOFkA@979",
+              "7m2jV7BOFkA@982",
+              "7m2jV7BOFkA@983",
+              "7m2jV7BOFkA@985",
+              "7m2jV7BOFkA@988",
+              "7m2jV7BOFkA@989",
+              "7m2jV7BOFkA@991",
+              "7m2jV7BOFkA@993"
+            ],
+            "verdict": "supported",
+            "confidence": 0.95,
+            "reason": ""
+          }
+        ],
+        "passed": true
+      }
+    ],
+    "dropped": [
+      {
+        "id": "ch06.fig1",
+        "title": "Instruction entry to Alpaca prompt",
+        "reason": "mermaid line 6: styling, HTML, comments or click handlers are not allowed",
+        "claims": [],
+        "after_paragraph": "ch06.s02.p01",
+        "caption": "An instruction tuning record is converted from instruction, input, and output fields into a single Alpaca style training prompt.",
+        "mermaid": "flowchart TD\n  A[\"Dataset entry\"] -->|\"convert to Alpaca prompt style\"| B[\"Fixed introductory instruction\"]\n  A --> C[\"Dataset instruction\"]\n  A --> D[\"Dataset input\"]\n  A --> E[\"Dataset output as response\"]\n  B --> F[\"Full Alpaca style prompt\"]\n  C --> F\n  D --> F\n  E --> F",
+        "passed": false
+      }
+    ]
+  }
+}

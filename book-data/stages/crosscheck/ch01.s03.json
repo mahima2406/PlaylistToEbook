@@ -1,0 +1,203 @@
+{
+  "stage": "crosscheck",
+  "item": "ch01.s03",
+  "inputs_hash": "c5b0acb4b9dbfa8334c655a005e377bdb3668653671ef7be3e6fb3e9bf867e1b",
+  "output_hash": "41eb5b16aaaf711ba8a8b6c677700cd3a563e98fd470622488dbdbb369b27ac3",
+  "output": {
+    "section_id": "ch01.s03",
+    "checked": 17,
+    "counts": {
+      "agrees": 2,
+      "contradicts": 0,
+      "not_covered": 15
+    },
+    "results": [
+      {
+        "sentence_id": "ch01.s03.p01.02",
+        "text": "Large language models work on language, and they perform a wide range of natural language processing tasks such as question answering, translation, and sentiment analysis.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell8",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell58",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell10"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References discuss GPT-2-sized architectures, finetuning layers, and mention machine translation history, but do not state that LLMs perform QA/translation/sentiment analysis broadly."
+      },
+      {
+        "sentence_id": "ch01.s03.p01.03",
+        "text": "Natural language processing existed long before large language models.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell58",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell7"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No passage explicitly states NLP predates LLMs; the provided refs focus on finetuning and positional embeddings, with no historical claim about NLP existing long before LLMs."
+      },
+      {
+        "sentence_id": "ch01.s03.p01.05",
+        "text": "For example, one earlier NLP model might be designed for language translation, while another specific NLP model might be for sentiment analysis.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell14"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited reference only prints an example dataset entry and does not discuss earlier task-specific NLP models for translation vs sentiment."
+      },
+      {
+        "sentence_id": "ch01.s03.p01.06",
+        "text": "Before large language models, natural language processing typically required training a separate algorithm for each specific task.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell58"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided finetuning passage is about which layers to train and does not compare pre-LLM NLP as requiring separate algorithms per task."
+      },
+      {
+        "sentence_id": "ch01.s03.p02.r01",
+        "text": "Modern LLMs can do a wide range of NLP tasks.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell76"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference mentions evaluating performance on a validation task before finetuning, but does not claim modern LLMs can do a wide range of NLP tasks."
+      },
+      {
+        "sentence_id": "ch01.s03.p02.r03",
+        "text": "That is a basic difference between earlier NLP systems and modern LLMs: earlier models were built for specific tasks, whereas modern LLMs can handle many tasks.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell8"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference contrasts a classification-finetuned model (limited to trained labels) with an instruction-finetuned model that can usually perform many tasks, aligning with the stated difference."
+      },
+      {
+        "sentence_id": "ch01.s03.p02.r04",
+        "text": "Compared with earlier NLP models, LLMs are broader, they can do a wide range of generic tasks, and they have many more applications.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell6",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell8"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs note LLMs are larger than conventional deep learning models and that instruction-finetuned models can perform many tasks, but they do not explicitly compare LLMs to earlier NLP models as broader with more applications."
+      },
+      {
+        "sentence_id": "ch01.s03.p02.r05",
+        "text": "Large language models have transformed natural language processing by advancing the generation, understanding, and translation of human language.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell58",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell8",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell10"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While refs mention machine translation with encoder-decoder RNNs and discuss GPT-2 architecture/finetuning, they do not claim LLMs have transformed NLP by advancing generation/understanding/translation."
+      },
+      {
+        "sentence_id": "ch01.s03.p03.r01",
+        "text": "Writing an email from custom instructions was very difficult for earlier language models.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell1"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "A chapter title about finetuning to follow instructions does not state earlier language models found writing emails from custom instructions very difficult."
+      },
+      {
+        "sentence_id": "ch01.s03.p03.r02",
+        "text": "For a modern LLM such as ChatGPT, the same task is almost trivial.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell99"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The temperature-sampling reference concerns decoding distributions and does not address ChatGPT or task difficulty."
+      },
+      {
+        "sentence_id": "ch01.s03.p03.r03",
+        "text": "For example, an instruction to draft an email to a colleague or a friend to book movie tickets is handled directly, and ChatGPT starts drafting the email.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell56",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell68",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell89"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited cells relate to instruction dataset/data loader and printing inputs, not an example of ChatGPT drafting an email from an instruction."
+      },
+      {
+        "sentence_id": "ch01.s03.p03.r04",
+        "text": "This kind of easy, generic behavior is part of why modern LLMs have so many more applications than earlier NLP models.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell6"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference describes decoder-like LLM architecture and parameter size, but does not connect generic easy instruction-following behavior to having more applications than earlier NLP models."
+      },
+      {
+        "sentence_id": "ch01.s03.p04.02",
+        "text": "Large language models are trained to predict the next word.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell82",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly says the training target is the next word (targets are inputs shifted by one), matching next-word prediction."
+      },
+      {
+        "sentence_id": "ch01.s03.p04.03",
+        "text": "Even so, training for next-word prediction can produce emergent properties.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference discusses next-word generation/training setup but does not mention emergent properties arising from this training."
+      },
+      {
+        "sentence_id": "ch01.s03.p04.04",
+        "text": "Because of these emergent properties, a model that is not only good at predicting the next word can also be useful for multiple-choice questions, text summarization, emotion classification, and language translation.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell16",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell5"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages focus on pretraining vs instruction finetuning and text completion, not on emergent properties enabling MCQ answering, summarization, emotion classification, or translation."
+      },
+      {
+        "sentence_id": "ch01.s03.p04.05",
+        "text": "Although they are only trained for next-word prediction, LLMs can show abilities such as classifying text, translating text from one language into another, and summarizing texts.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell85",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell83",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell8"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references confirm word-by-word generation and note that word-by-word translation isn’t feasible, but they do not state that next-word-trained LLMs can classify, translate, or summarize."
+      },
+      {
+        "sentence_id": "ch01.s03.p04.06",
+        "text": "The pre-training stage works so well that LLMs develop additional useful properties, which makes them impactful for a wide range of tasks.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell122"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference passage is about optimizer choice and saving optimizer state during pretraining, not about pretraining leading to additional useful properties or broad task impact."
+      }
+    ],
+    "conflicts": []
+  }
+}

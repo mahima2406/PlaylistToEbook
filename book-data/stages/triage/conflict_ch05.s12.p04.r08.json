@@ -1,0 +1,14 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch05.s12.p04.r08",
+  "inputs_hash": "89845e15d6b69b0c6eb4187ca68dcbf1b73f323f503b292b74180067d0f49533",
+  "output_hash": "c230263da0a6ac63d6ae300d15fde6de7e160355d3e96aaffcefb60c76a221aa",
+  "output": {
+    "decision": "note",
+    "note": "Runtime varies by model and hardware: the reference reports about 5 minutes on an M3 MacBook Air for gpt2-small, while larger models and other laptops can take longer.",
+    "reason": "The caption supports the lecture’s machine-specific estimate, while the reference’s faster figure is for a different hardware/model setup.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "4a1c37ed2e208e748142ca309096ce6922e91da4f8d999b02671b6f50d2cb95f"
+  }
+}

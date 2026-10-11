@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch01.s04.p06.r04",
+  "inputs_hash": "a19a0cd9e5e0d94e0a0a99cd3702e8616ae7c8841205d92168e59672c9f9fa07",
+  "output_hash": "8024f19ec227fd6237abb326cd814c24d6e701fb22c4d18339e6cf3b26324a4c",
+  "output": {
+    "decision": "edit",
+    "text": "Knowledge of generative AI and large language models is an extremely useful skill, and the need for this skill is only going to increase in the future.",
+    "reason": "The captions support usefulness and growing demand for a singular skill tied to generative AI and large language models, but not that both are separately 'skills.'",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.9,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "b2d972f31bc0f080ca230fad5bc5b53db36fc0ee9b558f7cf38d36cc01878c96"
+  }
+}

@@ -1,0 +1,450 @@
+{
+  "stage": "frame",
+  "item": "intro",
+  "inputs_hash": "c82af3a7cd8952dd4352b6772204483235a11d0c91edfd8da0bdcc828dcd2825",
+  "output_hash": "dd3f7d2df9d82b02cd5cfe582a4a8ffe6e5cd59b436a0ab7e0dbc671a262d8d3",
+  "output": {
+    "section_id": "intro",
+    "paragraphs": [
+      {
+        "id": "intro.p01",
+        "sentences": [
+          {
+            "id": "intro.p01.01",
+            "text": "Large language models and generative AI are transforming everything around us, with startups forming around them, companies switching to them for various tasks, and jobs in the field rising rapidly.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@71",
+              "Xpr8D6LeAtw@73",
+              "Xpr8D6LeAtw@76",
+              "Xpr8D6LeAtw@79",
+              "Xpr8D6LeAtw@81",
+              "Xpr8D6LeAtw@83",
+              "Xpr8D6LeAtw@85"
+            ]
+          },
+          {
+            "id": "intro.p01.02",
+            "text": "That is why learning to build an LLM from scratch matters: many people jump straight to applications and running code, but very few understand how large language models actually work or the nuts and bolts that make them powerful.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@88",
+              "Xpr8D6LeAtw@91",
+              "Xpr8D6LeAtw@94",
+              "Xpr8D6LeAtw@96",
+              "Xpr8D6LeAtw@99",
+              "Xpr8D6LeAtw@101",
+              "Xpr8D6LeAtw@105",
+              "Xpr8D6LeAtw@109",
+              "Xpr8D6LeAtw@112",
+              "Xpr8D6LeAtw@115"
+            ]
+          },
+          {
+            "id": "intro.p01.03",
+            "text": "Building one yourself develops confidence in the subject, and after that the application layer becomes much easier to approach.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@119",
+              "Xpr8D6LeAtw@122",
+              "Xpr8D6LeAtw@127",
+              "Xpr8D6LeAtw@130",
+              "Xpr8D6LeAtw@155",
+              "Xpr8D6LeAtw@157",
+              "Xpr8D6LeAtw@161",
+              "Xpr8D6LeAtw@163",
+              "Xpr8D6LeAtw@164",
+              "Xpr8D6LeAtw@166"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "intro.p02",
+        "sentences": [
+          {
+            "id": "intro.p02.01",
+            "text": "The field is worth learning because current models are far more capable than earlier systems.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@300",
+              "Xpr8D6LeAtw@303",
+              "Xpr8D6LeAtw@305",
+              "Xpr8D6LeAtw@309",
+              "Xpr8D6LeAtw@334",
+              "Xpr8D6LeAtw@336",
+              "Xpr8D6LeAtw@340",
+              "Xpr8D6LeAtw@343",
+              "Xpr8D6LeAtw@349",
+              "Xpr8D6LeAtw@354",
+              "Xpr8D6LeAtw@356",
+              "Xpr8D6LeAtw@359",
+              "Xpr8D6LeAtw@360",
+              "Xpr8D6LeAtw@363",
+              "Xpr8D6LeAtw@367",
+              "Xpr8D6LeAtw@387",
+              "Xpr8D6LeAtw@390",
+              "Xpr8D6LeAtw@391"
+            ]
+          },
+          {
+            "id": "intro.p02.02",
+            "text": "Open models also make the subject newly accessible, because key information is now available publicly and the gap with closed models is decreasing.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@396",
+              "Xpr8D6LeAtw@400",
+              "Xpr8D6LeAtw@405",
+              "Xpr8D6LeAtw@407",
+              "Xpr8D6LeAtw@412",
+              "Xpr8D6LeAtw@417",
+              "Xpr8D6LeAtw@420",
+              "Xpr8D6LeAtw@422",
+              "Xpr8D6LeAtw@425",
+              "Xpr8D6LeAtw@451",
+              "Xpr8D6LeAtw@454",
+              "Xpr8D6LeAtw@456",
+              "Xpr8D6LeAtw@459",
+              "Xpr8D6LeAtw@461",
+              "Xpr8D6LeAtw@465",
+              "Xpr8D6LeAtw@467",
+              "Xpr8D6LeAtw@469",
+              "Xpr8D6LeAtw@472"
+            ]
+          },
+          {
+            "id": "intro.p02.03",
+            "text": "Generative AI is broader than language alone, including video, audio, and 3D models, and its practical impact already reaches real applications and a fast-growing job market.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@486",
+              "Xpr8D6LeAtw@490",
+              "Xpr8D6LeAtw@493",
+              "Xpr8D6LeAtw@495",
+              "Xpr8D6LeAtw@497",
+              "Xpr8D6LeAtw@500",
+              "Xpr8D6LeAtw@503",
+              "Xpr8D6LeAtw@506",
+              "Xpr8D6LeAtw@522",
+              "Xpr8D6LeAtw@524",
+              "Xpr8D6LeAtw@530",
+              "Xpr8D6LeAtw@560",
+              "Xpr8D6LeAtw@562",
+              "Xpr8D6LeAtw@564",
+              "Xpr8D6LeAtw@566",
+              "Xpr8D6LeAtw@571",
+              "Xpr8D6LeAtw@573",
+              "Xpr8D6LeAtw@576",
+              "Xpr8D6LeAtw@578",
+              "Xpr8D6LeAtw@585",
+              "Xpr8D6LeAtw@587",
+              "Xpr8D6LeAtw@593",
+              "Xpr8D6LeAtw@595",
+              "Xpr8D6LeAtw@597",
+              "Xpr8D6LeAtw@600",
+              "Xpr8D6LeAtw@603",
+              "Xpr8D6LeAtw@606"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "intro.p03",
+        "sentences": [
+          {
+            "id": "intro.p03.r01",
+            "text": "It fits readers who want to understand LLMs from the very basics, build an entire model from scratch, and be able to answer detailed questions with confidence.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@148",
+              "Xpr8D6LeAtw@150",
+              "Xpr8D6LeAtw@153",
+              "Xpr8D6LeAtw@155",
+              "Xpr8D6LeAtw@157",
+              "Xpr8D6LeAtw@697",
+              "Xpr8D6LeAtw@699",
+              "Xpr8D6LeAtw@701",
+              "Xpr8D6LeAtw@838",
+              "Xpr8D6LeAtw@839",
+              "Xpr8D6LeAtw@842",
+              "Xpr8D6LeAtw@844",
+              "Xpr8D6LeAtw@846",
+              "Xpr8D6LeAtw@848",
+              "Xpr8D6LeAtw@875",
+              "Xpr8D6LeAtw@877",
+              "Xpr8D6LeAtw@879",
+              "Xpr8D6LeAtw@882",
+              "Xpr8D6LeAtw@885",
+              "Xpr8D6LeAtw@887",
+              "Xpr8D6LeAtw@893",
+              "Xpr8D6LeAtw@895",
+              "Xpr8D6LeAtw@897",
+              "Xpr8D6LeAtw@899",
+              "Xpr8D6LeAtw@901",
+              "Xpr8D6LeAtw@903",
+              "Xpr8D6LeAtw@905"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "intro.p04",
+        "sentences": [
+          {
+            "id": "intro.p04.01",
+            "text": "The book opens with foundations.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "intro.p04.02",
+            "text": "Chapter 1 introduces what LLMs are, why building them from scratch is valuable, how generative AI and the broader AI stack relate to them, what modern systems do, and why transformers are central.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "intro.p04.03",
+            "text": "It also lays out the build pipeline from stage one to stage three, while making explicit where prerequisite coverage is partial and where evidence gaps remain.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "intro.p04.04",
+            "text": "Chapter 2 then turns raw text into model inputs by moving from word tokenization to character and subword methods, bringing in byte pair encoding, embeddings, positional information, and the full preprocessing pipeline needed to create next-token training examples.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "intro.p04.05",
+            "text": "Chapter 3 builds directly on those representations and develops the transformer’s core mechanics: self-attention, causal masking, multi-head attention, layer normalization, residual pathways, and the implementation details that make contextual representations possible.",
+            "type": "R",
+            "cites": []
+          }
+        ]
+      },
+      {
+        "id": "intro.p05",
+        "sentences": [
+          {
+            "id": "intro.p05.01",
+            "text": "With those building blocks in place, the book assembles complete models and then adapts them to practical settings.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "intro.p05.02",
+            "text": "Chapter 4 constructs a full GPT-style model, defines next-token prediction, trains it in a pretraining loop, and shows how generation changes under greedy decoding, temperature, and top-k sampling.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "intro.p05.03",
+            "text": "Chapter 5 moves from training from scratch to using pretrained GPT-2 weights, mapping released parameters into the architecture and then fine-tuning the model for spam classification with padded datasets, dataloaders, and accuracy-based evaluation.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "intro.p05.04",
+            "text": "Chapter 6 extends that workflow to instruction fine-tuning, covering prompt formatting, variable-length batching, shifted targets, masking choices in the loss, loading pretrained weights again, and evaluating instruction-following behavior with both examples and broader benchmarking ideas.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "intro.p05.05",
+            "text": "By the end, each chapter has built on the one before it: from concepts, to inputs, to transformer internals, to GPT pretraining, to transfer, and finally to instruction-following systems.",
+            "type": "R",
+            "cites": []
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "intro.p01.01": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "intro.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "intro.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "intro.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.83,
+        "reason": ""
+      },
+      "intro.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "intro.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "intro.p04.01": {
+        "verdict": "ok",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "intro.p04.02": {
+        "verdict": "ok",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "intro.p04.03": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "intro.p04.04": {
+        "verdict": "ok",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "intro.p04.05": {
+        "verdict": "ok",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "intro.p05.01": {
+        "verdict": "ok",
+        "confidence": 0.8,
+        "reason": ""
+      },
+      "intro.p05.02": {
+        "verdict": "ok",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "intro.p05.03": {
+        "verdict": "ok",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "intro.p05.04": {
+        "verdict": "ok",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "intro.p05.05": {
+        "verdict": "ok",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "intro.p03.r01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "intro.p01.01": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "intro.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "intro.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "intro.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.83,
+        "reason": ""
+      },
+      "intro.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "intro.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "intro.p03.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.72,
+        "reason": "asserts a target audience (python programmer) and preference (serious technical path vs quick app tour), which are factual claims about the book’s intended reader/purpose rather than a pure transition."
+      },
+      "intro.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "intro.p03.03": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.74,
+        "reason": "asserts that python is assumed by the reader profile and that the supplied source does not specify prerequisites beyond a beginner-oriented approach; these are factual assertions without citations."
+      },
+      "intro.p04.01": {
+        "verdict": "ok",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "intro.p04.02": {
+        "verdict": "ok",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "intro.p04.03": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "intro.p04.04": {
+        "verdict": "ok",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "intro.p04.05": {
+        "verdict": "ok",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "intro.p05.01": {
+        "verdict": "ok",
+        "confidence": 0.8,
+        "reason": ""
+      },
+      "intro.p05.02": {
+        "verdict": "ok",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "intro.p05.03": {
+        "verdict": "ok",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "intro.p05.04": {
+        "verdict": "ok",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "intro.p05.05": {
+        "verdict": "ok",
+        "confidence": 0.95,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "intro.p03"
+    ],
+    "queue": []
+  }
+}

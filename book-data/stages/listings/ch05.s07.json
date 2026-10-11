@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch05.s07",
+  "inputs_hash": "4fba565cfd01cae9d8f7b69c018741db55013725489f64ed8d8261bd5ce1e2bd",
+  "output_hash": "c3802133c948c722c1c5d2a64d36c23f5b0d700527ad4549d563f25222dcac64",
+  "output": {
+    "section_id": "ch05.s07",
+    "listings": [],
+    "rejected": [
+      {
+        "id": "ch05.s07.code1",
+        "ref": "ref:ch06/01_main-chapter-code/ch06.ipynb#cell22",
+        "path": "ch06/01_main-chapter-code/ch06.ipynb",
+        "caption": "Displays the balanced dataframe containing the sampled ham and spam examples.",
+        "code": "balanced_df",
+        "truncated": false,
+        "check": "no",
+        "reason": "The section teaches a numeric split calculation (70% of 1494 = 1045 training samples). The code only references `balanced_df` and the caption claims it displays a balanced dataframe of ham/spam samples, which is unrelated to the training-set size calculation."
+      },
+      {
+        "id": "ch05.s07.code2",
+        "ref": "ref:ch06/01_main-chapter-code/ch06.ipynb#cell21",
+        "path": "ch06/01_main-chapter-code/ch06.ipynb",
+        "caption": "Maps the Label column from the strings \"ham\" and \"spam\" to the numeric values 0 and 1.",
+        "code": "balanced_df[\"Label\"] = balanced_df[\"Label\"].map({\"ham\": 0, \"spam\": 1})\n\nbalanced_df",
+        "truncated": false,
+        "check": "no",
+        "reason": "The section teaches how to compute the number of training samples (1045) from a 70% split of 1494 examples. The code instead maps string labels \"ham\"/\"spam\" to numeric values 0/1, which is unrelated to calculating train set size. The caption accurately describes the code but does not match the section content."
+      }
+    ]
+  }
+}

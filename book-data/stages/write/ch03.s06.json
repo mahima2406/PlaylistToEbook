@@ -1,0 +1,442 @@
+{
+  "stage": "write",
+  "item": "ch03.s06",
+  "inputs_hash": "b7c2544a6244af5267d122bfdc5b5beb3b252fd22b86f98d5761d1df6022d7e1",
+  "output_hash": "5de32c26453537653fcea5085e0eee97a651694885ce58a1eddefc1c02203b51",
+  "output": {
+    "section_id": "ch03.s06",
+    "paragraphs": [
+      {
+        "id": "ch03.s06.p01",
+        "sentences": [
+          {
+            "id": "ch03.s06.p01.01",
+            "text": "Why are trainable query, key, and value weights needed if simple self-attention already produces context vectors?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s06.p01.02",
+            "text": "In the simplified mechanism here, trainable weights are not used, although trainable weights are added later in LLMs because they help the model understand context text much better and learn in a better way.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@857",
+              "eSRhpYLerw4@858",
+              "eSRhpYLerw4@861",
+              "eSRhpYLerw4@863",
+              "eSRhpYLerw4@865",
+              "eSRhpYLerw4@868",
+              "eSRhpYLerw4@869"
+            ]
+          },
+          {
+            "id": "ch03.s06.p01.03",
+            "text": "That simplified mechanism still matters because the same underlying intuition and mechanism carry over to key, query, and value attention.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@4404",
+              "eSRhpYLerw4@4406",
+              "eSRhpYLerw4@4420",
+              "eSRhpYLerw4@4439",
+              "eSRhpYLerw4@4440"
+            ]
+          },
+          {
+            "id": "ch03.s06.p01.04",
+            "text": "The main change is in the final multiplication: instead of multiplying the attention weight matrix by the input matrix, this formulation multiplies by the values.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@4396",
+              "eSRhpYLerw4@4397",
+              "eSRhpYLerw4@4400",
+              "eSRhpYLerw4@4427",
+              "eSRhpYLerw4@4429",
+              "eSRhpYLerw4@4432",
+              "eSRhpYLerw4@4433"
+            ]
+          },
+          {
+            "id": "ch03.s06.p01.05",
+            "text": "Once this simpler version is clear, key, query, and value are easier to understand because the intuition remains the same.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@4439",
+              "eSRhpYLerw4@4440",
+              "eSRhpYLerw4@4443",
+              "eSRhpYLerw4@4444",
+              "eSRhpYLerw4@4446"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s06.p02",
+        "sentences": [
+          {
+            "id": "ch03.s06.p02.01",
+            "text": "The limitation of the current approach is that attention weights come only from dot products.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@4469",
+              "eSRhpYLerw4@4471",
+              "eSRhpYLerw4@4474",
+              "eSRhpYLerw4@4477",
+              "eSRhpYLerw4@4479"
+            ]
+          },
+          {
+            "id": "ch03.s06.p02.02",
+            "text": "Because of that, attention is driven only by semantic alignment between vectors.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@4482",
+              "eSRhpYLerw4@4485",
+              "eSRhpYLerw4@4486",
+              "eSRhpYLerw4@4489",
+              "eSRhpYLerw4@4492",
+              "eSRhpYLerw4@4495",
+              "eSRhpYLerw4@4497",
+              "eSRhpYLerw4@4499",
+              "eSRhpYLerw4@4501"
+            ]
+          },
+          {
+            "id": "ch03.s06.p02.03",
+            "text": "But semantic similarity alone is not enough, because two vectors may fail to align semantically and still be important in the current sentence context.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@4501",
+              "eSRhpYLerw4@4504",
+              "eSRhpYLerw4@4507",
+              "eSRhpYLerw4@4509",
+              "eSRhpYLerw4@4512"
+            ]
+          },
+          {
+            "id": "ch03.s06.p02.04",
+            "text": "To capture what is happening in the current sentence, the model needs information beyond meaning alone, and without trainable weights it will not capture that context effectively.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@4525",
+              "eSRhpYLerw4@4528",
+              "eSRhpYLerw4@4530",
+              "eSRhpYLerw4@4533",
+              "eSRhpYLerw4@4535",
+              "eSRhpYLerw4@4537"
+            ]
+          },
+          {
+            "id": "ch03.s06.p02.05",
+            "text": "Without trainable weights, the model does capture some context, but it mainly gives attention to words that are similar in meaning to the query.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@4539",
+              "eSRhpYLerw4@4541",
+              "eSRhpYLerw4@4544",
+              "eSRhpYLerw4@4546"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s06.p03",
+        "sentences": [
+          {
+            "id": "ch03.s06.p03.01",
+            "text": "A simple example makes the problem concrete.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s06.p03.02",
+            "text": "Take the sentence \"the cat sat on the mat because it is warm\" and use \"warm\" as the query.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@4555",
+              "eSRhpYLerw4@4558",
+              "eSRhpYLerw4@4561",
+              "eSRhpYLerw4@4564"
+            ]
+          },
+          {
+            "id": "ch03.s06.p03.03",
+            "text": "If trainable weights are not used, attention is computed only from the dot product between the query embedding for \"warm\" and each word embedding.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@4567",
+              "eSRhpYLerw4@4569",
+              "eSRhpYLerw4@4570",
+              "eSRhpYLerw4@4573",
+              "eSRhpYLerw4@4575"
+            ]
+          },
+          {
+            "id": "ch03.s06.p03.04",
+            "text": "In that case, \"warm\" is most similar to itself, may be somewhat related to \"mat\", and words such as \"the\", \"cat\", and \"sat\" can receive low similarity scores because they are not semantically related to \"warm\".",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@4577",
+              "eSRhpYLerw4@4580",
+              "eSRhpYLerw4@4582",
+              "eSRhpYLerw4@4585",
+              "eSRhpYLerw4@4587",
+              "eSRhpYLerw4@4589",
+              "eSRhpYLerw4@4594",
+              "eSRhpYLerw4@4596",
+              "eSRhpYLerw4@4597"
+            ]
+          },
+          {
+            "id": "ch03.s06.p03.05",
+            "text": "So without trainable weights, attention mainly follows semantic similarity to the query.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@4592",
+              "eSRhpYLerw4@4594",
+              "eSRhpYLerw4@4596",
+              "eSRhpYLerw4@4597"
+            ]
+          },
+          {
+            "id": "ch03.s06.p03.06",
+            "text": "Yet in this sentence, \"mat\" can be the most important word for the query \"warm\" because the mat is warm, even though \"mat\" and \"warm\" are not closely related in meaning.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@4620",
+              "eSRhpYLerw4@4622",
+              "eSRhpYLerw4@4624",
+              "eSRhpYLerw4@4626",
+              "eSRhpYLerw4@4629"
+            ]
+          },
+          {
+            "id": "ch03.s06.p03.07",
+            "text": "Trainable weights let the model learn that \"warm\" should pay more attention to \"mat\" even if \"mat\" is not semantically similar to \"warm\" in the embedding space.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@4600",
+              "eSRhpYLerw4@4602",
+              "eSRhpYLerw4@4604",
+              "eSRhpYLerw4@4632",
+              "eSRhpYLerw4@4635",
+              "eSRhpYLerw4@4637",
+              "eSRhpYLerw4@4640",
+              "eSRhpYLerw4@4641"
+            ]
+          },
+          {
+            "id": "ch03.s06.p03.08",
+            "text": "That is why trainable weights are needed to capture contextual relationships and long-range dependencies that would be lost if attention relied only on semantic similarity.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@4644",
+              "eSRhpYLerw4@4646",
+              "eSRhpYLerw4@4649",
+              "eSRhpYLerw4@4651",
+              "eSRhpYLerw4@4653",
+              "eSRhpYLerw4@4656",
+              "eSRhpYLerw4@4658",
+              "eSRhpYLerw4@4660",
+              "eSRhpYLerw4@4662",
+              "eSRhpYLerw4@4665",
+              "eSRhpYLerw4@4667",
+              "eSRhpYLerw4@4670",
+              "eSRhpYLerw4@4672",
+              "eSRhpYLerw4@4674",
+              "eSRhpYLerw4@4677",
+              "eSRhpYLerw4@4679"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s06.p04",
+        "sentences": [
+          {
+            "id": "ch03.s06.p04.01",
+            "text": "With trainable self-attention, the inputs are first transformed into queries, keys, and values.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s06.p04.02",
+            "text": "The input matrix is multiplied by the query, key, and value weight matrices to produce the queries matrix, keys matrix, and values matrix.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@278",
+              "h94TQOK7NRA@280",
+              "h94TQOK7NRA@282",
+              "h94TQOK7NRA@286",
+              "h94TQOK7NRA@288",
+              "h94TQOK7NRA@293",
+              "h94TQOK7NRA@297",
+              "h94TQOK7NRA@299",
+              "h94TQOK7NRA@301",
+              "h94TQOK7NRA@303",
+              "h94TQOK7NRA@306",
+              "h94TQOK7NRA@308",
+              "h94TQOK7NRA@310",
+              "h94TQOK7NRA@314",
+              "h94TQOK7NRA@1012",
+              "h94TQOK7NRA@1015",
+              "h94TQOK7NRA@1017",
+              "h94TQOK7NRA@1020",
+              "h94TQOK7NRA@1022",
+              "h94TQOK7NRA@1024",
+              "h94TQOK7NRA@1026"
+            ]
+          },
+          {
+            "id": "ch03.s06.p04.03",
+            "text": "These query, key, and value weight matrices are trainable parameters learned from input data, although the focus here is on the forward pass rather than training or backpropagation.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@318",
+              "h94TQOK7NRA@324",
+              "h94TQOK7NRA@327",
+              "h94TQOK7NRA@329",
+              "h94TQOK7NRA@332",
+              "h94TQOK7NRA@334",
+              "h94TQOK7NRA@336",
+              "h94TQOK7NRA@338",
+              "h94TQOK7NRA@341",
+              "h94TQOK7NRA@343",
+              "h94TQOK7NRA@345",
+              "h94TQOK7NRA@347",
+              "h94TQOK7NRA@350"
+            ]
+          },
+          {
+            "id": "ch03.s06.p04.04",
+            "text": "After that, the attention scores are computed by multiplying the queries matrix by the transpose of the keys matrix.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@353",
+              "h94TQOK7NRA@355",
+              "h94TQOK7NRA@358",
+              "h94TQOK7NRA@360",
+              "h94TQOK7NRA@362",
+              "h94TQOK7NRA@364",
+              "h94TQOK7NRA@970",
+              "h94TQOK7NRA@972",
+              "h94TQOK7NRA@974"
+            ]
+          },
+          {
+            "id": "ch03.s06.p04.05",
+            "text": "Each row of that attention score matrix shows how much attention one particular query pays to all the keys in the sentence.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@367",
+              "h94TQOK7NRA@371",
+              "h94TQOK7NRA@373",
+              "h94TQOK7NRA@421",
+              "h94TQOK7NRA@424",
+              "h94TQOK7NRA@426",
+              "h94TQOK7NRA@429"
+            ]
+          },
+          {
+            "id": "ch03.s06.p04.06",
+            "text": "The scores are converted into attention weights by dividing by the square root of the key dimension and then applying softmax.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@447",
+              "h94TQOK7NRA@449",
+              "h94TQOK7NRA@452",
+              "h94TQOK7NRA@453",
+              "h94TQOK7NRA@455",
+              "h94TQOK7NRA@469",
+              "h94TQOK7NRA@978",
+              "h94TQOK7NRA@980"
+            ]
+          },
+          {
+            "id": "ch03.s06.p04.07",
+            "text": "Attention weights correspond to the attention scores, but each row of the attention weight matrix sums to one, giving the rows a probabilistic meaning.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@471",
+              "h94TQOK7NRA@474",
+              "h94TQOK7NRA@475",
+              "h94TQOK7NRA@477",
+              "h94TQOK7NRA@479",
+              "h94TQOK7NRA@481",
+              "h94TQOK7NRA@484"
+            ]
+          },
+          {
+            "id": "ch03.s06.p04.08",
+            "text": "The final context vectors are obtained by multiplying the attention weight matrix by the values matrix.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@500",
+              "h94TQOK7NRA@502",
+              "h94TQOK7NRA@504",
+              "h94TQOK7NRA@510",
+              "h94TQOK7NRA@512",
+              "h94TQOK7NRA@514",
+              "h94TQOK7NRA@980",
+              "h94TQOK7NRA@982",
+              "h94TQOK7NRA@984"
+            ]
+          },
+          {
+            "id": "ch03.s06.p04.09",
+            "text": "Each row of the resulting context vector matrix is the context vector for the corresponding token.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@516",
+              "h94TQOK7NRA@518",
+              "h94TQOK7NRA@520",
+              "h94TQOK7NRA@523",
+              "h94TQOK7NRA@525",
+              "h94TQOK7NRA@527",
+              "h94TQOK7NRA@529",
+              "h94TQOK7NRA@530",
+              "h94TQOK7NRA@532"
+            ]
+          },
+          {
+            "id": "ch03.s06.p04.10",
+            "text": "A token’s context vector is richer than its original embedding because it also contains information about how much attention should be paid to the other words.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@845",
+              "eSRhpYLerw4@847",
+              "eSRhpYLerw4@850",
+              "eSRhpYLerw4@852",
+              "h94TQOK7NRA@543",
+              "h94TQOK7NRA@545",
+              "h94TQOK7NRA@546",
+              "h94TQOK7NRA@549",
+              "h94TQOK7NRA@551",
+              "h94TQOK7NRA@554"
+            ]
+          },
+          {
+            "id": "ch03.s06.p04.11",
+            "text": "These context vectors are the inputs used for language model training, and the aim of attention is to produce one context vector for each input embedding vector so that next-word prediction becomes more reliable.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@250",
+              "h94TQOK7NRA@251",
+              "h94TQOK7NRA@255",
+              "h94TQOK7NRA@257",
+              "h94TQOK7NRA@259",
+              "h94TQOK7NRA@261",
+              "h94TQOK7NRA@264",
+              "h94TQOK7NRA@267",
+              "h94TQOK7NRA@269",
+              "h94TQOK7NRA@273",
+              "h94TQOK7NRA@556",
+              "h94TQOK7NRA@558",
+              "h94TQOK7NRA@561",
+              "h94TQOK7NRA@563"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

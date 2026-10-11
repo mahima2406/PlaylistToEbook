@@ -1,0 +1,514 @@
+{
+  "stage": "write",
+  "item": "ch01.s04",
+  "inputs_hash": "c234b1465545ae1f4c8ab8446a7a5014545024141300e5d8c07ee545fe50a666",
+  "output_hash": "ec1d274e961a20d23737adfbb2181c0f39634748106f75b73c4bd99bb95d294f",
+  "output": {
+    "section_id": "ch01.s04",
+    "paragraphs": [
+      {
+        "id": "ch01.s04.p01",
+        "sentences": [
+          {
+            "id": "ch01.s04.p01.01",
+            "text": "Why do large language models matter so much now, and why are they attracting so much attention across applications and careers?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s04.p01.02",
+            "text": "A simple contrast shows how far natural language processing has come.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s04.p01.03",
+            "text": "One early chatbot from 50 to 60 years ago was \"Elisa\", one of the first chatbots humans developed, and its conversation quickly proceeds nowhere.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@224",
+              "Xpr8D6LeAtw@227",
+              "Xpr8D6LeAtw@230",
+              "Xpr8D6LeAtw@232",
+              "Xpr8D6LeAtw@235",
+              "Xpr8D6LeAtw@298",
+              "Xpr8D6LeAtw@300",
+              "Xpr8D6LeAtw@303",
+              "Xpr8D6LeAtw@305"
+            ]
+          },
+          {
+            "id": "ch01.s04.p01.04",
+            "text": "By contrast, \"chat GPT\" can answer a request about learning large language models with a response that is extremely useful, to the point, and filled with resources such as books, online courses, and research papers.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@309",
+              "Xpr8D6LeAtw@314",
+              "Xpr8D6LeAtw@321",
+              "Xpr8D6LeAtw@328",
+              "Xpr8D6LeAtw@331",
+              "Xpr8D6LeAtw@334",
+              "Xpr8D6LeAtw@336",
+              "Xpr8D6LeAtw@340",
+              "Xpr8D6LeAtw@343",
+              "Xpr8D6LeAtw@346"
+            ]
+          },
+          {
+            "id": "ch01.s04.p01.05",
+            "text": "We are living at a stage where research in natural language processing has made LLMs such as GPT very powerful and very sophisticated.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@349",
+              "Xpr8D6LeAtw@354",
+              "Xpr8D6LeAtw@356",
+              "Xpr8D6LeAtw@360",
+              "Xpr8D6LeAtw@363",
+              "Xpr8D6LeAtw@367"
+            ]
+          },
+          {
+            "id": "ch01.s04.p01.06",
+            "text": "Generative AI is broader than language alone and includes video, audio, and 3D models.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@500",
+              "Xpr8D6LeAtw@503",
+              "Xpr8D6LeAtw@506"
+            ]
+          },
+          {
+            "id": "ch01.s04.p01.07",
+            "text": "Some videos can look incredibly realistic even though they are made entirely by artificial intelligence rather than shot on a camera.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@511",
+              "Xpr8D6LeAtw@514",
+              "Xpr8D6LeAtw@519",
+              "Xpr8D6LeAtw@522",
+              "Xpr8D6LeAtw@524",
+              "Xpr8D6LeAtw@527",
+              "Xpr8D6LeAtw@530"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s04.p02",
+        "sentences": [
+          {
+            "id": "ch01.s04.p02.01",
+            "text": "The same shift appears in interactive text generation.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s04.p02.02",
+            "text": "A prompt such as \"plan a relaxing day\" can ask for a day focused on rejuvenation and request that the system first ask about favorite forms of relaxation.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@277",
+              "3dWzNZXA8DY@279",
+              "3dWzNZXA8DY@280",
+              "3dWzNZXA8DY@284",
+              "3dWzNZXA8DY@286",
+              "3dWzNZXA8DY@289"
+            ]
+          },
+          {
+            "id": "ch01.s04.p02.03",
+            "text": "\"chat GPT\" replies conversationally, asking whether the user prefers being outdoors, reading, yoga, painting, or cooking.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@290",
+              "3dWzNZXA8DY@294",
+              "3dWzNZXA8DY@297",
+              "3dWzNZXA8DY@299",
+              "3dWzNZXA8DY@301",
+              "3dWzNZXA8DY@303",
+              "3dWzNZXA8DY@306",
+              "3dWzNZXA8DY@308"
+            ]
+          },
+          {
+            "id": "ch01.s04.p02.04",
+            "text": "If the answer is \"reading a book\", it generates a reading-focused plan with items such as morning meditation, breakfast, reading time, and a nature walk.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@313",
+              "3dWzNZXA8DY@315",
+              "3dWzNZXA8DY@318",
+              "3dWzNZXA8DY@320",
+              "3dWzNZXA8DY@323",
+              "3dWzNZXA8DY@325",
+              "3dWzNZXA8DY@326",
+              "3dWzNZXA8DY@329",
+              "3dWzNZXA8DY@331",
+              "3dWzNZXA8DY@334"
+            ]
+          },
+          {
+            "id": "ch01.s04.p02.05",
+            "text": "This kind of demonstration shows that large language models understand, generate, and respond to human-like text, and that they also respond like humans.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@247",
+              "3dWzNZXA8DY@250",
+              "3dWzNZXA8DY@340",
+              "3dWzNZXA8DY@342",
+              "3dWzNZXA8DY@345",
+              "3dWzNZXA8DY@348"
+            ]
+          },
+          {
+            "id": "ch01.s04.p02.06",
+            "text": "They are sounding more and more like humans.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@384",
+              "3dWzNZXA8DY@386",
+              "3dWzNZXA8DY@389"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s04.p03",
+        "sentences": [
+          {
+            "id": "ch01.s04.p03.01",
+            "text": "These capabilities lead directly to practical applications.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s04.p03.02",
+            "text": "The applications of large language models can be divided into five main categories, even though there are several more applications beyond these.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1549",
+              "3dWzNZXA8DY@1552",
+              "3dWzNZXA8DY@1554",
+              "3dWzNZXA8DY@1776",
+              "3dWzNZXA8DY@1778",
+              "3dWzNZXA8DY@1781",
+              "3dWzNZXA8DY@1783",
+              "3dWzNZXA8DY@1785"
+            ]
+          },
+          {
+            "id": "ch01.s04.p03.03",
+            "text": "One category is creating new content that may not already exist.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1556",
+              "3dWzNZXA8DY@1558",
+              "3dWzNZXA8DY@1577",
+              "3dWzNZXA8DY@1580",
+              "3dWzNZXA8DY@1583"
+            ]
+          },
+          {
+            "id": "ch01.s04.p03.04",
+            "text": "For example, a model can write a poem about the solar system in the format of a detective story, and it can also be used to write books and generate media articles.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1560",
+              "3dWzNZXA8DY@1566",
+              "3dWzNZXA8DY@1570",
+              "3dWzNZXA8DY@1573",
+              "3dWzNZXA8DY@1577",
+              "3dWzNZXA8DY@1580",
+              "3dWzNZXA8DY@1587",
+              "3dWzNZXA8DY@1606",
+              "3dWzNZXA8DY@1608",
+              "3dWzNZXA8DY@1611"
+            ]
+          },
+          {
+            "id": "ch01.s04.p03.05",
+            "text": "Another category is chatbot or virtual-assistant use, where a person can interact with the model in an ongoing conversation.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1615",
+              "3dWzNZXA8DY@1618",
+              "3dWzNZXA8DY@1621",
+              "3dWzNZXA8DY@1625",
+              "3dWzNZXA8DY@1627",
+              "3dWzNZXA8DY@1629",
+              "3dWzNZXA8DY@1631",
+              "3dWzNZXA8DY@1632"
+            ]
+          },
+          {
+            "id": "ch01.s04.p03.06",
+            "text": "Chatbots are a huge and major application for airlines, hotel reservation desks, banks, movie and restaurant services, and customer support.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1634",
+              "3dWzNZXA8DY@1638",
+              "3dWzNZXA8DY@1641",
+              "3dWzNZXA8DY@1664",
+              "3dWzNZXA8DY@1666",
+              "3dWzNZXA8DY@1668",
+              "3dWzNZXA8DY@1672",
+              "3dWzNZXA8DY@1673",
+              "3dWzNZXA8DY@1675",
+              "3dWzNZXA8DY@1677",
+              "3dWzNZXA8DY@1679",
+              "3dWzNZXA8DY@1681"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s04.p04",
+        "sentences": [
+          {
+            "id": "ch01.s04.p04.01",
+            "text": "The remaining categories broaden the range further.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s04.p04.02",
+            "text": "Machine translation is the use of large language models to translate text into other languages.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1690",
+              "3dWzNZXA8DY@1693",
+              "3dWzNZXA8DY@1694"
+            ]
+          },
+          {
+            "id": "ch01.s04.p04.03",
+            "text": "A model can be asked to translate a poem to French, and it can do that immediately.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1696",
+              "3dWzNZXA8DY@1700",
+              "3dWzNZXA8DY@1706",
+              "3dWzNZXA8DY@1708",
+              "3dWzNZXA8DY@1710"
+            ]
+          },
+          {
+            "id": "ch01.s04.p04.04",
+            "text": "The output can be translated very quickly into many languages, and there is some support for regional languages, with research being done to improve those outputs.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1719",
+              "3dWzNZXA8DY@1722",
+              "3dWzNZXA8DY@1724",
+              "3dWzNZXA8DY@1727",
+              "3dWzNZXA8DY@1728",
+              "3dWzNZXA8DY@1731",
+              "3dWzNZXA8DY@1734",
+              "3dWzNZXA8DY@1737"
+            ]
+          },
+          {
+            "id": "ch01.s04.p04.05",
+            "text": "Another application is new text generation, including poems, books, media articles, and news articles that did not exist before.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1745",
+              "3dWzNZXA8DY@1747",
+              "3dWzNZXA8DY@1750",
+              "3dWzNZXA8DY@1752",
+              "3dWzNZXA8DY@1755"
+            ]
+          },
+          {
+            "id": "ch01.s04.p04.06",
+            "text": "Large language models can also be used for sentiment analysis by taking paragraphs and identifying the sentiment, which can be useful for hate speech detection on social media.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1758",
+              "3dWzNZXA8DY@1761",
+              "3dWzNZXA8DY@1763",
+              "3dWzNZXA8DY@1765",
+              "3dWzNZXA8DY@1768",
+              "3dWzNZXA8DY@1771",
+              "3dWzNZXA8DY@1773"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s04.p05",
+        "sentences": [
+          {
+            "id": "ch01.s04.p05.01",
+            "text": "Education tools make these categories concrete.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s04.p05.02",
+            "text": "A portal built using LLM knowledge includes tools such as a YouTube generator, MCQ generator, text summarizer, text rewriter, worksheet generator, and lesson plan generation.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1787",
+              "3dWzNZXA8DY@1789",
+              "3dWzNZXA8DY@1790",
+              "3dWzNZXA8DY@1792",
+              "3dWzNZXA8DY@1795",
+              "3dWzNZXA8DY@1797",
+              "3dWzNZXA8DY@1799",
+              "3dWzNZXA8DY@1802",
+              "3dWzNZXA8DY@1806",
+              "3dWzNZXA8DY@1807"
+            ]
+          },
+          {
+            "id": "ch01.s04.p05.03",
+            "text": "In one application, selecting the MCQ generator, entering a topic such as \"gravity\", and clicking generate causes the LLM powering the application to produce multiple-choice questions within seconds.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@546",
+              "Xpr8D6LeAtw@548",
+              "Xpr8D6LeAtw@549",
+              "Xpr8D6LeAtw@552",
+              "Xpr8D6LeAtw@555",
+              "Xpr8D6LeAtw@558",
+              "Xpr8D6LeAtw@560",
+              "Xpr8D6LeAtw@562",
+              "Xpr8D6LeAtw@564",
+              "Xpr8D6LeAtw@566"
+            ]
+          },
+          {
+            "id": "ch01.s04.p05.04",
+            "text": "In another application, a lesson plan on \"gravity\" can be generated and aligned with the CBSE curriculum of India.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1807",
+              "3dWzNZXA8DY@1810",
+              "3dWzNZXA8DY@1811",
+              "3dWzNZXA8DY@1814",
+              "3dWzNZXA8DY@1816",
+              "3dWzNZXA8DY@1819"
+            ]
+          },
+          {
+            "id": "ch01.s04.p05.05",
+            "text": "The generated lesson plan includes the objective, assessment, key points, opening, introduction to new material, guided practice, and independent practice.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1824",
+              "3dWzNZXA8DY@1826",
+              "3dWzNZXA8DY@1828",
+              "3dWzNZXA8DY@1829",
+              "3dWzNZXA8DY@1831",
+              "3dWzNZXA8DY@1833"
+            ]
+          },
+          {
+            "id": "ch01.s04.p05.06",
+            "text": "This can save teachers a great deal of time, and it is presented as something that was not possible five years earlier but is possible now with LLMs.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1836",
+              "3dWzNZXA8DY@1839",
+              "3dWzNZXA8DY@1841",
+              "3dWzNZXA8DY@1844"
+            ]
+          },
+          {
+            "id": "ch01.s04.p05.07",
+            "text": "A similar tool can generate questions on \"World War II\" at hard, medium, and easy levels, along with the correct answers and explanations, and it does so within seconds.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1850",
+              "3dWzNZXA8DY@1852",
+              "3dWzNZXA8DY@1854",
+              "3dWzNZXA8DY@1859",
+              "3dWzNZXA8DY@1862",
+              "3dWzNZXA8DY@1865",
+              "3dWzNZXA8DY@1868",
+              "3dWzNZXA8DY@1872",
+              "3dWzNZXA8DY@1874",
+              "3dWzNZXA8DY@1876",
+              "3dWzNZXA8DY@1877"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s04.p06",
+        "sentences": [
+          {
+            "id": "ch01.s04.p06.01",
+            "text": "The broader motivation is not only technical but also practical.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s04.p06.02",
+            "text": "Large language models and generative AI are changing many things around us, including applications provided to teachers.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@566",
+              "Xpr8D6LeAtw@568",
+              "Xpr8D6LeAtw@576",
+              "Xpr8D6LeAtw@578",
+              "Xpr8D6LeAtw@580"
+            ]
+          },
+          {
+            "id": "ch01.s04.p06.03",
+            "text": "The projected global generative AI job market is expected to grow about five to six times in the next five years.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@585",
+              "Xpr8D6LeAtw@587",
+              "Xpr8D6LeAtw@593",
+              "Xpr8D6LeAtw@595",
+              "Xpr8D6LeAtw@597"
+            ]
+          },
+          {
+            "id": "ch01.s04.p06.04",
+            "text": "Because of that growth, generative AI and large language models are extremely useful skills whose demand will continue to increase in the future.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@597",
+              "Xpr8D6LeAtw@600",
+              "Xpr8D6LeAtw@603",
+              "Xpr8D6LeAtw@606"
+            ]
+          },
+          {
+            "id": "ch01.s04.p06.05",
+            "text": "If you have knowledge about LLMs, the sky is the limit for building wonderful applications.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1892",
+              "3dWzNZXA8DY@1894",
+              "3dWzNZXA8DY@1896",
+              "3dWzNZXA8DY@1898",
+              "3dWzNZXA8DY@1932",
+              "3dWzNZXA8DY@1935",
+              "3dWzNZXA8DY@1938"
+            ]
+          },
+          {
+            "id": "ch01.s04.p06.06",
+            "text": "The examples here are only the tip of the iceberg, because LLMs can be used for many more research and industrial applications.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1940",
+              "3dWzNZXA8DY@1942",
+              "3dWzNZXA8DY@1944",
+              "3dWzNZXA8DY@1945",
+              "3dWzNZXA8DY@1948",
+              "3dWzNZXA8DY@1956",
+              "3dWzNZXA8DY@1958"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

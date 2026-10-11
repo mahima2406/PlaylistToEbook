@@ -1,0 +1,33 @@
+{
+  "stage": "listings",
+  "item": "ch03.s04",
+  "inputs_hash": "63ed198de58fe59ba449ddd39e0a85d70b5f73169661343e6714b8d1e7f72c46",
+  "output_hash": "e1fb81a5d42d16bc84241ace4508e8dc35f343157b3318fdd9d2c80a8315e256",
+  "output": {
+    "section_id": "ch03.s04",
+    "listings": [
+      {
+        "id": "ch03.s04.code1",
+        "ref": "ref:ch03/01_main-chapter-code/ch03.ipynb#cell40",
+        "path": "ch03/01_main-chapter-code/ch03.ipynb",
+        "caption": "This code uses the second input token as the query, initializes a zero context vector, then loops over all input embeddings and adds each embedding scaled by its corresponding attention weight.",
+        "code": "query = inputs[1] # 2nd input token is the query\n\ncontext_vec_2 = torch.zeros(query.shape)\nfor i,x_i in enumerate(inputs):\n    context_vec_2 += attn_weights_2[i]*x_i\n\nprint(context_vec_2)",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The section teaches computing a context vector by taking a chosen query token (here the 2nd token), initializing a zero context vector, then looping over all input embeddings, scaling each by its corresponding attention weight, and summing. The code does exactly that with `query = inputs[1]`, `context_vec_2 = torch.zeros(query.shape)`, and `context_vec_2 += attn_weights_2[i] * x_i`. The caption accurately describes these steps."
+      }
+    ],
+    "rejected": [
+      {
+        "id": "ch03.s04.code2",
+        "ref": "ref:ch03/01_main-chapter-code/ch03.ipynb#cell57",
+        "path": "ch03/01_main-chapter-code/ch03.ipynb",
+        "caption": "This code prints the previously computed second context vector.",
+        "code": "print(\"Previous 2nd context vector:\", context_vec_2)",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The section teaches how to compute a context vector via attention-weighted sums. The excerpt only prints an already-computed context vector and does not implement or demonstrate the computation process. The caption is accurate about printing the second context vector, but it doesn’t align with the section’s focus on computing it."
+      }
+    ]
+  }
+}

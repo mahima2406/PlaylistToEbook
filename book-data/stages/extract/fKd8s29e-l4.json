@@ -1,0 +1,2122 @@
+{
+  "stage": "extract",
+  "item": "fKd8s29e-l4",
+  "inputs_hash": "f13d5cf5ec9898a5bdba4c68bebccfb052f7887f9bb6d32bf29f7ceb6d0c776f",
+  "output_hash": "ef54f07eee3a0b2965191612c94ca54a2ac5c8565cadc89fd89144845acf66a8",
+  "output": {
+    "video_id": "fKd8s29e-l4",
+    "points": [
+      {
+        "id": "fKd8s29e-l4:p001",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Byte pair encoding is the tokenizer used behind modern large language models such as GPT-2, GPT-3, and the original model used in ChatGPT, so it is important to understand it.",
+        "line_ids": [
+          "fKd8s29e-l4@33",
+          "fKd8s29e-l4@36",
+          "fKd8s29e-l4@41",
+          "fKd8s29e-l4@45",
+          "fKd8s29e-l4@48",
+          "fKd8s29e-l4@50"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p002",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "code",
+        "importance": 2,
+        "text": "In the previous lecture, the tokenizer converted sentences into tokens, arranged the tokens into a vocabulary in ascending order, and assigned each token a numerical token ID.",
+        "line_ids": [
+          "fKd8s29e-l4@81",
+          "fKd8s29e-l4@83",
+          "fKd8s29e-l4@86",
+          "fKd8s29e-l4@89",
+          "fKd8s29e-l4@90",
+          "fKd8s29e-l4@93",
+          "fKd8s29e-l4@95",
+          "fKd8s29e-l4@98"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p003",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In the simple tokenizer from the previous lecture, every word was treated as a unique token, along with special characters such as commas, full stops, and exclamation marks.",
+        "line_ids": [
+          "fKd8s29e-l4@100",
+          "fKd8s29e-l4@104",
+          "fKd8s29e-l4@106",
+          "fKd8s29e-l4@110"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p004",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "There are three types of tokenization algorithms: word-based tokenizers, subword-based tokenizers, and character-based tokenizers.",
+        "line_ids": [
+          "fKd8s29e-l4@177",
+          "fKd8s29e-l4@179",
+          "fKd8s29e-l4@182",
+          "fKd8s29e-l4@185",
+          "fKd8s29e-l4@188",
+          "fKd8s29e-l4@191"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p005",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "definition",
+        "importance": 3,
+        "text": "In a word-based tokenizer, each word in a sentence is usually one token.",
+        "line_ids": [
+          "fKd8s29e-l4@196",
+          "fKd8s29e-l4@198",
+          "fKd8s29e-l4@201",
+          "fKd8s29e-l4@204"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p006",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "If the sentence is \"my hobby is playing cricket\" and the tokens are the individual words \"my,\" \"hobby,\" \"is,\" \"playing,\" and \"cricket,\" then that is a word-based tokenizer.",
+        "line_ids": [
+          "fKd8s29e-l4@226",
+          "fKd8s29e-l4@228",
+          "fKd8s29e-l4@230",
+          "fKd8s29e-l4@233",
+          "fKd8s29e-l4@236",
+          "fKd8s29e-l4@239"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p007",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A main problem with word-based tokenization is handling words that are not present in the vocabulary, which are called out-of-vocabulary words.",
+        "line_ids": [
+          "fKd8s29e-l4@250",
+          "fKd8s29e-l4@252",
+          "fKd8s29e-l4@254",
+          "fKd8s29e-l4@272",
+          "fKd8s29e-l4@274",
+          "fKd8s29e-l4@277"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p008",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "analogy",
+        "importance": 1,
+        "text": "Out-of-vocabulary words in word-based tokenization are like preparing for an exam and being asked a completely different question in the exam.",
+        "line_ids": [
+          "fKd8s29e-l4@279",
+          "fKd8s29e-l4@282",
+          "fKd8s29e-l4@284",
+          "fKd8s29e-l4@285"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p009",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 2,
+        "text": "If a user inputs a word that is not in the vocabulary, a word-based tokenization scheme can run into an error.",
+        "line_ids": [
+          "fKd8s29e-l4@294",
+          "fKd8s29e-l4@296",
+          "fKd8s29e-l4@298",
+          "fKd8s29e-l4@300",
+          "fKd8s29e-l4@303",
+          "fKd8s29e-l4@306",
+          "fKd8s29e-l4@307",
+          "fKd8s29e-l4@310"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p010",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "definition",
+        "importance": 3,
+        "text": "A vocabulary is a dictionary containing a collection of tokens arranged in ascending order, and each token corresponds to a token ID.",
+        "line_ids": [
+          "fKd8s29e-l4@326",
+          "fKd8s29e-l4@328",
+          "fKd8s29e-l4@330",
+          "fKd8s29e-l4@333",
+          "fKd8s29e-l4@335",
+          "fKd8s29e-l4@337"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p011",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Word-based tokenization does not capture similarity between related words such as \"boy\" and \"boys,\" because they are treated as separate words.",
+        "line_ids": [
+          "fKd8s29e-l4@341",
+          "fKd8s29e-l4@344",
+          "fKd8s29e-l4@348",
+          "fKd8s29e-l4@351",
+          "fKd8s29e-l4@361",
+          "fKd8s29e-l4@364",
+          "fKd8s29e-l4@366",
+          "fKd8s29e-l4@379",
+          "fKd8s29e-l4@382"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p012",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "definition",
+        "importance": 3,
+        "text": "In character-based tokenization, individual characters are considered tokens instead of whole words.",
+        "line_ids": [
+          "fKd8s29e-l4@389",
+          "fKd8s29e-l4@391",
+          "fKd8s29e-l4@394",
+          "fKd8s29e-l4@396",
+          "fKd8s29e-l4@401",
+          "fKd8s29e-l4@403",
+          "fKd8s29e-l4@405",
+          "fKd8s29e-l4@407"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p013",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "For the sentence \"my hobby is playing cricket,\" character-based tokenization would use characters such as m, y, h, o, and b as tokens instead of individual words.",
+        "line_ids": [
+          "fKd8s29e-l4@396",
+          "fKd8s29e-l4@398",
+          "fKd8s29e-l4@410",
+          "fKd8s29e-l4@412",
+          "fKd8s29e-l4@414",
+          "fKd8s29e-l4@417",
+          "fKd8s29e-l4@420",
+          "fKd8s29e-l4@423",
+          "fKd8s29e-l4@425",
+          "fKd8s29e-l4@426",
+          "fKd8s29e-l4@430",
+          "fKd8s29e-l4@433"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p014",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Character-based tokenization leads to a very small vocabulary because every language has a fixed number of characters.",
+        "line_ids": [
+          "fKd8s29e-l4@446",
+          "fKd8s29e-l4@449",
+          "fKd8s29e-l4@452",
+          "fKd8s29e-l4@453",
+          "fKd8s29e-l4@455",
+          "fKd8s29e-l4@458"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p015",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In the English language, the lecturer states that there are 256 characters, while there are about 170,000 to 200,000 words.",
+        "line_ids": [
+          "fKd8s29e-l4@453",
+          "fKd8s29e-l4@455",
+          "fKd8s29e-l4@458",
+          "fKd8s29e-l4@460",
+          "fKd8s29e-l4@461",
+          "fKd8s29e-l4@467"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p016",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "An advantage of character-based tokenization is that it avoids the out-of-vocabulary problem, because any new sentence can always be broken into characters that are already in the vocabulary.",
+        "line_ids": [
+          "fKd8s29e-l4@477",
+          "fKd8s29e-l4@479",
+          "fKd8s29e-l4@481",
+          "fKd8s29e-l4@482",
+          "fKd8s29e-l4@484",
+          "fKd8s29e-l4@486",
+          "fKd8s29e-l4@489",
+          "fKd8s29e-l4@490",
+          "fKd8s29e-l4@492",
+          "fKd8s29e-l4@493",
+          "fKd8s29e-l4@495",
+          "fKd8s29e-l4@497",
+          "fKd8s29e-l4@499",
+          "fKd8s29e-l4@502",
+          "fKd8s29e-l4@503"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p017",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Character-based tokenization also solves the problem of large vocabulary size in word-based tokenization because its vocabulary is based on characters and is therefore small.",
+        "line_ids": [
+          "fKd8s29e-l4@507",
+          "fKd8s29e-l4@509",
+          "fKd8s29e-l4@512",
+          "fKd8s29e-l4@515",
+          "fKd8s29e-l4@517",
+          "fKd8s29e-l4@520",
+          "fKd8s29e-l4@522",
+          "fKd8s29e-l4@525",
+          "fKd8s29e-l4@527",
+          "fKd8s29e-l4@528",
+          "fKd8s29e-l4@531",
+          "fKd8s29e-l4@533",
+          "fKd8s29e-l4@534"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p018",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Character-based tokenization is computationally and memory efficient because the vocabulary size is very small.",
+        "line_ids": [
+          "fKd8s29e-l4@536",
+          "fKd8s29e-l4@538",
+          "fKd8s29e-l4@540",
+          "fKd8s29e-l4@542",
+          "fKd8s29e-l4@544",
+          "fKd8s29e-l4@546"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p019",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A major problem with character-based tokenization is that the meaning associated with words is completely lost when text is broken into individual characters.",
+        "line_ids": [
+          "fKd8s29e-l4@551",
+          "fKd8s29e-l4@553",
+          "fKd8s29e-l4@555",
+          "fKd8s29e-l4@557",
+          "fKd8s29e-l4@559",
+          "fKd8s29e-l4@561",
+          "fKd8s29e-l4@563",
+          "fKd8s29e-l4@565",
+          "fKd8s29e-l4@567",
+          "fKd8s29e-l4@569",
+          "fKd8s29e-l4@571",
+          "fKd8s29e-l4@573"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p020",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Another problem with character-based tokenization is that the tokenized sequence is much longer than the initial raw text.",
+        "line_ids": [
+          "fKd8s29e-l4@579",
+          "fKd8s29e-l4@581",
+          "fKd8s29e-l4@584"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p021",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "For example, the word \"dinosaur\" is one token in word-based tokenization but becomes eight separate character tokens in character-based tokenization.",
+        "line_ids": [
+          "fKd8s29e-l4@587",
+          "fKd8s29e-l4@589",
+          "fKd8s29e-l4@592",
+          "fKd8s29e-l4@595",
+          "fKd8s29e-l4@598",
+          "fKd8s29e-l4@600",
+          "fKd8s29e-l4@601",
+          "fKd8s29e-l4@603",
+          "fKd8s29e-l4@607",
+          "fKd8s29e-l4@610",
+          "fKd8s29e-l4@612",
+          "fKd8s29e-l4@614",
+          "fKd8s29e-l4@617"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p022",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Word-based tokenization produces shorter tokenized sequences because each word is one token, but its disadvantages are out-of-vocabulary words and a large vocabulary size.",
+        "line_ids": [
+          "fKd8s29e-l4@624",
+          "fKd8s29e-l4@627",
+          "fKd8s29e-l4@630",
+          "fKd8s29e-l4@633",
+          "fKd8s29e-l4@634",
+          "fKd8s29e-l4@637",
+          "fKd8s29e-l4@639",
+          "fKd8s29e-l4@643",
+          "fKd8s29e-l4@645",
+          "fKd8s29e-l4@648",
+          "fKd8s29e-l4@651",
+          "fKd8s29e-l4@654",
+          "fKd8s29e-l4@657"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p023",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Character-based tokenization has a small fixed vocabulary and avoids out-of-vocabulary words, but it produces tokenized sequences that are much longer than the original text.",
+        "line_ids": [
+          "fKd8s29e-l4@659",
+          "fKd8s29e-l4@661",
+          "fKd8s29e-l4@663",
+          "fKd8s29e-l4@667",
+          "fKd8s29e-l4@669",
+          "fKd8s29e-l4@671",
+          "fKd8s29e-l4@674",
+          "fKd8s29e-l4@676",
+          "fKd8s29e-l4@677"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p024",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Both word-based and character-based tokenization fail to capture common roots or shared parts such as the root in \"boy\" and \"boys\" or the shared \"isation\" in related words.",
+        "line_ids": [
+          "fKd8s29e-l4@680",
+          "fKd8s29e-l4@682",
+          "fKd8s29e-l4@684",
+          "fKd8s29e-l4@687",
+          "fKd8s29e-l4@689",
+          "fKd8s29e-l4@692",
+          "fKd8s29e-l4@694",
+          "fKd8s29e-l4@696"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p025",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Subword-based tokenization is another tokenization algorithm, and byte pair encoding is an example of a subword-based tokenization algorithm.",
+        "line_ids": [
+          "fKd8s29e-l4@699",
+          "fKd8s29e-l4@702",
+          "fKd8s29e-l4@704",
+          "fKd8s29e-l4@707",
+          "fKd8s29e-l4@708"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p026",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Subword-based tokenization is presented as a best-of-both-worlds approach between word tokenization and character tokenization.",
+        "line_ids": [
+          "fKd8s29e-l4@711",
+          "fKd8s29e-l4@713",
+          "fKd8s29e-l4@716",
+          "fKd8s29e-l4@719"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p027",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Subword-based tokenization captures some root words that occur in many other words, such as treating \"boy\" as the common root in related words.",
+        "line_ids": [
+          "fKd8s29e-l4@723",
+          "fKd8s29e-l4@726",
+          "fKd8s29e-l4@728",
+          "fKd8s29e-l4@731",
+          "fKd8s29e-l4@734"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p028",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The first rule of subword-based tokenization is that frequently used words in the dataset should not be split into smaller subwords.",
+        "line_ids": [
+          "fKd8s29e-l4@736",
+          "fKd8s29e-l4@738",
+          "fKd8s29e-l4@741",
+          "fKd8s29e-l4@743",
+          "fKd8s29e-l4@747",
+          "fKd8s29e-l4@750",
+          "fKd8s29e-l4@752",
+          "fKd8s29e-l4@754",
+          "fKd8s29e-l4@757"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p029",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The second rule of subword-based tokenization is that rare words should be split into smaller meaningful subwords, and this can go down to the character level if needed.",
+        "line_ids": [
+          "fKd8s29e-l4@761",
+          "fKd8s29e-l4@763",
+          "fKd8s29e-l4@766",
+          "fKd8s29e-l4@768",
+          "fKd8s29e-l4@770",
+          "fKd8s29e-l4@775",
+          "fKd8s29e-l4@777",
+          "fKd8s29e-l4@779",
+          "fKd8s29e-l4@781",
+          "fKd8s29e-l4@783",
+          "fKd8s29e-l4@785"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p030",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Subword-based tokenization combines features of word tokenization and character tokenization because frequent words are kept whole while rare words can be broken down further.",
+        "line_ids": [
+          "fKd8s29e-l4@785",
+          "fKd8s29e-l4@787",
+          "fKd8s29e-l4@789",
+          "fKd8s29e-l4@792",
+          "fKd8s29e-l4@793",
+          "fKd8s29e-l4@796",
+          "fKd8s29e-l4@798",
+          "fKd8s29e-l4@800",
+          "fKd8s29e-l4@803",
+          "fKd8s29e-l4@805",
+          "fKd8s29e-l4@807",
+          "fKd8s29e-l4@809",
+          "fKd8s29e-l4@811",
+          "fKd8s29e-l4@813",
+          "fKd8s29e-l4@814"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p031",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "analogy",
+        "importance": 3,
+        "text": "For example, if \"boy\" appears multiple times in the dataset, it is kept as a token, but \"boys\" can be split into the meaningful subwords \"boy\" and \"s.\"",
+        "line_ids": [
+          "fKd8s29e-l4@818",
+          "fKd8s29e-l4@820",
+          "fKd8s29e-l4@822",
+          "fKd8s29e-l4@824",
+          "fKd8s29e-l4@827",
+          "fKd8s29e-l4@831",
+          "fKd8s29e-l4@834",
+          "fKd8s29e-l4@837",
+          "fKd8s29e-l4@840",
+          "fKd8s29e-l4@842",
+          "fKd8s29e-l4@845",
+          "fKd8s29e-l4@848",
+          "fKd8s29e-l4@850"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p032",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The main essence of subword tokenization is that words are sometimes broken into smaller elements because those smaller elements appear very frequently.",
+        "line_ids": [
+          "fKd8s29e-l4@854",
+          "fKd8s29e-l4@857",
+          "fKd8s29e-l4@860",
+          "fKd8s29e-l4@862",
+          "fKd8s29e-l4@864",
+          "fKd8s29e-l4@866",
+          "fKd8s29e-l4@869",
+          "fKd8s29e-l4@871",
+          "fKd8s29e-l4@874",
+          "fKd8s29e-l4@877",
+          "fKd8s29e-l4@879"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p033",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "An advantage of subword tokenization is that subword splitting helps the model learn that words such as \"token,\" \"tokens,\" and \"tokenizing\" share the same root word and are similar in meaning.",
+        "line_ids": [
+          "fKd8s29e-l4@882",
+          "fKd8s29e-l4@885",
+          "fKd8s29e-l4@888",
+          "fKd8s29e-l4@890",
+          "fKd8s29e-l4@894",
+          "fKd8s29e-l4@895",
+          "fKd8s29e-l4@897",
+          "fKd8s29e-l4@898",
+          "fKd8s29e-l4@901",
+          "fKd8s29e-l4@903",
+          "fKd8s29e-l4@905",
+          "fKd8s29e-l4@907"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p034",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Subword tokenization helps the model learn that words like tokenization and modernization share a common suffix even though they have different roots.",
+        "line_ids": [
+          "fKd8s29e-l4@918",
+          "fKd8s29e-l4@921",
+          "fKd8s29e-l4@923",
+          "fKd8s29e-l4@925",
+          "fKd8s29e-l4@928",
+          "fKd8s29e-l4@929"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p035",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "In subword tokenization, a word like tokenization can be broken into subword pieces such as a suffix token and root-related tokens, which helps the model learn common patterns across words.",
+        "line_ids": [
+          "fKd8s29e-l4@932",
+          "fKd8s29e-l4@935",
+          "fKd8s29e-l4@938",
+          "fKd8s29e-l4@940",
+          "fKd8s29e-l4@943",
+          "fKd8s29e-l4@946",
+          "fKd8s29e-l4@948",
+          "fKd8s29e-l4@950",
+          "fKd8s29e-l4@952"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p036",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Breaking one word into subwords has important advantages, and this is what is mainly done in subword tokenization.",
+        "line_ids": [
+          "fKd8s29e-l4@954",
+          "fKd8s29e-l4@956",
+          "fKd8s29e-l4@959",
+          "fKd8s29e-l4@962"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p037",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Byte pair encoding, or BPE, is a subword tokenization algorithm.",
+        "line_ids": [
+          "fKd8s29e-l4@964",
+          "fKd8s29e-l4@966",
+          "fKd8s29e-l4@968",
+          "fKd8s29e-l4@971",
+          "fKd8s29e-l4@975",
+          "fKd8s29e-l4@978"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p038",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Modern LLMs like GPT-2 and GPT-3 employ byte pair encoding.",
+        "line_ids": [
+          "fKd8s29e-l4@978",
+          "fKd8s29e-l4@980",
+          "fKd8s29e-l4@983",
+          "fKd8s29e-l4@986"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p039",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The byte pair algorithm was introduced in 1994 as a data compression algorithm.",
+        "line_ids": [
+          "fKd8s29e-l4@996",
+          "fKd8s29e-l4@999",
+          "fKd8s29e-l4@1001",
+          "fKd8s29e-l4@1005",
+          "fKd8s29e-l4@1007"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p040",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In byte pair encoding for compression, you scan the data, find the most common pair of consecutive bytes, replace it with a byte that does not occur in the data, and repeat this iteratively.",
+        "line_ids": [
+          "fKd8s29e-l4@1010",
+          "fKd8s29e-l4@1013",
+          "fKd8s29e-l4@1019",
+          "fKd8s29e-l4@1021",
+          "fKd8s29e-l4@1024",
+          "fKd8s29e-l4@1027",
+          "fKd8s29e-l4@1030",
+          "fKd8s29e-l4@1033",
+          "fKd8s29e-l4@1035",
+          "fKd8s29e-l4@1037",
+          "fKd8s29e-l4@1039"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p041",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "visual_ref",
+        "importance": 1,
+        "text": "The lecturer shows the 1994 paper that introduced the byte pair algorithm for data compression.",
+        "line_ids": [
+          "fKd8s29e-l4@1047",
+          "fKd8s29e-l4@1048",
+          "fKd8s29e-l4@1050",
+          "fKd8s29e-l4@1053",
+          "fKd8s29e-l4@1055"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p042",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In the example sequence, the most common byte pair is AA, not AAA, because byte pairs contain only two consecutive symbols.",
+        "line_ids": [
+          "fKd8s29e-l4@1090",
+          "fKd8s29e-l4@1092",
+          "fKd8s29e-l4@1095",
+          "fKd8s29e-l4@1098",
+          "fKd8s29e-l4@1099",
+          "fKd8s29e-l4@1102",
+          "fKd8s29e-l4@1105",
+          "fKd8s29e-l4@1107",
+          "fKd8s29e-l4@1110",
+          "fKd8s29e-l4@1112",
+          "fKd8s29e-l4@1115",
+          "fKd8s29e-l4@1117"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p043",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "In the example, the most frequent pair AA is replaced with Z because Z does not occur in the data, producing a shorter sequence.",
+        "line_ids": [
+          "fKd8s29e-l4@1119",
+          "fKd8s29e-l4@1121",
+          "fKd8s29e-l4@1124",
+          "fKd8s29e-l4@1127",
+          "fKd8s29e-l4@1129",
+          "fKd8s29e-l4@1133",
+          "fKd8s29e-l4@1135",
+          "fKd8s29e-l4@1137",
+          "fKd8s29e-l4@1140",
+          "fKd8s29e-l4@1143",
+          "fKd8s29e-l4@1145",
+          "fKd8s29e-l4@1148",
+          "fKd8s29e-l4@1150",
+          "fKd8s29e-l4@1154",
+          "fKd8s29e-l4@1157",
+          "fKd8s29e-l4@1160",
+          "fKd8s29e-l4@1162",
+          "fKd8s29e-l4@1165"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p044",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "After the first replacement, the process repeats by finding the next most frequent pair, and in the example AB is replaced with Y because Y does not occur in the data.",
+        "line_ids": [
+          "fKd8s29e-l4@1168",
+          "fKd8s29e-l4@1171",
+          "fKd8s29e-l4@1173",
+          "fKd8s29e-l4@1175",
+          "fKd8s29e-l4@1178",
+          "fKd8s29e-l4@1182",
+          "fKd8s29e-l4@1184",
+          "fKd8s29e-l4@1186",
+          "fKd8s29e-l4@1189",
+          "fKd8s29e-l4@1191",
+          "fKd8s29e-l4@1194",
+          "fKd8s29e-l4@1196"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p045",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Replacing common byte pairs with another symbol is called encoding, which is why the method is called an encoder.",
+        "line_ids": [
+          "fKd8s29e-l4@1221",
+          "fKd8s29e-l4@1224",
+          "fKd8s29e-l4@1226",
+          "fKd8s29e-l4@1230",
+          "fKd8s29e-l4@1232",
+          "fKd8s29e-l4@1234",
+          "fKd8s29e-l4@1237"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p046",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The compression process stops when no byte pair occurs more than once, although the example can be compressed one layer further by replacing ZY with another symbol.",
+        "line_ids": [
+          "fKd8s29e-l4@1239",
+          "fKd8s29e-l4@1241",
+          "fKd8s29e-l4@1243",
+          "fKd8s29e-l4@1245",
+          "fKd8s29e-l4@1247",
+          "fKd8s29e-l4@1249",
+          "fKd8s29e-l4@1252",
+          "fKd8s29e-l4@1254",
+          "fKd8s29e-l4@1255",
+          "fKd8s29e-l4@1261",
+          "fKd8s29e-l4@1262",
+          "fKd8s29e-l4@1264",
+          "fKd8s29e-l4@1267",
+          "fKd8s29e-l4@1270"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p047",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The byte pair encoding algorithm scans the data, identifies the most frequent byte pairs, replaces them with a byte not present in the data, and repeats until no byte pair appears more than once.",
+        "line_ids": [
+          "fKd8s29e-l4@1272",
+          "fKd8s29e-l4@1274",
+          "fKd8s29e-l4@1276",
+          "fKd8s29e-l4@1278",
+          "fKd8s29e-l4@1280",
+          "fKd8s29e-l4@1283",
+          "fKd8s29e-l4@1285",
+          "fKd8s29e-l4@1287",
+          "fKd8s29e-l4@1290"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p048",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "For large language models, byte pair encoding is slightly modified so that it converts sentences into subwords.",
+        "line_ids": [
+          "fKd8s29e-l4@1306",
+          "fKd8s29e-l4@1309",
+          "fKd8s29e-l4@1312",
+          "fKd8s29e-l4@1315",
+          "fKd8s29e-l4@1317",
+          "fKd8s29e-l4@1320"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p049",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "For LLMs, byte pair encoding aims to represent the most common words as single tokens and to break rare words into two or more subword tokens.",
+        "line_ids": [
+          "fKd8s29e-l4@1323",
+          "fKd8s29e-l4@1326",
+          "fKd8s29e-l4@1328",
+          "fKd8s29e-l4@1330",
+          "fKd8s29e-l4@1334",
+          "fKd8s29e-l4@1336",
+          "fKd8s29e-l4@1339",
+          "fKd8s29e-l4@1340",
+          "fKd8s29e-l4@1343",
+          "fKd8s29e-l4@1346",
+          "fKd8s29e-l4@1348",
+          "fKd8s29e-l4@1350"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p050",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "definition",
+        "importance": 1,
+        "text": "The dataset of words used in the example is also called a data corpus.",
+        "line_ids": [
+          "fKd8s29e-l4@1374",
+          "fKd8s29e-l4@1377",
+          "fKd8s29e-l4@1378",
+          "fKd8s29e-l4@1381"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p051",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In the example corpus, word-based tokenization would treat old, older, finest, and lowest as four tokens, while character-level tokenization would treat each character as a token.",
+        "line_ids": [
+          "fKd8s29e-l4@1407",
+          "fKd8s29e-l4@1410",
+          "fKd8s29e-l4@1412",
+          "fKd8s29e-l4@1415",
+          "fKd8s29e-l4@1418",
+          "fKd8s29e-l4@1420",
+          "fKd8s29e-l4@1422",
+          "fKd8s29e-l4@1425",
+          "fKd8s29e-l4@1428",
+          "fKd8s29e-l4@1429",
+          "fKd8s29e-l4@1432",
+          "fKd8s29e-l4@1433"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p052",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "Before applying BPE to words for subword tokenization, a preprocessing step appends an end-of-word token to each word so the tokenizer knows where the word ends.",
+        "line_ids": [
+          "fKd8s29e-l4@1443",
+          "fKd8s29e-l4@1445",
+          "fKd8s29e-l4@1448",
+          "fKd8s29e-l4@1450",
+          "fKd8s29e-l4@1452",
+          "fKd8s29e-l4@1454",
+          "fKd8s29e-l4@1456",
+          "fKd8s29e-l4@1458",
+          "fKd8s29e-l4@1461",
+          "fKd8s29e-l4@1464",
+          "fKd8s29e-l4@1467",
+          "fKd8s29e-l4@1469",
+          "fKd8s29e-l4@1472",
+          "fKd8s29e-l4@1475",
+          "fKd8s29e-l4@1477"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p053",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "code",
+        "importance": 2,
+        "text": "In the example, each word is augmented with the end-of-word marker, so old, older, finest, and lowest are all written with an added end token.",
+        "line_ids": [
+          "fKd8s29e-l4@1480",
+          "fKd8s29e-l4@1482",
+          "fKd8s29e-l4@1485",
+          "fKd8s29e-l4@1490",
+          "fKd8s29e-l4@1493",
+          "fKd8s29e-l4@1495"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p054",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Word-based and character-based tokenization do not capture shared roots or meaningful subword structure such as the relationship between old and older or the shared ending in finest and lowest.",
+        "line_ids": [
+          "fKd8s29e-l4@1498",
+          "fKd8s29e-l4@1499",
+          "fKd8s29e-l4@1501",
+          "fKd8s29e-l4@1504",
+          "fKd8s29e-l4@1506",
+          "fKd8s29e-l4@1509",
+          "fKd8s29e-l4@1511",
+          "fKd8s29e-l4@1515",
+          "fKd8s29e-l4@1516",
+          "fKd8s29e-l4@1518",
+          "fKd8s29e-l4@1519",
+          "fKd8s29e-l4@1522",
+          "fKd8s29e-l4@1523",
+          "fKd8s29e-l4@1525",
+          "fKd8s29e-l4@1527",
+          "fKd8s29e-l4@1529"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p055",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The first step in the subword BPE example is to split the words into characters and make a frequency table using the word frequencies in the corpus.",
+        "line_ids": [
+          "fKd8s29e-l4@1535",
+          "fKd8s29e-l4@1537",
+          "fKd8s29e-l4@1540",
+          "fKd8s29e-l4@1543",
+          "fKd8s29e-l4@1546",
+          "fKd8s29e-l4@1548",
+          "fKd8s29e-l4@1550",
+          "fKd8s29e-l4@1553",
+          "fKd8s29e-l4@1555",
+          "fKd8s29e-l4@1557",
+          "fKd8s29e-l4@1560",
+          "fKd8s29e-l4@1562",
+          "fKd8s29e-l4@1564",
+          "fKd8s29e-l4@1566",
+          "fKd8s29e-l4@1568",
+          "fKd8s29e-l4@1570",
+          "fKd8s29e-l4@1572"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p056",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Because every word in the example corpus has the end-of-word marker, that marker appears once for every word token in the corpus.",
+        "line_ids": [
+          "fKd8s29e-l4@1577",
+          "fKd8s29e-l4@1579",
+          "fKd8s29e-l4@1583",
+          "fKd8s29e-l4@1586"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p057",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 2,
+        "text": "At the character level in the example, there are 12 tokens, and character-level tokenization would stop there because each character would remain an individual token.",
+        "line_ids": [
+          "fKd8s29e-l4@1599",
+          "fKd8s29e-l4@1602",
+          "fKd8s29e-l4@1605",
+          "fKd8s29e-l4@1607",
+          "fKd8s29e-l4@1609",
+          "fKd8s29e-l4@1611"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p058",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In the modified BPE used for subword tokenization, you repeatedly find the most frequent pairing in the dataset and merge that pair instead of replacing it with a new byte outside the data.",
+        "line_ids": [
+          "fKd8s29e-l4@1614",
+          "fKd8s29e-l4@1616",
+          "fKd8s29e-l4@1619",
+          "fKd8s29e-l4@1622",
+          "fKd8s29e-l4@1625",
+          "fKd8s29e-l4@1627",
+          "fKd8s29e-l4@1629",
+          "fKd8s29e-l4@1631",
+          "fKd8s29e-l4@1633",
+          "fKd8s29e-l4@1636",
+          "fKd8s29e-l4@1637",
+          "fKd8s29e-l4@1639",
+          "fKd8s29e-l4@1641",
+          "fKd8s29e-l4@1643",
+          "fKd8s29e-l4@1646",
+          "fKd8s29e-l4@1648",
+          "fKd8s29e-l4@1651",
+          "fKd8s29e-l4@1652"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p059",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In the first iteration of the word example, the most frequent pairing is E and S, which occurs 13 times across finest and lowest.",
+        "line_ids": [
+          "fKd8s29e-l4@1655",
+          "fKd8s29e-l4@1657",
+          "fKd8s29e-l4@1660",
+          "fKd8s29e-l4@1663",
+          "fKd8s29e-l4@1665",
+          "fKd8s29e-l4@1667",
+          "fKd8s29e-l4@1669",
+          "fKd8s29e-l4@1671",
+          "fKd8s29e-l4@1673",
+          "fKd8s29e-l4@1676",
+          "fKd8s29e-l4@1679",
+          "fKd8s29e-l4@1680",
+          "fKd8s29e-l4@1684",
+          "fKd8s29e-l4@1686",
+          "fKd8s29e-l4@1689",
+          "fKd8s29e-l4@1692"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p060",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "After finding that E and S is the most frequent pair, the tokenizer merges them into a single subword token ES and updates the token table accordingly.",
+        "line_ids": [
+          "fKd8s29e-l4@1695",
+          "fKd8s29e-l4@1698",
+          "fKd8s29e-l4@1700",
+          "fKd8s29e-l4@1703",
+          "fKd8s29e-l4@1706",
+          "fKd8s29e-l4@1708",
+          "fKd8s29e-l4@1711",
+          "fKd8s29e-l4@1714",
+          "fKd8s29e-l4@1716",
+          "fKd8s29e-l4@1718",
+          "fKd8s29e-l4@1720",
+          "fKd8s29e-l4@1723",
+          "fKd8s29e-l4@1724",
+          "fKd8s29e-l4@1726"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p061",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 2,
+        "text": "When ES is added as a token, its count is subtracted from the counts of E and S, and in this example S never appears without E.",
+        "line_ids": [
+          "fKd8s29e-l4@1730",
+          "fKd8s29e-l4@1732",
+          "fKd8s29e-l4@1734",
+          "fKd8s29e-l4@1738",
+          "fKd8s29e-l4@1740",
+          "fKd8s29e-l4@1743",
+          "fKd8s29e-l4@1745",
+          "fKd8s29e-l4@1748",
+          "fKd8s29e-l4@1750",
+          "fKd8s29e-l4@1752",
+          "fKd8s29e-l4@1755",
+          "fKd8s29e-l4@1757",
+          "fKd8s29e-l4@1758",
+          "fKd8s29e-l4@1761",
+          "fKd8s29e-l4@1764",
+          "fKd8s29e-l4@1766"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p062",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Once ES becomes a token, EST becomes a new byte pair made of ES and T, and it is the most frequent pair in the next iteration.",
+        "line_ids": [
+          "fKd8s29e-l4@1779",
+          "fKd8s29e-l4@1783",
+          "fKd8s29e-l4@1785",
+          "fKd8s29e-l4@1787",
+          "fKd8s29e-l4@1791",
+          "fKd8s29e-l4@1793",
+          "fKd8s29e-l4@1796",
+          "fKd8s29e-l4@1798",
+          "fKd8s29e-l4@1801",
+          "fKd8s29e-l4@1804",
+          "fKd8s29e-l4@1807",
+          "fKd8s29e-l4@1809",
+          "fKd8s29e-l4@1813"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p063",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In byte pair encoding, you repeatedly merge the byte pair that appears most often in the dataset into a new token.",
+        "line_ids": [
+          "fKd8s29e-l4@1822",
+          "fKd8s29e-l4@1826",
+          "fKd8s29e-l4@1828",
+          "fKd8s29e-l4@1830",
+          "fKd8s29e-l4@2235",
+          "fKd8s29e-l4@2236",
+          "fKd8s29e-l4@2239",
+          "fKd8s29e-l4@2241"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p064",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In this example, the pair \"es\" appears most, so a token for \"es\" is created first, and then the pair \"es\" and \"t\" is merged into the token \"EST\" because it occurs 13 times.",
+        "line_ids": [
+          "fKd8s29e-l4@1847",
+          "fKd8s29e-l4@1849",
+          "fKd8s29e-l4@1851",
+          "fKd8s29e-l4@1853",
+          "fKd8s29e-l4@1855",
+          "fKd8s29e-l4@1858",
+          "fKd8s29e-l4@1862"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p065",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 2,
+        "text": "After creating the token \"EST\", its count becomes 13 and the previous token \"es\" drops to zero occurrences in this example.",
+        "line_ids": [
+          "fKd8s29e-l4@1862",
+          "fKd8s29e-l4@1866",
+          "fKd8s29e-l4@1868",
+          "fKd8s29e-l4@1871",
+          "fKd8s29e-l4@1875"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p066",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Byte pair encoding can identify \"EST\" as a common root between words like \"finest\" and \"lowest\", which word-level and character-level tokenizers could not capture.",
+        "line_ids": [
+          "fKd8s29e-l4@1881",
+          "fKd8s29e-l4@1883",
+          "fKd8s29e-l4@1885",
+          "fKd8s29e-l4@1887",
+          "fKd8s29e-l4@1890",
+          "fKd8s29e-l4@1892",
+          "fKd8s29e-l4@1895",
+          "fKd8s29e-l4@1897"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p067",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In the next iteration, \"EST\" and the end-of-word marker are merged because that pair appears 13 times and more often than any other byte pair in the words.",
+        "line_ids": [
+          "fKd8s29e-l4@1915",
+          "fKd8s29e-l4@1919",
+          "fKd8s29e-l4@1923",
+          "fKd8s29e-l4@1925",
+          "fKd8s29e-l4@1929",
+          "fKd8s29e-l4@1931",
+          "fKd8s29e-l4@1935",
+          "fKd8s29e-l4@1940",
+          "fKd8s29e-l4@1942",
+          "fKd8s29e-l4@1946",
+          "fKd8s29e-l4@1948"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p068",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Merging \"EST\" with the end-of-word marker encodes that \"EST\" is an ending sequence in the dataset, allowing the tokenizer to distinguish a word like \"highest\" from a word like \"estimate\" where \"EST\" is not at the end.",
+        "line_ids": [
+          "fKd8s29e-l4@1953",
+          "fKd8s29e-l4@1956",
+          "fKd8s29e-l4@1959",
+          "fKd8s29e-l4@1962",
+          "fKd8s29e-l4@1964",
+          "fKd8s29e-l4@1966",
+          "fKd8s29e-l4@1969",
+          "fKd8s29e-l4@1972",
+          "fKd8s29e-l4@1975",
+          "fKd8s29e-l4@1978",
+          "fKd8s29e-l4@1980",
+          "fKd8s29e-l4@1981",
+          "fKd8s29e-l4@1985",
+          "fKd8s29e-l4@1988",
+          "fKd8s29e-l4@1990",
+          "fKd8s29e-l4@1992",
+          "fKd8s29e-l4@1996",
+          "fKd8s29e-l4@1998",
+          "fKd8s29e-l4@2000",
+          "fKd8s29e-l4@2003"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p069",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Once the final merged token with the end-of-word marker is created, the intermediate tokens \"es\" and \"EST\" are no longer needed.",
+        "line_ids": [
+          "fKd8s29e-l4@2005",
+          "fKd8s29e-l4@2008",
+          "fKd8s29e-l4@2010",
+          "fKd8s29e-l4@2012",
+          "fKd8s29e-l4@2015",
+          "fKd8s29e-l4@2016",
+          "fKd8s29e-l4@2018"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p070",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The pair \"o\" and \"l\" occurs 10 times in this example, so it is merged into a new token, and then that token is merged with \"d\" to form the token \"old\".",
+        "line_ids": [
+          "fKd8s29e-l4@2023",
+          "fKd8s29e-l4@2025",
+          "fKd8s29e-l4@2027",
+          "fKd8s29e-l4@2030",
+          "fKd8s29e-l4@2032",
+          "fKd8s29e-l4@2034",
+          "fKd8s29e-l4@2036",
+          "fKd8s29e-l4@2059",
+          "fKd8s29e-l4@2062",
+          "fKd8s29e-l4@2065",
+          "fKd8s29e-l4@2067",
+          "fKd8s29e-l4@2069",
+          "fKd8s29e-l4@2072"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p071",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The tokens produced by byte pair encoding are subwords rather than full words or single characters, and they can encode root representations.",
+        "line_ids": [
+          "fKd8s29e-l4@2075",
+          "fKd8s29e-l4@2077",
+          "fKd8s29e-l4@2079",
+          "fKd8s29e-l4@2082",
+          "fKd8s29e-l4@2084",
+          "fKd8s29e-l4@2087",
+          "fKd8s29e-l4@2088",
+          "fKd8s29e-l4@2090"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p072",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The token \"old\" captures a root that appears in both \"old\" and \"older\", showing that byte pair encoding can capture root words that word-level and character-level tokenizers miss.",
+        "line_ids": [
+          "fKd8s29e-l4@2090",
+          "fKd8s29e-l4@2093",
+          "fKd8s29e-l4@2096",
+          "fKd8s29e-l4@2099",
+          "fKd8s29e-l4@2102",
+          "fKd8s29e-l4@2104",
+          "fKd8s29e-l4@2107",
+          "fKd8s29e-l4@2109",
+          "fKd8s29e-l4@2113",
+          "fKd8s29e-l4@2116"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p073",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A frequent sequence that appears only within one word, such as the sequence in \"finest\", should not necessarily be merged into a token, because subword tokens are useful when they recur across multiple words.",
+        "line_ids": [
+          "fKd8s29e-l4@2117",
+          "fKd8s29e-l4@2120",
+          "fKd8s29e-l4@2124",
+          "fKd8s29e-l4@2126",
+          "fKd8s29e-l4@2129",
+          "fKd8s29e-l4@2130",
+          "fKd8s29e-l4@2132",
+          "fKd8s29e-l4@2134",
+          "fKd8s29e-l4@2140",
+          "fKd8s29e-l4@2141",
+          "fKd8s29e-l4@2144",
+          "fKd8s29e-l4@2148",
+          "fKd8s29e-l4@2149",
+          "fKd8s29e-l4@2151",
+          "fKd8s29e-l4@2153",
+          "fKd8s29e-l4@2155",
+          "fKd8s29e-l4@2158",
+          "fKd8s29e-l4@2159"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p074",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A rule of subword tokenization is that a word part that occurs multiple times can be kept as its own token, while less reusable words are split into reusable subwords and characters.",
+        "line_ids": [
+          "fKd8s29e-l4@2162",
+          "fKd8s29e-l4@2165",
+          "fKd8s29e-l4@2168",
+          "fKd8s29e-l4@2170",
+          "fKd8s29e-l4@2173",
+          "fKd8s29e-l4@2176",
+          "fKd8s29e-l4@2179",
+          "fKd8s29e-l4@2181",
+          "fKd8s29e-l4@2183",
+          "fKd8s29e-l4@2187",
+          "fKd8s29e-l4@2188",
+          "fKd8s29e-l4@2191",
+          "fKd8s29e-l4@2192",
+          "fKd8s29e-l4@2195"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p075",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "After constructing merged tokens, you can remove tokens whose frequency has become zero to obtain the final token table.",
+        "line_ids": [
+          "fKd8s29e-l4@2202",
+          "fKd8s29e-l4@2205",
+          "fKd8s29e-l4@2207",
+          "fKd8s29e-l4@2209",
+          "fKd8s29e-l4@2211",
+          "fKd8s29e-l4@2214",
+          "fKd8s29e-l4@2217",
+          "fKd8s29e-l4@2219",
+          "fKd8s29e-l4@2223",
+          "fKd8s29e-l4@2225",
+          "fKd8s29e-l4@2227"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p076",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The final tokens from the subword tokenizer are used as the vocabulary for later large language model training steps such as vector embedding.",
+        "line_ids": [
+          "fKd8s29e-l4@2227",
+          "fKd8s29e-l4@2230",
+          "fKd8s29e-l4@2232",
+          "fKd8s29e-l4@2255",
+          "fKd8s29e-l4@2257",
+          "fKd8s29e-l4@2259",
+          "fKd8s29e-l4@2261"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p077",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Byte pair encoding is a subword tokenizer used for training models like GPT-2 and GPT-3.",
+        "line_ids": [
+          "fKd8s29e-l4@2264",
+          "fKd8s29e-l4@2266",
+          "fKd8s29e-l4@2269",
+          "fKd8s29e-l4@2272",
+          "fKd8s29e-l4@2443",
+          "fKd8s29e-l4@2446",
+          "fKd8s29e-l4@2448",
+          "fKd8s29e-l4@2451"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p078",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "definition",
+        "importance": 2,
+        "text": "It is called a subword tokenizer because its vocabulary contains units like \"EST\" that are neither full words nor single characters but subwords.",
+        "line_ids": [
+          "fKd8s29e-l4@2281",
+          "fKd8s29e-l4@2284",
+          "fKd8s29e-l4@2287",
+          "fKd8s29e-l4@2289",
+          "fKd8s29e-l4@2291",
+          "fKd8s29e-l4@2293"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p079",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "Byte pair encoding stops merging based on a specified stopping criterion, such as reaching a target token count or a chosen number of iterations.",
+        "line_ids": [
+          "fKd8s29e-l4@2301",
+          "fKd8s29e-l4@2304",
+          "fKd8s29e-l4@2306",
+          "fKd8s29e-l4@2308",
+          "fKd8s29e-l4@2311",
+          "fKd8s29e-l4@2313",
+          "fKd8s29e-l4@2316",
+          "fKd8s29e-l4@2318",
+          "fKd8s29e-l4@2320",
+          "fKd8s29e-l4@2322",
+          "fKd8s29e-l4@2325",
+          "fKd8s29e-l4@2327",
+          "fKd8s29e-l4@2329",
+          "fKd8s29e-l4@2330",
+          "fKd8s29e-l4@2332",
+          "fKd8s29e-l4@2335"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p080",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Compared with word-level encoding, byte pair encoding can reduce the number of tokens because related words like \"boy\" and \"boys\" do not both need to be separate full-word tokens.",
+        "line_ids": [
+          "fKd8s29e-l4@2341",
+          "fKd8s29e-l4@2343",
+          "fKd8s29e-l4@2346",
+          "fKd8s29e-l4@2348",
+          "fKd8s29e-l4@2350",
+          "fKd8s29e-l4@2353",
+          "fKd8s29e-l4@2355",
+          "fKd8s29e-l4@2358",
+          "fKd8s29e-l4@2360"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p081",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The lecturer states that GPT-2 or GPT-3 used roughly 50,000 to 57,000 tokens after byte pair encoding.",
+        "line_ids": [
+          "fKd8s29e-l4@2363",
+          "fKd8s29e-l4@2366",
+          "fKd8s29e-l4@2369",
+          "fKd8s29e-l4@2372",
+          "fKd8s29e-l4@2374",
+          "fKd8s29e-l4@2375"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p082",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Byte pair encoding helps solve the out-of-vocabulary problem because its vocabulary includes subwords and sometimes characters.",
+        "line_ids": [
+          "fKd8s29e-l4@2380",
+          "fKd8s29e-l4@2382",
+          "fKd8s29e-l4@2384",
+          "fKd8s29e-l4@2386",
+          "fKd8s29e-l4@2388",
+          "fKd8s29e-l4@2391",
+          "fKd8s29e-l4@2393",
+          "fKd8s29e-l4@2395",
+          "fKd8s29e-l4@2398",
+          "fKd8s29e-l4@2400"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p083",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Subword encoding keeps the advantages of character-level tokenization while also capturing root meanings and avoiding the very large vocabulary of word-level encoding.",
+        "line_ids": [
+          "fKd8s29e-l4@2402",
+          "fKd8s29e-l4@2404",
+          "fKd8s29e-l4@2406",
+          "fKd8s29e-l4@2408",
+          "fKd8s29e-l4@2410",
+          "fKd8s29e-l4@2413",
+          "fKd8s29e-l4@2415",
+          "fKd8s29e-l4@2418",
+          "fKd8s29e-l4@2419",
+          "fKd8s29e-l4@2422",
+          "fKd8s29e-l4@2424",
+          "fKd8s29e-l4@2425",
+          "fKd8s29e-l4@2427",
+          "fKd8s29e-l4@2430",
+          "fKd8s29e-l4@2432",
+          "fKd8s29e-l4@2435",
+          "fKd8s29e-l4@2437",
+          "fKd8s29e-l4@2440"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p084",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Implementing byte pair encoding from scratch is relatively complicated, so the lecturer uses the Python open-source library tiktoken, which is used by OpenAI models.",
+        "line_ids": [
+          "fKd8s29e-l4@2451",
+          "fKd8s29e-l4@2453",
+          "fKd8s29e-l4@2455",
+          "fKd8s29e-l4@2456",
+          "fKd8s29e-l4@2459",
+          "fKd8s29e-l4@2463",
+          "fKd8s29e-l4@2465",
+          "fKd8s29e-l4@2467",
+          "fKd8s29e-l4@2472",
+          "fKd8s29e-l4@2474",
+          "fKd8s29e-l4@2476",
+          "fKd8s29e-l4@2479",
+          "fKd8s29e-l4@2482",
+          "fKd8s29e-l4@2485"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p085",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "To use tiktoken, you first install it, then instantiate the GPT-2 byte pair encoding tokenizer with a call like get_encoding(\"gpt2\").",
+        "line_ids": [
+          "fKd8s29e-l4@2502",
+          "fKd8s29e-l4@2504",
+          "fKd8s29e-l4@2507",
+          "fKd8s29e-l4@2510",
+          "fKd8s29e-l4@2526",
+          "fKd8s29e-l4@2527",
+          "fKd8s29e-l4@2541",
+          "fKd8s29e-l4@2543",
+          "fKd8s29e-l4@2545",
+          "fKd8s29e-l4@2547",
+          "fKd8s29e-l4@2552",
+          "fKd8s29e-l4@2554"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p086",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The tokenizer object from tiktoken is similar to the earlier tokenizer classes defined in Python, but it is created in one line through the library.",
+        "line_ids": [
+          "fKd8s29e-l4@2558",
+          "fKd8s29e-l4@2561",
+          "fKd8s29e-l4@2563",
+          "fKd8s29e-l4@2565",
+          "fKd8s29e-l4@2567",
+          "fKd8s29e-l4@2571",
+          "fKd8s29e-l4@2574",
+          "fKd8s29e-l4@2576",
+          "fKd8s29e-l4@2579",
+          "fKd8s29e-l4@2581",
+          "fKd8s29e-l4@2583",
+          "fKd8s29e-l4@2585",
+          "fKd8s29e-l4@2588",
+          "fKd8s29e-l4@2590"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p087",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "definition",
+        "importance": 3,
+        "text": "A tokenizer has an encode method that converts words into token IDs and a decode method that converts token IDs back into words.",
+        "line_ids": [
+          "fKd8s29e-l4@2590",
+          "fKd8s29e-l4@2594",
+          "fKd8s29e-l4@2596",
+          "fKd8s29e-l4@2599",
+          "fKd8s29e-l4@2601",
+          "fKd8s29e-l4@2603",
+          "fKd8s29e-l4@2606",
+          "fKd8s29e-l4@2609",
+          "fKd8s29e-l4@2611",
+          "fKd8s29e-l4@2614"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p088",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The end-of-text token is used to mark that one text has ended and another has started, and it is part of the GPT-2 vocabulary.",
+        "line_ids": [
+          "fKd8s29e-l4@2635",
+          "fKd8s29e-l4@2637",
+          "fKd8s29e-l4@2639",
+          "fKd8s29e-l4@2640",
+          "fKd8s29e-l4@2642",
+          "fKd8s29e-l4@2645",
+          "fKd8s29e-l4@2648",
+          "fKd8s29e-l4@2651",
+          "fKd8s29e-l4@2653",
+          "fKd8s29e-l4@2656",
+          "fKd8s29e-l4@2659",
+          "fKd8s29e-l4@2664",
+          "fKd8s29e-l4@2666",
+          "fKd8s29e-l4@2669",
+          "fKd8s29e-l4@2670",
+          "fKd8s29e-l4@2673",
+          "fKd8s29e-l4@2675"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p089",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A rare or unknown word can cause an out-of-vocabulary problem for a word-level tokenizer, but a byte pair encoder can still encode it using characters and subwords.",
+        "line_ids": [
+          "fKd8s29e-l4@2680",
+          "fKd8s29e-l4@2682",
+          "fKd8s29e-l4@2685",
+          "fKd8s29e-l4@2688",
+          "fKd8s29e-l4@2690",
+          "fKd8s29e-l4@2692",
+          "fKd8s29e-l4@2695",
+          "fKd8s29e-l4@2697",
+          "fKd8s29e-l4@2699",
+          "fKd8s29e-l4@2701",
+          "fKd8s29e-l4@2703",
+          "fKd8s29e-l4@2707",
+          "fKd8s29e-l4@2709",
+          "fKd8s29e-l4@2711",
+          "fKd8s29e-l4@2713"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p090",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "code",
+        "importance": 2,
+        "text": "The example code encodes a sentence into token IDs, including the end-of-text token with ID 50256.",
+        "line_ids": [
+          "fKd8s29e-l4@2721",
+          "fKd8s29e-l4@2724",
+          "fKd8s29e-l4@2726",
+          "fKd8s29e-l4@2730",
+          "fKd8s29e-l4@2732",
+          "fKd8s29e-l4@2735"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p091",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In the GPT-2 and GPT-3 tokenization scheme, token ID 50256 is the end-of-text token.",
+        "line_ids": [
+          "fKd8s29e-l4@2732",
+          "fKd8s29e-l4@2735",
+          "fKd8s29e-l4@2738",
+          "fKd8s29e-l4@2741"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p092",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The GPT-2 and GPT-3 byte pair encoding tokenizer uses a vocabulary of about 50,000 tokens, which is much smaller than a word-level English vocabulary of roughly 170,000 to 200,000 words.",
+        "line_ids": [
+          "fKd8s29e-l4@2744",
+          "fKd8s29e-l4@2746",
+          "fKd8s29e-l4@2748",
+          "fKd8s29e-l4@2751",
+          "fKd8s29e-l4@2757",
+          "fKd8s29e-l4@2766"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p093",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Byte pair encoding reduces vocabulary size while still giving strong model performance.",
+        "line_ids": [
+          "fKd8s29e-l4@2757",
+          "fKd8s29e-l4@2759",
+          "fKd8s29e-l4@2762",
+          "fKd8s29e-l4@2766",
+          "fKd8s29e-l4@2768",
+          "fKd8s29e-l4@2774"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p094",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Subword tokenization can handle out-of-vocabulary text by breaking unknown words into several subwords.",
+        "line_ids": [
+          "fKd8s29e-l4@2783",
+          "fKd8s29e-l4@2786",
+          "fKd8s29e-l4@2790",
+          "fKd8s29e-l4@2803",
+          "fKd8s29e-l4@2805",
+          "fKd8s29e-l4@2812"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p095",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "A tokenizer provides both an encode method to convert text into token IDs and a decode method to convert token IDs back into text.",
+        "line_ids": [
+          "fKd8s29e-l4@2817",
+          "fKd8s29e-l4@2820",
+          "fKd8s29e-l4@2822",
+          "fKd8s29e-l4@2824",
+          "fKd8s29e-l4@2826",
+          "fKd8s29e-l4@2831"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p096",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "code",
+        "importance": 2,
+        "text": "The code uses the decode method on the token IDs and reconstructs the same sentence that was originally given to the tokenizer.",
+        "line_ids": [
+          "fKd8s29e-l4@2831",
+          "fKd8s29e-l4@2834",
+          "fKd8s29e-l4@2836",
+          "fKd8s29e-l4@2843",
+          "fKd8s29e-l4@2846",
+          "fKd8s29e-l4@2851"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p097",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The lecturer highlights two advantages of byte pair encoding: it reduces vocabulary size and it can deal with unknown text.",
+        "line_ids": [
+          "fKd8s29e-l4@2851",
+          "fKd8s29e-l4@2853",
+          "fKd8s29e-l4@2855",
+          "fKd8s29e-l4@2858",
+          "fKd8s29e-l4@2859",
+          "fKd8s29e-l4@2863"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p098",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In the GPT-2 byte pair tokenizer, the end-of-text token is the last token in the vocabulary and has the largest token ID, 50256.",
+        "line_ids": [
+          "fKd8s29e-l4@2871",
+          "fKd8s29e-l4@2873",
+          "fKd8s29e-l4@2875",
+          "fKd8s29e-l4@2879",
+          "fKd8s29e-l4@2883",
+          "fKd8s29e-l4@2901"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p099",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The byte pair tokenizer used for GPT-2, GPT-3, and the original model used in ChatGPT has a total vocabulary size of 50257.",
+        "line_ids": [
+          "fKd8s29e-l4@2886",
+          "fKd8s29e-l4@2888",
+          "fKd8s29e-l4@2891",
+          "fKd8s29e-l4@2893",
+          "fKd8s29e-l4@2896"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p100",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A byte pair encoding tokenizer can correctly encode and decode unknown words without needing a special unknown-word token because it works at the level of characters and subwords.",
+        "line_ids": [
+          "fKd8s29e-l4@2905",
+          "fKd8s29e-l4@2907",
+          "fKd8s29e-l4@2912",
+          "fKd8s29e-l4@2917",
+          "fKd8s29e-l4@2919",
+          "fKd8s29e-l4@2942"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p101",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The algorithm underlying byte pair encoding breaks words that are not in its predefined vocabulary into smaller subword units or even individual characters.",
+        "line_ids": [
+          "fKd8s29e-l4@2944",
+          "fKd8s29e-l4@2946",
+          "fKd8s29e-l4@2949",
+          "fKd8s29e-l4@2951",
+          "fKd8s29e-l4@2953"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p102",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Because byte pair encoding can represent an unfamiliar word as a sequence of subword tokens or characters, it can handle out-of-vocabulary words.",
+        "line_ids": [
+          "fKd8s29e-l4@2956",
+          "fKd8s29e-l4@2959",
+          "fKd8s29e-l4@2962",
+          "fKd8s29e-l4@2965",
+          "fKd8s29e-l4@2967",
+          "fKd8s29e-l4@2971"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p103",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "code",
+        "importance": 2,
+        "text": "When random nonsense words are passed to the tiktoken GPT-2 byte pair encoder, it does not raise an error and instead encodes them into tokens.",
+        "line_ids": [
+          "fKd8s29e-l4@2979",
+          "fKd8s29e-l4@2981",
+          "fKd8s29e-l4@2983",
+          "fKd8s29e-l4@2993",
+          "fKd8s29e-l4@2997",
+          "fKd8s29e-l4@3005"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p104",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 3,
+        "text": "For an unknown word, the tokenizer breaks the text into subwords or characters based on what exists in the vocabulary and assigns each piece a token ID.",
+        "line_ids": [
+          "fKd8s29e-l4@3005",
+          "fKd8s29e-l4@3009",
+          "fKd8s29e-l4@3010",
+          "fKd8s29e-l4@3017",
+          "fKd8s29e-l4@3033",
+          "fKd8s29e-l4@3045"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p105",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To encode unknown text, the tokenizer scans from left to right, breaks the text into characters or subwords, and assigns each character or subword a token ID.",
+        "line_ids": [
+          "fKd8s29e-l4@3047",
+          "fKd8s29e-l4@3049",
+          "fKd8s29e-l4@3051",
+          "fKd8s29e-l4@3053",
+          "fKd8s29e-l4@3055"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p106",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Decoding the resulting integers gives back exactly the same sentence that was originally encoded.",
+        "line_ids": [
+          "fKd8s29e-l4@3058",
+          "fKd8s29e-l4@3060",
+          "fKd8s29e-l4@3062"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p107",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The lecture taught what byte pair encoding is, how to install tiktoken and use the GPT-2 byte pair tokenizer, how it handles unknown words, and that its vocabulary size is about 50,000.",
+        "line_ids": [
+          "fKd8s29e-l4@3067",
+          "fKd8s29e-l4@3071",
+          "fKd8s29e-l4@3073",
+          "fKd8s29e-l4@3075",
+          "fKd8s29e-l4@3078",
+          "fKd8s29e-l4@3089"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p108",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "visual_ref",
+        "importance": 1,
+        "text": "A schematic is shown to illustrate that the course has covered tokenizing input text into token IDs, including a custom tokenizer in the previous lecture and byte pair encoding in this lecture, and has not yet covered token embeddings.",
+        "line_ids": [
+          "fKd8s29e-l4@3108",
+          "fKd8s29e-l4@3111",
+          "fKd8s29e-l4@3120",
+          "fKd8s29e-l4@3123",
+          "fKd8s29e-l4@3125",
+          "fKd8s29e-l4@3139"
+        ]
+      },
+      {
+        "id": "fKd8s29e-l4:p109",
+        "video_id": "fKd8s29e-l4",
+        "lecture": 8,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The lecture also covered intuitive whiteboard iterations of the byte pair encoder and coding a byte pair encoder in Python using the tiktoken library.",
+        "line_ids": [
+          "fKd8s29e-l4@3154",
+          "fKd8s29e-l4@3158",
+          "fKd8s29e-l4@3161",
+          "fKd8s29e-l4@3163",
+          "fKd8s29e-l4@3173",
+          "fKd8s29e-l4@3181"
+        ]
+      }
+    ],
+    "inventory": [
+      {
+        "chunk": "fKd8s29e-l4@0-912",
+        "start": 0,
+        "end": 912,
+        "points": 33,
+        "core_points": 22,
+        "flag": null
+      },
+      {
+        "chunk": "fKd8s29e-l4@910-1819",
+        "start": 910,
+        "end": 1819,
+        "points": 29,
+        "core_points": 11,
+        "flag": null
+      },
+      {
+        "chunk": "fKd8s29e-l4@1816-2718",
+        "start": 1816,
+        "end": 2718,
+        "points": 27,
+        "core_points": 16,
+        "flag": null
+      },
+      {
+        "chunk": "fKd8s29e-l4@2716-3211",
+        "start": 2716,
+        "end": 3211,
+        "points": 20,
+        "core_points": 12,
+        "flag": null
+      }
+    ]
+  }
+}

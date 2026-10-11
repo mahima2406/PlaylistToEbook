@@ -1,0 +1,337 @@
+{
+  "stage": "write",
+  "item": "ch06.s04",
+  "inputs_hash": "6029e95f25a4eb8d279561257dc24bc74fc613f2b50a74b003bcd4e5ee7db7ab",
+  "output_hash": "f7866b6499ccc104086e6dae3bacdaf8d749f545065cf597c19743b4ea470939",
+  "output": {
+    "section_id": "ch06.s04",
+    "paragraphs": [
+      {
+        "id": "ch06.s04.p01",
+        "sentences": [
+          {
+            "id": "ch06.s04.p01.01",
+            "text": "How do variable-length token sequences become a batch that can be processed together?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s04.p01.02",
+            "text": "The way to do it is to pad token ID sequences so that all numerical representations have exactly the same length.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@693",
+              "bkUkcyL_Xxc@695",
+              "bkUkcyL_Xxc@701",
+              "bkUkcyL_Xxc@704",
+              "bkUkcyL_Xxc@707"
+            ]
+          },
+          {
+            "id": "ch06.s04.p01.03",
+            "text": "In each batch, the longest sequence is found, that sequence is kept as it is, and the remaining sequences are padded until their lengths match the longest length.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@736",
+              "bkUkcyL_Xxc@738",
+              "bkUkcyL_Xxc@740",
+              "bkUkcyL_Xxc@745",
+              "bkUkcyL_Xxc@747",
+              "bkUkcyL_Xxc@749",
+              "bkUkcyL_Xxc@753"
+            ]
+          },
+          {
+            "id": "ch06.s04.p01.04",
+            "text": "For example, with input lengths 5, 2, and 3, the first input stays unchanged, the second is padded with \"50256\" three times, and the third is padded with \"50256\" two times so all rows have length 5.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@728",
+              "bkUkcyL_Xxc@730",
+              "bkUkcyL_Xxc@733",
+              "bkUkcyL_Xxc@756",
+              "bkUkcyL_Xxc@758",
+              "bkUkcyL_Xxc@760",
+              "bkUkcyL_Xxc@763",
+              "bkUkcyL_Xxc@766",
+              "bkUkcyL_Xxc@769",
+              "bkUkcyL_Xxc@1874",
+              "bkUkcyL_Xxc@1876",
+              "bkUkcyL_Xxc@1878",
+              "bkUkcyL_Xxc@1889",
+              "bkUkcyL_Xxc@1891",
+              "bkUkcyL_Xxc@1895",
+              "bkUkcyL_Xxc@1898",
+              "bkUkcyL_Xxc@1900",
+              "bkUkcyL_Xxc@1903",
+              "bkUkcyL_Xxc@1905",
+              "bkUkcyL_Xxc@1907",
+              "bkUkcyL_Xxc@1909"
+            ]
+          },
+          {
+            "id": "ch06.s04.p01.05",
+            "text": "After padding, all token ID representations in the batch have the same length, the number of columns matches across rows, and they can be processed together as a batch.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@772",
+              "bkUkcyL_Xxc@774",
+              "bkUkcyL_Xxc@776",
+              "bkUkcyL_Xxc@779",
+              "bkUkcyL_Xxc@781",
+              "bkUkcyL_Xxc@881",
+              "bkUkcyL_Xxc@883",
+              "bkUkcyL_Xxc@885",
+              "bkUkcyL_Xxc@887"
+            ]
+          },
+          {
+            "id": "ch06.s04.p01.06",
+            "text": "This padding is done separately for each batch.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@836",
+              "bkUkcyL_Xxc@839",
+              "bkUkcyL_Xxc@841",
+              "bkUkcyL_Xxc@842",
+              "bkUkcyL_Xxc@858",
+              "bkUkcyL_Xxc@860",
+              "bkUkcyL_Xxc@862",
+              "bkUkcyL_Xxc@864",
+              "bkUkcyL_Xxc@866",
+              "bkUkcyL_Xxc@868"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s04.p02",
+        "sentences": [
+          {
+            "id": "ch06.s04.p02.01",
+            "text": "Why use \"50256\" for padding instead of some other ID?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s04.p02.02",
+            "text": "\"50256\" is the end-of-text token.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@786",
+              "bkUkcyL_Xxc@809",
+              "bkUkcyL_Xxc@812",
+              "bkUkcyL_Xxc@1637"
+            ]
+          },
+          {
+            "id": "ch06.s04.p02.03",
+            "text": "GPT-2 has a vocabulary size of \"50257\", so token IDs run from 0 to \"50256\", and \"50256\" is the last token ID.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@790",
+              "bkUkcyL_Xxc@796",
+              "bkUkcyL_Xxc@800",
+              "bkUkcyL_Xxc@802",
+              "bkUkcyL_Xxc@804",
+              "bkUkcyL_Xxc@806"
+            ]
+          },
+          {
+            "id": "ch06.s04.p02.04",
+            "text": "That last token corresponds to end of text, which marks that one text sample has ended and a new text sample begins.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@806",
+              "bkUkcyL_Xxc@809",
+              "bkUkcyL_Xxc@812",
+              "bkUkcyL_Xxc@813",
+              "bkUkcyL_Xxc@816",
+              "bkUkcyL_Xxc@818"
+            ]
+          },
+          {
+            "id": "ch06.s04.p02.05",
+            "text": "That is why padding uses \"50256\" to mark the end of text.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@820",
+              "bkUkcyL_Xxc@830",
+              "bkUkcyL_Xxc@832",
+              "bkUkcyL_Xxc@834",
+              "bkUkcyL_Xxc@1634",
+              "bkUkcyL_Xxc@1637"
+            ]
+          },
+          {
+            "id": "ch06.s04.p02.06",
+            "text": "Using another token ID could associate the padding with an actual token and confuse training.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@822",
+              "bkUkcyL_Xxc@824",
+              "bkUkcyL_Xxc@826",
+              "bkUkcyL_Xxc@828"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s04.p03",
+        "sentences": [
+          {
+            "id": "ch06.s04.p03.01",
+            "text": "A custom collate function automates this batch padding step.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s04.p03.02",
+            "text": "The custom collate function takes the inputs in each batch, finds the input with the maximum length, and pads all other inputs with token ID \"50256\".",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1644",
+              "bkUkcyL_Xxc@1647",
+              "bkUkcyL_Xxc@1653",
+              "bkUkcyL_Xxc@1656",
+              "bkUkcyL_Xxc@1658",
+              "bkUkcyL_Xxc@1660",
+              "bkUkcyL_Xxc@1663",
+              "bkUkcyL_Xxc@1667"
+            ]
+          },
+          {
+            "id": "ch06.s04.p03.03",
+            "text": "The draft version of this function takes a batch, a padding token ID of \"50256\", and a device such as CPU.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1669b",
+              "bkUkcyL_Xxc@1673",
+              "bkUkcyL_Xxc@1678",
+              "bkUkcyL_Xxc@1681",
+              "bkUkcyL_Xxc@1683"
+            ]
+          },
+          {
+            "id": "ch06.s04.p03.04",
+            "text": "It finds the longest sequence in the batch, pads the other sequences to that length, converts the list of inputs into a tensor, and transfers it to the target device.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1686",
+              "bkUkcyL_Xxc@1688",
+              "bkUkcyL_Xxc@1690",
+              "bkUkcyL_Xxc@1692",
+              "bkUkcyL_Xxc@1694",
+              "bkUkcyL_Xxc@1696",
+              "bkUkcyL_Xxc@1698"
+            ]
+          },
+          {
+            "id": "ch06.s04.p03.05",
+            "text": "The padded result is converted into an input tensor, and the custom collate draft one function returns that input tensor.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1858",
+              "bkUkcyL_Xxc@1862",
+              "bkUkcyL_Xxc@1864",
+              "bkUkcyL_Xxc@1867"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s04.p04",
+        "sentences": [
+          {
+            "id": "ch06.s04.p04.01",
+            "text": "One extra step is added to make the target tokens easy to construct later.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s04.p04.02",
+            "text": "The function first finds the longest sequence length in the batch and adds one to that length.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1710",
+              "bkUkcyL_Xxc@1712",
+              "bkUkcyL_Xxc@1715",
+              "bkUkcyL_Xxc@1716",
+              "bkUkcyL_Xxc@1721",
+              "bkUkcyL_Xxc@1723",
+              "bkUkcyL_Xxc@1725"
+            ]
+          },
+          {
+            "id": "ch06.s04.p04.03",
+            "text": "For every item in the batch, it first adds one \"50256\" token and then pads with additional \"50256\" tokens until the sequence reaches the maximum length.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1731",
+              "bkUkcyL_Xxc@1733",
+              "bkUkcyL_Xxc@1735",
+              "bkUkcyL_Xxc@1738",
+              "bkUkcyL_Xxc@1741",
+              "bkUkcyL_Xxc@1743",
+              "bkUkcyL_Xxc@1746",
+              "bkUkcyL_Xxc@1762",
+              "bkUkcyL_Xxc@1765",
+              "bkUkcyL_Xxc@1768",
+              "bkUkcyL_Xxc@1770",
+              "bkUkcyL_Xxc@1773"
+            ]
+          },
+          {
+            "id": "ch06.s04.p04.04",
+            "text": "After padding, the function removes the extra added token.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1749",
+              "bkUkcyL_Xxc@1751",
+              "bkUkcyL_Xxc@1754"
+            ]
+          },
+          {
+            "id": "ch06.s04.p04.05",
+            "text": "The reason for adding this extra \"50256\" token first is that it later helps create the target, because the target is formed by removing the first element of the input and adding \"50256\".",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1725",
+              "bkUkcyL_Xxc@1727",
+              "bkUkcyL_Xxc@1797",
+              "bkUkcyL_Xxc@1799",
+              "bkUkcyL_Xxc@1801",
+              "bkUkcyL_Xxc@1803",
+              "bkUkcyL_Xxc@1806",
+              "bkUkcyL_Xxc@1807",
+              "bkUkcyL_Xxc@1809",
+              "bkUkcyL_Xxc@1812",
+              "bkUkcyL_Xxc@1813",
+              "bkUkcyL_Xxc@1815"
+            ]
+          },
+          {
+            "id": "ch06.s04.p04.06",
+            "text": "So the code adds an extra \"50256\" to each input first, gets rid of it later, and pads the inputs with \"50256\" until every sequence matches the maximum length in the batch.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1829",
+              "bkUkcyL_Xxc@1831",
+              "bkUkcyL_Xxc@1834",
+              "bkUkcyL_Xxc@1836",
+              "bkUkcyL_Xxc@1839",
+              "bkUkcyL_Xxc@1842",
+              "bkUkcyL_Xxc@1844",
+              "bkUkcyL_Xxc@1846",
+              "bkUkcyL_Xxc@1849",
+              "bkUkcyL_Xxc@1852",
+              "bkUkcyL_Xxc@1854",
+              "bkUkcyL_Xxc@1856"
+            ]
+          }
+        ]
+      }
+    ],
+    "invalid_citation_sentences": 0
+  }
+}

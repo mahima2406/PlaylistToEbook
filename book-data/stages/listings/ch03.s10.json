@@ -1,0 +1,33 @@
+{
+  "stage": "listings",
+  "item": "ch03.s10",
+  "inputs_hash": "51df2661cf254ca2d4fd3cefb0c24bbeaea31b95bd09067164c80515c9da0b71",
+  "output_hash": "27a83a53cc954771e87665b6c68f6c78ba5d8ef48ea7273c1de89269dee27b84",
+  "output": {
+    "section_id": "ch03.s10",
+    "listings": [
+      {
+        "id": "ch03.s10.code2",
+        "ref": "ref:ch04/01_main-chapter-code/ch04.ipynb#cell32",
+        "path": "ch04/01_main-chapter-code/ch04.ipynb",
+        "caption": "This code defines a LayerNorm module whose forward pass normalizes each input row using its mean and variance and then applies learnable scale and shift parameters.",
+        "code": "class LayerNorm(nn.Module):\n    def __init__(self, emb_dim):\n        super().__init__()\n        self.eps = 1e-5\n        self.scale = nn.Parameter(torch.ones(emb_dim))\n        self.shift = nn.Parameter(torch.zeros(emb_dim))\n\n    def forward(self, x):\n        mean = x.mean(dim=-1, keepdim=True)\n        var = x.var(dim=-1, keepdim=True, unbiased=False)\n        norm_x = (x - mean) / torch.sqrt(var + self.eps)\n        return self.scale * norm_x + self.shift",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The section describes layer normalization computed per row/batch item by taking mean and variance across the last dimension (dim=-1, keepdim=True), subtracting the mean, and dividing by the square root of the variance (with an epsilon). The code’s forward pass does exactly this and additionally applies learnable scale and shift parameters, which is consistent with a standard LayerNorm module and accurately reflected by the caption."
+      }
+    ],
+    "rejected": [
+      {
+        "id": "ch03.s10.code1",
+        "ref": "ref:ch04/01_main-chapter-code/ch04.ipynb#cell24",
+        "path": "ch04/01_main-chapter-code/ch04.ipynb",
+        "caption": "This code computes the mean and variance of the layer outputs across the last dimension while keeping the dimensions for broadcasting.",
+        "code": "mean = out.mean(dim=-1, keepdim=True)\nvar = out.var(dim=-1, keepdim=True)\n\nprint(\"Mean:\\n\", mean)\nprint(\"Variance:\\n\", var)",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The excerpt correctly computes mean and variance across the last dimension with keepdim=True for broadcasting, which aligns with the section’s description of how mean/variance are taken for layer normalization. However, it does not implement the actual normalization step (subtract mean and divide by sqrt(var)) or show use inside a LayerNorm forward method/class as the section teaches, so it only partially demonstrates the taught process."
+      }
+    ]
+  }
+}

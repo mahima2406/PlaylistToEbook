@@ -1,0 +1,22 @@
+{
+  "stage": "listings",
+  "item": "ch01.s01",
+  "inputs_hash": "2ccd11060f34df143c8ab9e84bd2f055cc38925f4fb937bfb68ecc5d49fccf85",
+  "output_hash": "7fb1b2b529a4fa7f585d4d9baf24c57914d15dd70bb2492a236a37ad2ba704d6",
+  "output": {
+    "section_id": "ch01.s01",
+    "listings": [],
+    "rejected": [
+      {
+        "id": "ch01.s01.code1",
+        "ref": "ref:ch05/01_main-chapter-code/ch05.ipynb#cell11",
+        "path": "ch05/01_main-chapter-code/ch05.ipynb",
+        "caption": "This code defines a GPT configuration dictionary, constructs a GPTModel with it, sets a random seed, and switches the model to evaluation mode.",
+        "code": "import torch\nfrom previous_chapters import GPTModel\n# If the `previous_chapters.py` file is not available locally,\n# you can import it from the `llms-from-scratch` PyPI package.\n# For details, see: https://github.com/rasbt/LLMs-from-scratch/tree/main/pkg\n# E.g.,\n# from llms_from_scratch.ch04 import GPTModel\n\nGPT_CONFIG_124M = {\n    \"vocab_size\": 50257,   # Vocabulary size\n    \"context_length\": 256, # Shortened context length (orig: 1024)\n    \"emb_dim\": 768,        # Embedding dimension\n    \"n_heads\": 12,         # Number of attention heads\n    \"n_layers\": 12,        # Number of layers\n    \"drop_rate\": 0.1,      # Dropout rate\n    \"qkv_bias\": False      # Query-key-value bias\n}\n\ntorch.manual_seed(123)\nmodel = GPTModel(GPT_CONFIG_124M)\nmodel.eval();  # Disable dropout during inference",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The code sets up a GPT configuration and instantiates a GPTModel, which is broadly related to understanding LLM “nuts and bolts,” and the caption accurately describes what the code does. However, the section’s stated teaching is conceptual (how to learn/understand foundations) rather than showing concrete implementation steps like model construction and eval mode, so the excerpt is not a direct demonstration of the section’s lesson."
+      }
+    ]
+  }
+}

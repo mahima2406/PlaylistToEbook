@@ -1,0 +1,24 @@
+{
+  "stage": "checks",
+  "item": "ch06.s13.code2",
+  "inputs_hash": "c92cf10246790a6788e5b3f6411bc26f0858b90e18f63bacb7994dbc36566a85",
+  "output_hash": "d5b69a784fdf11e70ebfca1476ac15c3124447760bc99de439f7656c90c35a06",
+  "output": [
+    {
+      "sentence_id": "ch06.s13.p04.r03",
+      "expected": 100,
+      "expression": "100",
+      "tolerance": 0,
+      "check_id": "ch06.s13.code2.chk1",
+      "sentence_text": "To evaluate fine-tuned responses, prompt Llama 3 to rate the fine-tuned model's responses on a scale from 0 to 100."
+    },
+    {
+      "sentence_id": "ch06.s13.p04.r04",
+      "expected": 100,
+      "expression": "100",
+      "tolerance": 0,
+      "check_id": "ch06.s13.code2.chk2",
+      "sentence_text": "The evaluation prompt includes the instruction and input, the correct output, and the model response, and asks for a score where 100 is the best score."
+    }
+  ]
+}

@@ -1,0 +1,230 @@
+{
+  "stage": "write",
+  "item": "ch02.s01",
+  "inputs_hash": "34541b815edc0e68b115fa76c379165866522bed948fa608367961ddb5e62803",
+  "output_hash": "021eca4d83deea255d05b10a5bcf11e2b837864e9af116faf231353ba815babc",
+  "output": {
+    "section_id": "ch02.s01",
+    "paragraphs": [
+      {
+        "id": "ch02.s01.p01",
+        "sentences": [
+          {
+            "id": "ch02.s01.p01.01",
+            "text": "How does raw text become something a large language model can actually take as input, and why is that transformation so important?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s01.p01.02",
+            "text": "Data preprocessing is one of the fundamental building blocks of a strongly performing large language model.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@13",
+              "mk-6cFebjis@15",
+              "mk-6cFebjis@20",
+              "mk-6cFebjis@30",
+              "mk-6cFebjis@32",
+              "mk-6cFebjis@36"
+            ]
+          },
+          {
+            "id": "ch02.s01.p01.03",
+            "text": "Data preprocessing is the procedure of processing data before it is fed as input to a large language model.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@63",
+              "mk-6cFebjis@66",
+              "mk-6cFebjis@70",
+              "mk-6cFebjis@72"
+            ]
+          },
+          {
+            "id": "ch02.s01.p01.04",
+            "text": "In this chapter, that data is text such as paragraphs and documents.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@74",
+              "mk-6cFebjis@76",
+              "mk-6cFebjis@79"
+            ]
+          },
+          {
+            "id": "ch02.s01.p01.05",
+            "text": "A big PDF file cannot be given directly as input to a large language model and needs further processing first.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@50",
+              "mk-6cFebjis@54",
+              "mk-6cFebjis@56",
+              "mk-6cFebjis@59"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s01.p02",
+        "sentences": [
+          {
+            "id": "ch02.s01.p02.01",
+            "text": "The preprocessing path can be understood as a small sequence of transformations.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s01.p02.02",
+            "text": "Before a sentence is in a form good enough to be an input for a large language model, four fundamental steps are used: tokenization, token embeddings, positional embeddings, and creating input embeddings.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@92",
+              "mk-6cFebjis@94",
+              "mk-6cFebjis@98",
+              "mk-6cFebjis@101",
+              "mk-6cFebjis@104",
+              "mk-6cFebjis@107",
+              "mk-6cFebjis@110",
+              "mk-6cFebjis@112",
+              "mk-6cFebjis@115",
+              "mk-6cFebjis@117",
+              "mk-6cFebjis@119"
+            ]
+          },
+          {
+            "id": "ch02.s01.p02.03",
+            "text": "The final input embeddings then serve as inputs to the large language model.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@119",
+              "mk-6cFebjis@121",
+              "mk-6cFebjis@123"
+            ]
+          },
+          {
+            "id": "ch02.s01.p02.04",
+            "text": "The complete pipeline runs from tokenization to token IDs to token embeddings to positional embeddings and finally to input embeddings.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@5594",
+              "mk-6cFebjis@5596",
+              "mk-6cFebjis@5599",
+              "mk-6cFebjis@5602",
+              "mk-6cFebjis@5604",
+              "mk-6cFebjis@5606"
+            ]
+          },
+          {
+            "id": "ch02.s01.p02.05",
+            "text": "This pipeline makes the data ready to be fed into the LLM architecture or the LLM pre-training process.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@5608",
+              "mk-6cFebjis@5610",
+              "mk-6cFebjis@5614"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s01.p03",
+        "sentences": [
+          {
+            "id": "ch02.s01.p03.01",
+            "text": "It helps to make that flow concrete with a simple example.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s01.p03.02",
+            "text": "For an input text such as \"this is an example\", the text is first broken down into tokens.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@60",
+              "ghCSGRgVB_o@63",
+              "ghCSGRgVB_o@66",
+              "ghCSGRgVB_o@69"
+            ]
+          },
+          {
+            "id": "ch02.s01.p03.03",
+            "text": "In a word-based tokenizer, \"this\", \"is\", \"an\", and \"example\" are four tokens, one word per token.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@71",
+              "ghCSGRgVB_o@74",
+              "ghCSGRgVB_o@77",
+              "ghCSGRgVB_o@80",
+              "ghCSGRgVB_o@82"
+            ]
+          },
+          {
+            "id": "ch02.s01.p03.04",
+            "text": "After tokenization, each token is converted into a token ID.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@119",
+              "ghCSGRgVB_o@122",
+              "ghCSGRgVB_o@124",
+              "ghCSGRgVB_o@127"
+            ]
+          },
+          {
+            "id": "ch02.s01.p03.05",
+            "text": "Those token IDs are then converted into token embeddings.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@130",
+              "ghCSGRgVB_o@134",
+              "ghCSGRgVB_o@136",
+              "ghCSGRgVB_o@139",
+              "ghCSGRgVB_o@141"
+            ]
+          },
+          {
+            "id": "ch02.s01.p03.06",
+            "text": "These token embeddings serve as the input to training the large language model.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@141",
+              "ghCSGRgVB_o@143",
+              "ghCSGRgVB_o@146"
+            ]
+          },
+          {
+            "id": "ch02.s01.p03.07",
+            "text": "The term \"token embeddings\" is preferred over \"word embeddings\" because tokens can be words, subwords, or even characters.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@32",
+              "ghCSGRgVB_o@36",
+              "ghCSGRgVB_o@41",
+              "ghCSGRgVB_o@44",
+              "ghCSGRgVB_o@47",
+              "ghCSGRgVB_o@50"
+            ]
+          },
+          {
+            "id": "ch02.s01.p03.08",
+            "text": "A fuller treatment of tokenizers and byte pair encoding is separate from this overview, but the key point here is that text must pass through these preprocessing steps before it can be used by the model.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@89",
+              "ghCSGRgVB_o@92",
+              "ghCSGRgVB_o@96",
+              "ghCSGRgVB_o@98",
+              "ghCSGRgVB_o@102",
+              "ghCSGRgVB_o@105",
+              "ghCSGRgVB_o@107",
+              "ghCSGRgVB_o@109",
+              "ghCSGRgVB_o@114",
+              "ghCSGRgVB_o@116",
+              "mk-6cFebjis@63",
+              "mk-6cFebjis@66",
+              "mk-6cFebjis@70",
+              "mk-6cFebjis@72"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

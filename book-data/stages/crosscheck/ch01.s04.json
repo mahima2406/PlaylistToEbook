@@ -1,0 +1,269 @@
+{
+  "stage": "crosscheck",
+  "item": "ch01.s04",
+  "inputs_hash": "c4db55b9e4faf65630d8c6a495e1b43ee9d19d027ad0415626c401264a81afe3",
+  "output_hash": "5b811f05146545f8b79dbed5b4e606a4b913832ab6bd0c1654c9177d832a2596",
+  "output": {
+    "section_id": "ch01.s04",
+    "checked": 23,
+    "counts": {
+      "agrees": 0,
+      "contradicts": 0,
+      "not_covered": 23
+    },
+    "results": [
+      {
+        "sentence_id": "ch01.s04.p01.r03",
+        "text": "One early chatbot from 50 to 60 years ago was \"Elisa\", one of the first chatbots humans developed, and its conversation quickly proceeds nowhere.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell85"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The referenced cell discusses step-by-step token prediction formatting, not early chatbots like ELIZA or its conversational limitations."
+      },
+      {
+        "sentence_id": "ch01.s04.p01.r04",
+        "text": "By contrast, \"chat GPT\" can answer a request about learning large language models with a response that is extremely useful, to the point, and filled with resources such as books, online courses, and research papers.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell119",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell115",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell97"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show how to query/evaluate models and mention rubric-based evaluation prompts, but they do not claim ChatGPT specifically gives extremely useful, resource-filled answers about learning LLMs."
+      },
+      {
+        "sentence_id": "ch01.s04.p01.r05",
+        "text": "We are living at a stage where LLMs such as GPT are very powerful and very sophisticated.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell83",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell83"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages note (a) GPT generates one word at a time and (b) accuracies aren’t good before finetuning; they do not assess current LLMs as powerful/sophisticated overall."
+      },
+      {
+        "sentence_id": "ch01.s04.p01.r06",
+        "text": "Generative AI is broader than language alone and includes video, audio, and 3D models.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell7"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference section shown is about evaluating generative text models and does not discuss generative AI covering video/audio/3D."
+      },
+      {
+        "sentence_id": "ch01.s04.p01.r07",
+        "text": "Some videos can look incredibly realistic even though they are made entirely by artificial intelligence rather than shot on a camera.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell146"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passage is about verifying correct model weight loading via coherent text generation, not about AI-generated videos looking realistic."
+      },
+      {
+        "sentence_id": "ch01.s04.p02.r02",
+        "text": "A prompt such as \"plan a relaxing day\" can ask for a day focused on rejuvenation and request that the system first ask about favorite forms of relaxation.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell90"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference discusses instruction-following in a passive-voice conversion task during training, not prompting for planning a relaxing day or asking preference questions first."
+      },
+      {
+        "sentence_id": "ch01.s04.p02.r03",
+        "text": "\"chat GPT\" replies conversationally, asking whether the user prefers spending time outdoors, reading, yoga, or creative pursuits.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell77",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell89",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell98"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references are training code for GPT/classifier/instruction finetuning and contain no example of ChatGPT asking about outdoors/reading/yoga/creative pursuits."
+      },
+      {
+        "sentence_id": "ch01.s04.p03.02",
+        "text": "The applications of large language models can be divided into five main categories, even though there are several more applications beyond these.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell4"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited heading is about categories of finetuning, not a statement that LLM applications divide into five main categories."
+      },
+      {
+        "sentence_id": "ch01.s04.p03.04",
+        "text": "For example, a model can write a poem about the solar system in the format of a detective story, and it can also be used to write books and generate media articles.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell8",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell120"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references cover vocabulary tokens and model evaluation/finetuning concepts, not examples like writing detective-style poems or generating books/media articles."
+      },
+      {
+        "sentence_id": "ch01.s04.p03.05",
+        "text": "Another category is chatbot or virtual-assistant use, where a person can interact with the model in an ongoing conversation.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell97"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference discusses evaluating model responses on a test set, not defining a chatbot/virtual-assistant category as ongoing conversation."
+      },
+      {
+        "sentence_id": "ch01.s04.p04.r02",
+        "text": "Machine translation means that text can be translated to any language.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell10"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference explains pre-transformer machine translation architectures, but does not define machine translation as translating text to any language."
+      },
+      {
+        "sentence_id": "ch01.s04.p04.r03",
+        "text": "A model can be asked to translate a poem to French, and it can do that immediately.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell146",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell8",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell16"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss coherent text generation, finetuning limitations, and untrained model quality, but do not state that a model can immediately translate a poem to French."
+      },
+      {
+        "sentence_id": "ch01.s04.p04.r05",
+        "text": "Another application is new text generation, including poems, books, media articles, and news articles that did not exist before.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference discusses adding <|unk|> and <|endoftext|> tokens for handling unknown words and end-of-text markers, but it does not state that an application is new text generation of poems/books/news articles."
+      },
+      {
+        "sentence_id": "ch01.s04.p04.r06",
+        "text": "Large language models can also be used for sentiment analysis by taking paragraphs and identifying the sentiment, which can be useful for hate speech detection on social media.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell13",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell58",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages cover finetuning details, empty input fields, and embedding dimensions, but do not mention sentiment analysis or hate speech detection as an application."
+      },
+      {
+        "sentence_id": "ch01.s04.p05.r02",
+        "text": "In one application, selecting the MCQ generator, entering a topic such as \"gravity\", and clicking generate causes the LLM powering the application to produce multiple-choice questions within seconds.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell106",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell107"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference explains installing/using Ollama for LLM inference, but does not describe an MCQ-generator app workflow (select generator, enter topic 'gravity', click generate) producing MCQs within seconds."
+      },
+      {
+        "sentence_id": "ch01.s04.p05.r03",
+        "text": "In another application, a lesson plan on \"gravity\" can be generated and aligned with the CBSE curriculum of India.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell44",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell107",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell66"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The passages mention max length/context size, Ollama setup, and token-size checks, but do not discuss generating a gravity lesson plan aligned to the CBSE curriculum."
+      },
+      {
+        "sentence_id": "ch01.s04.p05.r04",
+        "text": "The generated lesson plan includes the objective, assessment, key points, opening, introduction to new material, guided practice, and independent practice.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell4"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Only a section heading about instruction finetuning is provided; there is no reference content specifying lesson-plan components like objectives, assessment, key points, opening, etc."
+      },
+      {
+        "sentence_id": "ch01.s04.p05.r05",
+        "text": "This can save teachers a great deal of time, and it is presented as something that was not possible five years earlier but is possible now with LLMs.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell37",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell18",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell81"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss log probability optimization, dataset subsampling, and an instruction-following failure example, but do not claim teacher time savings or compare feasibility to five years ago."
+      },
+      {
+        "sentence_id": "ch01.s04.p06.r02",
+        "text": "Large language models and generative AI are changing many things around us, including applications provided to teachers.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell7"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "A chapter heading on evaluating generative text models does not support the claim that LLMs are changing many things around us including teacher applications."
+      },
+      {
+        "sentence_id": "ch01.s04.p06.r03",
+        "text": "The projected global generative AI job market is expected to grow about five to six times in the next five years.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell7",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell141"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references include a chapter heading and a note about assigning OpenAI weights, but nothing about job-market growth projections."
+      },
+      {
+        "sentence_id": "ch01.s04.p06.r04",
+        "text": "Generative AI and large language models are extremely useful skills, and the need for these skills is only going to increase in the future.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell7",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell58",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages discuss finetuning layers and self-attention implementation, but do not make claims about the usefulness of generative AI skills or increasing future demand."
+      },
+      {
+        "sentence_id": "ch01.s04.p06.r05",
+        "text": "If you have knowledge about LLMs, the sky is the limit for building wonderful applications.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell44"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference note concerns limiting sample length due to GPT-2 context size; it does not claim that knowing LLMs makes the sky the limit for applications."
+      },
+      {
+        "sentence_id": "ch01.s04.p06.r06",
+        "text": "The examples here are only the tip of the iceberg, because LLMs can be used for many more research and industrial applications.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references describe differences in training functions, loss ignoring with -100 labels, and embedding dimension choices, but do not state that examples are only the tip of the iceberg or that LLMs have many more research/industrial applications."
+      }
+    ],
+    "conflicts": []
+  }
+}

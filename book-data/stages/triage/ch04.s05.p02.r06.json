@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch04.s05.p02.r06",
+  "inputs_hash": "1144700cb4f4224cb6cbcb27b60f3bd613f047a38c87685684aae88a1012b0ce",
+  "output_hash": "334c9989badc8f0a80680fa71d7418bda1c94dc875b98940e0abf0715a07afc9",
+  "output": {
+    "decision": "edit",
+    "text": "For every token position, the model therefore produces a 50,257-dimensional logits vector because it is predicting the next word.",
+    "reason": "The captions support the 50,257-dimensional vector and the reason of next-word prediction, but not the stronger phrasing about the full vocabulary.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "dee2ff0fe79fbcd9daa66d339d445b591657bcb2295782d24bd14ea7f5736dfe"
+  }
+}

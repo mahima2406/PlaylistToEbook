@@ -1,0 +1,14 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch03.s08.p05.r02",
+  "inputs_hash": "d5aa127fedc55e74ff483549adc0e26b7417658db3d3f9b983ad822d5c8031f8",
+  "output_hash": "885c70630280817d3e00fcdad3983ee401d0cef4935bdc913827d94005c08b75",
+  "output": {
+    "decision": "note",
+    "note": "The reference uses a lower-triangular mask via `torch.tril`—1s on/below the diagonal and 0s above—to achieve the same causal masking effect.",
+    "reason": "The captions support the lecture’s upper-triangular description, while the reference presents the complementary lower-triangular formulation.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "0ec62e82997df42bc84ddf8bdca42ab2eb723ba33515b96be40b352f9ce2bd39"
+  }
+}

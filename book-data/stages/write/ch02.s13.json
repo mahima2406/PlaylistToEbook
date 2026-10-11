@@ -1,0 +1,201 @@
+{
+  "stage": "write",
+  "item": "ch02.s13",
+  "inputs_hash": "f7e2ebb8254cc7f62028d63870b780f203d74ab3fb1bff2d694e5eebc72c0842",
+  "output_hash": "21d5451cb1589eaeaf12a8b0f3d20d20193caf7a5154e9d5d73c08308c90c440",
+  "output": {
+    "section_id": "ch02.s13",
+    "paragraphs": [
+      {
+        "id": "ch02.s13.p01",
+        "sentences": [
+          {
+            "id": "ch02.s13.p01.01",
+            "text": "How can a token embedding lookup be viewed as an ordinary neural-network operation, and why does that matter when turning token IDs into vectors?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s13.p01.02",
+            "text": "An embedding layer is mathematically the same as a neural network linear layer.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@3049",
+              "ghCSGRgVB_o@3051",
+              "ghCSGRgVB_o@3198",
+              "ghCSGRgVB_o@3199"
+            ]
+          },
+          {
+            "id": "ch02.s13.p01.03",
+            "text": "To reproduce an embedding lookup with a linear layer, start from token IDs such as 2, 3, and 1, convert them into one-hot representations, and feed those vectors into a neural network.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@3043",
+              "ghCSGRgVB_o@3072",
+              "ghCSGRgVB_o@3074",
+              "ghCSGRgVB_o@3082",
+              "ghCSGRgVB_o@3085",
+              "ghCSGRgVB_o@3086",
+              "ghCSGRgVB_o@3089",
+              "ghCSGRgVB_o@3091",
+              "ghCSGRgVB_o@3207",
+              "ghCSGRgVB_o@3210",
+              "ghCSGRgVB_o@3212"
+            ]
+          },
+          {
+            "id": "ch02.s13.p01.04",
+            "text": "The network uses as many neurons as the embedding dimension, so in the example with five-dimensional embeddings it has five neurons.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@3099",
+              "ghCSGRgVB_o@3102",
+              "ghCSGRgVB_o@3214",
+              "ghCSGRgVB_o@3217"
+            ]
+          },
+          {
+            "id": "ch02.s13.p01.05",
+            "text": "For this linear layer, the output is given by X multiplied by W transpose.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@3102",
+              "ghCSGRgVB_o@3104",
+              "ghCSGRgVB_o@3144",
+              "ghCSGRgVB_o@3149",
+              "ghCSGRgVB_o@3219",
+              "ghCSGRgVB_o@3221"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s13.p02",
+        "sentences": [
+          {
+            "id": "ch02.s13.p02.01",
+            "text": "This formulation also makes the output shape easy to interpret.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s13.p02.02",
+            "text": "When there are three input tokens and five embedding dimensions, X multiplied by W transpose produces a matrix with three rows and five columns.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@3152",
+              "ghCSGRgVB_o@3154",
+              "ghCSGRgVB_o@3158",
+              "ghCSGRgVB_o@3168",
+              "ghCSGRgVB_o@3170",
+              "ghCSGRgVB_o@3172"
+            ]
+          },
+          {
+            "id": "ch02.s13.p02.03",
+            "text": "There are three rows because there are three inputs, and each row corresponds to the vector embedding for one particular input.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@3158",
+              "ghCSGRgVB_o@3160",
+              "ghCSGRgVB_o@3165",
+              "ghCSGRgVB_o@3172",
+              "ghCSGRgVB_o@3175",
+              "ghCSGRgVB_o@3177"
+            ]
+          },
+          {
+            "id": "ch02.s13.p02.04",
+            "text": "There are five columns because each input is mapped to a vector embedding with five dimensions.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@3165",
+              "ghCSGRgVB_o@3168",
+              "ghCSGRgVB_o@3170",
+              "ghCSGRgVB_o@3214",
+              "ghCSGRgVB_o@3217"
+            ]
+          },
+          {
+            "id": "ch02.s13.p02.05",
+            "text": "With the same weights, this linear-layer construction produces exactly the same output as the embedding layer.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@3183",
+              "ghCSGRgVB_o@3185",
+              "ghCSGRgVB_o@3187",
+              "ghCSGRgVB_o@3190",
+              "ghCSGRgVB_o@3221",
+              "ghCSGRgVB_o@3224",
+              "ghCSGRgVB_o@3243",
+              "ghCSGRgVB_o@3247",
+              "ghCSGRgVB_o@3501",
+              "ghCSGRgVB_o@3505"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s13.p03",
+        "sentences": [
+          {
+            "id": "ch02.s13.p03.01",
+            "text": "Even so, the equivalent formulation is not the one normally used for embeddings.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s13.p03.02",
+            "text": "The embedding layer is preferred because it is much more computationally efficient than using a linear layer on one-hot inputs.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@3249",
+              "ghCSGRgVB_o@3250",
+              "ghCSGRgVB_o@3291",
+              "ghCSGRgVB_o@3295",
+              "ghCSGRgVB_o@3508",
+              "ghCSGRgVB_o@3511"
+            ]
+          },
+          {
+            "id": "ch02.s13.p03.03",
+            "text": "A linear layer is less efficient here because one-hot encoding introduces many zeros, which leads to many unnecessary multiplications with zero and other unnecessary computations.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@3250",
+              "ghCSGRgVB_o@3255",
+              "ghCSGRgVB_o@3260",
+              "ghCSGRgVB_o@3262",
+              "ghCSGRgVB_o@3264",
+              "ghCSGRgVB_o@3266",
+              "ghCSGRgVB_o@3268"
+            ]
+          },
+          {
+            "id": "ch02.s13.p03.04",
+            "text": "Those unnecessary computations scale up when the vocabulary is very large, such as GPT-2's vocabulary size.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@3268",
+              "ghCSGRgVB_o@3270",
+              "ghCSGRgVB_o@3273",
+              "ghCSGRgVB_o@3275"
+            ]
+          },
+          {
+            "id": "ch02.s13.p03.05",
+            "text": "So although a linear layer can be used to create the embedding matrix, the embedding layer is the preferred implementation.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@3286",
+              "ghCSGRgVB_o@3289",
+              "ghCSGRgVB_o@3291",
+              "ghCSGRgVB_o@3295"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

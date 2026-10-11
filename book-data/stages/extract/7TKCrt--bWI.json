@@ -1,0 +1,1986 @@
+{
+  "stage": "extract",
+  "item": "7TKCrt--bWI",
+  "inputs_hash": "a95a4d2bbaf0fe72d40e9be364c066b09e75808e167efd682e4da760a5718094",
+  "output_hash": "bd5c769d3f45e6edc8c6715cf020f725d9560af4ce1a9a909074cf376e350da4",
+  "output": {
+    "video_id": "7TKCrt--bWI",
+    "points": [
+      {
+        "id": "7TKCrt--bWI:p001",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In traditional machine learning, regression generally uses least squares or mean squared error loss, and classification uses losses such as cross-entropy or hinge loss.",
+        "line_ids": [
+          "7TKCrt--bWI@20",
+          "7TKCrt--bWI@23",
+          "7TKCrt--bWI@24",
+          "7TKCrt--bWI@27",
+          "7TKCrt--bWI@29",
+          "7TKCrt--bWI@32",
+          "7TKCrt--bWI@34",
+          "7TKCrt--bWI@36",
+          "7TKCrt--bWI@39"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p002",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 2,
+        "text": "At this stage, the GPT architecture built in the course takes input text and predicts next tokens or next words.",
+        "line_ids": [
+          "7TKCrt--bWI@92",
+          "7TKCrt--bWI@94",
+          "7TKCrt--bWI@97",
+          "7TKCrt--bWI@99",
+          "7TKCrt--bWI@102",
+          "7TKCrt--bWI@105",
+          "7TKCrt--bWI@107",
+          "7TKCrt--bWI@109",
+          "7TKCrt--bWI@113",
+          "7TKCrt--bWI@115",
+          "7TKCrt--bWI@119",
+          "7TKCrt--bWI@121",
+          "7TKCrt--bWI@123",
+          "7TKCrt--bWI@127",
+          "7TKCrt--bWI@129"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p003",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Training is the second stage of building the large language model, and it is needed so that the next token predictions make sense instead of being random.",
+        "line_ids": [
+          "7TKCrt--bWI@142",
+          "7TKCrt--bWI@145",
+          "7TKCrt--bWI@148",
+          "7TKCrt--bWI@150",
+          "7TKCrt--bWI@151",
+          "7TKCrt--bWI@155",
+          "7TKCrt--bWI@156",
+          "7TKCrt--bWI@158",
+          "7TKCrt--bWI@160",
+          "7TKCrt--bWI@163",
+          "7TKCrt--bWI@165",
+          "7TKCrt--bWI@169",
+          "7TKCrt--bWI@172",
+          "7TKCrt--bWI@174",
+          "7TKCrt--bWI@176"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p004",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "definition",
+        "importance": 3,
+        "text": "A loss function is a quantitative metric that captures how good or bad the large language model's output is.",
+        "line_ids": [
+          "7TKCrt--bWI@178",
+          "7TKCrt--bWI@180",
+          "7TKCrt--bWI@183",
+          "7TKCrt--bWI@187",
+          "7TKCrt--bWI@190",
+          "7TKCrt--bWI@192",
+          "7TKCrt--bWI@195",
+          "7TKCrt--bWI@198",
+          "7TKCrt--bWI@200",
+          "7TKCrt--bWI@204",
+          "7TKCrt--bWI@206",
+          "7TKCrt--bWI@209"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p005",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "If we define a loss function that quantifies LLM performance, we can minimize that loss so the model improves.",
+        "line_ids": [
+          "7TKCrt--bWI@204",
+          "7TKCrt--bWI@206",
+          "7TKCrt--bWI@209",
+          "7TKCrt--bWI@212",
+          "7TKCrt--bWI@215",
+          "7TKCrt--bWI@218"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p006",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Once a loss function is constructed, it enables gradient-descent-based backpropagation algorithms to be used for training the large language model.",
+        "line_ids": [
+          "7TKCrt--bWI@218",
+          "7TKCrt--bWI@220",
+          "7TKCrt--bWI@223",
+          "7TKCrt--bWI@225",
+          "7TKCrt--bWI@227",
+          "7TKCrt--bWI@230",
+          "7TKCrt--bWI@231",
+          "7TKCrt--bWI@233"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p007",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In this lecture, the lecturer focuses on how text is generated and how text is evaluated by defining a loss function that compares the LLM's generated output with the desired output.",
+        "line_ids": [
+          "7TKCrt--bWI@240",
+          "7TKCrt--bWI@242",
+          "7TKCrt--bWI@244",
+          "7TKCrt--bWI@246",
+          "7TKCrt--bWI@248",
+          "7TKCrt--bWI@258",
+          "7TKCrt--bWI@260",
+          "7TKCrt--bWI@262",
+          "7TKCrt--bWI@264",
+          "7TKCrt--bWI@267",
+          "7TKCrt--bWI@270",
+          "7TKCrt--bWI@273"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p008",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "definition",
+        "importance": 2,
+        "text": "The GPT configuration includes parameters such as vocabulary size, context length, embedding dimension, number of attention heads, number of transformer layers, dropout rate, and whether query, key, and value use a bias term.",
+        "line_ids": [
+          "7TKCrt--bWI@320",
+          "7TKCrt--bWI@324",
+          "7TKCrt--bWI@326",
+          "7TKCrt--bWI@328",
+          "7TKCrt--bWI@330",
+          "7TKCrt--bWI@333",
+          "7TKCrt--bWI@335",
+          "7TKCrt--bWI@363",
+          "7TKCrt--bWI@389",
+          "7TKCrt--bWI@391",
+          "7TKCrt--bWI@400",
+          "7TKCrt--bWI@402",
+          "7TKCrt--bWI@409",
+          "7TKCrt--bWI@411",
+          "7TKCrt--bWI@413",
+          "7TKCrt--bWI@416",
+          "7TKCrt--bWI@419",
+          "7TKCrt--bWI@421",
+          "7TKCrt--bWI@424",
+          "7TKCrt--bWI@426",
+          "7TKCrt--bWI@428"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p009",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "definition",
+        "importance": 2,
+        "text": "The vocabulary size is the number of tokens in the vocabulary.",
+        "line_ids": [
+          "7TKCrt--bWI@328",
+          "7TKCrt--bWI@330",
+          "7TKCrt--bWI@333",
+          "7TKCrt--bWI@335"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p010",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "definition",
+        "importance": 2,
+        "text": "Tiktoken is the tokenizer being used, and it uses byte pair encoding to create a vocabulary of tokens.",
+        "line_ids": [
+          "7TKCrt--bWI@338",
+          "7TKCrt--bWI@341",
+          "7TKCrt--bWI@343",
+          "7TKCrt--bWI@345",
+          "7TKCrt--bWI@347",
+          "7TKCrt--bWI@350",
+          "7TKCrt--bWI@352"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p011",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The vocabulary size used by GPT-2 is 50,257, and the constructed model uses the same size.",
+        "line_ids": [
+          "7TKCrt--bWI@352",
+          "7TKCrt--bWI@355",
+          "7TKCrt--bWI@356",
+          "7TKCrt--bWI@358",
+          "7TKCrt--bWI@360"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p012",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 2,
+        "text": "GPT-2 used a context length of 1024, but for easier local training in this course the example uses a context length of 256.",
+        "line_ids": [
+          "7TKCrt--bWI@363",
+          "7TKCrt--bWI@365",
+          "7TKCrt--bWI@367",
+          "7TKCrt--bWI@370",
+          "7TKCrt--bWI@372",
+          "7TKCrt--bWI@375",
+          "7TKCrt--bWI@377"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p013",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The same code can be used with a longer context length if there is enough compute power and memory.",
+        "line_ids": [
+          "7TKCrt--bWI@377",
+          "7TKCrt--bWI@380",
+          "7TKCrt--bWI@382",
+          "7TKCrt--bWI@384",
+          "7TKCrt--bWI@387"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p014",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "definition",
+        "importance": 2,
+        "text": "The embedding dimension is the higher-dimensional space into which token embeddings are projected to capture semantic meaning.",
+        "line_ids": [
+          "7TKCrt--bWI@389",
+          "7TKCrt--bWI@391",
+          "7TKCrt--bWI@393",
+          "7TKCrt--bWI@394",
+          "7TKCrt--bWI@397",
+          "7TKCrt--bWI@398"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p015",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "definition",
+        "importance": 2,
+        "text": "The number of attention heads is the number of self-attention mechanism blocks within one transformer.",
+        "line_ids": [
+          "7TKCrt--bWI@400",
+          "7TKCrt--bWI@402",
+          "7TKCrt--bWI@404",
+          "7TKCrt--bWI@407"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p016",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "definition",
+        "importance": 2,
+        "text": "The number of layers specifies how many transformer blocks the model has.",
+        "line_ids": [
+          "7TKCrt--bWI@407",
+          "7TKCrt--bWI@409",
+          "7TKCrt--bWI@411",
+          "7TKCrt--bWI@413"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p017",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "definition",
+        "importance": 2,
+        "text": "The query-key-value bias setting indicates that no bias term is used when initializing the query, key, and value weight matrices.",
+        "line_ids": [
+          "7TKCrt--bWI@421",
+          "7TKCrt--bWI@424",
+          "7TKCrt--bWI@426",
+          "7TKCrt--bWI@428"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p018",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The GPT model takes input tokens, converts them into token embeddings, adds positional embeddings, applies dropout, passes the result through transformer blocks, applies a final normalization layer, and returns logits.",
+        "line_ids": [
+          "7TKCrt--bWI@446",
+          "7TKCrt--bWI@448",
+          "7TKCrt--bWI@450",
+          "7TKCrt--bWI@452",
+          "7TKCrt--bWI@454",
+          "7TKCrt--bWI@457",
+          "7TKCrt--bWI@460",
+          "7TKCrt--bWI@462",
+          "7TKCrt--bWI@463",
+          "7TKCrt--bWI@465",
+          "7TKCrt--bWI@469"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p019",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The returned logits have one row per input token position and a number of columns equal to the vocabulary size.",
+        "line_ids": [
+          "7TKCrt--bWI@469",
+          "7TKCrt--bWI@472",
+          "7TKCrt--bWI@475",
+          "7TKCrt--bWI@476",
+          "7TKCrt--bWI@479",
+          "7TKCrt--bWI@480"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p020",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "definition",
+        "importance": 3,
+        "text": "In this lecture, the word target means the true values.",
+        "line_ids": [
+          "7TKCrt--bWI@498",
+          "7TKCrt--bWI@500",
+          "7TKCrt--bWI@503",
+          "7TKCrt--bWI@506",
+          "7TKCrt--bWI@509",
+          "7TKCrt--bWI@511",
+          "7TKCrt--bWI@513",
+          "7TKCrt--bWI@515",
+          "7TKCrt--bWI@518"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p021",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The loss function is determined by the predicted values and the target values and by how close they are.",
+        "line_ids": [
+          "7TKCrt--bWI@518",
+          "7TKCrt--bWI@519",
+          "7TKCrt--bWI@521",
+          "7TKCrt--bWI@524"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p022",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The input to the large language model is a tensor whose rows correspond to batches.",
+        "line_ids": [
+          "7TKCrt--bWI@531",
+          "7TKCrt--bWI@533",
+          "7TKCrt--bWI@535",
+          "7TKCrt--bWI@538",
+          "7TKCrt--bWI@540",
+          "7TKCrt--bWI@542",
+          "7TKCrt--bWI@544",
+          "7TKCrt--bWI@547"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p023",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In the illustrated example, each row has three tokens because the context size is assumed to be three.",
+        "line_ids": [
+          "7TKCrt--bWI@556",
+          "7TKCrt--bWI@558",
+          "7TKCrt--bWI@560",
+          "7TKCrt--bWI@562"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p024",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The target tensor has the same number of positions as the input because each prefix in the input creates a next-token prediction task.",
+        "line_ids": [
+          "7TKCrt--bWI@580",
+          "7TKCrt--bWI@582",
+          "7TKCrt--bWI@585",
+          "7TKCrt--bWI@587",
+          "7TKCrt--bWI@590",
+          "7TKCrt--bWI@592",
+          "7TKCrt--bWI@595",
+          "7TKCrt--bWI@597",
+          "7TKCrt--bWI@599",
+          "7TKCrt--bWI@601",
+          "7TKCrt--bWI@604",
+          "7TKCrt--bWI@605",
+          "7TKCrt--bWI@608",
+          "7TKCrt--bWI@610"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p025",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "For the sequence \"every effort moves,\" the prediction tasks are: from \"every\" predict \"effort,\" from \"every effort\" predict \"moves,\" and from \"every effort moves\" predict the next token.",
+        "line_ids": [
+          "7TKCrt--bWI@610",
+          "7TKCrt--bWI@613",
+          "7TKCrt--bWI@615",
+          "7TKCrt--bWI@617",
+          "7TKCrt--bWI@620",
+          "7TKCrt--bWI@623",
+          "7TKCrt--bWI@627",
+          "7TKCrt--bWI@630",
+          "7TKCrt--bWI@632",
+          "7TKCrt--bWI@635"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p026",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "For the sequence \"I really like,\" the prediction tasks are: from \"I\" predict \"really,\" from \"I really\" predict \"like,\" and from \"I really like\" predict \"chocolate.\"",
+        "line_ids": [
+          "7TKCrt--bWI@639",
+          "7TKCrt--bWI@641",
+          "7TKCrt--bWI@644",
+          "7TKCrt--bWI@647",
+          "7TKCrt--bWI@650",
+          "7TKCrt--bWI@651",
+          "7TKCrt--bWI@654"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p027",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Although the last next-token target is often the main interest, the earlier target positions are also important because they correspond to the earlier prediction tasks in the input.",
+        "line_ids": [
+          "7TKCrt--bWI@673",
+          "7TKCrt--bWI@676",
+          "7TKCrt--bWI@677",
+          "7TKCrt--bWI@680",
+          "7TKCrt--bWI@685",
+          "7TKCrt--bWI@687",
+          "7TKCrt--bWI@689",
+          "7TKCrt--bWI@691",
+          "7TKCrt--bWI@694"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p028",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The target tensor represents the true prediction values that the large language model should output for the given inputs.",
+        "line_ids": [
+          "7TKCrt--bWI@694",
+          "7TKCrt--bWI@696",
+          "7TKCrt--bWI@698",
+          "7TKCrt--bWI@701",
+          "7TKCrt--bWI@703",
+          "7TKCrt--bWI@706",
+          "7TKCrt--bWI@708",
+          "7TKCrt--bWI@710",
+          "7TKCrt--bWI@712"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p029",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 2,
+        "text": "When the large language model is randomly initialized, it will not initially produce the desired outputs and must be trained.",
+        "line_ids": [
+          "7TKCrt--bWI@715",
+          "7TKCrt--bWI@717",
+          "7TKCrt--bWI@720",
+          "7TKCrt--bWI@722"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p030",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The input tensor is passed into the GPT model, which outputs a logit tensor representing the model's predicted values.",
+        "line_ids": [
+          "7TKCrt--bWI@733",
+          "7TKCrt--bWI@736",
+          "7TKCrt--bWI@740",
+          "7TKCrt--bWI@743",
+          "7TKCrt--bWI@746",
+          "7TKCrt--bWI@749",
+          "7TKCrt--bWI@752",
+          "7TKCrt--bWI@754",
+          "7TKCrt--bWI@756",
+          "7TKCrt--bWI@759",
+          "7TKCrt--bWI@761",
+          "7TKCrt--bWI@765"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p031",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "Text generation proceeds by mapping input text to token IDs using the vocabulary, passing the token IDs through the GPT model to obtain logits, applying a softmax to the logits, and converting the result back into token IDs as the next predictions.",
+        "line_ids": [
+          "7TKCrt--bWI@770",
+          "7TKCrt--bWI@772",
+          "7TKCrt--bWI@776",
+          "7TKCrt--bWI@777",
+          "7TKCrt--bWI@780",
+          "7TKCrt--bWI@782",
+          "7TKCrt--bWI@784",
+          "7TKCrt--bWI@786",
+          "7TKCrt--bWI@789"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p032",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "To illustrate the process simply, the lecturer uses an example vocabulary with seven elements even though the actual vocabulary has 50,257 elements.",
+        "line_ids": [
+          "7TKCrt--bWI@792",
+          "7TKCrt--bWI@794",
+          "7TKCrt--bWI@796",
+          "7TKCrt--bWI@798",
+          "7TKCrt--bWI@803",
+          "7TKCrt--bWI@805",
+          "7TKCrt--bWI@808",
+          "7TKCrt--bWI@809",
+          "7TKCrt--bWI@811"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p033",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "In the example, the input text \"every effort moves\" is mapped to token IDs by the vocabulary as 2, 1, and 4.",
+        "line_ids": [
+          "7TKCrt--bWI@815",
+          "7TKCrt--bWI@818",
+          "7TKCrt--bWI@821",
+          "7TKCrt--bWI@823",
+          "7TKCrt--bWI@826",
+          "7TKCrt--bWI@830",
+          "7TKCrt--bWI@832",
+          "7TKCrt--bWI@834"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p034",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "After applying softmax to the logits, the output matrix has one row per input token and one column per vocabulary element.",
+        "line_ids": [
+          "7TKCrt--bWI@843",
+          "7TKCrt--bWI@847",
+          "7TKCrt--bWI@850",
+          "7TKCrt--bWI@853",
+          "7TKCrt--bWI@855",
+          "7TKCrt--bWI@858",
+          "7TKCrt--bWI@867",
+          "7TKCrt--bWI@869",
+          "7TKCrt--bWI@871",
+          "7TKCrt--bWI@873",
+          "7TKCrt--bWI@876",
+          "7TKCrt--bWI@879"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p035",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The values in each row of the softmax output matrix represent the probabilities of the possible next tokens.",
+        "line_ids": [
+          "7TKCrt--bWI@883",
+          "7TKCrt--bWI@885",
+          "7TKCrt--bWI@887",
+          "7TKCrt--bWI@889",
+          "7TKCrt--bWI@891"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p036",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "For each input prefix, each row of the model output gives the probabilities of all possible next tokens in the vocabulary.",
+        "line_ids": [
+          "7TKCrt--bWI@934",
+          "7TKCrt--bWI@937",
+          "7TKCrt--bWI@941",
+          "7TKCrt--bWI@943",
+          "7TKCrt--bWI@945"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p037",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To predict the next token from a probability row, look at the index with the highest probability and map that index back to its token.",
+        "line_ids": [
+          "7TKCrt--bWI@948",
+          "7TKCrt--bWI@950",
+          "7TKCrt--bWI@952",
+          "7TKCrt--bWI@956",
+          "7TKCrt--bWI@961",
+          "7TKCrt--bWI@963",
+          "7TKCrt--bWI@966",
+          "7TKCrt--bWI@968"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p038",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "For the example input \"every effort moves\", the predicted outputs from the three rows are the token IDs 1, 4, and 5, which correspond to \"effort\", \"moves\", and \"you\".",
+        "line_ids": [
+          "7TKCrt--bWI@969",
+          "7TKCrt--bWI@971",
+          "7TKCrt--bWI@976",
+          "7TKCrt--bWI@980",
+          "7TKCrt--bWI@983",
+          "7TKCrt--bWI@985",
+          "7TKCrt--bWI@1004",
+          "7TKCrt--bWI@1038",
+          "7TKCrt--bWI@1049"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p039",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "When the input has three tokens, there are three prediction tasks: one for each growing prefix of the input.",
+        "line_ids": [
+          "7TKCrt--bWI@1007",
+          "7TKCrt--bWI@1010",
+          "7TKCrt--bWI@1012",
+          "7TKCrt--bWI@1014",
+          "7TKCrt--bWI@1026",
+          "7TKCrt--bWI@1033"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p040",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In GPT-2, the vocabulary size is 50257, so output token IDs range from 0 to 50257, whereas in the toy example the vocabulary size was 7.",
+        "line_ids": [
+          "7TKCrt--bWI@1113",
+          "7TKCrt--bWI@1115",
+          "7TKCrt--bWI@1118",
+          "7TKCrt--bWI@1121",
+          "7TKCrt--bWI@1125"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p041",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The goal is for the model's output token IDs to be as close as possible to the target token IDs, because the current outputs are not yet correct before training.",
+        "line_ids": [
+          "7TKCrt--bWI@1163",
+          "7TKCrt--bWI@1166",
+          "7TKCrt--bWI@1168",
+          "7TKCrt--bWI@1170",
+          "7TKCrt--bWI@1174",
+          "7TKCrt--bWI@1177",
+          "7TKCrt--bWI@1181",
+          "7TKCrt--bWI@1183",
+          "7TKCrt--bWI@1188"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p042",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The loss function is defined between the outputs and the targets.",
+        "line_ids": [
+          "7TKCrt--bWI@1190",
+          "7TKCrt--bWI@1192",
+          "7TKCrt--bWI@1193"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p043",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To get output token IDs, the inputs pass through the GPT architecture to produce logits, softmax is applied to obtain probabilities, and then the index with the highest probability is extracted from each row.",
+        "line_ids": [
+          "7TKCrt--bWI@1241",
+          "7TKCrt--bWI@1244",
+          "7TKCrt--bWI@1248",
+          "7TKCrt--bWI@1250",
+          "7TKCrt--bWI@1252",
+          "7TKCrt--bWI@1255",
+          "7TKCrt--bWI@1258",
+          "7TKCrt--bWI@1262",
+          "7TKCrt--bWI@1266"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p044",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The lecture uses a GPT configuration with vocabulary size 50257, context length 256, embedding dimension 768, 12 attention heads, 12 transformer blocks, dropout 0.1, and query-key-value bias set to false.",
+        "line_ids": [
+          "7TKCrt--bWI@1287",
+          "7TKCrt--bWI@1290",
+          "7TKCrt--bWI@1294",
+          "7TKCrt--bWI@1296",
+          "7TKCrt--bWI@1300",
+          "7TKCrt--bWI@1303",
+          "7TKCrt--bWI@1305",
+          "7TKCrt--bWI@1308",
+          "7TKCrt--bWI@1310"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p045",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "definition",
+        "importance": 2,
+        "text": "The model being constructed is an instance of the GPT model class, which takes input and converts it into a logits tensor.",
+        "line_ids": [
+          "7TKCrt--bWI@1313",
+          "7TKCrt--bWI@1315",
+          "7TKCrt--bWI@1318",
+          "7TKCrt--bWI@1320",
+          "7TKCrt--bWI@1329",
+          "7TKCrt--bWI@1331",
+          "7TKCrt--bWI@1333"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p046",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The transformer block is the heart of the entire GPT architecture.",
+        "line_ids": [
+          "7TKCrt--bWI@1342",
+          "7TKCrt--bWI@1344",
+          "7TKCrt--bWI@1346",
+          "7TKCrt--bWI@1348",
+          "7TKCrt--bWI@1350"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p047",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The context length is reduced to 256 instead of GPT-2's 1024 so learners can follow and run the code on a laptop with lower computational requirements.",
+        "line_ids": [
+          "7TKCrt--bWI@1360",
+          "7TKCrt--bWI@1363",
+          "7TKCrt--bWI@1366",
+          "7TKCrt--bWI@1368",
+          "7TKCrt--bWI@1371",
+          "7TKCrt--bWI@1373",
+          "7TKCrt--bWI@1376",
+          "7TKCrt--bWI@1377"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p048",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "definition",
+        "importance": 2,
+        "text": "The function \"text to token IDs\" converts input text into token IDs using the tiktoken tokenizer, and \"token IDs to text\" performs the reverse conversion.",
+        "line_ids": [
+          "7TKCrt--bWI@1381",
+          "7TKCrt--bWI@1383",
+          "7TKCrt--bWI@1385",
+          "7TKCrt--bWI@1388",
+          "7TKCrt--bWI@1390",
+          "7TKCrt--bWI@1393",
+          "7TKCrt--bWI@1397",
+          "7TKCrt--bWI@1399",
+          "7TKCrt--bWI@1401",
+          "7TKCrt--bWI@1403"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p049",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "code",
+        "importance": 1,
+        "text": "A previously defined function called \"generate text simple\" is used to take the model, start from four input tokens, and generate 10 new tokens.",
+        "line_ids": [
+          "7TKCrt--bWI@1421",
+          "7TKCrt--bWI@1424",
+          "7TKCrt--bWI@1426",
+          "7TKCrt--bWI@1431",
+          "7TKCrt--bWI@1435",
+          "7TKCrt--bWI@1438",
+          "7TKCrt--bWI@1440"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p050",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 2,
+        "text": "One word is not necessarily one token because byte pair encoding can produce tokens that are subwords or individual characters.",
+        "line_ids": [
+          "7TKCrt--bWI@1452",
+          "7TKCrt--bWI@1454",
+          "7TKCrt--bWI@1456",
+          "7TKCrt--bWI@1458",
+          "7TKCrt--bWI@1460"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p051",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The untrained model does not yet produce good text, which is why a loss function is needed to measure how good the text is.",
+        "line_ids": [
+          "7TKCrt--bWI@1463",
+          "7TKCrt--bWI@1465",
+          "7TKCrt--bWI@1468",
+          "7TKCrt--bWI@1470",
+          "7TKCrt--bWI@1473"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p052",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The targets are the input shifted by one position, because there are three input-output pairs.",
+        "line_ids": [
+          "7TKCrt--bWI@1499",
+          "7TKCrt--bWI@1501",
+          "7TKCrt--bWI@1505",
+          "7TKCrt--bWI@1507",
+          "7TKCrt--bWI@1511",
+          "7TKCrt--bWI@1515",
+          "7TKCrt--bWI@1517",
+          "7TKCrt--bWI@1520",
+          "7TKCrt--bWI@1522",
+          "7TKCrt--bWI@1524"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p053",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To generate outputs, pass the input through the GPT model to obtain logits, then apply softmax because the logits are not yet normalized into probabilities between 0 and 1.",
+        "line_ids": [
+          "7TKCrt--bWI@1531",
+          "7TKCrt--bWI@1534",
+          "7TKCrt--bWI@1537",
+          "7TKCrt--bWI@1541",
+          "7TKCrt--bWI@1543",
+          "7TKCrt--bWI@1550",
+          "7TKCrt--bWI@1552",
+          "7TKCrt--bWI@1555",
+          "7TKCrt--bWI@1558",
+          "7TKCrt--bWI@1560",
+          "7TKCrt--bWI@1563",
+          "7TKCrt--bWI@1565"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p054",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The logits or probability tensor has shape batch size by number of tokens by vocabulary size.",
+        "line_ids": [
+          "7TKCrt--bWI@1576",
+          "7TKCrt--bWI@1578",
+          "7TKCrt--bWI@1590",
+          "7TKCrt--bWI@1592",
+          "7TKCrt--bWI@1597",
+          "7TKCrt--bWI@1599",
+          "7TKCrt--bWI@1602",
+          "7TKCrt--bWI@1605",
+          "7TKCrt--bWI@1607",
+          "7TKCrt--bWI@1611",
+          "7TKCrt--bWI@1613",
+          "7TKCrt--bWI@1618",
+          "7TKCrt--bWI@1623",
+          "7TKCrt--bWI@1630",
+          "7TKCrt--bWI@1641",
+          "7TKCrt--bWI@1645"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p055",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "Using torch.argmax with dimension equal to minus one selects, for each row, the index of the maximum value along the vocabulary dimension, and those indices are the output token IDs.",
+        "line_ids": [
+          "7TKCrt--bWI@1652",
+          "7TKCrt--bWI@1654",
+          "7TKCrt--bWI@1658",
+          "7TKCrt--bWI@1660",
+          "7TKCrt--bWI@1670",
+          "7TKCrt--bWI@1673",
+          "7TKCrt--bWI@1676",
+          "7TKCrt--bWI@1679",
+          "7TKCrt--bWI@1682",
+          "7TKCrt--bWI@1685",
+          "7TKCrt--bWI@1686",
+          "7TKCrt--bWI@1688",
+          "7TKCrt--bWI@1690",
+          "7TKCrt--bWI@1692",
+          "7TKCrt--bWI@1694"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p056",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "After obtaining output token IDs, decode them back into text to inspect what the model predicted.",
+        "line_ids": [
+          "7TKCrt--bWI@1723",
+          "7TKCrt--bWI@1725",
+          "7TKCrt--bWI@1728",
+          "7TKCrt--bWI@1730",
+          "7TKCrt--bWI@1733",
+          "7TKCrt--bWI@1735",
+          "7TKCrt--bWI@1738",
+          "7TKCrt--bWI@1740",
+          "7TKCrt--bWI@1742",
+          "7TKCrt--bWI@1744",
+          "7TKCrt--bWI@1746"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p057",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "For the first batch, the decoded output is random text such as \"armed H Netflix\" instead of the target \"effort moves you\", showing a large mismatch between outputs and targets.",
+        "line_ids": [
+          "7TKCrt--bWI@1747",
+          "7TKCrt--bWI@1752",
+          "7TKCrt--bWI@1755",
+          "7TKCrt--bWI@1759",
+          "7TKCrt--bWI@1761",
+          "7TKCrt--bWI@1763",
+          "7TKCrt--bWI@1769",
+          "7TKCrt--bWI@1772",
+          "7TKCrt--bWI@1776",
+          "7TKCrt--bWI@1778",
+          "7TKCrt--bWI@1782",
+          "7TKCrt--bWI@1784",
+          "7TKCrt--bWI@1786"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p058",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Because the model has not yet been optimized and the loss function has not yet been minimized, the target text and output text are not close to each other.",
+        "line_ids": [
+          "7TKCrt--bWI@1788",
+          "7TKCrt--bWI@1791",
+          "7TKCrt--bWI@1795",
+          "7TKCrt--bWI@1797",
+          "7TKCrt--bWI@1798",
+          "7TKCrt--bWI@1801",
+          "7TKCrt--bWI@1802",
+          "7TKCrt--bWI@1805",
+          "7TKCrt--bWI@1807",
+          "7TKCrt--bWI@1810",
+          "7TKCrt--bWI@1813"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p059",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The loss is defined using the probabilities assigned to the target next-token indices in the model output.",
+        "line_ids": [
+          "7TKCrt--bWI@1822",
+          "7TKCrt--bWI@1824",
+          "7TKCrt--bWI@1832",
+          "7TKCrt--bWI@1835",
+          "7TKCrt--bWI@1841",
+          "7TKCrt--bWI@1853"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p060",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Before training, the probabilities at the correct target indices are not necessarily the highest because the LLM is not yet trained.",
+        "line_ids": [
+          "7TKCrt--bWI@1888",
+          "7TKCrt--bWI@1890",
+          "7TKCrt--bWI@1892",
+          "7TKCrt--bWI@1894"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p061",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To evaluate the model, you collect from the probability tensor the probabilities located at the target indices for each token prediction in each batch.",
+        "line_ids": [
+          "7TKCrt--bWI@1897",
+          "7TKCrt--bWI@1899",
+          "7TKCrt--bWI@1901",
+          "7TKCrt--bWI@1903",
+          "7TKCrt--bWI@1905",
+          "7TKCrt--bWI@1910"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p062",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 2,
+        "text": "For two batches with three token predictions each, there are six target probabilities in total: three from the first batch and three from the second batch.",
+        "line_ids": [
+          "7TKCrt--bWI@2033",
+          "7TKCrt--bWI@2035",
+          "7TKCrt--bWI@2037",
+          "7TKCrt--bWI@2039",
+          "7TKCrt--bWI@2041",
+          "7TKCrt--bWI@2045"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p063",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The goal of training is to make all collected target probabilities as close to one as possible so that the highest-probability output indices match the target indices.",
+        "line_ids": [
+          "7TKCrt--bWI@2002",
+          "7TKCrt--bWI@2004",
+          "7TKCrt--bWI@2007",
+          "7TKCrt--bWI@2009",
+          "7TKCrt--bWI@2016",
+          "7TKCrt--bWI@2021"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p064",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The workflow is to start from the logits tensor, convert it to probabilities with softmax, identify the target-index probabilities, merge them together, and then compute the loss from those values.",
+        "line_ids": [
+          "7TKCrt--bWI@2075",
+          "7TKCrt--bWI@2076",
+          "7TKCrt--bWI@2079",
+          "7TKCrt--bWI@2081",
+          "7TKCrt--bWI@2084",
+          "7TKCrt--bWI@2107"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p065",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Because this problem deals with probabilities, logarithms and cross-entropy are the natural mathematical tools to use.",
+        "line_ids": [
+          "7TKCrt--bWI@2113",
+          "7TKCrt--bWI@2115",
+          "7TKCrt--bWI@2118",
+          "7TKCrt--bWI@2120",
+          "7TKCrt--bWI@2122",
+          "7TKCrt--bWI@2124"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p066",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Instead of directly working with the target probabilities, it is better mathematically and from an optimization perspective to take their logarithms, average them, and then negate the result.",
+        "line_ids": [
+          "7TKCrt--bWI@2126",
+          "7TKCrt--bWI@2127",
+          "7TKCrt--bWI@2129",
+          "7TKCrt--bWI@2131",
+          "7TKCrt--bWI@2136",
+          "7TKCrt--bWI@2142"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p067",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The negative log-likelihood is the negative of the mean of the log target probabilities.",
+        "line_ids": [
+          "7TKCrt--bWI@2160",
+          "7TKCrt--bWI@2162",
+          "7TKCrt--bWI@2167",
+          "7TKCrt--bWI@2171",
+          "7TKCrt--bWI@2178",
+          "7TKCrt--bWI@2198"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p068",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "equation",
+        "importance": 3,
+        "text": "The negative log-likelihood is computed as the negative of the sum of log P11 through log p23 divided by 6.",
+        "line_ids": [
+          "7TKCrt--bWI@2181",
+          "7TKCrt--bWI@2185",
+          "7TKCrt--bWI@2190",
+          "7TKCrt--bWI@2201",
+          "7TKCrt--bWI@2207"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p069",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Minimizing the negative log-likelihood, or cross-entropy loss, pushes the target probabilities toward one, so the loss should be as low and as close to zero as possible.",
+        "line_ids": [
+          "7TKCrt--bWI@2211",
+          "7TKCrt--bWI@2216",
+          "7TKCrt--bWI@2218",
+          "7TKCrt--bWI@2221",
+          "7TKCrt--bWI@2223",
+          "7TKCrt--bWI@2227"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p070",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Using the negative log-likelihood makes the objective intuitive because it turns the problem into minimizing a loss rather than maximizing it.",
+        "line_ids": [
+          "7TKCrt--bWI@2232",
+          "7TKCrt--bWI@2234",
+          "7TKCrt--bWI@2237",
+          "7TKCrt--bWI@2241",
+          "7TKCrt--bWI@2247",
+          "7TKCrt--bWI@2256"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p071",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 2,
+        "text": "If the loss reaches zero, that indicates the mean is effectively at one and the target probabilities are at or near one, which is exactly the training goal.",
+        "line_ids": [
+          "7TKCrt--bWI@2276",
+          "7TKCrt--bWI@2278",
+          "7TKCrt--bWI@2281",
+          "7TKCrt--bWI@2285",
+          "7TKCrt--bWI@2287",
+          "7TKCrt--bWI@2295"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p072",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The negative log-likelihood is also called the cross-entropy loss.",
+        "line_ids": [
+          "7TKCrt--bWI@2324",
+          "7TKCrt--bWI@2328",
+          "7TKCrt--bWI@2331",
+          "7TKCrt--bWI@2333"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p073",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Minimizing cross-entropy loss ensures that the predicted next-token indices align closely with the target indices, indicating that the language model is performing well.",
+        "line_ids": [
+          "7TKCrt--bWI@2333",
+          "7TKCrt--bWI@2337",
+          "7TKCrt--bWI@2338",
+          "7TKCrt--bWI@2340",
+          "7TKCrt--bWI@2346",
+          "7TKCrt--bWI@2358"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p074",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "definition",
+        "importance": 2,
+        "text": "Cross-entropy loss essentially measures the difference between two probability distributions.",
+        "line_ids": [
+          "7TKCrt--bWI@2362",
+          "7TKCrt--bWI@2364",
+          "7TKCrt--bWI@2367",
+          "7TKCrt--bWI@2370"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p075",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In this setting, the loss can be viewed as categorical cross-entropy.",
+        "line_ids": [
+          "7TKCrt--bWI@2372",
+          "7TKCrt--bWI@2374",
+          "7TKCrt--bWI@2376",
+          "7TKCrt--bWI@2380",
+          "7TKCrt--bWI@2382"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p076",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The logits tensor has shape 2 × 3 × 50257, and the target tensor has shape 2 × 3.",
+        "line_ids": [
+          "7TKCrt--bWI@2384",
+          "7TKCrt--bWI@2386",
+          "7TKCrt--bWI@2389",
+          "7TKCrt--bWI@2391",
+          "7TKCrt--bWI@2393",
+          "7TKCrt--bWI@2424"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p077",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "Before computing the loss, the two batches are flattened so that the output tokens are merged into one sequence and the target indices are also flattened into one sequence.",
+        "line_ids": [
+          "7TKCrt--bWI@2405",
+          "7TKCrt--bWI@2407",
+          "7TKCrt--bWI@2410",
+          "7TKCrt--bWI@2414",
+          "7TKCrt--bWI@2451",
+          "7TKCrt--bWI@2460"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p078",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "After flattening, you look up in the probability output the entries at the flattened target indices to obtain P11, p12, p13, p21, p22, and p23, then take logs, average them, and negate the result.",
+        "line_ids": [
+          "7TKCrt--bWI@2464",
+          "7TKCrt--bWI@2466",
+          "7TKCrt--bWI@2473",
+          "7TKCrt--bWI@2489",
+          "7TKCrt--bWI@2492",
+          "7TKCrt--bWI@2500"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p079",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "code",
+        "importance": 3,
+        "text": "The code `torch.nn.functional.cross_entropy(logits_flat, targets_flat)` computes the loss from flattened logits and flattened targets.",
+        "line_ids": [
+          "7TKCrt--bWI@2502",
+          "7TKCrt--bWI@2504",
+          "7TKCrt--bWI@2508",
+          "7TKCrt--bWI@2511",
+          "7TKCrt--bWI@2515"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p080",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "code",
+        "importance": 3,
+        "text": "This cross-entropy function first applies softmax to the logits to convert them into probabilities, then extracts the probabilities at the target indices, takes the negative log, and averages them.",
+        "line_ids": [
+          "7TKCrt--bWI@2520",
+          "7TKCrt--bWI@2522",
+          "7TKCrt--bWI@2525",
+          "7TKCrt--bWI@2527",
+          "7TKCrt--bWI@2534",
+          "7TKCrt--bWI@2558"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p081",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 2,
+        "text": "A single call to the cross-entropy function performs all of the required steps and returns the final loss between the output and the target.",
+        "line_ids": [
+          "7TKCrt--bWI@2558",
+          "7TKCrt--bWI@2560",
+          "7TKCrt--bWI@2563",
+          "7TKCrt--bWI@2573",
+          "7TKCrt--bWI@2580",
+          "7TKCrt--bWI@2581"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p082",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "Conceptually, the inputs are passed through the GPT architecture to produce logits, the batches are merged into `logits_flat`, the probabilities at the target indices are examined, and the cross-entropy loss is computed from those probabilities.",
+        "line_ids": [
+          "7TKCrt--bWI@2599",
+          "7TKCrt--bWI@2601",
+          "7TKCrt--bWI@2604",
+          "7TKCrt--bWI@2608",
+          "7TKCrt--bWI@2612",
+          "7TKCrt--bWI@2626"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p083",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In an ideal model, the probabilities at the target indices would be close to one, but in an unoptimized LLM they are typically small, so training aims to increase them by minimizing cross-entropy.",
+        "line_ids": [
+          "7TKCrt--bWI@2629",
+          "7TKCrt--bWI@2631",
+          "7TKCrt--bWI@2634",
+          "7TKCrt--bWI@2638",
+          "7TKCrt--bWI@2643",
+          "7TKCrt--bWI@2656"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p084",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "code",
+        "importance": 2,
+        "text": "The lecturer states that `torch.nn.functional.cross_entropy` finds the cross-entropy loss between the input logits and the target.",
+        "line_ids": [
+          "7TKCrt--bWI@2670",
+          "7TKCrt--bWI@2672",
+          "7TKCrt--bWI@2677",
+          "7TKCrt--bWI@2681",
+          "7TKCrt--bWI@2683",
+          "7TKCrt--bWI@2686"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p085",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "As a first coding step, the lecturer plans to explicitly find the target probabilities P11, p12, p13, p21, p22, and p23 from the model output probabilities.",
+        "line_ids": [
+          "7TKCrt--bWI@2696",
+          "7TKCrt--bWI@2698",
+          "7TKCrt--bWI@2701",
+          "7TKCrt--bWI@2706",
+          "7TKCrt--bWI@2710",
+          "7TKCrt--bWI@2719"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p086",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To measure the loss, the model first selects from the probability tensor the probabilities at the target token indices for each position in each batch.",
+        "line_ids": [
+          "7TKCrt--bWI@2741",
+          "7TKCrt--bWI@2743",
+          "7TKCrt--bWI@2745",
+          "7TKCrt--bWI@2747",
+          "7TKCrt--bWI@2750",
+          "7TKCrt--bWI@2751"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p087",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The probability tensor has shape 2 by 3 by 50257, corresponding to two batches, three token positions, and 50257 vocabulary probabilities.",
+        "line_ids": [
+          "7TKCrt--bWI@2832",
+          "7TKCrt--bWI@2835",
+          "7TKCrt--bWI@2837",
+          "7TKCrt--bWI@2839",
+          "7TKCrt--bWI@2842"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p088",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "For the first batch, the code looks at rows 0, 1, and 2 and picks the probability values at target indices 3626, 6100, and 345 respectively.",
+        "line_ids": [
+          "7TKCrt--bWI@2851",
+          "7TKCrt--bWI@2854",
+          "7TKCrt--bWI@2856",
+          "7TKCrt--bWI@2858",
+          "7TKCrt--bWI@2862",
+          "7TKCrt--bWI@2864",
+          "7TKCrt--bWI@2868",
+          "7TKCrt--bWI@2872",
+          "7TKCrt--bWI@2874",
+          "7TKCrt--bWI@2876",
+          "7TKCrt--bWI@2879",
+          "7TKCrt--bWI@2880",
+          "7TKCrt--bWI@2883",
+          "7TKCrt--bWI@2885"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p089",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "For the second batch, the code looks at rows 0, 1, and 2 and picks the probability values at target indices 1107, 588, and 11311 respectively.",
+        "line_ids": [
+          "7TKCrt--bWI@2888",
+          "7TKCrt--bWI@2890",
+          "7TKCrt--bWI@2892",
+          "7TKCrt--bWI@2894",
+          "7TKCrt--bWI@2897",
+          "7TKCrt--bWI@2899",
+          "7TKCrt--bWI@2902",
+          "7TKCrt--bWI@2904",
+          "7TKCrt--bWI@2907",
+          "7TKCrt--bWI@2908",
+          "7TKCrt--bWI@2911",
+          "7TKCrt--bWI@2913"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p090",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The training goal is to make the selected target probabilities as close to 1 as possible.",
+        "line_ids": [
+          "7TKCrt--bWI@2916",
+          "7TKCrt--bWI@2920",
+          "7TKCrt--bWI@2925",
+          "7TKCrt--bWI@2928",
+          "7TKCrt--bWI@2930"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p091",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "After selecting the target probabilities, they are concatenated, the logarithm is taken, the mean of the log values is computed, and then the negative is taken to obtain the negative log likelihood loss.",
+        "line_ids": [
+          "7TKCrt--bWI@2932",
+          "7TKCrt--bWI@2934",
+          "7TKCrt--bWI@2937",
+          "7TKCrt--bWI@2941",
+          "7TKCrt--bWI@2944",
+          "7TKCrt--bWI@2945",
+          "7TKCrt--bWI@2947",
+          "7TKCrt--bWI@2949",
+          "7TKCrt--bWI@2951",
+          "7TKCrt--bWI@2953",
+          "7TKCrt--bWI@2955",
+          "7TKCrt--bWI@2957",
+          "7TKCrt--bWI@2960",
+          "7TKCrt--bWI@2962",
+          "7TKCrt--bWI@2964"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p092",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In deep learning, it is conventional to use negative log likelihood rather than positive log likelihood so that the loss is minimized instead of maximized.",
+        "line_ids": [
+          "7TKCrt--bWI@2967",
+          "7TKCrt--bWI@2970",
+          "7TKCrt--bWI@2972",
+          "7TKCrt--bWI@2975",
+          "7TKCrt--bWI@2976",
+          "7TKCrt--bWI@2978",
+          "7TKCrt--bWI@2980",
+          "7TKCrt--bWI@2982",
+          "7TKCrt--bWI@2984",
+          "7TKCrt--bWI@2987"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p093",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "A simpler way to compute the loss is to flatten the logits and targets and then use torch.nn.functional.cross_entropy.",
+        "line_ids": [
+          "7TKCrt--bWI@2987",
+          "7TKCrt--bWI@2990",
+          "7TKCrt--bWI@2993",
+          "7TKCrt--bWI@2996",
+          "7TKCrt--bWI@2997",
+          "7TKCrt--bWI@2999",
+          "7TKCrt--bWI@3002"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p094",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The logits are flattened from shape 2 by 3 by 50257 to shape 6 by 50257 by merging the batch and token dimensions.",
+        "line_ids": [
+          "7TKCrt--bWI@3002",
+          "7TKCrt--bWI@3003",
+          "7TKCrt--bWI@3008",
+          "7TKCrt--bWI@3010",
+          "7TKCrt--bWI@3012",
+          "7TKCrt--bWI@3014",
+          "7TKCrt--bWI@3017",
+          "7TKCrt--bWI@3020",
+          "7TKCrt--bWI@3022"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p095",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The target tensor is flattened from two rows and three columns into six values.",
+        "line_ids": [
+          "7TKCrt--bWI@3025",
+          "7TKCrt--bWI@3027",
+          "7TKCrt--bWI@3029",
+          "7TKCrt--bWI@3031",
+          "7TKCrt--bWI@3033",
+          "7TKCrt--bWI@3035"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p096",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The cross entropy function converts logits to softmax probabilities, selects the values at the target indices, takes their logarithm, computes the mean, and returns the negative log likelihood as the categorical cross entropy loss.",
+        "line_ids": [
+          "7TKCrt--bWI@3038",
+          "7TKCrt--bWI@3040",
+          "7TKCrt--bWI@3042",
+          "7TKCrt--bWI@3045",
+          "7TKCrt--bWI@3047",
+          "7TKCrt--bWI@3049",
+          "7TKCrt--bWI@3051",
+          "7TKCrt--bWI@3053"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p097",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The goal during training is to reduce the categorical cross entropy loss as close to zero as possible.",
+        "line_ids": [
+          "7TKCrt--bWI@3055",
+          "7TKCrt--bWI@3057",
+          "7TKCrt--bWI@3059",
+          "7TKCrt--bWI@3062",
+          "7TKCrt--bWI@3063",
+          "7TKCrt--bWI@3065",
+          "7TKCrt--bWI@3067"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p098",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Perplexity is another measure of loss that is a minor modification of cross entropy and measures how well the model's predicted probability distribution matches the actual distribution of words in the dataset.",
+        "line_ids": [
+          "7TKCrt--bWI@3067",
+          "7TKCrt--bWI@3069",
+          "7TKCrt--bWI@3071",
+          "7TKCrt--bWI@3075",
+          "7TKCrt--bWI@3077",
+          "7TKCrt--bWI@3080",
+          "7TKCrt--bWI@3082",
+          "7TKCrt--bWI@3085",
+          "7TKCrt--bWI@3087",
+          "7TKCrt--bWI@3089"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p099",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Perplexity is a more interpretable way to understand model uncertainty in predicting the next token.",
+        "line_ids": [
+          "7TKCrt--bWI@3089",
+          "7TKCrt--bWI@3092",
+          "7TKCrt--bWI@3094",
+          "7TKCrt--bWI@3096",
+          "7TKCrt--bWI@3099"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p100",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A lower perplexity score means better predictions.",
+        "line_ids": [
+          "7TKCrt--bWI@3101",
+          "7TKCrt--bWI@3103",
+          "7TKCrt--bWI@3105"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p101",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "equation",
+        "importance": 3,
+        "text": "Perplexity is calculated as the exponent of the loss.",
+        "line_ids": [
+          "7TKCrt--bWI@3105",
+          "7TKCrt--bWI@3107",
+          "7TKCrt--bWI@3110",
+          "7TKCrt--bWI@3111"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p102",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "analogy",
+        "importance": 3,
+        "text": "A perplexity of 48725 means the model is roughly as uncertain as if it had to choose the next token randomly from about 48725 tokens in the vocabulary.",
+        "line_ids": [
+          "7TKCrt--bWI@3114",
+          "7TKCrt--bWI@3116",
+          "7TKCrt--bWI@3119",
+          "7TKCrt--bWI@3121",
+          "7TKCrt--bWI@3124",
+          "7TKCrt--bWI@3126",
+          "7TKCrt--bWI@3130"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p103",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In this example, the vocabulary size is 50257 tokens.",
+        "line_ids": [
+          "7TKCrt--bWI@3130",
+          "7TKCrt--bWI@3132",
+          "7TKCrt--bWI@3136"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p104",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "If the input is 'every effort moves', the current model is at a stage where predicting the next token is like choosing among 48725 possible tokens, which indicates high uncertainty and poor performance.",
+        "line_ids": [
+          "7TKCrt--bWI@3139",
+          "7TKCrt--bWI@3142",
+          "7TKCrt--bWI@3146",
+          "7TKCrt--bWI@3149",
+          "7TKCrt--bWI@3150",
+          "7TKCrt--bWI@3155",
+          "7TKCrt--bWI@3158",
+          "7TKCrt--bWI@3160",
+          "7TKCrt--bWI@3162"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p105",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "If the perplexity score were 2, that would mean the model only needs to choose between two tokens, which would indicate that the model is very accurate.",
+        "line_ids": [
+          "7TKCrt--bWI@3162",
+          "7TKCrt--bWI@3165",
+          "7TKCrt--bWI@3166",
+          "7TKCrt--bWI@3168",
+          "7TKCrt--bWI@3171"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p106",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A perplexity of 48725 means that about 48000 tokens are effectively equally likely to be the next token, so the model is not good at all.",
+        "line_ids": [
+          "7TKCrt--bWI@3174",
+          "7TKCrt--bWI@3176",
+          "7TKCrt--bWI@3180",
+          "7TKCrt--bWI@3182",
+          "7TKCrt--bWI@3185"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p107",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Perplexity is more interpretable than a categorical cross entropy loss value such as 10 because it can be related directly to the vocabulary size.",
+        "line_ids": [
+          "7TKCrt--bWI@3187",
+          "7TKCrt--bWI@3189",
+          "7TKCrt--bWI@3191",
+          "7TKCrt--bWI@3193",
+          "7TKCrt--bWI@3195",
+          "7TKCrt--bWI@3197",
+          "7TKCrt--bWI@3201",
+          "7TKCrt--bWI@3203",
+          "7TKCrt--bWI@3205"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p108",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Using torch.nn.functional.cross_entropy, one can compute the loss between the logits tensor and the target tensor in a single line of code.",
+        "line_ids": [
+          "7TKCrt--bWI@3252",
+          "7TKCrt--bWI@3256",
+          "7TKCrt--bWI@3258",
+          "7TKCrt--bWI@3261",
+          "7TKCrt--bWI@3263"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p109",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In this example, the loss was 10.79 and the perplexity value was 48725.",
+        "line_ids": [
+          "7TKCrt--bWI@3275",
+          "7TKCrt--bWI@3277",
+          "7TKCrt--bWI@3280",
+          "7TKCrt--bWI@3283",
+          "7TKCrt--bWI@3285",
+          "7TKCrt--bWI@3288"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p110",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Perplexity is usually more interpretable than the raw loss.",
+        "line_ids": [
+          "7TKCrt--bWI@3288",
+          "7TKCrt--bWI@3290"
+        ]
+      },
+      {
+        "id": "7TKCrt--bWI:p111",
+        "video_id": "7TKCrt--bWI",
+        "lecture": 26,
+        "kind": "claim",
+        "importance": 1,
+        "text": "In this lecture, the code example used only two sample inputs.",
+        "line_ids": [
+          "7TKCrt--bWI@3315",
+          "7TKCrt--bWI@3317",
+          "7TKCrt--bWI@3320",
+          "7TKCrt--bWI@3323",
+          "7TKCrt--bWI@3325"
+        ]
+      }
+    ],
+    "inventory": [
+      {
+        "chunk": "7TKCrt--bWI@0-913",
+        "start": 0,
+        "end": 913,
+        "points": 35,
+        "core_points": 17,
+        "invalid_points": 0,
+        "flag": null
+      },
+      {
+        "chunk": "7TKCrt--bWI@911-1824",
+        "start": 911,
+        "end": 1824,
+        "points": 23,
+        "core_points": 14,
+        "invalid_points": 0,
+        "flag": null
+      },
+      {
+        "chunk": "7TKCrt--bWI@1822-2743",
+        "start": 1822,
+        "end": 2743,
+        "points": 27,
+        "core_points": 17,
+        "invalid_points": 0,
+        "flag": null
+      },
+      {
+        "chunk": "7TKCrt--bWI@2741-3371",
+        "start": 2741,
+        "end": 3371,
+        "points": 26,
+        "core_points": 16,
+        "invalid_points": 0,
+        "flag": null
+      }
+    ]
+  }
+}

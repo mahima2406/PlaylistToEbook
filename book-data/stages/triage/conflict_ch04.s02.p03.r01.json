@@ -1,0 +1,14 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch04.s02.p03.r01",
+  "inputs_hash": "02e056bac1756f247f11515fe4b78c113b114d74e35ce1398ea14ed2620cf1de",
+  "output_hash": "f4250e6f6186d967b9c37970ad54794066173df9ede58ee3807419a818850f86",
+  "output": {
+    "decision": "note",
+    "note": "Later code shortens context_length to 256 for efficiency; the original GPT-2 124M configuration uses 1024.",
+    "reason": "The captions support the listed GPT-2 defaults, while the reference also shows a later, deliberate code variant with a reduced context length.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "26d5f678e5083b2c7c8692b99009f0a8305320843f6bb975dac6a512184f74a3"
+  }
+}

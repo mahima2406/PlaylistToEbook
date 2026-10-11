@@ -1,0 +1,271 @@
+{
+  "stage": "write",
+  "item": "ch02.s04",
+  "inputs_hash": "ae31851c15899335c8623cf84304da9f415634c08ef52b479611bd9455c4d26c",
+  "output_hash": "8e2218019dc59d18dc5ec07a6237130d7852b822cb89f57f11b77b2dae2a2601",
+  "output": {
+    "section_id": "ch02.s04",
+    "paragraphs": [
+      {
+        "id": "ch02.s04.p01",
+        "sentences": [
+          {
+            "id": "ch02.s04.p01.01",
+            "text": "Why does a simple word tokenizer break down once it meets real user input?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s04.p01.02",
+            "text": "A main problem with word-based tokenization is handling words that are not present in the vocabulary.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@250",
+              "fKd8s29e-l4@252",
+              "mk-6cFebjis@1793",
+              "mk-6cFebjis@1798"
+            ]
+          },
+          {
+            "id": "ch02.s04.p01.03",
+            "text": "These words are called out-of-vocabulary words.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@272",
+              "fKd8s29e-l4@274",
+              "fKd8s29e-l4@277"
+            ]
+          },
+          {
+            "id": "ch02.s04.p01.04",
+            "text": "A vocabulary here is a dictionary with a collection of tokens arranged in ascending order, where every token corresponds to a token ID.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@328",
+              "fKd8s29e-l4@330",
+              "fKd8s29e-l4@333",
+              "fKd8s29e-l4@335"
+            ]
+          },
+          {
+            "id": "ch02.s04.p01.05",
+            "text": "If a user inputs a word that was not present in that vocabulary, a word-based tokenization scheme can run into an error.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@268",
+              "fKd8s29e-l4@270",
+              "fKd8s29e-l4@272",
+              "fKd8s29e-l4@307",
+              "fKd8s29e-l4@310"
+            ]
+          },
+          {
+            "id": "ch02.s04.p01.06",
+            "text": "For example, if the available data contains only a small case such as \"my hobby is playing Cricket\" and a new word such as \"football\" is not present in that data set, these schemes usually run into an error.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@294",
+              "fKd8s29e-l4@296",
+              "fKd8s29e-l4@298",
+              "fKd8s29e-l4@300",
+              "fKd8s29e-l4@303",
+              "fKd8s29e-l4@306",
+              "fKd8s29e-l4@307",
+              "fKd8s29e-l4@310"
+            ]
+          },
+          {
+            "id": "ch02.s04.p01.07",
+            "text": "The same issue appears when trying to encode text containing words such as \"hello\" that are not in the vocabulary: the tokenizer returns an error because it does not know how to encode them.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1297",
+              "mk-6cFebjis@1300",
+              "mk-6cFebjis@1302",
+              "mk-6cFebjis@1305",
+              "mk-6cFebjis@1314",
+              "mk-6cFebjis@1316",
+              "mk-6cFebjis@1318",
+              "mk-6cFebjis@1321",
+              "mk-6cFebjis@1330",
+              "mk-6cFebjis@1333",
+              "mk-6cFebjis@1338",
+              "mk-6cFebjis@1340",
+              "mk-6cFebjis@1342",
+              "mk-6cFebjis@1344",
+              "mk-6cFebjis@1346"
+            ]
+          },
+          {
+            "id": "ch02.s04.p01.08",
+            "text": "Out-of-vocabulary words are like preparing for an exam and then being asked a completely different question in the exam.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@279",
+              "fKd8s29e-l4@282",
+              "fKd8s29e-l4@284",
+              "fKd8s29e-l4@285"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s04.p02",
+        "sentences": [
+          {
+            "id": "ch02.s04.p02.01",
+            "text": "Word tokenization also misses an important kind of structure inside related words.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s04.p02.02",
+            "text": "Another major problem with word-based tokenization is that similar words such as \"boy\" and \"boys\" are treated as separate words despite their similarity.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@341",
+              "fKd8s29e-l4@344",
+              "fKd8s29e-l4@361",
+              "fKd8s29e-l4@366",
+              "fKd8s29e-l4@375",
+              "fKd8s29e-l4@377",
+              "fKd8s29e-l4@379",
+              "mk-6cFebjis@1805",
+              "mk-6cFebjis@1808",
+              "mk-6cFebjis@1810",
+              "mk-6cFebjis@1812",
+              "mk-6cFebjis@1814"
+            ]
+          },
+          {
+            "id": "ch02.s04.p02.03",
+            "text": "In a word-based scheme, different forms of related words get separate token IDs, so similarity based on a shared root word is not captured.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@348",
+              "fKd8s29e-l4@351",
+              "fKd8s29e-l4@366",
+              "fKd8s29e-l4@370",
+              "fKd8s29e-l4@372",
+              "fKd8s29e-l4@377",
+              "fKd8s29e-l4@379",
+              "fKd8s29e-l4@382",
+              "mk-6cFebjis@1814",
+              "mk-6cFebjis@1816",
+              "mk-6cFebjis@1821",
+              "mk-6cFebjis@1823",
+              "mk-6cFebjis@1825",
+              "mk-6cFebjis@1827",
+              "mk-6cFebjis@1829",
+              "mk-6cFebjis@1832",
+              "mk-6cFebjis@1835",
+              "mk-6cFebjis@1839"
+            ]
+          },
+          {
+            "id": "ch02.s04.p02.04",
+            "text": "The token IDs for such words may be far apart, and in either case the tokenization itself does not capture that they are very similar.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@351",
+              "fKd8s29e-l4@353",
+              "fKd8s29e-l4@356",
+              "fKd8s29e-l4@358",
+              "fKd8s29e-l4@361",
+              "fKd8s29e-l4@364",
+              "fKd8s29e-l4@366"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s04.p03",
+        "sentences": [
+          {
+            "id": "ch02.s04.p03.01",
+            "text": "There is a trade-off here.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s04.p03.02",
+            "text": "Word-based tokenization produces shorter tokenized sequences because each word is one token.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@627",
+              "fKd8s29e-l4@639",
+              "fKd8s29e-l4@643",
+              "fKd8s29e-l4@645",
+              "fKd8s29e-l4@648",
+              "fKd8s29e-l4@654",
+              "fKd8s29e-l4@657"
+            ]
+          },
+          {
+            "id": "ch02.s04.p03.03",
+            "text": "For example, \"dinosaur\" is just one token in word-based tokenization.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@595",
+              "fKd8s29e-l4@598",
+              "fKd8s29e-l4@645",
+              "fKd8s29e-l4@648"
+            ]
+          },
+          {
+            "id": "ch02.s04.p03.04",
+            "text": "Its disadvantages are that it fails on out-of-vocabulary words and that the vocabulary size is pretty large.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@630",
+              "fKd8s29e-l4@633",
+              "fKd8s29e-l4@634",
+              "fKd8s29e-l4@637"
+            ]
+          },
+          {
+            "id": "ch02.s04.p03.05",
+            "text": "A major reason for the large vocabulary is that a model would need tokens for a huge number of words in the language.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1843",
+              "mk-6cFebjis@1845",
+              "mk-6cFebjis@1847",
+              "mk-6cFebjis@1849",
+              "mk-6cFebjis@1856",
+              "mk-6cFebjis@1858",
+              "mk-6cFebjis@1860"
+            ]
+          },
+          {
+            "id": "ch02.s04.p03.06",
+            "text": "The number of words in English is estimated to be around 600,000 to 1 million.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1860",
+              "mk-6cFebjis@1862",
+              "mk-6cFebjis@1866",
+              "mk-6cFebjis@1868",
+              "mk-6cFebjis@1870",
+              "mk-6cFebjis@1872"
+            ]
+          },
+          {
+            "id": "ch02.s04.p03.07",
+            "text": "That makes the required vocabulary size really very high for a word-based tokenizer.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1872",
+              "mk-6cFebjis@1874",
+              "mk-6cFebjis@1878",
+              "mk-6cFebjis@1881",
+              "mk-6cFebjis@1883",
+              "mk-6cFebjis@1885",
+              "mk-6cFebjis@1888"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

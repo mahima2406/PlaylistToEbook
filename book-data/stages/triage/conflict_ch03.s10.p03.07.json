@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch03.s10.p03.07",
+  "inputs_hash": "9c1d4ecfcf1cbc8158acde94b466231b7a8404accd84ca09fe6eb8f72bc55232",
+  "output_hash": "fdb1f0d75bc96800568cc8e80693076753bd75770dd2d85ac3aadfdc145f278f",
+  "output": {
+    "decision": "edit",
+    "text": "Layer normalization centers a layer's activations to mean zero and normalizes their variance to one, which helps stabilize training and reduce internal covariate shift.",
+    "reason": "The caption supports the normalization effect and benefits, while this edit avoids the overgeneralization that every layer output is always adjusted.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.74,
+      "reason": "The cited lines support normalizing layer outputs to mean 0 and variance 1, improving training stability and reducing internal covariate shift, but they do not specifically mention 'layer normalization' (as opposed to normalization in general/batch normalization)."
+    },
+    "kind": "conflict",
+    "sentence_hash": "1cf19ef27aae3e31b30588834c9824329cf6ecb93f8376654f0963a2682d0ff7"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch05.s11.p02.r06",
+  "inputs_hash": "0ff25e32c6312d712d27eef0cc3b8d87cdfff156cba0cb1c3f95260dcb94c6a0",
+  "output_hash": "8e9b63ea768bb9935aea8fdbd97ed6ca185214f4bec9fb337c9aa64efce42c25",
+  "output": {
+    "decision": "edit",
+    "text": "The code calls this accuracy function on the training, validation, and test loaders, and then prints the three accuracies.",
+    "reason": "The captions mention setting the number of batches to 10, but the reference code shown does not pass num_batches=10, so removing that detail resolves the conflict while staying supported.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.94,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "2d7c08f4f5baba94a26c677a1cd43823ac19a41466c3f8b2dbdafc6ebd6ce096"
+  }
+}

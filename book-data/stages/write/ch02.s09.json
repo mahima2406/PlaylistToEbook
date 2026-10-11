@@ -1,0 +1,330 @@
+{
+  "stage": "write",
+  "item": "ch02.s09",
+  "inputs_hash": "d5199ac31c4c656906d9b6668b6e27e6cb7378e5de57887bdd40169014bfaa1d",
+  "output_hash": "c900036d24c1f6c40b198866a503308909f176a5b39a975541b97d9d23b1e6f1",
+  "output": {
+    "section_id": "ch02.s09",
+    "paragraphs": [
+      {
+        "id": "ch02.s09.p01",
+        "sentences": [
+          {
+            "id": "ch02.s09.p01.01",
+            "text": "How can a Python program use the same kind of byte pair tokenizer as GPT-2 without reimplementing the algorithm from scratch?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s09.p01.02",
+            "text": "Implementing byte pair encoding from scratch is relatively complicated, so a practical approach is to use the Python open-source library \"tiktoken\".",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2459",
+              "fKd8s29e-l4@2463",
+              "fKd8s29e-l4@2465"
+            ]
+          },
+          {
+            "id": "ch02.s09.p01.03",
+            "text": "\"tiktoken\" is essentially a byte pair encoder used for OpenAI models, and it is the tokenizer used in OpenAI models.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2472",
+              "fKd8s29e-l4@2474",
+              "fKd8s29e-l4@2476",
+              "fKd8s29e-l4@2479",
+              "mk-6cFebjis@2581",
+              "mk-6cFebjis@2584",
+              "mk-6cFebjis@2586"
+            ]
+          },
+          {
+            "id": "ch02.s09.p01.04",
+            "text": "To use it, the first step is to install the \"tiktoken\" library.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2502",
+              "fKd8s29e-l4@2504",
+              "mk-6cFebjis@2590",
+              "mk-6cFebjis@2592"
+            ]
+          },
+          {
+            "id": "ch02.s09.p01.05",
+            "text": "After installation, the GPT-2 byte pair tokenizer is instantiated with a call such as \"tiktoken.get_encoding(\"gpt2\")\", storing the result in a tokenizer object.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2538",
+              "fKd8s29e-l4@2541",
+              "fKd8s29e-l4@2543",
+              "fKd8s29e-l4@2545",
+              "fKd8s29e-l4@2547",
+              "fKd8s29e-l4@2552",
+              "fKd8s29e-l4@2554",
+              "mk-6cFebjis@2595",
+              "mk-6cFebjis@2598",
+              "mk-6cFebjis@2602",
+              "mk-6cFebjis@2772",
+              "mk-6cFebjis@2775"
+            ]
+          },
+          {
+            "id": "ch02.s09.p01.06",
+            "text": "That tokenizer object is similar to the earlier Python tokenizer classes because it has \"encode\" and \"decode\" methods, but here the tokenizer is created in one line through the library.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2558",
+              "fKd8s29e-l4@2561",
+              "fKd8s29e-l4@2563",
+              "fKd8s29e-l4@2579",
+              "fKd8s29e-l4@2581",
+              "fKd8s29e-l4@2585",
+              "fKd8s29e-l4@2588",
+              "mk-6cFebjis@2605",
+              "mk-6cFebjis@2608",
+              "mk-6cFebjis@2610",
+              "mk-6cFebjis@2613"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s09.p02",
+        "sentences": [
+          {
+            "id": "ch02.s09.p02.01",
+            "text": "With that tokenizer in hand, the next step is to test encoding and decoding on actual text.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s09.p02.02",
+            "text": "An example text is encoded with the tokenizer while allowing the special end-of-text token, and the resulting output includes token IDs such as \"50256\".",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@2632",
+              "mk-6cFebjis@2634",
+              "mk-6cFebjis@2646",
+              "mk-6cFebjis@2649",
+              "fKd8s29e-l4@2726",
+              "fKd8s29e-l4@2732"
+            ]
+          },
+          {
+            "id": "ch02.s09.p02.03",
+            "text": "In the GPT-2 and GPT-3 tokenization scheme, token ID \"50256\" is the end-of-text token.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2732",
+              "fKd8s29e-l4@2735",
+              "fKd8s29e-l4@2871",
+              "fKd8s29e-l4@2873",
+              "fKd8s29e-l4@2876",
+              "fKd8s29e-l4@2879"
+            ]
+          },
+          {
+            "id": "ch02.s09.p02.04",
+            "text": "The GPT-2 and GPT-3 byte pair encoding scheme uses a vocabulary of around 50,000 tokens, which is much smaller than the roughly 170,000 to 200,000 words that a word-level English vocabulary would require.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2738",
+              "fKd8s29e-l4@2741",
+              "fKd8s29e-l4@2744",
+              "fKd8s29e-l4@2746",
+              "fKd8s29e-l4@2748",
+              "fKd8s29e-l4@2751",
+              "fKd8s29e-l4@2764",
+              "fKd8s29e-l4@2766",
+              "mk-6cFebjis@2702",
+              "mk-6cFebjis@2705",
+              "mk-6cFebjis@2708",
+              "mk-6cFebjis@2711",
+              "mk-6cFebjis@2712",
+              "mk-6cFebjis@2714",
+              "mk-6cFebjis@2736",
+              "mk-6cFebjis@2740"
+            ]
+          },
+          {
+            "id": "ch02.s09.p02.05",
+            "text": "Byte pair encoding reduces the vocabulary size while still giving strong performance.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2753",
+              "fKd8s29e-l4@2757",
+              "fKd8s29e-l4@2759",
+              "fKd8s29e-l4@2766",
+              "fKd8s29e-l4@2768",
+              "fKd8s29e-l4@2770"
+            ]
+          },
+          {
+            "id": "ch02.s09.p02.06",
+            "text": "When the token IDs are passed to the tokenizer's \"decode\" method, the text is reconstructed exactly as it was originally given.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2820",
+              "fKd8s29e-l4@2822",
+              "fKd8s29e-l4@2828",
+              "fKd8s29e-l4@2831",
+              "fKd8s29e-l4@2834",
+              "fKd8s29e-l4@2836",
+              "fKd8s29e-l4@2843",
+              "fKd8s29e-l4@2846",
+              "mk-6cFebjis@2751",
+              "mk-6cFebjis@2753",
+              "mk-6cFebjis@2755",
+              "mk-6cFebjis@2757"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s09.p03",
+        "sentences": [
+          {
+            "id": "ch02.s09.p03.01",
+            "text": "The token IDs also reveal two useful properties of the GPT-2 byte pair vocabulary.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s09.p03.02",
+            "text": "In the GPT-2 byte pair tokenizer, the end-of-text token is the last token in the vocabulary, so it has the largest token ID, \"50256\".",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2873",
+              "fKd8s29e-l4@2875",
+              "fKd8s29e-l4@2876",
+              "fKd8s29e-l4@2879",
+              "fKd8s29e-l4@2883",
+              "fKd8s29e-l4@2899",
+              "fKd8s29e-l4@2901"
+            ]
+          },
+          {
+            "id": "ch02.s09.p03.03",
+            "text": "The byte pair tokenizer used for GPT-2, GPT-3, and the original model used in ChatGPT has a total vocabulary size of \"50257\".",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2886",
+              "fKd8s29e-l4@2888",
+              "fKd8s29e-l4@2891",
+              "fKd8s29e-l4@2893"
+            ]
+          },
+          {
+            "id": "ch02.s09.p03.04",
+            "text": "A byte pair encoding tokenizer can encode and decode unknown words without any special unknown-word token because it breaks text down to characters and subwords.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2907",
+              "fKd8s29e-l4@2909",
+              "fKd8s29e-l4@2912",
+              "fKd8s29e-l4@2919",
+              "fKd8s29e-l4@2921",
+              "fKd8s29e-l4@2932",
+              "fKd8s29e-l4@2934",
+              "fKd8s29e-l4@2937",
+              "fKd8s29e-l4@2939",
+              "fKd8s29e-l4@2944",
+              "fKd8s29e-l4@2946",
+              "fKd8s29e-l4@2949",
+              "fKd8s29e-l4@2951",
+              "fKd8s29e-l4@2962",
+              "fKd8s29e-l4@2965",
+              "fKd8s29e-l4@2967",
+              "fKd8s29e-l4@2969",
+              "mk-6cFebjis@2621",
+              "mk-6cFebjis@2623",
+              "mk-6cFebjis@2627",
+              "mk-6cFebjis@2630",
+              "mk-6cFebjis@2641",
+              "mk-6cFebjis@2651"
+            ]
+          },
+          {
+            "id": "ch02.s09.p03.05",
+            "text": "For a word-level tokenizer, text containing an unknown word would ideally produce an error, but with the byte pair tokenizer no error occurs.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@2637",
+              "mk-6cFebjis@2639",
+              "mk-6cFebjis@2641",
+              "mk-6cFebjis@2646",
+              "mk-6cFebjis@2649",
+              "mk-6cFebjis@2651"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s09.p04",
+        "sentences": [
+          {
+            "id": "ch02.s09.p04.01",
+            "text": "This becomes even clearer on deliberately made-up words.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s09.p04.02",
+            "text": "A final example uses the random nonsense string \"a k w i r w i e r\", described as completely random words that do not make sense.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2979",
+              "fKd8s29e-l4@2981",
+              "fKd8s29e-l4@2983",
+              "fKd8s29e-l4@2985",
+              "fKd8s29e-l4@2987",
+              "fKd8s29e-l4@2991",
+              "fKd8s29e-l4@2993"
+            ]
+          },
+          {
+            "id": "ch02.s09.p04.03",
+            "text": "When these random words are passed to the \"tiktoken\" GPT-2 byte pair encoder, it does not raise an error and still encodes them into tokens.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2993",
+              "fKd8s29e-l4@2995",
+              "fKd8s29e-l4@2997",
+              "fKd8s29e-l4@3000",
+              "fKd8s29e-l4@3002",
+              "fKd8s29e-l4@3005"
+            ]
+          },
+          {
+            "id": "ch02.s09.p04.04",
+            "text": "Decoding the resulting integers gives back exactly the same sentence that was originally encoded.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@3055",
+              "fKd8s29e-l4@3058",
+              "fKd8s29e-l4@3060",
+              "fKd8s29e-l4@3062"
+            ]
+          },
+          {
+            "id": "ch02.s09.p04.05",
+            "text": "So the tokenizer created with \"tiktoken.get_encoding(\"gpt2\")\" can be tested with both \"encode\" and \"decode\", and it handles unknown text while reconstructing the original input correctly.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@2772",
+              "mk-6cFebjis@2775",
+              "mk-6cFebjis@2777",
+              "fKd8s29e-l4@2834",
+              "fKd8s29e-l4@2849",
+              "fKd8s29e-l4@2851",
+              "fKd8s29e-l4@2853",
+              "fKd8s29e-l4@2861",
+              "fKd8s29e-l4@2863"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

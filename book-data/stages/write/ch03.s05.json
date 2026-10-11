@@ -1,0 +1,605 @@
+{
+  "stage": "write",
+  "item": "ch03.s05",
+  "inputs_hash": "b8ded937a36e5464972f5f35fb33a5ad3605dc057d2d42d3d637aad2d40d8b6b",
+  "output_hash": "80d168f5c97f22b413be4c1e5d1a1fc43e1b52308946e186b79875730d285bae",
+  "output": {
+    "section_id": "ch03.s05",
+    "paragraphs": [
+      {
+        "id": "ch03.s05.p01",
+        "sentences": [
+          {
+            "id": "ch03.s05.p01.01",
+            "text": "How do the calculations for one query token become context vectors for the whole sequence?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s05.p01.02",
+            "text": "After computing the context vector for \"journey,\" the task is still incomplete, because a similar context vector is needed for all the other tokens in the six-word input \"your,\" \"journey,\" \"starts,\" \"with,\" \"one,\" and \"step.\"",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@3094",
+              "eSRhpYLerw4@3095",
+              "eSRhpYLerw4@3098",
+              "eSRhpYLerw4@3101",
+              "eSRhpYLerw4@3103",
+              "eSRhpYLerw4@3106",
+              "eSRhpYLerw4@3108",
+              "eSRhpYLerw4@3111"
+            ]
+          },
+          {
+            "id": "ch03.s05.p01.03",
+            "text": "The same computation used for \"journey\" extends to every other input: for each token, compute attention scores, then attention weights, and then the context vector.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@3116",
+              "eSRhpYLerw4@3117",
+              "eSRhpYLerw4@3120",
+              "eSRhpYLerw4@3122",
+              "eSRhpYLerw4@3124",
+              "eSRhpYLerw4@3286",
+              "eSRhpYLerw4@3288",
+              "eSRhpYLerw4@3291",
+              "eSRhpYLerw4@3294",
+              "eSRhpYLerw4@3295",
+              "eSRhpYLerw4@3298",
+              "eSRhpYLerw4@3300"
+            ]
+          },
+          {
+            "id": "ch03.s05.p01.04",
+            "text": "The matrix used to organize these results is called the attention weight matrix.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@3127",
+              "eSRhpYLerw4@3129",
+              "eSRhpYLerw4@3131",
+              "eSRhpYLerw4@3134",
+              "eSRhpYLerw4@3136"
+            ]
+          },
+          {
+            "id": "ch03.s05.p01.05",
+            "text": "In that matrix, each row represents the attention weights for one particular query word.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@3142",
+              "eSRhpYLerw4@3146",
+              "eSRhpYLerw4@3149"
+            ]
+          },
+          {
+            "id": "ch03.s05.p01.06",
+            "text": "For the query \"journey,\" its row contains the six attention weights between \"journey\" and each word in the sequence: \"your,\" \"journey,\" \"starts,\" \"with,\" \"one,\" and \"step.\"",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@3151",
+              "eSRhpYLerw4@3153",
+              "eSRhpYLerw4@3154",
+              "eSRhpYLerw4@3159",
+              "eSRhpYLerw4@3161",
+              "eSRhpYLerw4@3163",
+              "eSRhpYLerw4@3167",
+              "eSRhpYLerw4@3169",
+              "eSRhpYLerw4@3172",
+              "eSRhpYLerw4@3175",
+              "eSRhpYLerw4@3177",
+              "eSRhpYLerw4@3182",
+              "eSRhpYLerw4@3185",
+              "eSRhpYLerw4@3189",
+              "eSRhpYLerw4@3192",
+              "eSRhpYLerw4@3196",
+              "eSRhpYLerw4@3198",
+              "eSRhpYLerw4@3201",
+              "eSRhpYLerw4@3202",
+              "eSRhpYLerw4@3204",
+              "eSRhpYLerw4@3206",
+              "eSRhpYLerw4@3209"
+            ]
+          },
+          {
+            "id": "ch03.s05.p01.07",
+            "text": "In this example, every query token needs six attention weights, one for each of the six input words.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@3232",
+              "eSRhpYLerw4@3234",
+              "eSRhpYLerw4@3236",
+              "eSRhpYLerw4@3239",
+              "eSRhpYLerw4@3241",
+              "eSRhpYLerw4@3243",
+              "eSRhpYLerw4@3245",
+              "eSRhpYLerw4@3248",
+              "eSRhpYLerw4@3250",
+              "eSRhpYLerw4@3253"
+            ]
+          },
+          {
+            "id": "ch03.s05.p01.08",
+            "text": "To handle all queries, repeat the same process for each token: if a token is the query, compute its attention weights with all other words and then form its context vector with the same summation operation used for \"journey.\"",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@3260",
+              "eSRhpYLerw4@3262",
+              "eSRhpYLerw4@3265",
+              "eSRhpYLerw4@3267",
+              "eSRhpYLerw4@3272",
+              "eSRhpYLerw4@3274",
+              "eSRhpYLerw4@3276",
+              "eSRhpYLerw4@3279",
+              "eSRhpYLerw4@3281",
+              "eSRhpYLerw4@3283"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s05.p02",
+        "sentences": [
+          {
+            "id": "ch03.s05.p02.01",
+            "text": "The first step is to compute attention scores for every query against every input.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s05.p02.02",
+            "text": "For a given query, an attention score is obtained by taking the dot product of that query with all the input vectors.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@3332",
+              "eSRhpYLerw4@3334",
+              "eSRhpYLerw4@3337",
+              "eSRhpYLerw4@3339",
+              "eSRhpYLerw4@3341",
+              "eSRhpYLerw4@3344",
+              "eSRhpYLerw4@3347",
+              "eSRhpYLerw4@3350"
+            ]
+          },
+          {
+            "id": "ch03.s05.p02.03",
+            "text": "One way to compute all attention scores is to loop through the inputs twice and compute dot products.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@3352",
+              "eSRhpYLerw4@3355",
+              "eSRhpYLerw4@3357",
+              "eSRhpYLerw4@3359"
+            ]
+          },
+          {
+            "id": "ch03.s05.p02.04",
+            "text": "With nested loops, one input is fixed as the query in the outer loop, the inner loop runs through all inputs to compute six dot products, and then the outer loop moves to the next query token.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@3373",
+              "eSRhpYLerw4@3376",
+              "eSRhpYLerw4@3379",
+              "eSRhpYLerw4@3381",
+              "eSRhpYLerw4@3384",
+              "eSRhpYLerw4@3395",
+              "eSRhpYLerw4@3397",
+              "eSRhpYLerw4@3399",
+              "eSRhpYLerw4@3401",
+              "eSRhpYLerw4@3403",
+              "eSRhpYLerw4@3406",
+              "eSRhpYLerw4@3409",
+              "eSRhpYLerw4@3411",
+              "eSRhpYLerw4@3413",
+              "eSRhpYLerw4@3415",
+              "eSRhpYLerw4@3416",
+              "eSRhpYLerw4@3419",
+              "eSRhpYLerw4@3421",
+              "eSRhpYLerw4@3423",
+              "eSRhpYLerw4@3426",
+              "eSRhpYLerw4@3427"
+            ]
+          },
+          {
+            "id": "ch03.s05.p02.05",
+            "text": "The result is a 6x6 attention score matrix in which each element is an attention score between a pair of input tokens.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@3438",
+              "eSRhpYLerw4@3441",
+              "eSRhpYLerw4@3443"
+            ]
+          },
+          {
+            "id": "ch03.s05.p02.06",
+            "text": "Each row of this 6x6 matrix contains the dot products between one query and all the input vectors.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@3458",
+              "eSRhpYLerw4@3460",
+              "eSRhpYLerw4@3462",
+              "eSRhpYLerw4@3464",
+              "eSRhpYLerw4@3466",
+              "eSRhpYLerw4@3468",
+              "eSRhpYLerw4@3495",
+              "eSRhpYLerw4@3497",
+              "eSRhpYLerw4@3500",
+              "eSRhpYLerw4@3502",
+              "eSRhpYLerw4@3504",
+              "eSRhpYLerw4@3610",
+              "eSRhpYLerw4@3612",
+              "eSRhpYLerw4@3614",
+              "eSRhpYLerw4@3618"
+            ]
+          },
+          {
+            "id": "ch03.s05.p02.07",
+            "text": "The second row matches the attention scores computed earlier for the second query, because it represents the dot products between that second query and all input vectors.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@3473",
+              "eSRhpYLerw4@3476",
+              "eSRhpYLerw4@3479",
+              "eSRhpYLerw4@3488",
+              "eSRhpYLerw4@3492",
+              "eSRhpYLerw4@3495",
+              "eSRhpYLerw4@3497"
+            ]
+          },
+          {
+            "id": "ch03.s05.p02.08",
+            "text": "Using two for-loops for these dot products is not computationally efficient, and understanding matrix multiplication matters here because linear algebra is described as a core foundation of machine learning concepts.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@3507",
+              "eSRhpYLerw4@3510",
+              "eSRhpYLerw4@3511",
+              "eSRhpYLerw4@3513",
+              "eSRhpYLerw4@3515",
+              "eSRhpYLerw4@3518",
+              "eSRhpYLerw4@3520",
+              "eSRhpYLerw4@3522",
+              "eSRhpYLerw4@3524"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s05.p03",
+        "sentences": [
+          {
+            "id": "ch03.s05.p03.01",
+            "text": "A more compact computation gives the same score matrix.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s05.p03.02",
+            "text": "If the input embeddings are arranged into an input matrix, multiplying that matrix by its transpose produces the same attention score matrix as the nested-loop dot products.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@3535",
+              "eSRhpYLerw4@3538",
+              "eSRhpYLerw4@3539",
+              "eSRhpYLerw4@3542",
+              "eSRhpYLerw4@3544",
+              "eSRhpYLerw4@3548",
+              "eSRhpYLerw4@3552",
+              "eSRhpYLerw4@3555",
+              "eSRhpYLerw4@3556",
+              "eSRhpYLerw4@3558",
+              "eSRhpYLerw4@3561",
+              "eSRhpYLerw4@3563",
+              "eSRhpYLerw4@3566",
+              "eSRhpYLerw4@3568",
+              "eSRhpYLerw4@3571",
+              "eSRhpYLerw4@3574",
+              "eSRhpYLerw4@3577"
+            ]
+          },
+          {
+            "id": "ch03.s05.p03.03",
+            "text": "This works because matrix multiplication computes dot products between the rows of the first matrix and the columns of the second matrix.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@3580",
+              "eSRhpYLerw4@3583",
+              "eSRhpYLerw4@3585",
+              "eSRhpYLerw4@3587",
+              "eSRhpYLerw4@3589",
+              "eSRhpYLerw4@3591"
+            ]
+          },
+          {
+            "id": "ch03.s05.p03.04",
+            "text": "That matrix multiplication is much more efficient than using two for-loops.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@3595",
+              "eSRhpYLerw4@3597",
+              "eSRhpYLerw4@3599"
+            ]
+          },
+          {
+            "id": "ch03.s05.p03.05",
+            "text": "Once the attention score matrix is available, normalize it by applying softmax to the attention scores matrix.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@3622",
+              "eSRhpYLerw4@3624",
+              "eSRhpYLerw4@3626",
+              "eSRhpYLerw4@3628",
+              "eSRhpYLerw4@3632",
+              "eSRhpYLerw4@3634",
+              "eSRhpYLerw4@3636"
+            ]
+          },
+          {
+            "id": "ch03.s05.p03.06",
+            "text": "Softmax is applied to each row, and the entries in each row of the resulting attention weight matrix sum to one.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@3639",
+              "eSRhpYLerw4@3641",
+              "eSRhpYLerw4@3644",
+              "eSRhpYLerw4@3646",
+              "eSRhpYLerw4@3648",
+              "eSRhpYLerw4@3651",
+              "eSRhpYLerw4@3652",
+              "eSRhpYLerw4@3655",
+              "eSRhpYLerw4@3657"
+            ]
+          },
+          {
+            "id": "ch03.s05.p03.07",
+            "text": "In functions like \"torch.softmax,\" the \"dim\" parameter specifies the dimension of the input tensor along which the function is computed.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@3672",
+              "eSRhpYLerw4@3675",
+              "eSRhpYLerw4@3678",
+              "eSRhpYLerw4@3681",
+              "eSRhpYLerw4@3684",
+              "eSRhpYLerw4@3686",
+              "eSRhpYLerw4@3688",
+              "eSRhpYLerw4@3691"
+            ]
+          },
+          {
+            "id": "ch03.s05.p03.08",
+            "text": "Setting \"dim = -1\" applies the normalization along the last dimension of the attention score tensor.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@3694",
+              "eSRhpYLerw4@3696",
+              "eSRhpYLerw4@3700",
+              "eSRhpYLerw4@3702",
+              "eSRhpYLerw4@3704"
+            ]
+          },
+          {
+            "id": "ch03.s05.p03.09",
+            "text": "For a two-dimensional attention score tensor, the last dimension is the columns, so \"dim = -1\" normalizes across the columns.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@3707",
+              "eSRhpYLerw4@3708",
+              "eSRhpYLerw4@3711",
+              "eSRhpYLerw4@3713",
+              "eSRhpYLerw4@3716",
+              "eSRhpYLerw4@3719",
+              "eSRhpYLerw4@3721",
+              "eSRhpYLerw4@3723"
+            ]
+          },
+          {
+            "id": "ch03.s05.p03.10",
+            "text": "A simple check is to sum the entries of the second row and print the sums of all rows; if every row sums to one, the softmax has been applied correctly.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@3799",
+              "eSRhpYLerw4@3801",
+              "eSRhpYLerw4@3803",
+              "eSRhpYLerw4@3805",
+              "eSRhpYLerw4@3807",
+              "eSRhpYLerw4@3810",
+              "eSRhpYLerw4@3812",
+              "eSRhpYLerw4@3814",
+              "eSRhpYLerw4@3817",
+              "eSRhpYLerw4@3819",
+              "eSRhpYLerw4@3821",
+              "eSRhpYLerw4@3824",
+              "eSRhpYLerw4@3826",
+              "eSRhpYLerw4@3828",
+              "eSRhpYLerw4@3830",
+              "eSRhpYLerw4@3833"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s05.p04",
+        "sentences": [
+          {
+            "id": "ch03.s05.p04.01",
+            "text": "The final step can also be vectorized.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s05.p04.02",
+            "text": "Instead of looping over tokens to form one context vector at a time, all context vectors can be computed at once with a single matrix multiplication.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@3930",
+              "eSRhpYLerw4@3933",
+              "eSRhpYLerw4@3935",
+              "eSRhpYLerw4@3937",
+              "eSRhpYLerw4@3940",
+              "eSRhpYLerw4@3942",
+              "eSRhpYLerw4@3943"
+            ]
+          },
+          {
+            "id": "ch03.s05.p04.03",
+            "text": "The simplified operation is to multiply the attention weight matrix by the input matrix.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@3947",
+              "eSRhpYLerw4@3951",
+              "eSRhpYLerw4@3956",
+              "eSRhpYLerw4@3958",
+              "eSRhpYLerw4@3969",
+              "eSRhpYLerw4@3972",
+              "eSRhpYLerw4@3974",
+              "eSRhpYLerw4@3976"
+            ]
+          },
+          {
+            "id": "ch03.s05.p04.04",
+            "text": "That product gives the context vectors for all six tokens.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@3981",
+              "eSRhpYLerw4@3983",
+              "eSRhpYLerw4@3985",
+              "eSRhpYLerw4@3987",
+              "eSRhpYLerw4@3989",
+              "eSRhpYLerw4@3991",
+              "eSRhpYLerw4@3993",
+              "eSRhpYLerw4@3995",
+              "eSRhpYLerw4@3996",
+              "eSRhpYLerw4@3999"
+            ]
+          },
+          {
+            "id": "ch03.s05.p04.05",
+            "text": "With attention weights of shape 6x6 and inputs of shape 6x3, the multiplication is valid and produces a 6x3 context matrix.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@4021",
+              "eSRhpYLerw4@4024",
+              "eSRhpYLerw4@4027",
+              "eSRhpYLerw4@4029",
+              "eSRhpYLerw4@4050",
+              "eSRhpYLerw4@4053",
+              "eSRhpYLerw4@4055",
+              "eSRhpYLerw4@4082",
+              "eSRhpYLerw4@4085",
+              "eSRhpYLerw4@4089",
+              "eSRhpYLerw4@4091",
+              "eSRhpYLerw4@4093"
+            ]
+          },
+          {
+            "id": "ch03.s05.p04.06",
+            "text": "Each row of the final 6x3 matrix is the context vector for the corresponding token: the first row for the first token, the second row for the second token, and so on through the sixth row.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@4055",
+              "eSRhpYLerw4@4058",
+              "eSRhpYLerw4@4061",
+              "eSRhpYLerw4@4063",
+              "eSRhpYLerw4@4065",
+              "eSRhpYLerw4@4287",
+              "eSRhpYLerw4@4289",
+              "eSRhpYLerw4@4292",
+              "eSRhpYLerw4@4295",
+              "eSRhpYLerw4@4298",
+              "eSRhpYLerw4@4300",
+              "eSRhpYLerw4@4302",
+              "eSRhpYLerw4@4304",
+              "eSRhpYLerw4@4306",
+              "eSRhpYLerw4@4308"
+            ]
+          },
+          {
+            "id": "ch03.s05.p04.07",
+            "text": "A row of the output can be viewed as a weighted sum of the rows of the input matrix using the attention weights from the corresponding row.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@4182",
+              "eSRhpYLerw4@4185",
+              "eSRhpYLerw4@4189",
+              "eSRhpYLerw4@4192",
+              "eSRhpYLerw4@4195",
+              "eSRhpYLerw4@4199",
+              "eSRhpYLerw4@4201",
+              "eSRhpYLerw4@4204",
+              "eSRhpYLerw4@4206",
+              "eSRhpYLerw4@4209"
+            ]
+          },
+          {
+            "id": "ch03.s05.p04.08",
+            "text": "This is the same scaling-and-summing operation used earlier to compute a context vector manually.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@4211",
+              "eSRhpYLerw4@4213",
+              "eSRhpYLerw4@4215",
+              "eSRhpYLerw4@4218",
+              "eSRhpYLerw4@4220",
+              "eSRhpYLerw4@4223",
+              "eSRhpYLerw4@4225",
+              "eSRhpYLerw4@4227",
+              "eSRhpYLerw4@4230",
+              "eSRhpYLerw4@4233",
+              "eSRhpYLerw4@4235",
+              "eSRhpYLerw4@4239",
+              "eSRhpYLerw4@4241",
+              "eSRhpYLerw4@4242",
+              "eSRhpYLerw4@4245",
+              "eSRhpYLerw4@4247",
+              "eSRhpYLerw4@4250",
+              "eSRhpYLerw4@4252",
+              "eSRhpYLerw4@4254",
+              "eSRhpYLerw4@4256",
+              "eSRhpYLerw4@4259",
+              "eSRhpYLerw4@4261",
+              "eSRhpYLerw4@4263",
+              "eSRhpYLerw4@4265",
+              "eSRhpYLerw4@4268",
+              "eSRhpYLerw4@4271",
+              "eSRhpYLerw4@4274",
+              "eSRhpYLerw4@4276",
+              "eSRhpYLerw4@4278",
+              "eSRhpYLerw4@4280"
+            ]
+          },
+          {
+            "id": "ch03.s05.p04.09",
+            "text": "In code, an \"all_context_vectors\" tensor is created by multiplying the attention weight matrix with the input matrix.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@4331",
+              "eSRhpYLerw4@4333",
+              "eSRhpYLerw4@4336",
+              "eSRhpYLerw4@4338",
+              "eSRhpYLerw4@4340",
+              "eSRhpYLerw4@4342",
+              "eSRhpYLerw4@4345"
+            ]
+          },
+          {
+            "id": "ch03.s05.p04.10",
+            "text": "The second row of \"all_context_vectors\" matches the previously computed context vector for \"journey,\" confirming that the matrix multiplication gives the correct result.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@4348",
+              "eSRhpYLerw4@4353",
+              "eSRhpYLerw4@4356",
+              "eSRhpYLerw4@4358",
+              "eSRhpYLerw4@4361",
+              "eSRhpYLerw4@4363",
+              "eSRhpYLerw4@4366",
+              "eSRhpYLerw4@4368",
+              "eSRhpYLerw4@4371",
+              "eSRhpYLerw4@4372",
+              "eSRhpYLerw4@4375"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

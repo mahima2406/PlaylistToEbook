@@ -128,7 +128,7 @@ def captions_via_ytdlp(video_id, languages):
     cookies = os.environ.get("COURSEBOOK_YT_COOKIES")
     _, proxy = youtube_proxy()
     with tempfile.TemporaryDirectory() as tmp:
-        opts = {"skip_download": True, "writesubtitles": True, "writeautomaticsub": True,
+        opts = {"skip_download": True, "ignore_no_formats_error": True, "writesubtitles": True, "writeautomaticsub": True,
                 "subtitleslangs": list(languages), "subtitlesformat": "json3", "quiet": True, "no_warnings": True,
                 "noprogress": True, "outtmpl": f"{tmp}/%(id)s.%(ext)s",
                 **({"cookiefile": cookies} if cookies and Path(cookies).exists() else {}), **({"proxy": proxy} if proxy else {})}

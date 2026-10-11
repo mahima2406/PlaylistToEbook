@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch04.s12",
+  "inputs_hash": "ceaa5ce4d5892b68371d59edb4bca23e47e5274eddb6a86df75197c3e093f294",
+  "output_hash": "e5ff806b3ff31bedcdb9a1eff0a79c940882adf14050574f4a8992e0ff188c67",
+  "output": {
+    "section_id": "ch04.s12",
+    "listings": [],
+    "rejected": [
+      {
+        "id": "ch04.s12.code1",
+        "ref": "ref:ch05/01_main-chapter-code/ch05.ipynb#cell108",
+        "path": "ch05/01_main-chapter-code/ch05.ipynb",
+        "caption": "This code uses torch.topk on next_token_logits to retrieve the top-k logit values and their token positions and prints both results.",
+        "code": "top_k = 3\ntop_logits, top_pos = torch.topk(next_token_logits, top_k)\n\nprint(\"Top logits:\", top_logits)\nprint(\"Top positions:\", top_pos)\n\nnew_logits = torch.where(\n    condition=next_token_logits < top_logits[-1],\n    input=torch.tensor(float(\"-inf\")), \n    other=next_token_logits\n)\n\nprint(new_logits)",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The excerpt correctly demonstrates using torch.topk to get the top-k logit values and their indices, and it also applies a top-k-style mask with torch.where by setting logits below the kth value to -inf, which is part of the section. However, the caption understates the code: it claims the code only retrieves and prints top-k logits/positions, but the code also performs top-k filtering/masking and prints the masked logits. It also does not show temperature scaling, softmax, or multinomial sampling mentioned in the section."
+      },
+      {
+        "id": "ch04.s12.code2",
+        "ref": "ref:ch05/01_main-chapter-code/ch05.ipynb#cell114",
+        "path": "ch05/01_main-chapter-code/ch05.ipynb",
+        "caption": "This generate function gets next-token logits from the model, masks all but the top-k logits with negative infinity, divides by temperature, applies softmax, and then proceeds with token generation.",
+        "code": "def generate(model, idx, max_new_tokens, context_size, temperature=0.0, top_k=None, eos_id=None):\n\n    # For-loop is the same as before: Get logits, and only focus on last time step\n    for _ in range(max_new_tokens):\n        idx_cond = idx[:, -context_size:]\n        with torch.no_grad():\n            logits = model(idx_cond)\n        logits = logits[:, -1, :]\n\n        # New: Filter logits with top_k sampling\n        if top_k is not None:\n            # Keep only top_k values\n            top_logits, _ = torch.topk(logits, top_k)\n            min_val = top_logits[:, -1]\n            logits = torch.where(logits < min_val, torch.tensor(float(\"-inf\")).to(logits.device), logits)\n\n        # New: Apply temperature scaling\n        if temperature > 0.0:\n            logits = logits / temperature\n\n            # New (not in book): numerical stability tip to get equivalent results on mps device\n            # subtract rowwise max before softmax\n            logits = logits - logits.max(dim=-1, keepdim=True).values\n            \n            # Apply softmax to get probabilities\n            probs = torch.softmax(logits, dim=-1)  # (batch_size, context_len)\n\n            # Sample from the distribution\n            idx_next = torch.multinomial(probs, num_samples=1)  # (batch_size, 1)\n",
+        "truncated": true,
+        "check": "partial",
+        "reason": "The code correctly demonstrates the section’s workflow: it takes last-step logits, applies top-k filtering using torch.topk and torch.where to set non-top-k logits to -inf, applies temperature scaling before softmax, then samples with torch.multinomial. The caption accurately describes these parts. However, the section also states that if temperature is not specified (or temperature==0), the next token should be chosen via argmax rather than sampling; in the excerpt, the temperature<=0 branch is missing (no argmax path and no token-append/eos stopping shown). The code also includes an extra numerical-stability max-subtraction note not covered by the section."
+      }
+    ]
+  }
+}

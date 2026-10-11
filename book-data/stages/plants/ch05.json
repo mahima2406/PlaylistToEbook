@@ -1,0 +1,555 @@
+{
+  "stage": "plants",
+  "item": "ch05",
+  "inputs_hash": "5f047b20d04c2e3a78e132a84859d14cc88d689d6683f9e1bde0a9e4dc9f8d17",
+  "output_hash": "e9595fdb5f3ba97028bfce63c6c7f3df72a49cc52481f5bdf56c151d48971212",
+  "output": {
+    "chapter": "ch05",
+    "plants": [
+      {
+        "id": "ch05.plant1",
+        "type": "number",
+        "text": "That result is described as worse than a coin toss, since a random prediction would be right 60% of the time.",
+        "type_requested": "number",
+        "cites": [
+          "0PpxZ3kNPWo@912",
+          "0PpxZ3kNPWo@915",
+          "0PpxZ3kNPWo@917",
+          "0PpxZ3kNPWo@919",
+          "0PpxZ3kNPWo@921"
+        ],
+        "original_id": "ch05.s11.p03.04",
+        "verdict": "unsupported",
+        "confidence": 0.93,
+        "reason": "The cited lines say a random coin-toss prediction would be right 50% of the time, not 60%.",
+        "caught": true
+      },
+      {
+        "id": "ch05.plant2",
+        "type": "term_swap",
+        "text": "Using \"params\" with key \"b\" returns the final normalization scale parameters, and using \"params\" with key \"g\" returns the final normalization scale parameters.",
+        "type_requested": "term_swap",
+        "cites": [
+          "yXrGeDNuymY@1529",
+          "yXrGeDNuymY@1532",
+          "yXrGeDNuymY@1535",
+          "yXrGeDNuymY@1539",
+          "yXrGeDNuymY@1543"
+        ],
+        "original_id": "ch05.s04.p05.r05",
+        "verdict": "unsupported",
+        "confidence": 0.88,
+        "reason": "the cited lines say params['B'] gives final norm shift parameters, while params['G'] gives final norm scale parameters; the sentence claims both return scale parameters.",
+        "caught": true
+      },
+      {
+        "id": "ch05.plant3",
+        "type": "reversed_cause",
+        "text": "After tokenization, longer token sequences are padded with token \"50256\" until all sequences have the same length.",
+        "type_requested": "reversed_cause",
+        "cites": [
+          "f6zqClXOh7Y@611",
+          "f6zqClXOh7Y@613",
+          "f6zqClXOh7Y@616",
+          "f6zqClXOh7Y@618",
+          "f6zqClXOh7Y@621"
+        ],
+        "original_id": "ch05.s08.p02.06",
+        "verdict": "unsupported",
+        "confidence": 0.68,
+        "reason": "The cited lines describe padding other sequences with token 50256 until lengths match, but they do not say \"longer token sequences\" are padded; padding applies to shorter sequences.",
+        "caught": true
+      },
+      {
+        "id": "ch05.plant4",
+        "type": "unsupported_addition",
+        "text": "The code then augments \"params\" with the other keys \"wte\", \"wpe\", \"g\", and \"b\" from the checkpoint data, and it also verifies that none of these tensors contain NaN values.",
+        "type_requested": "unsupported_addition",
+        "cites": [
+          "yXrGeDNuymY@1628",
+          "yXrGeDNuymY@1631",
+          "yXrGeDNuymY@1634",
+          "yXrGeDNuymY@1638",
+          "yXrGeDNuymY@1640"
+        ],
+        "original_id": "ch05.s04.p06.r02",
+        "verdict": "partial",
+        "confidence": 0.77,
+        "reason": "The lines support augmenting the params dictionary with keys wte/wpe/g/b from the checkpoint, but do not mention verifying that none of the tensors contain NaN values.",
+        "caught": true
+      },
+      {
+        "id": "ch05.plant5",
+        "type": "wrong_attribution",
+        "text": "Having ChatGPT opens the door to experimentation, creativity, hyperparameter tuning, and research that is not available in the same way through ChatGPT.",
+        "type_requested": "wrong_attribution",
+        "cites": [
+          "yXrGeDNuymY@2735",
+          "yXrGeDNuymY@2737",
+          "yXrGeDNuymY@2739",
+          "yXrGeDNuymY@2767",
+          "yXrGeDNuymY@2769",
+          "yXrGeDNuymY@2771",
+          "yXrGeDNuymY@2774"
+        ],
+        "original_id": "ch05.s06.p02.05",
+        "verdict": "partial",
+        "confidence": 0.74,
+        "reason": "Lines support that building your own GPT enables creativity, hyperparameter tuning, and research not doable in ChatGPT, but the sentence starts with \"Having ChatGPT\" (vs having built your own GPT), which is not what the lines say.",
+        "caught": true
+      },
+      {
+        "id": "ch05.plant6",
+        "type": "number",
+        "text": "Instruction fine-tuning can be used to build 2 chatbots that answer or reply to specific instructions.",
+        "type_requested": "number",
+        "cites": [
+          "0PpxZ3kNPWo@2922",
+          "0PpxZ3kNPWo@2924",
+          "0PpxZ3kNPWo@2927",
+          "0PpxZ3kNPWo@2929"
+        ],
+        "original_id": "ch05.s13.p04.r07",
+        "verdict": "partial",
+        "confidence": 0.76,
+        "reason": "Cited lines support that instruction fine-tuning will build a chatbot that can answer/reply to specific instructions, but they do not support the claim that it builds \"2\" chatbots.",
+        "caught": true
+      },
+      {
+        "id": "ch05.plant7",
+        "type": "term_swap",
+        "text": "When creating the validation and test dataset instances, the minimum length is passed in as \"120\", the maximum length from the training dataset.",
+        "type_requested": "term_swap",
+        "cites": [
+          "f6zqClXOh7Y@1295",
+          "f6zqClXOh7Y@1297",
+          "f6zqClXOh7Y@1299",
+          "f6zqClXOh7Y@1301",
+          "f6zqClXOh7Y@1303",
+          "f6zqClXOh7Y@1306",
+          "f6zqClXOh7Y@1308"
+        ],
+        "original_id": "ch05.s08.p05.r08",
+        "verdict": "unsupported",
+        "confidence": 0.86,
+        "reason": "cited lines say they pass in the maximum length (120) when creating validation/test dataset instances, not the minimum length.",
+        "caught": true
+      },
+      {
+        "id": "ch05.plant8",
+        "type": "reversed_cause",
+        "text": "Using the model for a classification task allows this classification head to be attached on top of the GPT architecture.",
+        "type_requested": "reversed_cause",
+        "cites": [
+          "0PpxZ3kNPWo@2733",
+          "0PpxZ3kNPWo@2735",
+          "0PpxZ3kNPWo@2740",
+          "0PpxZ3kNPWo@2742"
+        ],
+        "original_id": "ch05.s10.p01.r04",
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": "",
+        "caught": false
+      },
+      {
+        "id": "ch05.plant9",
+        "type": "unsupported_addition",
+        "text": "At this point, the GPT-2 architecture and its parameters have been loaded onto the laptop, and the parameters appear to be loaded correctly, with all layers set to evaluation mode by default.",
+        "type_requested": "unsupported_addition",
+        "cites": [
+          "yXrGeDNuymY@1869",
+          "yXrGeDNuymY@1871",
+          "yXrGeDNuymY@1875",
+          "yXrGeDNuymY@1879",
+          "yXrGeDNuymY@1881",
+          "yXrGeDNuymY@1883"
+        ],
+        "original_id": "ch05.s04.p06.r04",
+        "verdict": "partial",
+        "confidence": 0.78,
+        "reason": "The lines support loading the GPT-2 architecture and parameters onto the laptop and that they seem loaded correctly, but do not state that all layers are set to evaluation mode by default.",
+        "caught": true
+      },
+      {
+        "id": "ch05.plant10",
+        "type": "wrong_attribution",
+        "text": "Instead of vanilla gradient descent, the optimization in practice uses SGD, a more complicated algorithm that keeps track of previous gradients and gradient squares so that optimization is done better and the model does not get stuck in local minima.",
+        "type_requested": "wrong_attribution",
+        "cites": [
+          "0PpxZ3kNPWo@1654",
+          "0PpxZ3kNPWo@1656",
+          "0PpxZ3kNPWo@1658",
+          "0PpxZ3kNPWo@1661",
+          "0PpxZ3kNPWo@1663",
+          "0PpxZ3kNPWo@1665",
+          "0PpxZ3kNPWo@1668",
+          "0PpxZ3kNPWo@1671",
+          "0PpxZ3kNPWo@1673",
+          "0PpxZ3kNPWo@1675"
+        ],
+        "original_id": "ch05.s12.p04.r02",
+        "verdict": "partial",
+        "confidence": 0.74,
+        "reason": "The lines support using a more complicated optimizer tracking gradients and gradient squares to avoid local minima, but they do not identify it specifically as SGD.",
+        "caught": true
+      },
+      {
+        "id": "ch05.plant11",
+        "type": "number",
+        "text": "The embedding dimension means that each token ID is converted into a vector in a 512-dimensional space.",
+        "type_requested": "number",
+        "cites": [
+          "yXrGeDNuymY@640",
+          "yXrGeDNuymY@641",
+          "yXrGeDNuymY@643",
+          "yXrGeDNuymY@647",
+          "yXrGeDNuymY@649",
+          "yXrGeDNuymY@651",
+          "yXrGeDNuymY@654"
+        ],
+        "original_id": "ch05.s03.p02.r03",
+        "verdict": "unsupported",
+        "confidence": 0.95,
+        "reason": "The cited lines state the embedding dimension is 768 and that token IDs are converted into a 768-dimensional vector space, not 512.",
+        "caught": true
+      },
+      {
+        "id": "ch05.plant12",
+        "type": "term_swap",
+        "text": "For example, one message can produce probabilities 0.99 and 0.01 after sigmoid, and then the predicted class is index 0, which means no spam.",
+        "type_requested": "term_swap",
+        "cites": [
+          "0PpxZ3kNPWo@419",
+          "0PpxZ3kNPWo@423",
+          "0PpxZ3kNPWo@426",
+          "0PpxZ3kNPWo@431",
+          "0PpxZ3kNPWo@434",
+          "0PpxZ3kNPWo@437",
+          "0PpxZ3kNPWo@440"
+        ],
+        "original_id": "ch05.s10.p03.r03",
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": "",
+        "caught": false
+      },
+      {
+        "id": "ch05.plant13",
+        "type": "reversed_cause",
+        "text": "Because this \"settings\" dictionary contains exactly the same information as \"hparams.json\": vocabulary size, context length, embedding dimension, number of attention heads, and number of transformer blocks, it is created after loading that file.",
+        "type_requested": "reversed_cause",
+        "cites": [
+          "yXrGeDNuymY@794",
+          "yXrGeDNuymY@796",
+          "yXrGeDNuymY@797",
+          "yXrGeDNuymY@800",
+          "yXrGeDNuymY@802",
+          "yXrGeDNuymY@804",
+          "yXrGeDNuymY@806",
+          "yXrGeDNuymY@1658",
+          "yXrGeDNuymY@1659",
+          "yXrGeDNuymY@1662",
+          "yXrGeDNuymY@1664",
+          "yXrGeDNuymY@1666"
+        ],
+        "original_id": "ch05.s03.p03.r02",
+        "verdict": "partial",
+        "confidence": 0.8,
+        "reason": "The lines support that the settings dictionary matches hparams.json contents (vocab size, context length, embedding dimension, heads, blocks), but do not support the causal/timing claim that it is created after loading that file.",
+        "caught": true
+      },
+      {
+        "id": "ch05.plant14",
+        "type": "unsupported_addition",
+        "text": "For a batch, each input is passed through the model, the two logits are taken, and argmax gives the predicted class label, after which the confidence score is stored for each sample.",
+        "type_requested": "unsupported_addition",
+        "cites": [
+          "0PpxZ3kNPWo@628",
+          "0PpxZ3kNPWo@630",
+          "0PpxZ3kNPWo@633",
+          "0PpxZ3kNPWo@635",
+          "0PpxZ3kNPWo@637"
+        ],
+        "original_id": "ch05.s11.p01.05",
+        "verdict": "partial",
+        "confidence": 0.78,
+        "reason": "Lines support passing each input through the model, obtaining two logits, applying argmax, and predicting spam/no-spam, but they do not mention storing a confidence score for each sample.",
+        "caught": true
+      },
+      {
+        "id": "ch05.plant15",
+        "type": "wrong_attribution",
+        "text": "At the model level, the code passes all samples in a batch through the model, takes the logits of the last output token, applies argmax for the whole batch, and compares the predicted labels with the target labels.",
+        "type_requested": "wrong_attribution",
+        "cites": [
+          "0PpxZ3kNPWo@730",
+          "0PpxZ3kNPWo@734",
+          "0PpxZ3kNPWo@736",
+          "0PpxZ3kNPWo@738",
+          "0PpxZ3kNPWo@740",
+          "0PpxZ3kNPWo@746",
+          "0PpxZ3kNPWo@750",
+          "0PpxZ3kNPWo@752",
+          "0PpxZ3kNPWo@754",
+          "0PpxZ3kNPWo@758",
+          "0PpxZ3kNPWo@760"
+        ],
+        "original_id": "ch05.s11.p01.06",
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": "",
+        "caught": false
+      },
+      {
+        "id": "ch05.plant16",
+        "type": "number",
+        "text": "After execution, the parameter dictionary contains six keys: \"wte\", \"wpe\", \"blocks\", final normalization scale, and final normalization shift.",
+        "type_requested": "number",
+        "cites": [
+          "yXrGeDNuymY@867",
+          "yXrGeDNuymY@875",
+          "yXrGeDNuymY@878",
+          "yXrGeDNuymY@882",
+          "yXrGeDNuymY@884",
+          "yXrGeDNuymY@887",
+          "yXrGeDNuymY@1644",
+          "yXrGeDNuymY@1649",
+          "yXrGeDNuymY@1651"
+        ],
+        "original_id": "ch05.s04.p01.04",
+        "verdict": "unsupported",
+        "confidence": 0.93,
+        "reason": "Cited lines explicitly say the params dictionary has five keys (wte, wpe, blocks, final normalization scale, final normalization shift), not six.",
+        "caught": true
+      },
+      {
+        "id": "ch05.plant17",
+        "type": "term_swap",
+        "text": "The output labels are the target labels, which are the true values, and precision is obtained by comparing predicted labels with these correct labels.",
+        "type_requested": "term_swap",
+        "cites": [
+          "0PpxZ3kNPWo@641",
+          "0PpxZ3kNPWo@647",
+          "0PpxZ3kNPWo@649",
+          "0PpxZ3kNPWo@651",
+          "0PpxZ3kNPWo@655",
+          "0PpxZ3kNPWo@657"
+        ],
+        "original_id": "ch05.s11.p01.03",
+        "verdict": "partial",
+        "confidence": 0.86,
+        "reason": "The lines support that output labels are target/true values and are compared with predicted labels to get accuracy (ACC), not precision.",
+        "caught": true
+      },
+      {
+        "id": "ch05.plant18",
+        "type": "reversed_cause",
+        "text": "When a maximum length has been defined for validation and test data, sequences in those sets that are shorter than that maximum length must be truncated.",
+        "type_requested": "reversed_cause",
+        "cites": [
+          "f6zqClXOh7Y@1311",
+          "f6zqClXOh7Y@1313",
+          "f6zqClXOh7Y@1316",
+          "f6zqClXOh7Y@1318",
+          "f6zqClXOh7Y@1319",
+          "f6zqClXOh7Y@1321"
+        ],
+        "original_id": "ch05.s08.p05.r09",
+        "verdict": "unsupported",
+        "confidence": 0.82,
+        "reason": "The cited lines say sequences in test/validation may be longer than the maximum length and must be truncated; they do not say shorter sequences must be truncated.",
+        "caught": true
+      },
+      {
+        "id": "ch05.plant19",
+        "type": "unsupported_addition",
+        "text": "After importing both libraries, the code prints the installed TensorFlow version and the installed \"tqdm\" version on the system, and then saves both values to a log file.",
+        "type_requested": "unsupported_addition",
+        "cites": [
+          "yXrGeDNuymY@297",
+          "yXrGeDNuymY@299",
+          "yXrGeDNuymY@301"
+        ],
+        "original_id": "ch05.s02.p01.04",
+        "verdict": "partial",
+        "confidence": 0.84,
+        "reason": "The lines support importing the two libraries and printing TensorFlow and tqdm versions, but do not mention saving them to a log file.",
+        "caught": true
+      },
+      {
+        "id": "ch05.plant20",
+        "type": "wrong_attribution",
+        "text": "BERT uses weight tying, meaning that the token embedding weights are reused for the final output head instead of defining new weights for that layer.",
+        "type_requested": "wrong_attribution",
+        "cites": [
+          "yXrGeDNuymY@2465",
+          "yXrGeDNuymY@2467",
+          "yXrGeDNuymY@2470",
+          "yXrGeDNuymY@2472",
+          "yXrGeDNuymY@2482",
+          "yXrGeDNuymY@2484",
+          "yXrGeDNuymY@2488",
+          "yXrGeDNuymY@2491",
+          "yXrGeDNuymY@2494",
+          "yXrGeDNuymY@2496",
+          "yXrGeDNuymY@2498",
+          "yXrGeDNuymY@2499",
+          "yXrGeDNuymY@2501"
+        ],
+        "original_id": "ch05.s05.p05.02",
+        "verdict": "unsupported",
+        "confidence": 0.83,
+        "reason": "the cited lines describe GPT-2 using weight tying; they do not mention BERT.",
+        "caught": true
+      }
+    ],
+    "by_type": {
+      "number": {
+        "planted": 4,
+        "caught": 4
+      },
+      "term_swap": {
+        "planted": 4,
+        "caught": 3
+      },
+      "reversed_cause": {
+        "planted": 4,
+        "caught": 3
+      },
+      "unsupported_addition": {
+        "planted": 4,
+        "caught": 4
+      },
+      "wrong_attribution": {
+        "planted": 4,
+        "caught": 3
+      }
+    },
+    "caught": 17,
+    "planted": 20,
+    "decoys": [
+      {
+        "id": "ch05.s03.p01.r02",
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      {
+        "id": "ch05.s12.p01.05",
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      {
+        "id": "ch05.s07.p02.r02",
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      {
+        "id": "ch05.s05.p04.r03",
+        "verdict": "supported",
+        "confidence": 0.91,
+        "reason": ""
+      },
+      {
+        "id": "ch05.s04.p02.r02",
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      {
+        "id": "ch05.s11.p05.04",
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      {
+        "id": "ch05.s02.p02.02",
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      {
+        "id": "ch05.s11.p03.03",
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      {
+        "id": "ch05.s07.p04.r03",
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      {
+        "id": "ch05.s11.p04.r05",
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      {
+        "id": "ch05.s09.p03.04",
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      {
+        "id": "ch05.s06.p01.r06",
+        "verdict": "supported",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      {
+        "id": "ch05.s08.p01.r03",
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      {
+        "id": "ch05.s06.p03.r03",
+        "verdict": "supported",
+        "confidence": 0.87,
+        "reason": ""
+      },
+      {
+        "id": "ch05.s08.p02.09",
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      {
+        "id": "ch05.s14.p04.06",
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      {
+        "id": "ch05.s10.p04.r03",
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      {
+        "id": "ch05.s10.p02.05",
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      {
+        "id": "ch05.s03.p01.r03",
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      {
+        "id": "ch05.s12.p02.08",
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      }
+    ],
+    "decoys_flagged": 0
+  }
+}

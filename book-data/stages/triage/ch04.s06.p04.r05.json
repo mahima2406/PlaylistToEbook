@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch04.s06.p04.r05",
+  "inputs_hash": "23415a99a9d25697645a1ff3bd50d709627a6d604ac07d207f2775b1ed3bbc6d",
+  "output_hash": "72fb33d87d217e2cd63da9ceeb64c63bf2a275fbc42b7c7b0897f9f98b28f76a",
+  "output": {
+    "decision": "edit",
+    "text": "The model being trained has on the order of more than 100 million parameters.",
+    "reason": "The captions support the scale of the parameter count but not the causal phrasing 'This is why.'",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.96,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "daf61d4b88053cdd3aa2330f7bce637da014a2d26ef022515dda17a23f0913fb"
+  }
+}

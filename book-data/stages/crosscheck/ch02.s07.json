@@ -1,0 +1,193 @@
+{
+  "stage": "crosscheck",
+  "item": "ch02.s07",
+  "inputs_hash": "248ae6db6eadd9e0fd7040f3f247e580d8e3691220f9b910dd1af783a3a5559e",
+  "output_hash": "10a93de2cd9a2e58a9b36f0562c4ddd2850aa59bd0f603b66da5e9ab74a58471",
+  "output": {
+    "section_id": "ch02.s07",
+    "checked": 15,
+    "counts": {
+      "agrees": 0,
+      "contradicts": 0,
+      "not_covered": 15
+    },
+    "results": [
+      {
+        "sentence_id": "ch02.s07.p01.02",
+        "text": "Byte pair encoding, or BPE, was introduced in 1994 as a data compression algorithm.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell71"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The referenced notebook cells only show a section header about BytePair encoding and a tokenizer initialization; they do not mention the year 1994 or BPE’s origin as a compression algorithm."
+      },
+      {
+        "sentence_id": "ch02.s07.p01.03",
+        "text": "The core idea is simple: scan the data, find the most common pair of consecutive bytes, replace that pair with a byte that does not occur in the data, and keep doing this iteratively.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell71",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not describe the BPE procedure (most common pair replacement, unused byte, iterative steps)."
+      },
+      {
+        "sentence_id": "ch02.s07.p01.04",
+        "text": "Put another way, the algorithm scans the data from left to right, identifies the byte pairs that occur most often, replaces them with a byte not present in the data, and repeats until no byte pair occurs more than once.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell71",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not state a left-to-right scan procedure, a stopping criterion, or any details about repetition counts of byte pairs."
+      },
+      {
+        "sentence_id": "ch02.s07.p02.r02",
+        "text": "Take the original data \"a a a b d a a a b a c\".",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell88",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell52",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell33"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the referenced passages include or discuss the example data sequence \"a a a b d a a a b a c\"."
+      },
+      {
+        "sentence_id": "ch02.s07.p02.r03",
+        "text": "When this sequence is scanned from left to right, the most common byte pair is \"AA\".",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell142",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell71"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not analyze an example sequence or identify the most common byte pair as \"AA\"."
+      },
+      {
+        "sentence_id": "ch02.s07.p02.r04",
+        "text": "\"AAA\" is not the answer, because a byte pair contains only two consecutive symbols, not three.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell71",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not define byte pairs or contrast pairs vs. triples (e.g., \"AAA\")."
+      },
+      {
+        "sentence_id": "ch02.s07.p02.r05",
+        "text": "In this example, \"AA\" occurs four times.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided reference snippet about “four input examples” is unrelated to counting occurrences of the byte pair \"AA\" in the stated BPE example."
+      },
+      {
+        "sentence_id": "ch02.s07.p02.r06",
+        "text": "The pair \"AA\" is then replaced with \"Z\" because \"Z\" does not occur in the data.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell36"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not discuss replacing \"AA\" with \"Z\" or the rule of choosing a symbol not present in the data."
+      },
+      {
+        "sentence_id": "ch02.s07.p02.r07",
+        "text": "After replacing each occurrence of \"AA\", the new sequence becomes \"z a b d z a b a c\".",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference passage provides the intermediate compressed sequence \"z a b d z a b a c\" or any comparable step-by-step BPE example."
+      },
+      {
+        "sentence_id": "ch02.s07.p03.r02",
+        "text": "Looking again for the most frequent byte pair, the example replaces \"AB\" with \"Y\" because \"Y\" does not occur anywhere in the data.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell71",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not mention replacing \"AB\" with \"Y\" or describe a second merge step in an example."
+      },
+      {
+        "sentence_id": "ch02.s07.p03.r03",
+        "text": "After those replacements, the compressed data is \"z y d z y a\".",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell54",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell46"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not include the final compressed data \"z y d z y a\" or any BPE compression output for the given example."
+      },
+      {
+        "sentence_id": "ch02.s07.p03.r04",
+        "text": "Replacing common byte pairs with another symbol is called encoding, which is why the method is described as an encoder.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not explain the terminology of “encoding” or why the method is described as an encoder."
+      },
+      {
+        "sentence_id": "ch02.s07.p03.r05",
+        "text": "In the example, \"AC\" appears only once, so it is not encoded further.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell90",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell30",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references show examples of using a tokenizer to encode text and a dataset that pre-tokenizes texts, but they do not discuss a byte-pair encoding example involving the pair \"AC\" appearing once and therefore not being merged/encoded further."
+      },
+      {
+        "sentence_id": "ch02.s07.p03.r06",
+        "text": "The example then replaces \"zy\" with another variable, such as \"w,\" and then stops.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell116",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell14",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell120"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The referenced cells mention loading models or printing dataset entries, but they do not describe an example where a pair like \"zy\" is replaced with another variable such as \"w\" and then the process stops."
+      },
+      {
+        "sentence_id": "ch02.s07.p03.r07",
+        "text": "The process stops when no byte pair occurs more than once.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell71",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references only indicate the section heading for BytePair encoding and obtaining a GPT-2 tokenizer via tiktoken, but they do not state the stopping criterion that the process stops when no byte pair occurs more than once."
+      }
+    ],
+    "conflicts": []
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch04.s11.p04.r03",
+  "inputs_hash": "d5dc2f0492c9d4776afe5d2a61c9af76cd560b96e0718bba82c0afa89233c0c0",
+  "output_hash": "bc35d89483a43b5bfb99fba608c3d4aae63e29056895fa51f4f1ede7988214f4",
+  "output": {
+    "decision": "edit",
+    "text": "The validation loss decreases during training but never becomes as small as the training loss, and it stagnates at 6.37 after the 10th epoch.",
+    "reason": "The captions support the decrease, the comparison to training loss, the value 6.37, and placement after the 10th epoch, but not the original phrasing exactly.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.92,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "ac931eb4a3692a927f3ade1e22532798ba183c5bd34711c7abba8799f43deb44"
+  }
+}

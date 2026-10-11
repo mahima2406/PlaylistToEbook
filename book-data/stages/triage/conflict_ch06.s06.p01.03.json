@@ -1,0 +1,13 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch06.s06.p01.03",
+  "inputs_hash": "d65e27858daeb92c614384d030cce8788952e65f94641058356fb816adab171c",
+  "output_hash": "470b9fa64e5585b9b9559060b790664a8ab90a1ffe362be3757f4bc44cca01f2",
+  "output": {
+    "decision": "keep",
+    "reason": "The sentence matches the cited captions and does not materially conflict with the reference, which also implies that not every 50256 should be replaced.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "617b90521fa869f541ecdcd69ae411c9d681000eb44b3b317158b1b47b6853ac"
+  }
+}

@@ -1,0 +1,593 @@
+{
+  "stage": "frame",
+  "item": "ch03",
+  "inputs_hash": "26dcb66b9ab448da1b9f9b19b746d1f250255dea525c791b363bd0ae01f3858c",
+  "output_hash": "ff83161dfecc7d477bc8bccfd095b10cad4d1003f07fc63372b9d4ac1f6f9843",
+  "output": {
+    "section_id": "ch03.open",
+    "paragraphs": [
+      {
+        "id": "ch03.open.p01",
+        "sentences": [
+          {
+            "id": "ch03.open.p01.01",
+            "text": "The previous chapter carried raw text through tokenization, token IDs, and embeddings; here the focus shifts to what embeddings still lack and how transformer blocks supply it.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch03.open.p01.02",
+            "text": "A token embedding is a vector representation in a higher-dimensional space, and these vectors capture semantic meaning, with related words lying closer together, but an embedding by itself does not say how a word relates to the other words in its sentence.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@185",
+              "eSRhpYLerw4@188",
+              "eSRhpYLerw4@192",
+              "eSRhpYLerw4@217",
+              "eSRhpYLerw4@219",
+              "eSRhpYLerw4@222",
+              "eSRhpYLerw4@229",
+              "eSRhpYLerw4@250",
+              "eSRhpYLerw4@253",
+              "eSRhpYLerw4@255",
+              "h94TQOK7NRA@209",
+              "h94TQOK7NRA@212",
+              "h94TQOK7NRA@215"
+            ]
+          },
+          {
+            "id": "ch03.open.p01.03",
+            "text": "That missing relational information matters because next-word prediction needs context, and attention is the mechanism that turns each embedding into a context vector enriched with both token meaning and sentence-level relationships.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@277",
+              "eSRhpYLerw4@279",
+              "eSRhpYLerw4@282",
+              "eSRhpYLerw4@286",
+              "eSRhpYLerw4@305",
+              "eSRhpYLerw4@307",
+              "eSRhpYLerw4@315",
+              "eSRhpYLerw4@317",
+              "eSRhpYLerw4@319",
+              "eSRhpYLerw4@322",
+              "eSRhpYLerw4@325",
+              "eSRhpYLerw4@331",
+              "eSRhpYLerw4@334",
+              "eSRhpYLerw4@346",
+              "eSRhpYLerw4@348",
+              "eSRhpYLerw4@357",
+              "h94TQOK7NRA@184",
+              "h94TQOK7NRA@187",
+              "h94TQOK7NRA@189",
+              "h94TQOK7NRA@191",
+              "h94TQOK7NRA@235",
+              "h94TQOK7NRA@238",
+              "h94TQOK7NRA@240",
+              "h94TQOK7NRA@244",
+              "h94TQOK7NRA@247"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.open.p02",
+        "sentences": [
+          {
+            "id": "ch03.open.p02.01",
+            "text": "We begin by reconnecting tokens, embeddings, and context, then build intuition for simplified self-attention, attention scores, normalization, softmax, and context-vector computation before vectorizing the whole process over a sequence.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch03.open.p02.02",
+            "text": "From there, the chapter explains why trainable \"Q\", \"K\", and \"V\" projections are needed, then moves into causal masking, dropout, batching, and efficient multi-head attention implementations.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch03.open.p02.03",
+            "text": "It closes with the transformer blocks wrapped around attention itself, namely layer normalization and shortcut connections, while leaving fuller linear-algebra and matrix-shape intuition only partly spelled out and carrying the assembled pieces forward into the next chapter on putting a GPT model together.",
+            "type": "R",
+            "cites": []
+          }
+        ]
+      },
+      {
+        "id": "ch03.glance.p01",
+        "sentences": [
+          {
+            "id": "ch03.glance.p01.01",
+            "text": "An embedding vector is a token’s vector representation in a higher-dimensional space, and embedding vectors capture semantic meaning so that semantically related words are closer together.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@185",
+              "eSRhpYLerw4@188",
+              "eSRhpYLerw4@192",
+              "eSRhpYLerw4@217",
+              "eSRhpYLerw4@219",
+              "eSRhpYLerw4@222",
+              "eSRhpYLerw4@224",
+              "eSRhpYLerw4@229"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.glance.p02",
+        "sentences": [
+          {
+            "id": "ch03.glance.p02.01",
+            "text": "An input embedding carries the meaning of a word itself, but it does not carry information about how that word relates to the other words in the sentence.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@250",
+              "eSRhpYLerw4@253",
+              "eSRhpYLerw4@255",
+              "eSRhpYLerw4@272",
+              "eSRhpYLerw4@274",
+              "h94TQOK7NRA@209",
+              "h94TQOK7NRA@212",
+              "h94TQOK7NRA@215",
+              "h94TQOK7NRA@218",
+              "h94TQOK7NRA@224",
+              "h94TQOK7NRA@233"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.glance.p03",
+        "sentences": [
+          {
+            "id": "ch03.glance.p03.01",
+            "text": "Attention converts input embeddings into context vectors, and each context vector keeps token meaning while also encoding how that token relates to the other words in the sentence.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@305",
+              "eSRhpYLerw4@307",
+              "eSRhpYLerw4@315",
+              "eSRhpYLerw4@317",
+              "eSRhpYLerw4@319",
+              "eSRhpYLerw4@322",
+              "eSRhpYLerw4@328",
+              "eSRhpYLerw4@331",
+              "eSRhpYLerw4@334",
+              "eSRhpYLerw4@346",
+              "eSRhpYLerw4@348",
+              "eSRhpYLerw4@357",
+              "h94TQOK7NRA@184",
+              "h94TQOK7NRA@187",
+              "h94TQOK7NRA@189",
+              "h94TQOK7NRA@191",
+              "h94TQOK7NRA@235",
+              "h94TQOK7NRA@238",
+              "h94TQOK7NRA@240",
+              "h94TQOK7NRA@244",
+              "h94TQOK7NRA@247"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.glance.p04",
+        "sentences": [
+          {
+            "id": "ch03.glance.p04.01",
+            "text": "For a given query token, attention scores are computed against every input token using the dot product, and higher dot products mean the vectors are more aligned and therefore receive higher attention.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@804",
+              "eSRhpYLerw4@807",
+              "eSRhpYLerw4@890",
+              "eSRhpYLerw4@893",
+              "eSRhpYLerw4@925",
+              "eSRhpYLerw4@928",
+              "eSRhpYLerw4@930",
+              "eSRhpYLerw4@1163",
+              "eSRhpYLerw4@1166",
+              "eSRhpYLerw4@1181",
+              "eSRhpYLerw4@1183",
+              "eSRhpYLerw4@1185",
+              "eSRhpYLerw4@1188",
+              "eSRhpYLerw4@1196",
+              "eSRhpYLerw4@1201",
+              "eSRhpYLerw4@1213",
+              "eSRhpYLerw4@1216",
+              "eSRhpYLerw4@1221",
+              "eSRhpYLerw4@1275",
+              "eSRhpYLerw4@1278",
+              "eSRhpYLerw4@1285",
+              "eSRhpYLerw4@1286",
+              "eSRhpYLerw4@1290",
+              "eSRhpYLerw4@1293",
+              "eSRhpYLerw4@1295",
+              "eSRhpYLerw4@1319",
+              "eSRhpYLerw4@1323",
+              "eSRhpYLerw4@1326"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.glance.p05",
+        "sentences": [
+          {
+            "id": "ch03.glance.p05.01",
+            "text": "Attention scores are normalized into attention weights that sum to one so they can be interpreted as percentages of attention paid to different tokens.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1593",
+              "eSRhpYLerw4@1596",
+              "eSRhpYLerw4@1601",
+              "eSRhpYLerw4@1606",
+              "eSRhpYLerw4@1610",
+              "eSRhpYLerw4@1622",
+              "eSRhpYLerw4@1645",
+              "eSRhpYLerw4@1647",
+              "eSRhpYLerw4@1653",
+              "eSRhpYLerw4@1655",
+              "eSRhpYLerw4@1660",
+              "eSRhpYLerw4@1662",
+              "eSRhpYLerw4@1669",
+              "eSRhpYLerw4@1671",
+              "eSRhpYLerw4@1673",
+              "eSRhpYLerw4@1680",
+              "eSRhpYLerw4@1682"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch03.open.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch03.open.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.open.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch03.open.p02.01": {
+        "verdict": "ok",
+        "confidence": 0.83,
+        "reason": ""
+      },
+      "ch03.open.p02.02": {
+        "verdict": "ok",
+        "confidence": 0.83,
+        "reason": ""
+      },
+      "ch03.open.p02.03": {
+        "verdict": "ok",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch03.glance.p01.01": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.glance.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.glance.p03.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.glance.p04.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.glance.p05.01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch03.open.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch03.open.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.open.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch03.open.p02.01": {
+        "verdict": "ok",
+        "confidence": 0.83,
+        "reason": ""
+      },
+      "ch03.open.p02.02": {
+        "verdict": "ok",
+        "confidence": 0.83,
+        "reason": ""
+      },
+      "ch03.open.p02.03": {
+        "verdict": "ok",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch03.glance.p01.01": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.glance.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.glance.p03.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.glance.p04.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.glance.p05.01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      }
+    },
+    "rewritten": [],
+    "queue": [],
+    "opener": [
+      {
+        "id": "ch03.open.p01",
+        "sentences": [
+          {
+            "id": "ch03.open.p01.01",
+            "text": "The previous chapter carried raw text through tokenization, token IDs, and embeddings; here the focus shifts to what embeddings still lack and how transformer blocks supply it.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch03.open.p01.02",
+            "text": "A token embedding is a vector representation in a higher-dimensional space, and these vectors capture semantic meaning, with related words lying closer together, but an embedding by itself does not say how a word relates to the other words in its sentence.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@185",
+              "eSRhpYLerw4@188",
+              "eSRhpYLerw4@192",
+              "eSRhpYLerw4@217",
+              "eSRhpYLerw4@219",
+              "eSRhpYLerw4@222",
+              "eSRhpYLerw4@229",
+              "eSRhpYLerw4@250",
+              "eSRhpYLerw4@253",
+              "eSRhpYLerw4@255",
+              "h94TQOK7NRA@209",
+              "h94TQOK7NRA@212",
+              "h94TQOK7NRA@215"
+            ]
+          },
+          {
+            "id": "ch03.open.p01.03",
+            "text": "That missing relational information matters because next-word prediction needs context, and attention is the mechanism that turns each embedding into a context vector enriched with both token meaning and sentence-level relationships.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@277",
+              "eSRhpYLerw4@279",
+              "eSRhpYLerw4@282",
+              "eSRhpYLerw4@286",
+              "eSRhpYLerw4@305",
+              "eSRhpYLerw4@307",
+              "eSRhpYLerw4@315",
+              "eSRhpYLerw4@317",
+              "eSRhpYLerw4@319",
+              "eSRhpYLerw4@322",
+              "eSRhpYLerw4@325",
+              "eSRhpYLerw4@331",
+              "eSRhpYLerw4@334",
+              "eSRhpYLerw4@346",
+              "eSRhpYLerw4@348",
+              "eSRhpYLerw4@357",
+              "h94TQOK7NRA@184",
+              "h94TQOK7NRA@187",
+              "h94TQOK7NRA@189",
+              "h94TQOK7NRA@191",
+              "h94TQOK7NRA@235",
+              "h94TQOK7NRA@238",
+              "h94TQOK7NRA@240",
+              "h94TQOK7NRA@244",
+              "h94TQOK7NRA@247"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.open.p02",
+        "sentences": [
+          {
+            "id": "ch03.open.p02.01",
+            "text": "We begin by reconnecting tokens, embeddings, and context, then build intuition for simplified self-attention, attention scores, normalization, softmax, and context-vector computation before vectorizing the whole process over a sequence.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch03.open.p02.02",
+            "text": "From there, the chapter explains why trainable \"Q\", \"K\", and \"V\" projections are needed, then moves into causal masking, dropout, batching, and efficient multi-head attention implementations.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch03.open.p02.03",
+            "text": "It closes with the transformer blocks wrapped around attention itself, namely layer normalization and shortcut connections, while leaving fuller linear-algebra and matrix-shape intuition only partly spelled out and carrying the assembled pieces forward into the next chapter on putting a GPT model together.",
+            "type": "R",
+            "cites": []
+          }
+        ]
+      }
+    ],
+    "at_a_glance": [
+      {
+        "id": "ch03.glance.p01",
+        "sentences": [
+          {
+            "id": "ch03.glance.p01.01",
+            "text": "An embedding vector is a token’s vector representation in a higher-dimensional space, and embedding vectors capture semantic meaning so that semantically related words are closer together.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@185",
+              "eSRhpYLerw4@188",
+              "eSRhpYLerw4@192",
+              "eSRhpYLerw4@217",
+              "eSRhpYLerw4@219",
+              "eSRhpYLerw4@222",
+              "eSRhpYLerw4@224",
+              "eSRhpYLerw4@229"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.glance.p02",
+        "sentences": [
+          {
+            "id": "ch03.glance.p02.01",
+            "text": "An input embedding carries the meaning of a word itself, but it does not carry information about how that word relates to the other words in the sentence.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@250",
+              "eSRhpYLerw4@253",
+              "eSRhpYLerw4@255",
+              "eSRhpYLerw4@272",
+              "eSRhpYLerw4@274",
+              "h94TQOK7NRA@209",
+              "h94TQOK7NRA@212",
+              "h94TQOK7NRA@215",
+              "h94TQOK7NRA@218",
+              "h94TQOK7NRA@224",
+              "h94TQOK7NRA@233"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.glance.p03",
+        "sentences": [
+          {
+            "id": "ch03.glance.p03.01",
+            "text": "Attention converts input embeddings into context vectors, and each context vector keeps token meaning while also encoding how that token relates to the other words in the sentence.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@305",
+              "eSRhpYLerw4@307",
+              "eSRhpYLerw4@315",
+              "eSRhpYLerw4@317",
+              "eSRhpYLerw4@319",
+              "eSRhpYLerw4@322",
+              "eSRhpYLerw4@328",
+              "eSRhpYLerw4@331",
+              "eSRhpYLerw4@334",
+              "eSRhpYLerw4@346",
+              "eSRhpYLerw4@348",
+              "eSRhpYLerw4@357",
+              "h94TQOK7NRA@184",
+              "h94TQOK7NRA@187",
+              "h94TQOK7NRA@189",
+              "h94TQOK7NRA@191",
+              "h94TQOK7NRA@235",
+              "h94TQOK7NRA@238",
+              "h94TQOK7NRA@240",
+              "h94TQOK7NRA@244",
+              "h94TQOK7NRA@247"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.glance.p04",
+        "sentences": [
+          {
+            "id": "ch03.glance.p04.01",
+            "text": "For a given query token, attention scores are computed against every input token using the dot product, and higher dot products mean the vectors are more aligned and therefore receive higher attention.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@804",
+              "eSRhpYLerw4@807",
+              "eSRhpYLerw4@890",
+              "eSRhpYLerw4@893",
+              "eSRhpYLerw4@925",
+              "eSRhpYLerw4@928",
+              "eSRhpYLerw4@930",
+              "eSRhpYLerw4@1163",
+              "eSRhpYLerw4@1166",
+              "eSRhpYLerw4@1181",
+              "eSRhpYLerw4@1183",
+              "eSRhpYLerw4@1185",
+              "eSRhpYLerw4@1188",
+              "eSRhpYLerw4@1196",
+              "eSRhpYLerw4@1201",
+              "eSRhpYLerw4@1213",
+              "eSRhpYLerw4@1216",
+              "eSRhpYLerw4@1221",
+              "eSRhpYLerw4@1275",
+              "eSRhpYLerw4@1278",
+              "eSRhpYLerw4@1285",
+              "eSRhpYLerw4@1286",
+              "eSRhpYLerw4@1290",
+              "eSRhpYLerw4@1293",
+              "eSRhpYLerw4@1295",
+              "eSRhpYLerw4@1319",
+              "eSRhpYLerw4@1323",
+              "eSRhpYLerw4@1326"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.glance.p05",
+        "sentences": [
+          {
+            "id": "ch03.glance.p05.01",
+            "text": "Attention scores are normalized into attention weights that sum to one so they can be interpreted as percentages of attention paid to different tokens.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1593",
+              "eSRhpYLerw4@1596",
+              "eSRhpYLerw4@1601",
+              "eSRhpYLerw4@1606",
+              "eSRhpYLerw4@1610",
+              "eSRhpYLerw4@1622",
+              "eSRhpYLerw4@1645",
+              "eSRhpYLerw4@1647",
+              "eSRhpYLerw4@1653",
+              "eSRhpYLerw4@1655",
+              "eSRhpYLerw4@1660",
+              "eSRhpYLerw4@1662",
+              "eSRhpYLerw4@1669",
+              "eSRhpYLerw4@1671",
+              "eSRhpYLerw4@1673",
+              "eSRhpYLerw4@1680",
+              "eSRhpYLerw4@1682"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

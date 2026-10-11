@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch04.s08.p05.r04",
+  "inputs_hash": "24a37771a203000d2a0f82fb9c0101a440439464c1218570cb1ffdb6b3cb41a3",
+  "output_hash": "5e358fffcc89ccaaa95b2de2bf98d5685a948c6ff39f030795a48971f7d067d4",
+  "output": {
+    "decision": "edit",
+    "text": "After flattening, the target sequence is 3626, 610, 345, 107, 588, and 11311, and these indices identify the entries whose probabilities correspond to p11 through p23 in the example.",
+    "reason": "The captions support the flattened sequence as spoken and the p11-to-p23 mapping only as an example, not as a general identification claim.",
+    "risk": "high",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.9,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "2e8fe531a300fb4ac823a1256bb548102b41d925474225979eac778ec7c73702"
+  }
+}

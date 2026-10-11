@@ -1,0 +1,616 @@
+{
+  "stage": "write",
+  "item": "ch03.s03",
+  "inputs_hash": "1340ae1427b258002627af5c70b5623d8d8f3e1954332a4bffb63d19480a746a",
+  "output_hash": "b501ec97eb3c4facf81a46a003de4b9037f88f9ec3e08cc063957293cd355de0",
+  "output": {
+    "section_id": "ch03.s03",
+    "paragraphs": [
+      {
+        "id": "ch03.s03.p01",
+        "sentences": [
+          {
+            "id": "ch03.s03.p01.01",
+            "text": "How do raw attention scores become quantities that are easy to read and safe to optimize?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s03.p01.02",
+            "text": "Normalization is needed mainly for interpretability, because attention is easiest to describe as percentages assigned to words or tokens.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1593",
+              "eSRhpYLerw4@1596",
+              "eSRhpYLerw4@1601",
+              "eSRhpYLerw4@1604",
+              "eSRhpYLerw4@1608",
+              "eSRhpYLerw4@1622",
+              "eSRhpYLerw4@1645",
+              "eSRhpYLerw4@1647",
+              "eSRhpYLerw4@2498",
+              "eSRhpYLerw4@2553",
+              "eSRhpYLerw4@2556"
+            ]
+          },
+          {
+            "id": "ch03.s03.p01.03",
+            "text": "To express attention in percentages, the values must sum to one, and unnormalized attention scores do not necessarily do that.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1650",
+              "eSRhpYLerw4@1653",
+              "eSRhpYLerw4@1655",
+              "eSRhpYLerw4@1660",
+              "eSRhpYLerw4@1669",
+              "eSRhpYLerw4@1671"
+            ]
+          },
+          {
+            "id": "ch03.s03.p01.04",
+            "text": "A second reason for normalization is training stability: values between zero and one generally help during backpropagation and gradient descent.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1687",
+              "eSRhpYLerw4@1688",
+              "eSRhpYLerw4@1691",
+              "eSRhpYLerw4@1698",
+              "eSRhpYLerw4@1700",
+              "eSRhpYLerw4@1702",
+              "eSRhpYLerw4@1707",
+              "eSRhpYLerw4@1710"
+            ]
+          },
+          {
+            "id": "ch03.s03.p01.05",
+            "text": "The simplest normalization is to sum the attention scores and divide each element by that total.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1714",
+              "eSRhpYLerw4@1717",
+              "eSRhpYLerw4@1721",
+              "eSRhpYLerw4@1733",
+              "eSRhpYLerw4@1735",
+              "eSRhpYLerw4@1737",
+              "eSRhpYLerw4@1739"
+            ]
+          },
+          {
+            "id": "ch03.s03.p01.06",
+            "text": "That procedure makes the normalized values sum to one.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1741",
+              "eSRhpYLerw4@1744",
+              "eSRhpYLerw4@1746"
+            ]
+          },
+          {
+            "id": "ch03.s03.p01.07",
+            "text": "In code, a separate tensor called attention weights is created by dividing the attention scores by their total sum, and the resulting values sum to one.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1752",
+              "eSRhpYLerw4@1755",
+              "eSRhpYLerw4@1757",
+              "eSRhpYLerw4@1759",
+              "eSRhpYLerw4@1761",
+              "eSRhpYLerw4@1763",
+              "eSRhpYLerw4@1765",
+              "eSRhpYLerw4@1769",
+              "eSRhpYLerw4@1771",
+              "eSRhpYLerw4@1776",
+              "eSRhpYLerw4@1780",
+              "eSRhpYLerw4@1800",
+              "eSRhpYLerw4@1803",
+              "eSRhpYLerw4@1804"
+            ]
+          },
+          {
+            "id": "ch03.s03.p01.08",
+            "text": "Attention scores and attention weights mean the same thing intuitively, but attention weights are the normalized version whose elements sum to one.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1783",
+              "eSRhpYLerw4@1785",
+              "eSRhpYLerw4@1787",
+              "eSRhpYLerw4@1790",
+              "eSRhpYLerw4@1792",
+              "eSRhpYLerw4@1794",
+              "eSRhpYLerw4@1796",
+              "eSRhpYLerw4@1798",
+              "eSRhpYLerw4@1800",
+              "eSRhpYLerw4@2560",
+              "eSRhpYLerw4@2563",
+              "eSRhpYLerw4@2564",
+              "eSRhpYLerw4@2567"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s03.p02",
+        "sentences": [
+          {
+            "id": "ch03.s03.p02.01",
+            "text": "Simple normalization is useful as a first step, but machine learning practice usually prefers a different normalization function.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s03.p02.02",
+            "text": "In machine learning, it is more common and advisable to use the softmax function than plain summation-based normalization.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1811",
+              "eSRhpYLerw4@1814",
+              "eSRhpYLerw4@1823",
+              "eSRhpYLerw4@1826",
+              "eSRhpYLerw4@1828",
+              "eSRhpYLerw4@1830"
+            ]
+          },
+          {
+            "id": "ch03.s03.p02.03",
+            "text": "The reason becomes clear in an extreme example such as the values 1, 2, 3, and 400.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1844",
+              "eSRhpYLerw4@1845",
+              "eSRhpYLerw4@1847",
+              "eSRhpYLerw4@1857",
+              "eSRhpYLerw4@1860",
+              "eSRhpYLerw4@1868",
+              "eSRhpYLerw4@1873"
+            ]
+          },
+          {
+            "id": "ch03.s03.p02.04",
+            "text": "If these values are normalized by dividing each one by their sum, the denominator is 406, so the largest value becomes 400 divided by 406 while the others remain small but nonzero fractions.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1877",
+              "eSRhpYLerw4@1879",
+              "eSRhpYLerw4@1883",
+              "eSRhpYLerw4@1884",
+              "eSRhpYLerw4@1890",
+              "eSRhpYLerw4@1902",
+              "eSRhpYLerw4@1912",
+              "eSRhpYLerw4@1923",
+              "eSRhpYLerw4@1925",
+              "eSRhpYLerw4@1928"
+            ]
+          },
+          {
+            "id": "ch03.s03.p02.05",
+            "text": "When one value is extremely large, the desired behavior is for the small values to be close to zero and the extreme value to be close to one.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1936",
+              "eSRhpYLerw4@1941",
+              "eSRhpYLerw4@1943",
+              "eSRhpYLerw4@1946",
+              "eSRhpYLerw4@1949",
+              "eSRhpYLerw4@1951",
+              "eSRhpYLerw4@1953",
+              "eSRhpYLerw4@1956"
+            ]
+          },
+          {
+            "id": "ch03.s03.p02.06",
+            "text": "Summation-based normalization does not achieve that behavior well enough.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1958",
+              "eSRhpYLerw4@1960",
+              "eSRhpYLerw4@1962",
+              "eSRhpYLerw4@2031",
+              "eSRhpYLerw4@2034",
+              "eSRhpYLerw4@2036",
+              "eSRhpYLerw4@2040",
+              "eSRhpYLerw4@2041",
+              "eSRhpYLerw4@2044"
+            ]
+          },
+          {
+            "id": "ch03.s03.p02.07",
+            "text": "Values that are not exactly zero can confuse the optimizer during backpropagation and gradient descent, because some weight may still be assigned to values that should be neglected.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2013",
+              "eSRhpYLerw4@2017",
+              "eSRhpYLerw4@2019",
+              "eSRhpYLerw4@2022",
+              "eSRhpYLerw4@2023",
+              "eSRhpYLerw4@2025",
+              "eSRhpYLerw4@2027",
+              "eSRhpYLerw4@2029"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s03.p03",
+        "sentences": [
+          {
+            "id": "ch03.s03.p03.01",
+            "text": "Softmax is designed to address exactly this problem.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s03.p03.02",
+            "text": "Softmax takes the exponent of each element and divides it by the sum of the exponents of all elements.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2065",
+              "eSRhpYLerw4@2068",
+              "eSRhpYLerw4@2070",
+              "eSRhpYLerw4@2073",
+              "eSRhpYLerw4@2076",
+              "eSRhpYLerw4@2080",
+              "eSRhpYLerw4@2084",
+              "eSRhpYLerw4@2086",
+              "eSRhpYLerw4@2089",
+              "eSRhpYLerw4@2092",
+              "eSRhpYLerw4@2094"
+            ]
+          },
+          {
+            "id": "ch03.s03.p03.03",
+            "text": "Its outputs sum to one.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2097",
+              "eSRhpYLerw4@2099",
+              "eSRhpYLerw4@2100"
+            ]
+          },
+          {
+            "id": "ch03.s03.p03.04",
+            "text": "Softmax also handles extreme cases better, because after exponentiation a very large value becomes dominant, making its normalized result very close to one and the smaller values very close to zero.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2103",
+              "eSRhpYLerw4@2104",
+              "eSRhpYLerw4@2107",
+              "eSRhpYLerw4@2111",
+              "eSRhpYLerw4@2114",
+              "eSRhpYLerw4@2116",
+              "eSRhpYLerw4@2119",
+              "eSRhpYLerw4@2121"
+            ]
+          },
+          {
+            "id": "ch03.s03.p03.05",
+            "text": "That is why softmax is especially preferable for extreme values that may appear in large-scale models such as LLMs.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2121",
+              "eSRhpYLerw4@2124",
+              "eSRhpYLerw4@2126",
+              "eSRhpYLerw4@2129",
+              "eSRhpYLerw4@2132",
+              "eSRhpYLerw4@2134"
+            ]
+          },
+          {
+            "id": "ch03.s03.p03.06",
+            "text": "A naive softmax implementation computes the exponent of each attention score and divides by the sum of those exponents.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2258",
+              "eSRhpYLerw4@2261",
+              "eSRhpYLerw4@2262",
+              "eSRhpYLerw4@2268",
+              "eSRhpYLerw4@2271",
+              "eSRhpYLerw4@2274",
+              "eSRhpYLerw4@2276",
+              "eSRhpYLerw4@2321",
+              "eSRhpYLerw4@2324",
+              "eSRhpYLerw4@2325",
+              "eSRhpYLerw4@2327"
+            ]
+          },
+          {
+            "id": "ch03.s03.p03.07",
+            "text": "In that implementation, the sum uses dimension 0 because the code is summing all entries in one row.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2276",
+              "eSRhpYLerw4@2278",
+              "eSRhpYLerw4@2281",
+              "eSRhpYLerw4@2284",
+              "eSRhpYLerw4@2286",
+              "eSRhpYLerw4@2288",
+              "eSRhpYLerw4@2298",
+              "eSRhpYLerw4@2302",
+              "eSRhpYLerw4@2304",
+              "eSRhpYLerw4@2307",
+              "eSRhpYLerw4@2310",
+              "eSRhpYLerw4@2312"
+            ]
+          },
+          {
+            "id": "ch03.s03.p03.08",
+            "text": "These naive softmax attention weights differ from the values produced by simple summation-based normalization, but they still sum to one.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2330",
+              "eSRhpYLerw4@2334",
+              "eSRhpYLerw4@2337",
+              "eSRhpYLerw4@2339",
+              "eSRhpYLerw4@2341",
+              "eSRhpYLerw4@2343"
+            ]
+          },
+          {
+            "id": "ch03.s03.p03.09",
+            "text": "Softmax attention weights are always positive because they are produced through the exponential operation.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2351",
+              "eSRhpYLerw4@2354",
+              "eSRhpYLerw4@2356",
+              "eSRhpYLerw4@2359",
+              "eSRhpYLerw4@2361"
+            ]
+          },
+          {
+            "id": "ch03.s03.p03.10",
+            "text": "That positivity matters for interpretability, because attention can then be read as positive percentages assigned to tokens.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2364",
+              "eSRhpYLerw4@2366",
+              "eSRhpYLerw4@2368",
+              "eSRhpYLerw4@2372",
+              "eSRhpYLerw4@2375",
+              "eSRhpYLerw4@2377",
+              "eSRhpYLerw4@2379",
+              "eSRhpYLerw4@2382"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s03.p04",
+        "sentences": [
+          {
+            "id": "ch03.s03.p04.01",
+            "text": "For actual code, numerical stability becomes the deciding factor.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s03.p04.02",
+            "text": "PyTorch implements softmax by subtracting the maximum input value from each value before applying the exponential and normalization.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2145",
+              "eSRhpYLerw4@2147",
+              "eSRhpYLerw4@2150",
+              "eSRhpYLerw4@2153",
+              "eSRhpYLerw4@2156",
+              "eSRhpYLerw4@2158",
+              "eSRhpYLerw4@2161",
+              "eSRhpYLerw4@2166",
+              "eSRhpYLerw4@2168",
+              "eSRhpYLerw4@2171",
+              "eSRhpYLerw4@2174",
+              "eSRhpYLerw4@2178",
+              "eSRhpYLerw4@2180",
+              "eSRhpYLerw4@2183",
+              "eSRhpYLerw4@2186"
+            ]
+          },
+          {
+            "id": "ch03.s03.p04.03",
+            "text": "Subtracting the maximum does not change the mathematical result, because the common exponential factor cancels between numerator and denominator.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2188",
+              "eSRhpYLerw4@2191",
+              "eSRhpYLerw4@2194",
+              "eSRhpYLerw4@2196",
+              "eSRhpYLerw4@2200",
+              "eSRhpYLerw4@2202",
+              "eSRhpYLerw4@2204",
+              "eSRhpYLerw4@2207"
+            ]
+          },
+          {
+            "id": "ch03.s03.p04.04",
+            "text": "It is done to avoid numerical instability such as overflow when the inputs are very large or very small.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2210",
+              "eSRhpYLerw4@2212",
+              "eSRhpYLerw4@2214",
+              "eSRhpYLerw4@2217",
+              "eSRhpYLerw4@2219",
+              "eSRhpYLerw4@2221",
+              "eSRhpYLerw4@2224",
+              "eSRhpYLerw4@2226",
+              "eSRhpYLerw4@2228",
+              "eSRhpYLerw4@2230"
+            ]
+          },
+          {
+            "id": "ch03.s03.p04.05",
+            "text": "So although the naive softmax formula is theoretically fine, in Python it is better to subtract the maximum value to prevent overflow problems.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2233",
+              "eSRhpYLerw4@2235",
+              "eSRhpYLerw4@2237",
+              "eSRhpYLerw4@2239",
+              "eSRhpYLerw4@2241",
+              "eSRhpYLerw4@2243"
+            ]
+          },
+          {
+            "id": "ch03.s03.p04.06",
+            "text": "Both the naive softmax and the PyTorch softmax are implemented in code.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2252",
+              "eSRhpYLerw4@2254",
+              "eSRhpYLerw4@2256"
+            ]
+          },
+          {
+            "id": "ch03.s03.p04.07",
+            "text": "The PyTorch version is computed with a single call to \"torch.softmax\" on the attention score tensor.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2400",
+              "eSRhpYLerw4@2402",
+              "eSRhpYLerw4@2404",
+              "eSRhpYLerw4@2407",
+              "eSRhpYLerw4@2409"
+            ]
+          },
+          {
+            "id": "ch03.s03.p04.08",
+            "text": "That call uses the numerically stable form that subtracts the maximum value before exponentiation.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2412",
+              "eSRhpYLerw4@2414",
+              "eSRhpYLerw4@2416",
+              "eSRhpYLerw4@2419",
+              "eSRhpYLerw4@2421",
+              "eSRhpYLerw4@2425"
+            ]
+          },
+          {
+            "id": "ch03.s03.p04.09",
+            "text": "A naive softmax implementation may suffer from numerical instability, including overflow for very large values and underflow for very small values, so in practice the PyTorch implementation is preferable.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2385",
+              "eSRhpYLerw4@2389",
+              "eSRhpYLerw4@2391",
+              "eSRhpYLerw4@2393",
+              "eSRhpYLerw4@2395",
+              "eSRhpYLerw4@2397",
+              "eSRhpYLerw4@2400",
+              "eSRhpYLerw4@2402"
+            ]
+          },
+          {
+            "id": "ch03.s03.p04.10",
+            "text": "When no very large or very small values are present, the naive softmax and the PyTorch softmax produce the same attention weight tensor.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2453",
+              "eSRhpYLerw4@2455",
+              "eSRhpYLerw4@2456",
+              "eSRhpYLerw4@2459",
+              "eSRhpYLerw4@2461",
+              "eSRhpYLerw4@2464",
+              "eSRhpYLerw4@2466",
+              "eSRhpYLerw4@2469",
+              "eSRhpYLerw4@2471",
+              "eSRhpYLerw4@2473",
+              "eSRhpYLerw4@2475",
+              "eSRhpYLerw4@2477"
+            ]
+          },
+          {
+            "id": "ch03.s03.p04.11",
+            "text": "PyTorch softmax is still preferred because later computations may involve very large parameters, where numerical instability matters.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2480",
+              "eSRhpYLerw4@2483",
+              "eSRhpYLerw4@2485",
+              "eSRhpYLerw4@2488",
+              "eSRhpYLerw4@2491",
+              "eSRhpYLerw4@2493"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s03.p05",
+        "sentences": [
+          {
+            "id": "ch03.s03.p05.01",
+            "text": "Once the values are normalized, attention becomes readable.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s03.p05.02",
+            "text": "Attention weights make attention interpretable because they can be read as percentages assigned to words.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1604",
+              "eSRhpYLerw4@1606",
+              "eSRhpYLerw4@1608",
+              "eSRhpYLerw4@1610",
+              "eSRhpYLerw4@1615",
+              "eSRhpYLerw4@1618",
+              "eSRhpYLerw4@1622",
+              "eSRhpYLerw4@1624",
+              "eSRhpYLerw4@1676",
+              "eSRhpYLerw4@1680",
+              "eSRhpYLerw4@1682",
+              "eSRhpYLerw4@2500",
+              "eSRhpYLerw4@2502",
+              "eSRhpYLerw4@2519",
+              "eSRhpYLerw4@2522",
+              "eSRhpYLerw4@2525",
+              "eSRhpYLerw4@2528",
+              "eSRhpYLerw4@2534",
+              "eSRhpYLerw4@2553",
+              "eSRhpYLerw4@2556"
+            ]
+          },
+          {
+            "id": "ch03.s03.p05.03",
+            "text": "For example, weights around 0.13, 0.23, 0.23, 0.12, 0.10, and 0.15 can be read as about 13% attention to \"your\", about 23% to \"journey\", about 23% to \"starts\", 12% to \"with\", 10% to \"one\", and 15% to \"step\".",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2505",
+              "eSRhpYLerw4@2508",
+              "eSRhpYLerw4@2510",
+              "eSRhpYLerw4@2514",
+              "eSRhpYLerw4@2515",
+              "eSRhpYLerw4@2519",
+              "eSRhpYLerw4@2522",
+              "eSRhpYLerw4@2525",
+              "eSRhpYLerw4@2528",
+              "eSRhpYLerw4@2534",
+              "eSRhpYLerw4@2537"
+            ]
+          },
+          {
+            "id": "ch03.s03.p05.04",
+            "text": "Because attention weights sum to one, it becomes easy to say that some words receive higher attention and others lower attention in percentage terms.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2540",
+              "eSRhpYLerw4@2541",
+              "eSRhpYLerw4@2543",
+              "eSRhpYLerw4@2545",
+              "eSRhpYLerw4@2547",
+              "eSRhpYLerw4@2548",
+              "eSRhpYLerw4@2551",
+              "eSRhpYLerw4@2553",
+              "eSRhpYLerw4@2556",
+              "eSRhpYLerw4@2558",
+              "eSRhpYLerw4@2560",
+              "eSRhpYLerw4@2563",
+              "eSRhpYLerw4@2564",
+              "eSRhpYLerw4@2567",
+              "eSRhpYLerw4@2569"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

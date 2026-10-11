@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch04.s04.p02.r09",
+  "inputs_hash": "c60166b48393b30ac5a82990bf118f37d635c6dfa12acd3453c0172cbeb440af",
+  "output_hash": "81defd6442d24ccfe4f43e4c2d48026a9416df1d66d6fe06f12e61f875ba62f1",
+  "output": {
+    "decision": "edit",
+    "text": "A context vector keeps the token’s semantic meaning while incorporating information from the other tokens in the sentence through attention.",
+    "reason": "The captions support that the context vector reflects both token meaning and attention to other tokens, but the reference assigns the attention allocation itself to the attention weights rather than the context vector.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.74,
+      "reason": "The cited lines support that a context vector captures a token’s semantic meaning and also reflects how much attention should be given to all the other tokens in the sentence. However, they do not explicitly state that this incorporation happens 'through attention' as a mechanism (only that it captures the meaning of how much attention to give)."
+    },
+    "kind": "conflict",
+    "sentence_hash": "d85bbefb219555063e5cac00a6586897ca87a88c55f4fb9a3b46804206c60467"
+  }
+}

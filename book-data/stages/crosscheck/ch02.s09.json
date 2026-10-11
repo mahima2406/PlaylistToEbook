@@ -1,0 +1,246 @@
+{
+  "stage": "crosscheck",
+  "item": "ch02.s09",
+  "inputs_hash": "8f075f9de472961dcaf5df10722e0bfa18fdf92b0d2d4d898c04840ca982e496",
+  "output_hash": "9b1835faed81767960aa036540874f2ad593f7e81069e428fb6f61b4feb41a96",
+  "output": {
+    "section_id": "ch02.s09",
+    "checked": 18,
+    "counts": {
+      "agrees": 9,
+      "contradicts": 2,
+      "not_covered": 7
+    },
+    "results": [
+      {
+        "sentence_id": "ch02.s09.p01.r02",
+        "text": "Implementing byte pair encoding from scratch is relatively complicated, so a practical approach is to use the Python open-source library \"tiktoken\".",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell71"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference section is about BPE and shows using the open-source Python library tiktoken (including an install hint), consistent with using it as a practical approach."
+      },
+      {
+        "sentence_id": "ch02.s09.p01.r03",
+        "text": "\"tiktoken\" is essentially a byte pair encoder used for OpenAI models, and it is the tokenizer used in OpenAI models.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell125",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell70",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references note GPT-2 uses BPE and show obtaining the GPT-2 encoding via tiktoken, but they do not explicitly state that tiktoken is the tokenizer used in OpenAI models or that it is essentially a BPE encoder for OpenAI models."
+      },
+      {
+        "sentence_id": "ch02.s09.p01.r04",
+        "text": "To use it, the first step is to install the \"tiktoken\" library.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell128",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell71",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell61"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "A cell explicitly shows “# pip install tiktoken,” supporting that installation is the first step to use it."
+      },
+      {
+        "sentence_id": "ch02.s09.p01.r05",
+        "text": "After installation, the GPT-2 byte pair tokenizer is instantiated with a call such as \"tiktoken.get_encoding(\"gpt2\")\", storing the result in a tokenizer object.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell71"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference includes the exact instantiation line: tokenizer = tiktoken.get_encoding(\"gpt2\")."
+      },
+      {
+        "sentence_id": "ch02.s09.p01.r06",
+        "text": "That tokenizer object is similar to the earlier Python tokenizer classes because it has \"encode\" and \"decode\" methods, but here the tokenizer is created in one line through the library.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell68",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell50",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell58"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references show tokenizer.encode(...) and tokenizer.decode(...), and that the tiktoken tokenizer is created in one line via get_encoding."
+      },
+      {
+        "sentence_id": "ch02.s09.p02.r02",
+        "text": "An example text is encoded with the tokenizer while allowing the special end-of-text token, and the resulting output includes token IDs such as \"50256\".",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell15",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell46"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The ch05 code encodes text with allowed_special={'<|endoftext|>'}, and later generation code uses eos_id=50256, consistent with outputs including that ID when end-of-text is allowed/used."
+      },
+      {
+        "sentence_id": "ch02.s09.p02.r03",
+        "text": "In the GPT-2 and GPT-3 tokenization scheme, token ID \"50256\" is the end-of-text token.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell40",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show eos_id=50256 in generation, but do not explicitly state that 50256 is the end-of-text token for GPT-2 and GPT-3."
+      },
+      {
+        "sentence_id": "ch02.s09.p02.r04",
+        "text": "The GPT-2 and GPT-3 byte pair encoding scheme uses a vocabulary of around 50,000 tokens, and a word-level English vocabulary would require roughly 170,000 to 200,000 words.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell125",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference states the BPE vocabulary size is 50,257 (~50k) but does not mention (and thus cannot support) the claim about word-level English requiring ~170k–200k; the only numeric comparison present is 50,257."
+      },
+      {
+        "sentence_id": "ch02.s09.p02.r05",
+        "text": "Byte pair encoding reduces the vocabulary size while still giving strong performance.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell71"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references only show using tiktoken/get_encoding and do not state that BPE reduces vocabulary size while maintaining strong performance."
+      },
+      {
+        "sentence_id": "ch02.s09.p02.r06",
+        "text": "When the token IDs are passed to the tokenizer's \"decode\" method, the text is reconstructed exactly as it was originally given.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell50",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell49",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show decode(encode(text)) usage but do not state or demonstrate that decoding reconstructs the text exactly in all cases."
+      },
+      {
+        "sentence_id": "ch02.s09.p03.r02",
+        "text": "In the GPT-2 byte pair tokenizer, the end-of-text token is the last token in the vocabulary, so it has the largest token ID, \"50256\".",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell85",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the references imply a 50,257-sized vocab and use eos_id=50256, they do not state that the end-of-text token is the last token in the vocabulary or that it has the largest ID."
+      },
+      {
+        "sentence_id": "ch02.s09.p03.r03",
+        "text": "The byte pair tokenizer used for GPT-2, GPT-3, and the original model used in ChatGPT has a total vocabulary size of \"50257\".",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell66",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell125"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly states: “The BytePair encoder has a vocabulary size of 50,257,” matching 50257."
+      },
+      {
+        "sentence_id": "ch02.s09.p03.r04",
+        "text": "A byte pair encoding tokenizer can encode and decode unknown words without any special unknown-word token because it breaks text down to characters and subwords.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell76",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell52",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states that BPE tokenizers break down unknown words into subwords and individual characters, implying they can handle unknown words without requiring an explicit unknown-word token. The note about adding special tokens for unknown words is presented as useful, not strictly required for encoding/decoding."
+      },
+      {
+        "sentence_id": "ch02.s09.p03.r05",
+        "text": "For an unknown word, the tokenizer would ideally produce an error, but with the byte pair tokenizer no error occurs.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell76"
+        ],
+        "verdict": "contradicts",
+        "material": false,
+        "reason": "The reference does not say an unknown word would ideally produce an error; instead it explains BPE breaks unknown words into subwords/characters, so no error occurs. The 'ideally produce an error' claim is unsupported and opposite in spirit, but it is more of a normative statement than a factual behavior difference."
+      },
+      {
+        "sentence_id": "ch02.s09.p04.r02",
+        "text": "A final example uses the random nonsense string \"a k w i r w i e r\", described as completely random words that do not make sense.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell94",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell71"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references discuss an untrained model producing random output, but do not mention the specific nonsense string \"a k w i r w i e r\" or describe it as completely random words."
+      },
+      {
+        "sentence_id": "ch02.s09.p04.r03",
+        "text": "When these random words are passed to the \"tiktoken\" GPT-2 byte pair encoder, it does not raise an error and still encodes them into tokens.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell71"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference section on BPE indicates unknown words are decomposed into subwords/characters, and the code shows obtaining the GPT-2 encoding via tiktoken; this supports that encoding such random/unknown words would not raise an error and would produce tokens."
+      },
+      {
+        "sentence_id": "ch02.s09.p04.r04",
+        "text": "Decoding the resulting integers gives back exactly the same sentence that was originally encoded.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell48",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell86",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell46"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the reference says integers can be decoded back into text, it does not state that decoding will return exactly the same original sentence in all cases or for a specific example."
+      },
+      {
+        "sentence_id": "ch02.s09.p04.r05",
+        "text": "So the tokenizer created with \"tiktoken.get_encoding(\"gpt2\")\" can be tested with both \"encode\" and \"decode\".",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell28",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell32"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references show creating a tokenizer with tiktoken.get_encoding(\"gpt2\") and using tokenizer.encode; the chapter text also states decoding integers back into text, consistent with testing both encode and decode on that tokenizer."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch02.s09.p02.r04",
+        "text": "The GPT-2 and GPT-3 byte pair encoding scheme uses a vocabulary of around 50,000 tokens, and a word-level English vocabulary would require roughly 170,000 to 200,000 words.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell125",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference states the BPE vocabulary size is 50,257 (~50k) but does not mention (and thus cannot support) the claim about word-level English requiring ~170k–200k; the only numeric comparison present is 50,257."
+      }
+    ]
+  }
+}

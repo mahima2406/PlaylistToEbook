@@ -1,0 +1,207 @@
+{
+  "stage": "crosscheck",
+  "item": "ch05.s07",
+  "inputs_hash": "94a1be14712039511d9af07eaf00e58f58d2e21bdb980e171e9ce7d5ff42ea35",
+  "output_hash": "9258d7db5ad3058010ca22e4ea9673944e1fa6e252a7a7250b78f487a1959ce6",
+  "output": {
+    "section_id": "ch05.s07",
+    "checked": 16,
+    "counts": {
+      "agrees": 6,
+      "contradicts": 0,
+      "not_covered": 10
+    },
+    "results": [
+      {
+        "sentence_id": "ch05.s07.p01.03",
+        "text": "It is an SMS spam collection dataset made of text messages that are labeled as either spam or not spam.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell107",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell12",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell16"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References describe using a dataset of spam and non-spam (ham) text messages for classification fine-tuning."
+      },
+      {
+        "sentence_id": "ch05.s07.p01.04",
+        "text": "Each entry consists of a text together with a label indicating whether it is ham, meaning no spam, or spam.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell19",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell21",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell16"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Code and notes show a Label column with values 'ham' (not spam) and 'spam' associated with each text message."
+      },
+      {
+        "sentence_id": "ch05.s07.p01.05",
+        "text": "In this dataset, non-spam is also called ham.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell12",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell16",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell19"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference explicitly equates 'ham' with 'not spam'."
+      },
+      {
+        "sentence_id": "ch05.s07.p02.r01",
+        "text": "One description gives the dataset as around 747 spam emails and more than 3,000 non-spam emails.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell16",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell12",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell107"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided references mention class imbalance but do not give specific counts (e.g., 747 spam and >3,000 non-spam) nor do they mention emails vs text messages."
+      },
+      {
+        "sentence_id": "ch05.s07.p02.r02",
+        "text": "Another count states that there were 4,825 no-spam entries and 747 spam entries, and also summarizes this as around 4,800 no-spam messages and 747 spam messages.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell107",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell12",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell16"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references shown do not provide the exact counts 4,825 ham and 747 spam or the summarized approximation."
+      },
+      {
+        "sentence_id": "ch05.s07.p02.r03",
+        "text": "To balance the classes, 747 non-spam entries were randomly sampled so that spam and non-spam each had 747 examples.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell12",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell107",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell16"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The code shows sampling ham to match the number of spam instances, but the specific number 747 is not stated in the provided excerpts."
+      },
+      {
+        "sentence_id": "ch05.s07.p02.r04",
+        "text": "After balancing, the dataset contains 747 spam examples and 747 non-spam examples, for a total of 1,494 examples.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell111",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell12",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell16"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No provided passage states the post-balancing counts (747/747) or total 1,494, though balancing logic is shown elsewhere."
+      },
+      {
+        "sentence_id": "ch05.s07.p03.r01",
+        "text": "The labels are then encoded numerically.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell90",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell30",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell20"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference text states converting string labels 'ham' and 'spam' into integer labels 0 and 1."
+      },
+      {
+        "sentence_id": "ch05.s07.p03.r02",
+        "text": "Ham is encoded as 0 and spam is encoded as 1.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell90",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell30",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell107"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided excerpts do not include the actual mapping line; thus the specific direction ham→0 and spam→1 is not shown (even though it is typical)."
+      },
+      {
+        "sentence_id": "ch05.s07.p03.r03",
+        "text": "Accordingly, the target tensor contains zeros and ones, where zero means no spam and one means spam.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell16",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell107",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References shown do not describe the target tensor contents as zeros/ones with the stated semantics; only earlier label meaning is mentioned."
+      },
+      {
+        "sentence_id": "ch05.s07.p03.r04",
+        "text": "With the labels encoded, the full dataset is split into training, validation, and testing data.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell20",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell30",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell90"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The supplied references do not mention splitting this spam dataset into train/validation/test after encoding."
+      },
+      {
+        "sentence_id": "ch05.s07.p03.r05",
+        "text": "The split uses 70% for training, 10% for validation, and 20% for testing, and these splits were converted into CSV files.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No provided reference specifies a 70/10/20 split or conversion of splits into CSV files; the cited ch05 passage concerns a different dataset/task."
+      },
+      {
+        "sentence_id": "ch05.s07.p04.r01",
+        "text": "The dataloaders batch the dataset into inputs and targets.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell46",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell41",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell36"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference shows a collate function returning two tensors/arrays assigned as `inputs, targets = custom_collate_fn(batch)` (and draft variants), consistent with batching into inputs and targets."
+      },
+      {
+        "sentence_id": "ch05.s07.p04.r02",
+        "text": "The same split proportions are also described as 70% training, 20% testing, and 10% validation.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell51",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell32"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not state split proportions such as 70/20/10 or discuss equivalence of split descriptions."
+      },
+      {
+        "sentence_id": "ch05.s07.p04.r03",
+        "text": "Because the balanced dataset has 1,494 examples, taking 70% for training gives 1,045 training samples.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell22",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell21",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references shown mention `balanced_df` but do not provide the dataset size (1,494) or compute 70% = 1,045 training samples."
+      },
+      {
+        "sentence_id": "ch05.s07.p04.r04",
+        "text": "That training count is the basis for the batches used by the training dataloader.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell26"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states that the dataset is divided into training/validation sets and then data loaders are used to prepare batches for training, which is consistent with the training split count being what the training dataloader batches over."
+      }
+    ],
+    "conflicts": []
+  }
+}

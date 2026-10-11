@@ -1,0 +1,1462 @@
+{
+  "stage": "verify",
+  "item": "ch03.s11",
+  "inputs_hash": "3820f47b7a431473a217344dfa3799f937a6683c7dd805c41fe8e5f6da49b760",
+  "output_hash": "1b22788e9a067f849f234ec61ab27cc1c60f572803d03bfbc79c4a6928427ec2",
+  "output": {
+    "section_id": "ch03.s11",
+    "paragraphs": [
+      {
+        "id": "ch03.s11.p01",
+        "sentences": [
+          {
+            "id": "ch03.s11.p01.01",
+            "text": "Why do transformer blocks include those extra arrows and plus signs, and why do they matter for training stability?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s11.p01.02",
+            "text": "Shortcut connections are an important building block of the GPT architecture alongside layer normalization, the GELU activation, and the feed-forward neural network.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@23",
+              "2r0QahNdwMw@28",
+              "2r0QahNdwMw@30",
+              "2r0QahNdwMw@32",
+              "2r0QahNdwMw@35",
+              "2r0QahNdwMw@1775",
+              "2r0QahNdwMw@1784"
+            ]
+          },
+          {
+            "id": "ch03.s11.p01.03",
+            "text": "In a Transformer block, the plus symbols and their associated arrows represent shortcut connections.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@117",
+              "2r0QahNdwMw@122",
+              "2r0QahNdwMw@124",
+              "2r0QahNdwMw@130",
+              "2r0QahNdwMw@132",
+              "2r0QahNdwMw@1877",
+              "2r0QahNdwMw@1879"
+            ]
+          },
+          {
+            "id": "ch03.s11.p01.04",
+            "text": "Shortcut connections are also known as skip connections or residual connections.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@157",
+              "2r0QahNdwMw@158",
+              "2r0QahNdwMw@160",
+              "2r0QahNdwMw@162",
+              "2r0QahNdwMw@164"
+            ]
+          },
+          {
+            "id": "ch03.s11.p01.05",
+            "text": "They were first proposed in computer vision to solve the vanishing gradient problem.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@167",
+              "2r0QahNdwMw@172",
+              "2r0QahNdwMw@174",
+              "2r0QahNdwMw@178"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s11.p02",
+        "sentences": [
+          {
+            "id": "ch03.s11.p02.01",
+            "text": "The vanishing gradient problem is that gradients become progressively smaller as they are propagated backward through a neural network.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@194",
+              "2r0QahNdwMw@195",
+              "2r0QahNdwMw@198",
+              "2r0QahNdwMw@200"
+            ]
+          },
+          {
+            "id": "ch03.s11.p02.02",
+            "text": "During backpropagation, gradient flow goes from the output of the network to the input, so later-layer gradients are used to compute earlier-layer gradients.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@252",
+              "2r0QahNdwMw@254",
+              "2r0QahNdwMw@256",
+              "2r0QahNdwMw@258",
+              "2r0QahNdwMw@265",
+              "2r0QahNdwMw@267",
+              "2r0QahNdwMw@269",
+              "2r0QahNdwMw@271",
+              "2r0QahNdwMw@273"
+            ]
+          },
+          {
+            "id": "ch03.s11.p02.03",
+            "text": "Because backpropagation involves multiplications, if a later gradient becomes small then earlier gradients become even smaller, which is why gradients can vanish.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@273",
+              "2r0QahNdwMw@275",
+              "2r0QahNdwMw@277",
+              "2r0QahNdwMw@279",
+              "2r0QahNdwMw@282",
+              "2r0QahNdwMw@286",
+              "2r0QahNdwMw@288",
+              "2r0QahNdwMw@290",
+              "2r0QahNdwMw@292",
+              "2r0QahNdwMw@295",
+              "2r0QahNdwMw@299",
+              "2r0QahNdwMw@302",
+              "2r0QahNdwMw@304",
+              "2r0QahNdwMw@306"
+            ]
+          },
+          {
+            "id": "ch03.s11.p02.04",
+            "text": "When gradients become very small, weight updates are not made, learning becomes stagnant, convergence is delayed, and the language model does not learn well.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@200",
+              "2r0QahNdwMw@202",
+              "2r0QahNdwMw@205",
+              "2r0QahNdwMw@207",
+              "2r0QahNdwMw@210",
+              "2r0QahNdwMw@212"
+            ]
+          },
+          {
+            "id": "ch03.s11.p02.05",
+            "text": "The weight update rule is that the new weight equals the old weight minus the step size times the partial derivative of the loss with respect to the weight.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@324",
+              "2r0QahNdwMw@327",
+              "2r0QahNdwMw@329",
+              "2r0QahNdwMw@331",
+              "2r0QahNdwMw@333",
+              "2r0QahNdwMw@336",
+              "2r0QahNdwMw@339"
+            ]
+          },
+          {
+            "id": "ch03.s11.p02.06",
+            "text": "If the gradient of the loss with respect to a weight approaches zero, the weight is not updated, so the neural network is not learning.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@349",
+              "2r0QahNdwMw@351",
+              "2r0QahNdwMw@353",
+              "2r0QahNdwMw@355",
+              "2r0QahNdwMw@357",
+              "2r0QahNdwMw@362",
+              "2r0QahNdwMw@364",
+              "2r0QahNdwMw@366",
+              "2r0QahNdwMw@368",
+              "2r0QahNdwMw@370",
+              "2r0QahNdwMw@373",
+              "2r0QahNdwMw@375",
+              "2r0QahNdwMw@376"
+            ]
+          },
+          {
+            "id": "ch03.s11.p02.07",
+            "text": "This leads to stagnation, and shortcut connections solve that problem.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@378",
+              "2r0QahNdwMw@381",
+              "2r0QahNdwMw@385",
+              "2r0QahNdwMw@388",
+              "2r0QahNdwMw@391",
+              "2r0QahNdwMw@393"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s11.p03",
+        "sentences": [
+          {
+            "id": "ch03.s11.p03.r01",
+            "text": "A shortcut connection creates an alternative path for the gradient to flow by skipping one or more layers.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@398",
+              "2r0QahNdwMw@401",
+              "2r0QahNdwMw@403",
+              "2r0QahNdwMw@407"
+            ]
+          },
+          {
+            "id": "ch03.s11.p03.r02",
+            "text": "It is implemented by adding the output of one layer to the output of a later layer.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@412",
+              "2r0QahNdwMw@415",
+              "2r0QahNdwMw@512",
+              "2r0QahNdwMw@515"
+            ]
+          },
+          {
+            "id": "ch03.s11.p03.r03",
+            "text": "If the earlier output is y_l and the later layer computes f(y_l), then with a shortcut connection the later output becomes f(y_l) + y_l.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@602",
+              "2r0QahNdwMw@604",
+              "2r0QahNdwMw@606",
+              "2r0QahNdwMw@610",
+              "2r0QahNdwMw@620",
+              "2r0QahNdwMw@622",
+              "2r0QahNdwMw@624",
+              "2r0QahNdwMw@626",
+              "2r0QahNdwMw@629",
+              "2r0QahNdwMw@630"
+            ]
+          },
+          {
+            "id": "ch03.s11.p03.r04",
+            "text": "To prevent vanishing gradients, the partial derivative of the loss with respect to the first-layer output should stay as large as possible so that the gradients with respect to the first-layer weights do not go to zero.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@687",
+              "2r0QahNdwMw@688",
+              "2r0QahNdwMw@701",
+              "2r0QahNdwMw@703",
+              "2r0QahNdwMw@705",
+              "2r0QahNdwMw@707",
+              "2r0QahNdwMw@709",
+              "2r0QahNdwMw@711",
+              "2r0QahNdwMw@713",
+              "2r0QahNdwMw@715",
+              "2r0QahNdwMw@717"
+            ]
+          },
+          {
+            "id": "ch03.s11.p03.r05",
+            "text": "Using the chain rule, the partial derivative of the loss with respect to y_l equals the partial derivative of the loss with respect to y_(l+1) multiplied by the partial derivative of y_(l+1) with respect to y_l.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@724",
+              "2r0QahNdwMw@725",
+              "2r0QahNdwMw@728",
+              "2r0QahNdwMw@729",
+              "2r0QahNdwMw@732",
+              "2r0QahNdwMw@734"
+            ]
+          },
+          {
+            "id": "ch03.s11.p03.r06",
+            "text": "Because y_(l+1) = f(y_l) + y_l, the derivative of y_(l+1) with respect to y_l includes the derivative of f(y_l) plus 1.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@739",
+              "2r0QahNdwMw@741",
+              "2r0QahNdwMw@743",
+              "2r0QahNdwMw@746",
+              "2r0QahNdwMw@748"
+            ]
+          },
+          {
+            "id": "ch03.s11.p03.r07",
+            "text": "That plus-one term keeps the gradient from vanishing even if the derivative through the main path becomes small.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@767",
+              "2r0QahNdwMw@770",
+              "2r0QahNdwMw@776",
+              "2r0QahNdwMw@780",
+              "2r0QahNdwMw@785",
+              "2r0QahNdwMw@788",
+              "2r0QahNdwMw@790",
+              "2r0QahNdwMw@793",
+              "2r0QahNdwMw@795",
+              "2r0QahNdwMw@799",
+              "2r0QahNdwMw@800",
+              "2r0QahNdwMw@802",
+              "2r0QahNdwMw@804",
+              "2r0QahNdwMw@806"
+            ]
+          },
+          {
+            "id": "ch03.s11.p03.r08",
+            "text": "Because the shortcut connection keeps gradients flowing, the loss gradients with respect to earlier-layer weights do not ultimately vanish, so we avoid stagnation in the weight updates.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@809",
+              "2r0QahNdwMw@811",
+              "2r0QahNdwMw@813",
+              "2r0QahNdwMw@815",
+              "2r0QahNdwMw@818",
+              "2r0QahNdwMw@820",
+              "2r0QahNdwMw@822",
+              "2r0QahNdwMw@824",
+              "2r0QahNdwMw@826",
+              "2r0QahNdwMw@828",
+              "2r0QahNdwMw@830",
+              "2r0QahNdwMw@832",
+              "2r0QahNdwMw@835",
+              "2r0QahNdwMw@839",
+              "2r0QahNdwMw@841",
+              "2r0QahNdwMw@843",
+              "2r0QahNdwMw@845",
+              "2r0QahNdwMw@847"
+            ]
+          },
+          {
+            "id": "ch03.s11.p03.r09",
+            "text": "Shortcut connections therefore play a crucial role during backpropagation by preserving gradient flow through the network.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@878",
+              "2r0QahNdwMw@879",
+              "2r0QahNdwMw@882",
+              "2r0QahNdwMw@884",
+              "2r0QahNdwMw@887"
+            ]
+          },
+          {
+            "id": "ch03.s11.p03.r10",
+            "text": "They also smooth the loss-function landscape and make gradient flow smoother.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@925",
+              "2r0QahNdwMw@927",
+              "2r0QahNdwMw@928",
+              "2r0QahNdwMw@931",
+              "2r0QahNdwMw@946",
+              "2r0QahNdwMw@948",
+              "2r0QahNdwMw@949",
+              "2r0QahNdwMw@952"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s11.p04",
+        "sentences": [
+          {
+            "id": "ch03.s11.p04.01",
+            "text": "A small code example makes this effect concrete by stacking multiple layers, optionally adding shortcut connections, and then comparing gradient-flow magnitudes with and without shortcuts.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@966",
+              "2r0QahNdwMw@967",
+              "2r0QahNdwMw@969",
+              "2r0QahNdwMw@976",
+              "2r0QahNdwMw@979",
+              "2r0QahNdwMw@981",
+              "2r0QahNdwMw@984",
+              "2r0QahNdwMw@991",
+              "2r0QahNdwMw@993",
+              "2r0QahNdwMw@996",
+              "2r0QahNdwMw@998",
+              "2r0QahNdwMw@1000"
+            ]
+          },
+          {
+            "id": "ch03.s11.p04.02",
+            "text": "The argument \"layer_sizes\" specifies how many neurons are in each layer.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@1016",
+              "2r0QahNdwMw@1018",
+              "2r0QahNdwMw@1021"
+            ]
+          },
+          {
+            "id": "ch03.s11.p04.03",
+            "text": "If \"layer_sizes\" is \"3, 3, 3, 3, 1\", the network has five layers with three neurons and a final layer with one neuron.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@1023",
+              "2r0QahNdwMw@1026",
+              "2r0QahNdwMw@1029",
+              "2r0QahNdwMw@1030",
+              "2r0QahNdwMw@1033",
+              "2r0QahNdwMw@1036",
+              "2r0QahNdwMw@1038",
+              "2r0QahNdwMw@1040"
+            ]
+          },
+          {
+            "id": "ch03.s11.p04.04",
+            "text": "The argument \"use_shortcut\" determines whether shortcut connections are used: \"false\" disables them and \"true\" enables them.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@1047",
+              "2r0QahNdwMw@1049",
+              "2r0QahNdwMw@1051",
+              "2r0QahNdwMw@1053",
+              "2r0QahNdwMw@1055"
+            ]
+          },
+          {
+            "id": "ch03.s11.p04.05",
+            "text": "PyTorch's \"nn.Sequential\" module connects different neural network layers together.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@1057",
+              "2r0QahNdwMw@1059",
+              "2r0QahNdwMw@1064",
+              "2r0QahNdwMw@1066",
+              "2r0QahNdwMw@1069",
+              "2r0QahNdwMw@1070"
+            ]
+          },
+          {
+            "id": "ch03.s11.p04.06",
+            "text": "The network is constructed by chaining layers so that one entry of \"layer_sizes\" gives the input dimension, the next entry gives the output dimension, and each layer uses a GELU activation function.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@1080",
+              "2r0QahNdwMw@1083",
+              "2r0QahNdwMw@1084",
+              "2r0QahNdwMw@1087",
+              "2r0QahNdwMw@1088",
+              "2r0QahNdwMw@1091",
+              "2r0QahNdwMw@1094",
+              "2r0QahNdwMw@1096",
+              "2r0QahNdwMw@1097",
+              "2r0QahNdwMw@1099",
+              "2r0QahNdwMw@1236",
+              "2r0QahNdwMw@1238"
+            ]
+          },
+          {
+            "id": "ch03.s11.p04.07",
+            "text": "For a layer, the input dimension is determined by the previous layer's output size and the output dimension is determined by the next layer's size.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@1145",
+              "2r0QahNdwMw@1146",
+              "2r0QahNdwMw@1148",
+              "2r0QahNdwMw@1150",
+              "2r0QahNdwMw@1152",
+              "2r0QahNdwMw@1194",
+              "2r0QahNdwMw@1198",
+              "2r0QahNdwMw@1200",
+              "2r0QahNdwMw@1202",
+              "2r0QahNdwMw@1206",
+              "2r0QahNdwMw@1207",
+              "2r0QahNdwMw@1210",
+              "2r0QahNdwMw@1212",
+              "2r0QahNdwMw@1214",
+              "2r0QahNdwMw@1217",
+              "2r0QahNdwMw@1220",
+              "2r0QahNdwMw@1222"
+            ]
+          },
+          {
+            "id": "ch03.s11.p04.08",
+            "text": "The code uses the GELU activation function.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@1088",
+              "2r0QahNdwMw@1099",
+              "2r0QahNdwMw@1236",
+              "2r0QahNdwMw@1238"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s11.p05",
+        "sentences": [
+          {
+            "id": "ch03.s11.p05.r01",
+            "text": "In the forward method, first consider the case without shortcut connections.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s11.p05.r02",
+            "text": "Without shortcut connections, the output of each layer is fed to the next layer until the final output is produced.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@1250",
+              "2r0QahNdwMw@1253",
+              "2r0QahNdwMw@1255",
+              "2r0QahNdwMw@1259",
+              "2r0QahNdwMw@1261",
+              "2r0QahNdwMw@1263",
+              "2r0QahNdwMw@1265",
+              "2r0QahNdwMw@1267",
+              "2r0QahNdwMw@1269",
+              "2r0QahNdwMw@1271"
+            ]
+          },
+          {
+            "id": "ch03.s11.p05.r03",
+            "text": "With shortcut connections, each step adds the current layer output to the running value from previous steps, so the final result accumulates all earlier shortcut additions.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@1274",
+              "2r0QahNdwMw@1276",
+              "2r0QahNdwMw@1280",
+              "2r0QahNdwMw@1282",
+              "2r0QahNdwMw@1286",
+              "2r0QahNdwMw@1289",
+              "2r0QahNdwMw@1292",
+              "2r0QahNdwMw@1294",
+              "2r0QahNdwMw@1296",
+              "2r0QahNdwMw@1302",
+              "2r0QahNdwMw@1304",
+              "2r0QahNdwMw@1308",
+              "2r0QahNdwMw@1310",
+              "2r0QahNdwMw@1317",
+              "2r0QahNdwMw@1319",
+              "2r0QahNdwMw@1321",
+              "2r0QahNdwMw@1325",
+              "2r0QahNdwMw@1327",
+              "2r0QahNdwMw@1331",
+              "2r0QahNdwMw@1333",
+              "2r0QahNdwMw@1335",
+              "2r0QahNdwMw@1337",
+              "2r0QahNdwMw@1341",
+              "2r0QahNdwMw@1344"
+            ]
+          },
+          {
+            "id": "ch03.s11.p05.r04",
+            "text": "The shortcut connection itself is implemented by a single line that updates \"x\" to \"x\" plus the layer output.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@1349",
+              "2r0QahNdwMw@1350"
+            ]
+          },
+          {
+            "id": "ch03.s11.p05.r05",
+            "text": "The implemented deep neural network has five layers, each consisting of a linear layer and a GELU activation, and the forward pass optionally adds shortcut connections when the \"use_shortcut\" attribute is true.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@1354",
+              "2r0QahNdwMw@1355",
+              "2r0QahNdwMw@1358",
+              "2r0QahNdwMw@1360",
+              "2r0QahNdwMw@1363",
+              "2r0QahNdwMw@1365",
+              "2r0QahNdwMw@1366",
+              "2r0QahNdwMw@1368",
+              "2r0QahNdwMw@1371",
+              "2r0QahNdwMw@1372"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s11.p06",
+        "sentences": [
+          {
+            "id": "ch03.s11.p06.r01",
+            "text": "To inspect gradient flow, the example initializes a neural network without shortcut connections, uses layer sizes 3 3 3 3 3 1, takes a three-dimensional sample input with values 1, 0, and minus 1, and sets use shortcut to false.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@1375",
+              "2r0QahNdwMw@1377",
+              "2r0QahNdwMw@1383",
+              "2r0QahNdwMw@1385",
+              "2r0QahNdwMw@1388",
+              "2r0QahNdwMw@1390",
+              "2r0QahNdwMw@1393",
+              "2r0QahNdwMw@1417",
+              "2r0QahNdwMw@1421",
+              "2r0QahNdwMw@1423",
+              "2r0QahNdwMw@1426",
+              "2r0QahNdwMw@1428"
+            ]
+          },
+          {
+            "id": "ch03.s11.p06.r02",
+            "text": "In layers with input dimension 3 and output dimension 3, each neuron has three weights, so the weight matrix is 3 by 3, while the final layer has a 3 by 1 weight matrix.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@1457",
+              "2r0QahNdwMw@1458",
+              "2r0QahNdwMw@1460",
+              "2r0QahNdwMw@1462",
+              "2r0QahNdwMw@1467",
+              "2r0QahNdwMw@1470",
+              "2r0QahNdwMw@1472",
+              "2r0QahNdwMw@1474",
+              "2r0QahNdwMw@1476",
+              "2r0QahNdwMw@1478",
+              "2r0QahNdwMw@1480",
+              "2r0QahNdwMw@1482"
+            ]
+          },
+          {
+            "id": "ch03.s11.p06.r03",
+            "text": "To summarize gradient flow per layer, the backward pass computes gradients for all weights in a layer and then takes the mean of those values as that layer's mean gradient.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@1482",
+              "2r0QahNdwMw@1484",
+              "2r0QahNdwMw@1487",
+              "2r0QahNdwMw@1489",
+              "2r0QahNdwMw@1491",
+              "2r0QahNdwMw@1494",
+              "2r0QahNdwMw@1495",
+              "2r0QahNdwMw@1498",
+              "2r0QahNdwMw@1500",
+              "2r0QahNdwMw@1501",
+              "2r0QahNdwMw@1503",
+              "2r0QahNdwMw@1506",
+              "2r0QahNdwMw@1508",
+              "2r0QahNdwMw@1510",
+              "2r0QahNdwMw@1513",
+              "2r0QahNdwMw@1515"
+            ]
+          },
+          {
+            "id": "ch03.s11.p06.r04",
+            "text": "The loss is defined as the squared difference between the model output y and the ground truth, for example (y - 0) squared when the ground truth is zero.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@1527",
+              "2r0QahNdwMw@1530",
+              "2r0QahNdwMw@1532",
+              "2r0QahNdwMw@1534",
+              "2r0QahNdwMw@1538"
+            ]
+          },
+          {
+            "id": "ch03.s11.p06.r05",
+            "text": "In backpropagation, the partial derivatives of the loss are computed starting from the output layer and then moving backward through earlier layers until the first layer.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@1549",
+              "2r0QahNdwMw@1551",
+              "2r0QahNdwMw@1552",
+              "2r0QahNdwMw@1554",
+              "2r0QahNdwMw@1556",
+              "2r0QahNdwMw@1557",
+              "2r0QahNdwMw@1559",
+              "2r0QahNdwMw@1561",
+              "2r0QahNdwMw@1562",
+              "2r0QahNdwMw@1565"
+            ]
+          },
+          {
+            "id": "ch03.s11.p06.r06",
+            "text": "The code sets the target to zero, computes the model output for x, uses a squared loss, calls loss.backward(), and prints a single gradient value per layer as the mean absolute gradient of that layer’s 3 by 3 values.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@1566",
+              "2r0QahNdwMw@1568",
+              "2r0QahNdwMw@1570",
+              "2r0QahNdwMw@1573",
+              "2r0QahNdwMw@1574",
+              "2r0QahNdwMw@1576",
+              "2r0QahNdwMw@1578",
+              "2r0QahNdwMw@1580",
+              "2r0QahNdwMw@1584",
+              "2r0QahNdwMw@1587",
+              "2r0QahNdwMw@1589",
+              "2r0QahNdwMw@1630",
+              "2r0QahNdwMw@1633",
+              "2r0QahNdwMw@1635",
+              "2r0QahNdwMw@1637"
+            ]
+          },
+          {
+            "id": "ch03.s11.p06.r07",
+            "text": "In PyTorch, the backward method conveniently computes loss gradients during the backward pass.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@1640",
+              "2r0QahNdwMw@1642",
+              "2r0QahNdwMw@1644",
+              "2r0QahNdwMw@1646"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s11.p07",
+        "sentences": [
+          {
+            "id": "ch03.s11.p07.r01",
+            "text": "Without shortcut connections, the mean gradient becomes much smaller in earlier layers, illustrating the vanishing gradient problem.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@1658",
+              "2r0QahNdwMw@1659",
+              "2r0QahNdwMw@1662",
+              "2r0QahNdwMw@1665",
+              "2r0QahNdwMw@1668",
+              "2r0QahNdwMw@1670",
+              "2r0QahNdwMw@1672",
+              "2r0QahNdwMw@1675",
+              "2r0QahNdwMw@1676",
+              "2r0QahNdwMw@1679",
+              "2r0QahNdwMw@1681",
+              "2r0QahNdwMw@1683",
+              "2r0QahNdwMw@1685"
+            ]
+          },
+          {
+            "id": "ch03.s11.p07.r02",
+            "text": "Adding shortcut connections creates alternative paths for gradients to flow between layers.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@1698",
+              "2r0QahNdwMw@1700",
+              "2r0QahNdwMw@1702",
+              "2r0QahNdwMw@1705",
+              "2r0QahNdwMw@1707",
+              "2r0QahNdwMw@1709",
+              "2r0QahNdwMw@1711",
+              "2r0QahNdwMw@1713",
+              "2r0QahNdwMw@1715",
+              "2r0QahNdwMw@1718",
+              "2r0QahNdwMw@1881",
+              "2r0QahNdwMw@1883"
+            ]
+          },
+          {
+            "id": "ch03.s11.p07.r03",
+            "text": "With shortcut connections, the earlier-layer gradients remain much larger and do not become negligible, showing that shortcut connections solve the vanishing gradient problem in this example.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@1722",
+              "2r0QahNdwMw@1724",
+              "2r0QahNdwMw@1726",
+              "2r0QahNdwMw@1729",
+              "2r0QahNdwMw@1730",
+              "2r0QahNdwMw@1733",
+              "2r0QahNdwMw@1736",
+              "2r0QahNdwMw@1738",
+              "2r0QahNdwMw@1740",
+              "2r0QahNdwMw@1743",
+              "2r0QahNdwMw@1745",
+              "2r0QahNdwMw@1748",
+              "2r0QahNdwMw@1751",
+              "2r0QahNdwMw@1753",
+              "2r0QahNdwMw@1755"
+            ]
+          },
+          {
+            "id": "ch03.s11.p07.r04",
+            "text": "With shortcut connections, the gradient values stabilize toward the first layer instead of shrinking to a vanishingly small value.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@1757",
+              "2r0QahNdwMw@1759",
+              "2r0QahNdwMw@1761",
+              "2r0QahNdwMw@1763"
+            ]
+          },
+          {
+            "id": "ch03.s11.p07.r05",
+            "text": "Shortcut connections are an important way to overcome the vanishing gradient problem in deep neural networks.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@1775",
+              "2r0QahNdwMw@1777",
+              "2r0QahNdwMw@1779",
+              "2r0QahNdwMw@1781"
+            ]
+          },
+          {
+            "id": "ch03.s11.p07.r06",
+            "text": "They are a core building block of large language models and help training by ensuring consistent gradient flow across layers in GPT models.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@1784",
+              "2r0QahNdwMw@1786",
+              "2r0QahNdwMw@1788",
+              "2r0QahNdwMw@1791",
+              "2r0QahNdwMw@1793"
+            ]
+          },
+          {
+            "id": "ch03.s11.p07.r07",
+            "text": "They help stabilize training.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@1833",
+              "2r0QahNdwMw@1835",
+              "2r0QahNdwMw@1836",
+              "2r0QahNdwMw@1839",
+              "2r0QahNdwMw@1841"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s11.p08",
+        "sentences": [
+          {
+            "id": "ch03.s11.p08.01",
+            "text": "Returning to the Transformer block, the reason for those arrows is now clear.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s11.p08.02",
+            "text": "The arrows between layers are shortcut connections, and they provide an alternative path for gradients to flow.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@1872",
+              "2r0QahNdwMw@1875",
+              "2r0QahNdwMw@1877",
+              "2r0QahNdwMw@1879",
+              "2r0QahNdwMw@1881",
+              "2r0QahNdwMw@1883"
+            ]
+          },
+          {
+            "id": "ch03.s11.p08.03",
+            "text": "A shortcut connection can be added between layers of the Transformer block to help solve the vanishing gradient problem.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@1885",
+              "2r0QahNdwMw@1886",
+              "2r0QahNdwMw@1888",
+              "2r0QahNdwMw@1890"
+            ]
+          },
+          {
+            "id": "ch03.s11.p08.04",
+            "text": "Because backpropagation passes through the entire Transformer block from output to input, the architecture must ensure that gradients do not vanish so that learning remains stable.",
+            "type": "F",
+            "cites": [
+              "2r0QahNdwMw@1893",
+              "2r0QahNdwMw@1895",
+              "2r0QahNdwMw@1896",
+              "2r0QahNdwMw@1900",
+              "2r0QahNdwMw@1902",
+              "2r0QahNdwMw@1905"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch03.s11.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s11.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s11.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s11.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s11.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s11.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s11.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s11.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s11.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s11.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s11.p02.06": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s11.p02.07": {
+        "verdict": "supported",
+        "confidence": 0.85,
+        "reason": ""
+      },
+      "ch03.s11.p04.01": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s11.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch03.s11.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s11.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch03.s11.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s11.p04.06": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch03.s11.p04.07": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s11.p04.08": {
+        "verdict": "supported",
+        "confidence": 0.75,
+        "reason": ""
+      },
+      "ch03.s11.p08.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s11.p08.02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s11.p08.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s11.p08.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s11.p03.r01": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s11.p03.r02": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s11.p03.r03": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s11.p03.r04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s11.p03.r05": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s11.p03.r06": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s11.p03.r07": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s11.p03.r08": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s11.p03.r09": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s11.p03.r10": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s11.p05.r01": {
+        "verdict": "ok",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s11.p05.r02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s11.p05.r03": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s11.p05.r04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s11.p05.r05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s11.p06.r01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s11.p06.r02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s11.p06.r03": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s11.p06.r04": {
+        "verdict": "partial",
+        "confidence": 0.62,
+        "reason": "Captions state loss is defined as y minus ground truth and give example ground truth 0 leading to 'y - 0 squ...', but they do not clearly state 'squared difference' explicitly (the squaring is cut off/misheard)."
+      },
+      "ch03.s11.p06.r05": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s11.p06.r06": {
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "Supported: target=0, output=model(x), squared loss, loss.backward(), and printing a single value per layer as mean absolute gradient of 3x3 gradients. Not supported: 'that layer’s 3 by 3 values' applies to every layer—captions also mention the final layer is 3x1, so not all layers have 3x3 gradients."
+      },
+      "ch03.s11.p06.r07": {
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch03.s11.p07.r01": {
+        "verdict": "partial",
+        "confidence": 0.84,
+        "reason": "The cited lines support that earlier layers have much smaller mean gradients (e.g., down to ~0.002) and that this illustrates the vanishing gradient problem, but they do not explicitly state this is specifically 'without shortcut connections' (that linkage is only implied by the later context about instantiating a model with skip connections)."
+      },
+      "ch03.s11.p07.r02": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s11.p07.r03": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s11.p07.r04": {
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch03.s11.p07.r05": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s11.p07.r06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s11.p07.r07": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch03.s11.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s11.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s11.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s11.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s11.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s11.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s11.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s11.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s11.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s11.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s11.p02.06": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s11.p02.07": {
+        "verdict": "supported",
+        "confidence": 0.85,
+        "reason": ""
+      },
+      "ch03.s11.p03.01": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s11.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s11.p03.03": {
+        "verdict": "partial",
+        "confidence": 0.75,
+        "reason": "the cited lines support that the second-layer output becomes f(y_l)+y_l, and that y_{l+1} is the output of layer l+1, but they do not explicitly state the equation in the exact form y_(l+1)=f(y_l)+y_l tied to the phrase 'for two layers' and the specific notation y_(l+1) in that same statement."
+      },
+      "ch03.s11.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s11.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch03.s11.p03.06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s11.p03.07": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s11.p03.08": {
+        "verdict": "partial",
+        "confidence": 0.78,
+        "reason": "Captions support that skip/shortcut connections keep gradients flowing and that gradients w.r.t. early (first-layer) weights won’t ultimately vanish, and mention avoiding stagnation, but they do not explicitly state the broader causal claim that 'training does not stagnate' in general—only that 'we won’t get stagnation' in the weight update context."
+      },
+      "ch03.s11.p03.09": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s11.p03.10": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch03.s11.p04.01": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s11.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch03.s11.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s11.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch03.s11.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s11.p04.06": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch03.s11.p04.07": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s11.p04.08": {
+        "verdict": "supported",
+        "confidence": 0.75,
+        "reason": ""
+      },
+      "ch03.s11.p05.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.72,
+        "reason": "Although it is marked CONNECTIVE, it asserts a factual claim that the forward pass differs only by adding shortcut connections."
+      },
+      "ch03.s11.p05.02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s11.p05.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s11.p05.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s11.p05.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s11.p06.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.67,
+        "reason": "Although it is marked CONNECTIVE, it asserts a factual claim about the example’s procedure (that it first builds a model without shortcuts) rather than being purely a non-factual transition."
+      },
+      "ch03.s11.p06.02": {
+        "verdict": "unsupported",
+        "confidence": 0.78,
+        "reason": "The cited lines give layer sizes as 3 3 3 3 3 1 (six numbers) and also say five layers; the sentence’s specific sizes 3,3,3,3,1 are not what is stated. The sample input [1,0,-1] is supported."
+      },
+      "ch03.s11.p06.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s11.p06.04": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s11.p06.05": {
+        "verdict": "supported",
+        "confidence": 0.83,
+        "reason": ""
+      },
+      "ch03.s11.p06.06": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s11.p06.07": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s11.p06.08": {
+        "verdict": "partial",
+        "confidence": 0.78,
+        "reason": "Target=0, output=model(x), squared loss, and calling loss.backward() are supported, but the printing is described as mean absolute gradient per layer; the sentence says mean of each layer’s gradient matrix (not absolute). Also it mentions a gradient 'matrix' per layer, but the captions refer to 3x3 gradients and (elsewhere) 3x1 for the final layer."
+      },
+      "ch03.s11.p07.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.74,
+        "reason": "Although marked CONNECTIVE, it asserts a factual claim that the printed gradients show the difference clearly."
+      },
+      "ch03.s11.p07.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s11.p07.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s11.p07.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s11.p07.05": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s11.p07.06": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s11.p07.07": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s11.p07.08": {
+        "verdict": "partial",
+        "confidence": 0.62,
+        "reason": "Cited lines support that shortcut connections help stabilize training, but they do not explicitly state in the cited portion that this is because they stabilize gradient flow and solve the vanishing gradient problem (that appears only in the context lines)."
+      },
+      "ch03.s11.p08.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s11.p08.02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s11.p08.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s11.p08.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "ch03.s11.p03",
+      "ch03.s11.p05",
+      "ch03.s11.p06",
+      "ch03.s11.p07"
+    ],
+    "queue": [
+      {
+        "sentence_id": "ch03.s11.p06.r04",
+        "text": "The loss is defined as the squared difference between the model output y and the ground truth, for example (y - 0) squared when the ground truth is zero.",
+        "cites": [
+          "2r0QahNdwMw@1527",
+          "2r0QahNdwMw@1530",
+          "2r0QahNdwMw@1532",
+          "2r0QahNdwMw@1534",
+          "2r0QahNdwMw@1538"
+        ],
+        "verdict": "partial",
+        "confidence": 0.62,
+        "reason": "Captions state loss is defined as y minus ground truth and give example ground truth 0 leading to 'y - 0 squ...', but they do not clearly state 'squared difference' explicitly (the squaring is cut off/misheard).",
+        "status": "open"
+      },
+      {
+        "sentence_id": "ch03.s11.p06.r06",
+        "text": "The code sets the target to zero, computes the model output for x, uses a squared loss, calls loss.backward(), and prints a single gradient value per layer as the mean absolute gradient of that layer’s 3 by 3 values.",
+        "cites": [
+          "2r0QahNdwMw@1566",
+          "2r0QahNdwMw@1568",
+          "2r0QahNdwMw@1570",
+          "2r0QahNdwMw@1573",
+          "2r0QahNdwMw@1574",
+          "2r0QahNdwMw@1576",
+          "2r0QahNdwMw@1578",
+          "2r0QahNdwMw@1580",
+          "2r0QahNdwMw@1584",
+          "2r0QahNdwMw@1587",
+          "2r0QahNdwMw@1589",
+          "2r0QahNdwMw@1630",
+          "2r0QahNdwMw@1633",
+          "2r0QahNdwMw@1635",
+          "2r0QahNdwMw@1637"
+        ],
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "Supported: target=0, output=model(x), squared loss, loss.backward(), and printing a single value per layer as mean absolute gradient of 3x3 gradients. Not supported: 'that layer’s 3 by 3 values' applies to every layer—captions also mention the final layer is 3x1, so not all layers have 3x3 gradients.",
+        "status": "open"
+      },
+      {
+        "sentence_id": "ch03.s11.p07.r01",
+        "text": "Without shortcut connections, the mean gradient becomes much smaller in earlier layers, illustrating the vanishing gradient problem.",
+        "cites": [
+          "2r0QahNdwMw@1658",
+          "2r0QahNdwMw@1659",
+          "2r0QahNdwMw@1662",
+          "2r0QahNdwMw@1665",
+          "2r0QahNdwMw@1668",
+          "2r0QahNdwMw@1670",
+          "2r0QahNdwMw@1672",
+          "2r0QahNdwMw@1675",
+          "2r0QahNdwMw@1676",
+          "2r0QahNdwMw@1679",
+          "2r0QahNdwMw@1681",
+          "2r0QahNdwMw@1683",
+          "2r0QahNdwMw@1685"
+        ],
+        "verdict": "partial",
+        "confidence": 0.84,
+        "reason": "The cited lines support that earlier layers have much smaller mean gradients (e.g., down to ~0.002) and that this illustrates the vanishing gradient problem, but they do not explicitly state this is specifically 'without shortcut connections' (that linkage is only implied by the later context about instantiating a model with skip connections).",
+        "status": "open"
+      }
+    ]
+  }
+}

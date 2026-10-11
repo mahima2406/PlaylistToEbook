@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch05.s12.p04.r08",
+  "inputs_hash": "6400b9a0364a160979eb8b7bc198e36fa98c146b92be7666405bc7682486b228",
+  "output_hash": "aab2828cb594f06fe00ca294abdbaf34c1a15d26904ab1038def4c27346ab962",
+  "output": {
+    "decision": "edit",
+    "text": "On a MacBook Air 2020, the full training process took about 8.8 minutes, and on a typical i5, i7, or MacBook laptop it should take about 7 to 10 minutes.",
+    "reason": "The captions give the 8.8-minute runtime specifically for a MacBook Air 2020, not for an unspecified machine.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "4a1c37ed2e208e748142ca309096ce6922e91da4f8d999b02671b6f50d2cb95f"
+  }
+}

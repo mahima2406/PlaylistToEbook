@@ -1,0 +1,13 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch02.s08.p06.r07",
+  "inputs_hash": "e55aad2de84224ebbf2ceaca4239ca3010553530b5ee99b8d3dcd1dcf2a8bca0",
+  "output_hash": "cf4e8d5356891695a42c6224990f862065166d18e8c802590d2b1c2e7166a509",
+  "output": {
+    "decision": "keep",
+    "reason": "The cited captions explicitly say BPE can replace words not present in the vocabulary without special unknown tokens, which matches the reference note that GPT-2 BPE does not use an <UNK> token.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "dabc6cbdc3a4f36cafbc74c628148160214ca03ce7021e41474f75063c804573"
+  }
+}

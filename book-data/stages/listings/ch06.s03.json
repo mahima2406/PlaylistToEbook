@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch06.s03",
+  "inputs_hash": "973c69d87025f96fea4a38eae0574c350eeb72fafc0d8e7980a64781990315cb",
+  "output_hash": "d24c85f61d63456386413cfbccaf663a7d25377e06c6aa866709f9a7ec399885",
+  "output": {
+    "section_id": "ch06.s03",
+    "listings": [],
+    "rejected": [
+      {
+        "id": "ch06.s03.code1",
+        "ref": "ref:ch05/01_main-chapter-code/ch05.ipynb#cell15",
+        "path": "ch05/01_main-chapter-code/ch05.ipynb",
+        "caption": "Defines helper functions that use a tiktoken tokenizer to encode text into token ID tensors and decode token IDs back into text, then applies them to a sample prompt.",
+        "code": "import tiktoken\nfrom previous_chapters import generate_text_simple\n\n# Alternatively:\n# from llms_from_scratch.ch04 import generate_text_simple\n\ndef text_to_token_ids(text, tokenizer):\n    encoded = tokenizer.encode(text, allowed_special={'<|endoftext|>'})\n    encoded_tensor = torch.tensor(encoded).unsqueeze(0) # add batch dimension\n    return encoded_tensor\n\ndef token_ids_to_text(token_ids, tokenizer):\n    flat = token_ids.squeeze(0) # remove batch dimension\n    return tokenizer.decode(flat.tolist())\n\nstart_context = \"Every effort moves you\"\ntokenizer = tiktoken.get_encoding(\"gpt2\")\n\ntoken_ids = generate_text_simple(\n    model=model,\n    idx=text_to_token_ids(start_context, tokenizer),\n    max_new_tokens=10,\n    context_size=GPT_CONFIG_124M[\"context_length\"]\n)\n\nprint(\"Output text:\\n\", token_ids_to_text(token_ids, tokenizer))",
+        "truncated": false,
+        "check": "partial",
+        "reason": "It does use the tiktoken library to encode a prompt into token IDs and decode token IDs back to text, consistent with the section’s tokenizer choice and tokenization concept. However, it does not show the section’s described dataset-tokenization process of iterating over formatted prompts, creating an empty list, and appending token IDs for each prompt. It also goes beyond tokenization by generating text with a model (and relies on undefined imports like torch/model/GPT_CONFIG_124M). The caption accurately describes the helper functions and sample prompt usage, but the code does not directly implement the section’s list-based tokenization step for a dataset."
+      },
+      {
+        "id": "ch06.s03.code2",
+        "ref": "ref:ch02/01_main-chapter-code/ch02.ipynb#cell93",
+        "path": "ch02/01_main-chapter-code/ch02.ipynb",
+        "caption": "Implements a dataset class that tokenizes text with a tokenizer and stores the resulting token ID sequences as input and target chunks.",
+        "code": "from torch.utils.data import Dataset, DataLoader\n\n\nclass GPTDatasetV1(Dataset):\n    def __init__(self, txt, tokenizer, max_length, stride):\n        self.input_ids = []\n        self.target_ids = []\n\n        # Tokenize the entire text\n        token_ids = tokenizer.encode(txt, allowed_special={\"<|endoftext|>\"})\n        assert len(token_ids) > max_length, \"Number of tokenized inputs must at least be equal to max_length+1\"\n\n        # Use a sliding window to chunk the book into overlapping sequences of max_length\n        for i in range(0, len(token_ids) - max_length, stride):\n            input_chunk = token_ids[i:i + max_length]\n            target_chunk = token_ids[i + 1: i + max_length + 1]\n            self.input_ids.append(torch.tensor(input_chunk))\n            self.target_ids.append(torch.tensor(target_chunk))\n\n    def __len__(self):\n        return len(self.input_ids)\n\n    def __getitem__(self, idx):\n        return self.input_ids[idx], self.target_ids[idx]\n\ndef create_dataloader_v1(txt, batch_size=4, max_length=256, \n                         stride=128, shuffle=True, drop_last=True,\n                         num_workers=0):\n\n    # Initialize the tokenizer",
+        "truncated": true,
+        "check": "partial",
+        "reason": "The code does demonstrate tokenization into token IDs using a passed-in tokenizer (tokenizer.encode) and stores results in lists, but it tokenizes a single full text string and then chunks it with a sliding window into input/target sequences for language modeling. The section description focuses on tokenizing formatted prompts by appending each prompt’s token IDs into a list and specifically mentions using tiktoken in an instruction dataset class. The caption also emphasizes input/target chunking, which is not taught in the section and the code is incomplete (uses torch.tensor without importing torch; create_dataloader_v1 is truncated)."
+      }
+    ]
+  }
+}

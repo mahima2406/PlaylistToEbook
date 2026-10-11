@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch02.s06.p02.r08",
+  "inputs_hash": "f11a6ef6e6b08c487edb52cf57ff32df211b9b35a0d7fbcfe09b7e6c0f246141",
+  "output_hash": "fb1c28a0359ab3fbad61600c0f88148ecde34f67fe8f7db4491fa0d869d190e3",
+  "output": {
+    "decision": "edit",
+    "text": "So character-level tokenization has a very small vocabulary and avoids out-of-vocabulary words, but it produces much longer token sequences, while the main problem with word-based tokenization is its large vocabulary.",
+    "reason": "The captions support 'very small vocabulary' but not the stronger claim that it is 'fixed.'",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.9,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "da9bd92c1361a42851e0c3f5389888d98d1bec392e11e98af02368624e279aec"
+  }
+}

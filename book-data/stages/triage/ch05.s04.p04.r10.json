@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch05.s04.p04.r10",
+  "inputs_hash": "56162acb11caed9413b48a120c698369429192fd3a13f4332140572a5b2ea55c",
+  "output_hash": "27e848ab092b90806cb1385cbec208377e0d25db5293170999cd2ccb6e8dd5a6",
+  "output": {
+    "decision": "edit",
+    "text": "To access the attention output projection layer, go through \"transformer\", then the block key (\"h0\" through \"h11\"), and then \"atn\" and \"c_proj\" to obtain the weights across all 12 blocks.",
+    "reason": "The captions support transformer → a specific block key such as h0 through h11 → atn → c_proj, not a literal generic key \"hn\".",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "73ec88d65e00ff821005f691a4cca076255661e84a13c86b6766d222248a2230"
+  }
+}

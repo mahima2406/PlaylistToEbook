@@ -1,0 +1,14 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch02.s09.p02.r04",
+  "inputs_hash": "97f4f5f46cd49f5bf17e7e59f5e52cd65c790a68d626e737465e17c6ff68badf",
+  "output_hash": "6f6548a5dcc3ccfa50e84fde6e6bb83cb291d9b9819c635a31802801c2d183c1",
+  "output": {
+    "decision": "note",
+    "note": "The reference gives GPT-2’s exact BPE vocabulary as 50,257; the lecture additionally contrasts this with an estimated 170,000–200,000 English word-level vocabulary.",
+    "reason": "The cited captions support both figures, while the reference only specifies the exact GPT-2 BPE size rather than addressing the comparison.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "c394f5e8c1cd77994f32905a958a36698043687d57351178ee1abc465e33bf76"
+  }
+}

@@ -1,0 +1,390 @@
+{
+  "stage": "crosscheck",
+  "item": "ch05.s12",
+  "inputs_hash": "6793945dda2a9ae0e366d67fab0608274164509ccb961383bc6c8a9034d93a1f",
+  "output_hash": "0236dc343f239059497bc6ca18f2c2451b750478a139a9d7a7720ba9f3e13893",
+  "output": {
+    "section_id": "ch05.s12",
+    "checked": 29,
+    "counts": {
+      "agrees": 9,
+      "contradicts": 2,
+      "not_covered": 18
+    },
+    "results": [
+      {
+        "sentence_id": "ch05.s12.p01.02",
+        "text": "Fine-tuning means implementing a training function that adjusts the parameters to minimize the training loss while also printing the validation loss and the test loss.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell85",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell89",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell52"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The references show printing training/validation/test loss before training (with torch.no_grad()), but do not define fine-tuning as also printing validation and test loss; fine-tuning/training is about minimizing training loss, while test loss is typically for evaluation and is not shown as part of the training function definition here."
+      },
+      {
+        "sentence_id": "ch05.s12.p01.03",
+        "text": "At this point, the dataset has been downloaded and preprocessed, data loaders have been created, the model has been initialized, pretrained weights have been loaded, the model has been modified for fine-tuning, and evaluation utilities for loss and accuracy have been implemented.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell99",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell112"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages mention pretrained vs instruction-finetuned behavior, checking test_data responses, and a classify_review call, but they do not collectively establish that all listed steps (download/preprocess, loaders, model init, pretrained weights loaded, model modified for fine-tuning, loss+accuracy utilities implemented) have already occurred at that point."
+      },
+      {
+        "sentence_id": "ch05.s12.p01.04",
+        "text": "What has not happened yet is training on this dataset, so the parameters are not optimized for it.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell16",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell81"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References state the model has only been pretrained and not (instruction-)finetuned yet, implying it has not been trained on the target dataset and thus parameters are not optimized for it."
+      },
+      {
+        "sentence_id": "ch05.s12.p01.05",
+        "text": "The next stage is to define the training loop, implement backpropagation, and use that training function to fine-tune the pretrained LLM to improve spam classification accuracy.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell90",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell84",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References describe defining/using a training function to improve loss values and consequently classification accuracy, and explain minimizing cross-entropy as a proxy for maximizing spam classification accuracy; they also describe the training function being used."
+      },
+      {
+        "sentence_id": "ch05.s12.p01.06",
+        "text": "Training is still required even when the data is supervised, such as spam and no-spam labels, so there is a training process in both pre-training and fine-tuning.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell20",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell29",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell107"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References indicate supervised labels and discuss spam classification and instruction datasets, but they do not explicitly make the general claim that training is required in both pre-training and fine-tuning or contrast the two processes in that way."
+      },
+      {
+        "sentence_id": "ch05.s12.p01.07",
+        "text": "The fine-tuning function is the same training function used earlier for pre-training, and it is described as very close to the earlier \"train model simple\" function.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell85",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly says train_classifier_simple is practically the same as the earlier train_model_simple used for pretraining, with only two listed differences."
+      },
+      {
+        "sentence_id": "ch05.s12.p01.08",
+        "text": "The main distinction is that this version tracks the number of text examples rather than the number of tokens.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell30"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference lists as a key difference that it tracks number of training examples seen instead of number of tokens."
+      },
+      {
+        "sentence_id": "ch05.s12.p02.02",
+        "text": "One epoch means going through the entire dataset once.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell92",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell85"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references mention behavior around '1 training epoch' but do not define an epoch as one pass through the entire dataset."
+      },
+      {
+        "sentence_id": "ch05.s12.p02.03",
+        "text": "Within each epoch, the code iterates over each batch.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell120",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell127",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell88"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss batches and that a simple data loader iterates over a dataset returning inputs/targets, but do not state that within each epoch the training code iterates over each batch."
+      },
+      {
+        "sentence_id": "ch05.s12.p02.04",
+        "text": "The first step in the code is to set the model to training mode.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell99",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell73"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No cited passage shows the training loop steps or explicitly states that the first step is setting the model to training mode (e.g., model.train())."
+      },
+      {
+        "sentence_id": "ch05.s12.p02.05",
+        "text": "The second step is to reset the loss gradients from the previous batch before processing the current batch.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell98",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell69"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited code snippets define loss computation but do not show gradient reset (e.g., optimizer.zero_grad()) or describe it as the second step."
+      },
+      {
+        "sentence_id": "ch05.s12.p02.06",
+        "text": "The third and most important step is to compute the loss on the current batch, run a backward pass to calculate loss gradients, and then update the model weights with an optimizer step.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell73",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell69",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell61"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references are about attention computation steps and do not cover the training-loop sequence of computing loss, backward pass, and optimizer step."
+      },
+      {
+        "sentence_id": "ch05.s12.p02.07",
+        "text": "After the weights are updated, the code prints the training loss and the validation loss, and this process repeats across multiple epochs.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell85",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell89",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell52"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show printing training/validation loss before training starts, but do not show (or state) that losses are printed after each weight update and repeated across multiple epochs."
+      },
+      {
+        "sentence_id": "ch05.s12.p02.08",
+        "text": "The backward pass is the most important step because it produces loss gradients with respect to the parameters, which is why the loss function must be differentiable.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell70",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell86",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell84"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explains accuracy is not differentiable and therefore cross-entropy loss is used as a proxy for optimization, which is consistent with needing differentiability for gradient-based training/backprop."
+      },
+      {
+        "sentence_id": "ch05.s12.p02.09",
+        "text": "Once those gradients are available, the parameters can be updated repeatedly so that the loss is hopefully minimized.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell46",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the cited passages discuss using gradients to update parameters repeatedly to minimize loss."
+      },
+      {
+        "sentence_id": "ch05.s12.p03.02",
+        "text": "The code tracks the number of examples seen, where \"input_batch.shape[0]\" gives the number of samples in the batch.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell38",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states the training function tracks number of training examples seen (examples_seen), and shows input_batch has a batch dimension via input_batch.shape; this is consistent with input_batch.shape[0] being the number of samples in the batch."
+      },
+      {
+        "sentence_id": "ch05.s12.p03.03",
+        "text": "An example seen means one text message processed by the model.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell89",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell85",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention tracking examples_seen but do not define an 'example' explicitly as one text message processed by the model."
+      },
+      {
+        "sentence_id": "ch05.s12.p03.04",
+        "text": "Whenever the model goes through a full batch, the global step is increased by one.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell61",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell73",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No provided reference discusses a 'global step' variable or incrementing it per batch."
+      },
+      {
+        "sentence_id": "ch05.s12.p03.05",
+        "text": "The evaluation frequency specifies after how many processed batches the training loss and validation loss are printed.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell89",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell52",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell86"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show computing/printing losses (often with num_batches=5) but do not define an evaluation frequency parameter controlling printing after a given number of processed batches."
+      },
+      {
+        "sentence_id": "ch05.s12.p03.06",
+        "text": "If the training data loader has 130 batches and the evaluation frequency is 50, the training and validation loss are printed about two times per epoch.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell87",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell85",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell90"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference links an eval frequency of 50 to printing losses ~2 times per epoch given 130 batches."
+      },
+      {
+        "sentence_id": "ch05.s12.p03.07",
+        "text": "The evaluation code can compute training and validation loss on only a specified number of batches, such as five or ten, to save time.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell68",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell104",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell87"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "calc_loss_loader accepts a num_batches/num_batches-like argument and the text notes using eval_iter=5 to estimate performance, consistent with computing loss on only a specified number of batches to save time."
+      },
+      {
+        "sentence_id": "ch05.s12.p03.08",
+        "text": "During training, the training loss and validation loss are printed after every 50 batches because of this evaluation step, and the training and validation accuracy are printed after every epoch.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell90",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell104",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell51"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention losses decreasing and that performance/accuracy is evaluated per epoch, but do not state that losses are printed every 50 batches or that accuracy is printed after every epoch with those specific frequencies."
+      },
+      {
+        "sentence_id": "ch05.s12.p04.r02",
+        "text": "Instead of vanilla gradient descent, the optimization in practice uses a more complicated algorithm that keeps track of previous gradients and gradient squares so that optimization is done better and the model does not get stuck in local minima.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell34",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not discuss using an optimizer that tracks previous gradients and squared gradients, nor local minima claims."
+      },
+      {
+        "sentence_id": "ch05.s12.p04.r03",
+        "text": "AdamW is used here, and it is described as a modification of the Adam optimizer with weight decay.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell122",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell124",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell106"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference shows AdamW being used with a weight_decay parameter, but does not explicitly describe AdamW as a modification of Adam with weight decay."
+      },
+      {
+        "sentence_id": "ch05.s12.p04.r05",
+        "text": "The training code calls train classifier simple with the modified GPT model that has a classification head on top, together with the train loader, validation loader, optimizer, number of epochs, and evaluation frequency.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell65",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell96",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell94"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference defines `train_classifier_simple(model, train_loader, val_loader, optimizer, device, num_epochs, eval_freq, eval_iter)` and (in the surrounding chapter workflow) it is used to train a classifier model; this matches the described call signature and inputs (model + loaders + optimizer + epochs + eval frequency)."
+      },
+      {
+        "sentence_id": "ch05.s12.p04.r06",
+        "text": "In this call, the evaluation frequency is set so that training and validation loss are printed after every 50 batches, and the evaluation iterations are set to five batches to keep the calculations quick.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell32",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell51",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references include the training/evaluation function signatures and an example using `num_batches=5`, but they do not show a specific call setting `eval_freq=50` nor explicitly state that loss is printed every 50 batches and `eval_iter=5` to keep calculations quick."
+      },
+      {
+        "sentence_id": "ch05.s12.p04.r07",
+        "text": "Evaluating on only five batches is not the best evaluation method, but it still gives a useful sense of how the training loss and validation loss are progressing.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell89",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell52",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell86"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show evaluating loss using only 5 batches (`num_batches=5`), but they do not state the qualitative judgment that this is \"not the best\" yet still useful for tracking progress."
+      },
+      {
+        "sentence_id": "ch05.s12.p04.r08",
+        "text": "On one machine, the full training process took about 8.8 minutes, and on a typical i5, i7, or MacBook laptop it should take about 7 to 10 minutes.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell97",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell88",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell120"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference states training takes about 5 minutes on an M3 MacBook Air and less than half a minute on a V100/A100 GPU (and provides runtime tables), which conflicts with the claim that it took ~8.8 minutes on one machine and typically 7–10 minutes on common laptops."
+      },
+      {
+        "sentence_id": "ch05.s12.p04.r09",
+        "text": "Because the optimizer choice and hyperparameters can be changed, including trying Adam and changing the learning rate and weight decay, this setup can be used to explore their effects on loss and accuracy.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell106",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell70",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell90"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference discusses tuning hyperparameters such as learning rate and weight decay in the optimizer and suggests adjusting them to affect overfitting/performance, supporting that the setup can explore their effects on loss/accuracy."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch05.s12.p01.02",
+        "text": "Fine-tuning means implementing a training function that adjusts the parameters to minimize the training loss while also printing the validation loss and the test loss.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell85",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell89",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell52"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The references show printing training/validation/test loss before training (with torch.no_grad()), but do not define fine-tuning as also printing validation and test loss; fine-tuning/training is about minimizing training loss, while test loss is typically for evaluation and is not shown as part of the training function definition here."
+      },
+      {
+        "sentence_id": "ch05.s12.p04.r08",
+        "text": "On one machine, the full training process took about 8.8 minutes, and on a typical i5, i7, or MacBook laptop it should take about 7 to 10 minutes.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell97",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell88",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell120"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference states training takes about 5 minutes on an M3 MacBook Air and less than half a minute on a V100/A100 GPU (and provides runtime tables), which conflicts with the claim that it took ~8.8 minutes on one machine and typically 7–10 minutes on common laptops."
+      }
+    ]
+  }
+}

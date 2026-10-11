@@ -1,0 +1,254 @@
+{
+  "stage": "write",
+  "item": "ch05.s07",
+  "inputs_hash": "0044434ecf793530fb119fe986b48fc865265b9dfef0ef569e1ed34d9395403b",
+  "output_hash": "f77cc8d019710a799ff5e23ef01cf24ded386a72f45b1c8723663ba81f920d3a",
+  "output": {
+    "section_id": "ch05.s07",
+    "paragraphs": [
+      {
+        "id": "ch05.s07.p01",
+        "sentences": [
+          {
+            "id": "ch05.s07.p01.01",
+            "text": "What does the spam-classification dataset look like before any model can use it, and why is that preparation necessary?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s07.p01.02",
+            "text": "The dataset was downloaded from the UCI Irvine Machine Learning Repository.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@89",
+              "f6zqClXOh7Y@91",
+              "0PpxZ3kNPWo@70",
+              "0PpxZ3kNPWo@73"
+            ]
+          },
+          {
+            "id": "ch05.s07.p01.03",
+            "text": "It is an SMS spam collection dataset made of text messages that are labeled as either spam or not spam.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@75",
+              "0PpxZ3kNPWo@78",
+              "0PpxZ3kNPWo@80"
+            ]
+          },
+          {
+            "id": "ch05.s07.p01.04",
+            "text": "Each entry consists of a text together with a label indicating whether it is ham, meaning no spam, or spam.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@120",
+              "f6zqClXOh7Y@124",
+              "f6zqClXOh7Y@126",
+              "f6zqClXOh7Y@129"
+            ]
+          },
+          {
+            "id": "ch05.s07.p01.05",
+            "text": "In this dataset, non-spam is also called ham.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@97",
+              "f6zqClXOh7Y@101"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s07.p02",
+        "sentences": [
+          {
+            "id": "ch05.s07.p02.01",
+            "text": "The original download was imbalanced, so the class counts had to be adjusted before training.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@131",
+              "f6zqClXOh7Y@135",
+              "f6zqClXOh7Y@138",
+              "0PpxZ3kNPWo@82",
+              "0PpxZ3kNPWo@85",
+              "0PpxZ3kNPWo@87"
+            ]
+          },
+          {
+            "id": "ch05.s07.p02.02",
+            "text": "One description gives the dataset as around 747 spam emails and more than 3,000 non-spam emails.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@93",
+              "f6zqClXOh7Y@96",
+              "f6zqClXOh7Y@97",
+              "f6zqClXOh7Y@101"
+            ]
+          },
+          {
+            "id": "ch05.s07.p02.03",
+            "text": "Another count states that there were 4,825 no-spam entries and 747 spam entries, and also summarizes this as around 4,800 no-spam messages and 747 spam messages.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@135",
+              "f6zqClXOh7Y@138",
+              "0PpxZ3kNPWo@85",
+              "0PpxZ3kNPWo@87"
+            ]
+          },
+          {
+            "id": "ch05.s07.p02.04",
+            "text": "To balance the classes, 747 non-spam entries were randomly sampled so that spam and non-spam each had 747 examples.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@141",
+              "f6zqClXOh7Y@144",
+              "f6zqClXOh7Y@147",
+              "f6zqClXOh7Y@150",
+              "f6zqClXOh7Y@152"
+            ]
+          },
+          {
+            "id": "ch05.s07.p02.05",
+            "text": "After balancing, the dataset contains 747 spam examples and 747 non-spam examples, for a total of 1,494 examples.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@91",
+              "0PpxZ3kNPWo@93",
+              "0PpxZ3kNPWo@96",
+              "0PpxZ3kNPWo@98",
+              "f6zqClXOh7Y@1572",
+              "f6zqClXOh7Y@1576",
+              "f6zqClXOh7Y@1580",
+              "f6zqClXOh7Y@1583"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s07.p03",
+        "sentences": [
+          {
+            "id": "ch05.s07.p03.01",
+            "text": "The labels are then encoded numerically so they can be used as targets.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@152",
+              "f6zqClXOh7Y@154",
+              "f6zqClXOh7Y@157",
+              "f6zqClXOh7Y@160"
+            ]
+          },
+          {
+            "id": "ch05.s07.p03.02",
+            "text": "Ham is encoded as 0 and spam is encoded as 1.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@154",
+              "f6zqClXOh7Y@157",
+              "f6zqClXOh7Y@160"
+            ]
+          },
+          {
+            "id": "ch05.s07.p03.03",
+            "text": "Accordingly, the target tensor contains zeros and ones, where zero means no spam and one means spam.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@166",
+              "0PpxZ3kNPWo@168",
+              "0PpxZ3kNPWo@171"
+            ]
+          },
+          {
+            "id": "ch05.s07.p03.04",
+            "text": "With the labels encoded, the full dataset is split into training, validation, and testing data.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@160",
+              "f6zqClXOh7Y@163",
+              "f6zqClXOh7Y@165"
+            ]
+          },
+          {
+            "id": "ch05.s07.p03.05",
+            "text": "The split uses 70% for training, 10% for validation, and 20% for testing, and these splits were converted into CSV files.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@165",
+              "f6zqClXOh7Y@168",
+              "f6zqClXOh7Y@171",
+              "f6zqClXOh7Y@174",
+              "f6zqClXOh7Y@176",
+              "f6zqClXOh7Y@180",
+              "f6zqClXOh7Y@183",
+              "f6zqClXOh7Y@185",
+              "f6zqClXOh7Y@187",
+              "f6zqClXOh7Y@189"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s07.p04",
+        "sentences": [
+          {
+            "id": "ch05.s07.p04.01",
+            "text": "Once the data is split, the dataloaders batch it into inputs and targets.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@104",
+              "0PpxZ3kNPWo@106",
+              "0PpxZ3kNPWo@108",
+              "0PpxZ3kNPWo@112",
+              "0PpxZ3kNPWo@131",
+              "0PpxZ3kNPWo@133"
+            ]
+          },
+          {
+            "id": "ch05.s07.p04.02",
+            "text": "The same split proportions are also described as 70% training, 20% testing, and 10% validation.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@117",
+              "0PpxZ3kNPWo@119",
+              "0PpxZ3kNPWo@122",
+              "0PpxZ3kNPWo@126"
+            ]
+          },
+          {
+            "id": "ch05.s07.p04.03",
+            "text": "Because the balanced dataset has 1,494 examples, taking 70% for training gives 1,045 training samples.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1583",
+              "f6zqClXOh7Y@1588",
+              "f6zqClXOh7Y@1590",
+              "f6zqClXOh7Y@1592",
+              "f6zqClXOh7Y@1601",
+              "f6zqClXOh7Y@1607",
+              "f6zqClXOh7Y@1611"
+            ]
+          },
+          {
+            "id": "ch05.s07.p04.04",
+            "text": "That training count is the basis for the batches used by the training dataloader.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1590",
+              "f6zqClXOh7Y@1592",
+              "f6zqClXOh7Y@1607",
+              "f6zqClXOh7Y@1611"
+            ]
+          },
+          {
+            "id": "ch05.s07.p04.05",
+            "text": "The details of token IDs, padding, and batch shapes come next, once the dataset itself has been put into this balanced, labeled, and split form.",
+            "type": "C",
+            "cites": []
+          }
+        ]
+      }
+    ],
+    "invalid_citation_sentences": 0
+  }
+}

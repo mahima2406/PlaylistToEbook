@@ -1,0 +1,300 @@
+{
+  "stage": "write",
+  "item": "ch06.s02",
+  "inputs_hash": "1b0d52a1a73c2dd13cc557f4c8164efd53c223263b2027afdb6554cab3b361da",
+  "output_hash": "177f26ba7ea466560cca08fc4338920f969988f418364e0890a3bf60adcba9bb",
+  "output": {
+    "section_id": "ch06.s02",
+    "paragraphs": [
+      {
+        "id": "ch06.s02.p01",
+        "sentences": [
+          {
+            "id": "ch06.s02.p01.01",
+            "text": "How do instruction, input, and output fields become training text a model can actually consume for fine-tuning?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s02.p01.02",
+            "text": "Formatting the dataset means converting entries with the three keys \"instruction\", \"input\", and \"output\" into the \"alpaka\" prompt style before feeding them to the large language model for fine-tuning.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@133",
+              "bkUkcyL_Xxc@136",
+              "bkUkcyL_Xxc@138",
+              "bkUkcyL_Xxc@146",
+              "bkUkcyL_Xxc@149",
+              "bkUkcyL_Xxc@154",
+              "bkUkcyL_Xxc@157",
+              "bkUkcyL_Xxc@159",
+              "bkUkcyL_Xxc@162"
+            ]
+          },
+          {
+            "id": "ch06.s02.p01.03",
+            "text": "In this prompt style, the prompt starts with a fixed introductory instruction: \"below is an instruction that describes a task paired with an input that provides further context Write a response that appropriately completes the request\".",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@184",
+              "bkUkcyL_Xxc@186",
+              "bkUkcyL_Xxc@188",
+              "bkUkcyL_Xxc@191",
+              "bkUkcyL_Xxc@193",
+              "bkUkcyL_Xxc@195"
+            ]
+          },
+          {
+            "id": "ch06.s02.p01.04",
+            "text": "After that introduction, the prompt includes the dataset instruction, then the dataset input, and then the response taken from the dataset output.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@198",
+              "bkUkcyL_Xxc@200",
+              "bkUkcyL_Xxc@202",
+              "bkUkcyL_Xxc@204",
+              "bkUkcyL_Xxc@206",
+              "bkUkcyL_Xxc@207",
+              "bkUkcyL_Xxc@209"
+            ]
+          },
+          {
+            "id": "ch06.s02.p01.05",
+            "text": "That is the specific conversion applied to instruction-response data before training text is prepared.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@171",
+              "bkUkcyL_Xxc@173",
+              "bkUkcyL_Xxc@175",
+              "bkUkcyL_Xxc@179",
+              "bkUkcyL_Xxc@182",
+              "bkUkcyL_Xxc@184"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s02.p02",
+        "sentences": [
+          {
+            "id": "ch06.s02.p02.01",
+            "text": "The code begins by downloading the dataset and checking that it loaded correctly.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@240",
+              "bkUkcyL_Xxc@242",
+              "bkUkcyL_Xxc@246",
+              "bkUkcyL_Xxc@261",
+              "bkUkcyL_Xxc@262"
+            ]
+          },
+          {
+            "id": "ch06.s02.p02.02",
+            "text": "It reports 1100 entries and verifies the contents by printing the 50th and 999th examples and confirming that they match the dataset.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@248",
+              "bkUkcyL_Xxc@251",
+              "bkUkcyL_Xxc@253",
+              "bkUkcyL_Xxc@256",
+              "bkUkcyL_Xxc@258",
+              "bkUkcyL_Xxc@261"
+            ]
+          },
+          {
+            "id": "ch06.s02.p02.03",
+            "text": "The conversion itself is handled by a function called \"format_input\".",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@262",
+              "bkUkcyL_Xxc@265",
+              "bkUkcyL_Xxc@267",
+              "bkUkcyL_Xxc@269"
+            ]
+          },
+          {
+            "id": "ch06.s02.p02.04",
+            "text": "This function takes an entry containing the instruction, input, and output pair and converts it into the \"alpaka\" prompt.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@270",
+              "bkUkcyL_Xxc@272",
+              "bkUkcyL_Xxc@275",
+              "bkUkcyL_Xxc@277",
+              "bkUkcyL_Xxc@279"
+            ]
+          },
+          {
+            "id": "ch06.s02.p02.05",
+            "text": "It builds the prompt from the instruction plus the input, and then appends the response as the output.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@280",
+              "bkUkcyL_Xxc@283",
+              "bkUkcyL_Xxc@285"
+            ]
+          },
+          {
+            "id": "ch06.s02.p02.06",
+            "text": "For a single entry, that means taking the introductory first line, adding the instruction and the input, and then appending the desired response to obtain the full prompt.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@288",
+              "bkUkcyL_Xxc@290",
+              "bkUkcyL_Xxc@293",
+              "bkUkcyL_Xxc@296",
+              "bkUkcyL_Xxc@298",
+              "bkUkcyL_Xxc@300",
+              "bkUkcyL_Xxc@302",
+              "bkUkcyL_Xxc@304",
+              "bkUkcyL_Xxc@306",
+              "bkUkcyL_Xxc@308",
+              "bkUkcyL_Xxc@311"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s02.p03",
+        "sentences": [
+          {
+            "id": "ch06.s02.p03.01",
+            "text": "Once each example is written in this prompt format, the next step is to turn it into token IDs.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@599",
+              "bkUkcyL_Xxc@601",
+              "bkUkcyL_Xxc@603",
+              "bkUkcyL_Xxc@605"
+            ]
+          },
+          {
+            "id": "ch06.s02.p03.02",
+            "text": "Using the \"tick token\" library, the process is applied to the first instruction-input-output example, then to the second, and then to all examples in the dataset: convert to the \"alpaka\" format and convert that text into a bunch of token IDs.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@605",
+              "bkUkcyL_Xxc@608",
+              "bkUkcyL_Xxc@610",
+              "bkUkcyL_Xxc@613",
+              "bkUkcyL_Xxc@617",
+              "bkUkcyL_Xxc@619",
+              "bkUkcyL_Xxc@621",
+              "bkUkcyL_Xxc@623",
+              "bkUkcyL_Xxc@626",
+              "bkUkcyL_Xxc@629",
+              "bkUkcyL_Xxc@632"
+            ]
+          },
+          {
+            "id": "ch06.s02.p03.03",
+            "text": "To package that workflow in code, the next step is to create an instruction dataset class.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1462",
+              "bkUkcyL_Xxc@1464",
+              "bkUkcyL_Xxc@1470",
+              "bkUkcyL_Xxc@1472"
+            ]
+          },
+          {
+            "id": "ch06.s02.p03.04",
+            "text": "This class takes the dataset in its original instruction-input-output form and first converts each entry into the \"alpaka\" style format.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1475",
+              "bkUkcyL_Xxc@1477",
+              "bkUkcyL_Xxc@1480",
+              "bkUkcyL_Xxc@1482"
+            ]
+          },
+          {
+            "id": "ch06.s02.p03.05",
+            "text": "It does that by using the \"format_input\" function to produce the first sentence, the instruction, and the input text, and then appending the response or output.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1489",
+              "bkUkcyL_Xxc@1490",
+              "bkUkcyL_Xxc@1495",
+              "bkUkcyL_Xxc@1496",
+              "bkUkcyL_Xxc@1500",
+              "bkUkcyL_Xxc@1503",
+              "bkUkcyL_Xxc@1505",
+              "bkUkcyL_Xxc@1507",
+              "bkUkcyL_Xxc@1510"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s02.p04",
+        "sentences": [
+          {
+            "id": "ch06.s02.p04.01",
+            "text": "When an instance of this instruction dataset class is created, it first stores the dataset in \"self.data\".",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1512",
+              "bkUkcyL_Xxc@1515",
+              "bkUkcyL_Xxc@1518",
+              "bkUkcyL_Xxc@1520",
+              "bkUkcyL_Xxc@1523",
+              "bkUkcyL_Xxc@1525"
+            ]
+          },
+          {
+            "id": "ch06.s02.p04.02",
+            "text": "Then, for each entry, it applies \"format_input\" and appends the response so that the full text in the \"alpaka\" format is created.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1527",
+              "bkUkcyL_Xxc@1530",
+              "bkUkcyL_Xxc@1532",
+              "bkUkcyL_Xxc@1534",
+              "bkUkcyL_Xxc@1536"
+            ]
+          },
+          {
+            "id": "ch06.s02.p04.03",
+            "text": "After that, it tokenizes the formatted data by defining an empty list and appending token IDs to that list.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1539",
+              "bkUkcyL_Xxc@1541",
+              "bkUkcyL_Xxc@1543",
+              "bkUkcyL_Xxc@1547",
+              "bkUkcyL_Xxc@1550"
+            ]
+          },
+          {
+            "id": "ch06.s02.p04.04",
+            "text": "For every prompt corresponding to an input-output pair, each token in the prompt is converted into a token ID and appended to the list.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1553",
+              "bkUkcyL_Xxc@1555",
+              "bkUkcyL_Xxc@1557",
+              "bkUkcyL_Xxc@1560",
+              "bkUkcyL_Xxc@1562"
+            ]
+          },
+          {
+            "id": "ch06.s02.p04.05",
+            "text": "The result returned by the instruction dataset class is, for every dataset entry, the \"alpaka\" style prompt converted into a bunch of token IDs.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1600",
+              "bkUkcyL_Xxc@1602",
+              "bkUkcyL_Xxc@1604",
+              "bkUkcyL_Xxc@1608",
+              "bkUkcyL_Xxc@1610",
+              "bkUkcyL_Xxc@1612",
+              "bkUkcyL_Xxc@1616"
+            ]
+          }
+        ]
+      }
+    ],
+    "invalid_citation_sentences": 0
+  }
+}

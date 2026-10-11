@@ -1,0 +1,1576 @@
+{
+  "stage": "extract",
+  "item": "f6zqClXOh7Y",
+  "inputs_hash": "5973c77ab4e525698b4c9af1d912ad4b182491dacbc7e4c7a3ec3b09b10efe2a",
+  "output_hash": "cf195a9d6f91187ac99403b0777d44d33db93e8e0a041de8064efaab14a12d14",
+  "output": {
+    "video_id": "f6zqClXOh7Y",
+    "points": [
+      {
+        "id": "f6zqClXOh7Y:p001",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "definition",
+        "importance": 2,
+        "text": "Fine-tuning is adapting a pre-trained model to a specific task by training the model on additional data.",
+        "line_ids": [
+          "f6zqClXOh7Y@19",
+          "f6zqClXOh7Y@21",
+          "f6zqClXOh7Y@24",
+          "f6zqClXOh7Y@27"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p002",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 2,
+        "text": "There are two types of fine-tuning discussed here: instruction fine-tuning and classification fine-tuning.",
+        "line_ids": [
+          "f6zqClXOh7Y@31",
+          "f6zqClXOh7Y@32",
+          "f6zqClXOh7Y@34",
+          "f6zqClXOh7Y@37"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p003",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The classification fine-tuning project in this lecture series uses a large language model to classify emails as either spam or not spam.",
+        "line_ids": [
+          "f6zqClXOh7Y@48",
+          "f6zqClXOh7Y@51",
+          "f6zqClXOh7Y@55",
+          "f6zqClXOh7Y@57",
+          "f6zqClXOh7Y@60",
+          "f6zqClXOh7Y@63",
+          "f6zqClXOh7Y@64",
+          "f6zqClXOh7Y@67",
+          "f6zqClXOh7Y@70"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p004",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The email dataset came from the UCI Irvine Machine Learning Repository and contained about 747 spam emails and more than 3,000 non-spam emails, where non-spam is also called ham.",
+        "line_ids": [
+          "f6zqClXOh7Y@89",
+          "f6zqClXOh7Y@91",
+          "f6zqClXOh7Y@93",
+          "f6zqClXOh7Y@96",
+          "f6zqClXOh7Y@97",
+          "f6zqClXOh7Y@101",
+          "f6zqClXOh7Y@105",
+          "f6zqClXOh7Y@107",
+          "f6zqClXOh7Y@109"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p005",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Each dataset entry consists of a text and a label indicating ham or spam.",
+        "line_ids": [
+          "f6zqClXOh7Y@118",
+          "f6zqClXOh7Y@120",
+          "f6zqClXOh7Y@124",
+          "f6zqClXOh7Y@126",
+          "f6zqClXOh7Y@129",
+          "f6zqClXOh7Y@131"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p006",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The lecturer balanced the dataset by randomly sampling 747 non-spam entries so that both spam and non-spam had 747 examples.",
+        "line_ids": [
+          "f6zqClXOh7Y@135",
+          "f6zqClXOh7Y@138",
+          "f6zqClXOh7Y@141",
+          "f6zqClXOh7Y@144",
+          "f6zqClXOh7Y@147",
+          "f6zqClXOh7Y@150",
+          "f6zqClXOh7Y@152"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p007",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The labels were encoded numerically with ham as 0 and spam as 1.",
+        "line_ids": [
+          "f6zqClXOh7Y@154",
+          "f6zqClXOh7Y@157",
+          "f6zqClXOh7Y@160"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p008",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The dataset was split into 70% training data, 10% validation data, and 20% testing data, and these splits were saved as CSV files.",
+        "line_ids": [
+          "f6zqClXOh7Y@163",
+          "f6zqClXOh7Y@165",
+          "f6zqClXOh7Y@168",
+          "f6zqClXOh7Y@171",
+          "f6zqClXOh7Y@174",
+          "f6zqClXOh7Y@176",
+          "f6zqClXOh7Y@180",
+          "f6zqClXOh7Y@183",
+          "f6zqClXOh7Y@185",
+          "f6zqClXOh7Y@187",
+          "f6zqClXOh7Y@189"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p009",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 3,
+        "text": "For classification fine-tuning, the model takes input text and outputs whether the email is spam or not spam.",
+        "line_ids": [
+          "f6zqClXOh7Y@192",
+          "f6zqClXOh7Y@193",
+          "f6zqClXOh7Y@195",
+          "f6zqClXOh7Y@198",
+          "f6zqClXOh7Y@200",
+          "f6zqClXOh7Y@204",
+          "f6zqClXOh7Y@207",
+          "f6zqClXOh7Y@210",
+          "f6zqClXOh7Y@212"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p010",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The purpose of the data loader is to feed input-target pairs into the model and manage the data more effectively.",
+        "line_ids": [
+          "f6zqClXOh7Y@221",
+          "f6zqClXOh7Y@223",
+          "f6zqClXOh7Y@227",
+          "f6zqClXOh7Y@229",
+          "f6zqClXOh7Y@232",
+          "f6zqClXOh7Y@237",
+          "f6zqClXOh7Y@239",
+          "f6zqClXOh7Y@280",
+          "f6zqClXOh7Y@282",
+          "f6zqClXOh7Y@284",
+          "f6zqClXOh7Y@288",
+          "f6zqClXOh7Y@289"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p011",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In PyTorch, Dataset and DataLoader can be used with a custom dataset to access samples easily, run batches, and do parallel processing.",
+        "line_ids": [
+          "f6zqClXOh7Y@242",
+          "f6zqClXOh7Y@244",
+          "f6zqClXOh7Y@248",
+          "f6zqClXOh7Y@250",
+          "f6zqClXOh7Y@253",
+          "f6zqClXOh7Y@258",
+          "f6zqClXOh7Y@261",
+          "f6zqClXOh7Y@264",
+          "f6zqClXOh7Y@266",
+          "f6zqClXOh7Y@269",
+          "f6zqClXOh7Y@271",
+          "f6zqClXOh7Y@273"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p012",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The goal is to convert each email into tokens so that every email in a batch has the same token length, producing an input tensor and a corresponding target tensor of labels 0 or 1.",
+        "line_ids": [
+          "f6zqClXOh7Y@293",
+          "f6zqClXOh7Y@295",
+          "f6zqClXOh7Y@298",
+          "f6zqClXOh7Y@302",
+          "f6zqClXOh7Y@305",
+          "f6zqClXOh7Y@307",
+          "f6zqClXOh7Y@309",
+          "f6zqClXOh7Y@311",
+          "f6zqClXOh7Y@313",
+          "f6zqClXOh7Y@316",
+          "f6zqClXOh7Y@322",
+          "f6zqClXOh7Y@325",
+          "f6zqClXOh7Y@327",
+          "f6zqClXOh7Y@329",
+          "f6zqClXOh7Y@332",
+          "f6zqClXOh7Y@334",
+          "f6zqClXOh7Y@336",
+          "f6zqClXOh7Y@338",
+          "f6zqClXOh7Y@340",
+          "f6zqClXOh7Y@343",
+          "f6zqClXOh7Y@345",
+          "f6zqClXOh7Y@348",
+          "f6zqClXOh7Y@350",
+          "f6zqClXOh7Y@352"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p013",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A key issue is that email texts have varying lengths, but batching requires every row in the batch to have the same number of columns.",
+        "line_ids": [
+          "f6zqClXOh7Y@367",
+          "f6zqClXOh7Y@370",
+          "f6zqClXOh7Y@373",
+          "f6zqClXOh7Y@376",
+          "f6zqClXOh7Y@378",
+          "f6zqClXOh7Y@380",
+          "f6zqClXOh7Y@383",
+          "f6zqClXOh7Y@386",
+          "f6zqClXOh7Y@388",
+          "f6zqClXOh7Y@390",
+          "f6zqClXOh7Y@392",
+          "f6zqClXOh7Y@395",
+          "f6zqClXOh7Y@396",
+          "f6zqClXOh7Y@399",
+          "f6zqClXOh7Y@400",
+          "f6zqClXOh7Y@403",
+          "f6zqClXOh7Y@405"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p014",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "One possible way to equalize sequence lengths is to find the shortest email and truncate all longer emails to that length.",
+        "line_ids": [
+          "f6zqClXOh7Y@405",
+          "f6zqClXOh7Y@407",
+          "f6zqClXOh7Y@410",
+          "f6zqClXOh7Y@412",
+          "f6zqClXOh7Y@414",
+          "f6zqClXOh7Y@417",
+          "f6zqClXOh7Y@420",
+          "f6zqClXOh7Y@423",
+          "f6zqClXOh7Y@425",
+          "f6zqClXOh7Y@426",
+          "f6zqClXOh7Y@428",
+          "f6zqClXOh7Y@431",
+          "f6zqClXOh7Y@434",
+          "f6zqClXOh7Y@437",
+          "f6zqClXOh7Y@438",
+          "f6zqClXOh7Y@440"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p015",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Truncating all emails to the shortest length is not recommended because it loses information from longer texts.",
+        "line_ids": [
+          "f6zqClXOh7Y@443",
+          "f6zqClXOh7Y@445",
+          "f6zqClXOh7Y@447",
+          "f6zqClXOh7Y@449",
+          "f6zqClXOh7Y@451",
+          "f6zqClXOh7Y@454",
+          "f6zqClXOh7Y@457",
+          "f6zqClXOh7Y@460",
+          "f6zqClXOh7Y@463",
+          "f6zqClXOh7Y@465"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p016",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "A better approach is to use the longest email length and pad all shorter emails with additional tokens until they reach that length.",
+        "line_ids": [
+          "f6zqClXOh7Y@467",
+          "f6zqClXOh7Y@469",
+          "f6zqClXOh7Y@472",
+          "f6zqClXOh7Y@475",
+          "f6zqClXOh7Y@481",
+          "f6zqClXOh7Y@484",
+          "f6zqClXOh7Y@488",
+          "f6zqClXOh7Y@490",
+          "f6zqClXOh7Y@494",
+          "f6zqClXOh7Y@495",
+          "f6zqClXOh7Y@498",
+          "f6zqClXOh7Y@499",
+          "f6zqClXOh7Y@502",
+          "f6zqClXOh7Y@503",
+          "f6zqClXOh7Y@505"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p017",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The padding token used here is the end-of-text token.",
+        "line_ids": [
+          "f6zqClXOh7Y@507",
+          "f6zqClXOh7Y@509",
+          "f6zqClXOh7Y@511",
+          "f6zqClXOh7Y@516"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p018",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The first step in preprocessing is to tokenize each text message.",
+        "line_ids": [
+          "f6zqClXOh7Y@529",
+          "f6zqClXOh7Y@531"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p019",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "definition",
+        "importance": 2,
+        "text": "The tiktoken library is the tokenizer library used by OpenAI, and it converts a sentence into token IDs.",
+        "line_ids": [
+          "f6zqClXOh7Y@543",
+          "f6zqClXOh7Y@545",
+          "f6zqClXOh7Y@548",
+          "f6zqClXOh7Y@550",
+          "f6zqClXOh7Y@552",
+          "f6zqClXOh7Y@554"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p020",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "definition",
+        "importance": 2,
+        "text": "Byte pair encoding is a subword tokenizer, so a word is not necessarily equal to one token.",
+        "line_ids": [
+          "f6zqClXOh7Y@554",
+          "f6zqClXOh7Y@558",
+          "f6zqClXOh7Y@559",
+          "f6zqClXOh7Y@562",
+          "f6zqClXOh7Y@564",
+          "f6zqClXOh7Y@567",
+          "f6zqClXOh7Y@569",
+          "f6zqClXOh7Y@572"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p021",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The tokenizer used here is the byte pair encoder tokenizer that GPT models use, and it converts each text into token IDs.",
+        "line_ids": [
+          "f6zqClXOh7Y@576",
+          "f6zqClXOh7Y@578",
+          "f6zqClXOh7Y@580",
+          "f6zqClXOh7Y@583",
+          "f6zqClXOh7Y@585",
+          "f6zqClXOh7Y@587",
+          "f6zqClXOh7Y@590",
+          "f6zqClXOh7Y@593",
+          "f6zqClXOh7Y@595"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p022",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "After tokenization, shorter token sequences are padded with token 50256 until all sequences have the same length.",
+        "line_ids": [
+          "f6zqClXOh7Y@600",
+          "f6zqClXOh7Y@602",
+          "f6zqClXOh7Y@604",
+          "f6zqClXOh7Y@607",
+          "f6zqClXOh7Y@609",
+          "f6zqClXOh7Y@611",
+          "f6zqClXOh7Y@613",
+          "f6zqClXOh7Y@616",
+          "f6zqClXOh7Y@618",
+          "f6zqClXOh7Y@621"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p023",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "definition",
+        "importance": 3,
+        "text": "In the GPT-2 vocabulary, token 50256 is the end-of-text token.",
+        "line_ids": [
+          "f6zqClXOh7Y@631",
+          "f6zqClXOh7Y@633",
+          "f6zqClXOh7Y@635",
+          "f6zqClXOh7Y@637",
+          "f6zqClXOh7Y@640",
+          "f6zqClXOh7Y@642",
+          "f6zqClXOh7Y@645",
+          "f6zqClXOh7Y@648",
+          "f6zqClXOh7Y@650",
+          "f6zqClXOh7Y@654",
+          "f6zqClXOh7Y@656",
+          "f6zqClXOh7Y@659",
+          "f6zqClXOh7Y@660",
+          "f6zqClXOh7Y@662"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p024",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "definition",
+        "importance": 2,
+        "text": "The GPT-2 vocabulary maps tokens to token IDs.",
+        "line_ids": [
+          "f6zqClXOh7Y@631",
+          "f6zqClXOh7Y@633",
+          "f6zqClXOh7Y@635",
+          "f6zqClXOh7Y@637",
+          "f6zqClXOh7Y@640",
+          "f6zqClXOh7Y@680",
+          "f6zqClXOh7Y@681",
+          "f6zqClXOh7Y@685",
+          "f6zqClXOh7Y@687",
+          "f6zqClXOh7Y@689",
+          "f6zqClXOh7Y@692",
+          "f6zqClXOh7Y@694"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p025",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The end-of-text token signifies that the end of a document or sentence has been reached and is used during GPT training to distinguish between separate document sources.",
+        "line_ids": [
+          "f6zqClXOh7Y@662",
+          "f6zqClXOh7Y@665",
+          "f6zqClXOh7Y@668",
+          "f6zqClXOh7Y@669",
+          "f6zqClXOh7Y@672",
+          "f6zqClXOh7Y@675",
+          "f6zqClXOh7Y@677"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p026",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "analogy",
+        "importance": 1,
+        "text": "The vocabulary can be thought of like a dictionary in which words have associated meanings, except here words have associated token IDs.",
+        "line_ids": [
+          "f6zqClXOh7Y@694",
+          "f6zqClXOh7Y@697",
+          "f6zqClXOh7Y@700",
+          "f6zqClXOh7Y@702",
+          "f6zqClXOh7Y@704",
+          "f6zqClXOh7Y@706"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p027",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Although any token could be used for padding, using the end-of-text token makes symbolic sense because it indicates there is no additional text and avoids confusing the model with a random word.",
+        "line_ids": [
+          "f6zqClXOh7Y@722",
+          "f6zqClXOh7Y@725",
+          "f6zqClXOh7Y@727",
+          "f6zqClXOh7Y@730",
+          "f6zqClXOh7Y@732",
+          "f6zqClXOh7Y@736",
+          "f6zqClXOh7Y@738",
+          "f6zqClXOh7Y@740",
+          "f6zqClXOh7Y@743",
+          "f6zqClXOh7Y@745"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p028",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The overall workflow is to take the train, validation, and test CSV text, tokenize it into token IDs, find the longest email, and pad all messages with end-of-text token 50256 to that same length.",
+        "line_ids": [
+          "f6zqClXOh7Y@751",
+          "f6zqClXOh7Y@754",
+          "f6zqClXOh7Y@756",
+          "f6zqClXOh7Y@758",
+          "f6zqClXOh7Y@763",
+          "f6zqClXOh7Y@765",
+          "f6zqClXOh7Y@767",
+          "f6zqClXOh7Y@769",
+          "f6zqClXOh7Y@771",
+          "f6zqClXOh7Y@773",
+          "f6zqClXOh7Y@775",
+          "f6zqClXOh7Y@778",
+          "f6zqClXOh7Y@781"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p029",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Before instantiating a DataLoader, a PyTorch Dataset must be implemented to specify how the data is loaded and processed.",
+        "line_ids": [
+          "f6zqClXOh7Y@793",
+          "f6zqClXOh7Y@795",
+          "f6zqClXOh7Y@798",
+          "f6zqClXOh7Y@801",
+          "f6zqClXOh7Y@802",
+          "f6zqClXOh7Y@805",
+          "f6zqClXOh7Y@807",
+          "f6zqClXOh7Y@810",
+          "f6zqClXOh7Y@811",
+          "f6zqClXOh7Y@813",
+          "f6zqClXOh7Y@816",
+          "f6zqClXOh7Y@818",
+          "f6zqClXOh7Y@820"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p030",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The dataset specifies how data is loaded and what the input-target pairs are, while the data loader is instantiated after the dataset is defined.",
+        "line_ids": [
+          "f6zqClXOh7Y@805",
+          "f6zqClXOh7Y@807",
+          "f6zqClXOh7Y@810",
+          "f6zqClXOh7Y@811",
+          "f6zqClXOh7Y@813",
+          "f6zqClXOh7Y@816",
+          "f6zqClXOh7Y@818",
+          "f6zqClXOh7Y@820"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p031",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The SpamDataset class identifies the longest sequence in the training set, converts each text message into token IDs, and pads all other sequences to match the longest sequence.",
+        "line_ids": [
+          "f6zqClXOh7Y@822",
+          "f6zqClXOh7Y@823",
+          "f6zqClXOh7Y@827",
+          "f6zqClXOh7Y@829",
+          "f6zqClXOh7Y@830",
+          "f6zqClXOh7Y@833",
+          "f6zqClXOh7Y@834",
+          "f6zqClXOh7Y@836",
+          "f6zqClXOh7Y@838",
+          "f6zqClXOh7Y@840",
+          "f6zqClXOh7Y@842",
+          "f6zqClXOh7Y@845",
+          "f6zqClXOh7Y@847",
+          "f6zqClXOh7Y@849",
+          "f6zqClXOh7Y@851",
+          "f6zqClXOh7Y@853",
+          "f6zqClXOh7Y@856",
+          "f6zqClXOh7Y@858",
+          "f6zqClXOh7Y@860"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p032",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "To create an instance of the SpamDataset class, you need to specify the CSV file and the tokenizer being used.",
+        "line_ids": [
+          "f6zqClXOh7Y@863",
+          "f6zqClXOh7Y@865",
+          "f6zqClXOh7Y@867",
+          "f6zqClXOh7Y@869",
+          "f6zqClXOh7Y@870",
+          "f6zqClXOh7Y@873",
+          "f6zqClXOh7Y@877",
+          "f6zqClXOh7Y@879",
+          "f6zqClXOh7Y@881",
+          "f6zqClXOh7Y@883",
+          "f6zqClXOh7Y@887",
+          "f6zqClXOh7Y@890",
+          "f6zqClXOh7Y@892",
+          "f6zqClXOh7Y@894"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p033",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 3,
+        "text": "If the user does not specify a maximum length, the maximum length is taken to be the length of the longest encoded text in the dataset.",
+        "line_ids": [
+          "f6zqClXOh7Y@1000",
+          "f6zqClXOh7Y@1003",
+          "f6zqClXOh7Y@1004",
+          "f6zqClXOh7Y@1007",
+          "f6zqClXOh7Y@1009",
+          "f6zqClXOh7Y@1011"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p034",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The first step is to tokenize each text message with a byte pair encoding tokenizer, converting each sentence into token IDs using the vocabulary.",
+        "line_ids": [
+          "f6zqClXOh7Y@933",
+          "f6zqClXOh7Y@936",
+          "f6zqClXOh7Y@937",
+          "f6zqClXOh7Y@940",
+          "f6zqClXOh7Y@941",
+          "f6zqClXOh7Y@944",
+          "f6zqClXOh7Y@954",
+          "f6zqClXOh7Y@956",
+          "f6zqClXOh7Y@957",
+          "f6zqClXOh7Y@959",
+          "f6zqClXOh7Y@962",
+          "f6zqClXOh7Y@964",
+          "f6zqClXOh7Y@966"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p035",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "code",
+        "importance": 2,
+        "text": "The CSV file is read into a data object with pandas, and then each email or text message in that data is converted into token IDs.",
+        "line_ids": [
+          "f6zqClXOh7Y@969",
+          "f6zqClXOh7Y@972",
+          "f6zqClXOh7Y@976",
+          "f6zqClXOh7Y@979",
+          "f6zqClXOh7Y@981",
+          "f6zqClXOh7Y@983",
+          "f6zqClXOh7Y@985"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p036",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The function for longest encoded length finds the lengths of all text messages and returns the maximum length among them.",
+        "line_ids": [
+          "f6zqClXOh7Y@1011",
+          "f6zqClXOh7Y@1013",
+          "f6zqClXOh7Y@1016",
+          "f6zqClXOh7Y@1018",
+          "f6zqClXOh7Y@1020",
+          "f6zqClXOh7Y@1022"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p037",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 3,
+        "text": "If the user specifies a maximum length, the max length is set to that user-defined value.",
+        "line_ids": [
+          "f6zqClXOh7Y@1032",
+          "f6zqClXOh7Y@1035",
+          "f6zqClXOh7Y@1037",
+          "f6zqClXOh7Y@1039",
+          "f6zqClXOh7Y@1041"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p038",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "If some sequences are longer than the maximum length, they must be truncated so that their length equals the maximum length.",
+        "line_ids": [
+          "f6zqClXOh7Y@1045",
+          "f6zqClXOh7Y@1047",
+          "f6zqClXOh7Y@1049",
+          "f6zqClXOh7Y@1051",
+          "f6zqClXOh7Y@1053",
+          "f6zqClXOh7Y@1055",
+          "f6zqClXOh7Y@1057",
+          "f6zqClXOh7Y@1061"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p039",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 2,
+        "text": "If the maximum length is selected from the data itself, sequences longer than the maximum length do not arise.",
+        "line_ids": [
+          "f6zqClXOh7Y@1061",
+          "f6zqClXOh7Y@1063",
+          "f6zqClXOh7Y@1065",
+          "f6zqClXOh7Y@1067"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p040",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The pad token ID is 50256, and texts shorter than the maximum length are padded with this token ID.",
+        "line_ids": [
+          "f6zqClXOh7Y@922",
+          "f6zqClXOh7Y@925",
+          "f6zqClXOh7Y@928",
+          "f6zqClXOh7Y@930",
+          "f6zqClXOh7Y@933"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p041",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "For each text message, pad token IDs are appended until the message reaches the maximum length so that all text messages have the same size.",
+        "line_ids": [
+          "f6zqClXOh7Y@1071",
+          "f6zqClXOh7Y@1073",
+          "f6zqClXOh7Y@1075",
+          "f6zqClXOh7Y@1079",
+          "f6zqClXOh7Y@1082",
+          "f6zqClXOh7Y@1085",
+          "f6zqClXOh7Y@1087",
+          "f6zqClXOh7Y@1089",
+          "f6zqClXOh7Y@1091",
+          "f6zqClXOh7Y@1094",
+          "f6zqClXOh7Y@1097",
+          "f6zqClXOh7Y@1102",
+          "f6zqClXOh7Y@1104",
+          "f6zqClXOh7Y@1106"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p042",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The dataset creates two tensors named encoded and label.",
+        "line_ids": [
+          "f6zqClXOh7Y@1111",
+          "f6zqClXOh7Y@1113",
+          "f6zqClXOh7Y@1115",
+          "f6zqClXOh7Y@1118",
+          "f6zqClXOh7Y@1120",
+          "f6zqClXOh7Y@1122"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p043",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The encoded tensor is the tensor of token ID encodings for the text messages.",
+        "line_ids": [
+          "f6zqClXOh7Y@1122",
+          "f6zqClXOh7Y@1126",
+          "f6zqClXOh7Y@1128",
+          "f6zqClXOh7Y@1131",
+          "f6zqClXOh7Y@1135",
+          "f6zqClXOh7Y@1136",
+          "f6zqClXOh7Y@1141",
+          "f6zqClXOh7Y@1143",
+          "f6zqClXOh7Y@1147",
+          "f6zqClXOh7Y@1150",
+          "f6zqClXOh7Y@1152",
+          "f6zqClXOh7Y@1154",
+          "f6zqClXOh7Y@1157"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p044",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The label tensor contains the labels for the examples.",
+        "line_ids": [
+          "f6zqClXOh7Y@1157",
+          "f6zqClXOh7Y@1159",
+          "f6zqClXOh7Y@1161"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p045",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The dataset's main function is get item, and calling it converts the dataset into an encoded tensor and a labeled tensor.",
+        "line_ids": [
+          "f6zqClXOh7Y@1164",
+          "f6zqClXOh7Y@1165",
+          "f6zqClXOh7Y@1168",
+          "f6zqClXOh7Y@1170",
+          "f6zqClXOh7Y@1172",
+          "f6zqClXOh7Y@1174"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p046",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The encoded tensor ensures that every sentence is converted into token IDs and that all sentences have equal length so they can be batched together.",
+        "line_ids": [
+          "f6zqClXOh7Y@1174",
+          "f6zqClXOh7Y@1176",
+          "f6zqClXOh7Y@1178",
+          "f6zqClXOh7Y@1181",
+          "f6zqClXOh7Y@1183"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p047",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The label tensor contains zeros or ones.",
+        "line_ids": [
+          "f6zqClXOh7Y@1185",
+          "f6zqClXOh7Y@1188"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p048",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The spam dataset class loads data from the CSV files, tokenizes the text using the GPT-2 tokenizer from tiktoken, and pads or truncates sequences to a uniform length defined either by the longest sequence or by a predefined maximum length.",
+        "line_ids": [
+          "f6zqClXOh7Y@1199",
+          "f6zqClXOh7Y@1201",
+          "f6zqClXOh7Y@1204",
+          "f6zqClXOh7Y@1206",
+          "f6zqClXOh7Y@1209",
+          "f6zqClXOh7Y@1212",
+          "f6zqClXOh7Y@1214",
+          "f6zqClXOh7Y@1217",
+          "f6zqClXOh7Y@1219",
+          "f6zqClXOh7Y@1221"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p049",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "code",
+        "importance": 2,
+        "text": "An instance of the spam dataset class is created using the train.csv file, and if no maximum length is passed, the maximum length is computed from the training dataset itself.",
+        "line_ids": [
+          "f6zqClXOh7Y@1223",
+          "f6zqClXOh7Y@1225",
+          "f6zqClXOh7Y@1227",
+          "f6zqClXOh7Y@1229",
+          "f6zqClXOh7Y@1231",
+          "f6zqClXOh7Y@1234",
+          "f6zqClXOh7Y@1236",
+          "f6zqClXOh7Y@1237"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p050",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In this example, the computed maximum length is 120.",
+        "line_ids": [
+          "f6zqClXOh7Y@1237",
+          "f6zqClXOh7Y@1239"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p051",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 2,
+        "text": "GPT-2 can handle sequences up to 1024 tokens because its context length is 1024, so the maximum length passed here can be at most 1024.",
+        "line_ids": [
+          "f6zqClXOh7Y@1260",
+          "f6zqClXOh7Y@1262",
+          "f6zqClXOh7Y@1265",
+          "f6zqClXOh7Y@1267",
+          "f6zqClXOh7Y@1268",
+          "f6zqClXOh7Y@1272",
+          "f6zqClXOh7Y@1275",
+          "f6zqClXOh7Y@1277"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p052",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The validation and test datasets are padded to match the length of the longest training sequence.",
+        "line_ids": [
+          "f6zqClXOh7Y@1280",
+          "f6zqClXOh7Y@1283",
+          "f6zqClXOh7Y@1285",
+          "f6zqClXOh7Y@1287"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p053",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Validation and test samples that exceed the length of the longest training examples are truncated.",
+        "line_ids": [
+          "f6zqClXOh7Y@1287",
+          "f6zqClXOh7Y@1289",
+          "f6zqClXOh7Y@1291",
+          "f6zqClXOh7Y@1293"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p054",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "code",
+        "importance": 2,
+        "text": "When creating the validation and test spam dataset instances, the maximum length is passed in as 120, the maximum length from the training dataset.",
+        "line_ids": [
+          "f6zqClXOh7Y@1295",
+          "f6zqClXOh7Y@1297",
+          "f6zqClXOh7Y@1299",
+          "f6zqClXOh7Y@1301",
+          "f6zqClXOh7Y@1303",
+          "f6zqClXOh7Y@1306",
+          "f6zqClXOh7Y@1308"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p055",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 2,
+        "text": "When a maximum length has been defined for validation and test data, sequences in those sets that are longer than that maximum length must be truncated.",
+        "line_ids": [
+          "f6zqClXOh7Y@1311",
+          "f6zqClXOh7Y@1313",
+          "f6zqClXOh7Y@1316",
+          "f6zqClXOh7Y@1318",
+          "f6zqClXOh7Y@1319",
+          "f6zqClXOh7Y@1321",
+          "f6zqClXOh7Y@1324"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p056",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 2,
+        "text": "There is no requirement that the maximum length used for validation and test datasets must equal the maximum length in the training dataset, and it can also be set to none.",
+        "line_ids": [
+          "f6zqClXOh7Y@1324",
+          "f6zqClXOh7Y@1327",
+          "f6zqClXOh7Y@1329",
+          "f6zqClXOh7Y@1331",
+          "f6zqClXOh7Y@1332",
+          "f6zqClXOh7Y@1334",
+          "f6zqClXOh7Y@1336",
+          "f6zqClXOh7Y@1339",
+          "f6zqClXOh7Y@1341"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p057",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 1,
+        "text": "If the user-defined maximum length 120 is passed for validation or test data, printing the maximum length shows 120.",
+        "line_ids": [
+          "f6zqClXOh7Y@1346",
+          "f6zqClXOh7Y@1348",
+          "f6zqClXOh7Y@1351",
+          "f6zqClXOh7Y@1353",
+          "f6zqClXOh7Y@1355",
+          "f6zqClXOh7Y@1357",
+          "f6zqClXOh7Y@1360",
+          "f6zqClXOh7Y@1363",
+          "f6zqClXOh7Y@1365",
+          "f6zqClXOh7Y@1369"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p058",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The dataset serves as the input to the data loader, so first a dataset is implemented and then that dataset is passed into a data loader.",
+        "line_ids": [
+          "f6zqClXOh7Y@1373",
+          "f6zqClXOh7Y@1375",
+          "f6zqClXOh7Y@1380",
+          "f6zqClXOh7Y@1383",
+          "f6zqClXOh7Y@1385",
+          "f6zqClXOh7Y@1388",
+          "f6zqClXOh7Y@1390",
+          "f6zqClXOh7Y@1392",
+          "f6zqClXOh7Y@1394"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p059",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 3,
+        "text": "When creating a data loader from a dataset, you can set the batch size and the number of workers for parallel processing.",
+        "line_ids": [
+          "f6zqClXOh7Y@1398",
+          "f6zqClXOh7Y@1401",
+          "f6zqClXOh7Y@1403",
+          "f6zqClXOh7Y@1405",
+          "f6zqClXOh7Y@1407",
+          "f6zqClXOh7Y@1409"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p060",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "code",
+        "importance": 2,
+        "text": "Here the batch size is set to 8 and the number of workers is set to 0 for simplicity, meaning no parallel processing is used.",
+        "line_ids": [
+          "f6zqClXOh7Y@1410",
+          "f6zqClXOh7Y@1412",
+          "f6zqClXOh7Y@1414",
+          "f6zqClXOh7Y@1417",
+          "f6zqClXOh7Y@1418",
+          "f6zqClXOh7Y@1420"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p061",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Setting drop_last equal to True means the last batch is dropped if it is smaller than the other batches.",
+        "line_ids": [
+          "f6zqClXOh7Y@1420",
+          "f6zqClXOh7Y@1423",
+          "f6zqClXOh7Y@1426"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p062",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "code",
+        "importance": 3,
+        "text": "Train, validation, and test data loaders are created by instantiating DataLoader with the corresponding datasets as input.",
+        "line_ids": [
+          "f6zqClXOh7Y@1431",
+          "f6zqClXOh7Y@1433",
+          "f6zqClXOh7Y@1436",
+          "f6zqClXOh7Y@1438",
+          "f6zqClXOh7Y@1440",
+          "f6zqClXOh7Y@1442"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p063",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 2,
+        "text": "These loaders can be used to extract batches such as the first, second, or eighth batch easily.",
+        "line_ids": [
+          "f6zqClXOh7Y@1446",
+          "f6zqClXOh7Y@1448",
+          "f6zqClXOh7Y@1451",
+          "f6zqClXOh7Y@1454",
+          "f6zqClXOh7Y@1455",
+          "f6zqClXOh7Y@1457",
+          "f6zqClXOh7Y@1459",
+          "f6zqClXOh7Y@1462",
+          "f6zqClXOh7Y@1464",
+          "f6zqClXOh7Y@1466",
+          "f6zqClXOh7Y@1469",
+          "f6zqClXOh7Y@1471"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p064",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "To test that the data loaders work, iterate through the training loader and print the input batch dimension and label batch dimension.",
+        "line_ids": [
+          "f6zqClXOh7Y@1474",
+          "f6zqClXOh7Y@1476",
+          "f6zqClXOh7Y@1478",
+          "f6zqClXOh7Y@1480",
+          "f6zqClXOh7Y@1483",
+          "f6zqClXOh7Y@1484",
+          "f6zqClXOh7Y@1486",
+          "f6zqClXOh7Y@1489",
+          "f6zqClXOh7Y@1491",
+          "f6zqClXOh7Y@1494"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p065",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The input batch dimension is 8 by 120, and the label batch dimension is size 8.",
+        "line_ids": [
+          "f6zqClXOh7Y@1494",
+          "f6zqClXOh7Y@1496",
+          "f6zqClXOh7Y@1498",
+          "f6zqClXOh7Y@1499",
+          "f6zqClXOh7Y@1502",
+          "f6zqClXOh7Y@1505",
+          "f6zqClXOh7Y@1507"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p066",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "definition",
+        "importance": 3,
+        "text": "An input batch of size 8 by 120 means the batch contains 8 examples and each example has length 120 token positions.",
+        "line_ids": [
+          "f6zqClXOh7Y@1511",
+          "f6zqClXOh7Y@1514",
+          "f6zqClXOh7Y@1516",
+          "f6zqClXOh7Y@1519",
+          "f6zqClXOh7Y@1522",
+          "f6zqClXOh7Y@1524",
+          "f6zqClXOh7Y@1526",
+          "f6zqClXOh7Y@1529",
+          "f6zqClXOh7Y@1532",
+          "f6zqClXOh7Y@1534",
+          "f6zqClXOh7Y@1538",
+          "f6zqClXOh7Y@1539",
+          "f6zqClXOh7Y@1541",
+          "f6zqClXOh7Y@1545",
+          "f6zqClXOh7Y@1547",
+          "f6zqClXOh7Y@1549",
+          "f6zqClXOh7Y@1552"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p067",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "definition",
+        "importance": 3,
+        "text": "A label tensor of size 8 means there are 8 labels in the batch, each being either 0 or 1.",
+        "line_ids": [
+          "f6zqClXOh7Y@1556",
+          "f6zqClXOh7Y@1559",
+          "f6zqClXOh7Y@1561",
+          "f6zqClXOh7Y@1564",
+          "f6zqClXOh7Y@1567"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p068",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The dataset contains 747 spam examples and 747 non-spam examples, for a total of 1494 examples.",
+        "line_ids": [
+          "f6zqClXOh7Y@1572",
+          "f6zqClXOh7Y@1576",
+          "f6zqClXOh7Y@1580",
+          "f6zqClXOh7Y@1583",
+          "f6zqClXOh7Y@1585",
+          "f6zqClXOh7Y@1588"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p069",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "equation",
+        "importance": 2,
+        "text": "Because the training data is 70% of 1494 examples, the training set has 1045 samples.",
+        "line_ids": [
+          "f6zqClXOh7Y@1588",
+          "f6zqClXOh7Y@1590",
+          "f6zqClXOh7Y@1592",
+          "f6zqClXOh7Y@1596",
+          "f6zqClXOh7Y@1599",
+          "f6zqClXOh7Y@1601",
+          "f6zqClXOh7Y@1604",
+          "f6zqClXOh7Y@1606",
+          "f6zqClXOh7Y@1607",
+          "f6zqClXOh7Y@1611"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p070",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "equation",
+        "importance": 2,
+        "text": "With 1045 training samples and batch size 8, the number of training batches is approximately 130.",
+        "line_ids": [
+          "f6zqClXOh7Y@1621",
+          "f6zqClXOh7Y@1625",
+          "f6zqClXOh7Y@1626",
+          "f6zqClXOh7Y@1630",
+          "f6zqClXOh7Y@1632",
+          "f6zqClXOh7Y@1634",
+          "f6zqClXOh7Y@1637",
+          "f6zqClXOh7Y@1638",
+          "f6zqClXOh7Y@1640",
+          "f6zqClXOh7Y@1644",
+          "f6zqClXOh7Y@1647",
+          "f6zqClXOh7Y@1650",
+          "f6zqClXOh7Y@1652",
+          "f6zqClXOh7Y@1656"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p071",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "code",
+        "importance": 2,
+        "text": "Printing the length of the training loader gives the number of training batches, which is 130 here.",
+        "line_ids": [
+          "f6zqClXOh7Y@1656",
+          "f6zqClXOh7Y@1658",
+          "f6zqClXOh7Y@1660",
+          "f6zqClXOh7Y@1662",
+          "f6zqClXOh7Y@1664",
+          "f6zqClXOh7Y@1666",
+          "f6zqClXOh7Y@1667"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p072",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The 130 training batches match the earlier calculation.",
+        "line_ids": [
+          "f6zqClXOh7Y@1667",
+          "f6zqClXOh7Y@1669",
+          "f6zqClXOh7Y@1671"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p073",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 2,
+        "text": "There are 19 validation batches and 38 test batches.",
+        "line_ids": [
+          "f6zqClXOh7Y@1673",
+          "f6zqClXOh7Y@1676",
+          "f6zqClXOh7Y@1677",
+          "f6zqClXOh7Y@1679",
+          "f6zqClXOh7Y@1682"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p074",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Because 20% of the data is test and 10% is validation, the number of test batches is twice the number of validation batches.",
+        "line_ids": [
+          "f6zqClXOh7Y@1682",
+          "f6zqClXOh7Y@1686",
+          "f6zqClXOh7Y@1688",
+          "f6zqClXOh7Y@1691",
+          "f6zqClXOh7Y@1692",
+          "f6zqClXOh7Y@1694"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p075",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 2,
+        "text": "One batch from the training loader has shape 8 by 120, and since there are 130 such batches, the full training loader can be viewed as a three-dimensional tensor of shape 130 by 8 by 120.",
+        "line_ids": [
+          "f6zqClXOh7Y@1697",
+          "f6zqClXOh7Y@1698",
+          "f6zqClXOh7Y@1701",
+          "f6zqClXOh7Y@1704",
+          "f6zqClXOh7Y@1707",
+          "f6zqClXOh7Y@1708",
+          "f6zqClXOh7Y@1710",
+          "f6zqClXOh7Y@1713",
+          "f6zqClXOh7Y@1717",
+          "f6zqClXOh7Y@1719",
+          "f6zqClXOh7Y@1721",
+          "f6zqClXOh7Y@1723",
+          "f6zqClXOh7Y@1726",
+          "f6zqClXOh7Y@1727"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p076",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The testing loader can be viewed as having dimensions 38 by 8 by 120, and the validation loader as 19 by 8 by 120.",
+        "line_ids": [
+          "f6zqClXOh7Y@1731",
+          "f6zqClXOh7Y@1733",
+          "f6zqClXOh7Y@1738",
+          "f6zqClXOh7Y@1740",
+          "f6zqClXOh7Y@1743",
+          "f6zqClXOh7Y@1745"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p077",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 3,
+        "text": "At this point the data preparation step is complete because the training, validation, and test loaders have been created and can provide input batches and label batches when needed.",
+        "line_ids": [
+          "f6zqClXOh7Y@1745",
+          "f6zqClXOh7Y@1749",
+          "f6zqClXOh7Y@1751",
+          "f6zqClXOh7Y@1753",
+          "f6zqClXOh7Y@1754",
+          "f6zqClXOh7Y@1756",
+          "f6zqClXOh7Y@1759",
+          "f6zqClXOh7Y@1761",
+          "f6zqClXOh7Y@1764"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p078",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 3,
+        "text": "For this classification setup, the input-target pairs differ from LLM language-model training because the targets here are zeros and ones rather than token IDs shifted by one position.",
+        "line_ids": [
+          "f6zqClXOh7Y@1766",
+          "f6zqClXOh7Y@1769",
+          "f6zqClXOh7Y@1771",
+          "f6zqClXOh7Y@1774",
+          "f6zqClXOh7Y@1776",
+          "f6zqClXOh7Y@1779",
+          "f6zqClXOh7Y@1781",
+          "f6zqClXOh7Y@1782",
+          "f6zqClXOh7Y@1784"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p079",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 1,
+        "text": "In the previous lecture the dataset was downloaded and preprocessed, and in this lecture data loaders were created for the training, validation, and testing datasets.",
+        "line_ids": [
+          "f6zqClXOh7Y@1791",
+          "f6zqClXOh7Y@1792",
+          "f6zqClXOh7Y@1793",
+          "f6zqClXOh7Y@1795",
+          "f6zqClXOh7Y@1797",
+          "f6zqClXOh7Y@1799",
+          "f6zqClXOh7Y@1801"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p080",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The next stage will initialize the LLM model, load pretrained weights, and modify the model.",
+        "line_ids": [
+          "f6zqClXOh7Y@1804",
+          "f6zqClXOh7Y@1806",
+          "f6zqClXOh7Y@1808",
+          "f6zqClXOh7Y@1810"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p081",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Data preprocessing, data cleaning, datasets, and data loaders are usually very important before directly starting model training.",
+        "line_ids": [
+          "f6zqClXOh7Y@1816",
+          "f6zqClXOh7Y@1819",
+          "f6zqClXOh7Y@1822",
+          "f6zqClXOh7Y@1824",
+          "f6zqClXOh7Y@1826",
+          "f6zqClXOh7Y@1827"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p082",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The subsequent lectures will evaluate the fine-tuned model.",
+        "line_ids": [
+          "f6zqClXOh7Y@1811",
+          "f6zqClXOh7Y@1814",
+          "f6zqClXOh7Y@1816"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p083",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The lecture approach combines whiteboard teaching with coding.",
+        "line_ids": [
+          "f6zqClXOh7Y@1829",
+          "f6zqClXOh7Y@1831",
+          "f6zqClXOh7Y@1834",
+          "f6zqClXOh7Y@1837"
+        ]
+      },
+      {
+        "id": "f6zqClXOh7Y:p084",
+        "video_id": "f6zqClXOh7Y",
+        "lecture": 34,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The aim is to train machine learning engineers with strong fundamental and theoretical understanding, not just skill in using ChatGPT.",
+        "line_ids": [
+          "f6zqClXOh7Y@1837",
+          "f6zqClXOh7Y@1839",
+          "f6zqClXOh7Y@1843",
+          "f6zqClXOh7Y@1845",
+          "f6zqClXOh7Y@1846",
+          "f6zqClXOh7Y@1848",
+          "f6zqClXOh7Y@1850"
+        ]
+      }
+    ],
+    "inventory": [
+      {
+        "chunk": "f6zqClXOh7Y@0-906",
+        "start": 0,
+        "end": 906,
+        "points": 32,
+        "core_points": 17,
+        "invalid_points": 0,
+        "flag": null
+      },
+      {
+        "chunk": "f6zqClXOh7Y@903-1814",
+        "start": 903,
+        "end": 1814,
+        "points": 48,
+        "core_points": 23,
+        "invalid_points": 0,
+        "flag": null
+      },
+      {
+        "chunk": "f6zqClXOh7Y@1811-1859",
+        "start": 1811,
+        "end": 1859,
+        "points": 4,
+        "core_points": 1,
+        "invalid_points": 0,
+        "flag": null
+      }
+    ]
+  }
+}

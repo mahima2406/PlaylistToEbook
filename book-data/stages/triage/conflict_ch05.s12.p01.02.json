@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch05.s12.p01.02",
+  "inputs_hash": "d2c10152f0dec571f68241a4c2b61e47d68b81cc4f56ecfdf8aeb76b59d42d18",
+  "output_hash": "9aac0e3fd1027fce3bdc10f4d087ad57bff267d77408d2747c87b9545b607e69",
+  "output": {
+    "decision": "edit",
+    "text": "Fine-tuning means implementing a training function that adjusts the parameters to minimize the training loss and also prints the validation loss and the test loss.",
+    "reason": "The cited captions support minimizing training loss and printing validation and test loss, but not presenting that as a universal definition beyond this training function.",
+    "risk": "high",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "404c2a6ca6d5068697d379f7c0e5afc357a1af3132b2c5e5ebe0fdad9926322f"
+  }
+}

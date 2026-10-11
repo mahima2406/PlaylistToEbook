@@ -1,0 +1,275 @@
+{
+  "stage": "write",
+  "item": "ch06.s07",
+  "inputs_hash": "0d6faf10b0306e5f8bbc089c862d379db0b132ec374561abd35ca1b0758c9a05",
+  "output_hash": "ce4249771b887d7d70f27cbf8141dbab6835d9c0797a81817fb7df9c22a794a6",
+  "output": {
+    "section_id": "ch06.s07",
+    "paragraphs": [
+      {
+        "id": "ch06.s07.p01",
+        "sentences": [
+          {
+            "id": "ch06.s07.p01.01",
+            "text": "How does instruction fine-tuning data become batches the model can train on, and why is that worth spelling out carefully?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s07.p01.02",
+            "text": "Creating batches for instruction fine-tuning is very important because the process includes specific details such as padding tokens, using \"-100\", and creating target token IDs by shifting the input token IDs to the right by one.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2778",
+              "bkUkcyL_Xxc@2779",
+              "bkUkcyL_Xxc@2782",
+              "bkUkcyL_Xxc@2763",
+              "bkUkcyL_Xxc@2765",
+              "bkUkcyL_Xxc@2768"
+            ]
+          },
+          {
+            "id": "ch06.s07.p01.03",
+            "text": "Batching the dataset involves five detailed steps.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1349",
+              "bkUkcyL_Xxc@3057",
+              "bkUkcyL_Xxc@3060"
+            ]
+          },
+          {
+            "id": "ch06.s07.p01.04",
+            "text": "First, the data is formatted with the prompt template, and for instruction fine-tuning that template is the Alpaca prompt template.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1356",
+              "bkUkcyL_Xxc@1358",
+              "bkUkcyL_Xxc@2786",
+              "bkUkcyL_Xxc@2788"
+            ]
+          },
+          {
+            "id": "ch06.s07.p01.05",
+            "text": "Next, the formatted prompt is converted into token IDs.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1360",
+              "bkUkcyL_Xxc@1362",
+              "bkUkcyL_Xxc@2790",
+              "bkUkcyL_Xxc@2792"
+            ]
+          },
+          {
+            "id": "ch06.s07.p01.06",
+            "text": "Because tokenized samples do not all have equal length, each batch is padded with token \"50256\" so that every sample in that batch has the same length as the longest sample in the batch.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1362",
+              "bkUkcyL_Xxc@1365",
+              "bkUkcyL_Xxc@1369",
+              "bkUkcyL_Xxc@1372",
+              "bkUkcyL_Xxc@1375",
+              "bkUkcyL_Xxc@1377",
+              "bkUkcyL_Xxc@1379",
+              "bkUkcyL_Xxc@1380",
+              "bkUkcyL_Xxc@2792",
+              "bkUkcyL_Xxc@2794",
+              "bkUkcyL_Xxc@2797",
+              "bkUkcyL_Xxc@2799",
+              "bkUkcyL_Xxc@2802",
+              "bkUkcyL_Xxc@2804"
+            ]
+          },
+          {
+            "id": "ch06.s07.p01.07",
+            "text": "After that, target token IDs are created by shifting the input token IDs to the right by one.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1383",
+              "bkUkcyL_Xxc@1385",
+              "bkUkcyL_Xxc@1389",
+              "bkUkcyL_Xxc@1391",
+              "bkUkcyL_Xxc@2807",
+              "bkUkcyL_Xxc@2809",
+              "bkUkcyL_Xxc@2811"
+            ]
+          },
+          {
+            "id": "ch06.s07.p01.08",
+            "text": "Finally, all \"50256\" tokens except the first are replaced with \"-100\".",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1404",
+              "bkUkcyL_Xxc@1406",
+              "bkUkcyL_Xxc@1409",
+              "bkUkcyL_Xxc@1412",
+              "bkUkcyL_Xxc@2811",
+              "bkUkcyL_Xxc@2813",
+              "bkUkcyL_Xxc@2817",
+              "bkUkcyL_Xxc@2820"
+            ]
+          },
+          {
+            "id": "ch06.s07.p01.09",
+            "text": "The first \"50256\" is kept because it indicates end of text, while the other replaced positions are excluded from the training loss because PyTorch cross-entropy loss uses an ignore index of \"-100\".",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2817",
+              "bkUkcyL_Xxc@2820",
+              "bkUkcyL_Xxc@1412",
+              "bkUkcyL_Xxc@1414",
+              "bkUkcyL_Xxc@1416",
+              "bkUkcyL_Xxc@1418",
+              "bkUkcyL_Xxc@1420",
+              "bkUkcyL_Xxc@1423"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s07.p02",
+        "sentences": [
+          {
+            "id": "ch06.s07.p02.01",
+            "text": "There is also an optional masking choice beyond padding.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s07.p02.02",
+            "text": "Some researchers also mask the target token IDs so that only the response part matters during training.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2824",
+              "bkUkcyL_Xxc@2827",
+              "bkUkcyL_Xxc@2855",
+              "bkUkcyL_Xxc@2857",
+              "bkUkcyL_Xxc@2859",
+              "bkUkcyL_Xxc@2862",
+              "bkUkcyL_Xxc@2865",
+              "bkUkcyL_Xxc@2867"
+            ]
+          },
+          {
+            "id": "ch06.s07.p02.03",
+            "text": "Here, masking the target token IDs means masking out the target token IDs that correspond to the instructions.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2896",
+              "bkUkcyL_Xxc@2899",
+              "bkUkcyL_Xxc@2901",
+              "bkUkcyL_Xxc@2903",
+              "bkUkcyL_Xxc@2905",
+              "bkUkcyL_Xxc@2907"
+            ]
+          },
+          {
+            "id": "ch06.s07.p02.04",
+            "text": "This masking is implemented by replacing those target token IDs with \"-100\".",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2882",
+              "bkUkcyL_Xxc@2885",
+              "bkUkcyL_Xxc@2886",
+              "bkUkcyL_Xxc@2998",
+              "bkUkcyL_Xxc@3000",
+              "bkUkcyL_Xxc@3002"
+            ]
+          },
+          {
+            "id": "ch06.s07.p02.05",
+            "text": "When the non-response parts of the target are replaced with \"-100\", those tokens are ignored in the loss calculation.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2885",
+              "bkUkcyL_Xxc@2886",
+              "bkUkcyL_Xxc@2888"
+            ]
+          },
+          {
+            "id": "ch06.s07.p02.06",
+            "text": "If the target token IDs corresponding to the instruction are masked out, the LLM cross-entropy loss is calculated only for the generated response target IDs.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2908",
+              "bkUkcyL_Xxc@2911",
+              "bkUkcyL_Xxc@2913",
+              "bkUkcyL_Xxc@2915",
+              "bkUkcyL_Xxc@2917"
+            ]
+          },
+          {
+            "id": "ch06.s07.p02.07",
+            "text": "Masking out instruction tokens trains the model to focus on generating accurate responses rather than memorizing instructions, which can help reduce overfitting.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2917",
+              "bkUkcyL_Xxc@2920",
+              "bkUkcyL_Xxc@2922",
+              "bkUkcyL_Xxc@2924",
+              "bkUkcyL_Xxc@2926",
+              "bkUkcyL_Xxc@2928",
+              "bkUkcyL_Xxc@2931",
+              "bkUkcyL_Xxc@2933",
+              "bkUkcyL_Xxc@2935",
+              "bkUkcyL_Xxc@2938"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s07.p03",
+        "sentences": [
+          {
+            "id": "ch06.s07.p03.01",
+            "text": "Whether that extra masking should be used remains unsettled.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s07.p03.02",
+            "text": "It is not yet confirmed which approach works best, and researchers are divided on whether masking instructions is universally beneficial during instruction fine-tuning.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2941",
+              "bkUkcyL_Xxc@2944",
+              "bkUkcyL_Xxc@2945",
+              "bkUkcyL_Xxc@2948",
+              "bkUkcyL_Xxc@2950",
+              "bkUkcyL_Xxc@2952",
+              "bkUkcyL_Xxc@2953"
+            ]
+          },
+          {
+            "id": "ch06.s07.p03.03",
+            "text": "A recent paper titled \"instruction tuning with loss over instructions\" reported that not masking the instruction benefits LLM performance.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2956",
+              "bkUkcyL_Xxc@2958",
+              "bkUkcyL_Xxc@2961",
+              "bkUkcyL_Xxc@2962",
+              "bkUkcyL_Xxc@2970",
+              "bkUkcyL_Xxc@2972",
+              "bkUkcyL_Xxc@2980",
+              "bkUkcyL_Xxc@2982",
+              "bkUkcyL_Xxc@2985"
+            ]
+          },
+          {
+            "id": "ch06.s07.p03.04",
+            "text": "So the choice between masking and not masking is still an open research question.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2985",
+              "bkUkcyL_Xxc@2987",
+              "bkUkcyL_Xxc@2989"
+            ]
+          }
+        ]
+      }
+    ],
+    "invalid_citation_sentences": 0
+  }
+}

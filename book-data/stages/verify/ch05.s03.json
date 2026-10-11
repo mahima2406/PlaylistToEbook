@@ -1,0 +1,470 @@
+{
+  "stage": "verify",
+  "item": "ch05.s03",
+  "inputs_hash": "9584b1fe94122230f0213553ba62b98da5fc49f1f69a9165b11642f8e0e72edb",
+  "output_hash": "1237f3c16716bad7afef8bc5af5e9ae11e6d2badbe34d8a2d2123de42fb563c4",
+  "output": {
+    "section_id": "ch05.s03",
+    "paragraphs": [
+      {
+        "id": "ch05.s03.p01",
+        "sentences": [
+          {
+            "id": "ch05.s03.p01.r01",
+            "text": "How do the released GPT-2 files tell you what tokens the model knows and what settings the model expects?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s03.p01.r02",
+            "text": "The file \"encoder.json\" is the vocabulary: it maps tokens to token IDs.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@531",
+              "yXrGeDNuymY@537",
+              "yXrGeDNuymY@539",
+              "yXrGeDNuymY@541",
+              "yXrGeDNuymY@547",
+              "yXrGeDNuymY@549",
+              "yXrGeDNuymY@551"
+            ]
+          },
+          {
+            "id": "ch05.s03.p01.r03",
+            "text": "That vocabulary has 50,257 tokens.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@553",
+              "yXrGeDNuymY@555",
+              "yXrGeDNuymY@558",
+              "yXrGeDNuymY@560"
+            ]
+          },
+          {
+            "id": "ch05.s03.p01.r04",
+            "text": "Its token IDs start at 0, and the end-of-text token is 50,256.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@555",
+              "yXrGeDNuymY@558"
+            ]
+          },
+          {
+            "id": "ch05.s03.p01.r05",
+            "text": "The second file is BPE, a subword tokenization scheme.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@562",
+              "yXrGeDNuymY@568",
+              "yXrGeDNuymY@570",
+              "yXrGeDNuymY@573"
+            ]
+          },
+          {
+            "id": "ch05.s03.p01.r06",
+            "text": "In this scheme, the encoder looks for pairs of tokens that occur most frequently, merges a pair, and then treats that merged pair as a token.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@573",
+              "yXrGeDNuymY@575",
+              "yXrGeDNuymY@577",
+              "yXrGeDNuymY@579",
+              "yXrGeDNuymY@581"
+            ]
+          },
+          {
+            "id": "ch05.s03.p01.r07",
+            "text": "The \"vocab.bpe\" file therefore lists merged tokens, with the merges of highest probability appearing at the top of the list.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@586",
+              "yXrGeDNuymY@589",
+              "yXrGeDNuymY@591",
+              "yXrGeDNuymY@593",
+              "yXrGeDNuymY@595",
+              "yXrGeDNuymY@597",
+              "yXrGeDNuymY@599"
+            ]
+          },
+          {
+            "id": "ch05.s03.p01.r08",
+            "text": "A special marker shown as \"g-dot\" is an OpenAI convention that indicates one token has ended and a new token has begun.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@601",
+              "yXrGeDNuymY@603",
+              "yXrGeDNuymY@606",
+              "yXrGeDNuymY@608",
+              "yXrGeDNuymY@610",
+              "yXrGeDNuymY@615",
+              "yXrGeDNuymY@617",
+              "yXrGeDNuymY@620",
+              "yXrGeDNuymY@622"
+            ]
+          },
+          {
+            "id": "ch05.s03.p01.r09",
+            "text": "You can think of that marker as a space that marks the beginning of a new token.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@610",
+              "yXrGeDNuymY@612",
+              "yXrGeDNuymY@615"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s03.p02",
+        "sentences": [
+          {
+            "id": "ch05.s03.p02.r01",
+            "text": "The model settings file contains the model settings, including vocabulary size, context length, embedding dimension, number of attention heads, and number of transformer blocks.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@624",
+              "yXrGeDNuymY@627",
+              "yXrGeDNuymY@629",
+              "yXrGeDNuymY@633",
+              "yXrGeDNuymY@636",
+              "yXrGeDNuymY@662",
+              "yXrGeDNuymY@665",
+              "yXrGeDNuymY@669",
+              "yXrGeDNuymY@671",
+              "yXrGeDNuymY@674"
+            ]
+          },
+          {
+            "id": "ch05.s03.p02.r02",
+            "text": "For the settings shown here, the vocabulary size is 50,257, the context length is 1,024, and the embedding dimension is 768.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@629",
+              "yXrGeDNuymY@631",
+              "yXrGeDNuymY@633",
+              "yXrGeDNuymY@636"
+            ]
+          },
+          {
+            "id": "ch05.s03.p02.r03",
+            "text": "The embedding dimension means that each token ID is converted into a vector in a 768-dimensional space.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@640",
+              "yXrGeDNuymY@641",
+              "yXrGeDNuymY@643",
+              "yXrGeDNuymY@647",
+              "yXrGeDNuymY@649",
+              "yXrGeDNuymY@651",
+              "yXrGeDNuymY@654"
+            ]
+          },
+          {
+            "id": "ch05.s03.p02.r04",
+            "text": "The parameter \"n_heads\" is the number of attention heads in each transformer block, and \"n_layer\" is the number of transformer blocks.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@659",
+              "yXrGeDNuymY@662",
+              "yXrGeDNuymY@665",
+              "yXrGeDNuymY@669",
+              "yXrGeDNuymY@671",
+              "yXrGeDNuymY@674"
+            ]
+          },
+          {
+            "id": "ch05.s03.p02.r05",
+            "text": "The values being shown are for the smallest GPT-2 model.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@677",
+              "yXrGeDNuymY@680",
+              "yXrGeDNuymY@682"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s03.p03",
+        "sentences": [
+          {
+            "id": "ch05.s03.p03.r01",
+            "text": "The code maintains a dictionary called \"settings\".",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@788",
+              "yXrGeDNuymY@790",
+              "yXrGeDNuymY@792"
+            ]
+          },
+          {
+            "id": "ch05.s03.p03.r02",
+            "text": "This \"settings\" dictionary contains exactly the same information as \"hparams.json\": vocabulary size, context length, embedding dimension, number of attention heads, and number of transformer blocks.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@794",
+              "yXrGeDNuymY@796",
+              "yXrGeDNuymY@797",
+              "yXrGeDNuymY@800",
+              "yXrGeDNuymY@802",
+              "yXrGeDNuymY@804",
+              "yXrGeDNuymY@806",
+              "yXrGeDNuymY@1658",
+              "yXrGeDNuymY@1659",
+              "yXrGeDNuymY@1662",
+              "yXrGeDNuymY@1664",
+              "yXrGeDNuymY@1666"
+            ]
+          },
+          {
+            "id": "ch05.s03.p03.r03",
+            "text": "If you inspect that dictionary, you see keys such as \"n_vocab\", \"n_ctx\", \"n_embed\", \"n_head\", and \"n_layer\".",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1827",
+              "yXrGeDNuymY@1829",
+              "yXrGeDNuymY@1831",
+              "yXrGeDNuymY@1833",
+              "yXrGeDNuymY@1835",
+              "yXrGeDNuymY@1838"
+            ]
+          },
+          {
+            "id": "ch05.s03.p03.r04",
+            "text": "Those keys are the \"hparams.json\" information converted into a dictionary.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1841",
+              "yXrGeDNuymY@1844",
+              "yXrGeDNuymY@1847"
+            ]
+          },
+          {
+            "id": "ch05.s03.p03.r05",
+            "text": "Downloading the files alone is not enough, because you also need to understand the format in which the returned \"params\" dictionary is stored.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@442",
+              "yXrGeDNuymY@444",
+              "yXrGeDNuymY@447",
+              "yXrGeDNuymY@451",
+              "yXrGeDNuymY@453",
+              "yXrGeDNuymY@455",
+              "yXrGeDNuymY@457"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch05.s03.p01.r01": {
+        "verdict": "ok",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch05.s03.p01.r02": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch05.s03.p01.r03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s03.p01.r04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s03.p01.r05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s03.p01.r06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s03.p01.r07": {
+        "verdict": "supported",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch05.s03.p01.r08": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s03.p01.r09": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch05.s03.p02.r01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s03.p02.r02": {
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch05.s03.p02.r03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s03.p02.r04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s03.p02.r05": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch05.s03.p03.r01": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch05.s03.p03.r02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s03.p03.r03": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch05.s03.p03.r04": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch05.s03.p03.r05": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch05.s03.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch05.s03.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s03.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s03.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s03.p01.05": {
+        "verdict": "partial",
+        "confidence": 0.55,
+        "reason": "the cited lines describe byte pair encoding as a subword tokenization scheme, but they do not explicitly state that the file is named \"vocab.bpe\" or that this file defines BPE (only that the second file is \"bpe\" and then explains BPE)"
+      },
+      "ch05.s03.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s03.p01.07": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s03.p01.08": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch05.s03.p01.09": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s03.p02.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.62,
+        "reason": "asserts as fact that the release files record architectural settings needed to interpret the weights; this is a factual claim and not purely connective"
+      },
+      "ch05.s03.p02.02": {
+        "verdict": "partial",
+        "confidence": 0.78,
+        "reason": "supported that hparams.json contains model settings including vocabulary size, context length, embedding dimension, n_heads, and n_layer; but the cited lines do not explicitly say the filename is \"hparams.json\" (caption says \"ham. json\")"
+      },
+      "ch05.s03.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch05.s03.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch05.s03.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s03.p02.06": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch05.s03.p03.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.72,
+        "reason": "Although marked CONNECTIVE, it asserts a factual claim that loaded files keep setting information in a Python dictionary."
+      },
+      "ch05.s03.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch05.s03.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch05.s03.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s03.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s03.p03.06": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "ch05.s03.p01",
+      "ch05.s03.p02",
+      "ch05.s03.p03"
+    ],
+    "queue": []
+  }
+}

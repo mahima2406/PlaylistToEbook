@@ -1,0 +1,32 @@
+{
+  "stage": "checks",
+  "item": "ch02.s14.code2",
+  "inputs_hash": "cc4587233c7801efbb554fce431e378e16bdb743a0d9ea56f4f4605aba579ce2",
+  "output_hash": "a0e75ec29e038dec42d90c036fbb514c75179aad6997ab7f8c93dc26e5f2168f",
+  "output": [
+    {
+      "sentence_id": "ch02.s14.p05.04",
+      "expected": 8,
+      "expression": "input_embeddings.shape[0]",
+      "tolerance": 0,
+      "check_id": "ch02.s14.code2.chk1",
+      "sentence_text": "When adding token embeddings of shape 8 by 4 by 256 and positional embeddings of shape 4 by 256 in Python, broadcasting duplicates the positional embeddings across the batch dimension to make the addition possible."
+    },
+    {
+      "sentence_id": "ch02.s14.p05.04",
+      "expected": 4,
+      "expression": "input_embeddings.shape[1]",
+      "tolerance": 0,
+      "check_id": "ch02.s14.code2.chk2",
+      "sentence_text": "When adding token embeddings of shape 8 by 4 by 256 and positional embeddings of shape 4 by 256 in Python, broadcasting duplicates the positional embeddings across the batch dimension to make the addition possible."
+    },
+    {
+      "sentence_id": "ch02.s14.p05.04",
+      "expected": 256,
+      "expression": "input_embeddings.shape[2]",
+      "tolerance": 0,
+      "check_id": "ch02.s14.code2.chk3",
+      "sentence_text": "When adding token embeddings of shape 8 by 4 by 256 and positional embeddings of shape 4 by 256 in Python, broadcasting duplicates the positional embeddings across the batch dimension to make the addition possible."
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "stage": "listings",
+  "item": "ch03.s06",
+  "inputs_hash": "4f65d7c8c7a5fceebcd7c114e28bea0fcd74dfd308b5043f58c2574b62d36427",
+  "output_hash": "0038f05d26d333de94ba3d389573f3c2ad4629c727462ed87e83b880b04768ca",
+  "output": {
+    "section_id": "ch03.s06",
+    "listings": [
+      {
+        "id": "ch03.s06.code1",
+        "ref": "ref:ch03/01_main-chapter-code/ch03.ipynb#cell86",
+        "path": "ch03/01_main-chapter-code/ch03.ipynb",
+        "caption": "This `SelfAttention_v1` module defines trainable query, key, and value weight matrices, projects the input into queries, keys, and values, computes scaled softmax attention weights from `queries @ keys.T`, and returns context vectors as `attn_weights @ values`.",
+        "code": "import torch.nn as nn\n\nclass SelfAttention_v1(nn.Module):\n\n    def __init__(self, d_in, d_out):\n        super().__init__()\n        self.W_query = nn.Parameter(torch.rand(d_in, d_out))\n        self.W_key   = nn.Parameter(torch.rand(d_in, d_out))\n        self.W_value = nn.Parameter(torch.rand(d_in, d_out))\n\n    def forward(self, x):\n        keys = x @ self.W_key\n        queries = x @ self.W_query\n        values = x @ self.W_value\n        \n        attn_scores = queries @ keys.T # omega\n        attn_weights = torch.softmax(\n            attn_scores / keys.shape[-1]**0.5, dim=-1\n        )\n\n        context_vec = attn_weights @ values\n        return context_vec\n\ntorch.manual_seed(123)\nsa_v1 = SelfAttention_v1(d_in, d_out)\nprint(sa_v1(inputs))",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The module defines trainable query/key/value weight matrices (nn.Parameter), projects inputs to queries/keys/values via x @ W_*, computes attention scores as queries @ keys.T, applies scaling by sqrt(d_k) followed by softmax to get attention weights, and returns context vectors as attn_weights @ values. The caption accurately describes these steps."
+      }
+    ],
+    "rejected": [
+      {
+        "id": "ch03.s06.code2",
+        "ref": "ref:ch03/01_main-chapter-code/ch03.ipynb#cell72",
+        "path": "ch03/01_main-chapter-code/ch03.ipynb",
+        "caption": "This code multiplies the input matrix by `W_key` and `W_value` to produce the full keys and values matrices and prints their shapes.",
+        "code": "keys = inputs @ W_key \nvalues = inputs @ W_value\n\nprint(\"keys.shape:\", keys.shape)\nprint(\"values.shape:\", values.shape)",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The code matches part of the section by demonstrating how multiplying the input matrix by trainable weight matrices produces key and value matrices, and the caption accurately describes that. However, it does not cover producing queries, computing attention scores (QK^T), scaling, softmax, or computing context vectors, which are also central points of the section."
+      }
+    ]
+  }
+}

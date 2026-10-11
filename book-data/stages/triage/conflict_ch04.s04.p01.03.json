@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch04.s04.p01.03",
+  "inputs_hash": "2b4f96c2a33039d08e7c97df3703c1687fb6bc03b19601f09e93fce18003f2dd",
+  "output_hash": "f4b1314d60046a0014339c43affcded934621c4ad79b79ee07f3aaef851b1098",
+  "output": {
+    "decision": "edit",
+    "text": "These embedding steps happen outside the Transformer block, and after this dropout the model enters the block.",
+    "reason": "The captions support that this particular dropout occurs before entering the block, but the original wording incorrectly implies dropout happens only outside the block.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "1fabd4ffa57ecaa28d12595da20b030634f5d59d4fe85cd54c133b35a38ce06d"
+  }
+}

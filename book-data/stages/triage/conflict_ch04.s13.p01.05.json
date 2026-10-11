@@ -1,0 +1,13 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch04.s13.p01.05",
+  "inputs_hash": "51927ad3b620cb61da6d938f6d9e69fcce0e2671ec8ed813bb47cad436f2a658",
+  "output_hash": "c946956fecad4ad0a6756ef0bd78728d69bfe18d67586a51b9ad087cf43aafec",
+  "output": {
+    "decision": "keep",
+    "reason": "The cited captions explicitly describe this ordering for the workflow, and the reference code excerpt matches the same top-k → -inf masking → temperature → softmax → multinomial sequence when sampling is enabled.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "acfd3a22f4bafa1c30b8df564b368708f701629d659fb985facfb909f486dafa"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch06.s02.p02.04",
+  "inputs_hash": "781ddad3087bfb85bc7805c01cc3a8c5d72eb664b2f3de8abc4599e1ae70a427",
+  "output_hash": "bb7e8ff3f3bc56fcf15c9940374334a2721fde6f69a5ab2944afac036d026a18",
+  "output": {
+    "decision": "edit",
+    "text": "This function takes an entry containing the instruction, input, and output fields and converts the instruction and input into the Alpaca prompt.",
+    "reason": "The captions mention entries as instruction-input-output pairs, but the reference code shows the function uses only instruction and optional input to build the prompt.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.78,
+      "reason": "Captions support that the function takes an entry with instruction/input/output pairs and converts it into the Alpaca prompt, but they do not explicitly state that only the instruction and input are converted (excluding output)."
+    },
+    "kind": "conflict",
+    "sentence_hash": "be33907462653be99cbd22ad2f074ca9d4c1c0659b9ec12339b7e37833cf06d3"
+  }
+}

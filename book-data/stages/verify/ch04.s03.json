@@ -1,0 +1,832 @@
+{
+  "stage": "verify",
+  "item": "ch04.s03",
+  "inputs_hash": "2e2605108f9b5e78f0d1cc74cf803c5ddf9e524387203701e4a7d181984e3300",
+  "output_hash": "3cdab98c54e8f246e1fd58416913e4ff461fdd3b5018e181b9cca7aa99b92890",
+  "output": {
+    "section_id": "ch04.s03",
+    "paragraphs": [
+      {
+        "id": "ch04.s03.p01",
+        "sentences": [
+          {
+            "id": "ch04.s03.p01.01",
+            "text": "How does a GPT model organize its inputs so that text can move through the network with consistent tensor shapes?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s03.p01.02",
+            "text": "The input to the large language model is a tensor whose rows correspond to batches.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@531",
+              "7TKCrt--bWI@535",
+              "7TKCrt--bWI@538",
+              "7TKCrt--bWI@540",
+              "7TKCrt--bWI@542",
+              "7TKCrt--bWI@544"
+            ]
+          },
+          {
+            "id": "ch04.s03.p01.03",
+            "text": "In the GPT forward method, the input tensor is arranged so that the number of rows is the number of batches and the number of columns is the sequence length, or the number of tokens being considered.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@2787",
+              "G3-JgHckzjw@2790",
+              "G3-JgHckzjw@2795",
+              "G3-JgHckzjw@2797",
+              "G3-JgHckzjw@2799",
+              "G3-JgHckzjw@2801",
+              "G3-JgHckzjw@2804",
+              "G3-JgHckzjw@2806",
+              "G3-JgHckzjw@2809",
+              "G3-JgHckzjw@2810",
+              "G3-JgHckzjw@2812",
+              "G3-JgHckzjw@2814",
+              "G3-JgHckzjw@2816",
+              "G3-JgHckzjw@2819",
+              "G3-JgHckzjw@2821",
+              "G3-JgHckzjw@2822"
+            ]
+          },
+          {
+            "id": "ch04.s03.p01.04",
+            "text": "Inputs ideally come in batches, and in the coding example there are two batches with four token IDs in each batch.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@595",
+              "G3-JgHckzjw@598",
+              "G3-JgHckzjw@600",
+              "G3-JgHckzjw@602",
+              "G3-JgHckzjw@604",
+              "G3-JgHckzjw@2797",
+              "G3-JgHckzjw@2799",
+              "G3-JgHckzjw@2801"
+            ]
+          },
+          {
+            "id": "ch04.s03.p01.05",
+            "text": "For simplicity, it is helpful to focus on the first batch and apply the same reasoning to the second batch afterward.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@615",
+              "G3-JgHckzjw@618",
+              "G3-JgHckzjw@621",
+              "G3-JgHckzjw@623",
+              "G3-JgHckzjw@625",
+              "G3-JgHckzjw@627",
+              "G3-JgHckzjw@630",
+              "G3-JgHckzjw@631",
+              "G3-JgHckzjw@633"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s03.p02",
+        "sentences": [
+          {
+            "id": "ch04.s03.p02.r01",
+            "text": "The first step is to map each input token to a token ID in the vocabulary.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@640",
+              "G3-JgHckzjw@642",
+              "G3-JgHckzjw@645",
+              "G3-JgHckzjw@658",
+              "G3-JgHckzjw@661",
+              "G3-JgHckzjw@664",
+              "G3-JgHckzjw@698",
+              "G3-JgHckzjw@700",
+              "G3-JgHckzjw@702",
+              "G3-JgHckzjw@703"
+            ]
+          },
+          {
+            "id": "ch04.s03.p02.r02",
+            "text": "In the running example, the first batch contains four tokens, shown as \"every\", \"effort\", \"moves\", and \"you\", and those four tokens are converted into four token IDs.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@604",
+              "G3-JgHckzjw@608",
+              "G3-JgHckzjw@610",
+              "G3-JgHckzjw@636",
+              "G3-JgHckzjw@638",
+              "G3-JgHckzjw@698",
+              "G3-JgHckzjw@700",
+              "G3-JgHckzjw@702",
+              "G3-JgHckzjw@703"
+            ]
+          },
+          {
+            "id": "ch04.s03.p02.r03",
+            "text": "From there, the representation changes form.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s03.p02.r04",
+            "text": "A token embedding vector is a vector representation of a token used to capture semantic meaning between words.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@706",
+              "G3-JgHckzjw@708",
+              "G3-JgHckzjw@720",
+              "G3-JgHckzjw@722",
+              "G3-JgHckzjw@724",
+              "G3-JgHckzjw@726",
+              "G3-JgHckzjw@729",
+              "G3-JgHckzjw@732",
+              "G3-JgHckzjw@734",
+              "G3-JgHckzjw@737"
+            ]
+          },
+          {
+            "id": "ch04.s03.p02.r05",
+            "text": "Computers cannot directly understand words, and token IDs alone are not enough because the model needs representations that capture meaning between words.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@713",
+              "G3-JgHckzjw@715",
+              "G3-JgHckzjw@717",
+              "G3-JgHckzjw@720",
+              "G3-JgHckzjw@726",
+              "G3-JgHckzjw@729",
+              "G3-JgHckzjw@732"
+            ]
+          },
+          {
+            "id": "ch04.s03.p02.r06",
+            "text": "Words with similar meanings, such as \"dog\" and \"puppy\" or \"cat\" and \"kitten\", should have embedding vectors that are closer to each other.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@720",
+              "G3-JgHckzjw@722",
+              "G3-JgHckzjw@724",
+              "G3-JgHckzjw@796",
+              "G3-JgHckzjw@798",
+              "G3-JgHckzjw@800",
+              "G3-JgHckzjw@802",
+              "G3-JgHckzjw@804",
+              "G3-JgHckzjw@806",
+              "G3-JgHckzjw@807"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s03.p03",
+        "sentences": [
+          {
+            "id": "ch04.s03.p03.01",
+            "text": "The next question is what size these vectors should have and where their values come from.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s03.p03.02",
+            "text": "In this GPT-2 example, the embedding size is 768, which is the size used in the smallest GPT-2 model.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@739",
+              "G3-JgHckzjw@742",
+              "G3-JgHckzjw@744",
+              "G3-JgHckzjw@746",
+              "G3-JgHckzjw@749"
+            ]
+          },
+          {
+            "id": "ch04.s03.p03.03",
+            "text": "Each token in the sequence is encoded as a 768-dimensional vector.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@752",
+              "G3-JgHckzjw@754",
+              "G3-JgHckzjw@757",
+              "G3-JgHckzjw@760",
+              "G3-JgHckzjw@763",
+              "G3-JgHckzjw@765",
+              "G3-JgHckzjw@768",
+              "G3-JgHckzjw@770"
+            ]
+          },
+          {
+            "id": "ch04.s03.p03.04",
+            "text": "For each token, the token embedding can be visualized as a 768-dimensional vector, and positional embeddings can be visualized in the same way.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@2906",
+              "G3-JgHckzjw@2908",
+              "G3-JgHckzjw@2911",
+              "G3-JgHckzjw@2914"
+            ]
+          },
+          {
+            "id": "ch04.s03.p03.05",
+            "text": "Token embedding vectors are not known in advance, so they are initialized randomly in the 768-dimensional space and learned during GPT model training along with the other embedding parameters.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@773",
+              "G3-JgHckzjw@775",
+              "G3-JgHckzjw@777",
+              "G3-JgHckzjw@780",
+              "G3-JgHckzjw@782",
+              "G3-JgHckzjw@785",
+              "G3-JgHckzjw@787",
+              "G3-JgHckzjw@790",
+              "G3-JgHckzjw@792",
+              "G3-JgHckzjw@794",
+              "G3-JgHckzjw@811",
+              "G3-JgHckzjw@814",
+              "G3-JgHckzjw@816",
+              "G3-JgHckzjw@819",
+              "G3-JgHckzjw@822"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s03.p04",
+        "sentences": [
+          {
+            "id": "ch04.s03.p04.01",
+            "text": "Meaning alone is not enough, because the model also has to know where each token appears in the sequence.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s03.p04.02",
+            "text": "Besides word meaning, the model also needs to capture the position of each word in the sentence.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@824",
+              "G3-JgHckzjw@827",
+              "G3-JgHckzjw@829",
+              "G3-JgHckzjw@831",
+              "G3-JgHckzjw@832"
+            ]
+          },
+          {
+            "id": "ch04.s03.p04.03",
+            "text": "A positional embedding is an embedding vector that represents a token’s position in the sequence.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@844",
+              "G3-JgHckzjw@847",
+              "G3-JgHckzjw@849"
+            ]
+          },
+          {
+            "id": "ch04.s03.p04.04",
+            "text": "In the example sequence, there are four positions, and position one, position two, position three, and position four are each represented by a 768-dimensional positional embedding vector.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@835",
+              "G3-JgHckzjw@837",
+              "G3-JgHckzjw@840",
+              "G3-JgHckzjw@842",
+              "G3-JgHckzjw@851",
+              "G3-JgHckzjw@853",
+              "G3-JgHckzjw@873",
+              "G3-JgHckzjw@875",
+              "G3-JgHckzjw@876",
+              "G3-JgHckzjw@880",
+              "G3-JgHckzjw@882",
+              "G3-JgHckzjw@885",
+              "G3-JgHckzjw@887"
+            ]
+          },
+          {
+            "id": "ch04.s03.p04.05",
+            "text": "Like token embeddings, positional embedding values are initially random because their best values are not known beforehand, and these values are trained during the training procedure.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@887",
+              "G3-JgHckzjw@889",
+              "G3-JgHckzjw@891",
+              "G3-JgHckzjw@895",
+              "G3-JgHckzjw@896",
+              "G3-JgHckzjw@898",
+              "G3-JgHckzjw@900",
+              "G3-JgHckzjw@902",
+              "G3-JgHckzjw@904",
+              "G3-JgHckzjw@906"
+            ]
+          },
+          {
+            "id": "ch04.s03.p04.06",
+            "text": "The positional embedding vectors have size 768, the same size as the token embeddings.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@908",
+              "G3-JgHckzjw@910",
+              "G3-JgHckzjw@912",
+              "G3-JgHckzjw@915",
+              "G3-JgHckzjw@919"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s03.p05",
+        "sentences": [
+          {
+            "id": "ch04.s03.p05.01",
+            "text": "With both kinds of embeddings available, the model can combine token identity with token position.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s03.p05.02",
+            "text": "To form the input embedding for each token, the model adds that token’s token embedding to the positional embedding for its position.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@919",
+              "G3-JgHckzjw@922",
+              "G3-JgHckzjw@923",
+              "G3-JgHckzjw@926",
+              "G3-JgHckzjw@928",
+              "G3-JgHckzjw@936",
+              "G3-JgHckzjw@939",
+              "G3-JgHckzjw@940",
+              "G3-JgHckzjw@942",
+              "G3-JgHckzjw@945",
+              "G3-JgHckzjw@948"
+            ]
+          },
+          {
+            "id": "ch04.s03.p05.03",
+            "text": "Because token embeddings and positional embeddings have the same dimensions, each input embedding also has dimension 768.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@951",
+              "G3-JgHckzjw@953",
+              "G3-JgHckzjw@954",
+              "G3-JgHckzjw@956"
+            ]
+          },
+          {
+            "id": "ch04.s03.p05.04",
+            "text": "The relationship is written as input embedding equals token embedding plus positional embedding.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1023",
+              "G3-JgHckzjw@1025",
+              "G3-JgHckzjw@1027",
+              "G3-JgHckzjw@1030",
+              "G3-JgHckzjw@1031",
+              "G3-JgHckzjw@1035",
+              "G3-JgHckzjw@1038",
+              "G3-JgHckzjw@1042"
+            ]
+          },
+          {
+            "id": "ch04.s03.p05.05",
+            "text": "In the GPT model, token IDs are converted to token embeddings, positional embeddings are generated for each position in the sequence, and the two are added to form the input embeddings.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@2833",
+              "G3-JgHckzjw@2836",
+              "G3-JgHckzjw@2839",
+              "G3-JgHckzjw@2841",
+              "G3-JgHckzjw@2853",
+              "G3-JgHckzjw@2855",
+              "G3-JgHckzjw@2858",
+              "G3-JgHckzjw@2859",
+              "G3-JgHckzjw@2861",
+              "G3-JgHckzjw@2863",
+              "G3-JgHckzjw@2865",
+              "G3-JgHckzjw@2867",
+              "G3-JgHckzjw@2869",
+              "G3-JgHckzjw@2916",
+              "G3-JgHckzjw@2918",
+              "G3-JgHckzjw@2921",
+              "G3-JgHckzjw@2923",
+              "G3-JgHckzjw@2926",
+              "G3-JgHckzjw@2928"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s03.p06",
+        "sentences": [
+          {
+            "id": "ch04.s03.p06.01",
+            "text": "A clear picture of these shapes matters because the code is not the hard part; tracking dimensions is.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s03.p06.02",
+            "text": "The code for this GPT model is described as pretty simple and straightforward, but students often get confused because many tensors and many dimensions come into the picture.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@511",
+              "G3-JgHckzjw@513",
+              "G3-JgHckzjw@516",
+              "G3-JgHckzjw@517",
+              "G3-JgHckzjw@519",
+              "G3-JgHckzjw@521",
+              "G3-JgHckzjw@523",
+              "G3-JgHckzjw@525",
+              "G3-JgHckzjw@527"
+            ]
+          },
+          {
+            "id": "ch04.s03.p06.03",
+            "text": "For that reason, a visual flow map is used to follow a specific input sequence through the GPT model step by step and to represent input and output dimensions visually.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@485",
+              "G3-JgHckzjw@486",
+              "G3-JgHckzjw@493",
+              "G3-JgHckzjw@495",
+              "G3-JgHckzjw@498",
+              "G3-JgHckzjw@499",
+              "G3-JgHckzjw@501",
+              "G3-JgHckzjw@503",
+              "G3-JgHckzjw@506",
+              "G3-JgHckzjw@508",
+              "G3-JgHckzjw@567",
+              "G3-JgHckzjw@570",
+              "G3-JgHckzjw@582",
+              "G3-JgHckzjw@584",
+              "G3-JgHckzjw@586"
+            ]
+          },
+          {
+            "id": "ch04.s03.p06.04",
+            "text": "The purpose of that flow map is to make dimension changes easier to understand across token embedding, positional embedding, input embedding, dropout, the Transformer block, layer normalization, and the output head, which are hard to visualize directly from code.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@451",
+              "G3-JgHckzjw@453",
+              "G3-JgHckzjw@456",
+              "G3-JgHckzjw@468",
+              "G3-JgHckzjw@470",
+              "G3-JgHckzjw@473",
+              "G3-JgHckzjw@477",
+              "G3-JgHckzjw@479",
+              "G3-JgHckzjw@481",
+              "G3-JgHckzjw@483",
+              "G3-JgHckzjw@2341",
+              "G3-JgHckzjw@2343",
+              "G3-JgHckzjw@2345",
+              "G3-JgHckzjw@2347",
+              "G3-JgHckzjw@2350",
+              "G3-JgHckzjw@2352",
+              "G3-JgHckzjw@2354",
+              "G3-JgHckzjw@2356",
+              "G3-JgHckzjw@2357",
+              "G3-JgHckzjw@2360",
+              "G3-JgHckzjw@2361",
+              "G3-JgHckzjw@2363"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch04.s03.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s03.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s03.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s03.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s03.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s03.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s03.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s03.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s03.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s03.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s03.p04.01": {
+        "verdict": "ok",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch04.s03.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s03.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.82,
+        "reason": ""
+      },
+      "ch04.s03.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s03.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s03.p04.06": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s03.p05.01": {
+        "verdict": "ok",
+        "confidence": 0.74,
+        "reason": ""
+      },
+      "ch04.s03.p05.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s03.p05.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s03.p05.04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s03.p05.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s03.p06.01": {
+        "verdict": "ok",
+        "confidence": 0.71,
+        "reason": ""
+      },
+      "ch04.s03.p06.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s03.p06.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s03.p06.04": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch04.s03.p02.r01": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s03.p02.r02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch04.s03.p02.r03": {
+        "verdict": "ok",
+        "confidence": 0.77,
+        "reason": ""
+      },
+      "ch04.s03.p02.r04": {
+        "verdict": "partial",
+        "confidence": 0.68,
+        "reason": "the captions support converting token IDs into token embedding vectors and that vector representations help preserve semantic meaning between words, but they do not explicitly define a token embedding vector as a vector representation of a token (definition wording is added)."
+      },
+      "ch04.s03.p02.r05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s03.p02.r06": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch04.s03.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s03.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s03.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s03.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s03.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s03.p02.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.72,
+        "reason": "As a connective it asserts a factual sequence ('the first transformation is from tokens to vocabulary IDs') but provides no citation; later lines do discuss mapping words/tokens to token IDs, but this sentence is marked CONNECTIVE."
+      },
+      "ch04.s03.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s03.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch04.s03.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s03.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s03.p02.06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s03.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s03.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s03.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s03.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s03.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s03.p04.01": {
+        "verdict": "ok",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch04.s03.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s03.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.82,
+        "reason": ""
+      },
+      "ch04.s03.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s03.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s03.p04.06": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s03.p05.01": {
+        "verdict": "ok",
+        "confidence": 0.74,
+        "reason": ""
+      },
+      "ch04.s03.p05.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s03.p05.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s03.p05.04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s03.p05.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s03.p06.01": {
+        "verdict": "ok",
+        "confidence": 0.71,
+        "reason": ""
+      },
+      "ch04.s03.p06.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s03.p06.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s03.p06.04": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "ch04.s03.p02"
+    ],
+    "queue": [
+      {
+        "sentence_id": "ch04.s03.p02.r04",
+        "text": "A token embedding vector is a vector representation of a token used to capture semantic meaning between words.",
+        "cites": [
+          "G3-JgHckzjw@706",
+          "G3-JgHckzjw@708",
+          "G3-JgHckzjw@720",
+          "G3-JgHckzjw@722",
+          "G3-JgHckzjw@724",
+          "G3-JgHckzjw@726",
+          "G3-JgHckzjw@729",
+          "G3-JgHckzjw@732",
+          "G3-JgHckzjw@734",
+          "G3-JgHckzjw@737"
+        ],
+        "verdict": "partial",
+        "confidence": 0.68,
+        "reason": "the captions support converting token IDs into token embedding vectors and that vector representations help preserve semantic meaning between words, but they do not explicitly define a token embedding vector as a vector representation of a token (definition wording is added).",
+        "status": "open"
+      }
+    ]
+  }
+}

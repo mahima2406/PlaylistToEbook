@@ -1,0 +1,56 @@
+{
+  "stage": "checks",
+  "item": "ch04.s06.code1",
+  "inputs_hash": "b060c4fb1f17ab9d19d938569b01462ca59d01bbc1520570f097ab2261115b78",
+  "output_hash": "3b8566c0e506dc1adaaac1365ece735b7d11f780df588204c2cb9be27e969c48",
+  "output": [
+    {
+      "sentence_id": "ch04.s06.p03.r02",
+      "expected": 163000000,
+      "expression": "total_params",
+      "tolerance": 0.02,
+      "check_id": "ch04.s06.code1.chk1",
+      "sentence_text": "If you print out the total number of parameters, you will see that the number of parameters is equal to 163 million."
+    },
+    {
+      "sentence_id": "ch04.s06.p04.r04",
+      "expected": 162000000,
+      "expression": "total_params",
+      "tolerance": 0.02,
+      "check_id": "ch04.s06.code1.chk2",
+      "sentence_text": "Adding 38.4 million embedding parameters, 85.2 million Transformer parameters, and 38.4 million final-layer parameters gives about 162 million parameters in total."
+    },
+    {
+      "sentence_id": "ch04.s06.p04.r05",
+      "expected": 100000000,
+      "expression": "total_params",
+      "tolerance": 0.02,
+      "check_id": "ch04.s06.code1.chk3",
+      "sentence_text": "This is why the model being trained is on the order of more than 100 million parameters."
+    },
+    {
+      "sentence_id": "ch04.s06.p05.01",
+      "expected": 163000000,
+      "expression": "total_params",
+      "tolerance": 0.02,
+      "check_id": "ch04.s06.code1.chk4",
+      "sentence_text": "The gap between 163 million parameters in this implementation and 124 million parameters in the smallest GPT-2 comes from weight tying."
+    },
+    {
+      "sentence_id": "ch04.s06.p06.r01",
+      "expected": 163000000,
+      "expression": "total_params",
+      "tolerance": 0.02,
+      "check_id": "ch04.s06.code1.chk5",
+      "sentence_text": "For this model, 163 million parameters require around 600 megabytes of space."
+    },
+    {
+      "sentence_id": "ch04.s06.p06.r02",
+      "expected": 4,
+      "expression": "(32 // 8)",
+      "tolerance": 0,
+      "check_id": "ch04.s06.code1.chk6",
+      "sentence_text": "Assuming each parameter is a 32-bit float taking 4 bytes, the size is computed by multiplying the total number of parameters by 4, which gives about 620 MB."
+    }
+  ]
+}

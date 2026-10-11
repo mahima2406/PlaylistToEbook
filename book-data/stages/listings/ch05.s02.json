@@ -1,0 +1,33 @@
+{
+  "stage": "listings",
+  "item": "ch05.s02",
+  "inputs_hash": "626111f88be099653fb3a873bc879873d020763274072375554e1258e0f2a4c2",
+  "output_hash": "0ad4294734fb683c7e077619e8e2667c0bece8cc614733ea9cae9a381af67f2f",
+  "output": {
+    "section_id": "ch05.s02",
+    "listings": [
+      {
+        "id": "ch05.s02.code2",
+        "ref": "ref:ch05/01_main-chapter-code/ch05.ipynb#cell131",
+        "path": "ch05/01_main-chapter-code/ch05.ipynb",
+        "caption": "This code imports the download_and_load_gpt2 function from the local gpt_download module.",
+        "code": "# Relative import from the gpt_download.py contained in this folder\n\nfrom gpt_download import download_and_load_gpt2\n# Alternatively:\n# from llms_from_scratch.ch05 import download_and_load_gpt2",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The section describes importing the download_and_load_gpt2 function from a Python file/module and running it in a notebook. The excerpt shows exactly that import from a local gpt_download module, and the caption accurately states what the code does."
+      }
+    ],
+    "rejected": [
+      {
+        "id": "ch05.s02.code1",
+        "ref": "ref:ch05/01_main-chapter-code/ch05.ipynb#cell130",
+        "path": "ch05/01_main-chapter-code/ch05.ipynb",
+        "caption": "This code prints the installed TensorFlow and tqdm package versions.",
+        "code": "print(\"TensorFlow version:\", version(\"tensorflow\"))\nprint(\"tqdm version:\", version(\"tqdm\"))\n\n# Relative import from the gpt_download.py contained in this folder\n\nfrom gpt_download import download_and_load_gpt2\n# Alternatively:\n# from llms_from_scratch.ch05 import download_and_load_gpt2",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The first two lines do print the installed TensorFlow and tqdm versions, matching the caption and one section bullet. However, the excerpt then imports download_and_load_gpt2 from gpt_download, but it does not show installing/importing TensorFlow/tqdm, downloading the seven GPT-2 files, locating the latest checkpoint, or loading parameters into a params dict as described for gpt_download3.py. So it is related but incomplete for the broader section description."
+      }
+    ]
+  }
+}

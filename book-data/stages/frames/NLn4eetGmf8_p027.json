@@ -1,0 +1,74 @@
+{
+  "stage": "frames",
+  "item": "NLn4eetGmf8:p027",
+  "inputs_hash": "e033ca5032ac8c84e02e878071c31da80e4a3e7778e581087a51e100b07d1e8c",
+  "output_hash": "0a473d8a74daf2d674dd737416bfeb1828d7676cb2e8384a89ab90b24f09ab9a",
+  "output": {
+    "point_id": "NLn4eetGmf8:p027",
+    "video_id": "NLn4eetGmf8",
+    "seconds": 782,
+    "frame_sha256": "508d9fe6632ebd3f4e25d6021aabc7234c4ef6ae293dc844c66f27e6d7957d2c",
+    "status": "kept",
+    "kind": "diagram",
+    "title": "Embedding model converts objects into vectors",
+    "caption": "Images, documents, and audio are input to an embedding model, which outputs numeric vector representations visualized as points in a 3D space.",
+    "mermaid": "flowchart LR\n  A[\"images\"] --> D[\"Embedding Model\"]\n  B[\"Documents\"] --> D\n  C[\"Audio\"] --> D\n  D --> E[\"0.6 0.3 0.1 ...\"]\n  D --> F[\"0.8 0.5 0.3 ...\"]\n  D --> G[\"0.4 0.2 0.9 ...\"]\n  E --> H[\"3D vector space\"]\n  F --> H\n  G --> H",
+    "latex": "",
+    "claims": [
+      {
+        "text": "Images are provided as input to the embedding model.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Frame shows an 'images' input box feeding into the Embedding Model; lecturer generally says data is put into embedding model (mentions text/documents), not contradicting images."
+      },
+      {
+        "text": "Documents are provided as input to the embedding model.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Frame shows 'Documents' as an input to the Embedding Model; lecturer explicitly talks about text from documents being embedded."
+      },
+      {
+        "text": "Audio is provided as input to the embedding model.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Frame shows 'Audio' as an input to the Embedding Model; lecturer does not mention audio here, but nothing said conflicts with it."
+      },
+      {
+        "text": "The embedding model outputs numeric vector representations.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Outputs are shown as numeric vectors (e.g., 0.6 0.3 0.1 ...); lecturer says tokenized IDs are converted into vector format/embeddings."
+      },
+      {
+        "text": "One example output vector is 0.6, 0.3, 0.1, ....",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Top example vector in frame is '0.6 0.3 0.1 ...'; lecturer discusses vectors but not these exact numbers."
+      },
+      {
+        "text": "Another example output vector is 0.8, 0.5, 0.3, ....",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Middle example vector in frame is '0.8 0.5 0.3 ...'; lecturer does not address specific values."
+      },
+      {
+        "text": "Another example output vector is 0.4, 0.2, 0.9, ....",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Bottom example vector in frame is '0.4 0.2 0.9 ...'; lecturer does not address specific values."
+      },
+      {
+        "text": "The output vectors are represented as objects as vectors.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Text under vectors reads 'Objects as vectors'; lecturer describes converting data/tokens into vectors, consistent with this idea."
+      },
+      {
+        "text": "These vectors are visualized as points in a three-dimensional space.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Right side shows a 3D scatter/axes visualization of the embeddings; lecturer says this is a three-dimensional vectorized representation that we can visualize."
+      }
+    ]
+  }
+}

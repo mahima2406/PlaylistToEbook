@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch03.s10.p07.r08",
+  "inputs_hash": "ae679b46e227bc5259a6720cfa4b2e5ade667490d37053c217811009480d8f18",
+  "output_hash": "027fd2b94d49e75016f48865b33d2ab173eb586305992c9ed0d1372ec60978c1",
+  "output": {
+    "decision": "edit",
+    "text": "After the normalization step, the output is further adjusted by the scale and shift parameters.",
+    "reason": "The captions support an additional scale-and-shift step, but saying both are multiplied contradicts the reference because shift is additive.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.92,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "1fc2b02409c151152802b586cf5fcae3c398dd782fc21594a3d99f4696d7a708"
+  }
+}

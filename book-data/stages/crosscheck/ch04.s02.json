@@ -1,0 +1,307 @@
+{
+  "stage": "crosscheck",
+  "item": "ch04.s02",
+  "inputs_hash": "f37d7e036e5241fa9e23602544faac84ce97e9a45a52f0916809ed290f1eca8b",
+  "output_hash": "29a8675724876d7838083aefd3aecee78fb40460d22ebabf8254171b094920a4",
+  "output": {
+    "section_id": "ch04.s02",
+    "checked": 22,
+    "counts": {
+      "agrees": 14,
+      "contradicts": 2,
+      "not_covered": 6
+    },
+    "results": [
+      {
+        "sentence_id": "ch04.s02.p01.r02",
+        "text": "The configuration used here includes vocabulary size, context length, embedding dimension, number of attention heads, number of Transformer blocks, dropout rate, and whether query, key, and value use a bias term.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell10",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell11",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The referenced GPT_CONFIG_124M dictionaries include vocab_size, context_length, emb_dim, n_heads, n_layers (Transformer blocks), drop_rate, and qkv_bias (whether Q/K/V use bias)."
+      },
+      {
+        "sentence_id": "ch04.s02.p01.r03",
+        "text": "The vocabulary size is the number of tokens in the vocabulary.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell38"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References discuss tokens being in/out of the vocabulary and that output/logits dimension equals vocabulary size, consistent with vocab size meaning number of tokens in the vocabulary."
+      },
+      {
+        "sentence_id": "ch04.s02.p01.r04",
+        "text": "GPT-2 has a vocabulary of size 50,257.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell125",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell63",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states the BytePair encoder vocabulary size is 50,257 and uses 50,257-dimensional token/logit vectors, matching GPT-2 vocab size 50,257."
+      },
+      {
+        "sentence_id": "ch04.s02.p01.r05",
+        "text": "The tokenizer used here is tiktoken, and it uses byte pair encoding to create a vocabulary of tokens.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell71"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The code uses tiktoken with encoding \"gpt2\", and the chapter section is about BytePair encoding, consistent with tiktoken using BPE to form token vocabulary."
+      },
+      {
+        "sentence_id": "ch04.s02.p01.r06",
+        "text": "The constructed model uses the same vocabulary size, 50,257.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell125",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell38"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References use vocab_size=50257 and describe token/logit vectors of dimension 50,257, indicating the constructed model uses the same vocabulary size."
+      },
+      {
+        "sentence_id": "ch04.s02.p01.r07",
+        "text": "For simplicity, one token is treated as one word in the running example.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell85",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell49",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell119"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages do not explicitly state that, in the running example, one token is treated as one word for simplicity."
+      },
+      {
+        "sentence_id": "ch04.s02.p01.r08",
+        "text": "That simplification is not how GPT-2 actually tokenizes text, because GPT-2 uses byte pair encoding as a subword tokenizer.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell71"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References indicate GPT-2 uses BytePair encoding (BPE) via tiktoken, which is a subword tokenization approach, so treating one word as one token would be a simplification."
+      },
+      {
+        "sentence_id": "ch04.s02.p01.r09",
+        "text": "As a result, one word is not necessarily one token, since tokens can be small subwords or even individual characters.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell76",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell85",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell57"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference explicitly says BPE tokenizers break down unknown words into subwords and individual characters, implying one word is not necessarily one token."
+      },
+      {
+        "sentence_id": "ch04.s02.p02.r02",
+        "text": "The context size is the maximum number of words that can be used to predict the next word.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While references discuss context length/max_length for token sequences used to predict the next word, they do not define context size specifically as the maximum number of words (as opposed to tokens) used to predict the next word."
+      },
+      {
+        "sentence_id": "ch04.s02.p02.r03",
+        "text": "In the small example built around the four words \"every effort moves you\", the context size is four, so only four positions matter.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell115",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell103"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References mention the example phrase and four input examples, but do not state that the context size is four or that only four positions matter."
+      },
+      {
+        "sentence_id": "ch04.s02.p02.r04",
+        "text": "GPT-2 used a context length of 1024.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell12",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell43",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell10"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference explicitly states the original 124M GPT-2 used 1024 tokens context length, and configs show context_length: 1024."
+      },
+      {
+        "sentence_id": "ch04.s02.p02.r05",
+        "text": "Here the model uses a context length of 256 so the code is easier to train locally, can run on a learner's machine in less time, and requires fewer computational resources.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell12",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell77",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell98"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference explicitly says context_length is reduced to 256 to reduce computational resource requirements so readers can run code locally, aligning with easier/faster training and fewer resources."
+      },
+      {
+        "sentence_id": "ch04.s02.p02.r06",
+        "text": "The same code can be used with a longer context length if there is enough compute power and memory.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell62",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell44",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs discuss adjusting/limiting context length for resource reasons (e.g., reducing to 256 to lower compute) and handling datasets longer than 1024 via an allowed_max_length. This is consistent with the idea that the same code can run with longer context if resources permit."
+      },
+      {
+        "sentence_id": "ch04.s02.p03.r01",
+        "text": "The GPT-2 configuration shown in code sets vocabulary size to 50257, context length to 1024, embedding dimension to 768, number of attention heads to 12, number of transformer blocks to 12, dropout rate to 0.1, and query-key-value bias to false.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell10",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell11",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell12"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Ch04 shows a config with context_length=1024, but Ch05 shows the configuration used in code has context_length=256 (shortened from 1024). So the statement that the shown configuration sets context length to 1024 is incompatible with the provided Ch05 code."
+      },
+      {
+        "sentence_id": "ch04.s02.p03.r02",
+        "text": "The configuration used for the model here keeps vocabulary size 50257, embedding dimension 768, 12 attention heads, 12 transformer layers, dropout 0.1, and query-key-value bias false, while reducing context length to 256.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell10",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell11",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell43"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ch05 config keeps vocab_size=50257, emb_dim=768, n_heads=12, n_layers=12, drop_rate=0.1, qkv_bias=False and explicitly reduces context_length to 256."
+      },
+      {
+        "sentence_id": "ch04.s02.p03.r03",
+        "text": "The embedding dimension is the higher-dimensional space into which token embeddings are projected to capture semantic meaning.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell71",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell10"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs describe embeddings as projecting tokens into an embedding space (often high-dimensional) to represent them; this matches describing embedding dimension as the dimensionality of that projected space used to capture meaning."
+      },
+      {
+        "sentence_id": "ch04.s02.p03.r04",
+        "text": "Here that embedding dimension is 768, because the inputs are projected into a 768-dimensional space.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell71",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ch04 explicitly states the token embedding layer projects 50,257-dimensional one-hot tokens to a 768-dimensional embedding representation."
+      },
+      {
+        "sentence_id": "ch04.s02.p03.r05",
+        "text": "The number of attention heads is the number of self-attention mechanism blocks within one transformer.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell11",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell18"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Ref distinguishes n_heads as the number of attention heads in a multi-head attention mechanism, while n_layers is the number of transformer blocks. The sentence incorrectly equates attention heads with 'self-attention mechanism blocks' within one transformer."
+      },
+      {
+        "sentence_id": "ch04.s02.p03.r06",
+        "text": "The number of layers specifies how many transformer blocks the model has.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell59",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell143"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref explicitly says n_layers is the number of transformer blocks within the model."
+      },
+      {
+        "sentence_id": "ch04.s02.p03.r07",
+        "text": "In GPT-2, 12 transformer blocks are used, and each transformer's multi-head attention module uses 12 attention heads.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell8",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the configs elsewhere specify 12 layers and 12 heads for GPT-2 small, the provided refs under S8 do not state the specific numbers 12 and 12."
+      },
+      {
+        "sentence_id": "ch04.s02.p03.r08",
+        "text": "The query-key-value bias setting means no bias term is used when initializing the query, key, and value weight matrices.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell70",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell69"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided refs show Q/K/V computed via matrix multiplication and discuss weight matrices, but do not address presence/absence of bias terms in those projections or initialization behavior."
+      },
+      {
+        "sentence_id": "ch04.s02.p03.r09",
+        "text": "Here that setting is false because the bias term is not needed for those query, key, and value weight matrices.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell70",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell67",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The refs do not state that qkv_bias is set to False because bias is 'not needed'; they do not provide that rationale."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch04.s02.p03.r01",
+        "text": "The GPT-2 configuration shown in code sets vocabulary size to 50257, context length to 1024, embedding dimension to 768, number of attention heads to 12, number of transformer blocks to 12, dropout rate to 0.1, and query-key-value bias to false.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell10",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell11",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell12"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Ch04 shows a config with context_length=1024, but Ch05 shows the configuration used in code has context_length=256 (shortened from 1024). So the statement that the shown configuration sets context length to 1024 is incompatible with the provided Ch05 code."
+      },
+      {
+        "sentence_id": "ch04.s02.p03.r05",
+        "text": "The number of attention heads is the number of self-attention mechanism blocks within one transformer.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell11",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell18"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Ref distinguishes n_heads as the number of attention heads in a multi-head attention mechanism, while n_layers is the number of transformer blocks. The sentence incorrectly equates attention heads with 'self-attention mechanism blocks' within one transformer."
+      }
+    ]
+  }
+}

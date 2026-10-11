@@ -1,0 +1,536 @@
+{
+  "stage": "write",
+  "item": "ch03.s02",
+  "inputs_hash": "e3f742336e9731a8c88c6b65eeaa7d14f010c4aa3549b694208a059af9a597e6",
+  "output_hash": "d13ef792d6636a1bb20f9ab09ee05ec494de46aa9853d380ae6a9d31cca971f4",
+  "output": {
+    "section_id": "ch03.s02",
+    "paragraphs": [
+      {
+        "id": "ch03.s02.p01",
+        "sentences": [
+          {
+            "id": "ch03.s02.p01.01",
+            "text": "How does a model decide which input tokens matter when it builds a context vector for one token?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s02.p01.02",
+            "text": "The aim is to create a context vector from each input embedding vector, and for the second word, \"journey\", the input embedding is \"x2\" and its context vector is denoted by \"z2\".",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@442",
+              "eSRhpYLerw4@445",
+              "eSRhpYLerw4@451",
+              "eSRhpYLerw4@454",
+              "eSRhpYLerw4@456"
+            ]
+          },
+          {
+            "id": "ch03.s02.p01.03",
+            "text": "A context vector is needed for all input vectors, not just for \"journey\".",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@457",
+              "eSRhpYLerw4@460"
+            ]
+          },
+          {
+            "id": "ch03.s02.p01.04",
+            "text": "To compute a context vector from an embedding vector, it is necessary to know how much importance should be given to each input token, and this is captured by attention weights.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@462",
+              "eSRhpYLerw4@467",
+              "eSRhpYLerw4@469",
+              "eSRhpYLerw4@474",
+              "eSRhpYLerw4@478",
+              "eSRhpYLerw4@482",
+              "eSRhpYLerw4@484",
+              "eSRhpYLerw4@486"
+            ]
+          },
+          {
+            "id": "ch03.s02.p01.05",
+            "text": "Attention weights specify how much attention should be given to each input token when computing the context vector for an embedding vector.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@486",
+              "eSRhpYLerw4@489",
+              "eSRhpYLerw4@491",
+              "eSRhpYLerw4@493"
+            ]
+          },
+          {
+            "id": "ch03.s02.p01.06",
+            "text": "Based on these attention weights, the context vector \"zed\" is derived, and attention scores are also part of this derivation together with the input vectors.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@496",
+              "eSRhpYLerw4@498",
+              "eSRhpYLerw4@500",
+              "eSRhpYLerw4@507",
+              "eSRhpYLerw4@508",
+              "eSRhpYLerw4@510",
+              "eSRhpYLerw4@512"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s02.p02",
+        "sentences": [
+          {
+            "id": "ch03.s02.p02.01",
+            "text": "To make the method concrete, start with one query token and then generalize.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s02.p02.02",
+            "text": "For demonstration, the computation starts with \"journey\", and the same analysis is then applied to the other words in the sentence.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@752",
+              "eSRhpYLerw4@754",
+              "eSRhpYLerw4@761",
+              "eSRhpYLerw4@764",
+              "eSRhpYLerw4@769",
+              "eSRhpYLerw4@771",
+              "eSRhpYLerw4@775",
+              "eSRhpYLerw4@777",
+              "eSRhpYLerw4@779",
+              "eSRhpYLerw4@781"
+            ]
+          },
+          {
+            "id": "ch03.s02.p02.03",
+            "text": "The token currently being focused on is called the query.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@799",
+              "eSRhpYLerw4@802",
+              "eSRhpYLerw4@804",
+              "eSRhpYLerw4@807"
+            ]
+          },
+          {
+            "id": "ch03.s02.p02.04",
+            "text": "When the token is \"journey\", that query is \"x2\", and its corresponding context vector is \"z2\".",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@786",
+              "eSRhpYLerw4@788",
+              "eSRhpYLerw4@794",
+              "eSRhpYLerw4@797",
+              "eSRhpYLerw4@799",
+              "eSRhpYLerw4@807",
+              "eSRhpYLerw4@809",
+              "eSRhpYLerw4@827",
+              "eSRhpYLerw4@830",
+              "eSRhpYLerw4@832"
+            ]
+          },
+          {
+            "id": "ch03.s02.p02.05",
+            "text": "This \"z2\" embedding contains information about \"x2\" and about all the other input elements, so it contains information not only about \"journey\" but also about the rest of the input.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@832",
+              "eSRhpYLerw4@836",
+              "eSRhpYLerw4@839",
+              "eSRhpYLerw4@843",
+              "eSRhpYLerw4@845",
+              "eSRhpYLerw4@850",
+              "eSRhpYLerw4@852"
+            ]
+          },
+          {
+            "id": "ch03.s02.p02.06",
+            "text": "The first step in turning the embedding vector for the query into a context vector is to compute intermediate values \"w\", which are also called attention scores.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@876",
+              "eSRhpYLerw4@878",
+              "eSRhpYLerw4@881",
+              "eSRhpYLerw4@884",
+              "eSRhpYLerw4@888",
+              "eSRhpYLerw4@890",
+              "eSRhpYLerw4@893"
+            ]
+          },
+          {
+            "id": "ch03.s02.p02.07",
+            "text": "These attention scores quantify how much importance or attention should be paid to each input word for the query \"journey\", and there is one attention score between the query and every input vector.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@899",
+              "eSRhpYLerw4@901",
+              "eSRhpYLerw4@906",
+              "eSRhpYLerw4@908",
+              "eSRhpYLerw4@911",
+              "eSRhpYLerw4@913",
+              "eSRhpYLerw4@916",
+              "eSRhpYLerw4@919",
+              "eSRhpYLerw4@921",
+              "eSRhpYLerw4@923",
+              "eSRhpYLerw4@925",
+              "eSRhpYLerw4@928",
+              "eSRhpYLerw4@930",
+              "eSRhpYLerw4@933",
+              "eSRhpYLerw4@937",
+              "eSRhpYLerw4@942",
+              "eSRhpYLerw4@946",
+              "eSRhpYLerw4@947"
+            ]
+          },
+          {
+            "id": "ch03.s02.p02.08",
+            "text": "Finding these attention scores is the first step toward the context vector because they tell us how much importance to give each token in the input.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@950",
+              "eSRhpYLerw4@952",
+              "eSRhpYLerw4@954",
+              "eSRhpYLerw4@957",
+              "eSRhpYLerw4@958",
+              "eSRhpYLerw4@961"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s02.p03",
+        "sentences": [
+          {
+            "id": "ch03.s02.p03.01",
+            "text": "The key intuition comes from alignment between embedding vectors.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s02.p03.02",
+            "text": "If embedding vectors are aligned or have closer angles, that suggests similarity in meaning.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1102",
+              "eSRhpYLerw4@1105",
+              "eSRhpYLerw4@1107",
+              "eSRhpYLerw4@1111",
+              "eSRhpYLerw4@1113",
+              "eSRhpYLerw4@1115",
+              "eSRhpYLerw4@1118"
+            ]
+          },
+          {
+            "id": "ch03.s02.p03.03",
+            "text": "Because of that, more importance should be paid to the vector for \"starts\" when the query is \"journey\", since \"starts\" appears more aligned with \"journey\".",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1121",
+              "eSRhpYLerw4@1122",
+              "eSRhpYLerw4@1126",
+              "eSRhpYLerw4@1128",
+              "eSRhpYLerw4@1151",
+              "eSRhpYLerw4@1154",
+              "eSRhpYLerw4@1156"
+            ]
+          },
+          {
+            "id": "ch03.s02.p03.04",
+            "text": "By contrast, the vector for \"one\" is almost perpendicular to the vector for \"journey\", which indicates less similarity in meaning and therefore less importance than \"starts\" for the query \"journey\".",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1128",
+              "eSRhpYLerw4@1129",
+              "eSRhpYLerw4@1133",
+              "eSRhpYLerw4@1135",
+              "eSRhpYLerw4@1139",
+              "eSRhpYLerw4@1142",
+              "eSRhpYLerw4@1144",
+              "eSRhpYLerw4@1146",
+              "eSRhpYLerw4@1149",
+              "eSRhpYLerw4@1151"
+            ]
+          },
+          {
+            "id": "ch03.s02.p03.05",
+            "text": "The mathematical operation used to quantify this alignment is the dot product.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1157",
+              "eSRhpYLerw4@1159",
+              "eSRhpYLerw4@1163",
+              "eSRhpYLerw4@1166"
+            ]
+          },
+          {
+            "id": "ch03.s02.p03.06",
+            "text": "The dot product of two vectors equals the product of their magnitudes multiplied by the cosine of the angle between them.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1173",
+              "eSRhpYLerw4@1175",
+              "eSRhpYLerw4@1179",
+              "eSRhpYLerw4@1181",
+              "eSRhpYLerw4@1183",
+              "eSRhpYLerw4@1185"
+            ]
+          },
+          {
+            "id": "ch03.s02.p03.07",
+            "text": "If two vectors are aligned, the angle is zero, the cosine is one, and the dot product is maximal.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1185",
+              "eSRhpYLerw4@1188",
+              "eSRhpYLerw4@1189",
+              "eSRhpYLerw4@1192",
+              "eSRhpYLerw4@1193",
+              "eSRhpYLerw4@1196"
+            ]
+          },
+          {
+            "id": "ch03.s02.p03.08",
+            "text": "If two vectors are perpendicular, the angle is 90 degrees, the cosine is zero, and the dot product is zero.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1198",
+              "eSRhpYLerw4@1200",
+              "eSRhpYLerw4@1201",
+              "eSRhpYLerw4@1203",
+              "eSRhpYLerw4@1205",
+              "eSRhpYLerw4@1209",
+              "eSRhpYLerw4@1211"
+            ]
+          },
+          {
+            "id": "ch03.s02.p03.09",
+            "text": "A higher dot product means the vectors are more aligned, and a lower dot product means they are less aligned, so the dot product encodes how aligned or far apart vectors are.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1213",
+              "eSRhpYLerw4@1216",
+              "eSRhpYLerw4@1218",
+              "eSRhpYLerw4@1221",
+              "eSRhpYLerw4@1223",
+              "eSRhpYLerw4@1225",
+              "eSRhpYLerw4@1254",
+              "eSRhpYLerw4@1256",
+              "eSRhpYLerw4@1258",
+              "eSRhpYLerw4@1261",
+              "eSRhpYLerw4@1263"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s02.p04",
+        "sentences": [
+          {
+            "id": "ch03.s02.p04.01",
+            "text": "This makes the attention mechanism much less mysterious.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s02.p04.02",
+            "text": "Attention scores can be computed by taking the dot product between the query vector and each input vector.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1236",
+              "eSRhpYLerw4@1239",
+              "eSRhpYLerw4@1246",
+              "eSRhpYLerw4@1248",
+              "eSRhpYLerw4@1265",
+              "eSRhpYLerw4@1268",
+              "eSRhpYLerw4@1270",
+              "eSRhpYLerw4@1273",
+              "eSRhpYLerw4@1275",
+              "eSRhpYLerw4@1278",
+              "eSRhpYLerw4@1280",
+              "eSRhpYLerw4@1281"
+            ]
+          },
+          {
+            "id": "ch03.s02.p04.03",
+            "text": "This use of the dot product is a key idea in understanding attention because the operation quantifies alignment.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1241",
+              "eSRhpYLerw4@1243",
+              "eSRhpYLerw4@1250",
+              "eSRhpYLerw4@1253",
+              "eSRhpYLerw4@1285",
+              "eSRhpYLerw4@1286",
+              "eSRhpYLerw4@1289",
+              "eSRhpYLerw4@1290"
+            ]
+          },
+          {
+            "id": "ch03.s02.p04.04",
+            "text": "In self-attention, higher dot product means higher similarity and a higher attention score between two tokens.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1290",
+              "eSRhpYLerw4@1293",
+              "eSRhpYLerw4@1295",
+              "eSRhpYLerw4@1297",
+              "eSRhpYLerw4@1304",
+              "eSRhpYLerw4@1307",
+              "eSRhpYLerw4@1309",
+              "eSRhpYLerw4@1315",
+              "eSRhpYLerw4@1317",
+              "eSRhpYLerw4@1319",
+              "eSRhpYLerw4@1323",
+              "eSRhpYLerw4@1326",
+              "eSRhpYLerw4@1329",
+              "eSRhpYLerw4@1331",
+              "eSRhpYLerw4@1334",
+              "eSRhpYLerw4@1335",
+              "eSRhpYLerw4@1337"
+            ]
+          },
+          {
+            "id": "ch03.s02.p04.05",
+            "text": "Saying that two tokens attend more to each other means their vectors are more aligned, and saying they attend less means their vectors are less aligned.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1337",
+              "eSRhpYLerw4@1340",
+              "eSRhpYLerw4@1342",
+              "eSRhpYLerw4@1344",
+              "eSRhpYLerw4@1347",
+              "eSRhpYLerw4@1349"
+            ]
+          },
+          {
+            "id": "ch03.s02.p04.06",
+            "text": "Visually, \"journey\" and \"starts\" attend more to each other because their vectors are aligned, while \"one\" and \"journey\" attend less because their vectors form a 90 degree angle.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1351",
+              "eSRhpYLerw4@1353",
+              "eSRhpYLerw4@1355",
+              "eSRhpYLerw4@1357",
+              "eSRhpYLerw4@1359",
+              "eSRhpYLerw4@1361",
+              "eSRhpYLerw4@1364",
+              "eSRhpYLerw4@1366",
+              "eSRhpYLerw4@1368",
+              "eSRhpYLerw4@1370",
+              "eSRhpYLerw4@1372"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s02.p05",
+        "sentences": [
+          {
+            "id": "ch03.s02.p05.01",
+            "text": "With that intuition in place, the code mirrors the idea directly.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s02.p05.02",
+            "text": "The query is set to \"inputs[1]\" because Python uses zero-based indexing, and the second token, \"journey\", is therefore at index 1.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1389",
+              "eSRhpYLerw4@1392",
+              "eSRhpYLerw4@1395",
+              "eSRhpYLerw4@1398",
+              "eSRhpYLerw4@1400",
+              "eSRhpYLerw4@1403",
+              "eSRhpYLerw4@1405",
+              "eSRhpYLerw4@1408",
+              "eSRhpYLerw4@1411"
+            ]
+          },
+          {
+            "id": "ch03.s02.p05.03",
+            "text": "The code initializes an empty tensor for attention scores, loops over the input vectors, computes the dot product of each input vector with the query vector, and stores those dot products in the attention scores tensor.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1417",
+              "eSRhpYLerw4@1419",
+              "eSRhpYLerw4@1420",
+              "eSRhpYLerw4@1423",
+              "eSRhpYLerw4@1426",
+              "eSRhpYLerw4@1428",
+              "eSRhpYLerw4@1431",
+              "eSRhpYLerw4@1434",
+              "eSRhpYLerw4@1435",
+              "eSRhpYLerw4@1438",
+              "eSRhpYLerw4@1441",
+              "eSRhpYLerw4@1445",
+              "eSRhpYLerw4@1447",
+              "eSRhpYLerw4@1449",
+              "eSRhpYLerw4@1455",
+              "eSRhpYLerw4@1457",
+              "eSRhpYLerw4@1460",
+              "eSRhpYLerw4@1464",
+              "eSRhpYLerw4@1466",
+              "eSRhpYLerw4@1467"
+            ]
+          },
+          {
+            "id": "ch03.s02.p05.04",
+            "text": "For the query \"journey\", the largest attention scores are for \"journey\", \"starts\", and \"step\", which matches the intuition that these vectors are closely aligned with \"journey\".",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1480",
+              "eSRhpYLerw4@1481",
+              "eSRhpYLerw4@1484",
+              "eSRhpYLerw4@1488",
+              "eSRhpYLerw4@1490",
+              "eSRhpYLerw4@1492",
+              "eSRhpYLerw4@1494",
+              "eSRhpYLerw4@1496",
+              "eSRhpYLerw4@1499",
+              "eSRhpYLerw4@1501",
+              "eSRhpYLerw4@1503",
+              "eSRhpYLerw4@1506",
+              "eSRhpYLerw4@1508",
+              "eSRhpYLerw4@1510",
+              "eSRhpYLerw4@1513",
+              "eSRhpYLerw4@1515",
+              "eSRhpYLerw4@1519",
+              "eSRhpYLerw4@1522",
+              "eSRhpYLerw4@1524",
+              "eSRhpYLerw4@1526",
+              "eSRhpYLerw4@1528",
+              "eSRhpYLerw4@1530",
+              "eSRhpYLerw4@1533",
+              "eSRhpYLerw4@1535",
+              "eSRhpYLerw4@1537",
+              "eSRhpYLerw4@1540",
+              "eSRhpYLerw4@1542"
+            ]
+          },
+          {
+            "id": "ch03.s02.p05.05",
+            "text": "The word \"one\" has the lowest attention score for the query \"journey\" because its vector is almost at a 90 degree angle to the \"journey\" vector, so they are not aligned.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@1543",
+              "eSRhpYLerw4@1545",
+              "eSRhpYLerw4@1547",
+              "eSRhpYLerw4@1549",
+              "eSRhpYLerw4@1556",
+              "eSRhpYLerw4@1558",
+              "eSRhpYLerw4@1560",
+              "eSRhpYLerw4@1562",
+              "eSRhpYLerw4@1564",
+              "eSRhpYLerw4@1566",
+              "eSRhpYLerw4@1568"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "stage": "crosscheck",
+  "item": "ch01.s05",
+  "inputs_hash": "e42aa00038a99ab79bf60c95d87eabcaac44622f071acf8cf2c39d48f1290125",
+  "output_hash": "713525ca1c9f5aefbccd4d684db31810beab3e2f6d30ff731a287e85381093a9",
+  "output": {
+    "section_id": "ch01.s05",
+    "checked": 8,
+    "counts": {
+      "agrees": 0,
+      "contradicts": 0,
+      "not_covered": 8
+    },
+    "results": [
+      {
+        "sentence_id": "ch01.s05.p01.02",
+        "text": "An open-source model is one whose architecture is available to the public, so anyone can see the architecture.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell5",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell6",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages discuss coding GPT/transformer architectures and repetition of blocks, but do not define what makes a model open-source or state that open-source means the architecture is publicly available."
+      },
+      {
+        "sentence_id": "ch01.s05.p01.03",
+        "text": "By contrast, models released by OpenAI are described here as usually closed source.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell125",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references discuss loading pretrained weights from OpenAI (chapter heading) and GPT dimension choices, but do not state that OpenAI models are usually closed source."
+      },
+      {
+        "sentence_id": "ch01.s05.p01.04",
+        "text": "A closed-source model is one for which the weights, the architecture, and many other details about the model itself are not released publicly.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell9",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell6",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention GPT-2 configuration details and general architecture notes, but do not define closed-source models as withholding weights/architecture/details."
+      },
+      {
+        "sentence_id": "ch01.s05.p02.02",
+        "text": "The comparison described for 2022 says that, when the field of large language models was booming, most things were pretty closed source.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell13",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell10",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell6"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the cited passages discuss a 2022 comparison or claim that most LLM-related artifacts were closed source at that time."
+      },
+      {
+        "sentence_id": "ch01.s05.p02.03",
+        "text": "GPT-4 is presented as a closed-source model released in 2023.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell66",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell71"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references are about coding a GPT model and instantiating a 124M-parameter configuration; they do not mention GPT-4, its release year, or its sourcing status."
+      },
+      {
+        "sentence_id": "ch01.s05.p02.05",
+        "text": "When Llama 3.1 is released in that comparison, it is shown as performing at the same level as GPT-4.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell86",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell81",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell129"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages discuss loss calculation reuse and instruction-following behavior, but contain no comparison of Llama 3.1 vs GPT-4 performance."
+      },
+      {
+        "sentence_id": "ch01.s05.p03.02",
+        "text": "A strong reference for learning large language models is Sebastian Raschka’s book, which is described as one of the best books on the topic.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell6",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell25"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references are excerpts from the book/course content but do not evaluate the book as 'one of the best' or present it as a strong external reference in that way."
+      },
+      {
+        "sentence_id": "ch01.s05.p03.03",
+        "text": "That book is also used as the reference material for this course.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell125",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages state this is the final chapter of the book and summarize what was covered, but do not state that the book is used as reference material for a course."
+      }
+    ],
+    "conflicts": []
+  }
+}

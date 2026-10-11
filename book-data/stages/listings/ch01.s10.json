@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch01.s10",
+  "inputs_hash": "9b7f23539eba1899c97ed87926b2fb71fc9d9162f19d5b6b7f50cb4a14ff3216",
+  "output_hash": "c155952aec61a5f01b4bff149c36258dc13eea2d9d359978889f819539cad613",
+  "output": {
+    "section_id": "ch01.s10",
+    "listings": [
+      {
+        "id": "ch01.s10.code1",
+        "ref": "ref:ch03/01_main-chapter-code/ch03.ipynb#cell66",
+        "path": "ch03/01_main-chapter-code/ch03.ipynb",
+        "caption": "This code selects one input vector and defines the input and output embedding dimensions for computing attention components step by step.",
+        "code": "x_2 = inputs[1] # second input element\nd_in = inputs.shape[1] # the input embedding size, d=3\nd_out = 2 # the output embedding size, d=2",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The excerpt selects a specific token/input vector from a batch (inputs[1]) and defines input and output embedding dimensions (d_in, d_out), which are basic setup steps used when building the attention mechanism from scratch (queries/keys/values projections). The caption accurately describes that it selects an input vector and sets embedding dimensions for step-by-step attention computation."
+      },
+      {
+        "id": "ch01.s10.code2",
+        "ref": "ref:ch05/01_main-chapter-code/ch05.ipynb#cell119",
+        "path": "ch05/01_main-chapter-code/ch05.ipynb",
+        "caption": "This code saves the model parameter state dictionary to a file named \"model.pth\" using PyTorch.",
+        "code": "torch.save(model.state_dict(), \"model.pth\")",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The section explicitly teaches implementing functions to save and load LLM weights for reuse or continued training. The code uses PyTorch to save a model's parameter state_dict to a file, and the caption accurately describes that behavior."
+      }
+    ],
+    "rejected": []
+  }
+}

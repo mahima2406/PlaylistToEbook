@@ -1,0 +1,607 @@
+{
+  "stage": "write",
+  "item": "ch04.s04",
+  "inputs_hash": "cb37f8297d1a0683a29da45ed3c18241934adf0f44a8375c5d5cba4b2695c394",
+  "output_hash": "f89fd72951020f55d197d8cc4e58757f56d72621f2f2b98b4fe764ae542c6fc8",
+  "output": {
+    "section_id": "ch04.s04",
+    "paragraphs": [
+      {
+        "id": "ch04.s04.p01",
+        "sentences": [
+          {
+            "id": "ch04.s04.p01.01",
+            "text": "How do the embeddings prepared earlier become the internal computation of a Transformer block, and why are dropout and normalization needed before and inside it?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s04.p01.02",
+            "text": "Before the Transformer block begins, the sequence goes through token embedding, positional embedding, input embedding by adding them together, and then dropout.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1175",
+              "G3-JgHckzjw@1177",
+              "G3-JgHckzjw@1181",
+              "G3-JgHckzjw@1186",
+              "G3-JgHckzjw@1190",
+              "G3-JgHckzjw@1193",
+              "G3-JgHckzjw@1231",
+              "G3-JgHckzjw@1236"
+            ]
+          },
+          {
+            "id": "ch04.s04.p01.03",
+            "text": "These embedding and dropout steps happen outside the Transformer block, and only after that does the model enter the block.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1195",
+              "G3-JgHckzjw@1199",
+              "G3-JgHckzjw@1201",
+              "G3-JgHckzjw@1233",
+              "G3-JgHckzjw@1236"
+            ]
+          },
+          {
+            "id": "ch04.s04.p01.04",
+            "text": "Dropout randomly turns some elements of each input embedding to zero according to the dropout rate.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1049",
+              "G3-JgHckzjw@1073",
+              "G3-JgHckzjw@1078",
+              "G3-JgHckzjw@1080"
+            ]
+          },
+          {
+            "id": "ch04.s04.p01.05",
+            "text": "For each token, the input embedding is a 768-dimensional vector, and dropout is applied to every token.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1067",
+              "G3-JgHckzjw@1070",
+              "G3-JgHckzjw@1101"
+            ]
+          },
+          {
+            "id": "ch04.s04.p01.06",
+            "text": "If the dropout rate is 50%, then around 384 of the 768 elements in each embedding are turned off on average, not exactly half every time, because the process is probabilistic.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1080",
+              "G3-JgHckzjw@1082",
+              "G3-JgHckzjw@1093",
+              "G3-JgHckzjw@1097",
+              "G3-JgHckzjw@1107",
+              "G3-JgHckzjw@1109",
+              "G3-JgHckzjw@1115"
+            ]
+          },
+          {
+            "id": "ch04.s04.p01.07",
+            "text": "Dropout is implemented to prevent overfitting and improve generalization.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1121",
+              "G3-JgHckzjw@1124",
+              "G3-JgHckzjw@1126",
+              "G3-JgHckzjw@1165",
+              "G3-JgHckzjw@1167",
+              "G3-JgHckzjw@1170"
+            ]
+          },
+          {
+            "id": "ch04.s04.p01.08",
+            "text": "One way to understand it is that dropout prevents some neurons from being lazy: when neurons are turned off randomly, neurons that were depending on others have to learn something themselves, which improves generalization.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1133",
+              "G3-JgHckzjw@1134",
+              "G3-JgHckzjw@1139",
+              "G3-JgHckzjw@1141",
+              "G3-JgHckzjw@1146",
+              "G3-JgHckzjw@1148",
+              "G3-JgHckzjw@1151",
+              "G3-JgHckzjw@1153",
+              "G3-JgHckzjw@1155",
+              "G3-JgHckzjw@1157"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s04.p02",
+        "sentences": [
+          {
+            "id": "ch04.s04.p02.01",
+            "text": "Once the block starts, the first operation is layer normalization.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1331",
+              "G3-JgHckzjw@1333",
+              "G3-JgHckzjw@1334"
+            ]
+          },
+          {
+            "id": "ch04.s04.p02.02",
+            "text": "Layer normalization normalizes the values within each token embedding so that their mean is 0 and their variance is 1.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1352",
+              "G3-JgHckzjw@1354",
+              "G3-JgHckzjw@1356"
+            ]
+          },
+          {
+            "id": "ch04.s04.p02.03",
+            "text": "It is performed separately for every single token to improve stability during training.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1358",
+              "G3-JgHckzjw@1392",
+              "G3-JgHckzjw@1394",
+              "G3-JgHckzjw@1396"
+            ]
+          },
+          {
+            "id": "ch04.s04.p02.04",
+            "text": "For each token, layer normalization subtracts the mean from every value and divides by the square root of the variance.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1367",
+              "G3-JgHckzjw@1369",
+              "G3-JgHckzjw@1371",
+              "G3-JgHckzjw@1374"
+            ]
+          },
+          {
+            "id": "ch04.s04.p02.05",
+            "text": "In code, the layer normalization class does this for each token’s 768-dimensional representation and also includes trainable scale and shift parameters.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@2594",
+              "G3-JgHckzjw@2596",
+              "G3-JgHckzjw@2599",
+              "G3-JgHckzjw@2601",
+              "G3-JgHckzjw@2603",
+              "G3-JgHckzjw@2606",
+              "G3-JgHckzjw@2608",
+              "G3-JgHckzjw@2610",
+              "G3-JgHckzjw@2612"
+            ]
+          },
+          {
+            "id": "ch04.s04.p02.06",
+            "text": "After normalization comes masked multi-head attention, which is the central operation inside the block.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1398",
+              "G3-JgHckzjw@1401",
+              "G3-JgHckzjw@1403",
+              "G3-JgHckzjw@1405",
+              "7TKCrt--bWI@1346",
+              "7TKCrt--bWI@1348",
+              "7TKCrt--bWI@1350"
+            ]
+          },
+          {
+            "id": "ch04.s04.p02.07",
+            "text": "Before attention is applied, each token vector contains meaning about itself, but it does not yet capture how much attention it should give to other words when predicting the next word.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1284",
+              "G3-JgHckzjw@1286",
+              "G3-JgHckzjw@1289",
+              "G3-JgHckzjw@1290",
+              "G3-JgHckzjw@1293",
+              "G3-JgHckzjw@1295",
+              "G3-JgHckzjw@1302",
+              "G3-JgHckzjw@1304",
+              "G3-JgHckzjw@1313",
+              "G3-JgHckzjw@1315",
+              "G3-JgHckzjw@1318",
+              "G3-JgHckzjw@1320"
+            ]
+          },
+          {
+            "id": "ch04.s04.p02.08",
+            "text": "Masked multi-head attention converts embedding vectors into context vectors.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1410",
+              "G3-JgHckzjw@1413",
+              "G3-JgHckzjw@1415",
+              "G3-JgHckzjw@1500",
+              "G3-JgHckzjw@1504"
+            ]
+          },
+          {
+            "id": "ch04.s04.p02.09",
+            "text": "A context vector keeps the token’s semantic meaning and also captures how much attention should be given to the other tokens in the sentence.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1432",
+              "G3-JgHckzjw@1434",
+              "G3-JgHckzjw@1436",
+              "G3-JgHckzjw@1440",
+              "G3-JgHckzjw@1443",
+              "G3-JgHckzjw@1445",
+              "G3-JgHckzjw@1447",
+              "G3-JgHckzjw@1449",
+              "G3-JgHckzjw@1455",
+              "G3-JgHckzjw@1457",
+              "G3-JgHckzjw@1460"
+            ]
+          },
+          {
+            "id": "ch04.s04.p02.10",
+            "text": "Attention is the most important step in the GPT model because it determines which words are important to look at and how different words relate to each other when predicting the next word.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1464",
+              "G3-JgHckzjw@1467",
+              "G3-JgHckzjw@1474",
+              "G3-JgHckzjw@1476",
+              "G3-JgHckzjw@1478",
+              "G3-JgHckzjw@1480",
+              "G3-JgHckzjw@1482",
+              "G3-JgHckzjw@1506",
+              "G3-JgHckzjw@1509",
+              "G3-JgHckzjw@1511"
+            ]
+          },
+          {
+            "id": "ch04.s04.p02.11",
+            "text": "After multi-head attention, the output size is still the same, so each token still has a 768-dimensional representation, now interpreted as a context vector.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1420",
+              "G3-JgHckzjw@1422",
+              "G3-JgHckzjw@1424",
+              "G3-JgHckzjw@1427",
+              "G3-JgHckzjw@1429"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s04.p03",
+        "sentences": [
+          {
+            "id": "ch04.s04.p03.01",
+            "text": "The block then combines dropout, shortcut connections, another normalization step, and a feed-forward network while keeping the same token dimension throughout.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s04.p03.02",
+            "text": "When embeddings enter the Transformer block, dimensionality is preserved, so each token is still represented by a 768-dimensional vector.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1257",
+              "G3-JgHckzjw@1260",
+              "G3-JgHckzjw@1264",
+              "G3-JgHckzjw@1267",
+              "G3-JgHckzjw@1270",
+              "G3-JgHckzjw@1273",
+              "G3-JgHckzjw@1278",
+              "G3-JgHckzjw@1281"
+            ]
+          },
+          {
+            "id": "ch04.s04.p03.03",
+            "text": "After multi-head attention there is another dropout layer that randomly turns some context vector values to zero.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1539",
+              "G3-JgHckzjw@1541",
+              "G3-JgHckzjw@1543",
+              "G3-JgHckzjw@1547",
+              "G3-JgHckzjw@1557",
+              "G3-JgHckzjw@1558"
+            ]
+          },
+          {
+            "id": "ch04.s04.p03.04",
+            "text": "A shortcut connection adds the output of a layer back to the input that entered the Transformer block.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1563",
+              "G3-JgHckzjw@1566",
+              "G3-JgHckzjw@1569",
+              "G3-JgHckzjw@1572",
+              "G3-JgHckzjw@1576",
+              "G3-JgHckzjw@1578",
+              "G3-JgHckzjw@1580",
+              "G3-JgHckzjw@1583"
+            ]
+          },
+          {
+            "id": "ch04.s04.p03.05",
+            "text": "Shortcut connections provide another route for gradient flow and help prevent the vanishing gradient problem, which makes training proceed more smoothly.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1583",
+              "G3-JgHckzjw@1585",
+              "G3-JgHckzjw@1587",
+              "G3-JgHckzjw@1589",
+              "G3-JgHckzjw@1592",
+              "G3-JgHckzjw@1593"
+            ]
+          },
+          {
+            "id": "ch04.s04.p03.06",
+            "text": "After this shortcut connection, another round of layer normalization is applied without changing the dimensions.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1596",
+              "G3-JgHckzjw@1598",
+              "G3-JgHckzjw@1600",
+              "G3-JgHckzjw@1602"
+            ]
+          },
+          {
+            "id": "ch04.s04.p03.07",
+            "text": "In that second layer normalization, each token’s values are again normalized by subtracting the mean and dividing by the square root of the variance so that the mean becomes 0 and the variance becomes 1.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1602",
+              "G3-JgHckzjw@1605",
+              "G3-JgHckzjw@1609",
+              "G3-JgHckzjw@1612",
+              "G3-JgHckzjw@1614",
+              "G3-JgHckzjw@1616",
+              "G3-JgHckzjw@1618",
+              "G3-JgHckzjw@1620",
+              "G3-JgHckzjw@1622",
+              "G3-JgHckzjw@1623",
+              "G3-JgHckzjw@1625"
+            ]
+          },
+          {
+            "id": "ch04.s04.p03.08",
+            "text": "The feed-forward neural network is an expansion-contraction network.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1632",
+              "G3-JgHckzjw@1634",
+              "G3-JgHckzjw@1636"
+            ]
+          },
+          {
+            "id": "ch04.s04.p03.09",
+            "text": "It processes each token sequentially.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1638",
+              "G3-JgHckzjw@1641",
+              "G3-JgHckzjw@1661",
+              "G3-JgHckzjw@1663"
+            ]
+          },
+          {
+            "id": "ch04.s04.p03.10",
+            "text": "Each token enters this network with embedding size 768, is projected into a hidden layer of size 4 times 768, and is then contracted back to the original dimension.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1653",
+              "G3-JgHckzjw@1656",
+              "G3-JgHckzjw@1659",
+              "G3-JgHckzjw@1673",
+              "G3-JgHckzjw@1675",
+              "G3-JgHckzjw@1677",
+              "G3-JgHckzjw@1679",
+              "G3-JgHckzjw@1682",
+              "G3-JgHckzjw@1686",
+              "G3-JgHckzjw@1688"
+            ]
+          },
+          {
+            "id": "ch04.s04.p03.11",
+            "text": "The output of the feed-forward neural network has the same dimension as its input.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1688",
+              "G3-JgHckzjw@1690",
+              "G3-JgHckzjw@1693",
+              "G3-JgHckzjw@1708",
+              "G3-JgHckzjw@1709",
+              "G3-JgHckzjw@1711"
+            ]
+          },
+          {
+            "id": "ch04.s04.p03.12",
+            "text": "This expansion and contraction allow a richer exploration of parameters and help the model predict the next word better.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1693",
+              "G3-JgHckzjw@1695",
+              "G3-JgHckzjw@1697",
+              "G3-JgHckzjw@1699",
+              "G3-JgHckzjw@1701"
+            ]
+          },
+          {
+            "id": "ch04.s04.p03.13",
+            "text": "Because the middle layer has 4 times the embedding dimension, it contains many parameters and provides a richer exploration space.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1727",
+              "G3-JgHckzjw@1729",
+              "G3-JgHckzjw@1731",
+              "G3-JgHckzjw@1732",
+              "G3-JgHckzjw@1735",
+              "G3-JgHckzjw@1737",
+              "G3-JgHckzjw@1739"
+            ]
+          },
+          {
+            "id": "ch04.s04.p03.14",
+            "text": "After the feed-forward network there is another dropout layer that randomly sets certain values in every token to zero, and typically one dropout rate is specified at the start and used everywhere dropout layers are implemented.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1743",
+              "G3-JgHckzjw@1745",
+              "G3-JgHckzjw@1747",
+              "G3-JgHckzjw@1749",
+              "G3-JgHckzjw@1755",
+              "G3-JgHckzjw@1758",
+              "G3-JgHckzjw@1760",
+              "G3-JgHckzjw@1762",
+              "G3-JgHckzjw@1763"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s04.p04",
+        "sentences": [
+          {
+            "id": "ch04.s04.p04.01",
+            "text": "One more shortcut completes the block and makes clear why blocks can be stacked so easily.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s04.p04.02",
+            "text": "The second shortcut connection adds the output after this dropout layer to the input of that sublayer.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1765",
+              "G3-JgHckzjw@1768",
+              "G3-JgHckzjw@1771",
+              "G3-JgHckzjw@1775",
+              "G3-JgHckzjw@1778",
+              "G3-JgHckzjw@1784",
+              "G3-JgHckzjw@1786",
+              "G3-JgHckzjw@1788"
+            ]
+          },
+          {
+            "id": "ch04.s04.p04.03",
+            "text": "The output after this second shortcut connection is the Transformer block output.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1791",
+              "G3-JgHckzjw@1793",
+              "G3-JgHckzjw@1795"
+            ]
+          },
+          {
+            "id": "ch04.s04.p04.04",
+            "text": "A Transformer block preserves the token embedding dimension, so its output has the same dimensions as its input, with each token still represented by a 768-dimensional vector.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1805",
+              "G3-JgHckzjw@1806",
+              "G3-JgHckzjw@1808",
+              "G3-JgHckzjw@1811",
+              "G3-JgHckzjw@1813",
+              "G3-JgHckzjw@2771",
+              "G3-JgHckzjw@2773",
+              "G3-JgHckzjw@2776",
+              "G3-JgHckzjw@2778"
+            ]
+          },
+          {
+            "id": "ch04.s04.p04.05",
+            "text": "The GPT model preserves dimensionality throughout these steps, which makes it easier to add multiple modules together because the dimensions do not change.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1517",
+              "G3-JgHckzjw@1519",
+              "G3-JgHckzjw@1525",
+              "G3-JgHckzjw@1527",
+              "G3-JgHckzjw@1529",
+              "G3-JgHckzjw@1532",
+              "G3-JgHckzjw@1534",
+              "G3-JgHckzjw@1536"
+            ]
+          },
+          {
+            "id": "ch04.s04.p04.06",
+            "text": "The Transformer block is the heart of the entire GPT architecture.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@1346",
+              "7TKCrt--bWI@1348",
+              "7TKCrt--bWI@1350"
+            ]
+          },
+          {
+            "id": "ch04.s04.p04.07",
+            "text": "Its internal workflow can be read as eight steps in order: layer normalization, masked multi-head attention, dropout, a shortcut connection, another layer normalization, a feed-forward neural network, dropout, and a final shortcut connection to produce the block output.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1852",
+              "G3-JgHckzjw@1855",
+              "G3-JgHckzjw@1859",
+              "G3-JgHckzjw@1861",
+              "G3-JgHckzjw@1864",
+              "G3-JgHckzjw@1867",
+              "G3-JgHckzjw@1869",
+              "G3-JgHckzjw@1884",
+              "G3-JgHckzjw@1886",
+              "G3-JgHckzjw@1888",
+              "G3-JgHckzjw@1890",
+              "G3-JgHckzjw@1892",
+              "G3-JgHckzjw@1894"
+            ]
+          },
+          {
+            "id": "ch04.s04.p04.08",
+            "text": "In the coded summary of the block, those eight steps are also described as input embeddings going through dropout, layer normalization, masked multi-head attention, dropout, a shortcut connection, another layer normalization, a feed-forward neural network with GELU, dropout, and another shortcut connection.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@2703",
+              "G3-JgHckzjw@2706",
+              "G3-JgHckzjw@2714",
+              "G3-JgHckzjw@2716",
+              "G3-JgHckzjw@2718",
+              "G3-JgHckzjw@2721",
+              "G3-JgHckzjw@2724",
+              "G3-JgHckzjw@2726",
+              "G3-JgHckzjw@2734",
+              "G3-JgHckzjw@2737",
+              "G3-JgHckzjw@2739",
+              "G3-JgHckzjw@2742",
+              "G3-JgHckzjw@2746",
+              "G3-JgHckzjw@2747"
+            ]
+          },
+          {
+            "id": "ch04.s04.p04.09",
+            "text": "The coded feed-forward block takes the embedding dimension as input, expands to four times the embedding dimension, then contracts back to the embedding dimension, and uses a GELU activation function.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@2637",
+              "G3-JgHckzjw@2638",
+              "G3-JgHckzjw@2640",
+              "G3-JgHckzjw@2642",
+              "G3-JgHckzjw@2647",
+              "G3-JgHckzjw@2649",
+              "G3-JgHckzjw@2652",
+              "G3-JgHckzjw@2653",
+              "G3-JgHckzjw@2655",
+              "G3-JgHckzjw@2657",
+              "G3-JgHckzjw@2659"
+            ]
+          },
+          {
+            "id": "ch04.s04.p04.10",
+            "text": "GELU differs from ReLU because for negative inputs it is not zero and it is differentiable at zero, which is why GELU is generally used in LLM training.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@2678",
+              "G3-JgHckzjw@2680",
+              "G3-JgHckzjw@2683",
+              "G3-JgHckzjw@2685",
+              "G3-JgHckzjw@2688",
+              "G3-JgHckzjw@2690"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

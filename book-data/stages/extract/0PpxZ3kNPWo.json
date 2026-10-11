@@ -1,0 +1,2453 @@
+{
+  "stage": "extract",
+  "item": "0PpxZ3kNPWo",
+  "inputs_hash": "4b4d51cdd8620aa5a0da0319e0270cd219a0398b752a365f535f503226c02f61",
+  "output_hash": "23ce89435eaae5458926c15cd3da16791596548f7604bba0479bc1562279fead",
+  "output": {
+    "video_id": "0PpxZ3kNPWo",
+    "points": [
+      {
+        "id": "0PpxZ3kNPWo:p001",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 1,
+        "text": "This part of the project calculates classification loss and accuracy, implements the training loop and testing loop, and completes the fine-tuning project.",
+        "line_ids": [
+          "0PpxZ3kNPWo@23",
+          "0PpxZ3kNPWo@25",
+          "0PpxZ3kNPWo@28",
+          "0PpxZ3kNPWo@31",
+          "0PpxZ3kNPWo@34",
+          "0PpxZ3kNPWo@36"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p002",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The dataset is an SMS spam collection dataset of text messages labeled as spam or not spam.",
+        "line_ids": [
+          "0PpxZ3kNPWo@67",
+          "0PpxZ3kNPWo@70",
+          "0PpxZ3kNPWo@73",
+          "0PpxZ3kNPWo@75",
+          "0PpxZ3kNPWo@78",
+          "0PpxZ3kNPWo@80"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p003",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The downloaded dataset was imbalanced, with about 4,800 non-spam messages and 747 spam messages, so it was balanced to 747 messages in each class.",
+        "line_ids": [
+          "0PpxZ3kNPWo@82",
+          "0PpxZ3kNPWo@85",
+          "0PpxZ3kNPWo@87",
+          "0PpxZ3kNPWo@91",
+          "0PpxZ3kNPWo@93",
+          "0PpxZ3kNPWo@98"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p004",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The dataset was split into training, testing, and validation sets in proportions of 70%, 20%, and 10%, and the dataloaders batch the data into inputs and targets.",
+        "line_ids": [
+          "0PpxZ3kNPWo@117",
+          "0PpxZ3kNPWo@119",
+          "0PpxZ3kNPWo@122",
+          "0PpxZ3kNPWo@126",
+          "0PpxZ3kNPWo@133"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p005",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In the training dataloader, each input batch contains eight samples and 120 token ID positions per sample.",
+        "line_ids": [
+          "0PpxZ3kNPWo@136",
+          "0PpxZ3kNPWo@138",
+          "0PpxZ3kNPWo@141",
+          "0PpxZ3kNPWo@143",
+          "0PpxZ3kNPWo@146",
+          "0PpxZ3kNPWo@148"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p006",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "definition",
+        "importance": 2,
+        "text": "The token ID 50256 is the end-of-text token, and shorter text messages were padded with it so all messages have the same number of token IDs.",
+        "line_ids": [
+          "0PpxZ3kNPWo@150",
+          "0PpxZ3kNPWo@152",
+          "0PpxZ3kNPWo@155",
+          "0PpxZ3kNPWo@157",
+          "0PpxZ3kNPWo@159",
+          "0PpxZ3kNPWo@161"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p007",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The target tensor contains zeros and ones, where zero means no spam and one means spam.",
+        "line_ids": [
+          "0PpxZ3kNPWo@166",
+          "0PpxZ3kNPWo@168",
+          "0PpxZ3kNPWo@171"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p008",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The dataloaders contain 130 training batches, 19 validation batches, and 38 test batches.",
+        "line_ids": [
+          "0PpxZ3kNPWo@177",
+          "0PpxZ3kNPWo@180",
+          "0PpxZ3kNPWo@183",
+          "0PpxZ3kNPWo@186",
+          "0PpxZ3kNPWo@190",
+          "0PpxZ3kNPWo@192"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p009",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "For classification, the original output layer with 768 inputs and 50,257 outputs was replaced by a classification head with 768 inputs and 2 outputs for spam or no spam.",
+        "line_ids": [
+          "0PpxZ3kNPWo@216",
+          "0PpxZ3kNPWo@219",
+          "0PpxZ3kNPWo@221",
+          "0PpxZ3kNPWo@224",
+          "0PpxZ3kNPWo@225",
+          "0PpxZ3kNPWo@228",
+          "0PpxZ3kNPWo@231",
+          "0PpxZ3kNPWo@234",
+          "0PpxZ3kNPWo@238",
+          "0PpxZ3kNPWo@240",
+          "0PpxZ3kNPWo@242",
+          "0PpxZ3kNPWo@244"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p010",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "When an input sequence is passed to the modified architecture, each token produces two outputs corresponding to spam or no spam.",
+        "line_ids": [
+          "0PpxZ3kNPWo@253",
+          "0PpxZ3kNPWo@256",
+          "0PpxZ3kNPWo@258",
+          "0PpxZ3kNPWo@265",
+          "0PpxZ3kNPWo@270",
+          "0PpxZ3kNPWo@273",
+          "0PpxZ3kNPWo@281",
+          "0PpxZ3kNPWo@283"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p011",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Only the output corresponding to the last token is used for classification because the last token contains information about the other tokens through its attention weights.",
+        "line_ids": [
+          "0PpxZ3kNPWo@288",
+          "0PpxZ3kNPWo@290",
+          "0PpxZ3kNPWo@292",
+          "0PpxZ3kNPWo@294",
+          "0PpxZ3kNPWo@296",
+          "0PpxZ3kNPWo@298",
+          "0PpxZ3kNPWo@301"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p012",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "For a single example with four tokens, the model output tensor has shape 1 x 4 x 2 because there is one sample, four tokens, and two outputs per token.",
+        "line_ids": [
+          "0PpxZ3kNPWo@306",
+          "0PpxZ3kNPWo@308",
+          "0PpxZ3kNPWo@311",
+          "0PpxZ3kNPWo@317",
+          "0PpxZ3kNPWo@319",
+          "0PpxZ3kNPWo@325",
+          "0PpxZ3kNPWo@326",
+          "0PpxZ3kNPWo@329",
+          "0PpxZ3kNPWo@331"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p013",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The final output used for classification is the pair of values produced by the last token.",
+        "line_ids": [
+          "0PpxZ3kNPWo@338",
+          "0PpxZ3kNPWo@339",
+          "0PpxZ3kNPWo@342",
+          "0PpxZ3kNPWo@344",
+          "0PpxZ3kNPWo@347",
+          "0PpxZ3kNPWo@349"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p014",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To convert model outputs into class label predictions, take the last-token outputs, optionally apply softmax to obtain probabilities, and choose the index with the highest value.",
+        "line_ids": [
+          "0PpxZ3kNPWo@391",
+          "0PpxZ3kNPWo@392",
+          "0PpxZ3kNPWo@395",
+          "0PpxZ3kNPWo@398",
+          "0PpxZ3kNPWo@400",
+          "0PpxZ3kNPWo@404",
+          "0PpxZ3kNPWo@413",
+          "0PpxZ3kNPWo@415",
+          "0PpxZ3kNPWo@417",
+          "0PpxZ3kNPWo@423",
+          "0PpxZ3kNPWo@426"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p015",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "For example, if the last-token outputs for a message become probabilities 0.99 and 0.01 after softmax, the predicted class is index 0, which means no spam.",
+        "line_ids": [
+          "0PpxZ3kNPWo@417",
+          "0PpxZ3kNPWo@419",
+          "0PpxZ3kNPWo@423",
+          "0PpxZ3kNPWo@426",
+          "0PpxZ3kNPWo@429",
+          "0PpxZ3kNPWo@431",
+          "0PpxZ3kNPWo@434",
+          "0PpxZ3kNPWo@437",
+          "0PpxZ3kNPWo@440",
+          "0PpxZ3kNPWo@442"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p016",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "For example, if the last-token outputs for a message become probabilities 0.01 and 0.99 after softmax, the predicted class is index 1, which means spam.",
+        "line_ids": [
+          "0PpxZ3kNPWo@445",
+          "0PpxZ3kNPWo@447",
+          "0PpxZ3kNPWo@449",
+          "0PpxZ3kNPWo@452",
+          "0PpxZ3kNPWo@454",
+          "0PpxZ3kNPWo@457",
+          "0PpxZ3kNPWo@460",
+          "0PpxZ3kNPWo@462",
+          "0PpxZ3kNPWo@464"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p017",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Applying softmax is unnecessary when only the predicted class is needed, because the largest logit has the same index as the highest probability.",
+        "line_ids": [
+          "0PpxZ3kNPWo@468",
+          "0PpxZ3kNPWo@469",
+          "0PpxZ3kNPWo@472",
+          "0PpxZ3kNPWo@475",
+          "0PpxZ3kNPWo@477",
+          "0PpxZ3kNPWo@480",
+          "0PpxZ3kNPWo@481",
+          "0PpxZ3kNPWo@483",
+          "0PpxZ3kNPWo@485"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p018",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "code",
+        "importance": 2,
+        "text": "The code applies softmax to a pair of logits, prints the resulting probabilities, and then uses argmax to return the predicted class label.",
+        "line_ids": [
+          "0PpxZ3kNPWo@495",
+          "0PpxZ3kNPWo@497",
+          "0PpxZ3kNPWo@501",
+          "0PpxZ3kNPWo@503",
+          "0PpxZ3kNPWo@505",
+          "0PpxZ3kNPWo@508",
+          "0PpxZ3kNPWo@510",
+          "0PpxZ3kNPWo@516",
+          "0PpxZ3kNPWo@518",
+          "0PpxZ3kNPWo@521",
+          "0PpxZ3kNPWo@523",
+          "0PpxZ3kNPWo@526",
+          "0PpxZ3kNPWo@528",
+          "0PpxZ3kNPWo@531",
+          "0PpxZ3kNPWo@533",
+          "0PpxZ3kNPWo@535",
+          "0PpxZ3kNPWo@536",
+          "0PpxZ3kNPWo@539",
+          "0PpxZ3kNPWo@541",
+          "0PpxZ3kNPWo@543"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p019",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The model predicts the input text is spam when argmax on the final token outputs returns class label 1.",
+        "line_ids": [
+          "0PpxZ3kNPWo@531",
+          "0PpxZ3kNPWo@533",
+          "0PpxZ3kNPWo@535",
+          "0PpxZ3kNPWo@536",
+          "0PpxZ3kNPWo@539",
+          "0PpxZ3kNPWo@541",
+          "0PpxZ3kNPWo@543",
+          "0PpxZ3kNPWo@545"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p020",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Classification accuracy measures the percentage of correct predictions across a dataset.",
+        "line_ids": [
+          "0PpxZ3kNPWo@576",
+          "0PpxZ3kNPWo@579",
+          "0PpxZ3kNPWo@582"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p021",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To determine classification accuracy, apply argmax-based prediction to all examples in the dataset and compare the predicted labels with the actual labels.",
+        "line_ids": [
+          "0PpxZ3kNPWo@599",
+          "0PpxZ3kNPWo@601",
+          "0PpxZ3kNPWo@603",
+          "0PpxZ3kNPWo@605",
+          "0PpxZ3kNPWo@607",
+          "0PpxZ3kNPWo@609",
+          "0PpxZ3kNPWo@611",
+          "0PpxZ3kNPWo@614"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p022",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In a batch, pass each input through the model, get the two logits for the last output token, apply argmax to obtain predicted labels, and compare them with the target labels.",
+        "line_ids": [
+          "0PpxZ3kNPWo@626",
+          "0PpxZ3kNPWo@628",
+          "0PpxZ3kNPWo@630",
+          "0PpxZ3kNPWo@633",
+          "0PpxZ3kNPWo@635",
+          "0PpxZ3kNPWo@637",
+          "0PpxZ3kNPWo@641",
+          "0PpxZ3kNPWo@644",
+          "0PpxZ3kNPWo@647",
+          "0PpxZ3kNPWo@649",
+          "0PpxZ3kNPWo@651",
+          "0PpxZ3kNPWo@655",
+          "0PpxZ3kNPWo@657"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p023",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "definition",
+        "importance": 2,
+        "text": "The output labels are the target labels, meaning the true values, and they are compared against the predicted labels to compute accuracy.",
+        "line_ids": [
+          "0PpxZ3kNPWo@641",
+          "0PpxZ3kNPWo@644",
+          "0PpxZ3kNPWo@647",
+          "0PpxZ3kNPWo@649",
+          "0PpxZ3kNPWo@651",
+          "0PpxZ3kNPWo@655",
+          "0PpxZ3kNPWo@657"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p024",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "While computing accuracy, increase the count of correct predictions when a prediction matches the target label and keep track of the total number of examples processed.",
+        "line_ids": [
+          "0PpxZ3kNPWo@758",
+          "0PpxZ3kNPWo@760",
+          "0PpxZ3kNPWo@763",
+          "0PpxZ3kNPWo@766",
+          "0PpxZ3kNPWo@768",
+          "0PpxZ3kNPWo@770",
+          "0PpxZ3kNPWo@771",
+          "0PpxZ3kNPWo@774",
+          "0PpxZ3kNPWo@776",
+          "0PpxZ3kNPWo@778",
+          "0PpxZ3kNPWo@780",
+          "0PpxZ3kNPWo@782",
+          "0PpxZ3kNPWo@785",
+          "0PpxZ3kNPWo@789",
+          "0PpxZ3kNPWo@793",
+          "0PpxZ3kNPWo@795",
+          "0PpxZ3kNPWo@797",
+          "0PpxZ3kNPWo@800",
+          "0PpxZ3kNPWo@801",
+          "0PpxZ3kNPWo@803"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p025",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "equation",
+        "importance": 3,
+        "text": "Accuracy is computed as the number of correct predictions divided by the number of examples.",
+        "line_ids": [
+          "0PpxZ3kNPWo@806",
+          "0PpxZ3kNPWo@807",
+          "0PpxZ3kNPWo@809",
+          "0PpxZ3kNPWo@811",
+          "0PpxZ3kNPWo@813",
+          "0PpxZ3kNPWo@815",
+          "0PpxZ3kNPWo@817"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p026",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "code",
+        "importance": 2,
+        "text": "The function to calculate accuracy uses the full dataloader length as the number of batches if none is specified, or otherwise uses the minimum of the specified number and the dataloader length.",
+        "line_ids": [
+          "0PpxZ3kNPWo@668",
+          "0PpxZ3kNPWo@670",
+          "0PpxZ3kNPWo@673",
+          "0PpxZ3kNPWo@675",
+          "0PpxZ3kNPWo@677",
+          "0PpxZ3kNPWo@679",
+          "0PpxZ3kNPWo@681",
+          "0PpxZ3kNPWo@683",
+          "0PpxZ3kNPWo@691",
+          "0PpxZ3kNPWo@693",
+          "0PpxZ3kNPWo@695",
+          "0PpxZ3kNPWo@700",
+          "0PpxZ3kNPWo@702",
+          "0PpxZ3kNPWo@703",
+          "0PpxZ3kNPWo@706",
+          "0PpxZ3kNPWo@708",
+          "0PpxZ3kNPWo@711",
+          "0PpxZ3kNPWo@713"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p027",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "code",
+        "importance": 2,
+        "text": "The accuracy function iterates over each batch in the dataloader, computes logits for all samples in the batch, takes argmax predictions for the batch, and compares them with the target labels.",
+        "line_ids": [
+          "0PpxZ3kNPWo@716",
+          "0PpxZ3kNPWo@717",
+          "0PpxZ3kNPWo@719",
+          "0PpxZ3kNPWo@721",
+          "0PpxZ3kNPWo@723",
+          "0PpxZ3kNPWo@725",
+          "0PpxZ3kNPWo@728",
+          "0PpxZ3kNPWo@730",
+          "0PpxZ3kNPWo@734",
+          "0PpxZ3kNPWo@736",
+          "0PpxZ3kNPWo@738",
+          "0PpxZ3kNPWo@740",
+          "0PpxZ3kNPWo@743",
+          "0PpxZ3kNPWo@746",
+          "0PpxZ3kNPWo@747",
+          "0PpxZ3kNPWo@750",
+          "0PpxZ3kNPWo@752",
+          "0PpxZ3kNPWo@754",
+          "0PpxZ3kNPWo@756",
+          "0PpxZ3kNPWo@758",
+          "0PpxZ3kNPWo@760"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p028",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "code",
+        "importance": 2,
+        "text": "The code calls the accuracy function on the training, validation, and test loaders with the number of batches set to 10 and then prints the three accuracies.",
+        "line_ids": [
+          "0PpxZ3kNPWo@837",
+          "0PpxZ3kNPWo@838",
+          "0PpxZ3kNPWo@840",
+          "0PpxZ3kNPWo@842",
+          "0PpxZ3kNPWo@844",
+          "0PpxZ3kNPWo@846",
+          "0PpxZ3kNPWo@848",
+          "0PpxZ3kNPWo@850",
+          "0PpxZ3kNPWo@868",
+          "0PpxZ3kNPWo@869",
+          "0PpxZ3kNPWo@871",
+          "0PpxZ3kNPWo@873",
+          "0PpxZ3kNPWo@878",
+          "0PpxZ3kNPWo@880",
+          "0PpxZ3kNPWo@882",
+          "0PpxZ3kNPWo@884",
+          "0PpxZ3kNPWo@886",
+          "0PpxZ3kNPWo@890",
+          "0PpxZ3kNPWo@892",
+          "0PpxZ3kNPWo@894"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p029",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Before backpropagation is implemented, the training, validation, and test accuracies are not expected to be good because the model has not been optimized yet.",
+        "line_ids": [
+          "0PpxZ3kNPWo@894",
+          "0PpxZ3kNPWo@895",
+          "0PpxZ3kNPWo@898",
+          "0PpxZ3kNPWo@900"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p030",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The model’s initial performance is poor: the training accuracy is 46%, the validation accuracy is 45%, and the test accuracy is 48%, which is worse than a coin toss.",
+        "line_ids": [
+          "0PpxZ3kNPWo@905",
+          "0PpxZ3kNPWo@907",
+          "0PpxZ3kNPWo@909",
+          "0PpxZ3kNPWo@912",
+          "0PpxZ3kNPWo@915",
+          "0PpxZ3kNPWo@921"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p031",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To improve prediction accuracy, the model must be fine-tuned by defining a loss function from the true targets and predicted values, computing gradients of that loss with respect to the trainable weights, and updating the weights repeatedly until the loss is minimized.",
+        "line_ids": [
+          "0PpxZ3kNPWo@923",
+          "0PpxZ3kNPWo@925",
+          "0PpxZ3kNPWo@931",
+          "0PpxZ3kNPWo@936",
+          "0PpxZ3kNPWo@939",
+          "0PpxZ3kNPWo@947",
+          "0PpxZ3kNPWo@952",
+          "0PpxZ3kNPWo@957",
+          "0PpxZ3kNPWo@964",
+          "0PpxZ3kNPWo@966",
+          "0PpxZ3kNPWo@983",
+          "0PpxZ3kNPWo@985"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p032",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "equation",
+        "importance": 3,
+        "text": "The weight update rule is weight new equals weight old minus the partial derivative of the loss with respect to that weight.",
+        "line_ids": [
+          "0PpxZ3kNPWo@966",
+          "0PpxZ3kNPWo@971",
+          "0PpxZ3kNPWo@974",
+          "0PpxZ3kNPWo@976"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p033",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "A variation of simple gradient descent such as Adam or AdamW is used for optimization.",
+        "line_ids": [
+          "0PpxZ3kNPWo@976",
+          "0PpxZ3kNPWo@978",
+          "0PpxZ3kNPWo@980"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p034",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "The lecturer illustrates optimization as moving down a simplified loss curve from a higher-loss starting point toward a global minimum.",
+        "line_ids": [
+          "0PpxZ3kNPWo@987",
+          "0PpxZ3kNPWo@989",
+          "0PpxZ3kNPWo@993",
+          "0PpxZ3kNPWo@995",
+          "0PpxZ3kNPWo@998",
+          "0PpxZ3kNPWo@1001",
+          "0PpxZ3kNPWo@1003"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p035",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "When the loss is minimized, the accuracy should also become higher automatically.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1005",
+          "0PpxZ3kNPWo@1008",
+          "0PpxZ3kNPWo@1009"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p036",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "definition",
+        "importance": 3,
+        "text": "For classification with targets Yi and predictions Pi, the loss function used is categorical cross-entropy loss.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1012",
+          "0PpxZ3kNPWo@1013",
+          "0PpxZ3kNPWo@1015",
+          "0PpxZ3kNPWo@1019",
+          "0PpxZ3kNPWo@1023",
+          "0PpxZ3kNPWo@1030",
+          "0PpxZ3kNPWo@1034",
+          "0PpxZ3kNPWo@1036"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p037",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "equation",
+        "importance": 3,
+        "text": "Categorical cross-entropy loss is defined as the negative sum over class labels of Yi times log of Pi.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1036",
+          "0PpxZ3kNPWo@1038",
+          "0PpxZ3kNPWo@1040",
+          "0PpxZ3kNPWo@1042",
+          "0PpxZ3kNPWo@1047"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p038",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "If the true label is not spam with one-hot encoding [1, 0] and the predicted values are [0.8, 0.2], the cross-entropy loss is computed by multiplying each true-value entry by the log of the corresponding predicted value and taking the negative sum.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1050",
+          "0PpxZ3kNPWo@1052",
+          "0PpxZ3kNPWo@1054",
+          "0PpxZ3kNPWo@1056",
+          "0PpxZ3kNPWo@1059",
+          "0PpxZ3kNPWo@1061",
+          "0PpxZ3kNPWo@1065",
+          "0PpxZ3kNPWo@1068",
+          "0PpxZ3kNPWo@1072",
+          "0PpxZ3kNPWo@1076",
+          "0PpxZ3kNPWo@1080",
+          "0PpxZ3kNPWo@1085",
+          "0PpxZ3kNPWo@1090",
+          "0PpxZ3kNPWo@1092",
+          "0PpxZ3kNPWo@1095"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p039",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "If the predicted value exactly equals the true value, the cross-entropy loss is zero.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1105",
+          "0PpxZ3kNPWo@1107",
+          "0PpxZ3kNPWo@1110",
+          "0PpxZ3kNPWo@1112",
+          "0PpxZ3kNPWo@1115",
+          "0PpxZ3kNPWo@1119",
+          "0PpxZ3kNPWo@1120",
+          "0PpxZ3kNPWo@1123",
+          "0PpxZ3kNPWo@1125"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p040",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Negative Yi log Pi is a good loss function for categorical predictions in classification tasks.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1125",
+          "0PpxZ3kNPWo@1127",
+          "0PpxZ3kNPWo@1131",
+          "0PpxZ3kNPWo@1134",
+          "0PpxZ3kNPWo@1136",
+          "0PpxZ3kNPWo@1139"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p041",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "visual_ref",
+        "importance": 2,
+        "text": "The lecturer shows the graph of negative log of x and explains that the probability of the correct class should be as close to one as possible so that the loss becomes as close to zero as possible.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1143",
+          "0PpxZ3kNPWo@1147",
+          "0PpxZ3kNPWo@1148",
+          "0PpxZ3kNPWo@1150",
+          "0PpxZ3kNPWo@1154",
+          "0PpxZ3kNPWo@1155",
+          "0PpxZ3kNPWo@1158",
+          "0PpxZ3kNPWo@1160",
+          "0PpxZ3kNPWo@1162"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p042",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Cross-entropy loss is differentiable, which makes it useful for backpropagation.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1165",
+          "0PpxZ3kNPWo@1167",
+          "0PpxZ3kNPWo@1169",
+          "0PpxZ3kNPWo@1171"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p043",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Classification accuracy cannot be used directly as the loss, or inverted to form a loss, because accuracy is not differentiable.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1185",
+          "0PpxZ3kNPWo@1187",
+          "0PpxZ3kNPWo@1189",
+          "0PpxZ3kNPWo@1191",
+          "0PpxZ3kNPWo@1193",
+          "0PpxZ3kNPWo@1195"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p044",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Cross-entropy loss is used as a proxy to maximize accuracy, and it is the same loss used to pre-train the large language model.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1195",
+          "0PpxZ3kNPWo@1197",
+          "0PpxZ3kNPWo@1199",
+          "0PpxZ3kNPWo@1201",
+          "0PpxZ3kNPWo@1203"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p045",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "Given an input batch and a target batch, pass the input batch through the model, take the logits of the last output token, and compute the categorical cross-entropy loss between those logits and the target batch.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1208",
+          "0PpxZ3kNPWo@1211",
+          "0PpxZ3kNPWo@1212",
+          "0PpxZ3kNPWo@1215",
+          "0PpxZ3kNPWo@1216",
+          "0PpxZ3kNPWo@1218",
+          "0PpxZ3kNPWo@1221",
+          "0PpxZ3kNPWo@1224",
+          "0PpxZ3kNPWo@1225",
+          "0PpxZ3kNPWo@1227",
+          "0PpxZ3kNPWo@1229",
+          "0PpxZ3kNPWo@1232",
+          "0PpxZ3kNPWo@1233",
+          "0PpxZ3kNPWo@1236",
+          "0PpxZ3kNPWo@1238"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p046",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "code",
+        "importance": 3,
+        "text": "The code uses torch.nn.functional.cross_entropy to compute the cross-entropy loss, and this loss is differentiable for backpropagation.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1253",
+          "0PpxZ3kNPWo@1256",
+          "0PpxZ3kNPWo@1259",
+          "0PpxZ3kNPWo@1260",
+          "0PpxZ3kNPWo@1263",
+          "0PpxZ3kNPWo@1266",
+          "0PpxZ3kNPWo@1267"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p047",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "A calculate loss batch function computes the loss for a single batch, and a loader-level loss function computes loss over multiple batches by choosing the number of batches, calculating each batch loss, summing them, and dividing by the number of batches to get the average loss per batch.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1269",
+          "0PpxZ3kNPWo@1271",
+          "0PpxZ3kNPWo@1274",
+          "0PpxZ3kNPWo@1276",
+          "0PpxZ3kNPWo@1278",
+          "0PpxZ3kNPWo@1281",
+          "0PpxZ3kNPWo@1284",
+          "0PpxZ3kNPWo@1286",
+          "0PpxZ3kNPWo@1289",
+          "0PpxZ3kNPWo@1292",
+          "0PpxZ3kNPWo@1293",
+          "0PpxZ3kNPWo@1296",
+          "0PpxZ3kNPWo@1297",
+          "0PpxZ3kNPWo@1299",
+          "0PpxZ3kNPWo@1301",
+          "0PpxZ3kNPWo@1307",
+          "0PpxZ3kNPWo@1309",
+          "0PpxZ3kNPWo@1311",
+          "0PpxZ3kNPWo@1312",
+          "0PpxZ3kNPWo@1314",
+          "0PpxZ3kNPWo@1318",
+          "0PpxZ3kNPWo@1321",
+          "0PpxZ3kNPWo@1323",
+          "0PpxZ3kNPWo@1326",
+          "0PpxZ3kNPWo@1328",
+          "0PpxZ3kNPWo@1330",
+          "0PpxZ3kNPWo@1331",
+          "0PpxZ3kNPWo@1333",
+          "0PpxZ3kNPWo@1336",
+          "0PpxZ3kNPWo@1337"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p048",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Before backpropagation is implemented, the loss values are expected to be high, and this matches the previously observed poor accuracy.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1345",
+          "0PpxZ3kNPWo@1347",
+          "0PpxZ3kNPWo@1349",
+          "0PpxZ3kNPWo@1351",
+          "0PpxZ3kNPWo@1353",
+          "0PpxZ3kNPWo@1355",
+          "0PpxZ3kNPWo@1357",
+          "0PpxZ3kNPWo@1361",
+          "0PpxZ3kNPWo@1364",
+          "0PpxZ3kNPWo@1366",
+          "0PpxZ3kNPWo@1368",
+          "0PpxZ3kNPWo@1370",
+          "0PpxZ3kNPWo@1372",
+          "0PpxZ3kNPWo@1385",
+          "0PpxZ3kNPWo@1387",
+          "0PpxZ3kNPWo@1388",
+          "0PpxZ3kNPWo@1390",
+          "0PpxZ3kNPWo@1392",
+          "0PpxZ3kNPWo@1395",
+          "0PpxZ3kNPWo@1397",
+          "0PpxZ3kNPWo@1398"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p049",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "To inspect initial loss values, the code applies the loss-loader function to the train, validation, and test loaders with the number of batches set to five, then prints the training, validation, and test losses.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1353",
+          "0PpxZ3kNPWo@1355",
+          "0PpxZ3kNPWo@1357",
+          "0PpxZ3kNPWo@1359",
+          "0PpxZ3kNPWo@1361",
+          "0PpxZ3kNPWo@1364",
+          "0PpxZ3kNPWo@1375",
+          "0PpxZ3kNPWo@1377",
+          "0PpxZ3kNPWo@1379",
+          "0PpxZ3kNPWo@1382",
+          "0PpxZ3kNPWo@1383",
+          "0PpxZ3kNPWo@1385",
+          "0PpxZ3kNPWo@1387",
+          "0PpxZ3kNPWo@1388"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p050",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "Fine-tuning the model means implementing a training function that adjusts parameters to minimize training loss while also reporting validation loss and test loss.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1401",
+          "0PpxZ3kNPWo@1403",
+          "0PpxZ3kNPWo@1404",
+          "0PpxZ3kNPWo@1407",
+          "0PpxZ3kNPWo@1409",
+          "0PpxZ3kNPWo@1411",
+          "0PpxZ3kNPWo@1413"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p051",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 1,
+        "text": "At this point in the workflow, the dataset has been downloaded and preprocessed, data loaders have been created, the model has been initialized and loaded with pretrained weights, the model has been modified for fine-tuning, and evaluation utilities for loss and accuracy have been implemented.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1416",
+          "0PpxZ3kNPWo@1418",
+          "0PpxZ3kNPWo@1420",
+          "0PpxZ3kNPWo@1423",
+          "0PpxZ3kNPWo@1424",
+          "0PpxZ3kNPWo@1427",
+          "0PpxZ3kNPWo@1429",
+          "0PpxZ3kNPWo@1432",
+          "0PpxZ3kNPWo@1434",
+          "0PpxZ3kNPWo@1436"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p052",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The next stage is to fine-tune the model by defining the training loop and implementing backpropagation.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1436",
+          "0PpxZ3kNPWo@1438",
+          "0PpxZ3kNPWo@1440",
+          "0PpxZ3kNPWo@1442",
+          "0PpxZ3kNPWo@1444"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p053",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "definition",
+        "importance": 3,
+        "text": "One epoch means going through the entire dataset once.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1445",
+          "0PpxZ3kNPWo@1447",
+          "0PpxZ3kNPWo@1449",
+          "0PpxZ3kNPWo@1452",
+          "0PpxZ3kNPWo@1454"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p054",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In the training loop, for each epoch and each batch, compute the loss on the current batch, run a backward pass to calculate loss gradients, update the model weights using those gradients, and then print the training and validation loss.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1457",
+          "0PpxZ3kNPWo@1459",
+          "0PpxZ3kNPWo@1460",
+          "0PpxZ3kNPWo@1463",
+          "0PpxZ3kNPWo@1465",
+          "0PpxZ3kNPWo@1468",
+          "0PpxZ3kNPWo@1469",
+          "0PpxZ3kNPWo@1472",
+          "0PpxZ3kNPWo@1475",
+          "0PpxZ3kNPWo@1478",
+          "0PpxZ3kNPWo@1480",
+          "0PpxZ3kNPWo@1481",
+          "0PpxZ3kNPWo@1483",
+          "0PpxZ3kNPWo@1489",
+          "0PpxZ3kNPWo@1493",
+          "0PpxZ3kNPWo@1496",
+          "0PpxZ3kNPWo@1500",
+          "0PpxZ3kNPWo@1501",
+          "0PpxZ3kNPWo@1504",
+          "0PpxZ3kNPWo@1506"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p055",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The backward pass is the most important step because it produces loss gradients with respect to the parameters, which is why the loss function must be differentiable.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1510",
+          "0PpxZ3kNPWo@1512",
+          "0PpxZ3kNPWo@1514",
+          "0PpxZ3kNPWo@1516",
+          "0PpxZ3kNPWo@1518",
+          "0PpxZ3kNPWo@1521",
+          "0PpxZ3kNPWo@1522"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p056",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Once the loss gradients with respect to the parameters are available, the parameters can be updated repeatedly so that the loss is hopefully minimized.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1522",
+          "0PpxZ3kNPWo@1524",
+          "0PpxZ3kNPWo@1526",
+          "0PpxZ3kNPWo@1528",
+          "0PpxZ3kNPWo@1529",
+          "0PpxZ3kNPWo@1532",
+          "0PpxZ3kNPWo@1534"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p057",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "This fine-tuning training function is the same training function used earlier to pre-train the LLM.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1534",
+          "0PpxZ3kNPWo@1536",
+          "0PpxZ3kNPWo@1538"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p058",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Fine-tuning on supervised data such as spam or no-spam labels still requires training the model, so there is a training process in both pre-training and fine-tuning.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1541",
+          "0PpxZ3kNPWo@1544",
+          "0PpxZ3kNPWo@1546",
+          "0PpxZ3kNPWo@1548",
+          "0PpxZ3kNPWo@1551",
+          "0PpxZ3kNPWo@1553",
+          "0PpxZ3kNPWo@1555",
+          "0PpxZ3kNPWo@1557",
+          "0PpxZ3kNPWo@1559",
+          "0PpxZ3kNPWo@1560",
+          "0PpxZ3kNPWo@1562",
+          "0PpxZ3kNPWo@1564"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p059",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Up to this point, the model has not actually been trained on this dataset, which is why the parameters are not optimized.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1570",
+          "0PpxZ3kNPWo@1573",
+          "0PpxZ3kNPWo@1575",
+          "0PpxZ3kNPWo@1578",
+          "0PpxZ3kNPWo@1579",
+          "0PpxZ3kNPWo@1582"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p060",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In this section, the training function will be defined and used to fine-tune the pretrained LLM to improve spam classification accuracy.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1582",
+          "0PpxZ3kNPWo@1583",
+          "0PpxZ3kNPWo@1585",
+          "0PpxZ3kNPWo@1587",
+          "0PpxZ3kNPWo@1588"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p061",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The fine-tuning training function is very close to the earlier train_model_simple function used for pre-training, except that it tracks the number of text examples rather than the number of tokens.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1591",
+          "0PpxZ3kNPWo@1592",
+          "0PpxZ3kNPWo@1594",
+          "0PpxZ3kNPWo@1597",
+          "0PpxZ3kNPWo@1599",
+          "0PpxZ3kNPWo@1600",
+          "0PpxZ3kNPWo@1602",
+          "0PpxZ3kNPWo@1605",
+          "0PpxZ3kNPWo@1607"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p062",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The first step in the code is to set the model to training mode.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1609",
+          "0PpxZ3kNPWo@1612",
+          "0PpxZ3kNPWo@1613",
+          "0PpxZ3kNPWo@1615",
+          "0PpxZ3kNPWo@1617",
+          "0PpxZ3kNPWo@1619"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p063",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The second step is to reset the loss gradients from the previous batch before processing the current batch.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1619",
+          "0PpxZ3kNPWo@1621",
+          "0PpxZ3kNPWo@1624",
+          "0PpxZ3kNPWo@1626",
+          "0PpxZ3kNPWo@1628",
+          "0PpxZ3kNPWo@1630",
+          "0PpxZ3kNPWo@1633"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p064",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The third and most important step is to compute the batch loss, backpropagate to get loss gradients, and then call the optimizer step to update the model weights.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1636",
+          "0PpxZ3kNPWo@1637",
+          "0PpxZ3kNPWo@1639",
+          "0PpxZ3kNPWo@1642",
+          "0PpxZ3kNPWo@1644",
+          "0PpxZ3kNPWo@1646",
+          "0PpxZ3kNPWo@1647",
+          "0PpxZ3kNPWo@1650",
+          "0PpxZ3kNPWo@1651"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p065",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In practice, optimization uses a more complicated algorithm than vanilla gradient descent, one that tracks previous gradients and gradient squares to optimize better and help avoid getting stuck in local minima.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1654",
+          "0PpxZ3kNPWo@1656",
+          "0PpxZ3kNPWo@1658",
+          "0PpxZ3kNPWo@1661",
+          "0PpxZ3kNPWo@1663",
+          "0PpxZ3kNPWo@1665",
+          "0PpxZ3kNPWo@1668",
+          "0PpxZ3kNPWo@1671",
+          "0PpxZ3kNPWo@1673",
+          "0PpxZ3kNPWo@1675"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p066",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "The code keeps track of the number of examples seen, where input_batch.shape[0] gives the number of samples in the batch.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1678",
+          "0PpxZ3kNPWo@1680",
+          "0PpxZ3kNPWo@1681",
+          "0PpxZ3kNPWo@1684",
+          "0PpxZ3kNPWo@1687",
+          "0PpxZ3kNPWo@1689",
+          "0PpxZ3kNPWo@1692",
+          "0PpxZ3kNPWo@1694",
+          "0PpxZ3kNPWo@1696",
+          "0PpxZ3kNPWo@1699",
+          "0PpxZ3kNPWo@1702",
+          "0PpxZ3kNPWo@1704",
+          "0PpxZ3kNPWo@1706"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p067",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "definition",
+        "importance": 2,
+        "text": "An example seen means one text message processed by the model.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1710",
+          "0PpxZ3kNPWo@1711",
+          "0PpxZ3kNPWo@1713",
+          "0PpxZ3kNPWo@1715",
+          "0PpxZ3kNPWo@1717",
+          "0PpxZ3kNPWo@1719",
+          "0PpxZ3kNPWo@1721"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p068",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "Whenever the model goes through a full batch, the global step is increased by one.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1721",
+          "0PpxZ3kNPWo@1724",
+          "0PpxZ3kNPWo@1726"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p069",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "definition",
+        "importance": 2,
+        "text": "Evaluation frequency specifies after how many processed batches the training loss and validation loss are printed.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1729",
+          "0PpxZ3kNPWo@1733",
+          "0PpxZ3kNPWo@1734",
+          "0PpxZ3kNPWo@1737",
+          "0PpxZ3kNPWo@1740",
+          "0PpxZ3kNPWo@1743",
+          "0PpxZ3kNPWo@1745",
+          "0PpxZ3kNPWo@1748",
+          "0PpxZ3kNPWo@1750",
+          "0PpxZ3kNPWo@1753",
+          "0PpxZ3kNPWo@1759",
+          "0PpxZ3kNPWo@1762",
+          "0PpxZ3kNPWo@1765",
+          "0PpxZ3kNPWo@1767",
+          "0PpxZ3kNPWo@1769",
+          "0PpxZ3kNPWo@1772",
+          "0PpxZ3kNPWo@1776",
+          "0PpxZ3kNPWo@1778"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p070",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "If the training data loader has 130 batches and the evaluation frequency is 50, the training and validation loss are printed about two times per epoch.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1737",
+          "0PpxZ3kNPWo@1740",
+          "0PpxZ3kNPWo@1743",
+          "0PpxZ3kNPWo@1745",
+          "0PpxZ3kNPWo@1748",
+          "0PpxZ3kNPWo@1750",
+          "0PpxZ3kNPWo@1753",
+          "0PpxZ3kNPWo@1759",
+          "0PpxZ3kNPWo@1762",
+          "0PpxZ3kNPWo@1765",
+          "0PpxZ3kNPWo@1784",
+          "0PpxZ3kNPWo@1786",
+          "0PpxZ3kNPWo@1788",
+          "0PpxZ3kNPWo@1790",
+          "0PpxZ3kNPWo@1792",
+          "0PpxZ3kNPWo@1794",
+          "0PpxZ3kNPWo@1797",
+          "0PpxZ3kNPWo@1799"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p071",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The training code uses an evaluation step that can compute training and validation loss on only a specified number of batches, such as five or ten, to save time.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1803",
+          "0PpxZ3kNPWo@1804",
+          "0PpxZ3kNPWo@1806",
+          "0PpxZ3kNPWo@1809",
+          "0PpxZ3kNPWo@1811",
+          "0PpxZ3kNPWo@1813",
+          "0PpxZ3kNPWo@1816",
+          "0PpxZ3kNPWo@1817",
+          "0PpxZ3kNPWo@1819",
+          "0PpxZ3kNPWo@1821",
+          "0PpxZ3kNPWo@1823",
+          "0PpxZ3kNPWo@1825",
+          "0PpxZ3kNPWo@1828",
+          "0PpxZ3kNPWo@1829",
+          "0PpxZ3kNPWo@1830",
+          "0PpxZ3kNPWo@1833"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p072",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "During training, the training loss and validation loss are printed after every 50 batches because of the evaluation step, and the training and validation accuracy are printed after every epoch.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1835",
+          "0PpxZ3kNPWo@1837",
+          "0PpxZ3kNPWo@1838",
+          "0PpxZ3kNPWo@1841",
+          "0PpxZ3kNPWo@1842",
+          "0PpxZ3kNPWo@1844",
+          "0PpxZ3kNPWo@1846",
+          "0PpxZ3kNPWo@1848",
+          "0PpxZ3kNPWo@1850",
+          "0PpxZ3kNPWo@1852",
+          "0PpxZ3kNPWo@1854",
+          "0PpxZ3kNPWo@1855",
+          "0PpxZ3kNPWo@1858",
+          "0PpxZ3kNPWo@1860"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p073",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 1,
+        "text": "On the lecturer's machine, the training process took about 8.8 minutes, and on a typical i5, i7, or MacBook laptop it should take about 7 to 10 minutes.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1863",
+          "0PpxZ3kNPWo@1865",
+          "0PpxZ3kNPWo@1868",
+          "0PpxZ3kNPWo@1871",
+          "0PpxZ3kNPWo@1873",
+          "0PpxZ3kNPWo@1876",
+          "0PpxZ3kNPWo@1878"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p074",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "definition",
+        "importance": 2,
+        "text": "AdamW is a modification of the Adam optimizer with weight decay.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1885",
+          "0PpxZ3kNPWo@1888",
+          "0PpxZ3kNPWo@1890",
+          "0PpxZ3kNPWo@1893"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p075",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The lecturer says AdamW helps avoid local minima, converges smoothly, and can lead to faster convergence.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1893",
+          "0PpxZ3kNPWo@1897",
+          "0PpxZ3kNPWo@1900",
+          "0PpxZ3kNPWo@1902"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p076",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The training setup allows experimentation with optimizer choices and hyperparameters such as AdamW versus Adam, learning rate, and weight decay, so the code can be used for research and exploring their effects on loss and accuracy.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1905",
+          "0PpxZ3kNPWo@1906",
+          "0PpxZ3kNPWo@1909",
+          "0PpxZ3kNPWo@1911",
+          "0PpxZ3kNPWo@1913",
+          "0PpxZ3kNPWo@1916",
+          "0PpxZ3kNPWo@1918",
+          "0PpxZ3kNPWo@1919",
+          "0PpxZ3kNPWo@1921",
+          "0PpxZ3kNPWo@1924",
+          "0PpxZ3kNPWo@1925",
+          "0PpxZ3kNPWo@1928"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p077",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "code",
+        "importance": 3,
+        "text": "The training function is called with the modified GPT model that has a classification head on top, along with the train loader, validation loader, optimizer, number of epochs, evaluation frequency, and evaluation iterations.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1933",
+          "0PpxZ3kNPWo@1935",
+          "0PpxZ3kNPWo@1938",
+          "0PpxZ3kNPWo@1940",
+          "0PpxZ3kNPWo@1942",
+          "0PpxZ3kNPWo@1944",
+          "0PpxZ3kNPWo@1948",
+          "0PpxZ3kNPWo@1951",
+          "0PpxZ3kNPWo@1953",
+          "0PpxZ3kNPWo@1955",
+          "0PpxZ3kNPWo@1957",
+          "0PpxZ3kNPWo@1960",
+          "0PpxZ3kNPWo@1961",
+          "0PpxZ3kNPWo@1964",
+          "0PpxZ3kNPWo@1967",
+          "0PpxZ3kNPWo@1970",
+          "0PpxZ3kNPWo@1972",
+          "0PpxZ3kNPWo@1975"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p078",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In this training call, the evaluation frequency is set so that training and validation loss are printed after every 50 batches, and the evaluation iterations are set to five batches to make the calculations quick.",
+        "line_ids": [
+          "0PpxZ3kNPWo@1975",
+          "0PpxZ3kNPWo@1978",
+          "0PpxZ3kNPWo@1979",
+          "0PpxZ3kNPWo@1981",
+          "0PpxZ3kNPWo@1983",
+          "0PpxZ3kNPWo@1986",
+          "0PpxZ3kNPWo@1988",
+          "0PpxZ3kNPWo@1991",
+          "0PpxZ3kNPWo@1992",
+          "0PpxZ3kNPWo@1994",
+          "0PpxZ3kNPWo@1996",
+          "0PpxZ3kNPWo@1998"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p079",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Evaluating on only five batches is not the best evaluation method, but it gives a useful sense of how training and validation loss are progressing during training.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2000",
+          "0PpxZ3kNPWo@2002",
+          "0PpxZ3kNPWo@2004",
+          "0PpxZ3kNPWo@2007",
+          "0PpxZ3kNPWo@2010",
+          "0PpxZ3kNPWo@2011",
+          "0PpxZ3kNPWo@2013"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p080",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "After training, the training loss reached about 0.083, the validation loss reached about 0.074, the training accuracy reached around 100%, and the validation accuracy reached 97.5%.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2016",
+          "0PpxZ3kNPWo@2018",
+          "0PpxZ3kNPWo@2020",
+          "0PpxZ3kNPWo@2022",
+          "0PpxZ3kNPWo@2025",
+          "0PpxZ3kNPWo@2027",
+          "0PpxZ3kNPWo@2029",
+          "0PpxZ3kNPWo@2032",
+          "0PpxZ3kNPWo@2035"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p081",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "As the model sees more examples, both training loss and validation loss go down.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2039",
+          "0PpxZ3kNPWo@2040",
+          "0PpxZ3kNPWo@2042",
+          "0PpxZ3kNPWo@2045",
+          "0PpxZ3kNPWo@2047",
+          "0PpxZ3kNPWo@2049",
+          "0PpxZ3kNPWo@2051",
+          "0PpxZ3kNPWo@2054",
+          "0PpxZ3kNPWo@2055"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p082",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Very low training loss and very low validation loss with little gap between them indicate good training with little to no overfitting.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2055",
+          "0PpxZ3kNPWo@2057",
+          "0PpxZ3kNPWo@2059",
+          "0PpxZ3kNPWo@2061",
+          "0PpxZ3kNPWo@2063",
+          "0PpxZ3kNPWo@2066",
+          "0PpxZ3kNPWo@2068",
+          "0PpxZ3kNPWo@2070",
+          "0PpxZ3kNPWo@2072",
+          "0PpxZ3kNPWo@2074",
+          "0PpxZ3kNPWo@2076",
+          "0PpxZ3kNPWo@2078"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p083",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "If the validation loss is much higher than the training loss, that is a sign of overfitting.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2081",
+          "0PpxZ3kNPWo@2083",
+          "0PpxZ3kNPWo@2084",
+          "0PpxZ3kNPWo@2086",
+          "0PpxZ3kNPWo@2087"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p084",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "As loss decreases, training accuracy increases to 1 and validation accuracy increases to about 97%.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2090",
+          "0PpxZ3kNPWo@2091",
+          "0PpxZ3kNPWo@2093",
+          "0PpxZ3kNPWo@2095",
+          "0PpxZ3kNPWo@2097",
+          "0PpxZ3kNPWo@2099",
+          "0PpxZ3kNPWo@2101",
+          "0PpxZ3kNPWo@2103"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p085",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Because evaluation iterations were set to five, the plotted accuracy values are not representative of performance on the entire dataset.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2105",
+          "0PpxZ3kNPWo@2108",
+          "0PpxZ3kNPWo@2110",
+          "0PpxZ3kNPWo@2112",
+          "0PpxZ3kNPWo@2114",
+          "0PpxZ3kNPWo@2117",
+          "0PpxZ3kNPWo@2119",
+          "0PpxZ3kNPWo@2121",
+          "0PpxZ3kNPWo@2123",
+          "0PpxZ3kNPWo@2125"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p086",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To measure performance on the full training, validation, and test sets, run the calculate_accuracy_loader function with a data loader, the model, and the device.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2134",
+          "0PpxZ3kNPWo@2136",
+          "0PpxZ3kNPWo@2138",
+          "0PpxZ3kNPWo@2140",
+          "0PpxZ3kNPWo@2143",
+          "0PpxZ3kNPWo@2144",
+          "0PpxZ3kNPWo@2147",
+          "0PpxZ3kNPWo@2148",
+          "0PpxZ3kNPWo@2150",
+          "0PpxZ3kNPWo@2153"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p087",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The calculate_accuracy_loader function uses the model to make predictions, compares them with the actual values, and reports accuracy over all batches in the dataset.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2153",
+          "0PpxZ3kNPWo@2156",
+          "0PpxZ3kNPWo@2157",
+          "0PpxZ3kNPWo@2161",
+          "0PpxZ3kNPWo@2164",
+          "0PpxZ3kNPWo@2166",
+          "0PpxZ3kNPWo@2168",
+          "0PpxZ3kNPWo@2170",
+          "0PpxZ3kNPWo@2172",
+          "0PpxZ3kNPWo@2174"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p088",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Accuracy measured over all batches in the training, validation, and test sets is more representative than the plots based on only five evaluation batches.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2178",
+          "0PpxZ3kNPWo@2180",
+          "0PpxZ3kNPWo@2182",
+          "0PpxZ3kNPWo@2184",
+          "0PpxZ3kNPWo@2186",
+          "0PpxZ3kNPWo@2188",
+          "0PpxZ3kNPWo@2189"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p089",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "On the full datasets, the training accuracy is 97%, the validation accuracy is 97%, and the test accuracy is 95%.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2193",
+          "0PpxZ3kNPWo@2195",
+          "0PpxZ3kNPWo@2197",
+          "0PpxZ3kNPWo@2198",
+          "0PpxZ3kNPWo@2200",
+          "0PpxZ3kNPWo@2204",
+          "0PpxZ3kNPWo@2205"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p090",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A small gap where test accuracy is slightly lower than training accuracy suggests a small amount of overfitting.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2205",
+          "0PpxZ3kNPWo@2208",
+          "0PpxZ3kNPWo@2211",
+          "0PpxZ3kNPWo@2213",
+          "0PpxZ3kNPWo@2215",
+          "0PpxZ3kNPWo@2217",
+          "0PpxZ3kNPWo@2218",
+          "0PpxZ3kNPWo@2220",
+          "0PpxZ3kNPWo@2222",
+          "0PpxZ3kNPWo@2224",
+          "0PpxZ3kNPWo@2226"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p091",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Validation accuracy is often somewhat higher than test accuracy because model development often involves fine-tuning parameters on the validation set.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2227",
+          "0PpxZ3kNPWo@2230",
+          "0PpxZ3kNPWo@2231",
+          "0PpxZ3kNPWo@2233",
+          "0PpxZ3kNPWo@2235",
+          "0PpxZ3kNPWo@2238"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p092",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The gap between validation and test performance could potentially be reduced by adjusting model settings such as increasing dropout rate or the optimizer's weight decay parameter.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2241",
+          "0PpxZ3kNPWo@2242",
+          "0PpxZ3kNPWo@2244",
+          "0PpxZ3kNPWo@2246",
+          "0PpxZ3kNPWo@2248"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p093",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "This setup allows experimentation with dropout rate, learning rate, weight decay, and which model parameters are unfrozen during fine-tuning.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2248",
+          "0PpxZ3kNPWo@2251",
+          "0PpxZ3kNPWo@2252",
+          "0PpxZ3kNPWo@2255",
+          "0PpxZ3kNPWo@2257",
+          "0PpxZ3kNPWo@2259",
+          "0PpxZ3kNPWo@2260",
+          "0PpxZ3kNPWo@2262",
+          "0PpxZ3kNPWo@2266",
+          "0PpxZ3kNPWo@2267"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p094",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In the current fine-tuning setup, the trained parameters are the output classification head, the last transformer block, and the final normalization layer.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2267",
+          "0PpxZ3kNPWo@2269",
+          "0PpxZ3kNPWo@2272",
+          "0PpxZ3kNPWo@2274",
+          "0PpxZ3kNPWo@2276",
+          "0PpxZ3kNPWo@2277",
+          "0PpxZ3kNPWo@2279",
+          "0PpxZ3kNPWo@2281"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p095",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "One possible experiment is to train more transformer blocks instead of only the last one.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2284",
+          "0PpxZ3kNPWo@2285",
+          "0PpxZ3kNPWo@2287"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p096",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "After fine-tuning on supervised data and plotting training and validation loss, the remaining step is to use the model on new unseen data.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2311",
+          "0PpxZ3kNPWo@2313",
+          "0PpxZ3kNPWo@2315",
+          "0PpxZ3kNPWo@2319",
+          "0PpxZ3kNPWo@2322",
+          "0PpxZ3kNPWo@2324",
+          "0PpxZ3kNPWo@2326",
+          "0PpxZ3kNPWo@2328"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p097",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The real test of the spam classifier is how it performs on data the model has not seen before.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2351",
+          "0PpxZ3kNPWo@2353",
+          "0PpxZ3kNPWo@2355",
+          "0PpxZ3kNPWo@2357",
+          "0PpxZ3kNPWo@2360",
+          "0PpxZ3kNPWo@2362"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p098",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The final stage is to use the fine-tuned GPT-based model to classify spam messages.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2371",
+          "0PpxZ3kNPWo@2374",
+          "0PpxZ3kNPWo@2376",
+          "0PpxZ3kNPWo@2377",
+          "0PpxZ3kNPWo@2379",
+          "0PpxZ3kNPWo@2383",
+          "0PpxZ3kNPWo@2385"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p099",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "code",
+        "importance": 3,
+        "text": "A function called classify_review is defined to take any text and predict whether it is spam or not.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2388",
+          "0PpxZ3kNPWo@2390",
+          "0PpxZ3kNPWo@2392",
+          "0PpxZ3kNPWo@2394",
+          "0PpxZ3kNPWo@2396"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p100",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To classify a new text, the first step is to convert the text into token IDs.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2396",
+          "0PpxZ3kNPWo@2398",
+          "0PpxZ3kNPWo@2400",
+          "0PpxZ3kNPWo@2402",
+          "0PpxZ3kNPWo@2404",
+          "0PpxZ3kNPWo@2407",
+          "0PpxZ3kNPWo@2410",
+          "0PpxZ3kNPWo@2413",
+          "0PpxZ3kNPWo@2415",
+          "0PpxZ3kNPWo@2416",
+          "0PpxZ3kNPWo@2417",
+          "0PpxZ3kNPWo@2420"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p101",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "definition",
+        "importance": 2,
+        "text": "The tokenizer used is the tiktoken byte pair encoder, which converts a sentence into tokens.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2435",
+          "0PpxZ3kNPWo@2437",
+          "0PpxZ3kNPWo@2440",
+          "0PpxZ3kNPWo@2442",
+          "0PpxZ3kNPWo@2444",
+          "0PpxZ3kNPWo@2446",
+          "0PpxZ3kNPWo@2448",
+          "0PpxZ3kNPWo@2450"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p102",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The supported context length is obtained from the positional embedding weight shape, whose number of rows equals the context length and whose number of columns equals the embedding dimension.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2452",
+          "0PpxZ3kNPWo@2455",
+          "0PpxZ3kNPWo@2458",
+          "0PpxZ3kNPWo@2461",
+          "0PpxZ3kNPWo@2464",
+          "0PpxZ3kNPWo@2467",
+          "0PpxZ3kNPWo@2469",
+          "0PpxZ3kNPWo@2471",
+          "0PpxZ3kNPWo@2473",
+          "0PpxZ3kNPWo@2475",
+          "0PpxZ3kNPWo@2478",
+          "0PpxZ3kNPWo@2479",
+          "0PpxZ3kNPWo@2481"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p103",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The model compares the maximum token length from the training set with the supported context length and uses the smaller of the two as the working maximum length.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2484",
+          "0PpxZ3kNPWo@2486",
+          "0PpxZ3kNPWo@2488",
+          "0PpxZ3kNPWo@2490",
+          "0PpxZ3kNPWo@2492",
+          "0PpxZ3kNPWo@2494",
+          "0PpxZ3kNPWo@2496",
+          "0PpxZ3kNPWo@2498",
+          "0PpxZ3kNPWo@2500",
+          "0PpxZ3kNPWo@2503",
+          "0PpxZ3kNPWo@2506",
+          "0PpxZ3kNPWo@2508",
+          "0PpxZ3kNPWo@2511",
+          "0PpxZ3kNPWo@2513",
+          "0PpxZ3kNPWo@2516",
+          "0PpxZ3kNPWo@2517",
+          "0PpxZ3kNPWo@2519"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p104",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "If the maximum length is greater than the context length, sequences are truncated to the context length; otherwise the training-set maximum length is used.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2521",
+          "0PpxZ3kNPWo@2523",
+          "0PpxZ3kNPWo@2526",
+          "0PpxZ3kNPWo@2529",
+          "0PpxZ3kNPWo@2531",
+          "0PpxZ3kNPWo@2533",
+          "0PpxZ3kNPWo@2535",
+          "0PpxZ3kNPWo@2538"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p105",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "If a new message is shorter than the chosen maximum length, it is padded with end-of-text tokens until its token sequence reaches that length.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2541",
+          "0PpxZ3kNPWo@2544",
+          "0PpxZ3kNPWo@2547",
+          "0PpxZ3kNPWo@2551",
+          "0PpxZ3kNPWo@2553",
+          "0PpxZ3kNPWo@2555",
+          "0PpxZ3kNPWo@2557",
+          "0PpxZ3kNPWo@2560",
+          "0PpxZ3kNPWo@2562",
+          "0PpxZ3kNPWo@2565",
+          "0PpxZ3kNPWo@2568",
+          "0PpxZ3kNPWo@2569",
+          "0PpxZ3kNPWo@2572",
+          "0PpxZ3kNPWo@2574"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p106",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Padding every input sequence to the same length is important because batching requires every sentence to have the same number of token IDs.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2574",
+          "0PpxZ3kNPWo@2576",
+          "0PpxZ3kNPWo@2579",
+          "0PpxZ3kNPWo@2581",
+          "0PpxZ3kNPWo@2583",
+          "0PpxZ3kNPWo@2586"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p107",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The maximum length is ideally taken from the longest message in the training dataset, but if that exceeds the context length then the context length is used instead.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2586",
+          "0PpxZ3kNPWo@2588",
+          "0PpxZ3kNPWo@2591",
+          "0PpxZ3kNPWo@2593",
+          "0PpxZ3kNPWo@2594",
+          "0PpxZ3kNPWo@2596",
+          "0PpxZ3kNPWo@2598"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p108",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "After tokenization and padding with the end-of-text token 50256 to the maximum length, the input is converted into a tensor and a batch dimension is added before inference.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2600",
+          "0PpxZ3kNPWo@2602",
+          "0PpxZ3kNPWo@2605",
+          "0PpxZ3kNPWo@2607",
+          "0PpxZ3kNPWo@2609",
+          "0PpxZ3kNPWo@2613",
+          "0PpxZ3kNPWo@2615",
+          "0PpxZ3kNPWo@2619"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p109",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "During inference, the model produces logits for the last output token, and applying argmax gives the predicted class label of spam or not spam.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2619",
+          "0PpxZ3kNPWo@2620",
+          "0PpxZ3kNPWo@2622",
+          "0PpxZ3kNPWo@2624",
+          "0PpxZ3kNPWo@2627",
+          "0PpxZ3kNPWo@2630",
+          "0PpxZ3kNPWo@2633",
+          "0PpxZ3kNPWo@2634",
+          "0PpxZ3kNPWo@2636",
+          "0PpxZ3kNPWo@2638",
+          "0PpxZ3kNPWo@2639",
+          "0PpxZ3kNPWo@2642"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p110",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "For inference on a new text message, the trained model is used after ensuring that the token IDs have been adjusted to the maximum length.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2642",
+          "0PpxZ3kNPWo@2644",
+          "0PpxZ3kNPWo@2646",
+          "0PpxZ3kNPWo@2649",
+          "0PpxZ3kNPWo@2653",
+          "0PpxZ3kNPWo@2655",
+          "0PpxZ3kNPWo@2657",
+          "0PpxZ3kNPWo@2660",
+          "0PpxZ3kNPWo@2661",
+          "0PpxZ3kNPWo@2664"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p111",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "code",
+        "importance": 2,
+        "text": "The lecturer tests the classifier on a message saying the user is a winner selected to receive cash or a reward, and the model predicts spam.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2664",
+          "0PpxZ3kNPWo@2666",
+          "0PpxZ3kNPWo@2668",
+          "0PpxZ3kNPWo@2670",
+          "0PpxZ3kNPWo@2672",
+          "0PpxZ3kNPWo@2675",
+          "0PpxZ3kNPWo@2677",
+          "0PpxZ3kNPWo@2679",
+          "0PpxZ3kNPWo@2682",
+          "0PpxZ3kNPWo@2684",
+          "0PpxZ3kNPWo@2686",
+          "0PpxZ3kNPWo@2688",
+          "0PpxZ3kNPWo@2690",
+          "0PpxZ3kNPWo@2692",
+          "0PpxZ3kNPWo@2694"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p112",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "code",
+        "importance": 2,
+        "text": "The lecturer also tests the classifier on a message about checking whether dinner plans are still on and passes it through the model.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2697",
+          "0PpxZ3kNPWo@2699",
+          "0PpxZ3kNPWo@2701",
+          "0PpxZ3kNPWo@2703"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p113",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The fine-tuned model correctly predicts that a legitimate message is not spam and appears to perform well on new text samples.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2705",
+          "0PpxZ3kNPWo@2707",
+          "0PpxZ3kNPWo@2709",
+          "0PpxZ3kNPWo@2711",
+          "0PpxZ3kNPWo@2713",
+          "0PpxZ3kNPWo@2752"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p114",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Attaching a classification head on top of the GPT architecture allows an LLM to be used for a classification task such as spam detection.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2733",
+          "0PpxZ3kNPWo@2735",
+          "0PpxZ3kNPWo@2738",
+          "0PpxZ3kNPWo@2740",
+          "0PpxZ3kNPWo@2742",
+          "0PpxZ3kNPWo@2744"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p115",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In this project, training reduced the loss and increased the accuracy.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2746",
+          "0PpxZ3kNPWo@2747",
+          "0PpxZ3kNPWo@2749"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p116",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Fine-tuning here means starting from pre-trained GPT-2 weights and training the model again on a specific dataset.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2757",
+          "0PpxZ3kNPWo@2759",
+          "0PpxZ3kNPWo@2761",
+          "0PpxZ3kNPWo@2764",
+          "0PpxZ3kNPWo@2900",
+          "0PpxZ3kNPWo@2902",
+          "0PpxZ3kNPWo@2904",
+          "0PpxZ3kNPWo@2906"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p117",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "A disadvantage of fine-tuning is that it requires extra training time on a specific dataset.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2764",
+          "0PpxZ3kNPWo@2766",
+          "0PpxZ3kNPWo@2769",
+          "0PpxZ3kNPWo@2771",
+          "0PpxZ3kNPWo@2772"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p118",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "An advantage of fine-tuning is that the model becomes specialized to the target dataset, such as the spam collection, and can act as a spam classifier.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2775",
+          "0PpxZ3kNPWo@2777",
+          "0PpxZ3kNPWo@2779",
+          "0PpxZ3kNPWo@2782",
+          "0PpxZ3kNPWo@2784",
+          "0PpxZ3kNPWo@2788"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p119",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "You can save the fine-tuned model for later reuse so that you do not need to train it again.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2789",
+          "0PpxZ3kNPWo@2792",
+          "0PpxZ3kNPWo@2794",
+          "0PpxZ3kNPWo@2796",
+          "0PpxZ3kNPWo@2798"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p120",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "code",
+        "importance": 3,
+        "text": "`torch.save` saves the model parameters for later use.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2801",
+          "0PpxZ3kNPWo@2803",
+          "0PpxZ3kNPWo@2805",
+          "0PpxZ3kNPWo@2808",
+          "0PpxZ3kNPWo@2811"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p121",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "code",
+        "importance": 3,
+        "text": "`torch.load` loads previously saved model parameters from a specified path so they can be used for inference or further fine-tuning.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2813b",
+          "0PpxZ3kNPWo@2816",
+          "0PpxZ3kNPWo@2819",
+          "0PpxZ3kNPWo@2820",
+          "0PpxZ3kNPWo@2822",
+          "0PpxZ3kNPWo@2824",
+          "0PpxZ3kNPWo@2826"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p122",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Without fine-tuning, the model gave very bad predictions and could not correctly answer a spam yes-or-no prompt.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2849",
+          "0PpxZ3kNPWo@2852",
+          "0PpxZ3kNPWo@2854",
+          "0PpxZ3kNPWo@2856",
+          "0PpxZ3kNPWo@2859",
+          "0PpxZ3kNPWo@2862",
+          "0PpxZ3kNPWo@2864",
+          "0PpxZ3kNPWo@2867",
+          "0PpxZ3kNPWo@2869"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p123",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Fine-tuning requires changing the GPT model architecture so that the model answers better and its accuracy improves.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2869",
+          "0PpxZ3kNPWo@2872",
+          "0PpxZ3kNPWo@2874",
+          "0PpxZ3kNPWo@2876",
+          "0PpxZ3kNPWo@2878"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p124",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The same fine-tuning code can be applied to a wide range of classification tasks and datasets.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2880",
+          "0PpxZ3kNPWo@2881",
+          "0PpxZ3kNPWo@2884",
+          "0PpxZ3kNPWo@2885"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p125",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Classification fine-tuning is one category of fine-tuning, and another major category is instruction fine-tuning.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2910",
+          "0PpxZ3kNPWo@2911",
+          "0PpxZ3kNPWo@2914",
+          "0PpxZ3kNPWo@2916",
+          "0PpxZ3kNPWo@2918",
+          "0PpxZ3kNPWo@2921",
+          "0PpxZ3kNPWo@2922"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p126",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Instruction fine-tuning can be used to build a chatbot that answers or replies to specific instructions.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2922",
+          "0PpxZ3kNPWo@2924",
+          "0PpxZ3kNPWo@2927",
+          "0PpxZ3kNPWo@2929"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p127",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "analogy",
+        "importance": 1,
+        "text": "The lecturer suggests that the same classification fine-tuning approach could be tried on a different dataset, such as a heart disease dataset, by running the same code.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2947",
+          "0PpxZ3kNPWo@2949",
+          "0PpxZ3kNPWo@2951",
+          "0PpxZ3kNPWo@2953"
+        ]
+      },
+      {
+        "id": "0PpxZ3kNPWo:p128",
+        "video_id": "0PpxZ3kNPWo",
+        "lecture": 36,
+        "kind": "claim",
+        "importance": 1,
+        "text": "This approach opens research opportunities both in changing and testing LLM architectures and in applying them to various classification projects.",
+        "line_ids": [
+          "0PpxZ3kNPWo@2955",
+          "0PpxZ3kNPWo@2958",
+          "0PpxZ3kNPWo@2959",
+          "0PpxZ3kNPWo@2962",
+          "0PpxZ3kNPWo@2964",
+          "0PpxZ3kNPWo@2966"
+        ]
+      }
+    ],
+    "inventory": [
+      {
+        "chunk": "0PpxZ3kNPWo@0-905",
+        "start": 0,
+        "end": 905,
+        "points": 29,
+        "core_points": 12,
+        "invalid_points": 0,
+        "flag": null
+      },
+      {
+        "chunk": "0PpxZ3kNPWo@902-1804",
+        "start": 902,
+        "end": 1804,
+        "points": 41,
+        "core_points": 21,
+        "invalid_points": 0,
+        "flag": null
+      },
+      {
+        "chunk": "0PpxZ3kNPWo@1803-2707",
+        "start": 1803,
+        "end": 2707,
+        "points": 42,
+        "core_points": 28,
+        "invalid_points": 0,
+        "flag": null
+      },
+      {
+        "chunk": "0PpxZ3kNPWo@2705-2974",
+        "start": 2705,
+        "end": 2974,
+        "points": 16,
+        "core_points": 8,
+        "invalid_points": 0,
+        "flag": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "stage": "listings",
+  "item": "ch01.s06",
+  "inputs_hash": "0dfd784d1a59b2c5ff01f52c1a8fdb89bca67daf3eabaa218228c11390eca9a3",
+  "output_hash": "01f9d80b19f71b7f1851667a9b3cb7e60c80b0590827672b83c7b0218e239fce",
+  "output": {
+    "section_id": "ch01.s06",
+    "listings": [],
+    "rejected": [
+      {
+        "id": "ch01.s06.code1",
+        "ref": "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135",
+        "path": "ch02/01_main-chapter-code/ch02.ipynb",
+        "caption": "This code adds token embeddings and positional embeddings to form the input embeddings and prints their tensor shape.",
+        "code": "input_embeddings = token_embeddings + pos_embeddings\nprint(input_embeddings.shape)\n\n# uncomment & execute the following line to see how the embeddings look like\n# print(input_embeddings)",
+        "truncated": false,
+        "check": "no",
+        "reason": "The section is about decoder behavior in sequence-to-sequence generation (conditioning on embeddings + partial output to predict next words iteratively). The code only adds token and positional embeddings and prints the resulting tensor shape; it does not implement or demonstrate next-word prediction, decoding, or iterative generation. The caption accurately describes the code but the code does not match the section topic."
+      }
+    ]
+  }
+}

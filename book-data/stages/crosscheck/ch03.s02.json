@@ -1,0 +1,335 @@
+{
+  "stage": "crosscheck",
+  "item": "ch03.s02",
+  "inputs_hash": "55c3030d83be230917bf35d5a33bc70acdf3c8fb220ccad255130b0f444773e5",
+  "output_hash": "1acd019031804b7588571d5877a2c1acedcf9885fc0c1064e16c6ea55e1ac055",
+  "output": {
+    "section_id": "ch03.s02",
+    "checked": 27,
+    "counts": {
+      "agrees": 15,
+      "contradicts": 0,
+      "not_covered": 12
+    },
+    "results": [
+      {
+        "sentence_id": "ch03.s02.p01.r02",
+        "text": "The aim is to create a context vector from each input embedding vector, and for the second word, \"journey\", the input embedding is \"x2\" and its context vector is denoted by \"z2\".",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell57"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference describes computing a context vector z^(2) from input token embedding x^(2) (2nd word in the example sentence, i.e., “journey”), and explicitly computes the context vector for input query vector 2."
+      },
+      {
+        "sentence_id": "ch03.s02.p01.r03",
+        "text": "A context vector is needed for all input vectors, not just for \"journey\".",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell54",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell42"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly generalizes the computation from token 2 to computing all attention weights and all context vectors for the entire input sequence."
+      },
+      {
+        "sentence_id": "ch03.s02.p01.r04",
+        "text": "To compute a context vector from an embedding vector, it is necessary to know how much importance should be given to each input token, and this is captured by attention weights.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell27",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference motivates context vector computation via attention scores/weights: it first computes unnormalized attention scores (dot products) and then uses weights to form the context vector."
+      },
+      {
+        "sentence_id": "ch03.s02.p01.r05",
+        "text": "Attention weights specify how much attention should be given to each input token when computing the context vector for an embedding vector.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell76"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference indicates attention scores/weights are computed per input token for a given query and then used to compute the context vector, matching the idea that weights determine how much each token contributes."
+      },
+      {
+        "sentence_id": "ch03.s02.p01.r06",
+        "text": "Based on these attention weights, the context vector \"zed\" is derived.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell38",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Step 3 in the reference defines computing z^(2) by weighting embedded input tokens with attention weights and summing, i.e., the context vector is derived from attention weights."
+      },
+      {
+        "sentence_id": "ch03.s02.p02.02",
+        "text": "For demonstration, the computation starts with \"journey\", and the same analysis is then applied to the other words in the sentence.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states it uses input element 2 as an example and later generalizes to compute all context vectors, aligning with starting from “journey” then applying to the other words."
+      },
+      {
+        "sentence_id": "ch03.s02.p02.03",
+        "text": "The token currently being focused on is called the query.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/dataloader.ipynb#cell3",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell37",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell2"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided reference snippets do not define the focused token as “the query” in general; they show a query variable but do not state this definition explicitly."
+      },
+      {
+        "sentence_id": "ch03.s02.p02.04",
+        "text": "When the token is \"journey\", that query is \"x2\", and its corresponding context vector is \"z2\".",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell40"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference code sets the 2nd input token as the query (inputs[1]) and computes context_vec_2 using attention weights, corresponding to query x2 and context vector z2."
+      },
+      {
+        "sentence_id": "ch03.s02.p02.05",
+        "text": "This \"z2\" embedding contains information about \"x2\" and about all the other input elements, so it contains information not only about \"journey\" but also about the rest of the input.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell67",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "In this simplified self-attention, z^(2) is a weighted sum over all input token embeddings, so it contains information from x2 and other inputs; the later chapter note also supports the idea that attention connects tokens to other tokens."
+      },
+      {
+        "sentence_id": "ch03.s02.p02.06",
+        "text": "The first step in turning the embedding vector for the query into a context vector is to compute intermediate values \"w\", which are also called attention scores.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell27",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell73"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states the first step is computing unnormalized attention scores via dot products between the query and other tokens/keys; these are the intermediate attention scores."
+      },
+      {
+        "sentence_id": "ch03.s02.p02.07",
+        "text": "These attention scores quantify how much importance or attention should be paid to each input word for the query \"journey\", and there is one attention score between the query and every input vector.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell77",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell73"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference computes all attention scores for a given query as a dot product with keys.T, yielding one score per input token for query 2 (the “journey” position)."
+      },
+      {
+        "sentence_id": "ch03.s02.p02.08",
+        "text": "Finding these attention scores is the first step toward the context vector because they tell us how much importance to give each token in the input.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell73",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference frames attention score computation as an early step before the context vector and then uses those (normalized) weights to determine token importance in forming the context vector."
+      },
+      {
+        "sentence_id": "ch03.s02.p03.r01",
+        "text": "If embedding vectors are aligned or have closer angles, that suggests similarity in meaning.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited reference discusses output embedding dimensionality in multi-head attention (d_out=2 per head, 2 heads => 4), not semantic similarity via angular alignment of embedding vectors."
+      },
+      {
+        "sentence_id": "ch03.s02.p03.r02",
+        "text": "Because of that, more importance should be paid to the vector for \"starts\" when the query is \"journey\", since \"starts\" appears more aligned with \"journey\".",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell24"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference provides illustrative input vectors for tokens (including \"journey\" and \"starts\") and notes it is a simplified attention example, but it does not state that \"starts\" is more aligned with \"journey\" or that it should receive more importance for that reason."
+      },
+      {
+        "sentence_id": "ch03.s02.p03.r03",
+        "text": "By contrast, the vector for \"one\" is almost perpendicular to the vector for \"journey\", which indicates less similarity in meaning and therefore less importance than \"starts\" for the query \"journey\".",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references shown do not state that \"one\" is (nearly) perpendicular to \"journey\" nor relate that to lower importance; they only describe steps for computing context vectors and the use of Wq/Wk/Wv later."
+      },
+      {
+        "sentence_id": "ch03.s02.p03.r04",
+        "text": "The mathematical operation used to quantify this alignment is the dot product.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell25",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell117",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell27"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly says unnormalized attention scores are computed by the dot product between the query and other tokens."
+      },
+      {
+        "sentence_id": "ch03.s02.p03.r05",
+        "text": "The dot product of two vectors equals the product of their magnitudes multiplied by the cosine of the angle between them.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell73",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell29",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell27"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference explains dot product as element-wise multiply-and-sum, but does not give the geometric identity |a||b|cos(theta)."
+      },
+      {
+        "sentence_id": "ch03.s02.p03.r06",
+        "text": "If two vectors are aligned, the angle is zero, the cosine is one, and the dot product is maximal.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell29",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not discuss the cosine/angle interpretation of dot products or maximality at zero angle."
+      },
+      {
+        "sentence_id": "ch03.s02.p03.r07",
+        "text": "If two vectors are perpendicular, the angle is 90 degrees and the cosine is zero.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell29"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not discuss perpendicular vectors, 90-degree angles, or cosine being zero."
+      },
+      {
+        "sentence_id": "ch03.s02.p03.r08",
+        "text": "A higher dot product means the vectors are more aligned, and a lower dot product means they are less aligned, so the dot product encodes how aligned or far apart vectors are.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell28",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell29",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the reference shows computing attention scores via dot products, it does not state the interpretation that higher dot products mean more alignment and lower mean less alignment."
+      },
+      {
+        "sentence_id": "ch03.s02.p04.02",
+        "text": "Attention scores can be computed by taking the dot product between the query vector and each input vector.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell73",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell27"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states that unnormalized attention scores are computed by taking the dot product between the query and all other input tokens (or, in the trainable version, between query and each key)."
+      },
+      {
+        "sentence_id": "ch03.s02.p04.03",
+        "text": "This use of the dot product is a key idea in understanding attention because the operation quantifies alignment.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell25",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell73",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention computing attention scores via dot products but do not explicitly claim the dot product quantifies alignment as the key conceptual reason."
+      },
+      {
+        "sentence_id": "ch03.s02.p04.04",
+        "text": "In self-attention, higher dot product means higher similarity and a higher attention score between two tokens.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell105"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited reference is about top-k sampling/temperature and does not address interpreting dot products as similarity or higher attention scores in self-attention."
+      },
+      {
+        "sentence_id": "ch03.s02.p05.02",
+        "text": "The query is set to \"inputs[1]\" because Python uses zero-based indexing, and the second token, \"journey\", is therefore at index 1.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The code sets query = inputs[1] with a comment indicating it is the 2nd token; combined with the shown token order (journey is x^2), this is consistent with zero-based indexing placing the second token at index 1."
+      },
+      {
+        "sentence_id": "ch03.s02.p05.03",
+        "text": "The code initializes an empty tensor for attention scores, loops over the input vectors, computes the dot product of each input vector with the query vector, and stores those dot products in the attention scores tensor.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell28",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell73",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The referenced code creates an empty tensor for attention scores, iterates over the input vectors, computes torch.dot(x_i, query), and stores each result in the attention-scores tensor."
+      },
+      {
+        "sentence_id": "ch03.s02.p05.04",
+        "text": "For the query \"journey\", the largest attention scores are for \"journey\", \"starts\", and \"step\", which matches the intuition that these vectors are closely aligned with \"journey\".",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell44",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell77",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell69"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show how attention scores are computed (e.g., query_2 @ keys.T) and describe the general attention process, but they do not state which tokens (“journey”, “starts”, “step”) have the largest scores for the specific query “journey” or provide those ranked results."
+      },
+      {
+        "sentence_id": "ch03.s02.p05.05",
+        "text": "The word \"one\" has the lowest attention score for the query \"journey\" because its vector is almost at a 90 degree angle to the \"journey\" vector, so they are not aligned.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages do not discuss the token “one” having the lowest score for the query “journey,” nor do they explain this via vectors being near 90° (low cosine/dot-product alignment)."
+      }
+    ],
+    "conflicts": []
+  }
+}

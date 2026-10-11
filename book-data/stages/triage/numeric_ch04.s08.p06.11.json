@@ -1,0 +1,13 @@
+{
+  "stage": "triage",
+  "item": "numeric_ch04.s08.p06.11",
+  "inputs_hash": "6b059f40ab8b32390f1ab7bb16f5aa82a04ea42ff8575f94a7237b0d89162712",
+  "output_hash": "134a25dff5a1a1385b39ecb4a3f51b9341089c92a87d96f4a7f24673af66070e",
+  "output": {
+    "decision": "dismiss",
+    "reason": "The sentence uses “such as 10” as an illustrative example from the lecture rather than claiming the specific value computed by the reference code.",
+    "risk": "low",
+    "kind": "numeric",
+    "sentence_hash": "3dd6a2c77c57fda31717d626c1abb00b507bf083b0b234a9fdfdea686c976ca1"
+  }
+}

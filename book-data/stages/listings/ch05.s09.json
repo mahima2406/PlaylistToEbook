@@ -1,0 +1,33 @@
+{
+  "stage": "listings",
+  "item": "ch05.s09",
+  "inputs_hash": "f76a8fa871fabdf3cf1a84e9c98b60e4af646223ebd1c47326fb583bce9e7051",
+  "output_hash": "392c5c58660fa53a2a9423feebae870753628c18cfc44c812ce76dfeb772ad7d",
+  "output": {
+    "section_id": "ch05.s09",
+    "listings": [
+      {
+        "id": "ch05.s09.code2",
+        "ref": "ref:ch06/01_main-chapter-code/ch06.ipynb#cell38",
+        "path": "ch06/01_main-chapter-code/ch06.ipynb",
+        "caption": "This code iterates through the training loader and then prints the shapes of the last input batch and target batch.",
+        "code": "print(\"Train loader:\")\nfor input_batch, target_batch in train_loader:\n    pass\n\nprint(\"Input batch dimensions:\", input_batch.shape)\nprint(\"Label batch dimensions\", target_batch.shape)",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The section teaches iterating through the training DataLoader to verify it works and printing the input and label batch dimensions. The code does exactly that by looping over train_loader and then printing input_batch.shape and target_batch.shape (for the last batch seen). The caption correctly describes this behavior."
+      }
+    ],
+    "rejected": [
+      {
+        "id": "ch05.s09.code1",
+        "ref": "ref:ch06/01_main-chapter-code/ch06.ipynb#cell36",
+        "path": "ch06/01_main-chapter-code/ch06.ipynb",
+        "caption": "This code imports DataLoader, sets num_workers to 0 and batch_size to 8, seeds PyTorch, and creates train, validation, and test data loaders from the corresponding datasets with the shown batching options.",
+        "code": "from torch.utils.data import DataLoader\n\nnum_workers = 0\nbatch_size = 8\n\ntorch.manual_seed(123)\n\ntrain_loader = DataLoader(\n    dataset=train_dataset,\n    batch_size=batch_size,\n    shuffle=True,\n    num_workers=num_workers,\n    drop_last=True,\n)\n\nval_loader = DataLoader(\n    dataset=val_dataset,\n    batch_size=batch_size,\n    num_workers=num_workers,\n    drop_last=False,\n)\n\ntest_loader = DataLoader(\n    dataset=test_dataset,\n    batch_size=batch_size,\n    num_workers=num_workers,\n    drop_last=False,\n)",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The code matches creating train/val/test DataLoaders with batch_size=8 and num_workers=0, and the caption accurately describes that. However, the section also teaches iterating through the training loader to print batch dimensions and checking len(train_loader) to get ~130 batches from 1045 samples; those parts are not implemented or demonstrated in the excerpt."
+      }
+    ]
+  }
+}

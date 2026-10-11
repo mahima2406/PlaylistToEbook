@@ -1,0 +1,331 @@
+{
+  "stage": "crosscheck",
+  "item": "ch04.s05",
+  "inputs_hash": "149a006722f206210998056c09e2c82e7bf096093edbb8deaae5608d18708987",
+  "output_hash": "27fd6c9625d03376116f358c7af0b337efb2647c133f8bd3d9ddee32d0f46422",
+  "output": {
+    "section_id": "ch04.s05",
+    "checked": 25,
+    "counts": {
+      "agrees": 18,
+      "contradicts": 1,
+      "not_covered": 6
+    },
+    "results": [
+      {
+        "sentence_id": "ch04.s05.p01.02",
+        "text": "The GPT model takes input tokens, converts them into token embeddings, adds positional embeddings, applies dropout, passes the result through transformer blocks, applies a final normalization layer, and returns logits.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references cover adding token + positional embeddings, but do not state the full end-to-end GPT flow here (dropout, transformer blocks, final LayerNorm, returning logits)."
+      },
+      {
+        "sentence_id": "ch04.s05.p01.03",
+        "text": "After the transformer block, there is another layer normalization step even though the transformer block itself already contains two normalization layers.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell59",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell64"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided cells mention transformer blocks conceptually and show running a TransformerBlock, but do not state that an additional LayerNorm is applied after the transformer blocks in the overall GPT model."
+      },
+      {
+        "sentence_id": "ch04.s05.p01.04",
+        "text": "In this layer normalization, the embedding values within each token are normalized so that the resulting values have mean zero and variance one.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference describes LayerNorm subtracting the mean and dividing by the standard deviation to yield mean 0 and variance 1 across the feature (embedding) dimension (with additional trainable scale/shift)."
+      },
+      {
+        "sentence_id": "ch04.s05.p01.05",
+        "text": "This normalization is applied for all four tokens, and it does not change the tensor dimensions.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell134"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference notes LayerNorm is applied per input independently across the last (feature) dimension and implies shape is preserved, but it does not address a case of exactly four tokens nor explicitly state unchanged tensor dimensions in that example."
+      },
+      {
+        "sentence_id": "ch04.s05.p01.06",
+        "text": "Each token still has an embedding size of 768 after this step.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell66",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell63",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell120"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states an example with 4 tokens where each token is a 768-dimensional embedding, and that the transformer block produces an output of similar size."
+      },
+      {
+        "sentence_id": "ch04.s05.p02.r01",
+        "text": "The output head is the final neural network stage of the GPT model.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell77",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell133",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell66"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss the output layer/weight tying but do not explicitly state that the output head is the final stage of the GPT model."
+      },
+      {
+        "sentence_id": "ch04.s05.p02.r02",
+        "text": "Its input can be a representation with four tokens, where each token has 768 dimensions.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell125",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell120"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "One reference mentions four input ids (tokens) and other references mention a 4-token, 768-dim embedding example, but none explicitly state that the GPT model’s input can be a 4-token-by-768 representation."
+      },
+      {
+        "sentence_id": "ch04.s05.p02.r03",
+        "text": "The output head maps each 768-dimensional token representation to an output of size 50257.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell65",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell63"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states the output layer projects 768-dimensional embeddings back into a 50,257-dimensional representation (vocabulary size)."
+      },
+      {
+        "sentence_id": "ch04.s05.p02.r04",
+        "text": "The output of this final neural network is called the logits matrix.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell77",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell114"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly refers to the model output as a logits vector/tensor and discusses converting logits to probabilities via softmax."
+      },
+      {
+        "sentence_id": "ch04.s05.p02.r05",
+        "text": "With four input tokens, that logits matrix has four rows and a number of columns equal to the vocabulary size, not 768.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell115",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explains that for each token the logits are 50,257-dimensional (vocab-sized), so for 4 tokens this corresponds to 4 rows and vocab-sized columns (not 768)."
+      },
+      {
+        "sentence_id": "ch04.s05.p02.r06",
+        "text": "For every token position, the model therefore produces a 50257-dimensional logits vector because it is predicting over the full vocabulary.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference says each token produces a 50,257-dimensional logits/probability vector corresponding to predicting over the full vocabulary."
+      },
+      {
+        "sentence_id": "ch04.s05.p02.r07",
+        "text": "This output head is the only step in this flow where the dimensions change, from four tokens by 768 to four tokens by 50257.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell115",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell61",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not enumerate all steps in the full forward pass to justify that the output head is the only place where dimensions change from 4x768 to 4x50,257."
+      },
+      {
+        "sentence_id": "ch04.s05.p02.r08",
+        "text": "For one batch with four tokens, the final output tensor has shape 4 by 50257.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell64",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell43",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell85"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference shows a 4-token example with x shaped (2, 4, 768) passed through a TransformerBlock, whose output matches the input embedding shape (2, 4, 768), not (4, 50257). Logits with vocab size 50257 are discussed separately and include batch and token dimensions."
+      },
+      {
+        "sentence_id": "ch04.s05.p03.02",
+        "text": "For the four-token context \"every effort moves you\", there are four prediction tasks, one for each token position, not just one prediction for the full input sequence.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell85",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell95"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references describe next-token prediction per position (causal setup) and show inputs/targets shifted by 1, implying one prediction task per token position for a multi-token context."
+      },
+      {
+        "sentence_id": "ch04.s05.p03.03",
+        "text": "The four tasks are predicting \"effort\" from \"every\", \"moves\" from \"every effort\", \"you\" from \"every effort moves\", and the next word from \"every effort moves you\".",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell103",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell91",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell19"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "This matches the standard shifted-target setup illustrated by the inputs/targets example (each position predicts the next token) and is consistent with the given phrase context example."
+      },
+      {
+        "sentence_id": "ch04.s05.p03.04",
+        "text": "In the example sequence \"every effort moves you forward\", the model should predict \"effort\" after \"every\", \"moves\" after \"every effort\", \"you\" after \"every effort moves\", and \"forward\" after \"every effort moves you\".",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell103",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell91",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell19"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references demonstrate that targets are inputs shifted by one position, so for a sequence like \"every effort moves you forward\" each position predicts the subsequent token (effort, moves, you, forward)."
+      },
+      {
+        "sentence_id": "ch04.s05.p03.05",
+        "text": "That is why the returned logits have one row per input token position and a number of columns equal to the vocabulary size.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly states logits shape (batch_size, num_tokens, vocab_size) and that each token position yields a 50,257-dimensional vector."
+      },
+      {
+        "sentence_id": "ch04.s05.p04.02",
+        "text": "When there are multiple batches, the output tensor includes the batch size as the first dimension.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell65"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The logits/output shapes in the references include batch_size as the first dimension, e.g., (batch_size, num_tokens, vocab_size) and examples discussing batches."
+      },
+      {
+        "sentence_id": "ch04.s05.p04.03",
+        "text": "For batch size 2 and context size 4, the output tensor shape is 2 by 4 by 50257.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell43",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell66",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell126"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references define logits as (batch_size, num_tokens, vocab_size); with batch_size=2, num_tokens=4, vocab_size=50257 this implies shape (2, 4, 50257)."
+      },
+      {
+        "sentence_id": "ch04.s05.p04.04",
+        "text": "The output tensor dimensions are ordered as batch size, then number of tokens or context size, then vocabulary size 50257.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell87",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell95",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell84"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references describe logits/probabilities as (batch_size, num_tokens, vocab_size) and show generation code using idx shaped (batch, n_tokens), consistent with that ordering and vocab size 50257."
+      },
+      {
+        "sentence_id": "ch04.s05.p04.05",
+        "text": "More generally, the GPT model outputs logits with shape batch size by number of tokens by vocabulary size.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell43",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell21",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell64"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly states logits have shape (batch_size, num_tokens, vocab_size) and shows probas.shape printed as (batch_size, num_tokens, vocab_size)."
+      },
+      {
+        "sentence_id": "ch04.s05.p04.06",
+        "text": "The logits or probability tensor is also described with shape batch size by number of tokens by vocabulary size.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell21",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell43",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Both logits and the softmax probabilities are shown as (batch_size, num_tokens, vocab_size) in the references."
+      },
+      {
+        "sentence_id": "ch04.s05.p04.07",
+        "text": "In one concrete example, the logits tensor has shape 2 by 3 by 50257, and the target tensor has shape 2 by 3.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell43",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell72",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell48"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references state logits are (batch_size, num_tokens, vocab_size) and targets are (batch_size, num_tokens); with the shown concrete inputs/targets example using 2 examples and 3 tokens, this corresponds to logits (2, 3, 50257) and targets (2, 3)."
+      },
+      {
+        "sentence_id": "ch04.s05.p04.08",
+        "text": "The probability tensor shape 2 by 3 by 50257 corresponds to two batches, three token positions, and 50257 vocabulary probabilities.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell89",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell126"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references establish probas/logits shape (batch_size, num_tokens, vocab_size) and vocab_size=50257, so (2, 3, 50257) naturally corresponds to 2 sequences, 3 positions, and 50257 vocabulary probabilities."
+      },
+      {
+        "sentence_id": "ch04.s05.p04.09",
+        "text": "The model’s immediate output is this final tensor, and the next step is to decode it to get the next word.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell85",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell69",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell73"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference describes text generation where the model produces logits for the next token and then a decoding step (greedy decoding chooses the highest-probability/highest-logit token) is used to select the next word/token. This is consistent with saying the model outputs a final tensor that is then decoded to get the next word."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch04.s05.p02.r08",
+        "text": "For one batch with four tokens, the final output tensor has shape 4 by 50257.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell64",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell43",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell85"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference shows a 4-token example with x shaped (2, 4, 768) passed through a TransformerBlock, whose output matches the input embedding shape (2, 4, 768), not (4, 50257). Logits with vocab size 50257 are discussed separately and include batch and token dimensions."
+      }
+    ]
+  }
+}

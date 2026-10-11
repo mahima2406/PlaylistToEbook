@@ -1,0 +1,226 @@
+{
+  "stage": "crosscheck",
+  "item": "ch05.s03",
+  "inputs_hash": "1be1f8df31a150b3a07d9aa142f6a94986f0f42126646b75ea80937de7729e03",
+  "output_hash": "b62c67c72d303a20e0020d9b807529cf1b2292b3fdb8ff5cbade1ed16c6d156f",
+  "output": {
+    "section_id": "ch05.s03",
+    "checked": 18,
+    "counts": {
+      "agrees": 8,
+      "contradicts": 0,
+      "not_covered": 10
+    },
+    "results": [
+      {
+        "sentence_id": "ch05.s03.p01.r02",
+        "text": "The file \"encoder.json\" is the vocabulary: it maps tokens to token IDs.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell38",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell35"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show tokenization utilities being used but do not mention a file named \"encoder.json\" or describe it as mapping tokens to IDs."
+      },
+      {
+        "sentence_id": "ch05.s03.p01.r03",
+        "text": "That vocabulary has 50,257 tokens.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell125",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell63",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell38"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly states the BytePair encoder has a vocabulary size of 50,257."
+      },
+      {
+        "sentence_id": "ch05.s03.p01.r04",
+        "text": "Its token IDs start at 0, and the end-of-text token is 50,256.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell46",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell26"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The code uses eos_id=50256, consistent with an end-of-text token ID of 50,256 in a 50,257-size vocabulary (implying IDs 0..50256)."
+      },
+      {
+        "sentence_id": "ch05.s03.p01.r05",
+        "text": "The second file is BPE, a subword tokenization scheme.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell98",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell70"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference says GPT-2 used BytePair encoding (BPE) as its tokenizer, consistent with the second file being BPE-related."
+      },
+      {
+        "sentence_id": "ch05.s03.p01.r06",
+        "text": "In this scheme, the encoder looks for pairs of tokens that occur most frequently, merges a pair, and then treats that merged pair as a token.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell125",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell70"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages mention BPE generally but do not describe the specific merge procedure of repeatedly merging the most frequent token pairs."
+      },
+      {
+        "sentence_id": "ch05.s03.p01.r07",
+        "text": "The \"vocab.bpe\" file therefore lists merged tokens, with the merges of highest probability appearing at the top of the list.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell85",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell89"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Nothing in the references discusses the contents/order of the \"vocab.bpe\" file or that it lists merges ordered by probability."
+      },
+      {
+        "sentence_id": "ch05.s03.p01.r08",
+        "text": "A special marker shown as \"g-dot\" is an OpenAI convention that indicates one token has ended and a new token has begun.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell125"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not mention a \"g-dot\" marker or its meaning."
+      },
+      {
+        "sentence_id": "ch05.s03.p01.r09",
+        "text": "You can think of that marker as a space that marks the beginning of a new token.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell92",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell63"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss special tokens like BOS/EOS/PAD but do not describe a marker that functions like a space at token boundaries."
+      },
+      {
+        "sentence_id": "ch05.s03.p02.r01",
+        "text": "The model settings file contains the model settings, including vocabulary size, context length, embedding dimension, number of attention heads, and number of transformer blocks.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell10",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell134",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "GPT_CONFIG_124M in the reference includes vocab_size, context_length, emb_dim, n_heads, and n_layers (transformer layers/blocks)."
+      },
+      {
+        "sentence_id": "ch05.s03.p02.r02",
+        "text": "For the settings shown here, the vocabulary size is 50,257, the context length is 1,024, and the embedding dimension is 768.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell56"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "GPT_CONFIG_124M specifies vocab_size=50257, context_length=1024, emb_dim=768; other passages are consistent with 768 and 50,257."
+      },
+      {
+        "sentence_id": "ch05.s03.p02.r03",
+        "text": "The embedding dimension means that each token ID is converted into a vector in a 768-dimensional space.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explains the token embedding layer projects tokens into a 768-dimensional embedding representation."
+      },
+      {
+        "sentence_id": "ch05.s03.p02.r04",
+        "text": "The parameter \"n_heads\" is the number of attention heads in each transformer block, and \"n_layer\" is the number of transformer blocks.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell59",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell63"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While config keys exist (n_heads, n_layers), the provided passages do not explicitly define n_heads as heads per block and n_layer(s) as number of transformer blocks."
+      },
+      {
+        "sentence_id": "ch05.s03.p02.r05",
+        "text": "The values being shown are for the smallest GPT-2 model.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/dataloader.ipynb#cell3",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell2"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly discusses the smallest 124M GPT-2 model and its configuration detail (e.g., repeating the transformer block 12 times), consistent with the sentence referring to values for the smallest GPT-2 model."
+      },
+      {
+        "sentence_id": "ch05.s03.p03.r01",
+        "text": "The code maintains a dictionary called \"settings\".",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell134",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell11",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell135"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "ch05 shows code printing a variable named `settings` (\"Settings:\", settings), indicating the code maintains a dictionary called `settings`."
+      },
+      {
+        "sentence_id": "ch05.s03.p03.r02",
+        "text": "This \"settings\" dictionary contains exactly the same information as \"hparams.json\": vocabulary size, context length, embedding dimension, number of attention heads, and number of transformer blocks.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell10",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell86"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While ch04 provides a GPT configuration dictionary with vocab size, context length, embedding dimension, heads, and layers, the provided references do not show `settings` being exactly the same as an `hparams.json` file nor enumerate that exact correspondence."
+      },
+      {
+        "sentence_id": "ch05.s03.p03.r03",
+        "text": "If you inspect that dictionary, you see keys such as \"n_vocab\", \"n_ctx\", \"n_embed\", \"n_head\", and \"n_layer\".",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell135"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference only shows that the code prints `params.keys()` but does not list the keys; thus we cannot confirm keys like \"n_vocab\", \"n_ctx\", \"n_embed\", \"n_head\", and \"n_layer\" from the provided passages."
+      },
+      {
+        "sentence_id": "ch05.s03.p03.r04",
+        "text": "Those keys are the \"hparams.json\" information converted into a dictionary.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell135",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell11"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not state that the `params` keys are `hparams.json` information converted into a dictionary; they only indicate that keys are printed and that JSON-loaded items can be dictionaries."
+      },
+      {
+        "sentence_id": "ch05.s03.p03.r05",
+        "text": "Downloading the files alone is not enough, because you also need to understand the format in which the returned \"params\" dictionary is stored.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited ch07 passage discusses needing targets for training and shifting inputs, not the necessity of understanding the storage format of a returned `params` dictionary."
+      }
+    ],
+    "conflicts": []
+  }
+}

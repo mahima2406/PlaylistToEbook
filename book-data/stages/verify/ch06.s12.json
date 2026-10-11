@@ -1,0 +1,625 @@
+{
+  "stage": "verify",
+  "item": "ch06.s12",
+  "inputs_hash": "2e5ec22bede574242ef99abe5d717f33d9cca9144b9effd7092a07d13d00a4d8",
+  "output_hash": "25d87e0efbec53c9bd4c31535488439ebd5460bbb1512b7dbce6d38b98e1de5f",
+  "output": {
+    "section_id": "ch06.s12",
+    "paragraphs": [
+      {
+        "id": "ch06.s12.p01",
+        "sentences": [
+          {
+            "id": "ch06.s12.p01.r01",
+            "text": "How should an instruction-fine-tuned model be evaluated once it can produce responses, and why is that choice important?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s12.p01.r02",
+            "text": "Three common evaluation methods for instruction-fine-tuned LLMs are MMLU, human preference comparison, and using another larger language model to evaluate the model’s performance.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@782",
+              "7m2jV7BOFkA@783",
+              "7m2jV7BOFkA@941",
+              "7m2jV7BOFkA@961",
+              "7m2jV7BOFkA@964",
+              "7m2jV7BOFkA@3010",
+              "7m2jV7BOFkA@3013",
+              "7m2jV7BOFkA@3018",
+              "7m2jV7BOFkA@3027",
+              "7m2jV7BOFkA@3033",
+              "7m2jV7BOFkA@3037"
+            ]
+          },
+          {
+            "id": "ch06.s12.p01.r03",
+            "text": "One very common method is to give the LLM a general knowledge test by benchmarking it on known responses, and this is called measuring Massive Multitask Language Understanding, or MMLU.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@786",
+              "7m2jV7BOFkA@789",
+              "7m2jV7BOFkA@792",
+              "7m2jV7BOFkA@794",
+              "7m2jV7BOFkA@796",
+              "7m2jV7BOFkA@799"
+            ]
+          },
+          {
+            "id": "ch06.s12.p01.r04",
+            "text": "An MMLU score is used as a measure of how the LLM is performing on general knowledge tasks.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@801",
+              "7m2jV7BOFkA@933",
+              "7m2jV7BOFkA@936",
+              "7m2jV7BOFkA@937"
+            ]
+          },
+          {
+            "id": "ch06.s12.p01.r05",
+            "text": "A summarized description on screen defines MMLU as a benchmark for measuring language model knowledge and for evaluating a text model’s ability to learn and apply knowledge from various domains.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@886",
+              "7m2jV7BOFkA@890",
+              "7m2jV7BOFkA@892",
+              "7m2jV7BOFkA@894",
+              "7m2jV7BOFkA@896"
+            ]
+          },
+          {
+            "id": "ch06.s12.p01.r06",
+            "text": "MMLU consists of 57 tasks that cover STEM, humanities, social sciences, and other areas, with difficulty ranging from elementary to professional levels.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@872",
+              "7m2jV7BOFkA@874",
+              "7m2jV7BOFkA@910",
+              "7m2jV7BOFkA@914",
+              "7m2jV7BOFkA@916"
+            ]
+          },
+          {
+            "id": "ch06.s12.p01.r07",
+            "text": "A custom instruction-fine-tuned LLM can be evaluated with MMLU by testing its performance on those 57 tasks, and many papers in the instruction-finetuned LLM space report the MMLU score.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@919",
+              "7m2jV7BOFkA@921",
+              "7m2jV7BOFkA@923",
+              "7m2jV7BOFkA@926",
+              "7m2jV7BOFkA@929",
+              "7m2jV7BOFkA@930",
+              "7m2jV7BOFkA@933"
+            ]
+          },
+          {
+            "id": "ch06.s12.p01.r08",
+            "text": "Benchmarks such as MMLU help you learn a lot through the process, and the MMLU paper is highly impactful and highly relevant.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@3057",
+              "7m2jV7BOFkA@3058",
+              "7m2jV7BOFkA@3061",
+              "7m2jV7BOFkA@3063",
+              "7m2jV7BOFkA@3065",
+              "7m2jV7BOFkA@3067",
+              "7m2jV7BOFkA@3070"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s12.p02",
+        "sentences": [
+          {
+            "id": "ch06.s12.p02.r01",
+            "text": "Human preference comparison evaluates LLMs by having humans look at answers from multiple LLMs and compare their performance.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@944",
+              "7m2jV7BOFkA@946",
+              "7m2jV7BOFkA@948",
+              "7m2jV7BOFkA@950"
+            ]
+          },
+          {
+            "id": "ch06.s12.p02.r02",
+            "text": "This method puts a human in the loop, and the human uses their own intuition and understanding to benchmark or compare LLMs.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@953",
+              "7m2jV7BOFkA@954",
+              "7m2jV7BOFkA@957",
+              "7m2jV7BOFkA@960"
+            ]
+          },
+          {
+            "id": "ch06.s12.p02.r03",
+            "text": "It can also be described as asking humans to rate LLM output.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@3027",
+              "7m2jV7BOFkA@3030"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s12.p03",
+        "sentences": [
+          {
+            "id": "ch06.s12.p03.r01",
+            "text": "Another common approach is to use another large language model to compare the expected output with the model response and assign a score.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@964",
+              "7m2jV7BOFkA@967",
+              "7m2jV7BOFkA@970",
+              "7m2jV7BOFkA@973",
+              "7m2jV7BOFkA@983",
+              "7m2jV7BOFkA@985",
+              "7m2jV7BOFkA@988",
+              "7m2jV7BOFkA@989",
+              "7m2jV7BOFkA@991",
+              "7m2jV7BOFkA@993"
+            ]
+          },
+          {
+            "id": "ch06.s12.p03.r02",
+            "text": "The setup is to keep the instruction, input, true output, and model response together, then ask a large language model to compare the true output with the model response and assign a score.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@976",
+              "7m2jV7BOFkA@977",
+              "7m2jV7BOFkA@979",
+              "7m2jV7BOFkA@982",
+              "7m2jV7BOFkA@983",
+              "7m2jV7BOFkA@985",
+              "7m2jV7BOFkA@988",
+              "7m2jV7BOFkA@989",
+              "7m2jV7BOFkA@991",
+              "7m2jV7BOFkA@993",
+              "7m2jV7BOFkA@1039",
+              "7m2jV7BOFkA@1041",
+              "7m2jV7BOFkA@1044",
+              "7m2jV7BOFkA@1046",
+              "7m2jV7BOFkA@1047"
+            ]
+          },
+          {
+            "id": "ch06.s12.p03.r03",
+            "text": "This approach is fairly straightforward because it is fully automated.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@996",
+              "7m2jV7BOFkA@998",
+              "7m2jV7BOFkA@1000",
+              "7m2jV7BOFkA@1002",
+              "7m2jV7BOFkA@1004",
+              "7m2jV7BOFkA@1006",
+              "7m2jV7BOFkA@1009"
+            ]
+          },
+          {
+            "id": "ch06.s12.p03.r04",
+            "text": "At the same time, it is like taking the easy way out because the evaluation criteria used by the evaluator LLM are not known, so the method depends on trusting that LLM.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1012",
+              "7m2jV7BOFkA@1014",
+              "7m2jV7BOFkA@1016",
+              "7m2jV7BOFkA@1018",
+              "7m2jV7BOFkA@1020",
+              "7m2jV7BOFkA@1022",
+              "7m2jV7BOFkA@1024",
+              "7m2jV7BOFkA@1026"
+            ]
+          },
+          {
+            "id": "ch06.s12.p03.r05",
+            "text": "After responses are extracted from the fine-tuned LLM, another large language model can automatically evaluate them.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1432",
+              "7m2jV7BOFkA@1435",
+              "7m2jV7BOFkA@1437",
+              "7m2jV7BOFkA@1440"
+            ]
+          },
+          {
+            "id": "ch06.s12.p03.r06",
+            "text": "Using another LLM for this step can efficiently assess response quality without extensive human involvement, saving time and resources while still producing meaningful performance indicators.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1061",
+              "7m2jV7BOFkA@1063",
+              "7m2jV7BOFkA@1065",
+              "7m2jV7BOFkA@1068",
+              "7m2jV7BOFkA@1070",
+              "7m2jV7BOFkA@1072",
+              "7m2jV7BOFkA@1074",
+              "7m2jV7BOFkA@1077",
+              "7m2jV7BOFkA@1078"
+            ]
+          },
+          {
+            "id": "ch06.s12.p03.r07",
+            "text": "The evaluation can use a bigger pre-trained LLM to compare the model response with the true response and assign a score.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1455",
+              "7m2jV7BOFkA@1457",
+              "7m2jV7BOFkA@1459",
+              "7m2jV7BOFkA@1462",
+              "7m2jV7BOFkA@1465",
+              "7m2jV7BOFkA@1467",
+              "7m2jV7BOFkA@1469",
+              "7m2jV7BOFkA@1471"
+            ]
+          },
+          {
+            "id": "ch06.s12.p03.r08",
+            "text": "In the example implementation, the chosen evaluator is the Meta Llama 8B Instruct model, used as an automated and simpler evaluation method.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@3033",
+              "7m2jV7BOFkA@3035",
+              "7m2jV7BOFkA@3037",
+              "7m2jV7BOFkA@3040",
+              "7m2jV7BOFkA@3043",
+              "7m2jV7BOFkA@3046",
+              "7m2jV7BOFkA@3050",
+              "7m2jV7BOFkA@3052",
+              "7m2jV7BOFkA@3054",
+              "7m2jV7BOFkA@3056"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s12.p04",
+        "sentences": [
+          {
+            "id": "ch06.s12.p04.01",
+            "text": "What kind of result does this automated scoring produce, and what are its limits?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s12.p04.02",
+            "text": "The goal here is to move beyond qualitative inspection and quantify the responses with a score.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1410",
+              "7m2jV7BOFkA@1412",
+              "7m2jV7BOFkA@1414",
+              "7m2jV7BOFkA@1425",
+              "7m2jV7BOFkA@1427"
+            ]
+          },
+          {
+            "id": "ch06.s12.p04.03",
+            "text": "By asking the evaluator to respond with an integer number only, the evaluation produces a quantitative metric.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2566",
+              "7m2jV7BOFkA@2568",
+              "7m2jV7BOFkA@2570",
+              "7m2jV7BOFkA@2573",
+              "7m2jV7BOFkA@2575",
+              "7m2jV7BOFkA@2577",
+              "7m2jV7BOFkA@2580",
+              "7m2jV7BOFkA@2586",
+              "7m2jV7BOFkA@2589"
+            ]
+          },
+          {
+            "id": "ch06.s12.p04.04",
+            "text": "That quantitative score is still not as robust as classification accuracy, because the assigned number remains subjective.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2582",
+              "7m2jV7BOFkA@2584",
+              "7m2jV7BOFkA@2586",
+              "7m2jV7BOFkA@2589",
+              "7m2jV7BOFkA@2592",
+              "7m2jV7BOFkA@2595",
+              "7m2jV7BOFkA@2597",
+              "7m2jV7BOFkA@2599",
+              "7m2jV7BOFkA@2602"
+            ]
+          },
+          {
+            "id": "ch06.s12.p04.05",
+            "text": "LLM evaluation remains an open research area because there is substantial subjectivity in the choice of metrics and in judging responses, unlike problems where accuracy is a single value based on correct and wrong answers.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2612",
+              "7m2jV7BOFkA@2613",
+              "7m2jV7BOFkA@2616",
+              "7m2jV7BOFkA@2619",
+              "7m2jV7BOFkA@2622",
+              "7m2jV7BOFkA@2623",
+              "7m2jV7BOFkA@2625",
+              "7m2jV7BOFkA@2628",
+              "7m2jV7BOFkA@2631",
+              "7m2jV7BOFkA@2635",
+              "7m2jV7BOFkA@2637",
+              "7m2jV7BOFkA@2639",
+              "7m2jV7BOFkA@2641",
+              "7m2jV7BOFkA@2643",
+              "7m2jV7BOFkA@2646",
+              "7m2jV7BOFkA@2648",
+              "7m2jV7BOFkA@2650",
+              "7m2jV7BOFkA@2652",
+              "7m2jV7BOFkA@2654"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch06.s12.p04.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s12.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s12.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch06.s12.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s12.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch06.s12.p01.r01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s12.p01.r02": {
+        "verdict": "supported",
+        "confidence": 0.87,
+        "reason": ""
+      },
+      "ch06.s12.p01.r03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s12.p01.r04": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch06.s12.p01.r05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s12.p01.r06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s12.p01.r07": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch06.s12.p01.r08": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s12.p02.r01": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch06.s12.p02.r02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch06.s12.p02.r03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s12.p03.r01": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch06.s12.p03.r02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch06.s12.p03.r03": {
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch06.s12.p03.r04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s12.p03.r05": {
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch06.s12.p03.r06": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch06.s12.p03.r07": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch06.s12.p03.r08": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch06.s12.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s12.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s12.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s12.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch06.s12.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch06.s12.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s12.p01.07": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s12.p01.08": {
+        "verdict": "partial",
+        "confidence": 0.7,
+        "reason": "lines support that using benchmarks like MMLU helps you learn a lot, and that the MMLU paper is highly impactful and relevant, and that contributing to LLM evaluation research has scope; they do not explicitly say benchmarks are useful for contributing to LLM evaluation research (only that the paper is relevant and there is scope to contribute)."
+      },
+      "ch06.s12.p02.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.74,
+        "reason": "asserts a factual characterization (that there is a route that keeps a human decision-maker in the loop) rather than being a purely non-factual transition."
+      },
+      "ch06.s12.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s12.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch06.s12.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s12.p03.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.76,
+        "reason": "claims the third option replaces human judgment with another model; this is a factual assertion about the evaluation setup rather than a purely connective sentence."
+      },
+      "ch06.s12.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch06.s12.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s12.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch06.s12.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch06.s12.p03.06": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch06.s12.p03.07": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch06.s12.p03.08": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s12.p03.09": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s12.p04.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s12.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s12.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch06.s12.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s12.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "ch06.s12.p01",
+      "ch06.s12.p02",
+      "ch06.s12.p03"
+    ],
+    "queue": []
+  }
+}

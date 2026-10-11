@@ -1,0 +1,1286 @@
+{
+  "stage": "crosscheck",
+  "item": "ch03.s09",
+  "inputs_hash": "2b23b4e590d38a3d620b76336666ca68fad86d7a03d752f1ae802a4ef2bf2247",
+  "output_hash": "c7f6c3bc41d6ff07f9075e5c026ae0723d28888a85b1553a22967f56cec8e08e",
+  "output": {
+    "section_id": "ch03.s09",
+    "checked": 100,
+    "counts": {
+      "agrees": 51,
+      "contradicts": 6,
+      "not_covered": 43
+    },
+    "results": [
+      {
+        "sentence_id": "ch03.s09.p01.r02",
+        "text": "A straightforward implementation creates multiple weight matrices for the query, key, and value, one set per attention head, multiplies the input with those matrices, and obtains separate queries, keys, and values for each head.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell130",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell98"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference explicitly contrasts the stand-alone MultiHeadAttention with the per-head approach: it says the efficient version creates single W_query/W_key/W_value matrices and then splits into heads, rather than creating separate per-head weight matrices up front."
+      },
+      {
+        "sentence_id": "ch03.s09.p01.r03",
+        "text": "In that earlier approach, each attention head produced its own context vector, and the context vectors from different heads were concatenated into a larger matrix.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell127",
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell11",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The MultiHeadAttentionWrapper forward concatenates the per-head outputs via torch.cat([head(x) for head in self.heads], dim=-1), matching the statement that context vectors from different heads are concatenated."
+      },
+      {
+        "sentence_id": "ch03.s09.p01.r04",
+        "text": "The difficulty is efficiency: the number of initial multiplications grows with the number of heads.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell10",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell39"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not discuss efficiency in terms of the number of initial multiplications growing with the number of heads."
+      },
+      {
+        "sentence_id": "ch03.s09.p01.r05",
+        "text": "With 96 attention heads, this means 96 multiplications to get the queries, 96 to get the keys, and 96 to get the values.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell4",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell72",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell86"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference passage mentions 96 heads or counts of multiplications per head for queries/keys/values."
+      },
+      {
+        "sentence_id": "ch03.s09.p01.r06",
+        "text": "A more efficient method performs one multiplication for queries, one for keys, and one for values, then splits the resulting query, key, and value tensors into multiple heads.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell85",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell112",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference describes the stand-alone MultiHeadAttention as creating single W_query/W_key/W_value and splitting into heads, which is consistent with doing one projection per Q/K/V and then splitting into multiple heads."
+      },
+      {
+        "sentence_id": "ch03.s09.p01.r07",
+        "text": "After that split, the rest of the attention procedure stays the same: multiply queries by transposed keys to get attention scores, turn those into attention weights, and multiply the weights by the values to get context vectors.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell101",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell21"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference covers the standard attention steps (scores from queries @ keys.T, softmax to get weights, and applying weights to values to get context), and nothing indicates those steps change after splitting into heads."
+      },
+      {
+        "sentence_id": "ch03.s09.p01.r08",
+        "text": "This implementation is called multi-head attention with weight splits.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell129",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell130",
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell8"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "A section title in the reference is explicitly “Implementing multi-head attention with weight splits,” matching the name given."
+      },
+      {
+        "sentence_id": "ch03.s09.p01.r09",
+        "text": "It is described as more computationally efficient than the earlier multi-head attention implementation.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell133",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell130",
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell8"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states the stand-alone MultiHeadAttention is a rewritten version of MultiHeadAttentionWrapper that is more efficient."
+      },
+      {
+        "sentence_id": "ch03.s09.p02.r01",
+        "text": "Turning to the implementation, earlier code used separate classes for a multi-head attention wrapper and for causal attention, while the newer implementation combines both into a single multi-head attention class.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell130",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell124",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell133"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference describes the earlier approach as a wrapper around the single-head CausalAttention, and then introduces a stand-alone MultiHeadAttention class to achieve the same, consistent with combining functionality into one class."
+      },
+      {
+        "sentence_id": "ch03.s09.p02.r02",
+        "text": "In the old picture, the input \"x\" was multiplied by separate matrices such as \"wq1\" and \"wq2\" to obtain separate query matrices such as \"q1\" and \"q2\".",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell67",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell97"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references describe single-head projections with W_q/W_k/W_v and do not explicitly show an “old picture” with per-head matrices named wq1/wq2 producing q1/q2."
+      },
+      {
+        "sentence_id": "ch03.s09.p02.r03",
+        "text": "In the weight-splitting version, the input is multiplied by one larger query matrix \"WQ\", and the resulting queries are then split into components for different heads.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell132"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference says the efficient MultiHeadAttention uses single W_query/W_key/W_value and splits into heads, consistent with multiplying by one larger WQ and then splitting the resulting queries by head."
+      },
+      {
+        "sentence_id": "ch03.s09.p02.r04",
+        "text": "The larger query, key, and value matrices are chosen so that their output dimension already includes the number of heads.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell70",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explains that with d_out=2 and 2 heads, the effective output embedding dimension becomes 2*2=4, consistent with choosing projection outputs to include the number of heads (head_dim * num_heads)."
+      },
+      {
+        "sentence_id": "ch03.s09.p02.r05",
+        "text": "The relation is \"D_out\" equals head dimension multiplied by number of heads.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell133",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell127"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference states MultiHeadAttentionWrapper output dimension after concatenation is d_out * num_heads (e.g., 2*2=4), matching D_out = head_dim * num_heads in that setting."
+      },
+      {
+        "sentence_id": "ch03.s09.p02.r06",
+        "text": "In the illustrated small example, each head has dimension 2 and there are 2 heads, so the larger query matrix has \"D_out\" equal to 4.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell133",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference explicitly gives the example d_out=2 and num_heads=2 leading to output embedding dimension 2*2=4."
+      },
+      {
+        "sentence_id": "ch03.s09.p02.r07",
+        "text": "In the combined class, multiple heads are implemented by reshaping the query, key, and value tensors to split them into heads.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell70",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell69"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided references show single-head Q/K/V computation and discuss multi-head output dimensions, but do not show/describe a combined class implementing multiple heads via reshaping/splitting Q/K/V tensors."
+      },
+      {
+        "sentence_id": "ch03.s09.p03.r02",
+        "text": "The forward method takes an input tensor \"X\" and ultimately computes a context vector for every input token embedding.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell107",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference describes computing a context vector for an input query/token and notes the setting is token embeddings; it is consistent with computing a context vector per token in a forward pass."
+      },
+      {
+        "sentence_id": "ch03.s09.p03.r03",
+        "text": "This input tensor has three dimensions: batch size, number of tokens, and input dimension.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell38",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell67",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References show batch tensors and shapes in other chapters but do not explicitly define the attention input tensor as (batch size, number of tokens, input dimension) in the cited passages."
+      },
+      {
+        "sentence_id": "ch03.s09.p03.r04",
+        "text": "The input dimension \"D_in\" is the dimension of the embedding vector that represents each token.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell25"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference discusses columns as embedding dimensions and refers to embedding dimension for vectors, consistent with D_in being the embedding vector dimension per token."
+      },
+      {
+        "sentence_id": "ch03.s09.p03.r05",
+        "text": "For the example input shape \"1 × 3 × 6\", the batch size is 1, there are 3 tokens, and each token is represented by a 6-dimensional vector.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell65",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell127"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference gives examples of tensors shaped like 8 x 4 x 256 and explains these correspond to (batch, tokens, embedding-dim), consistent with interpreting 1 x 3 x 6 as (batch=1, tokens=3, dim=6)."
+      },
+      {
+        "sentence_id": "ch03.s09.p03.r06",
+        "text": "The example tokens are \"cat\" and \"sleeps.\"",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell27",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell89",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell67"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited references do not mention the specific example tokens \"cat\" and \"sleeps.\""
+      },
+      {
+        "sentence_id": "ch03.s09.p03.r07",
+        "text": "The output is one context vector per token, so its shape is number of tokens by \"D_out\".",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell65",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell76"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference states for each input token there is one output vector, and gives an example of 4 input tokens producing 4 output vectors of a given dimensionality, consistent with shape (num_tokens, D_out) (or batched equivalent)."
+      },
+      {
+        "sentence_id": "ch03.s09.p03.r08",
+        "text": "In the example, \"D_out\" is chosen to be 6, the same as \"D_in\", which is described as typical in GPT-based models.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell86",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No cited passage states that in the example D_out=6 equals D_in=6 or that this is typical in GPT-based models."
+      },
+      {
+        "sentence_id": "ch03.s09.p03.r09",
+        "text": "The number of attention heads in the example is 2.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell11",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell10",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell127"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference multi-head wrapper example uses num_heads=2 (and discusses 2 heads leading to 2*2=4 output dimension)."
+      },
+      {
+        "sentence_id": "ch03.s09.p03.r10",
+        "text": "The head dimension is \"D_out\" divided by the number of heads, so here it is \"6 / 2 = 3\".",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell133",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell127"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References discuss wrapper output as d_out * num_heads and an example with d_out=2, num_heads=2, but do not state head_dim = D_out/num_heads nor the specific 6/2=3 calculation."
+      },
+      {
+        "sentence_id": "ch03.s09.p03.r11",
+        "text": "Since each head has dimension 3 and there are 2 heads, the total \"D_out\" is 6.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell133",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell65"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Reference example uses head dimension d_out=2 with 2 heads giving concatenated output dimension 4 (2*2), not 6; also notes MultiHeadAttention can keep output dim equal to d_out regardless of heads."
+      },
+      {
+        "sentence_id": "ch03.s09.p04.r02",
+        "text": "The model initializes trainable weight matrices \"W_k\", \"W_q\", and \"W_v\".",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell67",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference explicitly introduces and initializes W_q, W_k, W_v as the (trainable) projection matrices for queries, keys, and values."
+      },
+      {
+        "sentence_id": "ch03.s09.p04.r03",
+        "text": "Their first dimension must equal \"D_in\" so that they are compatible with the input in matrix multiplication.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell48"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Passages shown discuss matrix multiplication behavior but do not explicitly state the requirement that the first dimension of W_q/W_k/W_v must equal D_in."
+      },
+      {
+        "sentence_id": "ch03.s09.p04.r04",
+        "text": "Therefore the key, query, and value matrices have shape \"D_in × D_out\".",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell70",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference defines q=xW_q, k=xW_k, v=xW_v; this implies W matrices map from input embedding dimension D_in to output dimension D_out (i.e., shape D_in×D_out) under the row-vector convention used."
+      },
+      {
+        "sentence_id": "ch03.s09.p04.r05",
+        "text": "In the worked example, \"D_in = 6\" and \"D_out = 6\", so \"W_q\", \"W_k\", and \"W_v\" are \"6 × 6\" matrices.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell42",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell67",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided references do not specify a worked example with D_in=6 and D_out=6 or show W matrices being 6×6."
+      },
+      {
+        "sentence_id": "ch03.s09.p04.r06",
+        "text": "In code, these trainable matrices are initialized in the constructor as neural network linear layers with dimensions \"D_in\" by \"D_out\".",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell39",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell139"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References mention that GPT uses linear layers for QKV (and bias considerations) but the provided excerpts do not state that these matrices are initialized in the constructor specifically as nn.Linear layers of size D_in by D_out."
+      },
+      {
+        "sentence_id": "ch03.s09.p04.r07",
+        "text": "A linear layer is used because it is optimized for initializing weights and is better for backpropagation later.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell112",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell41",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell58"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No provided passage claims linear layers are used because they are optimized for initializing weights and better for backpropagation."
+      },
+      {
+        "sentence_id": "ch03.s09.p04.r08",
+        "text": "After initialization, the input is multiplied by these three weight matrices to produce keys, queries, and values.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell67",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell72"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference states inputs are multiplied by W_q/W_k/W_v to produce queries/keys/values and shows code computing keys=inputs@W_key and values=inputs@W_value (and similarly for queries elsewhere)."
+      },
+      {
+        "sentence_id": "ch03.s09.p04.r09",
+        "text": "With input shape \"1 × 3 × 6\" and weight matrices of shape \"6 × 6\", the resulting keys, queries, and values each have shape \"1 × 3 × 6\".",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell72",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell76",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell43"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references shown print keys/values shapes but the excerpts do not provide the specific input shape 1×3×6 and weight shape 6×6 yielding outputs 1×3×6."
+      },
+      {
+        "sentence_id": "ch03.s09.p04.r10",
+        "text": "In that shape, 1 is the batch size, 3 is the number of tokens, and 6 is the output dimension \"D_out\".",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell72",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While other passages discuss what batch/token dimensions mean in general, the excerpts do not tie the specific shape 1×3×6 to batch size=1, tokens=3, and D_out=6 (and reference examples use different dimensions such as 4 or 2)."
+      },
+      {
+        "sentence_id": "ch03.s09.p04.r11",
+        "text": "Each row corresponds to one token, and each token is represented by a 6-dimensional vector.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell65"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References discuss per-token output vectors but do not state that each token is represented by a 6-dimensional vector in the relevant example."
+      },
+      {
+        "sentence_id": "ch03.s09.p04.r12",
+        "text": "In code, passing the input through the linear layers applies the trainable query, key, and value matrices and returns tensors of shape batch size by number of tokens by \"D_out\".",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell63",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell70"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Reference describes Q/K/V computed via matrix multiplication, but the excerpts do not specifically describe passing through linear layers and returning tensors with shape (batch_size, num_tokens, D_out)."
+      },
+      {
+        "sentence_id": "ch03.s09.p05.02",
+        "text": "A fourth dimension is introduced because the existing three dimensions represent batch size, number of tokens, and \"D_out\", but not the number of heads or the head dimension.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell133",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference discusses multi-head attention introducing an additional heads dimension (num_heads) and head_dim via splitting/concatenation, implying a 4D representation beyond (batch, tokens, d_out)."
+      },
+      {
+        "sentence_id": "ch03.s09.p05.03",
+        "text": "Because head dimension equals \"D_out\" divided by number of heads, \"D_out\" also equals head dimension multiplied by number of heads.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell133",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell127"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "MultiHeadAttention asserts d_out divisible by num_heads and defines head_dim = d_out // num_heads, which implies d_out = head_dim * num_heads."
+      },
+      {
+        "sentence_id": "ch03.s09.p05.04",
+        "text": "The last dimension of the keys, queries, and values is reshaped so that \"D_out\" is split into number of heads and head dimension.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell133"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference indicates d_out is divisible by num_heads and defines head_dim accordingly, consistent with reshaping/splitting the last dimension into (num_heads, head_dim)."
+      },
+      {
+        "sentence_id": "ch03.s09.p05.05",
+        "text": "With \"D_out = 6\" and 2 heads, the head dimension is 3, so each \"1 × 3 × 6\" tensor is reshaped to \"1 × 3 × 2 × 3\".",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell133",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Given head_dim = d_out/num_heads from the reference, d_out=6 and num_heads=2 implies head_dim=3, making a reshape from (1,3,6) to (1,3,2,3) consistent."
+      },
+      {
+        "sentence_id": "ch03.s09.p05.06",
+        "text": "Ignoring the batch dimension, a tensor of shape \"1 × 3 × 2 × 3\" can be read as 3 tokens, with 2 heads inside each token, and a 3-dimensional vector for each head.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell127",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell120"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References cover general tensor shapes (batch, tokens, features) but do not describe the specific interpretive reading of a (1,3,2,3) tensor as tokens containing heads and per-head vectors."
+      },
+      {
+        "sentence_id": "ch03.s09.p05.07",
+        "text": "The keys and values are reshaped in the same way, so they also have shape \"1 × 3 × 2 × 3\".",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell72",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell43",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided reference snippet shows keys/values are computed and their shapes printed, but does not show or state they are reshaped to (1,3,2,3)."
+      },
+      {
+        "sentence_id": "ch03.s09.p05.08",
+        "text": "In code, this split is done with \"view\" on the keys, queries, and values, replacing the last dimension by number of heads and head dimension and turning three-dimensional tensors into four-dimensional tensors.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell44"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No referenced passage shows the code using view/reshape on keys/queries/values to split d_out into (num_heads, head_dim)."
+      },
+      {
+        "sentence_id": "ch03.s09.p06.02",
+        "text": "Before transposition, tensors with shape \"1 × 3 × 2 × 3\" are grouped by tokens rather than by heads.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell43",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell72",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell131"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While MultiHeadAttention defines head_dim and num_heads, the references do not explicitly state that the pre-transpose 4D layout is grouped by tokens rather than heads."
+      },
+      {
+        "sentence_id": "ch03.s09.p06.03",
+        "text": "To compute attention scores, they need to be grouped by heads instead.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell27",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell21",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References explain attention scores via dot products but do not mention regrouping tensors by heads as a requirement for computing attention scores."
+      },
+      {
+        "sentence_id": "ch03.s09.p06.04",
+        "text": "That regrouping swaps the number-of-tokens and number-of-heads dimensions, changing the shape from batch, tokens, heads, head dimension to batch, heads, tokens, head dimension, which here is \"1 × 2 × 3 × 3\".",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell127",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell133",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell131"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References include head_dim definition and mention 4D matmul handling, but do not explicitly state swapping token and head dimensions to go from (batch,tokens,heads,head_dim) to (batch,heads,tokens,head_dim) or the specific 1×2×3×3 shape."
+      },
+      {
+        "sentence_id": "ch03.s09.p06.05",
+        "text": "In code, this is done with \"transpose(1, 2)\", because Python uses zero-based indexing and dimensions 1 and 2 correspond to tokens and heads.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell77"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference passage mentions using transpose(1, 2) for tokens/heads or discusses dimension indices for that operation."
+      },
+      {
+        "sentence_id": "ch03.s09.p06.06",
+        "text": "After transposition to \"1 × 2 × 3 × 3\", the tensors are grouped by head, and within each head the token rows each carry a 3-dimensional head vector.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell124",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell140",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell133"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference slices a tensor as a[0,0,:,:] and a[0,1,:,:], indicating after arranging as (batch, heads, tokens, head_dim), each head contains a (tokens × head_dim) matrix (token rows with head_dim-sized vectors)."
+      },
+      {
+        "sentence_id": "ch03.s09.p06.07",
+        "text": "Grouping by heads makes it possible to compute a separate attention score matrix for each head before the results are concatenated.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell46",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell133"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explains that with a 4D tensor grouped by heads, PyTorch matmul operates on the last two dims and is repeated per head, effectively computing separate attention score matrices per head before later combination."
+      },
+      {
+        "sentence_id": "ch03.s09.p06.08",
+        "text": "The transpose is needed because grouping by tokens is not suitable for computing attention scores for each head in parallel.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell41",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell77",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell73"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show using a transpose (keys.T) to compute dot products/attention scores, but they do not state that grouping by tokens is unsuitable for parallel per-head computation nor that this is why a transpose is needed."
+      },
+      {
+        "sentence_id": "ch03.s09.p07.r02",
+        "text": "Attention scores are computed by multiplying the queries by the keys transposed along the last two dimensions.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell77",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell38",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The code computes attention scores as queries @ keys.T, i.e., multiplying queries by keys transposed (conceptually along the last two dimensions in the multi-dimensional case)."
+      },
+      {
+        "sentence_id": "ch03.s09.p07.r03",
+        "text": "Transposing the key tensor turns a row in the key matrix into a column so that the multiplication is compatible.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell44",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references demonstrate multiplying a matrix by its transpose (e.g., first_head @ first_head.T) and discuss matmul over the last dimensions, which is consistent with transposing to make inner dimensions align (rows becoming columns for compatibility)."
+      },
+      {
+        "sentence_id": "ch03.s09.p07.r04",
+        "text": "With tensors grouped by head, the multiplication automatically pairs head 1 of the queries with head 1 of the keys and head 2 with head 2.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell140",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell133",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell50"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly indexes heads separately (a[0,0,:,:] and a[0,1,:,:]) and multiplies within each, consistent with head-wise pairing when tensors are grouped by head."
+      },
+      {
+        "sentence_id": "ch03.s09.p07.r05",
+        "text": "After the key transpose, the query and key tensors have compatible shapes, and each head is multiplied only with its corresponding head.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell70",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell130"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references describe matmul being performed over the last two dimensions and repeated per head, which implies compatible shapes after transposing keys and that each head’s queries multiply with the corresponding head’s keys."
+      },
+      {
+        "sentence_id": "ch03.s09.p07.r06",
+        "text": "This multiplication produces the attention score matrix.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell48",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell46"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference labels the per-head matrix multiplication step as computing the unnormalized attention score matrix (attention scores)."
+      },
+      {
+        "sentence_id": "ch03.s09.p07.r07",
+        "text": "The attention score tensor has dimensions batch size, number of heads, number of tokens, and number of tokens.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell10",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell30",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell39"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not explicitly state the full attention-score tensor shape as (batch_size, num_heads, num_tokens, num_tokens)."
+      },
+      {
+        "sentence_id": "ch03.s09.p07.r08",
+        "text": "The last two dimensions are token-by-token because a number-of-tokens-by-head-dimension matrix multiplied by a head-dimension-by-number-of-tokens matrix yields a number-of-tokens-by-number-of-tokens matrix, while the first two dimensions stay the same.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell77",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states PyTorch matmul is carried out between the last two dimensions (num_tokens, head_dim) and repeated for heads, which is consistent with producing (num_tokens, num_tokens) per head while earlier dimensions (batch, heads) are preserved."
+      },
+      {
+        "sentence_id": "ch03.s09.p07.r09",
+        "text": "Within each head, a row of the attention score matrix gives the attention scores between one query token and all tokens in the sequence.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell46",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell77"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference example query_2 @ keys.T is described as 'All attention scores for given query', and the text discusses row-wise normalization, consistent with a row corresponding to one query token’s scores over all tokens."
+      },
+      {
+        "sentence_id": "ch03.s09.p07.r10",
+        "text": "An attention score exists between each token and every other token, so each head's attention matrix has a row and a column for every token.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell67",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell120"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states attention connects each input token to each other input token (with causal masking in GPT), implying an attention matrix with a row/column per token per head (even if some future positions are masked)."
+      },
+      {
+        "sentence_id": "ch03.s09.p07.r11",
+        "text": "In code, the attention score is the scaled product between queries and keys.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell75",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell73",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell98"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The code computes attn_scores = queries @ keys.T and then scales by dividing by sqrt(d_k) before softmax (attn_scores / keys.shape[-1]**0.5), matching 'scaled product between queries and keys' used for attention weighting."
+      },
+      {
+        "sentence_id": "ch03.s09.p07.r12",
+        "text": "Each head therefore has its own token-by-token attention score matrix.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell120",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell67",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explains that PyTorch handles a 4D tensor and repeats the score-matrix multiplication across heads, implying each head has its own (num_tokens×num_tokens) attention score matrix."
+      },
+      {
+        "sentence_id": "ch03.s09.p08.r02",
+        "text": "In causal attention, a token should attend only to itself and earlier tokens, not to later tokens.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell67",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell95",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell97"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly states the causal mask lets a token attend only to the current and previous positions, not future positions."
+      },
+      {
+        "sentence_id": "ch03.s09.p08.r03",
+        "text": "To enforce that rule, all elements above the diagonal are replaced with negative infinity.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell106",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell99",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell46"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states that an efficient approach is to mask (unnormalized) attention scores above the diagonal with negative infinity before softmax."
+      },
+      {
+        "sentence_id": "ch03.s09.p08.r04",
+        "text": "Those masked positions become zero after softmax.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell105",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell120",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell108"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Masking scores with -inf before softmax yields zero probability/weight at those positions after softmax, consistent with the described masking approach."
+      },
+      {
+        "sentence_id": "ch03.s09.p08.r05",
+        "text": "Before softmax, the scores are divided by the square root of the head dimension.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference describes scaling attention scores by dividing by the square root of d_k before applying softmax."
+      },
+      {
+        "sentence_id": "ch03.s09.p08.r06",
+        "text": "This scaling prevents the query-key dot-product variance from growing with dimensionality, keeps pre-softmax values smaller, and is useful for backpropagation and stable gradients.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell28",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell73"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference mentions scaling by sqrt(d_k) but does not explain the variance/gradient-stability motivation or backpropagation rationale."
+      },
+      {
+        "sentence_id": "ch03.s09.p08.r07",
+        "text": "In this example, the head dimension is 3 because \"D_out\" is 6 and the number of heads is 2, so the scores are divided by the square root of 3.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided reference snippet does not contain this specific example with D_out=6, n_heads=2, head_dim=3, nor the resulting sqrt(3) scaling."
+      },
+      {
+        "sentence_id": "ch03.s09.p08.r08",
+        "text": "After softmax, each row sums to one.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell105",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell53"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states that attention weights are normalized so each row sums to 1 and shows summations of row sums."
+      },
+      {
+        "sentence_id": "ch03.s09.p08.r09",
+        "text": "The attention weights have the same dimensions as the attention scores: batch size, number of heads, number of tokens, and number of tokens.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell10",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell30"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No provided passage specifies the tensor shape of attention scores/weights as (batch, heads, tokens, tokens)."
+      },
+      {
+        "sentence_id": "ch03.s09.p08.r10",
+        "text": "So the full transformation from scores to weights is: apply the causal mask with negative infinity above the diagonal, divide by the square root of head dimension, and then apply softmax.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell106",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell101",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references describe masking unnormalized scores with -inf above the diagonal before softmax and also describe scaling scores by sqrt(d_k) prior to softmax; together this matches the stated transformation sequence."
+      },
+      {
+        "sentence_id": "ch03.s09.p08.r11",
+        "text": "Dropout can also be applied after obtaining attention weights, although it is omitted here for simplicity.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell112",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell116",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell122"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference says in this example dropout is applied (commonly after computing attention weights), whereas the sentence claims it is omitted here for simplicity."
+      },
+      {
+        "sentence_id": "ch03.s09.p08.r12",
+        "text": "In code, an upper triangular mask is created and applied to the attention scores so that all elements above the diagonal become negative infinity.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell106",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell99",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell101"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference shows creating an upper-triangular mask (via triu) and applying masked_fill to set positions above the diagonal in attention scores to -inf."
+      },
+      {
+        "sentence_id": "ch03.s09.p08.r13",
+        "text": "The mask is built only for the context length, because the model does not look at more tokens than the context length at a time.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell100",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell110",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference shows the causal mask is created with size (context_length, context_length), where context_length is taken from the attention score tensor shape; other passages emphasize truncating inputs to the model’s supported context length."
+      },
+      {
+        "sentence_id": "ch03.s09.p08.r14",
+        "text": "If a batch contains fewer tokens than the context size, the masking code stops the mask at the actual number of tokens.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell87",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell67"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references discuss cropping the input context to a maximum context_size during generation, but do not describe masking code that dynamically stops at the actual (shorter) token count within a batch."
+      },
+      {
+        "sentence_id": "ch03.s09.p08.r15",
+        "text": "In code, the scores are divided by the square root of the last dimension of the keys tensor, which is the head dimension, before softmax is applied.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly states attention scores are scaled by dividing by sqrt(d_k) before applying softmax, where d_k corresponds to the key/query dimension (head dimension in multi-head attention)."
+      },
+      {
+        "sentence_id": "ch03.s09.p08.r16",
+        "text": "Softmax is applied along the last dimension so that the columns within each row sum to one.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell53"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The references describe applying softmax along the last dimension so that each row sums to 1. The sentence says this makes the columns within each row sum to one, which is incorrect."
+      },
+      {
+        "sentence_id": "ch03.s09.p08.r17",
+        "text": "Each element of the attention weight matrix is the attention weight between a particular query token and a particular key token within a head.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell130",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell70"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss multi-head attention implementation and projecting to queries/keys/values, but do not directly define each attention-weight matrix element as the weight between a specific query token and key token within a head."
+      },
+      {
+        "sentence_id": "ch03.s09.p09.r01",
+        "text": "Finally, the context vector matrix is computed by multiplying the attention weights by the value matrix.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell38",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references describe computing context vectors by multiplying attention weights with (embedded/value) vectors and summing, consistent with weights @ values producing the context vectors."
+      },
+      {
+        "sentence_id": "ch03.s09.p09.r02",
+        "text": "The value matrix was computed earlier and is used only in this final step.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell69"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references state values are computed earlier from W_v and are used in computing the context vector, but they do not state that values are used only in the final step (nor do they rule out other uses)."
+      },
+      {
+        "sentence_id": "ch03.s09.p09.r03",
+        "text": "For this multiplication, the attention weights have dimensions batch size, number of heads, number of tokens, number of tokens, and the values have dimensions batch size, number of heads, number of tokens, head dimension.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell10",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell30",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No provided reference passage specifies the exact 4D shapes of attention weights and values tensors for the batched multi-head multiplication."
+      },
+      {
+        "sentence_id": "ch03.s09.p09.r04",
+        "text": "The multiplication is valid because the number of columns in the attention weights matches the number of rows in the values.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell25",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention PyTorch handling 4D matmul for (num_tokens, head_dim) but do not explicitly justify validity via matching columns of attention weights to rows of values."
+      },
+      {
+        "sentence_id": "ch03.s09.p09.r05",
+        "text": "Attention weights differ from attention scores because each row of the weights sums to one, while that is not true for the scores.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell21",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell77",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states unnormalized values are attention scores, while normalized attention scores that sum to 1 are attention weights, matching the sentence’s distinction."
+      },
+      {
+        "sentence_id": "ch03.s09.p09.r06",
+        "text": "Multiplying the attention weights by the values produces a context vector output with shape batch size, number of heads, number of tokens, head dimension.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell38",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell133",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell10"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the references discuss output dimensions generally, they do not explicitly state that weights @ values yields an output of shape (batch, heads, tokens, head_dim)."
+      },
+      {
+        "sentence_id": "ch03.s09.p09.r07",
+        "text": "In that output, each head contains one row per token, and each row is the context vector for that token with dimensionality equal to the head dimension.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell65",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell52"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references note one output vector per input token and discuss output vector dimensionality, but do not specifically describe the per-head (tokens × head_dim) structure of the intermediate multi-head output."
+      },
+      {
+        "sentence_id": "ch03.s09.p10.r02",
+        "text": "The final context matrix is supposed to preserve the \"D_out\" dimension, so the number of heads and the head dimension must be merged back together.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell133",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference notes two implementations: the Wrapper concatenates heads to get d_out*num_heads, but the MultiHeadAttention class sets the final output dimension to d_out regardless of num_heads. So it is not generally true that the final context matrix must merge heads back together to preserve a fixed D_out."
+      },
+      {
+        "sentence_id": "ch03.s09.p10.r03",
+        "text": "To prepare for that merge, the number-of-heads and number-of-tokens dimensions are transposed so the shape changes from batch size, number of heads, number of tokens, head dimension to batch size, number of tokens, number of heads, head dimension.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell10",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell30",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell133"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references discuss config values and output-dimension notes, but do not describe or show a transpose changing (batch, heads, tokens, head_dim) to (batch, tokens, heads, head_dim)."
+      },
+      {
+        "sentence_id": "ch03.s09.p10.r04",
+        "text": "After this transpose, the grouping is by token, and within each token there is one context vector per head.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell65",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell11"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references state there is one output vector per input token, but they do not cover the post-transpose grouping by token with one context vector per head."
+      },
+      {
+        "sentence_id": "ch03.s09.p10.r05",
+        "text": "The reason for this transpose is to bring number of heads and head dimension next to each other so they can be merged into \"D_out\" more easily.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell133",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell131",
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell13"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the code defines head_dim = d_out // num_heads and discusses output dimensions, the references do not state that a transpose is done specifically to place num_heads next to head_dim for merging."
+      },
+      {
+        "sentence_id": "ch03.s09.p10.r06",
+        "text": "The outputs from multiple heads are then combined by flattening each token output into a single row.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell125",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell68"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited cells do not describe the combining operation as 'flattening each token output into a single row' (e.g., via reshape/concat semantics)."
+      },
+      {
+        "sentence_id": "ch03.s09.p10.r07",
+        "text": "In the final context matrix, each row is the context vector for one token, and its length is \"D_out\" because the head outputs have been merged together.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell127"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The Wrapper implementation concatenates head outputs along the last dimension (torch.cat(..., dim=-1)), yielding per-token rows whose length equals the merged head dimension (d_out*num_heads). The reference also explains the resulting output embedding dimension (e.g., 2 heads * 2 = 4)."
+      },
+      {
+        "sentence_id": "ch03.s09.p10.r08",
+        "text": "The final context vector matrix therefore has shape batch size, number of tokens, \"D_out\".",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell72",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell43",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell87"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References for logits/output shapes indicate model outputs follow (batch_size, num_tokens, ...), consistent with a per-token context representation shaped (batch_size, num_tokens, D_out) at the attention/module output level."
+      },
+      {
+        "sentence_id": "ch03.s09.p10.r09",
+        "text": "In code, the context vector is reshaped into batch size, number of tokens, \"D_out\".",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell127",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell87",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell11"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No provided reference shows code that explicitly reshapes the context vector tensor into (batch_size, num_tokens, D_out)."
+      },
+      {
+        "sentence_id": "ch03.s09.p10.r10",
+        "text": "Calling \"contiguous\" before reshaping ensures the tensor is in the same memory block so the reshape works properly.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not discuss calling contiguous() before reshaping or any memory-layout rationale."
+      },
+      {
+        "sentence_id": "ch03.s09.p10.r11",
+        "text": "An optional output projection can then be applied as a learnable linear layer, although it is not strictly necessary.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell134",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell53",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly says an added out_proj linear layer is standard but not strictly necessary and does not change dimensions."
+      },
+      {
+        "sentence_id": "ch03.s09.p10.r12",
+        "text": "This full process produces enriched context vector representations for the tokens.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell57",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell121",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references describe computing context vectors for tokens in self-attention, consistent with producing enriched token representations (context vectors) from the attention process."
+      },
+      {
+        "sentence_id": "ch03.s09.p11.02",
+        "text": "In the demonstration, there are 3 tokens, embedding dimension 6, \"D_out\" equal to 6, context length equal to 6, dropout rate 0, and 2 heads.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell99",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell10",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference example mentions d_out=2 with 2 heads giving embedding/output dimension 4, not embedding dimension 6 or D_out=6. The cited config also has context_length 1024 and emb_dim 768, so the stated demo hyperparameters are incompatible with the provided reference details."
+      },
+      {
+        "sentence_id": "ch03.s09.p11.03",
+        "text": "Dropout in this attention implementation randomly blocks out some attention weights, which is described as useful for generalization.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell112",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell21",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell116"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly says dropout is applied after computing attention weights, randomly masking (e.g., 50% in the example) to reduce overfitting, which aligns with “randomly blocks out some attention weights” and usefulness for generalization."
+      },
+      {
+        "sentence_id": "ch03.s09.p11.04",
+        "text": "For the first batch, the resulting context vector matrix has 3 rows and 6 columns, matching the earlier example in shape even if the values differ because of different random initializations.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell132",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell25",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference mentions outputs may differ due to random initialization and discusses row/column conventions, but it does not state that the first batch’s context vector matrix specifically has shape 3×6 or that it matches an earlier example in that exact shape."
+      },
+      {
+        "sentence_id": "ch03.s09.p11.05",
+        "text": "For larger text, the same pipeline applies: take sentences, break them into tokens, convert them into token IDs, map them to input embeddings, and compute context vectors for each token.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell33",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell32",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell44"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided refs cover tokenization and converting tokens to token IDs (encode/decode), but they do not cover mapping to embeddings and computing context vectors for each token, nor assert that the whole end-to-end pipeline applies for larger text."
+      },
+      {
+        "sentence_id": "ch03.s09.p11.06",
+        "text": "The multi-head attention class can also handle multiple batches at once, producing one context vector matrix per batch.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell126",
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell8",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference discusses PyTorch handling 4D tensors for multi-head attention computations across heads and dimensions, implying batched processing that produces per-batch outputs (context representations) when multiple batches are provided."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch03.s09.p01.r02",
+        "text": "A straightforward implementation creates multiple weight matrices for the query, key, and value, one set per attention head, multiplies the input with those matrices, and obtains separate queries, keys, and values for each head.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell130",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell98"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference explicitly contrasts the stand-alone MultiHeadAttention with the per-head approach: it says the efficient version creates single W_query/W_key/W_value matrices and then splits into heads, rather than creating separate per-head weight matrices up front."
+      },
+      {
+        "sentence_id": "ch03.s09.p03.r11",
+        "text": "Since each head has dimension 3 and there are 2 heads, the total \"D_out\" is 6.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell133",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell65"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Reference example uses head dimension d_out=2 with 2 heads giving concatenated output dimension 4 (2*2), not 6; also notes MultiHeadAttention can keep output dim equal to d_out regardless of heads."
+      },
+      {
+        "sentence_id": "ch03.s09.p08.r11",
+        "text": "Dropout can also be applied after obtaining attention weights, although it is omitted here for simplicity.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell112",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell116",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell122"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference says in this example dropout is applied (commonly after computing attention weights), whereas the sentence claims it is omitted here for simplicity."
+      },
+      {
+        "sentence_id": "ch03.s09.p08.r16",
+        "text": "Softmax is applied along the last dimension so that the columns within each row sum to one.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell53"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The references describe applying softmax along the last dimension so that each row sums to 1. The sentence says this makes the columns within each row sum to one, which is incorrect."
+      },
+      {
+        "sentence_id": "ch03.s09.p10.r02",
+        "text": "The final context matrix is supposed to preserve the \"D_out\" dimension, so the number of heads and the head dimension must be merged back together.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell133",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference notes two implementations: the Wrapper concatenates heads to get d_out*num_heads, but the MultiHeadAttention class sets the final output dimension to d_out regardless of num_heads. So it is not generally true that the final context matrix must merge heads back together to preserve a fixed D_out."
+      },
+      {
+        "sentence_id": "ch03.s09.p11.02",
+        "text": "In the demonstration, there are 3 tokens, embedding dimension 6, \"D_out\" equal to 6, context length equal to 6, dropout rate 0, and 2 heads.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell99",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell10",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference example mentions d_out=2 with 2 heads giving embedding/output dimension 4, not embedding dimension 6 or D_out=6. The cited config also has context_length 1024 and emb_dim 768, so the stated demo hyperparameters are incompatible with the provided reference details."
+      }
+    ]
+  }
+}

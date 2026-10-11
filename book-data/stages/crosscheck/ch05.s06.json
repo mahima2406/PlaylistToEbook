@@ -1,0 +1,185 @@
+{
+  "stage": "crosscheck",
+  "item": "ch05.s06",
+  "inputs_hash": "96fbed99ee5505f638e99e5793644476d6df30ffef25e57e72f4744d06b559f6",
+  "output_hash": "d81b4548f286a6bc9e63e55761dbbcac6df5a6a125342edd6ba78d6cb20391f2",
+  "output": {
+    "section_id": "ch05.s06",
+    "checked": 13,
+    "counts": {
+      "agrees": 4,
+      "contradicts": 1,
+      "not_covered": 8
+    },
+    "results": [
+      {
+        "sentence_id": "ch05.s06.p01.r02",
+        "text": "A simple check is to call the \"generate\" function with the loaded model, using input token IDs for the prompt \"every effort moves you\", a maximum of 25 new tokens, temperature 1.5, and top-k 50.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell145",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell115",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell103"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref cell145 shows calling generate with prompt token IDs for \"Every effort moves you\", max_new_tokens=25, temperature=1.5, top_k=50 using the loaded model."
+      },
+      {
+        "sentence_id": "ch05.s06.p01.r03",
+        "text": "With the GPT-2 weights loaded, generation does not take much time because the model already has pretrained weights.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell41",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell42"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention initializing a pretrained model and that it is only pretrained (not instruction-finetuned), but they do not state that generation is fast because weights are pretrained."
+      },
+      {
+        "sentence_id": "ch05.s06.p01.r04",
+        "text": "The generated continuation is much more coherent than the earlier output produced without GPT-2 weights.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell16",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell119"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No provided reference passage compares coherence of output with vs. without GPT-2 weights."
+      },
+      {
+        "sentence_id": "ch05.s06.p01.r05",
+        "text": "The weights are treated as loaded correctly because the model produces coherent text and at least the words make sense.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell45",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell146",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell64"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs state coherent generated text is used to double-check that weights were loaded correctly and that even small mistakes would prevent coherent text."
+      },
+      {
+        "sentence_id": "ch05.s06.p01.r06",
+        "text": "Even a tiny mistake in the loading process would cause the model to fail.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell146",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell116",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell103"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref explicitly says even a small mistake in loading would prevent the model from generating coherent text."
+      },
+      {
+        "sentence_id": "ch05.s06.p02.02",
+        "text": "Increasing the temperature makes the output more random because increasing the temperature increases the entropy.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell88",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell101",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell97"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Temperature scaling in the refs divides logits by temperature and notes higher temperature yields more uniformly distributed probabilities, consistent with higher entropy and more random outputs."
+      },
+      {
+        "sentence_id": "ch05.s06.p02.03",
+        "text": "For example, setting the temperature to 10 is used specifically to see the effect of a much higher temperature value.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell88",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell97",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell101"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference example temperatures are [1, 0.1, 5] (and discusses temperature 5), not temperature 10."
+      },
+      {
+        "sentence_id": "ch05.s06.p02.04",
+        "text": "At that setting, the text is expected to become a bit random, and the resulting output is described as random.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell94",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell132",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell71"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided refs discuss random outputs due to untrained/random weights, but do not describe randomness specifically at a particular temperature setting used for generation."
+      },
+      {
+        "sentence_id": "ch05.s06.p02.05",
+        "text": "Having your own GPT implementation opens the door to experimentation, creativity, hyperparameter tuning, and research that is not available in the same way through ChatGPT.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell44"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference mentions allowed_max_length for longer datasets; it does not discuss experimentation/creativity vs. ChatGPT access."
+      },
+      {
+        "sentence_id": "ch05.s06.p03.r02",
+        "text": "To change the architecture, you go to the defined GPT model and add or subtract layers.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell76",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell147",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell66"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No provided passage states that changing architecture is done by adding/subtracting layers in the defined GPT model."
+      },
+      {
+        "sentence_id": "ch05.s06.p03.r03",
+        "text": "One concrete change is to reduce the number of transformer blocks if you want to test a smaller language model instead of using 12 transformer blocks.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell143",
+          "ref:ch05/01_main-chapter-code/gpt_generate.py",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs show configs include numbers of blocks/layers and code iterating over blocks, but do not explicitly state reducing transformer blocks from 12 to test a smaller model."
+      },
+      {
+        "sentence_id": "ch05.s06.p03.r05",
+        "text": "The parameters named for experimentation include top-k, maximum new tokens, the number of attention heads, the number of transformer blocks, and the optimizer step size.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell11",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs cover n_heads and n_layers config and generation settings like top_k elsewhere, but do not present a named list of experimentation parameters including top-k, max_new_tokens, n_heads, n_layers, and optimizer step size together."
+      },
+      {
+        "sentence_id": "ch05.s06.p03.r06",
+        "text": "The optimizer used here is Adam with a learning rate of 5 into 10 to the minus 4 and weight decay 0.1, and those settings can also be changed to check their effect on the output.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell106",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references discuss overfitting and mention that hyperparameters like learning rate and weight_decay can be tuned, but they do not specify that the optimizer is Adam nor give the concrete values (lr=5e-4, weight_decay=0.1)."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch05.s06.p02.03",
+        "text": "For example, setting the temperature to 10 is used specifically to see the effect of a much higher temperature value.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell88",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell97",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell101"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference example temperatures are [1, 0.1, 5] (and discusses temperature 5), not temperature 10."
+      }
+    ]
+  }
+}

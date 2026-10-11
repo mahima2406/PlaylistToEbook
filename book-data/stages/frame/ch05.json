@@ -1,0 +1,541 @@
+{
+  "stage": "frame",
+  "item": "ch05",
+  "inputs_hash": "69db394e76d13ad6b8e4d896caba2f33e54d75abfe2075c6ad9d80163786b980",
+  "output_hash": "c9a5dc10c752d16ea9959a453879dccd3303ffb37fd7c0df93e85cb83f394c7e",
+  "output": {
+    "section_id": "ch05.open",
+    "paragraphs": [
+      {
+        "id": "ch05.open.p01",
+        "sentences": [
+          {
+            "id": "ch05.open.p01.r01",
+            "text": "In the previous chapter, you built and pretrained a GPT-style model and used it for next-token generation; here the focus shifts from training a model from scratch to loading released GPT-2 weights into that same architecture and then adapting it for a supervised classification task.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch05.open.p01.r02",
+            "text": "That shift matters because you load the publicly released OpenAI GPT-2 weights into the GPT model built earlier, and pretraining is not the end of working with a language model because those pretrained weights can be fine-tuned for specific applications such as email classification.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@15",
+              "yXrGeDNuymY@17",
+              "yXrGeDNuymY@21",
+              "yXrGeDNuymY@37",
+              "yXrGeDNuymY@45",
+              "yXrGeDNuymY@50",
+              "yXrGeDNuymY@52",
+              "yXrGeDNuymY@56",
+              "yXrGeDNuymY@2947",
+              "yXrGeDNuymY@2949",
+              "yXrGeDNuymY@2952",
+              "yXrGeDNuymY@2963",
+              "yXrGeDNuymY@2965",
+              "f6zqClXOh7Y@51",
+              "f6zqClXOh7Y@57",
+              "f6zqClXOh7Y@60",
+              "f6zqClXOh7Y@64",
+              "f6zqClXOh7Y@67"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.open.p02",
+        "sentences": [
+          {
+            "id": "ch05.open.p02.01",
+            "text": "We begin with why these pretrained weights are useful, what assumptions they bring with them, and which extra tools are needed to work with OpenAI's TensorFlow-formatted release from a PyTorch-based codebase.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch05.open.p02.02",
+            "text": "From there, the chapter walks through the released GPT-2 files, the settings and tokenization metadata, the structure of the parameter dictionary, and how those weights map onto the model class you already have.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch05.open.p02.03",
+            "text": "The second half turns to classification: preparing the spam dataset, handling tokenization and padding, building dataloaders, attaching a classification head, checking accuracy and loss before training, running the fine-tuning loop, reviewing the results and overfitting checks, and finally using and saving the fine-tuned model.",
+            "type": "R",
+            "cites": []
+          }
+        ]
+      },
+      {
+        "id": "ch05.glance.p01",
+        "sentences": [
+          {
+            "id": "ch05.glance.p01.r01",
+            "text": "The same GPT architecture and model class built earlier can be reused with publicly released GPT-2 weights.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@17",
+              "yXrGeDNuymY@21",
+              "yXrGeDNuymY@37",
+              "yXrGeDNuymY@45",
+              "yXrGeDNuymY@50",
+              "yXrGeDNuymY@52",
+              "yXrGeDNuymY@56"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.glance.p02",
+        "sentences": [
+          {
+            "id": "ch05.glance.p02.01",
+            "text": "OpenAI saved the GPT-2 weights in TensorFlow, while the surrounding code uses PyTorch, so this setup installs TensorFlow and \"tqdm\", with TensorFlow version at least 2.15 and \"tqdm\" version at least 4.66.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@260",
+              "yXrGeDNuymY@262",
+              "yXrGeDNuymY@265",
+              "yXrGeDNuymY@267",
+              "yXrGeDNuymY@269",
+              "yXrGeDNuymY@272",
+              "yXrGeDNuymY@275",
+              "yXrGeDNuymY@286",
+              "yXrGeDNuymY@288",
+              "yXrGeDNuymY@291",
+              "yXrGeDNuymY@293",
+              "yXrGeDNuymY@294"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.glance.p03",
+        "sentences": [
+          {
+            "id": "ch05.glance.p03.r01",
+            "text": "The main loading function in \"gpt_download3.py\" downloads seven GPT-2 files, locates the latest checkpoint, loads the checkpoint parameters into a dictionary named \"params\", and returns that along with a \"settings\" dictionary.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@386",
+              "yXrGeDNuymY@388",
+              "yXrGeDNuymY@390",
+              "yXrGeDNuymY@412",
+              "yXrGeDNuymY@762",
+              "yXrGeDNuymY@772",
+              "yXrGeDNuymY@779",
+              "yXrGeDNuymY@841",
+              "yXrGeDNuymY@848",
+              "yXrGeDNuymY@852",
+              "yXrGeDNuymY@1658",
+              "yXrGeDNuymY@1668"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.glance.p04",
+        "sentences": [
+          {
+            "id": "ch05.glance.p04.r01",
+            "text": "Among the released files, \"encoder.json\" maps tokens to token IDs, the GPT-2 vocabulary has 50,257 tokens, and \"hparams.json\" stores settings such as vocabulary size, context length, embedding dimension, attention heads, and transformer blocks.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@537",
+              "yXrGeDNuymY@539",
+              "yXrGeDNuymY@541",
+              "yXrGeDNuymY@547",
+              "yXrGeDNuymY@549",
+              "yXrGeDNuymY@553",
+              "yXrGeDNuymY@555",
+              "yXrGeDNuymY@558",
+              "yXrGeDNuymY@560",
+              "yXrGeDNuymY@627",
+              "yXrGeDNuymY@629",
+              "yXrGeDNuymY@633",
+              "yXrGeDNuymY@636",
+              "yXrGeDNuymY@662",
+              "yXrGeDNuymY@665",
+              "yXrGeDNuymY@669",
+              "yXrGeDNuymY@671",
+              "yXrGeDNuymY@674",
+              "yXrGeDNuymY@794",
+              "yXrGeDNuymY@796",
+              "yXrGeDNuymY@797",
+              "yXrGeDNuymY@800",
+              "yXrGeDNuymY@802",
+              "yXrGeDNuymY@804",
+              "yXrGeDNuymY@806"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.glance.p05",
+        "sentences": [
+          {
+            "id": "ch05.glance.p05.01",
+            "text": "For the fine-tuning project, the model takes email text as input and predicts whether the message is spam or not spam, and fine-tuning means starting from pretrained GPT-2 weights and training the model again on task-specific data.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@51",
+              "f6zqClXOh7Y@55",
+              "f6zqClXOh7Y@57",
+              "f6zqClXOh7Y@60",
+              "f6zqClXOh7Y@64",
+              "f6zqClXOh7Y@67",
+              "f6zqClXOh7Y@192",
+              "f6zqClXOh7Y@193",
+              "f6zqClXOh7Y@195",
+              "f6zqClXOh7Y@198",
+              "f6zqClXOh7Y@200",
+              "f6zqClXOh7Y@204",
+              "f6zqClXOh7Y@207",
+              "f6zqClXOh7Y@210",
+              "0PpxZ3kNPWo@2759",
+              "0PpxZ3kNPWo@2761",
+              "0PpxZ3kNPWo@2764",
+              "0PpxZ3kNPWo@2900",
+              "0PpxZ3kNPWo@2902",
+              "0PpxZ3kNPWo@2904",
+              "0PpxZ3kNPWo@2906"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch05.open.p02.01": {
+        "verdict": "ok",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch05.open.p02.02": {
+        "verdict": "ok",
+        "confidence": 0.83,
+        "reason": ""
+      },
+      "ch05.open.p02.03": {
+        "verdict": "ok",
+        "confidence": 0.84,
+        "reason": ""
+      },
+      "ch05.glance.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.glance.p05.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.open.p01.r01": {
+        "verdict": "ok",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch05.open.p01.r02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.glance.p01.r01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.glance.p03.r01": {
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "Supported: the main function is download_and_load_gpt2; it downloads seven files; it finds the latest checkpoint path; it loads TF checkpoint parameters into a dictionary called params; and it returns settings plus params. Not supported by the cited lines: that the main loading function is specifically in a file named \"gpt_download3.py\" (caption says \"gpt download 3 py\" but doesn’t explicitly confirm exact filename spelling), and the claim that it \"loads the checkpoint parameters into a dictionary named params\" is implied but not explicitly tied to the checkpoint in one line (though nearby context suggests it)."
+      },
+      "ch05.glance.p04.r01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch05.open.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch05.open.p01.02": {
+        "verdict": "partial",
+        "confidence": 0.74,
+        "reason": "Citations support loading publicly released OpenAI GPT-2 weights into the previously constructed GPT model and that work continues beyond pretraining via fine-tuning for applications like email classification, but they do not explicitly state that this makes the generated text 'more coherent' (only imply improving coherence without a clear comparative claim)."
+      },
+      "ch05.open.p02.01": {
+        "verdict": "ok",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch05.open.p02.02": {
+        "verdict": "ok",
+        "confidence": 0.83,
+        "reason": ""
+      },
+      "ch05.open.p02.03": {
+        "verdict": "ok",
+        "confidence": 0.84,
+        "reason": ""
+      },
+      "ch05.glance.p01.01": {
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "Cited lines support reusing the same GPT architecture/model class with publicly released GPT-2 weights, but they do not clearly support the added causal claim that doing so 'makes generated text more coherent' (the coherence point is not fully stated in the provided cited lines)."
+      },
+      "ch05.glance.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.glance.p03.01": {
+        "verdict": "partial",
+        "confidence": 0.7,
+        "reason": "Supported: main function downloads seven files, finds latest checkpoint path, loads TF checkpoint params into a 'params' dictionary, and returns both 'settings' and 'params'. Not supported explicitly: that the code 'converts' checkpoint parameters (conversion is implied but not directly stated)."
+      },
+      "ch05.glance.p04.01": {
+        "verdict": "partial",
+        "confidence": 0.62,
+        "reason": "Supported: encoder.json is a vocabulary mapping tokens to token IDs; vocab size is 50,257; hparams.json stores settings including vocab size, context length, embedding dimension, attention heads, transformer blocks. Not directly supported: that 'vocab.bpe' specifically 'defines byte pair encoding' (it is described as listing tokens/related to a subword tokenizer, but not explicitly as defining BPE)."
+      },
+      "ch05.glance.p05.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "ch05.open.p01",
+      "ch05.glance.p01",
+      "ch05.glance.p03",
+      "ch05.glance.p04"
+    ],
+    "queue": [
+      {
+        "sentence_id": "ch05.glance.p03.r01",
+        "text": "The main loading function in \"gpt_download3.py\" downloads seven GPT-2 files, locates the latest checkpoint, loads the checkpoint parameters into a dictionary named \"params\", and returns that along with a \"settings\" dictionary.",
+        "cites": [
+          "yXrGeDNuymY@386",
+          "yXrGeDNuymY@388",
+          "yXrGeDNuymY@390",
+          "yXrGeDNuymY@412",
+          "yXrGeDNuymY@762",
+          "yXrGeDNuymY@772",
+          "yXrGeDNuymY@779",
+          "yXrGeDNuymY@841",
+          "yXrGeDNuymY@848",
+          "yXrGeDNuymY@852",
+          "yXrGeDNuymY@1658",
+          "yXrGeDNuymY@1668"
+        ],
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "Supported: the main function is download_and_load_gpt2; it downloads seven files; it finds the latest checkpoint path; it loads TF checkpoint parameters into a dictionary called params; and it returns settings plus params. Not supported by the cited lines: that the main loading function is specifically in a file named \"gpt_download3.py\" (caption says \"gpt download 3 py\" but doesn’t explicitly confirm exact filename spelling), and the claim that it \"loads the checkpoint parameters into a dictionary named params\" is implied but not explicitly tied to the checkpoint in one line (though nearby context suggests it).",
+        "status": "open"
+      }
+    ],
+    "opener": [
+      {
+        "id": "ch05.open.p01",
+        "sentences": [
+          {
+            "id": "ch05.open.p01.r01",
+            "text": "In the previous chapter, you built and pretrained a GPT-style model and used it for next-token generation; here the focus shifts from training a model from scratch to loading released GPT-2 weights into that same architecture and then adapting it for a supervised classification task.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch05.open.p01.r02",
+            "text": "That shift matters because you load the publicly released OpenAI GPT-2 weights into the GPT model built earlier, and pretraining is not the end of working with a language model because those pretrained weights can be fine-tuned for specific applications such as email classification.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@15",
+              "yXrGeDNuymY@17",
+              "yXrGeDNuymY@21",
+              "yXrGeDNuymY@37",
+              "yXrGeDNuymY@45",
+              "yXrGeDNuymY@50",
+              "yXrGeDNuymY@52",
+              "yXrGeDNuymY@56",
+              "yXrGeDNuymY@2947",
+              "yXrGeDNuymY@2949",
+              "yXrGeDNuymY@2952",
+              "yXrGeDNuymY@2963",
+              "yXrGeDNuymY@2965",
+              "f6zqClXOh7Y@51",
+              "f6zqClXOh7Y@57",
+              "f6zqClXOh7Y@60",
+              "f6zqClXOh7Y@64",
+              "f6zqClXOh7Y@67"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.open.p02",
+        "sentences": [
+          {
+            "id": "ch05.open.p02.01",
+            "text": "We begin with why these pretrained weights are useful, what assumptions they bring with them, and which extra tools are needed to work with OpenAI's TensorFlow-formatted release from a PyTorch-based codebase.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch05.open.p02.02",
+            "text": "From there, the chapter walks through the released GPT-2 files, the settings and tokenization metadata, the structure of the parameter dictionary, and how those weights map onto the model class you already have.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch05.open.p02.03",
+            "text": "The second half turns to classification: preparing the spam dataset, handling tokenization and padding, building dataloaders, attaching a classification head, checking accuracy and loss before training, running the fine-tuning loop, reviewing the results and overfitting checks, and finally using and saving the fine-tuned model.",
+            "type": "R",
+            "cites": []
+          }
+        ]
+      }
+    ],
+    "at_a_glance": [
+      {
+        "id": "ch05.glance.p01",
+        "sentences": [
+          {
+            "id": "ch05.glance.p01.r01",
+            "text": "The same GPT architecture and model class built earlier can be reused with publicly released GPT-2 weights.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@17",
+              "yXrGeDNuymY@21",
+              "yXrGeDNuymY@37",
+              "yXrGeDNuymY@45",
+              "yXrGeDNuymY@50",
+              "yXrGeDNuymY@52",
+              "yXrGeDNuymY@56"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.glance.p02",
+        "sentences": [
+          {
+            "id": "ch05.glance.p02.01",
+            "text": "OpenAI saved the GPT-2 weights in TensorFlow, while the surrounding code uses PyTorch, so this setup installs TensorFlow and \"tqdm\", with TensorFlow version at least 2.15 and \"tqdm\" version at least 4.66.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@260",
+              "yXrGeDNuymY@262",
+              "yXrGeDNuymY@265",
+              "yXrGeDNuymY@267",
+              "yXrGeDNuymY@269",
+              "yXrGeDNuymY@272",
+              "yXrGeDNuymY@275",
+              "yXrGeDNuymY@286",
+              "yXrGeDNuymY@288",
+              "yXrGeDNuymY@291",
+              "yXrGeDNuymY@293",
+              "yXrGeDNuymY@294"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.glance.p03",
+        "sentences": [
+          {
+            "id": "ch05.glance.p03.r01",
+            "text": "The main loading function in \"gpt_download3.py\" downloads seven GPT-2 files, locates the latest checkpoint, loads the checkpoint parameters into a dictionary named \"params\", and returns that along with a \"settings\" dictionary.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@386",
+              "yXrGeDNuymY@388",
+              "yXrGeDNuymY@390",
+              "yXrGeDNuymY@412",
+              "yXrGeDNuymY@762",
+              "yXrGeDNuymY@772",
+              "yXrGeDNuymY@779",
+              "yXrGeDNuymY@841",
+              "yXrGeDNuymY@848",
+              "yXrGeDNuymY@852",
+              "yXrGeDNuymY@1658",
+              "yXrGeDNuymY@1668"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.glance.p04",
+        "sentences": [
+          {
+            "id": "ch05.glance.p04.r01",
+            "text": "Among the released files, \"encoder.json\" maps tokens to token IDs, the GPT-2 vocabulary has 50,257 tokens, and \"hparams.json\" stores settings such as vocabulary size, context length, embedding dimension, attention heads, and transformer blocks.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@537",
+              "yXrGeDNuymY@539",
+              "yXrGeDNuymY@541",
+              "yXrGeDNuymY@547",
+              "yXrGeDNuymY@549",
+              "yXrGeDNuymY@553",
+              "yXrGeDNuymY@555",
+              "yXrGeDNuymY@558",
+              "yXrGeDNuymY@560",
+              "yXrGeDNuymY@627",
+              "yXrGeDNuymY@629",
+              "yXrGeDNuymY@633",
+              "yXrGeDNuymY@636",
+              "yXrGeDNuymY@662",
+              "yXrGeDNuymY@665",
+              "yXrGeDNuymY@669",
+              "yXrGeDNuymY@671",
+              "yXrGeDNuymY@674",
+              "yXrGeDNuymY@794",
+              "yXrGeDNuymY@796",
+              "yXrGeDNuymY@797",
+              "yXrGeDNuymY@800",
+              "yXrGeDNuymY@802",
+              "yXrGeDNuymY@804",
+              "yXrGeDNuymY@806"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.glance.p05",
+        "sentences": [
+          {
+            "id": "ch05.glance.p05.01",
+            "text": "For the fine-tuning project, the model takes email text as input and predicts whether the message is spam or not spam, and fine-tuning means starting from pretrained GPT-2 weights and training the model again on task-specific data.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@51",
+              "f6zqClXOh7Y@55",
+              "f6zqClXOh7Y@57",
+              "f6zqClXOh7Y@60",
+              "f6zqClXOh7Y@64",
+              "f6zqClXOh7Y@67",
+              "f6zqClXOh7Y@192",
+              "f6zqClXOh7Y@193",
+              "f6zqClXOh7Y@195",
+              "f6zqClXOh7Y@198",
+              "f6zqClXOh7Y@200",
+              "f6zqClXOh7Y@204",
+              "f6zqClXOh7Y@207",
+              "f6zqClXOh7Y@210",
+              "0PpxZ3kNPWo@2759",
+              "0PpxZ3kNPWo@2761",
+              "0PpxZ3kNPWo@2764",
+              "0PpxZ3kNPWo@2900",
+              "0PpxZ3kNPWo@2902",
+              "0PpxZ3kNPWo@2904",
+              "0PpxZ3kNPWo@2906"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

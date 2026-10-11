@@ -1,0 +1,186 @@
+{
+  "stage": "crosscheck",
+  "item": "ch03.s04",
+  "inputs_hash": "a0d9df95e2979dcc7df12e03bedb260c6c08f84e987c1ffdcc2a8bb147fe8aba",
+  "output_hash": "b9df36247814c7489f79cb0008f9c16dca947c71dce36507b27267b8d267561f",
+  "output": {
+    "section_id": "ch03.s04",
+    "checked": 14,
+    "counts": {
+      "agrees": 7,
+      "contradicts": 0,
+      "not_covered": 7
+    },
+    "results": [
+      {
+        "sentence_id": "ch03.s04.p01.02",
+        "text": "After computing the attention weights, the next and final step is to compute the context vector.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell73",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell69"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference outlines computing attention weights (step 3) followed by computing the context vector (step 4), described as the next step."
+      },
+      {
+        "sentence_id": "ch03.s04.p01.03",
+        "text": "Up to this point, the process is to take an input query, compute attention scores by dot products with the embedding vectors, and normalize those scores into attention weights that sum to one.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell31",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell27",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference describes computing dot-product attention scores and then normalizing them (softmax/normalization) so they sum to 1, yielding attention weights."
+      },
+      {
+        "sentence_id": "ch03.s04.p01.05",
+        "text": "To compute a context vector, multiply each input embedding vector by its corresponding attention weight and then sum the resulting vectors.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell38",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell27"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Step 3 explicitly states the context vector is computed by multiplying input token embeddings by attention weights and summing the resulting vectors."
+      },
+      {
+        "sentence_id": "ch03.s04.p01.06",
+        "text": "Multiplying each embedding by its attention weight can be understood as scaling down the vector in the vector representation.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell38",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the reference says embeddings are multiplied by attention weights, it does not explicitly interpret this as 'scaling down' the vectors."
+      },
+      {
+        "sentence_id": "ch03.s04.p02.r01",
+        "text": "For the token \"journey,\" the context vector is denoted as \"z2.\"",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention computing context vector z^(2) for input/query vector 2, but do not explicitly state that token 2 is 'journey' nor that it is denoted specifically as 'z2' for 'journey' in the provided excerpts."
+      },
+      {
+        "sentence_id": "ch03.s04.p02.r02",
+        "text": "To compute the context vector for \"journey,\" multiply every input token embedding by the corresponding attention weight and sum all the resulting vectors.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell38",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell27",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference describes computing z^(2) by multiplying each embedded input token x^(i) by its attention weight and summing, using input element 2 (the 'journey' example sentence) as the worked example."
+      },
+      {
+        "sentence_id": "ch03.s04.p02.r03",
+        "text": "The resulting summed vector is the context vector for the token being considered, here \"journey.\"",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell38",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states that the weighted-sum result is the context vector z^(2) for the input/query element being considered (here element 2 in the example sentence containing 'journey')."
+      },
+      {
+        "sentence_id": "ch03.s04.p02.r04",
+        "text": "That vector has contributions from all the input vectors, so it is an enriched embedding vector.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell57"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference shows context vectors are weighted sums over input vectors, but does not explicitly label them as 'enriched embedding vectors' or use that specific interpretation in the cited excerpts."
+      },
+      {
+        "sentence_id": "ch03.s04.p02.r05",
+        "text": "For example, a token with attention weight 0.2 contributes about 20% to the context vector, while a token with attention weight 0.1 contributes only about 10%.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell92",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell129"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages do not quantify contributions in percentage terms (e.g., 0.2 ≈ 20%) or discuss that interpretation explicitly."
+      },
+      {
+        "sentence_id": "ch03.s04.p02.r06",
+        "text": "In modern large language models such as GPT, context vectors carry the same meaning: they are enriched embedding vectors.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell8"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference discusses computing context vectors in GPT-style scaled dot-product attention, but does not explicitly state that they 'carry the same meaning' as 'enriched embedding vectors'."
+      },
+      {
+        "sentence_id": "ch03.s04.p02.r07",
+        "text": "The attention mechanism is what makes it possible to obtain context vectors rather than being limited to the original embedding vectors.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell38",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference describes self-attention as the mechanism used to compute context vectors as weighted sums over input vectors, implying context vectors arise from attention rather than being the original embeddings."
+      },
+      {
+        "sentence_id": "ch03.s04.p03.02",
+        "text": "It uses the query for \"journey,\" initializes a context vector tensor for token two, loops through all inputs, scales each input by the corresponding attention weight, and adds the scaled vectors together.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The excerpts do not describe an explicit implementation with initializing a context-vector tensor and looping through inputs to accumulate weighted vectors; they only state at a high level that context vectors are computed as weighted sums (and that step 4 computes the context vector for query vector 2)."
+      },
+      {
+        "sentence_id": "ch03.s04.p03.03",
+        "text": "Concretely, the first input embedding is multiplied by the first attention weight, the second input embedding by the second attention weight, and the same pattern continues through the last input vector.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell66",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell140",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references show input embedding shapes and some operations on attention tensors (e.g., slicing heads and matrix products), but they do not describe or implement the specific step-by-step mapping 'i-th input embedding multiplied by i-th attention weight' across the sequence for forming a context vector."
+      },
+      {
+        "sentence_id": "ch03.s04.p03.04",
+        "text": "Once those scaled vectors are added together, the result is the final context vector for \"journey.\"",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell26"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states that context vectors are computed as weighted sums over the input vectors for a given input element, which matches the idea that after scaling (weighting) and adding the vectors you obtain the final context vector for a token (e.g., \"journey\")."
+      }
+    ],
+    "conflicts": []
+  }
+}

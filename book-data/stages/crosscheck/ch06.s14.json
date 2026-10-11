@@ -1,0 +1,168 @@
+{
+  "stage": "crosscheck",
+  "item": "ch06.s14",
+  "inputs_hash": "61e7dc8c839d20be08727175f3f7d370ecb5d76fe9cef549e0e432b0984dc523",
+  "output_hash": "45e06c6e5569e3c30f7ed7028abfd9f397be36b87984c6d7e9c55dfd98b12649",
+  "output": {
+    "section_id": "ch06.s14",
+    "checked": 13,
+    "counts": {
+      "agrees": 4,
+      "contradicts": 0,
+      "not_covered": 9
+    },
+    "results": [
+      {
+        "sentence_id": "ch06.s14.p01.02",
+        "text": "One failure mode appears when the model repeats the input instead of carrying out the requested rewrite.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell81",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref explicitly notes a failure mode where the model repeats the original input sentence (and instruction) instead of following the rewrite instruction."
+      },
+      {
+        "sentence_id": "ch06.s14.p01.03",
+        "text": "For example, with the input sentence \"the lecture was delivered in a clear manner\", the expected rewrite was \"the lecture was delivered clearly\", but the model response remained \"the lecture was delivered in a clear manner\".",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell64",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell79",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell119"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided refs discuss that generation can include the input and that sometimes the model repeats input/instruction, but they do not mention this specific example sentence or the exact expected rewrite/output."
+      },
+      {
+        "sentence_id": "ch06.s14.p01.04",
+        "text": "That behavior is a mistake, although the model is also good in many cases, which is why the evaluation accuracy was around 55%.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell32"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The refs provided are about layer norm scale/shift and dataset padding/truncation; they do not discuss this rewrite mistake, model being good in many cases, or an evaluation accuracy of ~55%."
+      },
+      {
+        "sentence_id": "ch06.s14.p02.r02",
+        "text": "One option is to adjust hyperparameters such as the learning rate, batch size, or number of epochs.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell106",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell10",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell26"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs mention tweaking hyperparameters such as learning rate and discuss optimizer settings like weight_decay and dropout; this supports the general idea of adjusting hyperparameters (learning rate, etc.) to improve results."
+      },
+      {
+        "sentence_id": "ch06.s14.p02.r03",
+        "text": "Another option is to increase the size of the training dataset.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell66",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell14",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell26"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the cited passages state that increasing the size of the training dataset is an option for improvement."
+      },
+      {
+        "sentence_id": "ch06.s14.p02.r04",
+        "text": "The dataset used here contained 1100 instruction-input-output pairs, and with 85% used for training, the model was in effect trained on about 800 pairs.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell15",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell79"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The refs explain instruction finetuning conceptually but do not give the dataset size (1100 pairs) nor the 85% split leading to ~800 training pairs."
+      },
+      {
+        "sentence_id": "ch06.s14.p02.r06",
+        "text": "A larger available source is the Stanford Alpaca repository, which contains 52,000 instruction-output pairs.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell15"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While Alpaca is referenced, the passages do not state that it contains 52,000 instruction-output pairs."
+      },
+      {
+        "sentence_id": "ch06.s14.p02.r07",
+        "text": "That is about 50 times larger than the dataset used here, and using such a dataset may produce better responses.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell10",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell29"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The refs do not quantify dataset-size ratios (e.g., 50x) nor state that using Alpaca-sized data may yield better responses."
+      },
+      {
+        "sentence_id": "ch06.s14.p03.02",
+        "text": "You can also experiment with different prompts or instruction formats to guide the model responses more effectively.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell95",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell18"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided refs do not mention experimenting with different prompts or instruction formats to guide responses more effectively (aside from a note about evaluation prompting, not response prompting)."
+      },
+      {
+        "sentence_id": "ch06.s14.p03.04",
+        "text": "The model used here was \"gpt2 medium\" with 355 million parameters.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell133",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell134"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref states they load the GPT-2 medium version with 355 million parameters for instruction finetuning."
+      },
+      {
+        "sentence_id": "ch06.s14.p03.05",
+        "text": "Larger alternatives mentioned were \"gpt2 large\" with 774 million parameters and \"gpt2 xl\" with more than a billion parameters.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell87",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell78"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The refs shown do not mention GPT-2 large (774M) or GPT-2 XL (>1B) as alternatives in chapter 7, nor their parameter counts there."
+      },
+      {
+        "sentence_id": "ch06.s14.p03.07",
+        "text": "For example, \"gpt2 xl\" was described as having 48 transformers and 25 attention heads in each transformer.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell140",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell81"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref lists gpt2-xl as having n_layers=48 and n_heads=25, matching the statement (48 transformers/layers and 25 attention heads)."
+      },
+      {
+        "sentence_id": "ch06.s14.p04.r03",
+        "text": "These methods can provide substantial computational speedup and can sometimes also improve accuracy.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell90",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell105",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell70"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference passages discuss training to improve loss and classification accuracy and show code computing accuracies, but they do not address methods providing computational speedup or explicitly claim that such methods can improve accuracy."
+      }
+    ],
+    "conflicts": []
+  }
+}

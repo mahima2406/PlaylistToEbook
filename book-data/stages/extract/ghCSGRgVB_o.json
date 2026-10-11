@@ -1,0 +1,2181 @@
+{
+  "stage": "extract",
+  "item": "ghCSGRgVB_o",
+  "inputs_hash": "a6182cda7942b46d04c74ad5df338dccf980c5be045db8ff494eb57e3fceb93b",
+  "output_hash": "0fa6d30bf111bd59e1a3af221bb6ea28929898ba5518a811fdc3c681da39a853",
+  "output": {
+    "video_id": "ghCSGRgVB_o",
+    "points": [
+      {
+        "id": "ghCSGRgVB_o:p001",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Token embeddings are also called vector embeddings, and the lecturer prefers the term token embeddings because tokens can be words, subwords, or characters, so word embeddings is not entirely accurate.",
+        "line_ids": [
+          "ghCSGRgVB_o@24",
+          "ghCSGRgVB_o@25",
+          "ghCSGRgVB_o@28",
+          "ghCSGRgVB_o@30",
+          "ghCSGRgVB_o@32",
+          "ghCSGRgVB_o@36",
+          "ghCSGRgVB_o@41",
+          "ghCSGRgVB_o@44",
+          "ghCSGRgVB_o@47",
+          "ghCSGRgVB_o@50"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p002",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In the large language model workflow, input text is first broken into tokens, then the tokens are converted into token IDs, and then the token IDs are converted into token embeddings, which are used as input to train the model.",
+        "line_ids": [
+          "ghCSGRgVB_o@58",
+          "ghCSGRgVB_o@60",
+          "ghCSGRgVB_o@63",
+          "ghCSGRgVB_o@66",
+          "ghCSGRgVB_o@69",
+          "ghCSGRgVB_o@71",
+          "ghCSGRgVB_o@74",
+          "ghCSGRgVB_o@77",
+          "ghCSGRgVB_o@80",
+          "ghCSGRgVB_o@82",
+          "ghCSGRgVB_o@119",
+          "ghCSGRgVB_o@122",
+          "ghCSGRgVB_o@124",
+          "ghCSGRgVB_o@127",
+          "ghCSGRgVB_o@130",
+          "ghCSGRgVB_o@134",
+          "ghCSGRgVB_o@136",
+          "ghCSGRgVB_o@139",
+          "ghCSGRgVB_o@141",
+          "ghCSGRgVB_o@143",
+          "ghCSGRgVB_o@146"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p003",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 2,
+        "text": "A word-based tokenizer makes each token one word, but GPT uses byte pair encoding as a subword tokenizer, so parts of words or even characters can be individual tokens.",
+        "line_ids": [
+          "ghCSGRgVB_o@80",
+          "ghCSGRgVB_o@82",
+          "ghCSGRgVB_o@86",
+          "ghCSGRgVB_o@89",
+          "ghCSGRgVB_o@92",
+          "ghCSGRgVB_o@96",
+          "ghCSGRgVB_o@98",
+          "ghCSGRgVB_o@102"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p004",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Computers cannot understand words directly, so words must be represented as numbers to be used as input to a machine learning model or large language model.",
+        "line_ids": [
+          "ghCSGRgVB_o@261",
+          "ghCSGRgVB_o@263",
+          "ghCSGRgVB_o@266",
+          "ghCSGRgVB_o@268",
+          "ghCSGRgVB_o@270",
+          "ghCSGRgVB_o@273",
+          "ghCSGRgVB_o@275",
+          "ghCSGRgVB_o@277"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p005",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Token IDs should not be used directly as model input because randomly assigned numbers do not capture semantic relationships between words.",
+        "line_ids": [
+          "ghCSGRgVB_o@296",
+          "ghCSGRgVB_o@298",
+          "ghCSGRgVB_o@300",
+          "ghCSGRgVB_o@302",
+          "ghCSGRgVB_o@306",
+          "ghCSGRgVB_o@308",
+          "ghCSGRgVB_o@310",
+          "ghCSGRgVB_o@312",
+          "ghCSGRgVB_o@319",
+          "ghCSGRgVB_o@322",
+          "ghCSGRgVB_o@326",
+          "ghCSGRgVB_o@329",
+          "ghCSGRgVB_o@331",
+          "ghCSGRgVB_o@334",
+          "ghCSGRgVB_o@337",
+          "ghCSGRgVB_o@339",
+          "ghCSGRgVB_o@348",
+          "ghCSGRgVB_o@351",
+          "ghCSGRgVB_o@353",
+          "ghCSGRgVB_o@356",
+          "ghCSGRgVB_o@360",
+          "ghCSGRgVB_o@363",
+          "ghCSGRgVB_o@366"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p006",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "The lecturer compares token embeddings to convolutional neural networks in vision: just as convolutional neural networks work well by exploiting spatial relationships between pixels in an image, language models should exploit semantic relationships between words in text.",
+        "line_ids": [
+          "ghCSGRgVB_o@375",
+          "ghCSGRgVB_o@377",
+          "ghCSGRgVB_o@379",
+          "ghCSGRgVB_o@381",
+          "ghCSGRgVB_o@384",
+          "ghCSGRgVB_o@386",
+          "ghCSGRgVB_o@389",
+          "ghCSGRgVB_o@391",
+          "ghCSGRgVB_o@394",
+          "ghCSGRgVB_o@397",
+          "ghCSGRgVB_o@399",
+          "ghCSGRgVB_o@402",
+          "ghCSGRgVB_o@403",
+          "ghCSGRgVB_o@406",
+          "ghCSGRgVB_o@409",
+          "ghCSGRgVB_o@411",
+          "ghCSGRgVB_o@413",
+          "ghCSGRgVB_o@415",
+          "ghCSGRgVB_o@418",
+          "ghCSGRgVB_o@420",
+          "ghCSGRgVB_o@422",
+          "ghCSGRgVB_o@425",
+          "ghCSGRgVB_o@427",
+          "ghCSGRgVB_o@429",
+          "ghCSGRgVB_o@431",
+          "ghCSGRgVB_o@433",
+          "ghCSGRgVB_o@435",
+          "ghCSGRgVB_o@437",
+          "ghCSGRgVB_o@439",
+          "ghCSGRgVB_o@442",
+          "ghCSGRgVB_o@444",
+          "ghCSGRgVB_o@447",
+          "ghCSGRgVB_o@452",
+          "ghCSGRgVB_o@454",
+          "ghCSGRgVB_o@456",
+          "ghCSGRgVB_o@459",
+          "ghCSGRgVB_o@461",
+          "ghCSGRgVB_o@462",
+          "ghCSGRgVB_o@465",
+          "ghCSGRgVB_o@467",
+          "ghCSGRgVB_o@469",
+          "ghCSGRgVB_o@471",
+          "ghCSGRgVB_o@474",
+          "ghCSGRgVB_o@476",
+          "ghCSGRgVB_o@479",
+          "ghCSGRgVB_o@481",
+          "ghCSGRgVB_o@484",
+          "ghCSGRgVB_o@487",
+          "ghCSGRgVB_o@490",
+          "ghCSGRgVB_o@492"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p007",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "One-hot encoding does not solve the problem, because it also fails to capture semantic relationships between words such as dog and puppy.",
+        "line_ids": [
+          "ghCSGRgVB_o@493",
+          "ghCSGRgVB_o@496",
+          "ghCSGRgVB_o@499",
+          "ghCSGRgVB_o@501",
+          "ghCSGRgVB_o@504",
+          "ghCSGRgVB_o@506",
+          "ghCSGRgVB_o@509",
+          "ghCSGRgVB_o@512",
+          "ghCSGRgVB_o@514",
+          "ghCSGRgVB_o@517",
+          "ghCSGRgVB_o@520",
+          "ghCSGRgVB_o@523",
+          "ghCSGRgVB_o@526",
+          "ghCSGRgVB_o@529",
+          "ghCSGRgVB_o@532",
+          "ghCSGRgVB_o@535",
+          "ghCSGRgVB_o@537",
+          "ghCSGRgVB_o@540",
+          "ghCSGRgVB_o@542",
+          "ghCSGRgVB_o@544",
+          "ghCSGRgVB_o@546",
+          "ghCSGRgVB_o@548",
+          "ghCSGRgVB_o@551",
+          "ghCSGRgVB_o@553",
+          "ghCSGRgVB_o@554",
+          "ghCSGRgVB_o@556"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p008",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "definition",
+        "importance": 3,
+        "text": "A way to encode semantic meaning is to represent each word as a vector whose dimensions correspond to features.",
+        "line_ids": [
+          "ghCSGRgVB_o@559",
+          "ghCSGRgVB_o@563",
+          "ghCSGRgVB_o@567",
+          "ghCSGRgVB_o@571",
+          "ghCSGRgVB_o@573",
+          "ghCSGRgVB_o@575",
+          "ghCSGRgVB_o@578",
+          "ghCSGRgVB_o@581",
+          "ghCSGRgVB_o@584",
+          "ghCSGRgVB_o@587",
+          "ghCSGRgVB_o@590",
+          "ghCSGRgVB_o@593",
+          "ghCSGRgVB_o@596",
+          "ghCSGRgVB_o@598",
+          "ghCSGRgVB_o@599",
+          "ghCSGRgVB_o@601",
+          "ghCSGRgVB_o@603",
+          "ghCSGRgVB_o@604",
+          "ghCSGRgVB_o@608",
+          "ghCSGRgVB_o@610"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p009",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "The lecturer illustrates vector embeddings with hand-chosen features such as has a tail, is eatable, has four legs, makes sound, and is a pet, assigning high values when a feature applies to a word.",
+        "line_ids": [
+          "ghCSGRgVB_o@613",
+          "ghCSGRgVB_o@615",
+          "ghCSGRgVB_o@618",
+          "ghCSGRgVB_o@621",
+          "ghCSGRgVB_o@626",
+          "ghCSGRgVB_o@629",
+          "ghCSGRgVB_o@631",
+          "ghCSGRgVB_o@633",
+          "ghCSGRgVB_o@636",
+          "ghCSGRgVB_o@639",
+          "ghCSGRgVB_o@641",
+          "ghCSGRgVB_o@643",
+          "ghCSGRgVB_o@646",
+          "ghCSGRgVB_o@648",
+          "ghCSGRgVB_o@650"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p010",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 2,
+        "text": "With such vector representations, dog and cat are close to each other because they have similar feature values, and apple and banana are close to each other because they also have similar feature values.",
+        "line_ids": [
+          "ghCSGRgVB_o@655",
+          "ghCSGRgVB_o@657",
+          "ghCSGRgVB_o@659",
+          "ghCSGRgVB_o@662",
+          "ghCSGRgVB_o@664",
+          "ghCSGRgVB_o@667",
+          "ghCSGRgVB_o@670",
+          "ghCSGRgVB_o@673",
+          "ghCSGRgVB_o@675",
+          "ghCSGRgVB_o@678",
+          "ghCSGRgVB_o@680",
+          "ghCSGRgVB_o@682",
+          "ghCSGRgVB_o@685",
+          "ghCSGRgVB_o@688",
+          "ghCSGRgVB_o@690",
+          "ghCSGRgVB_o@692",
+          "ghCSGRgVB_o@695",
+          "ghCSGRgVB_o@697",
+          "ghCSGRgVB_o@699",
+          "ghCSGRgVB_o@702",
+          "ghCSGRgVB_o@705",
+          "ghCSGRgVB_o@707",
+          "ghCSGRgVB_o@711",
+          "ghCSGRgVB_o@714",
+          "ghCSGRgVB_o@716",
+          "ghCSGRgVB_o@719",
+          "ghCSGRgVB_o@721",
+          "ghCSGRgVB_o@724",
+          "ghCSGRgVB_o@727",
+          "ghCSGRgVB_o@729"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p011",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Representing words as vectors can capture semantic meaning, allowing similar words to be grouped together and dissimilar words to be farther apart, unlike random number assignment or one-hot encoding.",
+        "line_ids": [
+          "ghCSGRgVB_o@732",
+          "ghCSGRgVB_o@736",
+          "ghCSGRgVB_o@738",
+          "ghCSGRgVB_o@742",
+          "ghCSGRgVB_o@745",
+          "ghCSGRgVB_o@747",
+          "ghCSGRgVB_o@750",
+          "ghCSGRgVB_o@753",
+          "ghCSGRgVB_o@755",
+          "ghCSGRgVB_o@758",
+          "ghCSGRgVB_o@760",
+          "ghCSGRgVB_o@762",
+          "ghCSGRgVB_o@764",
+          "ghCSGRgVB_o@766",
+          "ghCSGRgVB_o@768",
+          "ghCSGRgVB_o@770",
+          "ghCSGRgVB_o@773",
+          "ghCSGRgVB_o@775",
+          "ghCSGRgVB_o@778",
+          "ghCSGRgVB_o@780",
+          "ghCSGRgVB_o@782",
+          "ghCSGRgVB_o@784"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p012",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "definition",
+        "importance": 3,
+        "text": "These vectors are called vector embeddings or token embeddings because each token is converted into a vector embedding.",
+        "line_ids": [
+          "ghCSGRgVB_o@812",
+          "ghCSGRgVB_o@815",
+          "ghCSGRgVB_o@818",
+          "ghCSGRgVB_o@820",
+          "ghCSGRgVB_o@822",
+          "ghCSGRgVB_o@825",
+          "ghCSGRgVB_o@827",
+          "ghCSGRgVB_o@830"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p013",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A key takeaway is that vectors can capture semantic meaning.",
+        "line_ids": [
+          "ghCSGRgVB_o@830",
+          "ghCSGRgVB_o@834",
+          "ghCSGRgVB_o@836",
+          "ghCSGRgVB_o@839"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p014",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Token embeddings are created by training a neural network on text so that words that are closer or similar to each other get similar vectors.",
+        "line_ids": [
+          "ghCSGRgVB_o@841",
+          "ghCSGRgVB_o@844",
+          "ghCSGRgVB_o@847",
+          "ghCSGRgVB_o@849",
+          "ghCSGRgVB_o@851",
+          "ghCSGRgVB_o@854",
+          "ghCSGRgVB_o@857",
+          "ghCSGRgVB_o@859",
+          "ghCSGRgVB_o@859b",
+          "ghCSGRgVB_o@862",
+          "ghCSGRgVB_o@865",
+          "ghCSGRgVB_o@867",
+          "ghCSGRgVB_o@869",
+          "ghCSGRgVB_o@871",
+          "ghCSGRgVB_o@874",
+          "ghCSGRgVB_o@876",
+          "ghCSGRgVB_o@880",
+          "ghCSGRgVB_o@881",
+          "ghCSGRgVB_o@885",
+          "ghCSGRgVB_o@887",
+          "ghCSGRgVB_o@889",
+          "ghCSGRgVB_o@892",
+          "ghCSGRgVB_o@894",
+          "ghCSGRgVB_o@896",
+          "ghCSGRgVB_o@898",
+          "ghCSGRgVB_o@901",
+          "ghCSGRgVB_o@904"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p015",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Creating vector embeddings is computationally expensive because a model may need an embedding vector for a very large vocabulary such as GPT-2's roughly 50,000-word vocabulary, and this is one reason training GPT takes a huge amount of time.",
+        "line_ids": [
+          "ghCSGRgVB_o@911",
+          "ghCSGRgVB_o@914",
+          "ghCSGRgVB_o@915",
+          "ghCSGRgVB_o@917",
+          "ghCSGRgVB_o@920",
+          "ghCSGRgVB_o@923",
+          "ghCSGRgVB_o@926",
+          "ghCSGRgVB_o@929",
+          "ghCSGRgVB_o@932",
+          "ghCSGRgVB_o@935"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p016",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Words carry meaning, and to give words as input to large language models we need a representation that exploits this meaning rather than using random token IDs or one-hot encoding, which do not capture semantic relationships between words.",
+        "line_ids": [
+          "ghCSGRgVB_o@940",
+          "ghCSGRgVB_o@942",
+          "ghCSGRgVB_o@944",
+          "ghCSGRgVB_o@948",
+          "ghCSGRgVB_o@950",
+          "ghCSGRgVB_o@952",
+          "ghCSGRgVB_o@956",
+          "ghCSGRgVB_o@958",
+          "ghCSGRgVB_o@960",
+          "ghCSGRgVB_o@963",
+          "ghCSGRgVB_o@965",
+          "ghCSGRgVB_o@968",
+          "ghCSGRgVB_o@971"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p017",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Representing words as vectors so that semantic relationships are preserved is called vector embedding, and it is also called token embedding.",
+        "line_ids": [
+          "ghCSGRgVB_o@973",
+          "ghCSGRgVB_o@975",
+          "ghCSGRgVB_o@977",
+          "ghCSGRgVB_o@980",
+          "ghCSGRgVB_o@982",
+          "ghCSGRgVB_o@984"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p018",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Creating vector or token embeddings is not easy because a neural network must be trained to produce the right embeddings.",
+        "line_ids": [
+          "ghCSGRgVB_o@987",
+          "ghCSGRgVB_o@989",
+          "ghCSGRgVB_o@992",
+          "ghCSGRgVB_o@994",
+          "ghCSGRgVB_o@997"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p019",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Many big companies such as Google already provide pre-trained token embeddings.",
+        "line_ids": [
+          "ghCSGRgVB_o@1034",
+          "ghCSGRgVB_o@1037",
+          "ghCSGRgVB_o@1040"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p020",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The Word2Vec Google News 300 embeddings are pre-trained vectors learned from a Google News dataset of about 100 billion words.",
+        "line_ids": [
+          "ghCSGRgVB_o@1040",
+          "ghCSGRgVB_o@1042",
+          "ghCSGRgVB_o@1049",
+          "ghCSGRgVB_o@1051",
+          "ghCSGRgVB_o@1055",
+          "ghCSGRgVB_o@1057",
+          "ghCSGRgVB_o@1060",
+          "ghCSGRgVB_o@1063",
+          "ghCSGRgVB_o@1065",
+          "ghCSGRgVB_o@1067",
+          "ghCSGRgVB_o@1071",
+          "ghCSGRgVB_o@1074"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p021",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "definition",
+        "importance": 3,
+        "text": "In Word2Vec Google News 300, the number 300 is the embedding dimension, meaning each word is mapped into a 300-dimensional vector space.",
+        "line_ids": [
+          "ghCSGRgVB_o@1075",
+          "ghCSGRgVB_o@1078",
+          "ghCSGRgVB_o@1081",
+          "ghCSGRgVB_o@1083",
+          "ghCSGRgVB_o@1086",
+          "ghCSGRgVB_o@1097",
+          "ghCSGRgVB_o@1101",
+          "ghCSGRgVB_o@1103"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p022",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 2,
+        "text": "A low-dimensional space such as five dimensions is not really enough to capture all meaning, so higher-dimensional embeddings such as 300 dimensions are used to better preserve semantic meaning between words.",
+        "line_ids": [
+          "ghCSGRgVB_o@1088",
+          "ghCSGRgVB_o@1090",
+          "ghCSGRgVB_o@1092",
+          "ghCSGRgVB_o@1094",
+          "ghCSGRgVB_o@1097",
+          "ghCSGRgVB_o@1101",
+          "ghCSGRgVB_o@1103",
+          "ghCSGRgVB_o@1106",
+          "ghCSGRgVB_o@1108",
+          "ghCSGRgVB_o@1110"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p023",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In large language models such as GPT, embeddings are not taken from a separate pre-trained dataset but are trained along with the language model itself.",
+        "line_ids": [
+          "ghCSGRgVB_o@1112",
+          "ghCSGRgVB_o@1115",
+          "ghCSGRgVB_o@1118",
+          "ghCSGRgVB_o@1120",
+          "ghCSGRgVB_o@1123",
+          "ghCSGRgVB_o@1125"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p024",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 2,
+        "text": "A pre-trained Word2Vec model can take a word as input and convert it into a 300-dimensional vector.",
+        "line_ids": [
+          "ghCSGRgVB_o@1127",
+          "ghCSGRgVB_o@1129",
+          "ghCSGRgVB_o@1131",
+          "ghCSGRgVB_o@1134",
+          "ghCSGRgVB_o@1136",
+          "ghCSGRgVB_o@1139"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p025",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "code",
+        "importance": 2,
+        "text": "The lecturer assigns a dictionary called word_vectors from the model, where each word is associated with its embedding vector.",
+        "line_ids": [
+          "ghCSGRgVB_o@1144",
+          "ghCSGRgVB_o@1147",
+          "ghCSGRgVB_o@1150",
+          "ghCSGRgVB_o@1153",
+          "ghCSGRgVB_o@1156",
+          "ghCSGRgVB_o@1159",
+          "ghCSGRgVB_o@1161",
+          "ghCSGRgVB_o@1164",
+          "ghCSGRgVB_o@1166",
+          "ghCSGRgVB_o@1168"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p026",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "code",
+        "importance": 2,
+        "text": "The lecturer looks up the vector for the word computer and notes that printing its shape shows that it is a 300-dimensional vector, illustrating that every word is encoded into a 300-dimensional vector.",
+        "line_ids": [
+          "ghCSGRgVB_o@1170",
+          "ghCSGRgVB_o@1172",
+          "ghCSGRgVB_o@1174",
+          "ghCSGRgVB_o@1177",
+          "ghCSGRgVB_o@1179",
+          "ghCSGRgVB_o@1181",
+          "ghCSGRgVB_o@1183",
+          "ghCSGRgVB_o@1186",
+          "ghCSGRgVB_o@1188",
+          "ghCSGRgVB_o@1191"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p027",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "analogy",
+        "importance": 3,
+        "text": "If embeddings truly encode meaning, then the vector arithmetic king plus woman minus man should produce something similar to queen.",
+        "line_ids": [
+          "ghCSGRgVB_o@1193",
+          "ghCSGRgVB_o@1196",
+          "ghCSGRgVB_o@1199",
+          "ghCSGRgVB_o@1202",
+          "ghCSGRgVB_o@1205",
+          "ghCSGRgVB_o@1207",
+          "ghCSGRgVB_o@1209",
+          "ghCSGRgVB_o@1212",
+          "ghCSGRgVB_o@1215",
+          "ghCSGRgVB_o@1216",
+          "ghCSGRgVB_o@1219",
+          "ghCSGRgVB_o@1221",
+          "ghCSGRgVB_o@1224",
+          "ghCSGRgVB_o@1226",
+          "ghCSGRgVB_o@1228",
+          "ghCSGRgVB_o@1231",
+          "ghCSGRgVB_o@1234",
+          "ghCSGRgVB_o@1235",
+          "ghCSGRgVB_o@1238",
+          "ghCSGRgVB_o@1242",
+          "ghCSGRgVB_o@1244",
+          "ghCSGRgVB_o@1247",
+          "ghCSGRgVB_o@1250",
+          "ghCSGRgVB_o@1253",
+          "ghCSGRgVB_o@1256",
+          "ghCSGRgVB_o@1258",
+          "ghCSGRgVB_o@1260",
+          "ghCSGRgVB_o@1263",
+          "ghCSGRgVB_o@1265",
+          "ghCSGRgVB_o@1268",
+          "ghCSGRgVB_o@1270"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p028",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "To test this analogy, the lecturer adds the vectors for king and woman, subtracts the vector for man, and then prints the words most similar to the resulting vector.",
+        "line_ids": [
+          "ghCSGRgVB_o@1274",
+          "ghCSGRgVB_o@1276",
+          "ghCSGRgVB_o@1279",
+          "ghCSGRgVB_o@1281",
+          "ghCSGRgVB_o@1284",
+          "ghCSGRgVB_o@1286",
+          "ghCSGRgVB_o@1289"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p029",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In this test, queen is the top result for king plus woman minus man, with a reported score of around 71%, which indicates that the vectors encode semantic information.",
+        "line_ids": [
+          "ghCSGRgVB_o@1289",
+          "ghCSGRgVB_o@1290",
+          "ghCSGRgVB_o@1293",
+          "ghCSGRgVB_o@1296",
+          "ghCSGRgVB_o@1298",
+          "ghCSGRgVB_o@1301",
+          "ghCSGRgVB_o@1305",
+          "ghCSGRgVB_o@1307",
+          "ghCSGRgVB_o@1309",
+          "ghCSGRgVB_o@1312",
+          "ghCSGRgVB_o@1314",
+          "ghCSGRgVB_o@1316",
+          "ghCSGRgVB_o@1318"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p030",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 2,
+        "text": "These embedding vectors capture semantic properties such as masculinity and femininity, and they place related words such as king and queen or man and woman closer to each other.",
+        "line_ids": [
+          "ghCSGRgVB_o@1322",
+          "ghCSGRgVB_o@1323",
+          "ghCSGRgVB_o@1326",
+          "ghCSGRgVB_o@1329",
+          "ghCSGRgVB_o@1332",
+          "ghCSGRgVB_o@1335",
+          "ghCSGRgVB_o@1337",
+          "ghCSGRgVB_o@1339",
+          "ghCSGRgVB_o@1341"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p031",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "One-hot encoding does not capture meaning, whereas converting words to vectors in a way that preserves meaning does capture semantic information.",
+        "line_ids": [
+          "ghCSGRgVB_o@1347",
+          "ghCSGRgVB_o@1350",
+          "ghCSGRgVB_o@1352",
+          "ghCSGRgVB_o@1355",
+          "ghCSGRgVB_o@1356",
+          "ghCSGRgVB_o@1358",
+          "ghCSGRgVB_o@1361",
+          "ghCSGRgVB_o@1363",
+          "ghCSGRgVB_o@1365",
+          "ghCSGRgVB_o@1367",
+          "ghCSGRgVB_o@1369"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p032",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Related word pairs such as woman and man, king and queen, uncle and aunt, boy and girl, and nephew and niece should have similar embeddings, while unrelated pairs such as paper and water should not.",
+        "line_ids": [
+          "ghCSGRgVB_o@1372",
+          "ghCSGRgVB_o@1374",
+          "ghCSGRgVB_o@1376",
+          "ghCSGRgVB_o@1379",
+          "ghCSGRgVB_o@1381",
+          "ghCSGRgVB_o@1383"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p033",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "To check whether words are related in the embedding space, the lecturer converts words into vectors and tests similarity between the vectors, which is described as finding the distance between them.",
+        "line_ids": [
+          "ghCSGRgVB_o@1383",
+          "ghCSGRgVB_o@1386",
+          "ghCSGRgVB_o@1388",
+          "ghCSGRgVB_o@1390",
+          "ghCSGRgVB_o@1392",
+          "ghCSGRgVB_o@1394",
+          "ghCSGRgVB_o@1396",
+          "ghCSGRgVB_o@1399"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p034",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "code",
+        "importance": 2,
+        "text": "The lecturer uses word_vectors.similarity with pairs such as woman and man to compute similarity scores between word vectors.",
+        "line_ids": [
+          "ghCSGRgVB_o@1401",
+          "ghCSGRgVB_o@1403",
+          "ghCSGRgVB_o@1405"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p035",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The similarity scores are high for related pairs such as woman and man, king and queen, uncle and aunt, boy and girl, and nephew and niece, but low for unrelated pairs such as paper and water.",
+        "line_ids": [
+          "ghCSGRgVB_o@1408",
+          "ghCSGRgVB_o@1410",
+          "ghCSGRgVB_o@1413",
+          "ghCSGRgVB_o@1415",
+          "ghCSGRgVB_o@1418",
+          "ghCSGRgVB_o@1420",
+          "ghCSGRgVB_o@1422",
+          "ghCSGRgVB_o@1424",
+          "ghCSGRgVB_o@1426",
+          "ghCSGRgVB_o@1427",
+          "ghCSGRgVB_o@1429",
+          "ghCSGRgVB_o@1431",
+          "ghCSGRgVB_o@1433",
+          "ghCSGRgVB_o@1435",
+          "ghCSGRgVB_o@1437",
+          "ghCSGRgVB_o@1439",
+          "ghCSGRgVB_o@1442",
+          "ghCSGRgVB_o@1444",
+          "ghCSGRgVB_o@1446",
+          "ghCSGRgVB_o@1448",
+          "ghCSGRgVB_o@1449",
+          "ghCSGRgVB_o@1451",
+          "ghCSGRgVB_o@1453",
+          "ghCSGRgVB_o@1455",
+          "ghCSGRgVB_o@1456"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p036",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "code",
+        "importance": 2,
+        "text": "The lecturer shows that embeddings can also be used to find words similar to a given word, giving the example that words similar to tower include scraper, tower, and spire.",
+        "line_ids": [
+          "ghCSGRgVB_o@1459",
+          "ghCSGRgVB_o@1461",
+          "ghCSGRgVB_o@1464",
+          "ghCSGRgVB_o@1465",
+          "ghCSGRgVB_o@1468",
+          "ghCSGRgVB_o@1472"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p037",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "code",
+        "importance": 2,
+        "text": "The lecturer computes the norm of the difference between two word vectors using np.linalg.norm to measure how far apart their embeddings are.",
+        "line_ids": [
+          "ghCSGRgVB_o@1475",
+          "ghCSGRgVB_o@1477",
+          "ghCSGRgVB_o@1480",
+          "ghCSGRgVB_o@1482",
+          "ghCSGRgVB_o@1484",
+          "ghCSGRgVB_o@1486",
+          "ghCSGRgVB_o@1488",
+          "ghCSGRgVB_o@1491"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p038",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The magnitude of the difference between two vectors is an indication of how close or far the meanings of the corresponding words are.",
+        "line_ids": [
+          "ghCSGRgVB_o@1493",
+          "ghCSGRgVB_o@1495",
+          "ghCSGRgVB_o@1498",
+          "ghCSGRgVB_o@1500",
+          "ghCSGRgVB_o@1502",
+          "ghCSGRgVB_o@1504",
+          "ghCSGRgVB_o@1507",
+          "ghCSGRgVB_o@1510",
+          "ghCSGRgVB_o@1512",
+          "ghCSGRgVB_o@1513",
+          "ghCSGRgVB_o@1515",
+          "ghCSGRgVB_o@1518",
+          "ghCSGRgVB_o@1520",
+          "ghCSGRgVB_o@1522",
+          "ghCSGRgVB_o@1524",
+          "ghCSGRgVB_o@1526",
+          "ghCSGRgVB_o@1529",
+          "ghCSGRgVB_o@1532"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p039",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The key benefit of vector or token embedding is that it retains the meaning of words, and feeding these embeddings into a large language model makes a huge difference compared with feeding one-hot encodings.",
+        "line_ids": [
+          "ghCSGRgVB_o@1532",
+          "ghCSGRgVB_o@1535",
+          "ghCSGRgVB_o@1537",
+          "ghCSGRgVB_o@1539",
+          "ghCSGRgVB_o@1542",
+          "ghCSGRgVB_o@1546",
+          "ghCSGRgVB_o@1548",
+          "ghCSGRgVB_o@1551",
+          "ghCSGRgVB_o@1552"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p040",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 2,
+        "text": "If vector embeddings are trained well, as in the Word2Vec Google News model, they can encode meaning in the vectors.",
+        "line_ids": [
+          "ghCSGRgVB_o@1562",
+          "ghCSGRgVB_o@1564",
+          "ghCSGRgVB_o@1567",
+          "ghCSGRgVB_o@1569",
+          "ghCSGRgVB_o@1572",
+          "ghCSGRgVB_o@1575",
+          "ghCSGRgVB_o@1578",
+          "ghCSGRgVB_o@1580",
+          "ghCSGRgVB_o@1582",
+          "ghCSGRgVB_o@1585",
+          "ghCSGRgVB_o@1586",
+          "ghCSGRgVB_o@1590"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p041",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To create token embeddings for a large language model, you start with the vocabulary, assign token IDs to the tokens, and convert each token ID into an embedding vector.",
+        "line_ids": [
+          "ghCSGRgVB_o@1593",
+          "ghCSGRgVB_o@1595",
+          "ghCSGRgVB_o@1599",
+          "ghCSGRgVB_o@1601",
+          "ghCSGRgVB_o@1603",
+          "ghCSGRgVB_o@1605",
+          "ghCSGRgVB_o@1608",
+          "ghCSGRgVB_o@1611",
+          "ghCSGRgVB_o@1613",
+          "ghCSGRgVB_o@1616",
+          "ghCSGRgVB_o@1618",
+          "ghCSGRgVB_o@1622",
+          "ghCSGRgVB_o@1625"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p042",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The table of token embeddings is also called the embedding layer weight matrix.",
+        "line_ids": [
+          "ghCSGRgVB_o@1625",
+          "ghCSGRgVB_o@1627",
+          "ghCSGRgVB_o@1629",
+          "ghCSGRgVB_o@1631"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p043",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "To construct the embedding matrix, you need the vocabulary size and the embedding vector dimension.",
+        "line_ids": [
+          "ghCSGRgVB_o@1634",
+          "ghCSGRgVB_o@1637",
+          "ghCSGRgVB_o@1639",
+          "ghCSGRgVB_o@1641",
+          "ghCSGRgVB_o@1643",
+          "ghCSGRgVB_o@1646",
+          "ghCSGRgVB_o@1649"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p044",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "For GPT-2, the lecturer states that the embedding dimension is 768 for the smallest model and the vocabulary size is 50,257.",
+        "line_ids": [
+          "ghCSGRgVB_o@1689",
+          "ghCSGRgVB_o@1692",
+          "ghCSGRgVB_o@1695",
+          "ghCSGRgVB_o@1697",
+          "ghCSGRgVB_o@1700",
+          "ghCSGRgVB_o@1703"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p045",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 2,
+        "text": "GPT-2's vocabulary consists of 50,257 subword tokens made through byte pair encoding, with corresponding token IDs.",
+        "line_ids": [
+          "ghCSGRgVB_o@1705",
+          "ghCSGRgVB_o@1707",
+          "ghCSGRgVB_o@1709",
+          "ghCSGRgVB_o@1711",
+          "ghCSGRgVB_o@1714",
+          "ghCSGRgVB_o@1717",
+          "ghCSGRgVB_o@1718"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p046",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "For each token ID in GPT-2, there is a corresponding embedding vector of 768 dimensions.",
+        "line_ids": [
+          "ghCSGRgVB_o@1733",
+          "ghCSGRgVB_o@1736",
+          "ghCSGRgVB_o@1738",
+          "ghCSGRgVB_o@1740",
+          "ghCSGRgVB_o@1742",
+          "ghCSGRgVB_o@1744",
+          "ghCSGRgVB_o@1748",
+          "ghCSGRgVB_o@1752",
+          "ghCSGRgVB_o@1754",
+          "ghCSGRgVB_o@1757",
+          "ghCSGRgVB_o@1759",
+          "ghCSGRgVB_o@1762",
+          "ghCSGRgVB_o@1765"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p047",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "equation",
+        "importance": 3,
+        "text": "The number of weights in the embedding matrix is the vocabulary size multiplied by the embedding dimension, which the lecturer writes as 50,257 times 768.",
+        "line_ids": [
+          "ghCSGRgVB_o@1768",
+          "ghCSGRgVB_o@1770",
+          "ghCSGRgVB_o@1772",
+          "ghCSGRgVB_o@1775",
+          "ghCSGRgVB_o@1777",
+          "ghCSGRgVB_o@1780",
+          "ghCSGRgVB_o@1783",
+          "ghCSGRgVB_o@1785",
+          "ghCSGRgVB_o@1788",
+          "ghCSGRgVB_o@1791",
+          "ghCSGRgVB_o@1793",
+          "ghCSGRgVB_o@1795",
+          "ghCSGRgVB_o@1800"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p048",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 2,
+        "text": "This embedding matrix is called the embedding layer weight matrix and is extremely important.",
+        "line_ids": [
+          "ghCSGRgVB_o@1800",
+          "ghCSGRgVB_o@1805",
+          "ghCSGRgVB_o@1806",
+          "ghCSGRgVB_o@1809"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p049",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "When training GPT-2, the embedding layer weight matrix has 50,257 rows and 768 columns, but the actual weight values are not known in advance.",
+        "line_ids": [
+          "ghCSGRgVB_o@1836",
+          "ghCSGRgVB_o@1838",
+          "ghCSGRgVB_o@1841",
+          "ghCSGRgVB_o@1842",
+          "ghCSGRgVB_o@1844",
+          "ghCSGRgVB_o@1848",
+          "ghCSGRgVB_o@1850"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p050",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The first step in creating token embeddings is to initialize all embedding layer weights randomly.",
+        "line_ids": [
+          "ghCSGRgVB_o@1853",
+          "ghCSGRgVB_o@1855",
+          "ghCSGRgVB_o@1857",
+          "ghCSGRgVB_o@1860",
+          "ghCSGRgVB_o@1863",
+          "ghCSGRgVB_o@1865",
+          "ghCSGRgVB_o@1867"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p051",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The embedding layer weights are optimized during LLM training, and this optimization is how token embeddings are created.",
+        "line_ids": [
+          "ghCSGRgVB_o@1873",
+          "ghCSGRgVB_o@1875",
+          "ghCSGRgVB_o@1878",
+          "ghCSGRgVB_o@1881",
+          "ghCSGRgVB_o@1883",
+          "ghCSGRgVB_o@1885",
+          "ghCSGRgVB_o@1896",
+          "ghCSGRgVB_o@1899",
+          "ghCSGRgVB_o@1901"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p052",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Training data provides information about which words are similar or different, and this information is used to modify the embedding parameters.",
+        "line_ids": [
+          "ghCSGRgVB_o@1903",
+          "ghCSGRgVB_o@1906",
+          "ghCSGRgVB_o@1907",
+          "ghCSGRgVB_o@1909",
+          "ghCSGRgVB_o@1911",
+          "ghCSGRgVB_o@1913",
+          "ghCSGRgVB_o@1916",
+          "ghCSGRgVB_o@1918",
+          "ghCSGRgVB_o@1920",
+          "ghCSGRgVB_o@1922",
+          "ghCSGRgVB_o@1925",
+          "ghCSGRgVB_o@1928"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p053",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Backpropagation is used to optimize the weights of the embedding layer weight matrix.",
+        "line_ids": [
+          "ghCSGRgVB_o@1932",
+          "ghCSGRgVB_o@1934",
+          "ghCSGRgVB_o@1936",
+          "ghCSGRgVB_o@1938",
+          "ghCSGRgVB_o@1940",
+          "ghCSGRgVB_o@1942",
+          "ghCSGRgVB_o@1946"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p054",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 2,
+        "text": "A large language model is a giant neural network, and training the embedding layer weight matrix is one part of that network’s training.",
+        "line_ids": [
+          "ghCSGRgVB_o@1948",
+          "ghCSGRgVB_o@1950",
+          "ghCSGRgVB_o@1952",
+          "ghCSGRgVB_o@1955",
+          "ghCSGRgVB_o@1956",
+          "ghCSGRgVB_o@1959"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p055",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 2,
+        "text": "During GPT training, the model is trained both to learn the embeddings and to predict the next word.",
+        "line_ids": [
+          "ghCSGRgVB_o@1961",
+          "ghCSGRgVB_o@1964",
+          "ghCSGRgVB_o@1966",
+          "ghCSGRgVB_o@1968",
+          "ghCSGRgVB_o@1971",
+          "ghCSGRgVB_o@1973",
+          "ghCSGRgVB_o@1976",
+          "ghCSGRgVB_o@1978",
+          "ghCSGRgVB_o@1980",
+          "ghCSGRgVB_o@1981",
+          "ghCSGRgVB_o@1983"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p056",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The two important dimensions for an embedding layer are the vocabulary size and the vector dimension, and together they determine the size of the embedding matrix.",
+        "line_ids": [
+          "ghCSGRgVB_o@1987",
+          "ghCSGRgVB_o@1990",
+          "ghCSGRgVB_o@1993",
+          "ghCSGRgVB_o@1996",
+          "ghCSGRgVB_o@1998",
+          "ghCSGRgVB_o@1999",
+          "ghCSGRgVB_o@2002",
+          "ghCSGRgVB_o@2005",
+          "ghCSGRgVB_o@2007"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p057",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "For GPT-2, each token ID is associated with a vector containing 768 values.",
+        "line_ids": [
+          "ghCSGRgVB_o@2007",
+          "ghCSGRgVB_o@2011",
+          "ghCSGRgVB_o@2013",
+          "ghCSGRgVB_o@2015"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p058",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The embedding values are decided by starting from random initialization and then optimizing them through training with backpropagation.",
+        "line_ids": [
+          "ghCSGRgVB_o@2015",
+          "ghCSGRgVB_o@2017",
+          "ghCSGRgVB_o@2018",
+          "ghCSGRgVB_o@2020",
+          "ghCSGRgVB_o@2022",
+          "ghCSGRgVB_o@2024",
+          "ghCSGRgVB_o@2026"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p059",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "In the example sentence, the words are tokenized, arranged in ascending order, and then assigned token IDs.",
+        "line_ids": [
+          "ghCSGRgVB_o@2117",
+          "ghCSGRgVB_o@2118",
+          "ghCSGRgVB_o@2120",
+          "ghCSGRgVB_o@2122",
+          "ghCSGRgVB_o@2125",
+          "ghCSGRgVB_o@2127",
+          "ghCSGRgVB_o@2130",
+          "ghCSGRgVB_o@2133",
+          "ghCSGRgVB_o@2136",
+          "ghCSGRgVB_o@2139"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p060",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "analogy",
+        "importance": 1,
+        "text": "For simplicity, the lecturer uses a word-based tokenizer in the example.",
+        "line_ids": [
+          "ghCSGRgVB_o@2120",
+          "ghCSGRgVB_o@2122"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p061",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In the worked example, the selected input token IDs are represented as a torch tensor because tensors are needed for backpropagation and optimization.",
+        "line_ids": [
+          "ghCSGRgVB_o@2190",
+          "ghCSGRgVB_o@2193",
+          "ghCSGRgVB_o@2195",
+          "ghCSGRgVB_o@2198",
+          "ghCSGRgVB_o@2199",
+          "ghCSGRgVB_o@2202",
+          "ghCSGRgVB_o@2204",
+          "ghCSGRgVB_o@2205"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p062",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In the simplified example, the vocabulary size is 6 and the embedding dimension is 3, so each token is converted into a three-dimensional vector.",
+        "line_ids": [
+          "ghCSGRgVB_o@2208",
+          "ghCSGRgVB_o@2210",
+          "ghCSGRgVB_o@2213",
+          "ghCSGRgVB_o@2217",
+          "ghCSGRgVB_o@2220",
+          "ghCSGRgVB_o@2221",
+          "ghCSGRgVB_o@2224",
+          "ghCSGRgVB_o@2227",
+          "ghCSGRgVB_o@2229",
+          "ghCSGRgVB_o@2238",
+          "ghCSGRgVB_o@2241",
+          "ghCSGRgVB_o@2243",
+          "ghCSGRgVB_o@2246",
+          "ghCSGRgVB_o@2248"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p063",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To create embeddings in practice, an embedding layer is created with torch.nn.Embedding using the vocabulary size and the output dimension as arguments.",
+        "line_ids": [
+          "ghCSGRgVB_o@2282",
+          "ghCSGRgVB_o@2284",
+          "ghCSGRgVB_o@2287",
+          "ghCSGRgVB_o@2291",
+          "ghCSGRgVB_o@2293",
+          "ghCSGRgVB_o@2296",
+          "ghCSGRgVB_o@2298",
+          "ghCSGRgVB_o@2299",
+          "ghCSGRgVB_o@2302",
+          "ghCSGRgVB_o@2305",
+          "ghCSGRgVB_o@2307"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p064",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "definition",
+        "importance": 3,
+        "text": "PyTorch embedding is described as a simple lookup table that stores embeddings of a fixed dictionary and size.",
+        "line_ids": [
+          "ghCSGRgVB_o@2310",
+          "ghCSGRgVB_o@2312",
+          "ghCSGRgVB_o@2314",
+          "ghCSGRgVB_o@2316",
+          "ghCSGRgVB_o@2319"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p065",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Using torch.nn.Embedding initializes the embedding matrix weights randomly.",
+        "line_ids": [
+          "ghCSGRgVB_o@2334",
+          "ghCSGRgVB_o@2336",
+          "ghCSGRgVB_o@2338",
+          "ghCSGRgVB_o@2341",
+          "ghCSGRgVB_o@2343",
+          "ghCSGRgVB_o@2345"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p066",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In the six-token, three-dimensional example, the embedding layer weight matrix has six rows and three columns, and each row corresponds to one token ID’s vector.",
+        "line_ids": [
+          "ghCSGRgVB_o@2355",
+          "ghCSGRgVB_o@2357",
+          "ghCSGRgVB_o@2367",
+          "ghCSGRgVB_o@2369",
+          "ghCSGRgVB_o@2381",
+          "ghCSGRgVB_o@2383",
+          "ghCSGRgVB_o@2385",
+          "ghCSGRgVB_o@2403",
+          "ghCSGRgVB_o@2405",
+          "ghCSGRgVB_o@2407",
+          "ghCSGRgVB_o@2409",
+          "ghCSGRgVB_o@2412",
+          "ghCSGRgVB_o@2414",
+          "ghCSGRgVB_o@2417",
+          "ghCSGRgVB_o@2420",
+          "ghCSGRgVB_o@2422",
+          "ghCSGRgVB_o@2423"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p067",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "code",
+        "importance": 2,
+        "text": "Accessing embedding_layer.weight returns all the weights of the embedding layer.",
+        "line_ids": [
+          "ghCSGRgVB_o@2387",
+          "ghCSGRgVB_o@2390",
+          "ghCSGRgVB_o@2392",
+          "ghCSGRgVB_o@2395",
+          "ghCSGRgVB_o@2396",
+          "ghCSGRgVB_o@2398"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p068",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The initial embedding weight matrix contains small random values that are later optimized during LLM training.",
+        "line_ids": [
+          "ghCSGRgVB_o@2428",
+          "ghCSGRgVB_o@2430",
+          "ghCSGRgVB_o@2431",
+          "ghCSGRgVB_o@2433",
+          "ghCSGRgVB_o@2435",
+          "ghCSGRgVB_o@2437",
+          "ghCSGRgVB_o@2439",
+          "ghCSGRgVB_o@2442",
+          "ghCSGRgVB_o@2444"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p069",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 2,
+        "text": "At a broad level, LLM optimization includes optimizing the embedding layer weights and also optimizing weights needed later to predict the next word.",
+        "line_ids": [
+          "ghCSGRgVB_o@2448",
+          "ghCSGRgVB_o@2450",
+          "ghCSGRgVB_o@2452",
+          "ghCSGRgVB_o@2454",
+          "ghCSGRgVB_o@2457",
+          "ghCSGRgVB_o@2458",
+          "ghCSGRgVB_o@2461",
+          "ghCSGRgVB_o@2464"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p070",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Each row of the embedding weight matrix is the vector embedding for one token or token ID.",
+        "line_ids": [
+          "ghCSGRgVB_o@2467",
+          "ghCSGRgVB_o@2468",
+          "ghCSGRgVB_o@2471",
+          "ghCSGRgVB_o@2473",
+          "ghCSGRgVB_o@2475",
+          "ghCSGRgVB_o@2478",
+          "ghCSGRgVB_o@2481",
+          "ghCSGRgVB_o@2483"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p071",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To get the vector for a specific token ID, you look up the corresponding row in the embedding weight matrix.",
+        "line_ids": [
+          "ghCSGRgVB_o@2487",
+          "ghCSGRgVB_o@2489",
+          "ghCSGRgVB_o@2492",
+          "ghCSGRgVB_o@2494",
+          "ghCSGRgVB_o@2497",
+          "ghCSGRgVB_o@2499",
+          "ghCSGRgVB_o@2501",
+          "ghCSGRgVB_o@2504",
+          "ghCSGRgVB_o@2507",
+          "ghCSGRgVB_o@2510",
+          "ghCSGRgVB_o@2511",
+          "ghCSGRgVB_o@2514",
+          "ghCSGRgVB_o@2517",
+          "ghCSGRgVB_o@2519",
+          "ghCSGRgVB_o@2521",
+          "ghCSGRgVB_o@2524",
+          "ghCSGRgVB_o@2526",
+          "ghCSGRgVB_o@2529"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p072",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The vector returned for token ID 3 is identical to the fourth row of the embedding matrix because row lookup is zero-indexed by token ID.",
+        "line_ids": [
+          "ghCSGRgVB_o@2558",
+          "ghCSGRgVB_o@2560",
+          "ghCSGRgVB_o@2564",
+          "ghCSGRgVB_o@2566",
+          "ghCSGRgVB_o@2569",
+          "ghCSGRgVB_o@2571",
+          "ghCSGRgVB_o@2573",
+          "ghCSGRgVB_o@2575",
+          "ghCSGRgVB_o@2576",
+          "ghCSGRgVB_o@2579",
+          "ghCSGRgVB_o@2581",
+          "ghCSGRgVB_o@2583",
+          "ghCSGRgVB_o@2586",
+          "ghCSGRgVB_o@2589",
+          "ghCSGRgVB_o@2591",
+          "ghCSGRgVB_o@2594"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p073",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The embedding layer is essentially a lookup operation that retrieves rows from the embedding layer’s weight matrix using a token ID.",
+        "line_ids": [
+          "ghCSGRgVB_o@2597",
+          "ghCSGRgVB_o@2600",
+          "ghCSGRgVB_o@2602",
+          "ghCSGRgVB_o@2604",
+          "ghCSGRgVB_o@2607",
+          "ghCSGRgVB_o@2610",
+          "ghCSGRgVB_o@2611",
+          "ghCSGRgVB_o@2614",
+          "ghCSGRgVB_o@2616",
+          "ghCSGRgVB_o@2618",
+          "ghCSGRgVB_o@2621"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p074",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "If you want the vector for a token ID, you can think of it as simply going to the row number associated with that ID and retrieving the vector from the table.",
+        "line_ids": [
+          "ghCSGRgVB_o@2621",
+          "ghCSGRgVB_o@2623",
+          "ghCSGRgVB_o@2626",
+          "ghCSGRgVB_o@2628",
+          "ghCSGRgVB_o@2632",
+          "ghCSGRgVB_o@2633",
+          "ghCSGRgVB_o@2636",
+          "ghCSGRgVB_o@2638",
+          "ghCSGRgVB_o@2641",
+          "ghCSGRgVB_o@2643",
+          "ghCSGRgVB_o@2646"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p075",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The embedding weight matrix is both a matrix of embedding weights and a lookup table for finding the exact vector representation of a token ID.",
+        "line_ids": [
+          "ghCSGRgVB_o@2646",
+          "ghCSGRgVB_o@2648",
+          "ghCSGRgVB_o@2650",
+          "ghCSGRgVB_o@2653",
+          "ghCSGRgVB_o@2655",
+          "ghCSGRgVB_o@2657",
+          "ghCSGRgVB_o@2660",
+          "ghCSGRgVB_o@2662",
+          "ghCSGRgVB_o@2665",
+          "ghCSGRgVB_o@2667"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p076",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "definition",
+        "importance": 3,
+        "text": "An embedding layer is essentially a lookup matrix that retrieves the vector embedding corresponding to a token ID.",
+        "line_ids": [
+          "ghCSGRgVB_o@2773",
+          "ghCSGRgVB_o@2776",
+          "ghCSGRgVB_o@2778",
+          "ghCSGRgVB_o@2781",
+          "ghCSGRgVB_o@2820",
+          "ghCSGRgVB_o@2823"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p077",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "When you pass input IDs into the embedding layer, it goes through each ID, looks up the corresponding row in the embedding matrix, and returns those rows as the output embeddings.",
+        "line_ids": [
+          "ghCSGRgVB_o@2731",
+          "ghCSGRgVB_o@2733",
+          "ghCSGRgVB_o@2737",
+          "ghCSGRgVB_o@2741",
+          "ghCSGRgVB_o@2744",
+          "ghCSGRgVB_o@2765",
+          "ghCSGRgVB_o@2768",
+          "ghCSGRgVB_o@2770"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p078",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 2,
+        "text": "You can pass either a single token ID or multiple token IDs to the embedding layer and get the corresponding vector embeddings in one operation.",
+        "line_ids": [
+          "ghCSGRgVB_o@2776",
+          "ghCSGRgVB_o@2778",
+          "ghCSGRgVB_o@2781",
+          "ghCSGRgVB_o@2783",
+          "ghCSGRgVB_o@2785",
+          "ghCSGRgVB_o@2787"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p079",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In practice, the embedding matrix is initialized with small random values and then trained so that the embeddings capture meaning.",
+        "line_ids": [
+          "ghCSGRgVB_o@2792",
+          "ghCSGRgVB_o@2793",
+          "ghCSGRgVB_o@2796",
+          "ghCSGRgVB_o@2799",
+          "ghCSGRgVB_o@2803",
+          "ghCSGRgVB_o@2805"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p080",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "visual_ref",
+        "importance": 2,
+        "text": "The lecturer shows an image of an embedding weight matrix and token IDs, where each requested ID maps to a highlighted row and the collected rows form the output embedding matrix.",
+        "line_ids": [
+          "ghCSGRgVB_o@2828",
+          "ghCSGRgVB_o@2830",
+          "ghCSGRgVB_o@2833",
+          "ghCSGRgVB_o@2836",
+          "ghCSGRgVB_o@2844",
+          "ghCSGRgVB_o@2848",
+          "ghCSGRgVB_o@2853",
+          "ghCSGRgVB_o@2862",
+          "ghCSGRgVB_o@2870",
+          "ghCSGRgVB_o@2877",
+          "ghCSGRgVB_o@2884",
+          "ghCSGRgVB_o@2892"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p081",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "For the example token IDs corresponding to the words \"fox jumps over dog,\" the embedding layer returns the vector embeddings for all of those IDs.",
+        "line_ids": [
+          "ghCSGRgVB_o@2895",
+          "ghCSGRgVB_o@2897",
+          "ghCSGRgVB_o@2899",
+          "ghCSGRgVB_o@2901"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p082",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "definition",
+        "importance": 3,
+        "text": "If someone asks what an embedding layer is, you can say that it is a simple lookup operation that retrieves the vector for a particular token ID.",
+        "line_ids": [
+          "ghCSGRgVB_o@2902",
+          "ghCSGRgVB_o@2905",
+          "ghCSGRgVB_o@2907",
+          "ghCSGRgVB_o@2909",
+          "ghCSGRgVB_o@2912"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p083",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "To create a token embedding matrix, you need two parameters: the vocabulary size and the embedding dimension.",
+        "line_ids": [
+          "ghCSGRgVB_o@3414",
+          "ghCSGRgVB_o@3416",
+          "ghCSGRgVB_o@3418",
+          "ghCSGRgVB_o@3420",
+          "ghCSGRgVB_o@3423"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p084",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "If the vocabulary size is four and the embedding dimension is five, the embedding matrix has four rows and five columns, and each token ID gets a five-dimensional vector.",
+        "line_ids": [
+          "ghCSGRgVB_o@2937",
+          "ghCSGRgVB_o@2939",
+          "ghCSGRgVB_o@2943",
+          "ghCSGRgVB_o@2945",
+          "ghCSGRgVB_o@2952",
+          "ghCSGRgVB_o@2954",
+          "ghCSGRgVB_o@2963",
+          "ghCSGRgVB_o@2967",
+          "ghCSGRgVB_o@2972",
+          "ghCSGRgVB_o@2977",
+          "ghCSGRgVB_o@2982",
+          "ghCSGRgVB_o@2988",
+          "ghCSGRgVB_o@3007",
+          "ghCSGRgVB_o@3010",
+          "ghCSGRgVB_o@3012",
+          "ghCSGRgVB_o@3014"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p085",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "code",
+        "importance": 2,
+        "text": "Printing the embedding weights shows a randomly initialized embedding matrix whose shape is determined by the vocabulary size and embedding dimension.",
+        "line_ids": [
+          "ghCSGRgVB_o@2991",
+          "ghCSGRgVB_o@2993",
+          "ghCSGRgVB_o@2995",
+          "ghCSGRgVB_o@2997",
+          "ghCSGRgVB_o@3007",
+          "ghCSGRgVB_o@3010",
+          "ghCSGRgVB_o@3012",
+          "ghCSGRgVB_o@3014"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p086",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "If only certain IDs are needed, you pass those IDs to the embedding layer and it extracts only the corresponding rows from the embedding matrix.",
+        "line_ids": [
+          "ghCSGRgVB_o@3019",
+          "ghCSGRgVB_o@3022",
+          "ghCSGRgVB_o@3025",
+          "ghCSGRgVB_o@3027",
+          "ghCSGRgVB_o@3030",
+          "ghCSGRgVB_o@3033",
+          "ghCSGRgVB_o@3036",
+          "ghCSGRgVB_o@3041",
+          "ghCSGRgVB_o@3043"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p087",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "An embedding layer is mathematically the same as a neural network linear layer applied to one-hot encoded token IDs.",
+        "line_ids": [
+          "ghCSGRgVB_o@3046",
+          "ghCSGRgVB_o@3049",
+          "ghCSGRgVB_o@3051",
+          "ghCSGRgVB_o@3193",
+          "ghCSGRgVB_o@3196",
+          "ghCSGRgVB_o@3198",
+          "ghCSGRgVB_o@3199",
+          "ghCSGRgVB_o@3202",
+          "ghCSGRgVB_o@3221",
+          "ghCSGRgVB_o@3224"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p088",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To reproduce embedding lookup with a linear layer, convert token IDs into one-hot vectors, feed them into a linear layer with as many neurons as the embedding dimension, and compute the output as X multiplied by W transpose.",
+        "line_ids": [
+          "ghCSGRgVB_o@3060",
+          "ghCSGRgVB_o@3062",
+          "ghCSGRgVB_o@3066",
+          "ghCSGRgVB_o@3070",
+          "ghCSGRgVB_o@3074",
+          "ghCSGRgVB_o@3077",
+          "ghCSGRgVB_o@3082",
+          "ghCSGRgVB_o@3086",
+          "ghCSGRgVB_o@3091",
+          "ghCSGRgVB_o@3098",
+          "ghCSGRgVB_o@3102",
+          "ghCSGRgVB_o@3104",
+          "ghCSGRgVB_o@3210",
+          "ghCSGRgVB_o@3212",
+          "ghCSGRgVB_o@3214",
+          "ghCSGRgVB_o@3217",
+          "ghCSGRgVB_o@3219",
+          "ghCSGRgVB_o@3221"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p089",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "equation",
+        "importance": 3,
+        "text": "For the linear layer, the output is given by X multiplied by W transpose.",
+        "line_ids": [
+          "ghCSGRgVB_o@3102",
+          "ghCSGRgVB_o@3104",
+          "ghCSGRgVB_o@3144",
+          "ghCSGRgVB_o@3146",
+          "ghCSGRgVB_o@3149",
+          "ghCSGRgVB_o@3219",
+          "ghCSGRgVB_o@3221"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p090",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The output matrix from this linear-layer formulation has one row per input token and one column per embedding dimension, so each row is the embedding for one input.",
+        "line_ids": [
+          "ghCSGRgVB_o@3152",
+          "ghCSGRgVB_o@3154",
+          "ghCSGRgVB_o@3158",
+          "ghCSGRgVB_o@3160",
+          "ghCSGRgVB_o@3165",
+          "ghCSGRgVB_o@3168",
+          "ghCSGRgVB_o@3170",
+          "ghCSGRgVB_o@3172",
+          "ghCSGRgVB_o@3175",
+          "ghCSGRgVB_o@3177"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p091",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The linear-layer method and the embedding layer produce the same output.",
+        "line_ids": [
+          "ghCSGRgVB_o@3180",
+          "ghCSGRgVB_o@3182",
+          "ghCSGRgVB_o@3185",
+          "ghCSGRgVB_o@3187",
+          "ghCSGRgVB_o@3190",
+          "ghCSGRgVB_o@3221",
+          "ghCSGRgVB_o@3224",
+          "ghCSGRgVB_o@3243",
+          "ghCSGRgVB_o@3245",
+          "ghCSGRgVB_o@3247"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p092",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The embedding layer is preferred over a linear layer because it is much more computationally efficient.",
+        "line_ids": [
+          "ghCSGRgVB_o@3232",
+          "ghCSGRgVB_o@3234",
+          "ghCSGRgVB_o@3237",
+          "ghCSGRgVB_o@3239",
+          "ghCSGRgVB_o@3249",
+          "ghCSGRgVB_o@3250",
+          "ghCSGRgVB_o@3291",
+          "ghCSGRgVB_o@3293",
+          "ghCSGRgVB_o@3295",
+          "ghCSGRgVB_o@3298",
+          "ghCSGRgVB_o@3501",
+          "ghCSGRgVB_o@3503",
+          "ghCSGRgVB_o@3505",
+          "ghCSGRgVB_o@3508",
+          "ghCSGRgVB_o@3510",
+          "ghCSGRgVB_o@3511"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p093",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 2,
+        "text": "A linear layer is less efficient for embeddings because one-hot inputs contain many zeros, which leads to many unnecessary multiplications with zero.",
+        "line_ids": [
+          "ghCSGRgVB_o@3250",
+          "ghCSGRgVB_o@3253",
+          "ghCSGRgVB_o@3255",
+          "ghCSGRgVB_o@3258",
+          "ghCSGRgVB_o@3260",
+          "ghCSGRgVB_o@3262",
+          "ghCSGRgVB_o@3264",
+          "ghCSGRgVB_o@3266",
+          "ghCSGRgVB_o@3268"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p094",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 2,
+        "text": "These unnecessary computations become especially significant when working with very large vocabularies such as GPT-2's.",
+        "line_ids": [
+          "ghCSGRgVB_o@3270",
+          "ghCSGRgVB_o@3273",
+          "ghCSGRgVB_o@3275"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p095",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Token embeddings are vector representations of words, and if trained properly, those vectors can carry meaning.",
+        "line_ids": [
+          "ghCSGRgVB_o@3330",
+          "ghCSGRgVB_o@3332",
+          "ghCSGRgVB_o@3334",
+          "ghCSGRgVB_o@3336",
+          "ghCSGRgVB_o@3341",
+          "ghCSGRgVB_o@3343"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p096",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "A trained embedding can support relationships such as king minus man plus woman giving a vector corresponding to queen.",
+        "line_ids": [
+          "ghCSGRgVB_o@3343",
+          "ghCSGRgVB_o@3346",
+          "ghCSGRgVB_o@3348",
+          "ghCSGRgVB_o@3351",
+          "ghCSGRgVB_o@3353",
+          "ghCSGRgVB_o@3355",
+          "ghCSGRgVB_o@3357",
+          "ghCSGRgVB_o@3360",
+          "ghCSGRgVB_o@3362"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p097",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Words with similar meanings can have embeddings that are closer together in space, so the magnitude of the difference between their vectors is smaller than for unrelated words.",
+        "line_ids": [
+          "ghCSGRgVB_o@3365",
+          "ghCSGRgVB_o@3368",
+          "ghCSGRgVB_o@3370",
+          "ghCSGRgVB_o@3372",
+          "ghCSGRgVB_o@3374",
+          "ghCSGRgVB_o@3376",
+          "ghCSGRgVB_o@3379",
+          "ghCSGRgVB_o@3381",
+          "ghCSGRgVB_o@3383",
+          "ghCSGRgVB_o@3386",
+          "ghCSGRgVB_o@3388",
+          "ghCSGRgVB_o@3391"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p098",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "For GPT-2, the vocabulary size is 50,257 and the embedding dimension is 768, so its embedding weight matrix has 50,257 rows and 768 columns.",
+        "line_ids": [
+          "ghCSGRgVB_o@3423",
+          "ghCSGRgVB_o@3426",
+          "ghCSGRgVB_o@3427",
+          "ghCSGRgVB_o@3430",
+          "ghCSGRgVB_o@3432",
+          "ghCSGRgVB_o@3436"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p099",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The weights of the embedding matrix are initialized randomly and then optimized as part of LLM training.",
+        "line_ids": [
+          "ghCSGRgVB_o@3442",
+          "ghCSGRgVB_o@3446",
+          "ghCSGRgVB_o@3447",
+          "ghCSGRgVB_o@3450",
+          "ghCSGRgVB_o@3453",
+          "ghCSGRgVB_o@3455",
+          "ghCSGRgVB_o@3458"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p100",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The lecture does not cover how to train embeddings, only what token embeddings are and what the embedding layer weight matrix is.",
+        "line_ids": [
+          "ghCSGRgVB_o@3513",
+          "ghCSGRgVB_o@3516",
+          "ghCSGRgVB_o@3518",
+          "ghCSGRgVB_o@3520",
+          "ghCSGRgVB_o@3521",
+          "ghCSGRgVB_o@3523"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p101",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The vector embeddings discussed so far do not encode the position of a word in a sentence.",
+        "line_ids": [
+          "ghCSGRgVB_o@3571",
+          "ghCSGRgVB_o@3572",
+          "ghCSGRgVB_o@3574",
+          "ghCSGRgVB_o@3575"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p102",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Word position in a sentence also matters, apart from semantic meaning, which motivates positional embeddings.",
+        "line_ids": [
+          "ghCSGRgVB_o@3545",
+          "ghCSGRgVB_o@3547",
+          "ghCSGRgVB_o@3549",
+          "ghCSGRgVB_o@3551",
+          "ghCSGRgVB_o@3554",
+          "ghCSGRgVB_o@3556",
+          "ghCSGRgVB_o@3559",
+          "ghCSGRgVB_o@3561",
+          "ghCSGRgVB_o@3564",
+          "ghCSGRgVB_o@3566",
+          "ghCSGRgVB_o@3568"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p103",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The lecturer says that the most important thing is to keep showing up for the lectures, not lose interest or motivation, and continue learning along with him.",
+        "line_ids": [
+          "ghCSGRgVB_o@3634",
+          "ghCSGRgVB_o@3636",
+          "ghCSGRgVB_o@3638",
+          "ghCSGRgVB_o@3640"
+        ]
+      },
+      {
+        "id": "ghCSGRgVB_o:p104",
+        "video_id": "ghCSGRgVB_o",
+        "lecture": 10,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The lecturer says he looks forward to seeing everyone in the next lecture.",
+        "line_ids": [
+          "ghCSGRgVB_o@3643",
+          "ghCSGRgVB_o@3644"
+        ]
+      }
+    ],
+    "inventory": [
+      {
+        "chunk": "ghCSGRgVB_o@0-914",
+        "start": 0,
+        "end": 914,
+        "points": 14,
+        "core_points": 10,
+        "flag": null
+      },
+      {
+        "chunk": "ghCSGRgVB_o@911-1819",
+        "start": 911,
+        "end": 1819,
+        "points": 34,
+        "core_points": 17,
+        "flag": null
+      },
+      {
+        "chunk": "ghCSGRgVB_o@1816-2724",
+        "start": 1816,
+        "end": 2724,
+        "points": 27,
+        "core_points": 17,
+        "flag": null
+      },
+      {
+        "chunk": "ghCSGRgVB_o@2721-3636",
+        "start": 2721,
+        "end": 3636,
+        "points": 27,
+        "core_points": 14,
+        "flag": null
+      },
+      {
+        "chunk": "ghCSGRgVB_o@3634-3648",
+        "start": 3634,
+        "end": 3648,
+        "points": 2,
+        "core_points": 0,
+        "flag": null
+      }
+    ]
+  }
+}

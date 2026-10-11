@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch06.s09",
+  "inputs_hash": "aae668c38c8c2501a075a2ae5cffe9b337b2d422ad10a7da6b6d60b1c87df5e6",
+  "output_hash": "55486ec8ac717a77211609b8f628a262d8d3cefa966cb911c49292207953f06e",
+  "output": {
+    "section_id": "ch06.s09",
+    "listings": [],
+    "rejected": [
+      {
+        "id": "ch06.s09.code1",
+        "ref": "ref:ch06/01_main-chapter-code/gpt_download.py",
+        "path": "ch06/01_main-chapter-code/gpt_download.py",
+        "caption": "This function validates the GPT-2 model size, defines a model directory and seven checkpoint-related filenames, and starts downloading those files from a base URL with a backup URL available.",
+        "code": "# Copyright (c) Sebastian Raschka under Apache License 2.0 (see LICENSE.txt).\n# Source for \"Build a Large Language Model From Scratch\"\n#   - https://www.manning.com/books/build-a-large-language-model-from-scratch\n# Code: https://github.com/rasbt/LLMs-from-scratch\n\n\nimport os\nimport json\nimport numpy as np\nimport requests\nimport tensorflow as tf\nfrom tqdm import tqdm\n\n\ndef download_and_load_gpt2(model_size, models_dir):\n    # Validate model size\n    allowed_sizes = (\"124M\", \"355M\", \"774M\", \"1558M\")\n    if model_size not in allowed_sizes:\n        raise ValueError(f\"Model size not in {allowed_sizes}\")\n\n    # Define paths\n    model_dir = os.path.join(models_dir, model_size)\n    base_url = \"https://openaipublic.blob.core.windows.net/gpt-2/models\"\n    backup_base_url = \"https://f001.backblazeb2.com/file/LLMs-from-scratch/gpt2\"\n    filenames = [\n        \"checkpoint\", \"encoder.json\", \"hparams.json\",\n        \"model.ckpt.data-00000-of-00001\", \"model.ckpt.index\",\n        \"model.ckpt.meta\", \"vocab.bpe\"\n    ]\n",
+        "truncated": true,
+        "check": "partial",
+        "reason": "The excerpt matches the caption: it validates the GPT-2 model size and defines the model directory, base/backup URLs, and the seven checkpoint-related filenames. However, it does not show the actual downloading of the files, any preprocessing/loading logic, nor the later steps mentioned in the section (importing from GPT_download3.py, calling it to get settings/params, then running load_weights_into_gpt and setting eval mode)."
+      },
+      {
+        "id": "ch06.s09.code2",
+        "ref": "ref:ch06/01_main-chapter-code/ch06.ipynb#cell44",
+        "path": "ch06/01_main-chapter-code/ch06.ipynb",
+        "caption": "This code imports the GPT-2 download and weight-loading helpers, calls download_and_load_gpt2 to get settings and params, loads the parameters into a GPTModel instance, and switches the model to evaluation mode.",
+        "code": "from gpt_download import download_and_load_gpt2\nfrom previous_chapters import GPTModel, load_weights_into_gpt\n# If the `previous_chapters.py` file is not available locally,\n# you can import it from the `llms-from-scratch` PyPI package.\n# For details, see: https://github.com/rasbt/LLMs-from-scratch/tree/main/pkg\n# E.g.,\n# from llms_from_scratch.ch04 import GPTModel\n# from llms_from_scratch.ch05 import download_and_load_gpt2, load_weights_into_gpt\n\nmodel_size = CHOOSE_MODEL.split(\" \")[-1].lstrip(\"(\").rstrip(\")\")\nsettings, params = download_and_load_gpt2(model_size=model_size, models_dir=\"gpt2\")\n\nmodel = GPTModel(BASE_CONFIG)\nload_weights_into_gpt(model, params)\nmodel.eval();",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The snippet does import download_and_load_gpt2 and load_weights_into_gpt, calls download_and_load_gpt2 to obtain settings and params, loads params into a GPTModel instance, and switches the model to eval mode, matching the section and caption. However, it does not import download_and_load_gpt2 specifically from a GPT_download3.py file as stated in the section, and it introduces CHOOSE_MODEL/BASE_CONFIG usage that the section description does not mention."
+      }
+    ]
+  }
+}

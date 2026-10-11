@@ -1,0 +1,664 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Course-to-Book Engine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: one column of sketch cards; every section = one hand-drawn picture + a few plain sentences; product first, then system */
+:root {
+  --paper: #fbfaf6;
+  --card: #ffffff;
+  --ink: #23303d;
+  --muted: #66707b;
+  --rule: #dfe3e2;
+  --pen: #2c63c9;
+  --marker: #f6cf4a;
+  --marker-ink: #4d3a00;
+  --red: #c4462b;
+  --green: #2f8a57;
+  --f-hand: "Caveat", "Comic Sans MS", cursive;
+  --f-head: "Kalam", "Comic Sans MS", cursive;
+  --f-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #13181e; --card: #1a2129; --ink: #e6ebef; --muted: #9ba6b1; --rule: #2e3945;
+  --pen: #82abff; --marker: #e3b830; --marker-ink: #1c1500; --red: #f08466; --green: #6cc996; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #13181e; --card: #1a2129; --ink: #e6ebef; --muted: #9ba6b1; --rule: #2e3945;
+  --pen: #82abff; --marker: #e3b830; --marker-ink: #1c1500; --red: #f08466; --green: #6cc996; color-scheme: dark }
+
+* { box-sizing: border-box }
+body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 16.5px; line-height: 1.6;
+  padding-inline: 20px; padding-block: 0 72px }
+main { max-width: 920px; margin: 0 auto; display: grid; gap: 22px }
+h1, h2, h3 { font-family: var(--f-head); font-weight: 700; line-height: 1.15; margin: 0; text-wrap: balance }
+h1 { font-size: clamp(38px, 6vw, 60px) }
+h2 { font-size: clamp(25px, 3.4vw, 33px) }
+h3 { font-size: 20px }
+p { margin: 0; max-width: 66ch }
+.hand { font-family: var(--f-hand); font-size: 1.45em; color: var(--pen); line-height: 1.15 }
+.kicker { font-family: var(--f-hand); font-size: 22px; color: var(--muted) }
+.part { font-family: var(--f-head); font-size: 22px; color: var(--pen); border-bottom: 2.5px solid var(--pen); padding-top: 16px; padding-bottom: 2px }
+
+header.hero { padding-block: 44px 0; display: grid; gap: 10px }
+.card { background: var(--card); border: 1.5px solid var(--rule); border-radius: 10px; padding: 24px clamp(16px, 3vw, 32px); display: grid; gap: 12px; min-width: 0 }
+.card .num { color: var(--pen); font-family: var(--f-hand); font-size: 28px; margin-right: 8px }
+figure { margin: 0; min-width: 0 }
+.sk { overflow-x: auto; color: var(--ink) }
+.sk svg { display: block; width: 100%; height: auto; min-width: 560px }
+.twocol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px }
+@media (max-width: 680px) { .twocol { grid-template-columns: minmax(0, 1fr) } }
+ul.ticks { list-style: none; padding: 0; margin: 0; display: grid; gap: 7px }
+ul.ticks li { position: relative; padding-left: 30px }
+ul.ticks li::before { content: "✓"; position: absolute; left: 0; top: -1px; font-family: var(--f-hand); font-size: 24px; line-height: 1; color: var(--green) }
+ul.ticks.no li::before { content: "✗"; color: var(--red) }
+
+.parts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px }
+@media (max-width: 820px) { .parts { grid-template-columns: repeat(2, minmax(0, 1fr)) } }
+@media (max-width: 520px) { .parts { grid-template-columns: minmax(0, 1fr) } }
+.part-card { border: 1.5px solid var(--rule); border-radius: 10px; padding: 12px 14px 14px; display: grid; gap: 6px; align-content: start; min-width: 0 }
+.part-card svg { width: 100%; height: 70px; display: block }
+.part-card h3 { font-size: 19px }
+.part-card p { font-size: 14.5px; color: var(--muted); line-height: 1.5 }
+.part-card .step { font-family: var(--f-hand); font-size: 18px; color: var(--pen) }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px }
+.stat { border: 1.5px dashed var(--rule); border-radius: 8px; padding: 10px 12px; display: grid; gap: 0 }
+.stat b { font-family: var(--f-hand); font-size: 32px; line-height: 1.1; color: var(--pen); font-weight: 700 }
+.stat span { color: var(--muted); font-size: 13.5px; line-height: 1.35 }
+.tldr { background: var(--card); border: 2px solid var(--pen); border-radius: 12px; padding: 20px clamp(16px, 3vw, 28px); display: grid; gap: 14px }
+.tldr h2 { font-size: 26px }
+.tldr ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; max-width: 70ch }
+.links { display: flex; flex-wrap: wrap; gap: 10px }
+.links a { font-family: var(--f-head); font-size: 17px; color: var(--pen); text-decoration: none; border: 1.5px solid var(--pen); border-radius: 999px; padding: 4px 14px }
+.links a:hover, .links a:focus-visible { background: var(--pen); color: var(--card) }
+.lesson { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4px 18px; padding-block: 12px; border-top: 1.5px dashed var(--rule) }
+.lesson:first-of-type { border-top: 0 }
+.lesson b { display: block; font-family: var(--f-head); font-size: 18px; color: var(--red); font-weight: 700 }
+.lesson .fix b { color: var(--green) }
+@media (max-width: 640px) { .lesson { grid-template-columns: minmax(0, 1fr) } }
+footer { color: var(--muted); font-family: var(--f-hand); font-size: 20px; text-align: center }
+
+/* sketch vocabulary */
+svg text { fill: currentColor }
+svg .t { font-family: var(--f-hand); font-size: 21px }
+svg .ts { font-family: var(--f-hand); font-size: 17px; fill: var(--muted) }
+svg .tp { font-family: var(--f-hand); font-size: 20px; fill: var(--pen) }
+svg .tr { font-family: var(--f-hand); font-size: 19px; fill: var(--red) }
+svg .tm { fill: var(--marker-ink) }
+svg .ln { stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round }
+svg .lp { stroke: var(--pen); stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round }
+svg .ld { stroke: var(--muted); stroke-width: 1.8; fill: none; stroke-dasharray: 6 5; stroke-linecap: round }
+svg .lr { stroke: var(--red); stroke-width: 2; fill: none; stroke-linecap: round }
+svg .bx { fill: var(--card); stroke: currentColor; stroke-width: 2 }
+svg .bp { fill: var(--card); stroke: var(--pen); stroke-width: 2.6 }
+svg .bm { fill: var(--marker); stroke: var(--marker); stroke-width: 2 }
+svg .fill-pen { fill: var(--pen) }
+svg .fill-ink { fill: currentColor }
+svg .fill-green { fill: var(--green) }
+svg .fill-marker { fill: var(--marker) }
+svg .rough { filter: url(#rough) }
+</style>
+
+<!-- shared sketch defs: hand-drawn wobble + arrowheads -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="rough" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="2.6"/></filter>
+    <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1,1 L9,5 L1,9" fill="none" stroke="#8a949e" stroke-width="1.8" stroke-linecap="round"/></marker>
+  </defs>
+</svg>
+
+<main>
+<header class="hero">
+  <span class="kicker">product brief + system design, sketched</span>
+  <h1>Course-to-Book Engine</h1>
+  <p style="font-size:18.5px">Turn a playlist of recorded lectures into a real book: organised by idea, every fact traceable to the moment it was said, and rebuildable exactly.</p>
+</header>
+
+<section class="tldr" id="summary">
+  <h2>In thirty seconds</h2>
+  <ul>
+    <li>Built from the 22 public lectures of a 43-lecture course: <b>a 164-page book, 6 chapters, 52,000 words</b>, plus a web edition where every paragraph links to the second of video it came from.</li>
+    <li><b>An independent AI evaluator backs 96.5%</b> of a fresh random sample of its factual sentences (target 95%), finds 1.5 misleading errors per 100 (target at most 2), and misses 4.3% of core ideas (target at most 10%).</li>
+    <li>Every flagged sentence was decided by a human reviewer. Running the course's own code caught two numbers the lecture got wrong.</li>
+    <li>Nothing course-specific is built in: a new course needs a new settings card, not new code.</li>
+    <li>Anyone can rebuild the identical book from the repository without an API key.</li>
+  </ul>
+  <div class="links"><a href="https://github.com/mahima2406/PlaylistToEbook">Source code on GitHub</a></div>
+</section>
+
+<div class="part">Part 1 · The product</div>
+
+<!-- 1 PROBLEM -->
+<section class="card" id="problem">
+  <h2><span class="num">1</span>The problem</h2>
+  <figure class="sk"><svg viewBox="0 0 860 260" role="img" aria-label="Left: a long strip of videos totalling 31 hours and a learner asking where that bit was. Right: a book with a contents page, found in a minute.">
+    <g class="rough">
+      <rect class="bx" x="20" y="60" width="360" height="70" rx="8"/>
+      <rect class="bx" x="34" y="72" width="70" height="46" rx="4"/><rect class="bx" x="114" y="72" width="70" height="46" rx="4"/><rect class="bx" x="194" y="72" width="70" height="46" rx="4"/><rect class="bx" x="274" y="72" width="70" height="46" rx="4"/>
+      <path class="ln" d="M60,85 l16,10 l-16,10 z"/><path class="ln" d="M140,85 l16,10 l-16,10 z"/><path class="ln" d="M220,85 l16,10 l-16,10 z"/><path class="ln" d="M300,85 l16,10 l-16,10 z"/>
+      <circle class="bx" cx="200" cy="190" r="18"/><path class="ln" d="M200,208 v26 M200,218 l-16,10 M200,218 l16,10"/>
+      <path class="ln" d="M520,60 h150 v150 h-150 z"/><path class="ln" d="M670,60 l26,-14 v150 l-26,14"/><path class="ln" d="M545,90 h100 M545,112 h80 M545,134 h95 M545,156 h70"/>
+      <circle class="bx" cx="760" cy="190" r="18"/><path class="ln" d="M760,208 v26 M760,218 l-16,10 M760,218 l16,10"/>
+      <path class="lp" d="M400,120 C 440,100 470,100 505,118" marker-end="url(#ar)"/>
+    </g>
+    <text class="t" x="200" y="44" text-anchor="middle">43 lectures · 31 hours</text>
+    <text class="tr" x="230" y="196">"where did he explain that?"</text>
+    <text class="t" x="610" y="38" text-anchor="middle">a book</text>
+    <text class="tp" x="560" y="246">"page 87, two minutes"</text>
+    <text class="tp" x="408" y="96">I want this</text>
+  </svg></figure>
+  <p>Courses are good for learning in order and bad for looking things up. A book fixes that, but writing one takes weeks, and a book written quickly by an AI model can't be trusted: nothing shows which sentences the lecturer actually said.</p>
+</section>
+
+<!-- 2 WHAT IT IS -->
+<section class="card" id="what">
+  <h2><span class="num">2</span>What I am building</h2>
+  <figure class="sk"><svg viewBox="0 0 860 250" role="img" aria-label="A playlist goes into the engine and a book comes out, stamped with three promises: organised by idea, every fact traced to a second of video, and rebuilds the same every time.">
+    <g class="rough">
+      <rect class="bx" x="20" y="70" width="150" height="90" rx="8"/><path class="ln" d="M40,95 h110 M40,115 h110 M40,135 h110"/>
+      <path class="ln" d="M180,115 h70" marker-end="url(#ar)"/>
+      <rect class="bp" x="260" y="50" width="220" height="130" rx="14"/>
+      <circle class="ln" cx="320" cy="115" r="22"/><circle class="ln" cx="320" cy="115" r="8"/><circle class="ln" cx="405" cy="105" r="30"/><circle class="ln" cx="405" cy="105" r="11"/>
+      <path class="ln" d="M490,115 h70" marker-end="url(#ar)"/>
+      <path class="ln" d="M575,60 h110 v120 h-110 z"/><path class="ln" d="M685,60 l20,-12 v120 l-20,12"/>
+    </g>
+    <text class="t" x="95" y="190" text-anchor="middle">a playlist</text>
+    <text class="tp" x="370" y="208" text-anchor="middle">the engine</text>
+    <text class="t" x="630" y="210" text-anchor="middle">a book</text>
+    <g class="rough"><rect class="bm" x="715" y="40" width="135" height="30" rx="14"/><rect class="bm" x="715" y="96" width="135" height="30" rx="14"/><rect class="bm" x="715" y="152" width="135" height="30" rx="14"/></g>
+    <text class="t tm" x="782" y="62" text-anchor="middle" style="font-size:18px">by idea</text>
+    <text class="t tm" x="782" y="118" text-anchor="middle" style="font-size:18px">every fact traced</text>
+    <text class="t tm" x="782" y="174" text-anchor="middle" style="font-size:18px">same every time</text>
+  </svg></figure>
+  <p>The engine reads a lecture playlist and writes a book with chapters, an introduction, short summaries and diagrams. Three promises hold for every book it makes: it is <b>organised by idea</b>, not by video; <b>every fact can be traced</b> to the second of video it came from; and running it again gives <b>the same book</b>.</p>
+</section>
+
+<!-- THINKING: 6W -->
+<section class="card" id="sixw">
+  <h2><span class="num">3</span>The thinking behind it: six questions</h2>
+  <p>Before any design, the problem was looked at through six questions. Each one produced a decision, and each decision now lives in the system as a small markdown file that is regenerated with every book.</p>
+  <div class="parts">
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><circle class="bx" cx="100" cy="24" r="14"/><path class="ln" d="M100,38 v14 M84,64 q16,-18 32,0"/></g></svg>
+      <span class="step">who / what · portrait</span><h3>Who is it for, and what must it teach?</h3><p>Work out the reader from the course itself, never a stock persona. Unknowns stay unknown; an explicit brief wins over a guess.</p><p style="color:var(--pen);font-family:var(--f-hand);font-size:19px">→ reader.md</p></div>
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><path class="ln" d="M60,64 h84 M60,64 v-56"/><rect class="bx" x="70" y="40" width="14" height="24"/><rect class="bx" x="94" y="24" width="14" height="40"/><rect class="bp" x="118" y="12" width="14" height="52"/></g></svg>
+      <span class="step">how much · chart</span><h3>How much of the course must reach the book?</h3><p>Keep a ledger of every idea taught: placed in the book or left out with a reason. Measure trust with planted false facts.</p><p style="color:var(--pen);font-family:var(--f-hand);font-size:19px">→ coverage.md</p></div>
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><circle class="bx" cx="70" cy="22" r="9"/><circle class="bx" cx="130" cy="20" r="9"/><circle class="bp" cx="100" cy="54" r="11"/><path class="ld" d="M78,28 L93,46 M122,27 L107,46"/></g></svg>
+      <span class="step">where · map</span><h3>Where does each idea belong?</h3><p>Group by topic while keeping the teacher's order. Every lecture maps to chapters and sections, traceable to the second.</p><p style="color:var(--pen);font-family:var(--f-hand);font-size:19px">→ concept_map.md</p></div>
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><path class="ln" d="M40,40 h120" marker-end="url(#ar)"/><circle class="fill-pen" cx="60" cy="40" r="6"/><circle class="bx" cx="100" cy="40" r="6"/><circle class="bx" cx="140" cy="40" r="6"/></g></svg>
+      <span class="step">when · timeline</span><h3>When does the reader meet each idea, and when is the book ready?</h3><p>Two clocks: the reading order (with the source minutes behind it), and readiness gates for the build. Only what changed is redone.</p><p style="color:var(--pen);font-family:var(--f-hand);font-size:19px">→ learning_path.md</p></div>
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><rect class="bx" x="34" y="26" width="34" height="26" rx="4"/><rect class="bp" x="84" y="26" width="34" height="26" rx="4"/><rect class="bx" x="134" y="26" width="34" height="26" rx="4"/><path class="ln" d="M68,39 h14 M118,39 h14"/></g></svg>
+      <span class="step">how · flowchart</span><h3>How is it made?</h3><p>As a row of small, checkable steps on one memory shelf, so every step can be inspected, resumed and rebuilt.</p><p style="color:var(--pen);font-family:var(--f-hand);font-size:19px">→ pipeline.md</p></div>
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><path class="ln" d="M50,64 h100 M50,64 v-56"/><circle class="bx" cx="78" cy="44" r="7"/><circle class="bx" cx="104" cy="30" r="10"/><circle class="bp" cx="132" cy="18" r="8"/></g></svg>
+      <span class="step">why · plot</span><h3>Why trust it, and why this design?</h3><p>Release only when measured rates meet their targets and the independent evaluator agent agrees; record every trade-off.</p><p style="color:var(--pen);font-family:var(--f-hand);font-size:19px">→ rationale.md</p></div>
+  </div>
+</section>
+
+<!-- THINKING: SQVID -->
+<section class="card" id="sqvid">
+  <h2><span class="num">4</span>Five trade-offs I chose</h2>
+  <figure class="sk"><svg viewBox="0 0 860 330" role="img" aria-label="Five sliders. Simple to elaborate: leaning simple, enough steps to check. Quality to quantity: in the middle, measure both. Vision to execution: leaning execution, one real chapter before scaling. Individual to comparison: leaning individual, judge the book on its own first. Change to status quo: leaning change, a book you can look things up in while keeping the teacher's order.">
+    <g class="rough">
+      <path class="ln" d="M200,40 h420"/><circle class="fill-pen" cx="345" cy="40" r="9"/>
+      <path class="ln" d="M200,100 h420"/><circle class="fill-pen" cx="410" cy="100" r="9"/>
+      <path class="ln" d="M200,160 h420"/><circle class="fill-pen" cx="520" cy="160" r="9"/>
+      <path class="ln" d="M200,220 h420"/><circle class="fill-pen" cx="300" cy="220" r="9"/>
+      <path class="ln" d="M200,280 h420"/><circle class="fill-pen" cx="290" cy="280" r="9"/>
+    </g>
+    <text class="t" x="190" y="46" text-anchor="end">simple</text><text class="t" x="630" y="46">elaborate</text><text class="ts" x="345" y="70" text-anchor="middle">plain files; add parts only to fix a real failure</text>
+    <text class="t" x="190" y="106" text-anchor="end">quality</text><text class="t" x="630" y="106">quantity</text><text class="ts" x="410" y="130" text-anchor="middle">measure both: rates and reading scores</text>
+    <text class="t" x="190" y="166" text-anchor="end">vision</text><text class="t" x="630" y="166">execution</text><text class="ts" x="520" y="190" text-anchor="middle">one real chapter before scaling</text>
+    <text class="t" x="190" y="226" text-anchor="end">individual</text><text class="t" x="630" y="226">comparison</text><text class="ts" x="300" y="250" text-anchor="middle">judge the book on its own first</text>
+    <text class="t" x="190" y="286" text-anchor="end">change</text><text class="t" x="630" y="286">status quo</text><text class="ts" x="290" y="310" text-anchor="middle">a book you can look things up in…</text>
+    <text class="tp" x="650" y="300">…but keep the teacher's order</text>
+  </svg></figure>
+  <p>Each slider is a choice made on purpose. The design stays as simple as the checks allow, measures both numbers and reading quality, proves one real chapter before scaling, judges the book on its own before comparing it with alternatives, and changes how the course is used while keeping how it was taught.</p>
+</section>
+
+<!-- 3 USERS -->
+<section class="card" id="users">
+  <h2><span class="num">5</span>Who it is for</h2>
+  <figure class="sk"><svg viewBox="0 0 860 220" role="img" aria-label="Around the book: the reader reads it, the reviewer approves the plan and settles flagged sentences, the operator runs it on a new course, and the evaluator agent, an independent AI, audits it.">
+    <g class="rough">
+      <path class="ln" d="M380,70 h100 v90 h-100 z"/><path class="ln" d="M480,70 l16,-10 v90 l-16,10"/>
+      <g><circle class="bx" cx="90" cy="70" r="20"/><path class="ln" d="M90,90 v34 M90,104 l-18,12 M90,104 l18,12 M90,124 l-14,24 M90,124 l14,24"/></g>
+      <g><circle class="bx" cx="270" cy="70" r="20"/><path class="ln" d="M270,90 v34 M270,104 l-18,12 M270,104 l18,12 M270,124 l-14,24 M270,124 l14,24"/></g>
+      <g><circle class="bx" cx="600" cy="70" r="20"/><path class="ln" d="M600,90 v34 M600,104 l-18,12 M600,104 l18,12 M600,124 l-14,24 M600,124 l14,24"/></g>
+      <g><rect class="bp" x="755" y="46" width="50" height="40" rx="8"/><circle class="fill-pen" cx="770" cy="64" r="4"/><circle class="fill-pen" cx="790" cy="64" r="4"/><path class="ln" d="M780,46 v-10 M766,96 h28 v40 h-28 z"/></g>
+      <path class="ld" d="M120,100 C 250,40 300,60 375,100"/><path class="ld" d="M295,110 C 330,110 350,110 375,112"/><path class="ld" d="M575,110 C 550,110 520,112 500,112"/><path class="ld" d="M755,100 C 650,40 560,60 500,92"/>
+    </g>
+    <text class="t" x="90" y="180" text-anchor="middle">Reader</text><text class="ts" x="90" y="202" text-anchor="middle">reads, looks things up</text>
+    <text class="t" x="270" y="180" text-anchor="middle">Reviewer</text><text class="ts" x="270" y="202" text-anchor="middle">subject expert · approves plan, settles flags</text>
+    <text class="t" x="600" y="180" text-anchor="middle">Operator</text><text class="ts" x="600" y="202" text-anchor="middle">runs the pipeline</text>
+    <text class="tp" x="780" y="180" text-anchor="middle">Evaluator agent</text><text class="ts" x="780" y="202" text-anchor="middle">independent AI, audits it</text>
+    <text class="tp" x="430" y="196" text-anchor="middle">the book</text>
+  </svg></figure>
+</section>
+
+<!-- 4 MUST / WONT -->
+<section class="card" id="scope">
+  <h2><span class="num">6</span>What it must do, and what it won't</h2>
+  <div class="twocol">
+    <div><h3 style="margin-bottom:8px">Must</h3>
+      <ul class="ticks">
+        <li>Read like a book: chapters by topic, an introduction, a quick summary before each chapter, takeaways at the end.</li>
+        <li>Cover the whole course: every idea is placed somewhere or left out with a written reason.</li>
+        <li>Back every fact with the lecture moment it came from, and check it.</li>
+        <li>Say plainly how reliable the checking is, with numbers.</li>
+        <li>Rebuild the same book for anyone who reruns it.</li>
+        <li>Work on any lecture playlist by changing settings, not code.</li>
+        <li>Ask the reviewer only about the few sentences the check can't settle.</li>
+      </ul></div>
+    <div><h3 style="margin-bottom:8px">Won't (yet)</h3>
+      <ul class="ticks no">
+        <li>Correct the lecturer on its own. Where the course's executed code disagrees with what was said, the reviewer decides.</li>
+        <li>Read whole slide decks. Only selected board frames and the course's own code are used.</li>
+        <li>Pull facts from the open web.</li>
+        <li>Build books from a cloud server. YouTube blocks caption requests from data centres, so builds run on a normal connection.</li>
+      </ul></div>
+  </div>
+</section>
+
+<!-- 5 METRICS -->
+<section class="card" id="metrics">
+  <h2><span class="num">7</span>How I know it works</h2>
+  <figure class="sk"><svg viewBox="0 0 860 290" role="img" aria-label="Final results on the full book against targets. Facts backed by their lecture lines, judged by the independent evaluator: 96.5 percent, target at least 95. Planted false facts caught: 88 percent, target at least 85. Core ideas missed: 4.3 percent, target at most 10. Misleading errors: 1.5 per 100, target at most 2.">
+    <g class="rough">
+      <path class="ln" d="M300,30 v220"/><path class="ld" d="M830,30 v220"/>
+      <rect x="300" y="44" width="511" height="26" class="fill-pen" opacity="0.85" rx="3"/>
+      <rect x="300" y="104" width="468" height="26" class="fill-pen" opacity="0.85" rx="3"/>
+      <rect x="300" y="164" width="23" height="26" class="fill-pen" opacity="0.85" rx="3"/>
+      <rect x="300" y="224" width="8" height="26" class="fill-pen" opacity="0.85" rx="3"/>
+      <path class="lr" d="M803,36 v42"/><path class="lr" d="M750,96 v42"/><path class="lr" d="M353,156 v42"/><path class="lr" d="M311,216 v42"/>
+    </g>
+    <text class="t" x="290" y="64" text-anchor="end">facts backed (independent)</text>
+    <text class="t" x="290" y="124" text-anchor="end">planted false facts caught</text>
+    <text class="t" x="290" y="184" text-anchor="end">core ideas missed</text>
+    <text class="t" x="290" y="244" text-anchor="end">misleading errors</text>
+    <text class="tp" x="790" y="64" text-anchor="end" style="fill:var(--card)">96.5%</text>
+    <text class="tp" x="740" y="124" text-anchor="end" style="fill:var(--card)">88%</text>
+    <text class="tp" x="364" y="184">4.3%</text>
+    <text class="tp" x="364" y="244">1.5 per 100</text>
+    <text class="tr" x="798" y="28" text-anchor="end">aim ≥ 95</text><text class="tr" x="700" y="92">aim ≥ 85</text><text class="tr" x="370" y="160">aim ≤ 10%</text><text class="tr" x="470" y="244">aim ≤ 2</text>
+  </svg></figure>
+  <p>Red marks are the targets; blue bars are the final results on the full book. "Facts backed" is judged by the independent evaluator on a fresh random sample of 200 sentences, each judged three times. "Planted false facts" means I deliberately slip wrong sentences in and count how many the checker catches. That is how I know the checking actually works.</p>
+</section>
+
+<!-- RESULTS -->
+<section class="card" id="results">
+  <h2><span class="num">7½</span>What came out</h2>
+  <p>Building LLMs from Scratch, Public Lectures Edition. A 43-lecture course (31 hours); 22 lectures have public captions, and the 21 members-only lectures are named in the book with their reason.</p>
+  <div class="stats">
+    <div class="stat"><b>164</b><span>pages · 6 chapters · 78 sections</span></div>
+    <div class="stat"><b>52,243</b><span>words, 16 diagrams</span></div>
+    <div class="stat"><b>2,145</b><span>factual sentences, each citing caption lines</span></div>
+    <div class="stat"><b>96.5%</b><span>backed, judged by the independent evaluator</span></div>
+    <div class="stat"><b>106 / 120</b><span>planted false facts caught</span></div>
+    <div class="stat"><b>37 / 46</b><span>code listings executed; 69 stated numbers confirmed</span></div>
+    <div class="stat"><b>372</b><span>flagged items, every one decided by the reviewer</span></div>
+    <div class="stat"><b>~$50</b><span>in AI calls for the whole book, including all checks</span></div>
+  </div>
+</section>
+
+<!-- LESSONS -->
+<section class="card" id="lessons">
+  <h2><span class="num">7¾</span>What went wrong, and what I did</h2>
+  <p>Each of these was found by the system's own checks or by reading the output, not after the fact.</p>
+  <div>
+    <div class="lesson"><div><b>Half the course is behind a paywall</b>Every odd-numbered lecture is members-only, so its captions can't be read.</div>
+      <div class="fix"><b>Declared, not hidden</b>The book is a "Public Lectures Edition, 22 of 43". Each missing lecture is listed with the reason YouTube gives, and full coverage needs one option and a membership, no code.</div></div>
+    <div class="lesson"><div><b>The lecture said 610 and 107</b>Running the course's code gives 6100 and 1107. The captions faithfully record a misread.</div>
+      <div class="fix"><b>Code as evidence, reviewer decides</b>The disagreement went to the reviewer with the executed values; the text was corrected and the code run is recorded as the reason.</div></div>
+    <div class="lesson"><div><b>The evaluator disagreed with itself</b>Judging the same sentences twice gave different verdicts on about 10% of them, so a single 60-sentence sample couldn't tell 93% from 95%.</div>
+      <div class="fix"><b>Measure better, never lower the bar</b>Each sampled sentence is now judged three times and the majority counts, over 200 sentences. The 95% target never moved, and the report states the method.</div></div>
+    <div class="lesson"><div><b>The coverage check punished a good book</b>It only counted an idea as covered if it was taught right where that lecture said it. A book that teaches each idea once looked like it was missing repeats.</div>
+      <div class="fix"><b>Search the whole book, report both</b>Missing ideas are now searched across the book before they count. Both numbers are printed: 4.3% missed from the book, 12.8% near the clip.</div></div>
+    <div class="lesson"><div><b>Rewrites copied caption mistakes</b>An automatic rewording wrote "a Jou activation" because the captions misheard GELU.</div>
+      <div class="fix"><b>Rules, then a second check</b>Rewordings must use the correct technical term and textbook voice, and every one is re-checked by the strict evaluator before the reviewer sees it.</div></div>
+    <div class="lesson"><div><b>YouTube rate-limited my connection</b>After many requests, captions stopped coming back, even for lectures that had worked before.</div>
+      <div class="fix"><b>Named reasons, resumable capture</b>Each missing lecture records why ("blocked by YouTube", "members-only"). Capture skips what it already has, so switching network and rerunning finished the job.</div></div>
+  </div>
+</section>
+
+<!-- 6 PLAN -->
+<section class="card" id="plan">
+  <h2><span class="num">8</span>The plan</h2>
+  <figure class="sk"><svg viewBox="0 0 860 190" role="img" aria-label="Timeline of five milestones, all done: test chapter, full draft, reviewer pass, release, extras.">
+    <g class="rough">
+      <path class="ln" d="M30,90 H830" marker-end="url(#ar)"/>
+      <circle cx="90" cy="90" r="14" class="fill-pen"/><circle cx="260" cy="90" r="14" class="fill-pen"/><circle cx="430" cy="90" r="14" class="fill-pen"/><circle cx="600" cy="90" r="14" class="fill-pen"/><circle cx="770" cy="90" r="14" class="fill-pen"/>
+    </g>
+    <text class="t" x="90" y="56" text-anchor="middle">test chapter</text><text class="ts" x="90" y="130" text-anchor="middle">2 lectures, every step</text><text class="tp" x="90" y="158" text-anchor="middle">done</text>
+    <text class="t" x="260" y="56" text-anchor="middle">full draft</text><text class="ts" x="260" y="130" text-anchor="middle">all available lectures</text><text class="tp" x="260" y="158" text-anchor="middle">done</text>
+    <text class="t" x="430" y="56" text-anchor="middle">reviewer pass</text><text class="ts" x="430" y="130" text-anchor="middle">approve, read, fix</text><text class="tp" x="430" y="158" text-anchor="middle">done</text>
+    <text class="t" x="600" y="56" text-anchor="middle">release</text><text class="ts" x="600" y="130" text-anchor="middle">evaluator agent + rebuild</text><text class="tp" x="600" y="158" text-anchor="middle">done</text>
+    <text class="t" x="770" y="56" text-anchor="middle">extras</text><text class="ts" x="770" y="130" text-anchor="middle">code, web edition, 2nd course</text><text class="tp" x="770" y="158" text-anchor="middle">done</text>
+  </svg></figure>
+  <p>One real chapter first, then the whole book, then a careful human read, and only then the extras. Until every release condition was met, the book printed a "draft" page listing what was still missing; it now prints as a reviewed release.</p>
+</section>
+
+<div class="part">Part 2 · How it works</div>
+
+<!-- 7 BIG PICTURE -->
+<section class="card" id="big">
+  <h2><span class="num">9</span>The big picture</h2>
+  <figure class="sk"><svg viewBox="0 0 860 300" role="img" aria-label="Five blocks: collect, break down, write, check, publish. The reviewer approves the plan and settles flagged sentences. Underneath, a memory shelf that remembers every step and every AI answer.">
+    <g class="rough">
+      <rect class="bx" x="15" y="70" width="140" height="90" rx="12"/><rect class="bx" x="185" y="70" width="140" height="90" rx="12"/><rect class="bx" x="355" y="70" width="140" height="90" rx="12"/><rect class="bp" x="525" y="70" width="140" height="90" rx="12"/><rect class="bx" x="695" y="70" width="150" height="90" rx="12"/>
+      <path class="ln" d="M157,115 h24" marker-end="url(#ar)"/><path class="ln" d="M327,115 h24" marker-end="url(#ar)"/><path class="ln" d="M497,115 h24" marker-end="url(#ar)"/><path class="ln" d="M667,115 h24" marker-end="url(#ar)"/>
+      <rect class="bm" x="390" y="8" width="240" height="34" rx="16"/>
+      <path class="ln" d="M440,42 l-10,24" marker-end="url(#ar)"/><path class="ln" d="M580,42 l10,24" marker-end="url(#ar)"/>
+      <rect class="bx" x="15" y="210" width="830" height="70" rx="12" style="stroke-dasharray:7 6"/>
+      <path class="ld" d="M255,160 v48"/><path class="ld" d="M425,160 v48"/><path class="ld" d="M595,160 v48"/>
+    </g>
+    <text class="t" x="85" y="110" text-anchor="middle">collect</text><text class="ts" x="85" y="134" text-anchor="middle">videos + captions</text>
+    <text class="t" x="255" y="110" text-anchor="middle">break down</text><text class="ts" x="255" y="134" text-anchor="middle">into ideas</text>
+    <text class="t" x="425" y="110" text-anchor="middle">write</text><text class="ts" x="425" y="134" text-anchor="middle">plan, then prose</text>
+    <text class="tp" x="595" y="110" text-anchor="middle">check</text><text class="ts" x="595" y="134" text-anchor="middle">every sentence</text>
+    <text class="t" x="770" y="110" text-anchor="middle">publish</text><text class="ts" x="770" y="134" text-anchor="middle">book + report</text>
+    <text class="t tm" x="510" y="32" text-anchor="middle">reviewer: plan + flags</text>
+    <text class="t" x="430" y="240" text-anchor="middle">memory shelf</text>
+    <text class="ts" x="430" y="264" text-anchor="middle">remembers every step and every AI answer, so nothing is redone or paid for twice</text>
+  </svg></figure>
+  <p>Five steps in a row, the reviewer stepping in at two points, and a memory underneath everything. The rest of this page zooms into these boxes.</p>
+</section>
+
+<!-- 8 THREAD -->
+<section class="card" id="thread">
+  <h2><span class="num">10</span>The thread that ties it together</h2>
+  <figure class="sk"><svg viewBox="0 0 860 250" role="img" aria-label="A single thread runs from a caption line at a second of video, to an idea, to a place in a chapter, to a sentence in the book, to a check mark. The check looks back at the same caption line.">
+    <g class="rough">
+      <rect class="bx" x="15" y="60" width="140" height="74" rx="10"/><rect class="bx" x="185" y="60" width="140" height="74" rx="10"/><rect class="bx" x="355" y="60" width="140" height="74" rx="10"/><rect class="bx" x="525" y="60" width="140" height="74" rx="10"/><rect class="bp" x="695" y="60" width="150" height="74" rx="10"/>
+      <path class="ln" d="M157,97 h24" marker-end="url(#ar)"/><path class="ln" d="M327,97 h24" marker-end="url(#ar)"/><path class="ln" d="M497,97 h24" marker-end="url(#ar)"/><path class="ln" d="M667,97 h24" marker-end="url(#ar)"/>
+      <path class="lp" d="M85,134 C 85,215 770,215 770,138" marker-end="url(#ar)"/>
+      <path class="lp" d="M750,96 l10,12 l22,-26" style="stroke:var(--green)"/>
+    </g>
+    <text class="t" x="85" y="92" text-anchor="middle">a caption line</text><text class="ts" x="85" y="116" text-anchor="middle">at 6:52 in lecture 8</text>
+    <text class="t" x="255" y="92" text-anchor="middle">an idea</text><text class="ts" x="255" y="116" text-anchor="middle">"points to" that line</text>
+    <text class="t" x="425" y="92" text-anchor="middle">a chapter spot</text><text class="ts" x="425" y="116" text-anchor="middle">every idea placed</text>
+    <text class="t" x="595" y="92" text-anchor="middle">a sentence</text><text class="ts" x="595" y="116" text-anchor="middle">points to the line</text>
+    <text class="tp" x="430" y="236" text-anchor="middle">the check reads the same line, nothing else</text>
+  </svg></figure>
+  <p>Every caption line gets a label made from its video and the second it starts. Ideas, chapter plans and sentences all point back to those labels. That one thread is what makes every fact traceable: pick any sentence and you can play the exact moment it came from.</p>
+</section>
+
+<!-- 9 PARTS -->
+<section class="card" id="parts">
+  <h2><span class="num">11</span>Each part, in a sentence or two</h2>
+  <div class="parts">
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><rect class="bx" x="40" y="15" width="90" height="44" rx="6"/><path class="ln" d="M130,30 l26,-12 v38 l-26,-12"/><circle class="ln" cx="70" cy="37" r="11"/></g></svg>
+      <span class="step">1</span><h3>Collect</h3><p>Save the playlist in order and keep a sealed copy of each lecture's captions. Lectures that can't be fetched are listed as gaps, not guessed.</p></div>
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><path class="ln" d="M20,18 h150 M20,34 h150 M20,50 h150"/><path class="lp" d="M60,8 v56 M120,8 v56"/></g></svg>
+      <span class="step">2</span><h3>Label and slice</h3><p>Give every caption line its time label, then cut the lecture into short windows and quarter-hour chunks the AI can read whole.</p></div>
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><circle class="ln" cx="60" cy="32" r="18"/><path class="ln" d="M73,45 l18,18"/><path class="ln" d="M110,18 h70 M110,34 h60 M110,50 h66"/></g></svg>
+      <span class="step">3</span><h3>Find the ideas</h3><p>Pull out each thing taught (a definition, a step, an example) as a short sentence, with how important it is and where it was said.</p></div>
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><path class="ln" d="M60,6 h62 l16,14 v46 h-78 z"/><path class="ln" d="M122,6 v14 h16"/><circle class="bx" cx="86" cy="30" r="8"/><path class="ln" d="M72,52 q14,-14 28,0 M108,30 h20 M108,42 h20"/></g></svg>
+      <span class="step">3½</span><h3>Profile the reader</h3><p>Work out who the book is for from the course itself: the goal, what the reader already knows, what is unknown. Every claim points to evidence; the result is <b>reader.md</b>.</p></div>
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><circle class="bp" cx="100" cy="14" r="8"/><path class="ln" d="M100,22 v10 M60,32 h80 M60,32 v10 M140,32 v10"/><circle class="bx" cx="60" cy="50" r="8"/><circle class="bx" cx="140" cy="50" r="8"/><path class="ln" d="M40,64 h40 M120,64 h40"/></g></svg>
+      <span class="step">4</span><h3>Plan the book</h3><p>Group lectures into chapters by topic, then sort each chapter's ideas into sections. Every idea is placed or left out with a reason. The reviewer approves the plan.</p></div>
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><path class="ln" d="M100,10 v56"/><path class="lp" d="M100,16 h56 l12,9 l-12,9 h-56 z"/><path class="ln" d="M100,40 h-50 l-10,8 l10,8 h50"/></g></svg>
+      <span class="step">5</span><h3>Set the scene</h3><p>Write the introduction, a short opener and an "at a glance" box for each chapter, so the reader knows where they're going before the detail.</p></div>
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><path class="ln" d="M40,56 l90,-44 l14,12 l-90,44 z"/><path class="ln" d="M40,56 l-6,10 l18,-4"/><path class="ld" d="M120,60 h60"/></g></svg>
+      <span class="step">6</span><h3>Write</h3><p>Turn each section's ideas into connected book prose in the book's own voice. Every fact points to the caption lines it came from.</p></div>
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><circle class="bp" cx="70" cy="32" r="20"/><path class="lp" d="M84,46 l18,18"/><path class="ln" d="M60,32 l8,9 l14,-17" style="stroke:var(--green)"/><path class="ln" d="M125,22 h50 M125,40 h40"/></g></svg>
+      <span class="step">7</span><h3>Check</h3><p>A second, separate AI reads each sentence next to only the lines it cites and says whether they back it up. Weak paragraphs get one rewrite; leftovers go to the reviewer.</p></div>
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><rect class="bx" x="20" y="22" width="50" height="28" rx="5"/><rect class="bx" x="130" y="22" width="50" height="28" rx="5"/><path class="ln" d="M72,36 h54" marker-end="url(#ar)"/></g></svg>
+      <span class="step">8</span><h3>Draw diagrams</h3><p>Sketch the processes and structures as diagrams. Each arrow must match a checked sentence, or the diagram is fixed once or left out.</p></div>
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><path class="ln" d="M20,62 q20,-10 40,0 t40,0 t40,0 t40,0"/><path class="ln" d="M90,62 v-50"/><path class="lr" d="M90,14 l34,10 l-34,10 z" style="fill:var(--red)"/></g></svg>
+      <span class="step">9</span><h3>Test the checker</h3><p>Slip in deliberately false sentences (a wrong number, a swapped term) and count how many the checker catches. The misses are printed in the book.</p></div>
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><circle class="bx" cx="60" cy="20" r="12"/><path class="ln" d="M60,32 v20 M60,40 l-12,8 M60,40 l12,8"/><rect class="bm" x="100" y="16" width="80" height="40" rx="6"/></g><text class="ts" x="140" y="42" text-anchor="middle" style="fill:var(--marker-ink)">keep · fix · cut</text></svg>
+      <span class="step">10</span><h3>Reviewer decides</h3><p>The reviewer sees each flagged sentence with the exact lecture lines and a link to the moment. Keep it, fix it (and it's re-checked), or cut it.</p></div>
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><rect class="bp" x="70" y="10" width="60" height="44" rx="10"/><circle class="fill-pen" cx="88" cy="30" r="5"/><circle class="fill-pen" cx="112" cy="30" r="5"/><path class="ln" d="M100,10 v-6 M88,44 h24"/><path class="ln" d="M140,40 l10,10 l22,-26" style="stroke:var(--green)"/></g></svg>
+      <span class="step">10½</span><h3>Evaluator agent</h3><p>A third, independent AI that never sees the pipeline's own verdicts audits the finished book: spot-checks facts, hunts for missed ideas in random clips, and scores each chapter.</p></div>
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><path class="ln" d="M60,8 h70 v56 h-70 z"/><path class="ln" d="M130,8 l14,-6 v56 l-14,6"/><path class="ln" d="M72,24 h46 M72,36 h40 M72,48 h44"/></g></svg>
+      <span class="step">11</span><h3>Publish</h3><p>Lay out the book as a PDF with chapters, boxes and figures, plus a short report of the measured numbers and a list of anything left out.</p></div>
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><rect class="bx" x="40" y="10" width="120" height="52" rx="6"/><path class="lp" d="M58,26 l-10,10 l10,10 M142,26 l10,10 l-10,10"/><path class="ln" d="M70,30 h50 M70,42 h40"/></g></svg>
+      <span class="step">12</span><h3>Code from the reference</h3><p>For sections that teach code, real listings are pulled word-for-word from the course's companion repository, pinned to one version, with file and licence shown.</p></div>
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><path class="ln" d="M40,14 h44 v44 h-44 z M116,14 h44 v44 h-44 z"/><path class="lp" d="M88,30 h24 M112,42 h-24"/><path class="lr" d="M92,22 l16,30"/></g></svg>
+      <span class="step">13</span><h3>Cross-check</h3><p>Technical sentences are compared with the reference. Real disagreements go to the reviewer: keep the lecture, show both with a note, or edit.</p></div>
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><rect class="bx" x="20" y="10" width="70" height="50" rx="4"/><path class="ln" d="M30,48 l14,-18 l12,10 l16,-20"/><path class="ln" d="M98,35 h16" marker-end="url(#ar)"/><rect class="bp" x="122" y="14" width="26" height="18" rx="3"/><rect class="bp" x="160" y="38" width="26" height="18" rx="3"/><path class="lp" d="M148,24 l12,22"/></g></svg>
+      <span class="step">14</span><h3>Redraw the board</h3><p>Where the lecturer points at the screen, one frame is grabbed, redrawn as a clean diagram or equation, then checked against the image and against what was said.</p></div>
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><rect class="bx" x="40" y="10" width="120" height="54" rx="6"/><path class="ln" d="M40,28 h120 M40,46 h120"/><circle class="fill-ink" cx="100" cy="19" r="2.5"/><circle class="fill-ink" cx="100" cy="37" r="2.5"/><circle class="fill-ink" cx="100" cy="55" r="2.5"/></g></svg>
+      <span class="step">★</span><h3>Memory shelf</h3><p>Every step's result and every AI answer is stored with a fingerprint of what went in. Same inputs, same answer, no new cost.</p></div>
+  </div>
+</section>
+
+<!-- 10 CHECK LOOP -->
+<section class="card" id="loop">
+  <h2><span class="num">12</span>How one sentence gets checked</h2>
+  <figure class="sk"><svg viewBox="0 0 860 250" role="img" aria-label="A sentence goes to the checker. If the cited lines back it up, it goes into the book. If not, the paragraph is rewritten once and checked again. If it still fails, the reviewer decides to keep, fix or cut it.">
+    <g class="rough">
+      <rect class="bx" x="15" y="90" width="130" height="60" rx="10"/>
+      <path class="ln" d="M147,120 h40" marker-end="url(#ar)"/>
+      <path class="bp" d="M260,70 l70,50 l-70,50 l-70,-50 z"/>
+      <path class="ln" d="M260,70 v-36 h110" marker-end="url(#ar)"/>
+      <rect class="bx" x="375" y="14" width="150" height="40" rx="10" style="stroke:var(--green)"/>
+      <path class="ln" d="M332,120 h60" marker-end="url(#ar)"/>
+      <rect class="bx" x="395" y="90" width="170" height="60" rx="10"/>
+      <path class="ln" d="M567,120 h50" marker-end="url(#ar)"/>
+      <rect class="bm" x="620" y="86" width="225" height="68" rx="12"/>
+      <path class="ld" d="M480,150 C 480,215 260,215 260,175" marker-end="url(#ar)"/>
+    </g>
+    <text class="t" x="80" y="126" text-anchor="middle">a sentence</text>
+    <text class="tp" x="260" y="114" text-anchor="middle">backed up</text><text class="tp" x="260" y="136" text-anchor="middle">by its lines?</text>
+    <text class="t" x="450" y="40" text-anchor="middle" style="fill:var(--green)">yes → into the book</text>
+    <text class="tr" x="345" y="110">no</text>
+    <text class="t" x="480" y="116" text-anchor="middle">rewrite once</text><text class="ts" x="480" y="138" text-anchor="middle">using the checker's reason</text>
+    <text class="ts" x="380" y="230" text-anchor="middle">checked again</text>
+    <text class="t tm" x="732" y="114" text-anchor="middle">still unsure → reviewer</text>
+    <text class="ts" x="732" y="138" text-anchor="middle" style="fill:var(--marker-ink)">keep · fix · cut</text>
+  </svg></figure>
+  <p>Nothing gets in on the writer's word alone. A sentence is either backed by the lines it points to, fixed until it is, or decided by the reviewer, who can see the evidence. If a later run changes that sentence, the decision is reopened.</p>
+</section>
+
+<!-- 11 TRUST -->
+<section class="card" id="trust">
+  <h2><span class="num">13</span>Who decides what</h2>
+  <figure class="sk"><svg viewBox="0 0 860 240" role="img" aria-label="Three layers. Bottom: the machine checks what can be checked for certain, like whether every pointer points to a real line. Middle: a second AI judges whether lines back a sentence, and I measure how good it is. Top: the reviewer approves the plan and settles flags, using the evaluator agent's audit.">
+    <g class="rough">
+      <path class="bx" d="M110,170 h640 l30,50 h-700 z"/>
+      <path class="bp" d="M170,100 h520 l40,66 h-600 z"/>
+      <path class="bm" d="M240,30 h380 l40,66 h-460 z"/>
+    </g>
+    <text class="t tm" x="430" y="60" text-anchor="middle">the reviewer · recorded</text><text class="ts" x="430" y="84" text-anchor="middle" style="fill:var(--marker-ink)">approves plan · settles flags · signs off the release</text>
+    <text class="tp" x="430" y="128" text-anchor="middle">two independent AIs · measured</text><text class="ts" x="430" y="152" text-anchor="middle">a checker on every sentence · an evaluator agent on samples</text>
+    <text class="t" x="430" y="196" text-anchor="middle">the machine · certain</text><text class="ts" x="430" y="216" text-anchor="middle">every pointer is real · nothing was edited · test sentences never leak into the book</text>
+  </svg></figure>
+  <p>Each kind of check sits where it's reliable. The machine does what it can do with certainty. The AI checker does the reading, and I measure how often it's right. An independent evaluator agent audits samples of the finished book, and the reviewer makes the judgement calls. The book states its measured numbers instead of promising perfection.</p>
+</section>
+
+<!-- EVALUATOR AGENT -->
+<section class="card" id="reviewer">
+  <h2><span class="num">14</span>The evaluator agent</h2>
+  <figure class="sk"><svg viewBox="0 0 860 300" role="img" aria-label="The finished book goes to the evaluator agent, a third independent AI that never sees the pipeline's verdicts. It runs three audits: spot-checks a random sample of facts, hunts for missed ideas in random two-minute clips, and scores every chapter on readability. Each result is compared with a target; the book is released only when all pass and the reviewer signs off.">
+    <g class="rough">
+      <path class="ln" d="M20,90 h90 v120 h-90 z"/><path class="ln" d="M110,90 l18,-10 v120 l-18,10"/>
+      <path class="ln" d="M140,150 h50" marker-end="url(#ar)"/>
+      <rect class="bp" x="200" y="100" width="130" height="100" rx="14"/><circle class="fill-pen" cx="240" cy="140" r="7"/><circle class="fill-pen" cx="290" cy="140" r="7"/><path class="ln" d="M265,100 v-14 M240,172 h50"/>
+      <path class="ln" d="M335,130 C 370,80 390,60 420,60" marker-end="url(#ar)"/>
+      <path class="ln" d="M335,150 h85" marker-end="url(#ar)"/>
+      <path class="ln" d="M335,170 C 370,220 390,240 420,240" marker-end="url(#ar)"/>
+      <rect class="bx" x="425" y="34" width="230" height="54" rx="10"/>
+      <rect class="bx" x="425" y="123" width="230" height="54" rx="10"/>
+      <rect class="bx" x="425" y="212" width="230" height="54" rx="10"/>
+      <path class="ln" d="M660,61 C 700,61 710,140 740,148" marker-end="url(#ar)"/><path class="ln" d="M660,150 h78" marker-end="url(#ar)"/><path class="ln" d="M660,239 C 700,239 710,160 740,152" marker-end="url(#ar)"/>
+      <path class="bm" d="M790,110 l40,40 l-40,40 l-40,-40 z"/>
+    </g>
+    <text class="t" x="70" y="232" text-anchor="middle">finished book</text>
+    <text class="tp" x="265" y="226" text-anchor="middle">evaluator agent</text><text class="ts" x="265" y="248" text-anchor="middle">separate AI, blind to</text><text class="ts" x="265" y="266" text-anchor="middle">the pipeline's verdicts</text>
+    <text class="t" x="540" y="58" text-anchor="middle">spot-check facts</text><text class="ts" x="540" y="78" text-anchor="middle">random sample vs. cited lines</text>
+    <text class="t" x="540" y="147" text-anchor="middle">hunt for missed ideas</text><text class="ts" x="540" y="167" text-anchor="middle">random 2-minute clips</text>
+    <text class="t" x="540" y="236" text-anchor="middle">score each chapter</text><text class="ts" x="540" y="256" text-anchor="middle">clarity, flow, voice, fit</text>
+    <text class="t tm" x="790" y="155" text-anchor="middle" style="font-size:18px">gate</text>
+    <text class="ts" x="790" y="214" text-anchor="middle">all pass +</text><text class="ts" x="790" y="232" text-anchor="middle">reviewer signs</text>
+  </svg></figure>
+  <div class="twocol">
+    <p>The checker inside the pipeline looks at every sentence as it is written. The evaluator agent comes afterwards, uses a different AI, never sees what the checker decided, and judges the finished book on the numbers that matter for release. Where both agree, confidence is high; where they disagree, the reviewer looks.</p>
+    <ul class="ticks">
+      <li>facts backed by their lines: <b>at least 95%</b> (200 sentences, each judged 3 times, majority counts)</li>
+      <li>misleading errors: <b>at most 2 in 100</b></li>
+      <li>core ideas from random clips missing from the book: <b>at most 10%</b></li>
+      <li>reading score: <b>at least 3.5 out of 5</b></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 12 REBUILD -->
+<section class="card" id="rebuild">
+  <h2><span class="num">15</span>Rebuild without paying twice</h2>
+  <figure class="sk"><svg viewBox="0 0 860 220" role="img" aria-label="Each question to the AI goes to the memory shelf first. If the answer is there, it is reused for free. If not and I am rebuilding offline, it stops and says so. If not and I am online, it asks the AI and stores the answer.">
+    <g class="rough">
+      <rect class="bx" x="15" y="80" width="150" height="60" rx="10"/>
+      <path class="ln" d="M167,110 h50" marker-end="url(#ar)"/>
+      <rect class="bp" x="220" y="60" width="170" height="100" rx="10"/><path class="ln" d="M220,93 h170 M220,126 h170"/>
+      <path class="ln" d="M392,90 C 450,60 500,50 545,50" marker-end="url(#ar)"/>
+      <path class="ln" d="M392,130 C 450,160 500,170 545,170" marker-end="url(#ar)"/>
+      <rect class="bx" x="550" y="28" width="290" height="44" rx="10" style="stroke:var(--green)"/>
+      <rect class="bx" x="550" y="148" width="290" height="44" rx="10"/>
+    </g>
+    <text class="t" x="90" y="116" text-anchor="middle">ask the AI</text>
+    <text class="tp" x="305" y="50" text-anchor="middle">memory shelf</text>
+    <text class="ts" x="470" y="50">found</text><text class="ts" x="455" y="180">not found</text>
+    <text class="t" x="695" y="56" text-anchor="middle" style="fill:var(--green)">reuse the saved answer · free</text>
+    <text class="t" x="695" y="176" text-anchor="middle">ask, save, carry on</text>
+    <text class="ts" x="305" y="196" text-anchor="middle">offline rebuild: never asks; stops if anything is missing</text>
+  </svg></figure>
+  <p>AI answers vary from run to run, so the engine keeps every answer it gets. Anyone with the saved shelf rebuilds exactly the same book in under a second, without paying for a single new answer. Change one thing, such as an instruction or a lecture, and only the parts that depend on it are redone. To share the book without sharing the captions, everything except the raw captions is exported as a book-data package with a fingerprint for every file; the build service rebuilds the book from it on every change and checks that nothing differs.</p>
+</section>
+
+<!-- 13 ANY COURSE -->
+<section class="card" id="anycourse">
+  <h2><span class="num">16</span>Any course, by settings</h2>
+  <figure class="sk"><svg viewBox="0 0 860 200" role="img" aria-label="A settings card with dials: which playlist, who the reader is, which AIs write and check, how much to spend, how many chapters, which lecture is the introduction, diagrams on or off.">
+    <g class="rough">
+      <rect class="bx" x="40" y="20" width="780" height="160" rx="14"/>
+      <circle class="ln" cx="120" cy="80" r="22"/><path class="lp" d="M120,80 l12,-14"/>
+      <circle class="ln" cx="300" cy="80" r="22"/><path class="lp" d="M300,80 l-14,-10"/>
+      <circle class="ln" cx="480" cy="80" r="22"/><path class="lp" d="M480,80 l16,6"/>
+      <circle class="ln" cx="660" cy="80" r="22"/><path class="lp" d="M660,80 l2,-18"/>
+      <rect class="bx" x="730" y="66" width="56" height="28" rx="14"/><circle cx="772" cy="80" r="10" class="fill-pen"/>
+    </g>
+    <text class="ts" x="120" y="132" text-anchor="middle">playlist</text><text class="ts" x="120" y="152" text-anchor="middle">+ reader</text>
+    <text class="ts" x="300" y="132" text-anchor="middle">writer AI</text><text class="ts" x="300" y="152" text-anchor="middle">checker AI</text>
+    <text class="ts" x="480" y="132" text-anchor="middle">spending</text><text class="ts" x="480" y="152" text-anchor="middle">limit</text>
+    <text class="ts" x="660" y="132" text-anchor="middle">chapters,</text><text class="ts" x="660" y="152" text-anchor="middle">intro lecture</text>
+    <text class="ts" x="758" y="132" text-anchor="middle">diagrams</text><text class="ts" x="758" y="152" text-anchor="middle">on / off</text>
+  </svg></figure>
+  <p>Nothing about one particular course is built in. A new playlist needs a new settings card, not new code, and optional parts (like diagrams) switch off cleanly when a course has nothing for them.</p>
+</section>
+
+<!-- 6W BRIEF -->
+<section class="card" id="brief">
+  <h2><span class="num">17</span>The 6W brief that travels with every book</h2>
+  <figure class="sk"><svg viewBox="0 0 860 300" role="img" aria-label="Six markdown pages around the book, one per question: reader.md for who, coverage.md for how much, concept_map.md for where, learning_path.md for when, pipeline.md for how, rationale.md for why. reader.md feeds back into the writing.">
+    <g class="rough">
+      <path class="ln" d="M380,100 h90 v110 h-90 z"/><path class="ln" d="M470,100 l16,-10 v110 l-16,10"/>
+      <g><path class="bp" d="M40,20 h150 l20,18 v62 h-170 z"/></g>
+      <g><path class="bx" d="M40,190 h150 l20,18 v62 h-170 z"/></g>
+      <g><path class="bx" d="M335,10 h150 l20,18 v52 h-170 z" transform="translate(0,-4)"/></g>
+      <g><path class="bx" d="M335,230 h150 l20,18 v44 h-170 z"/></g>
+      <g><path class="bx" d="M650,20 h150 l20,18 v62 h-170 z"/></g>
+      <g><path class="bx" d="M650,190 h150 l20,18 v62 h-170 z"/></g>
+      <path class="lp" d="M210,70 C 290,80 330,120 372,140" marker-end="url(#ar)"/>
+      <path class="ld" d="M210,230 C 300,220 340,200 375,190"/><path class="ld" d="M420,72 v24"/><path class="ld" d="M420,214 v14"/><path class="ld" d="M648,70 C 560,80 520,110 492,130"/><path class="ld" d="M648,230 C 560,220 520,200 492,185"/>
+    </g>
+    <text class="tp" x="122" y="50" text-anchor="middle">reader.md</text><text class="ts" x="122" y="72" text-anchor="middle">who · what</text><text class="ts" x="122" y="90" text-anchor="middle">shapes the writing</text>
+    <text class="t" x="122" y="220" text-anchor="middle">coverage.md</text><text class="ts" x="122" y="242" text-anchor="middle">how much</text>
+    <text class="t" x="420" y="36" text-anchor="middle">concept_map.md</text><text class="ts" x="420" y="58" text-anchor="middle">where</text>
+    <text class="t" x="420" y="260" text-anchor="middle">learning_path.md</text><text class="ts" x="420" y="282" text-anchor="middle">when</text>
+    <text class="t" x="732" y="50" text-anchor="middle">pipeline.md</text><text class="ts" x="732" y="72" text-anchor="middle">how</text>
+    <text class="t" x="732" y="220" text-anchor="middle">rationale.md</text><text class="ts" x="732" y="242" text-anchor="middle">why</text>
+    <text class="t" x="430" y="160" text-anchor="middle">book</text>
+  </svg></figure>
+  <ul class="ticks">
+    <li><b>reader.md · who / what:</b> the goal, the reader, what they already know, what is unknown, how the course teaches, and the writing rules. Every inferred line cites evidence from the lectures; an explicit brief overrides it. It is the one page that feeds back into the writing.</li>
+    <li><b>coverage.md · how much:</b> per lecture, how many ideas were found, placed, left out (with reasons) or auto-placed, plus lectures not covered.</li>
+    <li><b>concept_map.md · where:</b> which lectures feed which chapters and sections, with a map.</li>
+    <li><b>learning_path.md · when:</b> the reading order with the source minutes behind each section, and which readiness gates are passed.</li>
+    <li><b>pipeline.md · how:</b> every step, the AI models used, calls, cache reuse and cost.</li>
+    <li><b>rationale.md · why:</b> measured rates against targets, the evaluator agent's verdict, and what still blocks release.</li>
+  </ul>
+</section>
+
+<!-- 14 LIMITS -->
+<!-- TRY IT -->
+<section class="card" id="tryit">
+  <h2><span class="num">18</span>Things to try with the finished book</h2>
+  <div class="parts">
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><path class="ln" d="M30,14 h110 M30,30 h120 M30,46 h90"/><circle class="bp" cx="150" cy="46" r="7"/><rect class="bm" x="118" y="52" width="74" height="16" rx="4"/></g></svg>
+      <h3>Hover any paragraph</h3><p>In the web edition, each paragraph's marker opens its sources: the lecture, the minute, a short quote, and a link that plays that exact moment.</p></div>
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><rect class="bx" x="30" y="10" width="140" height="50" rx="6"/><path class="lp" d="M44,24 l10,8 l-10,8"/><path class="ln" d="M62,40 h40"/><path class="ln" d="M120,26 l8,9 l16,-18" style="stroke:var(--green)"/></g></svg>
+      <h3>Run the code</h3><p>The listings run for real. Their output is printed in the book, and numbers the text states (a vocabulary size, a parameter count) are checked against what the code computes.</p></div>
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><path class="ln" d="M20,62 q20,-10 40,0 t40,0 t40,0 t40,0"/><path class="ln" d="M90,62 v-50"/><path class="lr" d="M90,14 l34,10 l-34,10 z" style="fill:var(--red)"/></g></svg>
+      <h3>Count the caught lies</h3><p>The report shows how many deliberately planted false sentences the checker caught, by type, and lists the ones it missed.</p></div>
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><circle class="bp" cx="60" cy="34" r="20"/><path class="lp" d="M74,48 l16,16"/><path class="ln" d="M110,20 h70 M110,34 h56 M110,48 h64"/></g></svg>
+      <h3>Ask "why?"</h3><p>Point at any sentence and see its whole story: the lecture moment, the ideas behind it, both checks, any rewrite and the reviewer's decision.</p></div>
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><rect class="bx" x="20" y="10" width="70" height="50" rx="4"/><path class="ln" d="M30,48 l14,-18 l12,10 l16,-20"/><path class="ln" d="M98,35 h16" marker-end="url(#ar)"/><rect class="bp" x="122" y="14" width="26" height="18" rx="3"/><rect class="bp" x="160" y="38" width="26" height="18" rx="3"/><path class="lp" d="M148,24 l12,22"/></g></svg>
+      <h3>See the board, redrawn</h3><p>Sketches the lecturer drew on screen come back as clean figures, each captioned with the second of the video it was taken from.</p></div>
+    <div class="part-card"><svg viewBox="0 0 200 70" aria-hidden="true"><g class="rough"><rect class="bx" x="40" y="10" width="120" height="50" rx="6"/><g fill="var(--pen)"><rect x="52" y="20" width="20" height="10" opacity=".3"/><rect x="76" y="20" width="20" height="10" opacity=".8"/><rect x="100" y="20" width="20" height="10" opacity=".5"/><rect x="52" y="36" width="20" height="10" opacity=".9"/><rect x="76" y="36" width="20" height="10" opacity=".2"/><rect x="124" y="36" width="20" height="10" opacity=".6"/></g></g></svg>
+      <h3>…and the coverage map</h3><p>A grid of lectures against chapters shows where every part of the course ended up in the book.</p></div>
+  </div>
+</section>
+
+<!-- IMAGES FROM THE VIDEO -->
+<section class="card" id="video-images">
+  <h2><span class="num">18½</span>What happens to diagrams explained on screen</h2>
+  <figure class="sk"><svg viewBox="0 0 860 210" role="img" aria-label="Four steps: the lecturer points at the screen, one frame is grabbed from the video at that second, an AI with vision redraws it as a clean diagram or equation, and a second check compares the redraw with the frame and with what was said. Of 16 moments looked at, 6 figures were kept.">
+    <g class="rough">
+      <rect class="bx" x="15" y="40" width="185" height="80" rx="12"/>
+      <path class="ln" d="M202,80 h24" marker-end="url(#ar)"/>
+      <rect class="bx" x="230" y="40" width="185" height="80" rx="12"/><rect class="bx" x="268" y="56" width="110" height="48" rx="4"/><path class="ln" d="M284,92 l18,-20 l14,12 l20,-18"/>
+      <path class="ln" d="M417,80 h24" marker-end="url(#ar)"/>
+      <rect class="bx" x="445" y="40" width="185" height="80" rx="12"/><rect class="bp" x="470" y="58" width="44" height="26" rx="4"/><rect class="bp" x="560" y="76" width="44" height="26" rx="4"/><path class="lp" d="M514,71 l46,18"/>
+      <path class="ln" d="M632,80 h24" marker-end="url(#ar)"/>
+      <rect class="bp" x="660" y="40" width="185" height="80" rx="12"/><path class="lp" d="M730,82 l12,14 l26,-32" style="stroke:var(--green)"/>
+      <path class="ln" d="M70,62 l26,-10 l-6,10 l12,4" />
+    </g>
+    <text class="t" x="107" y="104" text-anchor="middle">lecturer points</text>
+    <text class="ts" x="322" y="144" text-anchor="middle">one frame, that second</text>
+    <text class="ts" x="537" y="144" text-anchor="middle">redrawn clean</text>
+    <text class="tp" x="752" y="144" text-anchor="middle">checked vs image + speech</text>
+    <text class="ts" x="107" y="144" text-anchor="middle">"as you can see here…"</text>
+    <text class="tp" x="430" y="190" text-anchor="middle">16 moments looked at · 6 figures kept · each captioned with its second of video</text>
+  </svg></figure>
+  <p>Captions only carry what was said. When a lecture explains a diagram or an equation on the screen, the engine looks for the moment the lecturer points at it, grabs one still frame at that second, has an AI with vision redraw it as a clean diagram or equation, and then checks the redraw twice: against the frame itself and against what is said at that moment. Anything the board doesn't show is dropped. In the first book, 16 moments were read and 6 figures kept; one redraw was rejected for adding a detail that wasn't on the board.</p>
+  <ul class="ticks no">
+    <li>Only a few sampled moments per chapter are read, so most on-screen visuals reach the book only through what the lecturer says.</li>
+    <li>Code shown on screen is not read from the video; where the course has a companion repository, listings come from it word for word and are run.</li>
+    <li>It is opt-in, because it downloads video. The second course was built without it.</li>
+  </ul>
+</section>
+
+<section class="card" id="limits">
+  <h2><span class="num">19</span>Limits, and what is now handled</h2>
+  <ul class="ticks">
+    <li><b>Code shown only on screen → listings from the course's reference code.</b> Sections that teach code get listings taken word-for-word from a pinned reference repository, matched by search, picked by the writer, confirmed by the checker, and labelled with file, licence and version. No code is written by an AI.</li>
+    <li><b>Faithful isn't the same as correct → cross-check against the reference.</b> Technical sentences are compared with the reference. Where they genuinely disagree on a fact or behaviour (not naming or style), the reviewer decides: keep the lecture's version, print a note showing both, or edit. Open disagreements block release.</li>
+    <li><b>The checker is an AI → an independent evaluator agent.</b> A third AI, blind to the checker's verdicts, re-checks a random sample, hunts for missed ideas and scores readability; the reviewer signs off.</li>
+    <li><b>Sources that can't be shared → a book-data package.</b> Everything needed to rebuild the book, minus the raw captions, can be committed. Anyone can verify every file's fingerprint and rebuild the identical book sources; the build service does this on every change and produces the PDF.</li>
+
+    <li><b>Equations and whiteboards shown only on screen → redrawn from the video.</b> At moments the lecturer points to the screen, a single frame is pulled from the video (opt-in), read by an AI, redrawn as a clean diagram or equation, and checked by a second AI against the image itself and against what the lecturer says. In the first run, 6 board figures were kept and one invented detail was caught and dropped.</li>
+  </ul>
+</section>
+
+<!-- APPENDIX -->
+<section class="card" id="example">
+  <h2><span class="num">★</span>The first test, two lectures</h2>
+  <p>Before the full run, two lectures went through every step to prove the design on something small:</p>
+  <div class="stats">
+    <div class="stat"><b>213</b><span>ideas found</span></div>
+    <div class="stat"><b>204 · 9</b><span>placed · left out with a reason</span></div>
+    <div class="stat"><b>2 · 13</b><span>chapters · sections</span></div>
+    <div class="stat"><b>7,500</b><span>words, 6 diagrams</span></div>
+    <div class="stat"><b>89 → 98%</b><span>facts backed up, before → after one rewrite</span></div>
+    <div class="stat"><b>35 / 40</b><span>planted false facts caught</span></div>
+    <div class="stat"><b>7</b><span>sentences the reviewer had to look at</span></div>
+    <div class="stat"><b>~$3</b><span>to write the two lectures</span></div>
+    <div class="stat"><b>0.2 s</b><span>to rebuild it, free</span></div>
+  </div>
+</section>
+
+<footer>Course-to-Book Engine · product brief, system design and results</footer>
+</main>
+
+</body></html>

@@ -1,0 +1,549 @@
+{
+  "stage": "write",
+  "item": "ch04.s11",
+  "inputs_hash": "bfd0bf856b1e7cdce209186dc02621656bfccddb1b4e2fecada2e50879f89141",
+  "output_hash": "29ae3b0abf8f5520c512bff93af01a48a02e1085420ba4af1e52c7cb15202359",
+  "output": {
+    "section_id": "ch04.s11",
+    "paragraphs": [
+      {
+        "id": "ch04.s11.p01",
+        "sentences": [
+          {
+            "id": "ch04.s11.p01.01",
+            "text": "How can a training loop do more than update parameters and also show whether the model is actually improving or merely memorizing?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s11.p01.02",
+            "text": "After the parameters are updated, the loop prints the training and validation losses, inspects the LLM output, moves to the next batch, resets the previous batch’s gradients to zero, and repeats this process for all batches and then for multiple epochs.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@764",
+              "Zxf-34voZss@767",
+              "Zxf-34voZss@768",
+              "Zxf-34voZss@770",
+              "Zxf-34voZss@774",
+              "Zxf-34voZss@777",
+              "Zxf-34voZss@779",
+              "Zxf-34voZss@780",
+              "Zxf-34voZss@782",
+              "Zxf-34voZss@785",
+              "Zxf-34voZss@788",
+              "Zxf-34voZss@790",
+              "Zxf-34voZss@792",
+              "Zxf-34voZss@794",
+              "Zxf-34voZss@799"
+            ]
+          },
+          {
+            "id": "ch04.s11.p01.03",
+            "text": "An \"evaluate_model\" function is used during training to compute the training loss and validation loss and print them as training proceeds.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1456",
+              "Zxf-34voZss@1458",
+              "Zxf-34voZss@1460",
+              "Zxf-34voZss@1462",
+              "Zxf-34voZss@1464"
+            ]
+          },
+          {
+            "id": "ch04.s11.p01.04",
+            "text": "This function uses the previously defined loss-calculation functions to compute loss for the training loader and the validation loader over the entire dataset.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1472",
+              "Zxf-34voZss@1476",
+              "Zxf-34voZss@1478",
+              "Zxf-34voZss@1480",
+              "Zxf-34voZss@1481",
+              "Zxf-34voZss@1483",
+              "Zxf-34voZss@1487",
+              "Zxf-34voZss@1489",
+              "Zxf-34voZss@1491",
+              "Zxf-34voZss@1492"
+            ]
+          },
+          {
+            "id": "ch04.s11.p01.05",
+            "text": "The losses are not printed after every batch.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s11.p01.06",
+            "text": "They are shown only at a chosen evaluation frequency, such as every five batches when the global step is a multiple of five.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1516",
+              "Zxf-34voZss@1519",
+              "Zxf-34voZss@1521",
+              "Zxf-34voZss@1523",
+              "Zxf-34voZss@1526",
+              "Zxf-34voZss@1528",
+              "Zxf-34voZss@1530",
+              "Zxf-34voZss@1536",
+              "Zxf-34voZss@1538",
+              "Zxf-34voZss@1540",
+              "Zxf-34voZss@1542",
+              "Zxf-34voZss@1544",
+              "Zxf-34voZss@1547",
+              "Zxf-34voZss@1551",
+              "Zxf-34voZss@1554",
+              "Zxf-34voZss@1556",
+              "Zxf-34voZss@1557",
+              "Zxf-34voZss@1559",
+              "Zxf-34voZss@1561",
+              "Zxf-34voZss@1562",
+              "Zxf-34voZss@1564",
+              "Zxf-34voZss@1566",
+              "Zxf-34voZss@2001",
+              "Zxf-34voZss@2003",
+              "Zxf-34voZss@2005"
+            ]
+          },
+          {
+            "id": "ch04.s11.p01.07",
+            "text": "When evaluating, the model is put in evaluation mode with gradient tracking disabled and dropout disabled, because evaluation only calculates loss through a forward pass.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1754",
+              "Zxf-34voZss@1756",
+              "Zxf-34voZss@1758",
+              "Zxf-34voZss@1760",
+              "Zxf-34voZss@1763",
+              "Zxf-34voZss@1765",
+              "Zxf-34voZss@1767",
+              "Zxf-34voZss@1769",
+              "Zxf-34voZss@1770",
+              "Zxf-34voZss@1772",
+              "Zxf-34voZss@1775",
+              "Zxf-34voZss@1777",
+              "Zxf-34voZss@1778"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s11.p02",
+        "sentences": [
+          {
+            "id": "ch04.s11.p02.01",
+            "text": "Loss values help, but generated text makes progress easier to see.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s11.p02.02",
+            "text": "A \"generate_and_print_sample\" function is used after each epoch as a convenience function for tracking whether the model improves during training by showing generated text.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1594",
+              "Zxf-34voZss@1598",
+              "Zxf-34voZss@1600",
+              "Zxf-34voZss@1602",
+              "Zxf-34voZss@1610",
+              "Zxf-34voZss@1782",
+              "Zxf-34voZss@1784",
+              "Zxf-34voZss@1785",
+              "Zxf-34voZss@1787",
+              "Zxf-34voZss@1790",
+              "Zxf-34voZss@1806",
+              "Zxf-34voZss@1808",
+              "Zxf-34voZss@1991",
+              "Zxf-34voZss@1994"
+            ]
+          },
+          {
+            "id": "ch04.s11.p02.03",
+            "text": "It prints 50 newly predicted tokens so the output can be inspected for whether it makes sense.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1615",
+              "Zxf-34voZss@1618",
+              "Zxf-34voZss@1640",
+              "Zxf-34voZss@1641",
+              "Zxf-34voZss@1643",
+              "Zxf-34voZss@1645",
+              "Zxf-34voZss@1648"
+            ]
+          },
+          {
+            "id": "ch04.s11.p02.04",
+            "text": "The function takes a starting text snippet, called start context, converts it into token IDs, and feeds it to the LLM to generate a text sample at the current point in training.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1791",
+              "Zxf-34voZss@1793",
+              "Zxf-34voZss@1795",
+              "Zxf-34voZss@1798",
+              "Zxf-34voZss@1800",
+              "Zxf-34voZss@1804"
+            ]
+          },
+          {
+            "id": "ch04.s11.p02.05",
+            "text": "The initial prompt is \"every effort moves you,\" and an initial text is required so the function can print what the LLM predicts next.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@2007",
+              "Zxf-34voZss@2009",
+              "Zxf-34voZss@2011",
+              "Zxf-34voZss@2013",
+              "Zxf-34voZss@2015"
+            ]
+          },
+          {
+            "id": "ch04.s11.p02.06",
+            "text": "The loop also tracks tokens seen, meaning the number of tokens consumed from input batches up to that point.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1669",
+              "Zxf-34voZss@1670",
+              "Zxf-34voZss@1672",
+              "Zxf-34voZss@1674",
+              "Zxf-34voZss@1676",
+              "Zxf-34voZss@1681",
+              "Zxf-34voZss@1685",
+              "Zxf-34voZss@1687"
+            ]
+          },
+          {
+            "id": "ch04.s11.p02.07",
+            "text": "With a dataset of around 5,000 tokens and 10 epochs, the total tokens seen should be on the order of 50,000.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1694",
+              "Zxf-34voZss@1696",
+              "Zxf-34voZss@1701",
+              "Zxf-34voZss@1704",
+              "Zxf-34voZss@1707",
+              "Zxf-34voZss@1710",
+              "Zxf-34voZss@1711",
+              "Zxf-34voZss@1714",
+              "Zxf-34voZss@1716",
+              "Zxf-34voZss@1718"
+            ]
+          },
+          {
+            "id": "ch04.s11.p02.08",
+            "text": "In the run shown, training completed in 6.6 minutes on a laptop while optimizing about 160 million parameters for 10 epochs.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@2057",
+              "Zxf-34voZss@2059",
+              "Zxf-34voZss@2062",
+              "Zxf-34voZss@2066",
+              "Zxf-34voZss@2069",
+              "Zxf-34voZss@2073",
+              "Zxf-34voZss@2076",
+              "Zxf-34voZss@2078",
+              "Zxf-34voZss@2081"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s11.p03",
+        "sentences": [
+          {
+            "id": "ch04.s11.p03.01",
+            "text": "The printed losses and samples reveal both learning and overfitting.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s11.p03.02",
+            "text": "The training loss decreased substantially during training, from about 9.781 to about 3.91.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@2124",
+              "Zxf-34voZss@2128",
+              "Zxf-34voZss@2143",
+              "Zxf-34voZss@2145",
+              "Zxf-34voZss@2148",
+              "Zxf-34voZss@2151",
+              "Zxf-34voZss@2155"
+            ]
+          },
+          {
+            "id": "ch04.s11.p03.03",
+            "text": "The validation loss started around 9.933 and then stagnated around 6.4 to 6.2, which is presented as a classic sign of overfitting.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@2165",
+              "Zxf-34voZss@2167",
+              "Zxf-34voZss@2170",
+              "Zxf-34voZss@2173",
+              "Zxf-34voZss@2177"
+            ]
+          },
+          {
+            "id": "ch04.s11.p03.04",
+            "text": "After the first epoch, the generated output was mostly commas, showing that the model had not yet learned meaningful text generation.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@2187",
+              "Zxf-34voZss@2189",
+              "Zxf-34voZss@2192",
+              "Zxf-34voZss@2195",
+              "Zxf-34voZss@2196"
+            ]
+          },
+          {
+            "id": "ch04.s11.p03.05",
+            "text": "After the second epoch, the output was still incoherent, repeating tokens such as commas and \"and.\"",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@2199",
+              "Zxf-34voZss@2201",
+              "Zxf-34voZss@2203"
+            ]
+          },
+          {
+            "id": "ch04.s11.p03.06",
+            "text": "As training continued, the model began to use words from the training text in its generated samples.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@2215",
+              "Zxf-34voZss@2217",
+              "Zxf-34voZss@2221"
+            ]
+          },
+          {
+            "id": "ch04.s11.p03.07",
+            "text": "By later epochs, the generated text made sense but directly recycled text from the training data, which is another sign of overfitting.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@2225",
+              "Zxf-34voZss@2227",
+              "Zxf-34voZss@2229",
+              "Zxf-34voZss@2232",
+              "Zxf-34voZss@2236",
+              "Zxf-34voZss@2238",
+              "Zxf-34voZss@2241",
+              "Zxf-34voZss@2243",
+              "Zxf-34voZss@2245",
+              "Zxf-34voZss@2247",
+              "Zxf-34voZss@2249"
+            ]
+          },
+          {
+            "id": "ch04.s11.p03.08",
+            "text": "The model’s language skills improved during training, progressing from repeated commas to grammatically correct text.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@2272",
+              "Zxf-34voZss@2275",
+              "Zxf-34voZss@2277",
+              "Zxf-34voZss@2279",
+              "Zxf-34voZss@2281",
+              "Zxf-34voZss@2285",
+              "Zxf-34voZss@2287",
+              "Zxf-34voZss@2289",
+              "Zxf-34voZss@2291",
+              "Zxf-34voZss@2293"
+            ]
+          },
+          {
+            "id": "ch04.s11.p03.09",
+            "text": "Producing words that make sense instead of completely random output is evidence that training is helping the model learn.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@2295",
+              "Zxf-34voZss@2298",
+              "Zxf-34voZss@2300",
+              "Zxf-34voZss@2302",
+              "Zxf-34voZss@2304",
+              "Zxf-34voZss@2306",
+              "Zxf-34voZss@2308",
+              "Zxf-34voZss@2311"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s11.p04",
+        "sentences": [
+          {
+            "id": "ch04.s11.p04.01",
+            "text": "A loss plot makes the same pattern easier to see.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s11.p04.02",
+            "text": "A plot is shown in which the blue training-loss line keeps decreasing, while the validation-loss line decreases and then becomes flat.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@2325",
+              "Zxf-34voZss@2327",
+              "Zxf-34voZss@2328",
+              "Zxf-34voZss@2330",
+              "Zxf-34voZss@2332",
+              "Zxf-34voZss@2334",
+              "Zxf-34voZss@2336",
+              "Zxf-34voZss@2338"
+            ]
+          },
+          {
+            "id": "ch04.s11.p04.03",
+            "text": "The validation loss decreases during training but never becomes as small as the training loss, and after 10 epochs it stagnates around 6.37.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@2313",
+              "Zxf-34voZss@2316",
+              "Zxf-34voZss@2317",
+              "Zxf-34voZss@2319",
+              "Zxf-34voZss@2322"
+            ]
+          },
+          {
+            "id": "ch04.s11.p04.04",
+            "text": "The plot also tracks tokens seen, and as the number of tokens seen increases, the training loss decreases a lot while the validation loss stagnates.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@2340",
+              "Zxf-34voZss@2342",
+              "Zxf-34voZss@2354",
+              "Zxf-34voZss@2356",
+              "Zxf-34voZss@2357",
+              "Zxf-34voZss@2359"
+            ]
+          },
+          {
+            "id": "ch04.s11.p04.05",
+            "text": "Both training and validation loss improve after the first epoch, but they begin to diverge after the second epoch.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@2359",
+              "Zxf-34voZss@2362",
+              "Zxf-34voZss@2364",
+              "Zxf-34voZss@2366",
+              "Zxf-34voZss@2368",
+              "Zxf-34voZss@2370"
+            ]
+          },
+          {
+            "id": "ch04.s11.p04.06",
+            "text": "When the validation loss is much larger than the training loss and the two losses diverge, the model is overfitting to the training data.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@2370",
+              "Zxf-34voZss@2372",
+              "Zxf-34voZss@2374",
+              "Zxf-34voZss@2376",
+              "Zxf-34voZss@2378"
+            ]
+          },
+          {
+            "id": "ch04.s11.p04.07",
+            "text": "The model is memorizing the training data, as shown by generated text that exactly matches phrases in the dataset, and this memorization is a classic sign of overfitting.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@2380",
+              "Zxf-34voZss@2382",
+              "Zxf-34voZss@2385",
+              "Zxf-34voZss@2390",
+              "Zxf-34voZss@2393",
+              "Zxf-34voZss@2396",
+              "Zxf-34voZss@2398",
+              "Zxf-34voZss@2400",
+              "Zxf-34voZss@2402"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s11.p05",
+        "sentences": [
+          {
+            "id": "ch04.s11.p05.01",
+            "text": "Why is overfitting so pronounced here?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s11.p05.02",
+            "text": "This memorization is expected because the training dataset is very small and the model is trained for multiple epochs.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@2405",
+              "Zxf-34voZss@2407",
+              "Zxf-34voZss@2409",
+              "Zxf-34voZss@2411"
+            ]
+          },
+          {
+            "id": "ch04.s11.p05.03",
+            "text": "Common practice is to train on a much larger dataset for only one epoch.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@2413",
+              "Zxf-34voZss@2417",
+              "Zxf-34voZss@2420"
+            ]
+          },
+          {
+            "id": "ch04.s11.p05.04",
+            "text": "The dataset used here has about 5,000 tokens and 20,000 characters, whereas real training uses datasets with millions of tokens.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@2427",
+              "Zxf-34voZss@2429",
+              "Zxf-34voZss@2431",
+              "Zxf-34voZss@2433",
+              "Zxf-34voZss@2437",
+              "Zxf-34voZss@2438",
+              "Zxf-34voZss@2440"
+            ]
+          },
+          {
+            "id": "ch04.s11.p05.05",
+            "text": "Large datasets reduce overfitting because they contain much more variability, whereas a small dataset lets the model get away with memorizing pieces of data.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@2442",
+              "Zxf-34voZss@2444",
+              "Zxf-34voZss@2446",
+              "Zxf-34voZss@2448",
+              "Zxf-34voZss@2451",
+              "Zxf-34voZss@2453"
+            ]
+          },
+          {
+            "id": "ch04.s11.p05.06",
+            "text": "It is useful to vary hyperparameters such as learning rate, weight decay, and number of epochs to observe how the code and training behavior change.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@2455",
+              "Zxf-34voZss@2460",
+              "Zxf-34voZss@2462",
+              "Zxf-34voZss@2464",
+              "Zxf-34voZss@2473",
+              "Zxf-34voZss@2475",
+              "Zxf-34voZss@2477",
+              "Zxf-34voZss@2479"
+            ]
+          },
+          {
+            "id": "ch04.s11.p05.07",
+            "text": "Even with overfitting, the loop successfully minimizes the loss and shows that the large language model is learning.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@2482",
+              "Zxf-34voZss@2483",
+              "Zxf-34voZss@2485",
+              "Zxf-34voZss@2487",
+              "Zxf-34voZss@2489",
+              "Zxf-34voZss@2491"
+            ]
+          }
+        ]
+      }
+    ],
+    "invalid_citation_sentences": 0
+  }
+}

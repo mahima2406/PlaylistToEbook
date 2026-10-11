@@ -1,0 +1,855 @@
+{
+  "stage": "extract",
+  "item": "EhU32O7DkA4",
+  "inputs_hash": "55ab1febd1ad83c347456272a82c49f7fbe9df2e3ccdd5052e6d9b387bb3233f",
+  "output_hash": "469a272f6ab428d8d9e2f36a959c082f1de0b249d691fcbf3ef6f6ed528f9b94",
+  "output": {
+    "video_id": "EhU32O7DkA4",
+    "points": [
+      {
+        "id": "EhU32O7DkA4:p001",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Top-k sampling is a decoding strategy for large language models that is used along with temperature scaling.",
+        "line_ids": [
+          "EhU32O7DkA4@25",
+          "EhU32O7DkA4@26",
+          "EhU32O7DkA4@29",
+          "EhU32O7DkA4@31",
+          "EhU32O7DkA4@33",
+          "EhU32O7DkA4@36"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p002",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A naive decoding strategy selects the next token as the token with the largest probability score in the vocabulary.",
+        "line_ids": [
+          "EhU32O7DkA4@61",
+          "EhU32O7DkA4@64",
+          "EhU32O7DkA4@66",
+          "EhU32O7DkA4@67",
+          "EhU32O7DkA4@70",
+          "EhU32O7DkA4@75"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p003",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Selecting the next token deterministically by the maximum probability can lead to poor outputs, motivating probabilistic sampling instead.",
+        "line_ids": [
+          "EhU32O7DkA4@90",
+          "EhU32O7DkA4@92",
+          "EhU32O7DkA4@104",
+          "EhU32O7DkA4@106",
+          "EhU32O7DkA4@109",
+          "EhU32O7DkA4@125"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p004",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To use probabilistic sampling, apply softmax to the logits to obtain probabilities and then sample the next token with a multinomial distribution instead of taking the maximum-probability token.",
+        "line_ids": [
+          "EhU32O7DkA4@133",
+          "EhU32O7DkA4@139",
+          "EhU32O7DkA4@142",
+          "EhU32O7DkA4@146",
+          "EhU32O7DkA4@150",
+          "EhU32O7DkA4@155"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p005",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Multinomial sampling chooses the next token proportionally to its probability score, so lower-probability tokens can also sometimes be selected.",
+        "line_ids": [
+          "EhU32O7DkA4@167",
+          "EhU32O7DkA4@169",
+          "EhU32O7DkA4@172",
+          "EhU32O7DkA4@175",
+          "EhU32O7DkA4@177",
+          "EhU32O7DkA4@206"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p006",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Probabilistic sampling enables more creativity in the language model output and helps control randomness.",
+        "line_ids": [
+          "EhU32O7DkA4@227",
+          "EhU32O7DkA4@229",
+          "EhU32O7DkA4@232",
+          "EhU32O7DkA4@235"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p007",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "Temperature scaling divides the logits by a temperature value before applying softmax.",
+        "line_ids": [
+          "EhU32O7DkA4@237",
+          "EhU32O7DkA4@238",
+          "EhU32O7DkA4@240",
+          "EhU32O7DkA4@243"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p008",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Increasing the temperature makes the next-token distribution more uniform, while lowering the temperature makes the distribution sharper and favors one token more strongly.",
+        "line_ids": [
+          "EhU32O7DkA4@245",
+          "EhU32O7DkA4@247",
+          "EhU32O7DkA4@249",
+          "EhU32O7DkA4@251",
+          "EhU32O7DkA4@253",
+          "EhU32O7DkA4@257",
+          "EhU32O7DkA4@259"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p009",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "visual_ref",
+        "importance": 2,
+        "text": "An animation is shown to illustrate that as temperature increases, the token distribution changes from sharp to more uniform.",
+        "line_ids": [
+          "EhU32O7DkA4@266",
+          "EhU32O7DkA4@268",
+          "EhU32O7DkA4@270",
+          "EhU32O7DkA4@274",
+          "EhU32O7DkA4@276",
+          "EhU32O7DkA4@280"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p010",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A downside of using only temperature scaling is that all tokens remain possible next tokens, including completely random or nonsensical ones.",
+        "line_ids": [
+          "EhU32O7DkA4@317",
+          "EhU32O7DkA4@318",
+          "EhU32O7DkA4@320",
+          "EhU32O7DkA4@323",
+          "EhU32O7DkA4@325",
+          "EhU32O7DkA4@331"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p011",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Top-k sampling restricts the candidate next tokens to the top k most likely tokens and excludes all other tokens.",
+        "line_ids": [
+          "EhU32O7DkA4@341",
+          "EhU32O7DkA4@343",
+          "EhU32O7DkA4@345",
+          "EhU32O7DkA4@347",
+          "EhU32O7DkA4@353",
+          "EhU32O7DkA4@364"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p012",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In top-k sampling, before applying softmax, keep only the top k logits and replace all other logits with negative infinity.",
+        "line_ids": [
+          "EhU32O7DkA4@373",
+          "EhU32O7DkA4@375",
+          "EhU32O7DkA4@377",
+          "EhU32O7DkA4@379",
+          "EhU32O7DkA4@389",
+          "EhU32O7DkA4@404"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p013",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Replacing non-top-k logits with negative infinity ensures that after softmax their probabilities become zero, so only the top-k tokens can be selected.",
+        "line_ids": [
+          "EhU32O7DkA4@404",
+          "EhU32O7DkA4@407",
+          "EhU32O7DkA4@409",
+          "EhU32O7DkA4@411",
+          "EhU32O7DkA4@414",
+          "EhU32O7DkA4@421"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p014",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Top-k sampling removes tokens that do not make sense from consideration as the next token.",
+        "line_ids": [
+          "EhU32O7DkA4@423",
+          "EhU32O7DkA4@425",
+          "EhU32O7DkA4@427",
+          "EhU32O7DkA4@432",
+          "EhU32O7DkA4@436",
+          "EhU32O7DkA4@443"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p015",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Higher temperature values produce more uniformly distributed next-token probabilities and therefore more diverse outputs.",
+        "line_ids": [
+          "EhU32O7DkA4@459",
+          "EhU32O7DkA4@463",
+          "EhU32O7DkA4@465",
+          "EhU32O7DkA4@467",
+          "EhU32O7DkA4@469",
+          "EhU32O7DkA4@473"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p016",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Probabilistic sampling with temperature scaling can explore less likely but potentially more interesting and creative paths, but it can also produce grammatically incorrect or nonsensical outputs.",
+        "line_ids": [
+          "EhU32O7DkA4@480",
+          "EhU32O7DkA4@482",
+          "EhU32O7DkA4@485",
+          "EhU32O7DkA4@486",
+          "EhU32O7DkA4@488",
+          "EhU32O7DkA4@491"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p017",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "In PyTorch, torch.topk applied to the next-token logits returns both the top k logit values and the indices where they occur.",
+        "line_ids": [
+          "EhU32O7DkA4@543",
+          "EhU32O7DkA4@546",
+          "EhU32O7DkA4@549",
+          "EhU32O7DkA4@552",
+          "EhU32O7DkA4@555",
+          "EhU32O7DkA4@559",
+          "EhU32O7DkA4@565",
+          "EhU32O7DkA4@572"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p018",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "code",
+        "importance": 3,
+        "text": "The code uses torch.where to replace logits that are below the smallest top-k logit with negative infinity, then applies softmax so that only the top-k tokens retain nonzero probabilities that sum to one.",
+        "line_ids": [
+          "EhU32O7DkA4@611",
+          "EhU32O7DkA4@614",
+          "EhU32O7DkA4@617",
+          "EhU32O7DkA4@622",
+          "EhU32O7DkA4@624",
+          "EhU32O7DkA4@627",
+          "EhU32O7DkA4@637",
+          "EhU32O7DkA4@650"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p019",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To combine top-k sampling with temperature scaling and probabilistic sampling, first mask non-top-k logits with negative infinity, then divide the remaining logits by temperature, apply softmax, and finally sample from the multinomial distribution.",
+        "line_ids": [
+          "EhU32O7DkA4@666",
+          "EhU32O7DkA4@672",
+          "EhU32O7DkA4@676",
+          "EhU32O7DkA4@682",
+          "EhU32O7DkA4@684",
+          "EhU32O7DkA4@690",
+          "EhU32O7DkA4@704",
+          "EhU32O7DkA4@713"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p020",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "claim",
+        "importance": 3,
+        "text": "When multinomial sampling is applied after top-k filtering and temperature scaling, the highest-probability surviving token is sampled most often, but other surviving tokens can also be sampled according to their probabilities.",
+        "line_ids": [
+          "EhU32O7DkA4@715",
+          "EhU32O7DkA4@717",
+          "EhU32O7DkA4@719",
+          "EhU32O7DkA4@723",
+          "EhU32O7DkA4@725",
+          "EhU32O7DkA4@730",
+          "EhU32O7DkA4@733"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p021",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The full decoding workflow is: obtain the logits from the language model, keep only the top-k logits, replace the others with negative infinity, divide by temperature, apply softmax, and sample from the multinomial distribution.",
+        "line_ids": [
+          "EhU32O7DkA4@742",
+          "EhU32O7DkA4@745",
+          "EhU32O7DkA4@749",
+          "EhU32O7DkA4@754",
+          "EhU32O7DkA4@762",
+          "EhU32O7DkA4@765",
+          "EhU32O7DkA4@774",
+          "EhU32O7DkA4@779"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p022",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "claim",
+        "importance": 3,
+        "text": "This combined decoding strategy preserves some creativity through temperature scaling, prevents random tokens from being considered through top-k filtering, and makes token selection probabilistic rather than deterministic through multinomial sampling.",
+        "line_ids": [
+          "EhU32O7DkA4@787",
+          "EhU32O7DkA4@793",
+          "EhU32O7DkA4@797",
+          "EhU32O7DkA4@801",
+          "EhU32O7DkA4@804",
+          "EhU32O7DkA4@807",
+          "EhU32O7DkA4@809"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p023",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "code",
+        "importance": 2,
+        "text": "The lecturer begins writing a final generation function that combines temperature scaling and top-k sampling to predict the next token.",
+        "line_ids": [
+          "EhU32O7DkA4@813",
+          "EhU32O7DkA4@815",
+          "EhU32O7DkA4@817",
+          "EhU32O7DkA4@819",
+          "EhU32O7DkA4@863",
+          "EhU32O7DkA4@866",
+          "EhU32O7DkA4@868"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p024",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "code",
+        "importance": 2,
+        "text": "The final generation function takes the GPT model, the maximum number of new tokens, the context size, the temperature value, the top-k value, and an end-of-sample ID as inputs.",
+        "line_ids": [
+          "EhU32O7DkA4@868",
+          "EhU32O7DkA4@872",
+          "EhU32O7DkA4@875",
+          "EhU32O7DkA4@879",
+          "EhU32O7DkA4@883",
+          "EhU32O7DkA4@885",
+          "EhU32O7DkA4@889"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p025",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "code",
+        "importance": 2,
+        "text": "In the final function, the logits are obtained from the GPT output and then top-k filtering is applied.",
+        "line_ids": [
+          "EhU32O7DkA4@895",
+          "EhU32O7DkA4@899",
+          "EhU32O7DkA4@901"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p026",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In top-k sampling, only the top K values in the logit tensor are kept and all other logits are replaced with negative infinity.",
+        "line_ids": [
+          "EhU32O7DkA4@904",
+          "EhU32O7DkA4@908",
+          "EhU32O7DkA4@912",
+          "EhU32O7DkA4@914",
+          "EhU32O7DkA4@916",
+          "EhU32O7DkA4@917"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p027",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "After applying top-k, if the temperature is greater than zero, the logits are scaled by temperature, passed through softmax, and then the next token ID is sampled from the resulting multinomial distribution.",
+        "line_ids": [
+          "EhU32O7DkA4@921",
+          "EhU32O7DkA4@924",
+          "EhU32O7DkA4@926",
+          "EhU32O7DkA4@929",
+          "EhU32O7DkA4@930",
+          "EhU32O7DkA4@932",
+          "EhU32O7DkA4@934",
+          "EhU32O7DkA4@936",
+          "EhU32O7DkA4@938",
+          "EhU32O7DkA4@940",
+          "EhU32O7DkA4@942",
+          "EhU32O7DkA4@945",
+          "EhU32O7DkA4@947",
+          "EhU32O7DkA4@949",
+          "EhU32O7DkA4@951"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p028",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "If the temperature is not specified, the next token is chosen by taking the token ID with the maximum probability instead of sampling.",
+        "line_ids": [
+          "EhU32O7DkA4@953",
+          "EhU32O7DkA4@956",
+          "EhU32O7DkA4@958",
+          "EhU32O7DkA4@959",
+          "EhU32O7DkA4@962",
+          "EhU32O7DkA4@966",
+          "EhU32O7DkA4@968",
+          "EhU32O7DkA4@970",
+          "EhU32O7DkA4@972",
+          "EhU32O7DkA4@974"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p029",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "definition",
+        "importance": 2,
+        "text": "EOS stands for end of sequence.",
+        "line_ids": [
+          "EhU32O7DkA4@982",
+          "EhU32O7DkA4@985",
+          "EhU32O7DkA4@987",
+          "EhU32O7DkA4@989"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p030",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "If an end-of-sequence token is encountered, generation can stop early; otherwise, each newly generated token ID is appended to the current IDs until the maximum number of new tokens is reached.",
+        "line_ids": [
+          "EhU32O7DkA4@985",
+          "EhU32O7DkA4@987",
+          "EhU32O7DkA4@989",
+          "EhU32O7DkA4@993",
+          "EhU32O7DkA4@997",
+          "EhU32O7DkA4@1000",
+          "EhU32O7DkA4@1003",
+          "EhU32O7DkA4@1007",
+          "EhU32O7DkA4@1010",
+          "EhU32O7DkA4@1013",
+          "EhU32O7DkA4@1016",
+          "EhU32O7DkA4@1018"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p031",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "visual_ref",
+        "importance": 2,
+        "text": "The generation flow shown is: start with the logit tensor, apply top-k sampling, scale with temperature, sample the next token from a multinomial distribution, or use argmax if temperature is not specified, and keep appending tokens until the new-token limit is reached.",
+        "line_ids": [
+          "EhU32O7DkA4@1018",
+          "EhU32O7DkA4@1020",
+          "EhU32O7DkA4@1023",
+          "EhU32O7DkA4@1025",
+          "EhU32O7DkA4@1027",
+          "EhU32O7DkA4@1029",
+          "EhU32O7DkA4@1031",
+          "EhU32O7DkA4@1033",
+          "EhU32O7DkA4@1036",
+          "EhU32O7DkA4@1038",
+          "EhU32O7DkA4@1040",
+          "EhU32O7DkA4@1043",
+          "EhU32O7DkA4@1046",
+          "EhU32O7DkA4@1048"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p032",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "code",
+        "importance": 2,
+        "text": "The generate function being used implements this token-generation process.",
+        "line_ids": [
+          "EhU32O7DkA4@1050",
+          "EhU32O7DkA4@1052",
+          "EhU32O7DkA4@1054",
+          "EhU32O7DkA4@1056"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p033",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "code",
+        "importance": 2,
+        "text": "In the example, the lecturer uses the new generate function with the GPT model, the input token IDs for \"every effort moves you,\" a maximum of 15 new tokens, top-k set to 25, and temperature set to 1.4.",
+        "line_ids": [
+          "EhU32O7DkA4@1085",
+          "EhU32O7DkA4@1087",
+          "EhU32O7DkA4@1089",
+          "EhU32O7DkA4@1091",
+          "EhU32O7DkA4@1094",
+          "EhU32O7DkA4@1096",
+          "EhU32O7DkA4@1099",
+          "EhU32O7DkA4@1100",
+          "EhU32O7DkA4@1103",
+          "EhU32O7DkA4@1106",
+          "EhU32O7DkA4@1110",
+          "EhU32O7DkA4@1113",
+          "EhU32O7DkA4@1114",
+          "EhU32O7DkA4@1117",
+          "EhU32O7DkA4@1120"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p034",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A low temperature produces a sharper probability distribution, while a high temperature can produce nonsensical output.",
+        "line_ids": [
+          "EhU32O7DkA4@1120",
+          "EhU32O7DkA4@1122",
+          "EhU32O7DkA4@1124",
+          "EhU32O7DkA4@1126",
+          "EhU32O7DkA4@1128"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p035",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The lecturer presents a temperature of 1.4 as a good trade-off.",
+        "line_ids": [
+          "EhU32O7DkA4@1120",
+          "EhU32O7DkA4@1128",
+          "EhU32O7DkA4@1131",
+          "EhU32O7DkA4@1132"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p036",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Using the new generate function produced output that differed from the earlier output generated by greedy decoding.",
+        "line_ids": [
+          "EhU32O7DkA4@1134",
+          "EhU32O7DkA4@1137",
+          "EhU32O7DkA4@1139",
+          "EhU32O7DkA4@1141",
+          "EhU32O7DkA4@1143",
+          "EhU32O7DkA4@1144",
+          "EhU32O7DkA4@1147"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p037",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The lecturer says the new decoding strategy solves the earlier overfitting problem caused by deterministic prediction.",
+        "line_ids": [
+          "EhU32O7DkA4@1149",
+          "EhU32O7DkA4@1153",
+          "EhU32O7DkA4@1155",
+          "EhU32O7DkA4@1156",
+          "EhU32O7DkA4@1158",
+          "EhU32O7DkA4@1160",
+          "EhU32O7DkA4@1162"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p038",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Directly repeating next tokens from the source text is described as a classic sign of overfitting.",
+        "line_ids": [
+          "EhU32O7DkA4@1164",
+          "EhU32O7DkA4@1166",
+          "EhU32O7DkA4@1169",
+          "EhU32O7DkA4@1171",
+          "EhU32O7DkA4@1174",
+          "EhU32O7DkA4@1176",
+          "EhU32O7DkA4@1177"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p039",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The implemented decoding strategies are probabilistic, which helps avoid overfitting because the model does not simply memorize the passage when predicting the next words.",
+        "line_ids": [
+          "EhU32O7DkA4@1177",
+          "EhU32O7DkA4@1179",
+          "EhU32O7DkA4@1181",
+          "EhU32O7DkA4@1183",
+          "EhU32O7DkA4@1187",
+          "EhU32O7DkA4@1190",
+          "EhU32O7DkA4@1192",
+          "EhU32O7DkA4@1193"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p040",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "The lecturer relates this to ChatGPT, saying it gives new output rather than memorizing what was written because of decoding strategies such as top-k sampling and temperature scaling.",
+        "line_ids": [
+          "EhU32O7DkA4@1195",
+          "EhU32O7DkA4@1197",
+          "EhU32O7DkA4@1199",
+          "EhU32O7DkA4@1201",
+          "EhU32O7DkA4@1203",
+          "EhU32O7DkA4@1205",
+          "EhU32O7DkA4@1207",
+          "EhU32O7DkA4@1209"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p041",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The words generated in the example were not present in the original text, which the lecturer uses as evidence that the model is generating new tokens rather than memorizing.",
+        "line_ids": [
+          "EhU32O7DkA4@1213",
+          "EhU32O7DkA4@1215",
+          "EhU32O7DkA4@1218",
+          "EhU32O7DkA4@1219",
+          "EhU32O7DkA4@1225",
+          "EhU32O7DkA4@1228",
+          "EhU32O7DkA4@1230",
+          "EhU32O7DkA4@1232",
+          "EhU32O7DkA4@1236",
+          "EhU32O7DkA4@1239",
+          "EhU32O7DkA4@1242",
+          "EhU32O7DkA4@1245",
+          "EhU32O7DkA4@1246",
+          "EhU32O7DkA4@1248",
+          "EhU32O7DkA4@1250",
+          "EhU32O7DkA4@1252",
+          "EhU32O7DkA4@1254",
+          "EhU32O7DkA4@1256"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p042",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Temperature scaling helps make the probability distribution either sharper or more uniform and helps prevent overfitting when sampling from a multinomial distribution.",
+        "line_ids": [
+          "EhU32O7DkA4@1263",
+          "EhU32O7DkA4@1265",
+          "EhU32O7DkA4@1267",
+          "EhU32O7DkA4@1269",
+          "EhU32O7DkA4@1272",
+          "EhU32O7DkA4@1274",
+          "EhU32O7DkA4@1276",
+          "EhU32O7DkA4@1279",
+          "EhU32O7DkA4@1281"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p043",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Top-k sampling addresses an issue with temperature scaling by preventing random low-probability tokens from being selected as the next token.",
+        "line_ids": [
+          "EhU32O7DkA4@1281",
+          "EhU32O7DkA4@1284",
+          "EhU32O7DkA4@1286",
+          "EhU32O7DkA4@1289",
+          "EhU32O7DkA4@1291",
+          "EhU32O7DkA4@1294",
+          "EhU32O7DkA4@1297",
+          "EhU32O7DkA4@1299",
+          "EhU32O7DkA4@1300"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p044",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In top-k sampling, only the top K most likely tokens are allowed to be sampled, which improves the meaning of generated tokens and helps avoid nonsensical or random output.",
+        "line_ids": [
+          "EhU32O7DkA4@1294",
+          "EhU32O7DkA4@1297",
+          "EhU32O7DkA4@1299",
+          "EhU32O7DkA4@1300",
+          "EhU32O7DkA4@1303",
+          "EhU32O7DkA4@1305",
+          "EhU32O7DkA4@1307",
+          "EhU32O7DkA4@1310"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p045",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The workflow to predict the next token is: obtain the logit tensor from the GPT model, apply top-k sampling, replace non-top-k logits with negative infinity, divide the logits by the temperature, apply softmax, and sample from the multinomial distribution.",
+        "line_ids": [
+          "EhU32O7DkA4@1310",
+          "EhU32O7DkA4@1312",
+          "EhU32O7DkA4@1314",
+          "EhU32O7DkA4@1317",
+          "EhU32O7DkA4@1321",
+          "EhU32O7DkA4@1324",
+          "EhU32O7DkA4@1327",
+          "EhU32O7DkA4@1328",
+          "EhU32O7DkA4@1330",
+          "EhU32O7DkA4@1332",
+          "EhU32O7DkA4@1334",
+          "EhU32O7DkA4@1336",
+          "EhU32O7DkA4@1338"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p046",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "claim",
+        "importance": 3,
+        "text": "This workflow helps reduce or minimize overfitting.",
+        "line_ids": [
+          "EhU32O7DkA4@1338",
+          "EhU32O7DkA4@1342",
+          "EhU32O7DkA4@1345",
+          "EhU32O7DkA4@1347"
+        ]
+      },
+      {
+        "id": "EhU32O7DkA4:p047",
+        "video_id": "EhU32O7DkA4",
+        "lecture": 30,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The next lecture will load pretrained weights from OpenAI, examine some other pretraining strategies, and later move on to fine-tuning and applications.",
+        "line_ids": [
+          "EhU32O7DkA4@1350",
+          "EhU32O7DkA4@1353",
+          "EhU32O7DkA4@1354",
+          "EhU32O7DkA4@1356",
+          "EhU32O7DkA4@1359",
+          "EhU32O7DkA4@1361",
+          "EhU32O7DkA4@1362",
+          "EhU32O7DkA4@1365",
+          "EhU32O7DkA4@1367",
+          "EhU32O7DkA4@1370",
+          "EhU32O7DkA4@1371"
+        ]
+      }
+    ],
+    "inventory": [
+      {
+        "chunk": "EhU32O7DkA4@0-908",
+        "start": 0,
+        "end": 908,
+        "points": 25,
+        "core_points": 15,
+        "invalid_points": 0,
+        "flag": null
+      },
+      {
+        "chunk": "EhU32O7DkA4@904-1410",
+        "start": 904,
+        "end": 1410,
+        "points": 22,
+        "core_points": 14,
+        "invalid_points": 0,
+        "flag": null
+      }
+    ]
+  }
+}

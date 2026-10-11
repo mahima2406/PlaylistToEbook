@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch03.s08.p02.r01",
+  "inputs_hash": "298b44ffb0a24ec4fc560b0d3b9f62225c6e910b7e69d75191b6a05309f22bf8",
+  "output_hash": "2522a3404abd19370f06587e62cd53228cedaa4fcddb05af548a66cb6a88b863",
+  "output": {
+    "decision": "edit",
+    "text": "Dropout is applied by first creating a dropout mask that specifies which neurons are randomly turned off.",
+    "reason": "The cited captions support the dropout-mask explanation but do not explicitly limit it to causal attention.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.86,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "9101120b34c6d4d1ff449ef2c24e3747bd0e239a3907b6f6c75ac2d4768b2f78"
+  }
+}

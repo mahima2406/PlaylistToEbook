@@ -1,0 +1,74 @@
+{
+  "stage": "frames",
+  "item": "Zxf-34voZss:p099",
+  "inputs_hash": "2eeb6f00d5a440192de721b7dce56af0171fbc80bfbbfade19c7e917dbac50f1",
+  "output_hash": "b7b0f5064bed0f21f990773c61835fd923e81f96f0469f0327e06dd126029610",
+  "output": {
+    "point_id": "Zxf-34voZss:p099",
+    "video_id": "Zxf-34voZss",
+    "seconds": 2327,
+    "frame_sha256": "c389df076b07dbb18b61375e033a70999ff963a080759e275802347cb67b2bd7",
+    "status": "kept",
+    "kind": "diagram",
+    "title": "Training and validation loss plot",
+    "caption": "A line plot of loss versus epochs, with a top axis for tokens seen. The training loss steadily decreases, while the validation loss decreases early and then stays nearly flat with a slight rise.",
+    "mermaid": "flowchart LR\n  A[\"Epochs / Tokens seen increase\"] -->|\"training loss decreases\"| B[\"Training loss\"]\n  A -->|\"validation loss decreases at first\"| C[\"Validation loss\"]\n  C -->|\"then becomes nearly flat / slightly rises\"| D[\"Validation loss stagnation\"]\n  B -->|\"ends much lower than\"| C[\"Validation loss\"]",
+    "latex": "",
+    "claims": [
+      {
+        "text": "The horizontal axis is epochs.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "The bottom x-axis is labeled \"Epochs\" with ticks from 0 to 10, matching the lecturer’s discussion of epochs."
+      },
+      {
+        "text": "A second horizontal axis at the top shows tokens seen.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "A top x-axis labeled \"Tokens seen\" is present with values (0, 10000, 20000, 30000, 40000), consistent with the lecturer mentioning tracking tokens seen."
+      },
+      {
+        "text": "The vertical axis is loss.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "The y-axis label reads \"Loss\" and the lecturer is describing training/validation loss."
+      },
+      {
+        "text": "The plot contains a training loss curve.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Legend shows a blue curve labeled \"Training loss\" and it is plotted."
+      },
+      {
+        "text": "The plot contains a validation loss curve.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Legend shows an orange dashed curve labeled \"Validation loss\" and it is plotted."
+      },
+      {
+        "text": "The training loss starts near 10 and decreases steadily across epochs.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Training loss begins near 10 at epoch 0 and decreases steadily toward near 0 by epoch 10, matching the lecturer’s description of continuous decrease."
+      },
+      {
+        "text": "The validation loss starts near 10 and decreases during the early epochs.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Validation loss starts near 10 and drops quickly over the first couple epochs, matching the lecturer’s statement that it starts high and decreases early."
+      },
+      {
+        "text": "The validation loss then remains approximately flat around a little above 6, with a slight rise near the end.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "After early decrease, validation loss stays around slightly above 6 and shows a small uptick near the end; lecturer mentions stagnating around 6.37 after ~10th epoch, which aligns."
+      },
+      {
+        "text": "By the final epoch, the training loss is much lower than the validation loss.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "At the final epoch, the training curve is far below the validation curve (training near ~0.5 vs validation ~6.5), consistent with lecturer noting validation much larger than training indicating overfitting."
+      }
+    ]
+  }
+}

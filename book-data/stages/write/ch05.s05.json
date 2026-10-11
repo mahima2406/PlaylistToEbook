@@ -1,0 +1,471 @@
+{
+  "stage": "write",
+  "item": "ch05.s05",
+  "inputs_hash": "07bb92f4f8a4f7ef9b125e65d003c51045baf3e6ebea1d79a7fc05e44f8d8e49",
+  "output_hash": "369be15b986c11ab0e6ea71f39c5ce561a1b7785efc614baf9ff8c00fb19febd",
+  "output": {
+    "section_id": "ch05.s05",
+    "paragraphs": [
+      {
+        "id": "ch05.s05.p01",
+        "sentences": [
+          {
+            "id": "ch05.s05.p01.01",
+            "text": "How does a scratch GPT model have to change before GPT-2 weights can fit into it correctly?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s05.p01.02",
+            "text": "The earlier \"GPT config 124 million\" matched GPT-2 almost exactly, except that it used a context size of 256 while the actual GPT-2 context size is 1024.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1967",
+              "yXrGeDNuymY@1971",
+              "yXrGeDNuymY@1974",
+              "yXrGeDNuymY@1977",
+              "yXrGeDNuymY@1979",
+              "yXrGeDNuymY@1983"
+            ]
+          },
+          {
+            "id": "ch05.s05.p01.03",
+            "text": "To match GPT-2, the configuration is updated by setting the context length to 1024 and setting the query-key-value bias to true.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1987",
+              "yXrGeDNuymY@1989",
+              "yXrGeDNuymY@1991",
+              "yXrGeDNuymY@1994",
+              "yXrGeDNuymY@1996",
+              "yXrGeDNuymY@1998",
+              "yXrGeDNuymY@2008",
+              "yXrGeDNuymY@2010",
+              "yXrGeDNuymY@2013",
+              "yXrGeDNuymY@2032",
+              "yXrGeDNuymY@2034",
+              "yXrGeDNuymY@2036",
+              "yXrGeDNuymY@2038"
+            ]
+          },
+          {
+            "id": "ch05.s05.p01.04",
+            "text": "Bias vectors are not commonly used in LLMs anymore because they do not improve modeling performance much and are not very necessary, but they are enabled here so the settings match the pretrained weights consistently.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@2015",
+              "yXrGeDNuymY@2018",
+              "yXrGeDNuymY@2020",
+              "yXrGeDNuymY@2022",
+              "yXrGeDNuymY@2024",
+              "yXrGeDNuymY@2026",
+              "yXrGeDNuymY@2027",
+              "yXrGeDNuymY@2030",
+              "yXrGeDNuymY@2032",
+              "yXrGeDNuymY@2034"
+            ]
+          },
+          {
+            "id": "ch05.s05.p01.05",
+            "text": "With that updated configuration, the next step is to create an instance of the GPT model class.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@2036",
+              "yXrGeDNuymY@2038",
+              "yXrGeDNuymY@2041"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s05.p02",
+        "sentences": [
+          {
+            "id": "ch05.s05.p02.01",
+            "text": "The model instance exists so that the downloaded parameters can replace its random initialization.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s05.p02.02",
+            "text": "At this point, the GPT model class still initializes the token embedding matrices, the positional embedding matrices, and the transformer block weights to random values.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@2078",
+              "yXrGeDNuymY@2080",
+              "yXrGeDNuymY@2082",
+              "yXrGeDNuymY@2083",
+              "yXrGeDNuymY@2085",
+              "yXrGeDNuymY@2088",
+              "yXrGeDNuymY@2089"
+            ]
+          },
+          {
+            "id": "ch05.s05.p02.03",
+            "text": "Those random initializations need to be replaced by the downloaded GPT-2 parameters stored in the \"params\" dictionary.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@2093",
+              "yXrGeDNuymY@2095",
+              "yXrGeDNuymY@2098",
+              "yXrGeDNuymY@2099",
+              "yXrGeDNuymY@2102",
+              "yXrGeDNuymY@2104",
+              "yXrGeDNuymY@2106",
+              "yXrGeDNuymY@2109",
+              "yXrGeDNuymY@2111",
+              "yXrGeDNuymY@2113"
+            ]
+          },
+          {
+            "id": "ch05.s05.p02.04",
+            "text": "The helper function \"assign\" checks whether the shapes of its left and right values match.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@2267",
+              "yXrGeDNuymY@2269",
+              "yXrGeDNuymY@2272",
+              "yXrGeDNuymY@2273",
+              "yXrGeDNuymY@2276",
+              "yXrGeDNuymY@2278"
+            ]
+          },
+          {
+            "id": "ch05.s05.p02.05",
+            "text": "If the shapes match, \"assign\" returns the right value, effectively assigning the left side from the right side.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@2278",
+              "yXrGeDNuymY@2281",
+              "yXrGeDNuymY@2282",
+              "yXrGeDNuymY@2284"
+            ]
+          },
+          {
+            "id": "ch05.s05.p02.06",
+            "text": "If the shapes do not match, it raises an error, which indicates that the GPT-2 weights are not being loaded or assigned correctly.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@2286",
+              "yXrGeDNuymY@2288",
+              "yXrGeDNuymY@2290",
+              "yXrGeDNuymY@2293",
+              "yXrGeDNuymY@2295"
+            ]
+          },
+          {
+            "id": "ch05.s05.p02.07",
+            "text": "The main loading routine, \"load_weights_into_gpt\", takes a GPT model instance and the \"params\" dictionary containing the GPT-2 weights, then assigns those weights into the GPT model.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@2525",
+              "yXrGeDNuymY@2527",
+              "yXrGeDNuymY@2530",
+              "yXrGeDNuymY@2532",
+              "yXrGeDNuymY@2534",
+              "yXrGeDNuymY@2536",
+              "yXrGeDNuymY@2541",
+              "yXrGeDNuymY@2544",
+              "yXrGeDNuymY@2547",
+              "yXrGeDNuymY@2549"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s05.p03",
+        "sentences": [
+          {
+            "id": "ch05.s05.p03.01",
+            "text": "Most of the work happens block by block inside the transformer.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s05.p03.02",
+            "text": "To integrate the GPT-2 weights, the downloaded attention parameters are assigned to each transformer's attention object, and the downloaded feed-forward parameters are assigned to its feed-forward object.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@2133",
+              "yXrGeDNuymY@2134",
+              "yXrGeDNuymY@2137",
+              "yXrGeDNuymY@2139",
+              "yXrGeDNuymY@2140",
+              "yXrGeDNuymY@2142",
+              "yXrGeDNuymY@2144",
+              "yXrGeDNuymY@2147",
+              "yXrGeDNuymY@2150",
+              "yXrGeDNuymY@2152",
+              "yXrGeDNuymY@2154",
+              "yXrGeDNuymY@2163",
+              "yXrGeDNuymY@2165",
+              "yXrGeDNuymY@2167",
+              "yXrGeDNuymY@2170",
+              "yXrGeDNuymY@2172",
+              "yXrGeDNuymY@2174"
+            ]
+          },
+          {
+            "id": "ch05.s05.p03.03",
+            "text": "The downloaded attention weights are accessed through the \"params\" dictionary under \"blocks\", then the transformer attention subkeys, including the fused query-key-value weights.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@2210",
+              "yXrGeDNuymY@2212",
+              "yXrGeDNuymY@2215",
+              "yXrGeDNuymY@2217",
+              "yXrGeDNuymY@2219",
+              "yXrGeDNuymY@2222",
+              "yXrGeDNuymY@2224",
+              "yXrGeDNuymY@2228"
+            ]
+          },
+          {
+            "id": "ch05.s05.p03.04",
+            "text": "Because those weights are a fusion of queries, keys, and values, they are split along the columns to obtain separate query, key, and value weight matrices.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@2230",
+              "yXrGeDNuymY@2232",
+              "yXrGeDNuymY@2233",
+              "yXrGeDNuymY@2235",
+              "yXrGeDNuymY@2238",
+              "yXrGeDNuymY@2239"
+            ]
+          },
+          {
+            "id": "ch05.s05.p03.05",
+            "text": "After that split, the separate query, key, and value matrices are assigned to the attention object's query, key, and value weights.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@2242",
+              "yXrGeDNuymY@2244",
+              "yXrGeDNuymY@2246",
+              "yXrGeDNuymY@2249",
+              "yXrGeDNuymY@2251",
+              "yXrGeDNuymY@2254",
+              "yXrGeDNuymY@2259",
+              "yXrGeDNuymY@2261",
+              "yXrGeDNuymY@2264",
+              "yXrGeDNuymY@2266"
+            ]
+          },
+          {
+            "id": "ch05.s05.p03.06",
+            "text": "The attention bias terms are updated in the same way, except that the bias entries are used instead of the weight entries.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@2300",
+              "yXrGeDNuymY@2302",
+              "yXrGeDNuymY@2306",
+              "yXrGeDNuymY@2308",
+              "yXrGeDNuymY@2311"
+            ]
+          },
+          {
+            "id": "ch05.s05.p03.07",
+            "text": "The attention output projection weights and biases are accessed from the GPT-2 parameters and assigned to the attention object's output projection layer.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@2314",
+              "yXrGeDNuymY@2316",
+              "yXrGeDNuymY@2318",
+              "yXrGeDNuymY@2320",
+              "yXrGeDNuymY@2322",
+              "yXrGeDNuymY@2328",
+              "yXrGeDNuymY@2330",
+              "yXrGeDNuymY@2332",
+              "yXrGeDNuymY@2334",
+              "yXrGeDNuymY@2337",
+              "yXrGeDNuymY@2339",
+              "yXrGeDNuymY@2341",
+              "yXrGeDNuymY@2343",
+              "yXrGeDNuymY@2345"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s05.p04",
+        "sentences": [
+          {
+            "id": "ch05.s05.p04.01",
+            "text": "The feed-forward sublayer and the normalization layers are loaded in the same blockwise pass.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s05.p04.02",
+            "text": "The feed-forward network has two layers: a fully connected layer and a projection layer.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@2353",
+              "yXrGeDNuymY@2355",
+              "yXrGeDNuymY@2357",
+              "yXrGeDNuymY@2359",
+              "yXrGeDNuymY@2361"
+            ]
+          },
+          {
+            "id": "ch05.s05.p04.03",
+            "text": "For the fully connected layer, the weights and biases are taken from the downloaded GPT-2 values and assigned to the feed-forward object.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@2363",
+              "yXrGeDNuymY@2365",
+              "yXrGeDNuymY@2368",
+              "yXrGeDNuymY@2369",
+              "yXrGeDNuymY@2373",
+              "yXrGeDNuymY@2375"
+            ]
+          },
+          {
+            "id": "ch05.s05.p04.04",
+            "text": "The same is done for the second feed-forward layer, the projection or output layer of the multilayer perceptron.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@2387",
+              "yXrGeDNuymY@2389",
+              "yXrGeDNuymY@2391",
+              "yXrGeDNuymY@2393"
+            ]
+          },
+          {
+            "id": "ch05.s05.p04.05",
+            "text": "Each transformer block also contains two layer normalizations, and each one has both scale and shift parameters.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@2395",
+              "yXrGeDNuymY@2398",
+              "yXrGeDNuymY@2399",
+              "yXrGeDNuymY@2402",
+              "yXrGeDNuymY@2405",
+              "yXrGeDNuymY@2406",
+              "yXrGeDNuymY@2408",
+              "yXrGeDNuymY@2410",
+              "yXrGeDNuymY@2411"
+            ]
+          },
+          {
+            "id": "ch05.s05.p04.06",
+            "text": "For both layer normalizations in the transformer block, the downloaded scale and shift parameters are assigned to the corresponding parts of the GPT model.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@2414",
+              "yXrGeDNuymY@2416",
+              "yXrGeDNuymY@2419",
+              "yXrGeDNuymY@2422",
+              "yXrGeDNuymY@2425",
+              "yXrGeDNuymY@2428",
+              "yXrGeDNuymY@2429",
+              "yXrGeDNuymY@2431",
+              "yXrGeDNuymY@2434",
+              "yXrGeDNuymY@2435"
+            ]
+          },
+          {
+            "id": "ch05.s05.p04.07",
+            "text": "Outside the transformer block, the final normalization layer is loaded from the \"g\" and \"b\" entries, which are assigned to the model's final normalization scale and shift values.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@2439",
+              "yXrGeDNuymY@2441",
+              "yXrGeDNuymY@2442",
+              "yXrGeDNuymY@2445",
+              "yXrGeDNuymY@2447",
+              "yXrGeDNuymY@2449",
+              "yXrGeDNuymY@2452",
+              "yXrGeDNuymY@2454",
+              "yXrGeDNuymY@2456"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s05.p05",
+        "sentences": [
+          {
+            "id": "ch05.s05.p05.01",
+            "text": "One remaining question is the final output head.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s05.p05.02",
+            "text": "GPT-2 uses weight tying, meaning that the token embedding weights are reused for the final output head instead of defining new weights for that layer.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@2465",
+              "yXrGeDNuymY@2467",
+              "yXrGeDNuymY@2470",
+              "yXrGeDNuymY@2472",
+              "yXrGeDNuymY@2482",
+              "yXrGeDNuymY@2484",
+              "yXrGeDNuymY@2488",
+              "yXrGeDNuymY@2491",
+              "yXrGeDNuymY@2494",
+              "yXrGeDNuymY@2496",
+              "yXrGeDNuymY@2498",
+              "yXrGeDNuymY@2499",
+              "yXrGeDNuymY@2501"
+            ]
+          },
+          {
+            "id": "ch05.s05.p05.03",
+            "text": "Weight tying is not used too much these days, but it was used in the GPT-2 architecture.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@2501",
+              "yXrGeDNuymY@2504",
+              "yXrGeDNuymY@2506",
+              "yXrGeDNuymY@2508"
+            ]
+          },
+          {
+            "id": "ch05.s05.p05.04",
+            "text": "Using weight tying brings the total parameter count from about 162 million to 124 million; without weight tying, it would be about 164 million.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@2510",
+              "yXrGeDNuymY@2512",
+              "yXrGeDNuymY@2515",
+              "yXrGeDNuymY@2517",
+              "yXrGeDNuymY@2520"
+            ]
+          },
+          {
+            "id": "ch05.s05.p05.05",
+            "text": "Once the GPT model instance and the \"params\" dictionary have been created, calling \"load_weights_into_gpt\" loads the downloaded GPT-2 parameters into the model instance.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@2551",
+              "yXrGeDNuymY@2553",
+              "yXrGeDNuymY@2556",
+              "yXrGeDNuymY@2557",
+              "yXrGeDNuymY@2560",
+              "yXrGeDNuymY@2562",
+              "yXrGeDNuymY@2565",
+              "yXrGeDNuymY@2566",
+              "yXrGeDNuymY@2568",
+              "yXrGeDNuymY@2570",
+              "yXrGeDNuymY@2573",
+              "yXrGeDNuymY@2575"
+            ]
+          },
+          {
+            "id": "ch05.s05.p05.06",
+            "text": "After that call, the GPT model built from scratch is fully ready and functional for testing.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@2579",
+              "yXrGeDNuymY@2581",
+              "yXrGeDNuymY@2583",
+              "yXrGeDNuymY@2586"
+            ]
+          }
+        ]
+      }
+    ],
+    "invalid_citation_sentences": 0
+  }
+}

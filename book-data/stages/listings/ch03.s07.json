@@ -1,0 +1,33 @@
+{
+  "stage": "listings",
+  "item": "ch03.s07",
+  "inputs_hash": "3eb92fc3bcf725aeea0607de28e659a6c44099125a56e60670a9cb555a195bb3",
+  "output_hash": "773e3c2ec4e14ab755e4ca715aea04f7bf9a8e139a3bd2b6b8ec842516577d55",
+  "output": {
+    "section_id": "ch03.s07",
+    "listings": [
+      {
+        "id": "ch03.s07.code2",
+        "ref": "ref:ch03/01_main-chapter-code/ch03.ipynb#cell108",
+        "path": "ch03/01_main-chapter-code/ch03.ipynb",
+        "caption": "This code builds an upper-triangular mask and uses masked_fill to replace the attention-score entries above the diagonal with negative infinity.",
+        "code": "mask = torch.triu(torch.ones(context_length, context_length), diagonal=1)\nmasked = attn_scores.masked_fill(mask.bool(), -torch.inf)\nprint(masked)",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The excerpt constructs an upper-triangular mask with torch.triu(..., diagonal=1) and applies masked_fill on attn_scores to set entries above the diagonal to -inf, exactly demonstrating the improved causal-masking approach described. The caption accurately describes what the code does."
+      }
+    ],
+    "rejected": [
+      {
+        "id": "ch03.s07.code1",
+        "ref": "ref:ch03/01_main-chapter-code/ch03.ipynb#cell98",
+        "path": "ch03/01_main-chapter-code/ch03.ipynb",
+        "caption": "This code computes queries and keys from the inputs, forms attention scores with a matrix product, scales them by the key dimension, and applies softmax to obtain attention weights before masking.",
+        "code": "# Reuse the query and key weight matrices of the\n# SelfAttention_v2 object from the previous section for convenience\nqueries = sa_v2.W_query(inputs)\nkeys = sa_v2.W_key(inputs) \nattn_scores = queries @ keys.T\n\nattn_weights = torch.softmax(attn_scores / keys.shape[-1]**0.5, dim=-1)\nprint(attn_weights)",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The code correctly demonstrates the pre-masking part of causal attention described in the section: computing queries/keys, attention scores, scaling, and softmax to get attention weights. However, it does not implement any causal masking (no lower-triangular mask, no zeroing/renormalization, no -inf masking on scores), so it only covers the setup step and not the causal attention method itself. The caption is accurate for what the code does but stops short of the section’s main causal-masking content."
+      }
+    ]
+  }
+}

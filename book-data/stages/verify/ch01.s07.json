@@ -1,0 +1,585 @@
+{
+  "stage": "verify",
+  "item": "ch01.s07",
+  "inputs_hash": "92267d233f152e6260b96bfa500e8c92b67b3510c3c9e3673fb6498ad754ef22",
+  "output_hash": "857ee07cda5c28860df110605384c660396690a6abe12d9c7048398b5ffbdf0d",
+  "output": {
+    "section_id": "ch01.s07",
+    "paragraphs": [
+      {
+        "id": "ch01.s07.p01",
+        "sentences": [
+          {
+            "id": "ch01.s07.p01.01",
+            "text": "How does raw text become a form a model can process while still preserving meaning and word order?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s07.p01.02",
+            "text": "Tokenization is a preprocessing step in which sentences are broken into simpler words or tokens, because the entire sentence cannot be fed into the model directly.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@425",
+              "NLn4eetGmf8@430",
+              "NLn4eetGmf8@432",
+              "NLn4eetGmf8@456",
+              "NLn4eetGmf8@458",
+              "NLn4eetGmf8@461",
+              "NLn4eetGmf8@463",
+              "NLn4eetGmf8@467",
+              "z9fgKz1Drlc@276",
+              "z9fgKz1Drlc@279",
+              "z9fgKz1Drlc@281"
+            ]
+          },
+          {
+            "id": "ch01.s07.p01.03",
+            "text": "A token can be thought of as a unit of a sentence.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@284",
+              "z9fgKz1Drlc@286"
+            ]
+          },
+          {
+            "id": "ch01.s07.p01.04",
+            "text": "For simplicity, it is useful to imagine that tokenization breaks a sentence into individual words, although one word is generally not equal to one token.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@470",
+              "NLn4eetGmf8@474",
+              "NLn4eetGmf8@477",
+              "NLn4eetGmf8@480",
+              "NLn4eetGmf8@482",
+              "NLn4eetGmf8@484",
+              "NLn4eetGmf8@487"
+            ]
+          },
+          {
+            "id": "ch01.s07.p01.05",
+            "text": "There is a particular way of doing tokenization.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@286",
+              "z9fgKz1Drlc@288",
+              "z9fgKz1Drlc@290"
+            ]
+          },
+          {
+            "id": "ch01.s07.p01.06",
+            "text": "In the simplified workflow, the input text is first taken and then preprocessed into tokens.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@421",
+              "NLn4eetGmf8@423",
+              "NLn4eetGmf8@425",
+              "NLn4eetGmf8@1058",
+              "NLn4eetGmf8@1061",
+              "NLn4eetGmf8@1066",
+              "NLn4eetGmf8@1069"
+            ]
+          },
+          {
+            "id": "ch01.s07.p01.07",
+            "text": "Tokenization can be understood procedurally as breaking sentences into individual tokens and assigning each token a unique numerical ID.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@493",
+              "NLn4eetGmf8@496",
+              "NLn4eetGmf8@503",
+              "NLn4eetGmf8@506",
+              "NLn4eetGmf8@513",
+              "NLn4eetGmf8@517",
+              "NLn4eetGmf8@1066",
+              "NLn4eetGmf8@1069",
+              "NLn4eetGmf8@1072"
+            ]
+          },
+          {
+            "id": "ch01.s07.p01.08",
+            "text": "For example, the sentence \"fine tuning is fun for all\" is broken into smaller pieces such as \"fine\", \"tu\", \"tu\", \"ing\", \"is\", \"fun\", \"for\", and \"all\", and each is given an ID.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@489",
+              "NLn4eetGmf8@491",
+              "NLn4eetGmf8@493",
+              "NLn4eetGmf8@496",
+              "NLn4eetGmf8@499",
+              "NLn4eetGmf8@503",
+              "NLn4eetGmf8@506"
+            ]
+          },
+          {
+            "id": "ch01.s07.p01.09",
+            "text": "In preprocessing, data such as Reddit posts or Wikipedia text is broken into words or collected subwords from each sentence in the dataset.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@521",
+              "NLn4eetGmf8@524",
+              "NLn4eetGmf8@526",
+              "NLn4eetGmf8@530",
+              "NLn4eetGmf8@533"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s07.p02",
+        "sentences": [
+          {
+            "id": "ch01.s07.p02.01",
+            "text": "Token IDs are only the start, because the model also needs a representation that captures relationships between words.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s07.p02.02",
+            "text": "Numerical token IDs alone do not capture semantic relationships between words.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@576",
+              "NLn4eetGmf8@578",
+              "NLn4eetGmf8@583",
+              "NLn4eetGmf8@586",
+              "NLn4eetGmf8@589",
+              "NLn4eetGmf8@592"
+            ]
+          },
+          {
+            "id": "ch01.s07.p02.03",
+            "text": "If tokenization assigns random IDs to words like \"dog\" and \"puppy\", those IDs do not express that the words are related.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@594",
+              "NLn4eetGmf8@596",
+              "NLn4eetGmf8@599",
+              "NLn4eetGmf8@601",
+              "NLn4eetGmf8@603",
+              "NLn4eetGmf8@606",
+              "NLn4eetGmf8@609"
+            ]
+          },
+          {
+            "id": "ch01.s07.p02.04",
+            "text": "Vector embedding is the process that represents tokens in a way that captures semantic meaning between words.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@612",
+              "NLn4eetGmf8@615",
+              "NLn4eetGmf8@617",
+              "NLn4eetGmf8@620",
+              "NLn4eetGmf8@623",
+              "z9fgKz1Drlc@293",
+              "z9fgKz1Drlc@296",
+              "z9fgKz1Drlc@299",
+              "z9fgKz1Drlc@301",
+              "z9fgKz1Drlc@304"
+            ]
+          },
+          {
+            "id": "ch01.s07.p02.05",
+            "text": "After tokenization, each word is transformed into a very high-dimensional vector space so that semantic meaning between words is captured.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@293",
+              "z9fgKz1Drlc@296",
+              "z9fgKz1Drlc@299",
+              "z9fgKz1Drlc@301",
+              "z9fgKz1Drlc@304"
+            ]
+          },
+          {
+            "id": "ch01.s07.p02.06",
+            "text": "In the simplified transformer workflow, token IDs are passed into the encoder, and the encoder converts them into embeddings.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@540",
+              "NLn4eetGmf8@543",
+              "NLn4eetGmf8@545",
+              "NLn4eetGmf8@547",
+              "NLn4eetGmf8@551",
+              "NLn4eetGmf8@552",
+              "NLn4eetGmf8@556",
+              "NLn4eetGmf8@558",
+              "NLn4eetGmf8@567",
+              "NLn4eetGmf8@570",
+              "NLn4eetGmf8@573",
+              "NLn4eetGmf8@725",
+              "NLn4eetGmf8@727",
+              "NLn4eetGmf8@730",
+              "NLn4eetGmf8@733",
+              "NLn4eetGmf8@736",
+              "NLn4eetGmf8@1075",
+              "NLn4eetGmf8@1077",
+              "NLn4eetGmf8@1080",
+              "NLn4eetGmf8@1082"
+            ]
+          },
+          {
+            "id": "ch01.s07.p02.07",
+            "text": "These embeddings project words into high-dimensional vector space in a way that captures semantic relationships between words.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1082",
+              "NLn4eetGmf8@1085",
+              "NLn4eetGmf8@1087",
+              "NLn4eetGmf8@1089",
+              "NLn4eetGmf8@1092",
+              "NLn4eetGmf8@1094",
+              "NLn4eetGmf8@1096",
+              "NLn4eetGmf8@757",
+              "NLn4eetGmf8@760",
+              "NLn4eetGmf8@762",
+              "NLn4eetGmf8@768",
+              "NLn4eetGmf8@770",
+              "NLn4eetGmf8@773"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s07.p03",
+        "sentences": [
+          {
+            "id": "ch01.s07.p03.r01",
+            "text": "In the embedding examples, words such as \"king\", \"man\", and \"woman\" are closer together, \"apple\", \"banana\", and \"orange\" are closer together, and \"football\", \"golf\", and \"tennis\" are closer together.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@637",
+              "NLn4eetGmf8@640",
+              "NLn4eetGmf8@646",
+              "NLn4eetGmf8@650",
+              "NLn4eetGmf8@652",
+              "NLn4eetGmf8@657",
+              "NLn4eetGmf8@660",
+              "NLn4eetGmf8@662",
+              "NLn4eetGmf8@664",
+              "NLn4eetGmf8@667",
+              "NLn4eetGmf8@669",
+              "NLn4eetGmf8@672",
+              "NLn4eetGmf8@674",
+              "NLn4eetGmf8@676",
+              "NLn4eetGmf8@682",
+              "NLn4eetGmf8@685",
+              "NLn4eetGmf8@687",
+              "NLn4eetGmf8@689",
+              "NLn4eetGmf8@691",
+              "z9fgKz1Drlc@307",
+              "z9fgKz1Drlc@310",
+              "z9fgKz1Drlc@314",
+              "z9fgKz1Drlc@317",
+              "z9fgKz1Drlc@318",
+              "z9fgKz1Drlc@320",
+              "z9fgKz1Drlc@322"
+            ]
+          },
+          {
+            "id": "ch01.s07.p03.r02",
+            "text": "Words with similar meanings should lie closer together than unrelated words.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@705",
+              "NLn4eetGmf8@708",
+              "NLn4eetGmf8@710",
+              "NLn4eetGmf8@712",
+              "z9fgKz1Drlc@332",
+              "z9fgKz1Drlc@336",
+              "z9fgKz1Drlc@338",
+              "z9fgKz1Drlc@340"
+            ]
+          },
+          {
+            "id": "ch01.s07.p03.r03",
+            "text": "Creating useful vector embeddings is difficult, because vectors cannot just be placed randomly.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@697",
+              "NLn4eetGmf8@701",
+              "NLn4eetGmf8@702"
+            ]
+          },
+          {
+            "id": "ch01.s07.p03.r04",
+            "text": "There is a detailed procedure for this, and neural networks are trained for the embedding step so that related words are closer than unrelated ones.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@705",
+              "NLn4eetGmf8@708",
+              "NLn4eetGmf8@710",
+              "NLn4eetGmf8@712",
+              "NLn4eetGmf8@715",
+              "NLn4eetGmf8@717",
+              "NLn4eetGmf8@719"
+            ]
+          },
+          {
+            "id": "ch01.s07.p03.r05",
+            "text": "The examples also show text converted first into token IDs and then into three-dimensional vector representations by an embedding model.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@776",
+              "NLn4eetGmf8@780",
+              "NLn4eetGmf8@782",
+              "NLn4eetGmf8@784",
+              "NLn4eetGmf8@786",
+              "NLn4eetGmf8@789",
+              "NLn4eetGmf8@791",
+              "NLn4eetGmf8@792",
+              "NLn4eetGmf8@794",
+              "NLn4eetGmf8@799",
+              "NLn4eetGmf8@802",
+              "NLn4eetGmf8@805",
+              "NLn4eetGmf8@808"
+            ]
+          },
+          {
+            "id": "ch01.s07.p03.r06",
+            "text": "Alongside tokenization and embeddings, positional encoding provides information about the order in which words appear in a sentence.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@345",
+              "z9fgKz1Drlc@347",
+              "z9fgKz1Drlc@349",
+              "z9fgKz1Drlc@352",
+              "z9fgKz1Drlc@354"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch01.s07.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch01.s07.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.s07.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch01.s07.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch01.s07.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s07.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s07.p01.07": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch01.s07.p01.08": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s07.p01.09": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s07.p02.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s07.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s07.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch01.s07.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s07.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.s07.p02.06": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.s07.p02.07": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.s07.p03.r01": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch01.s07.p03.r02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch01.s07.p03.r03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s07.p03.r04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s07.p03.r05": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch01.s07.p03.r06": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch01.s07.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch01.s07.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.s07.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch01.s07.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch01.s07.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s07.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s07.p01.07": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch01.s07.p01.08": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s07.p01.09": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s07.p02.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s07.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s07.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch01.s07.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s07.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.s07.p02.06": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.s07.p02.07": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.s07.p03.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.74,
+        "reason": "Connective sentence makes a factual claim about what constitutes a good embedding (related words near each other) but provides no citations."
+      },
+      "ch01.s07.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch01.s07.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.s07.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s07.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s07.p03.06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s07.p03.07": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "ch01.s07.p03"
+    ],
+    "queue": []
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch05.s07.p04.r04",
+  "inputs_hash": "61e7211a39381e74c9b971c1820d2bd480e24ea1ad7fc6980b1f19171b5f2624",
+  "output_hash": "f7e5fc3dab4f7f1edc55d9bacff87d83ac59034fa9d4c50464eb1de5bd8f3478",
+  "output": {
+    "decision": "edit",
+    "text": "Because the balanced dataset has 1,494 examples, taking 70% for training gives 1,045 training samples, with batches corresponding to that split.",
+    "reason": "The captions support the 70% split, the 1,045 training samples, and that batches correspond to that split, but do not mention a training dataloader specifically.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.9,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "863707c332aa5ec4b289da2e99097d1466d05c982e6627beb3cb7366c659e7ed"
+  }
+}

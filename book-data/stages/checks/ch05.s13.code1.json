@@ -1,0 +1,32 @@
+{
+  "stage": "checks",
+  "item": "ch05.s13.code1",
+  "inputs_hash": "048a1f3fdd3e58f79118b66ef21b6ab9d3f2533308618d6919dc6f535f0b9b0c",
+  "output_hash": "59e8e0e230c31d88689bd309c0590253f0cb03c34a1885063b090d051da21efb",
+  "output": [
+    {
+      "sentence_id": "ch05.s13.p03.02",
+      "expected": 97,
+      "expression": "train_accuracy*100",
+      "tolerance": 0.02,
+      "check_id": "ch05.s13.code1.chk1",
+      "sentence_text": "On the full datasets, the training accuracy is 97%, the validation accuracy is 97%, and the test accuracy is 95%."
+    },
+    {
+      "sentence_id": "ch05.s13.p03.02",
+      "expected": 97,
+      "expression": "val_accuracy*100",
+      "tolerance": 0.02,
+      "check_id": "ch05.s13.code1.chk2",
+      "sentence_text": "On the full datasets, the training accuracy is 97%, the validation accuracy is 97%, and the test accuracy is 95%."
+    },
+    {
+      "sentence_id": "ch05.s13.p03.02",
+      "expected": 95,
+      "expression": "test_accuracy*100",
+      "tolerance": 0.02,
+      "check_id": "ch05.s13.code1.chk3",
+      "sentence_text": "On the full datasets, the training accuracy is 97%, the validation accuracy is 97%, and the test accuracy is 95%."
+    }
+  ]
+}

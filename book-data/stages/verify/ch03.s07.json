@@ -1,0 +1,1066 @@
+{
+  "stage": "verify",
+  "item": "ch03.s07",
+  "inputs_hash": "92e59b8a7065a3be9cd9c6d761015060510c50fe8f19b448802599ad49345c1f",
+  "output_hash": "3b9cd7f2876705da66e3a37be7e3e8953d66badb4e93b7f20b8b54bc3356dafe",
+  "output": {
+    "section_id": "ch03.s07",
+    "paragraphs": [
+      {
+        "id": "ch03.s07.p01",
+        "sentences": [
+          {
+            "id": "ch03.s07.p01.01",
+            "text": "How can a model use self-attention without letting future tokens influence the current token?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s07.p01.02",
+            "text": "Causal attention, also called masked attention, is a special form of self-attention.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@570",
+              "h94TQOK7NRA@574",
+              "h94TQOK7NRA@576",
+              "h94TQOK7NRA@578",
+              "h94TQOK7NRA@585",
+              "h94TQOK7NRA@587"
+            ]
+          },
+          {
+            "id": "ch03.s07.p01.03",
+            "text": "It restricts the model to consider only the previous and current inputs in a sequence when processing a token, in contrast to ordinary self-attention, which allows access to the entire input sequence at once.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@590",
+              "h94TQOK7NRA@592",
+              "h94TQOK7NRA@596",
+              "h94TQOK7NRA@598",
+              "h94TQOK7NRA@604",
+              "h94TQOK7NRA@606",
+              "h94TQOK7NRA@608",
+              "h94TQOK7NRA@610"
+            ]
+          },
+          {
+            "id": "ch03.s07.p01.04",
+            "text": "When computing attention for a query token, the model only factors in tokens that occur at or before that token in the sequence.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@631",
+              "h94TQOK7NRA@633",
+              "h94TQOK7NRA@636",
+              "h94TQOK7NRA@638",
+              "h94TQOK7NRA@640",
+              "h94TQOK7NRA@644",
+              "h94TQOK7NRA@647",
+              "h94TQOK7NRA@649",
+              "h94TQOK7NRA@652",
+              "h94TQOK7NRA@656"
+            ]
+          },
+          {
+            "id": "ch03.s07.p01.05",
+            "text": "In GPT-like language models, this is done by masking out the future tokens that come after the current token.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@659",
+              "h94TQOK7NRA@661",
+              "h94TQOK7NRA@664",
+              "h94TQOK7NRA@666"
+            ]
+          },
+          {
+            "id": "ch03.s07.p01.06",
+            "text": "The purpose of causal attention is to prevent future tokens from influencing the current token.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@1486",
+              "h94TQOK7NRA@1489",
+              "h94TQOK7NRA@1491",
+              "h94TQOK7NRA@1494"
+            ]
+          },
+          {
+            "id": "ch03.s07.p01.07",
+            "text": "The context size matters here because it specifies how many words the LLM can look at before predicting the next word.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@761",
+              "h94TQOK7NRA@764",
+              "h94TQOK7NRA@766",
+              "h94TQOK7NRA@768",
+              "h94TQOK7NRA@770",
+              "h94TQOK7NRA@1322",
+              "h94TQOK7NRA@1324",
+              "h94TQOK7NRA@1327",
+              "h94TQOK7NRA@1330"
+            ]
+          },
+          {
+            "id": "ch03.s07.p01.08",
+            "text": "In the running example, the context length is six because there are six tokens, which matches the six rows of the attention score or attention weight matrix.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@774",
+              "h94TQOK7NRA@777",
+              "h94TQOK7NRA@1334",
+              "h94TQOK7NRA@1335",
+              "h94TQOK7NRA@1338",
+              "h94TQOK7NRA@1340",
+              "h94TQOK7NRA@1344",
+              "h94TQOK7NRA@1346",
+              "h94TQOK7NRA@1348",
+              "h94TQOK7NRA@1350",
+              "h94TQOK7NRA@1352",
+              "h94TQOK7NRA@1353"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s07.p02",
+        "sentences": [
+          {
+            "id": "ch03.s07.p02.01",
+            "text": "A simple way to implement this starts from the usual self-attention pipeline.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s07.p02.02",
+            "text": "The self-attention class initializes trainable query, key, and value weight matrices randomly, multiplies the inputs by them to get queries, keys, and values, computes attention scores as queries times keys transpose, scales by the square root of the key dimension, applies softmax to get attention weights, and multiplies the attention weights by the values to get the context vector matrix.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@958",
+              "h94TQOK7NRA@960",
+              "h94TQOK7NRA@962",
+              "h94TQOK7NRA@965",
+              "h94TQOK7NRA@967",
+              "h94TQOK7NRA@970",
+              "h94TQOK7NRA@972",
+              "h94TQOK7NRA@974",
+              "h94TQOK7NRA@976",
+              "h94TQOK7NRA@978",
+              "h94TQOK7NRA@980",
+              "h94TQOK7NRA@982",
+              "h94TQOK7NRA@984",
+              "h94TQOK7NRA@991",
+              "h94TQOK7NRA@993",
+              "h94TQOK7NRA@996",
+              "h94TQOK7NRA@999"
+            ]
+          },
+          {
+            "id": "ch03.s07.p02.03",
+            "text": "To begin causal attention from that code, first compute the queries and keys, then the attention scores as queries multiplied by keys transpose, divide by the square root of the key dimension, and apply softmax to get attention weights before masking.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@1064",
+              "h94TQOK7NRA@1066",
+              "h94TQOK7NRA@1067",
+              "h94TQOK7NRA@1070",
+              "h94TQOK7NRA@1072",
+              "h94TQOK7NRA@1074",
+              "h94TQOK7NRA@1081",
+              "h94TQOK7NRA@1083",
+              "h94TQOK7NRA@1085",
+              "h94TQOK7NRA@1124",
+              "h94TQOK7NRA@1126",
+              "h94TQOK7NRA@1128",
+              "h94TQOK7NRA@1129"
+            ]
+          },
+          {
+            "id": "ch03.s07.p02.04",
+            "text": "At that point, the causal part begins by generating a mask whose entries above the diagonal are zero.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@1131",
+              "h94TQOK7NRA@1133",
+              "h94TQOK7NRA@1136",
+              "h94TQOK7NRA@1137",
+              "h94TQOK7NRA@1140",
+              "h94TQOK7NRA@1142"
+            ]
+          },
+          {
+            "id": "ch03.s07.p02.05",
+            "text": "Causal attention masks out the attention weights above the diagonal of the attention matrix, and the region above the diagonal is the causal attention mask.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@780",
+              "h94TQOK7NRA@782",
+              "h94TQOK7NRA@785",
+              "h94TQOK7NRA@817",
+              "h94TQOK7NRA@819",
+              "h94TQOK7NRA@821",
+              "h94TQOK7NRA@855",
+              "h94TQOK7NRA@857",
+              "h94TQOK7NRA@859",
+              "h94TQOK7NRA@861",
+              "h94TQOK7NRA@863"
+            ]
+          },
+          {
+            "id": "ch03.s07.p02.06",
+            "text": "One strategy is to compute the usual attention scores and attention weights, set the elements above the diagonal to zero, and then renormalize the remaining attention weights.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@866",
+              "h94TQOK7NRA@868",
+              "h94TQOK7NRA@870",
+              "h94TQOK7NRA@872",
+              "h94TQOK7NRA@879",
+              "h94TQOK7NRA@882",
+              "h94TQOK7NRA@884",
+              "h94TQOK7NRA@886",
+              "h94TQOK7NRA@887",
+              "h94TQOK7NRA@890",
+              "h94TQOK7NRA@892",
+              "h94TQOK7NRA@896",
+              "h94TQOK7NRA@898",
+              "h94TQOK7NRA@900",
+              "h94TQOK7NRA@904",
+              "h94TQOK7NRA@907",
+              "h94TQOK7NRA@910",
+              "h94TQOK7NRA@912",
+              "h94TQOK7NRA@914",
+              "h94TQOK7NRA@916"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s07.p03",
+        "sentences": [
+          {
+            "id": "ch03.s07.p03.r01",
+            "text": "The mask itself comes from triangular matrices.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s07.p03.r02",
+            "text": "An upper triangular matrix has all elements below the diagonal equal to zero, and a lower triangular matrix has all elements above the diagonal equal to zero.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@1187",
+              "h94TQOK7NRA@1189",
+              "h94TQOK7NRA@1191",
+              "h94TQOK7NRA@1193",
+              "h94TQOK7NRA@1195",
+              "h94TQOK7NRA@1196",
+              "h94TQOK7NRA@1209",
+              "h94TQOK7NRA@1211",
+              "h94TQOK7NRA@1214",
+              "h94TQOK7NRA@1216",
+              "h94TQOK7NRA@1217"
+            ]
+          },
+          {
+            "id": "ch03.s07.p03.r03",
+            "text": "\"torch.triu\" produces an upper triangular matrix, while \"torch.tril\" produces a lower triangular matrix with all elements above the diagonal set to zero.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@1222",
+              "h94TQOK7NRA@1225",
+              "h94TQOK7NRA@1229",
+              "h94TQOK7NRA@1233",
+              "h94TQOK7NRA@1234",
+              "h94TQOK7NRA@1238",
+              "h94TQOK7NRA@1241",
+              "h94TQOK7NRA@1243",
+              "h94TQOK7NRA@1246",
+              "h94TQOK7NRA@1249"
+            ]
+          },
+          {
+            "id": "ch03.s07.p03.r04",
+            "text": "To construct the causal mask with zeros above the diagonal, use a lower triangular matrix, so \"torch.tril\" is the right choice.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@1252",
+              "h94TQOK7NRA@1254",
+              "h94TQOK7NRA@1255",
+              "h94TQOK7NRA@1257",
+              "h94TQOK7NRA@1259",
+              "h94TQOK7NRA@1261",
+              "h94TQOK7NRA@1263",
+              "h94TQOK7NRA@1265"
+            ]
+          },
+          {
+            "id": "ch03.s07.p03.r05",
+            "text": "The code builds this mask by applying \"torch.tril\" to a square matrix of ones with shape context length by context length, which sets all entries above the diagonal to zero.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@1270",
+              "h94TQOK7NRA@1272",
+              "h94TQOK7NRA@1275",
+              "h94TQOK7NRA@1277",
+              "h94TQOK7NRA@1281",
+              "h94TQOK7NRA@1282",
+              "h94TQOK7NRA@1284",
+              "h94TQOK7NRA@1296",
+              "h94TQOK7NRA@1299",
+              "h94TQOK7NRA@1302",
+              "h94TQOK7NRA@1303",
+              "h94TQOK7NRA@1305",
+              "h94TQOK7NRA@1307",
+              "h94TQOK7NRA@1311",
+              "h94TQOK7NRA@1313",
+              "h94TQOK7NRA@1316",
+              "h94TQOK7NRA@1318",
+              "h94TQOK7NRA@1320"
+            ]
+          },
+          {
+            "id": "ch03.s07.p03.r06",
+            "text": "Multiplying the attention weights by this mask sets all elements above the diagonal in the attention weights to zero and produces a masked attention weight matrix.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@1163",
+              "h94TQOK7NRA@1165",
+              "h94TQOK7NRA@1167",
+              "h94TQOK7NRA@1170",
+              "h94TQOK7NRA@1361",
+              "h94TQOK7NRA@1364",
+              "h94TQOK7NRA@1366",
+              "h94TQOK7NRA@1369",
+              "h94TQOK7NRA@1371",
+              "h94TQOK7NRA@1373",
+              "h94TQOK7NRA@1380",
+              "h94TQOK7NRA@1382",
+              "h94TQOK7NRA@1385",
+              "h94TQOK7NRA@1387",
+              "h94TQOK7NRA@1390",
+              "h94TQOK7NRA@1392",
+              "h94TQOK7NRA@1395",
+              "h94TQOK7NRA@1396",
+              "h94TQOK7NRA@1399"
+            ]
+          },
+          {
+            "id": "ch03.s07.p03.r07",
+            "text": "After masking, the result is not yet a valid attention weight matrix because each row no longer sums to one.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@1404",
+              "h94TQOK7NRA@1406",
+              "h94TQOK7NRA@1408",
+              "h94TQOK7NRA@1410"
+            ]
+          },
+          {
+            "id": "ch03.s07.p03.r08",
+            "text": "To renormalize, compute the sum of each row and divide every element in that row by that row sum.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@1413",
+              "h94TQOK7NRA@1415",
+              "h94TQOK7NRA@1417",
+              "h94TQOK7NRA@1420",
+              "h94TQOK7NRA@1422",
+              "h94TQOK7NRA@1424",
+              "h94TQOK7NRA@1426",
+              "h94TQOK7NRA@1428",
+              "h94TQOK7NRA@1430",
+              "h94TQOK7NRA@1439",
+              "h94TQOK7NRA@1441",
+              "h94TQOK7NRA@1443",
+              "h94TQOK7NRA@1445"
+            ]
+          },
+          {
+            "id": "ch03.s07.p03.r09",
+            "text": "After this renormalization, each row of the masked attention weight matrix sums to one.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@1445",
+              "h94TQOK7NRA@1448",
+              "h94TQOK7NRA@1450",
+              "h94TQOK7NRA@1453"
+            ]
+          },
+          {
+            "id": "ch03.s07.p03.r10",
+            "text": "Then multiply the renormalized attention weights by the values matrix to obtain the context vector matrix.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@1464",
+              "h94TQOK7NRA@1466"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s07.p04",
+        "sentences": [
+          {
+            "id": "ch03.s07.p04.r01",
+            "text": "That first method is easy to understand, but it has an important flaw.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s07.p04.r02",
+            "text": "If masking is done after softmax, future tokens have already influenced the earlier attention values because the softmax denominator includes all scores.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@1498",
+              "h94TQOK7NRA@1502",
+              "h94TQOK7NRA@1504",
+              "h94TQOK7NRA@1510",
+              "h94TQOK7NRA@1512",
+              "h94TQOK7NRA@1514",
+              "h94TQOK7NRA@1516",
+              "h94TQOK7NRA@1518",
+              "h94TQOK7NRA@1520",
+              "h94TQOK7NRA@1522",
+              "h94TQOK7NRA@1524",
+              "h94TQOK7NRA@1527",
+              "h94TQOK7NRA@1530",
+              "h94TQOK7NRA@1532",
+              "h94TQOK7NRA@1534",
+              "h94TQOK7NRA@1536"
+            ]
+          },
+          {
+            "id": "ch03.s07.p04.r03",
+            "text": "This creates a data leakage problem even if the future-token weights are later set to zero.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@1538",
+              "h94TQOK7NRA@1540",
+              "h94TQOK7NRA@1542",
+              "h94TQOK7NRA@1545",
+              "h94TQOK7NRA@1548",
+              "h94TQOK7NRA@1552",
+              "h94TQOK7NRA@1555",
+              "h94TQOK7NRA@1558",
+              "h94TQOK7NRA@1561",
+              "h94TQOK7NRA@1563",
+              "h94TQOK7NRA@1566",
+              "h94TQOK7NRA@1567"
+            ]
+          },
+          {
+            "id": "ch03.s07.p04.r04",
+            "text": "A better approach is to apply an upper triangular infinity mask to the attention scores before softmax and then apply softmax once.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@1570",
+              "h94TQOK7NRA@1573",
+              "h94TQOK7NRA@1576",
+              "h94TQOK7NRA@1599",
+              "h94TQOK7NRA@1601",
+              "h94TQOK7NRA@1603",
+              "h94TQOK7NRA@1606",
+              "h94TQOK7NRA@1608",
+              "h94TQOK7NRA@1610",
+              "h94TQOK7NRA@1613"
+            ]
+          },
+          {
+            "id": "ch03.s07.p04.r05",
+            "text": "In this method, the elements above the diagonal in the attention score matrix are replaced with negative infinity before softmax.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@1633",
+              "h94TQOK7NRA@1635",
+              "h94TQOK7NRA@1638",
+              "h94TQOK7NRA@1640",
+              "h94TQOK7NRA@1642",
+              "h94TQOK7NRA@1644",
+              "h94TQOK7NRA@1646",
+              "h94TQOK7NRA@1680",
+              "h94TQOK7NRA@1682",
+              "h94TQOK7NRA@1684",
+              "h94TQOK7NRA@1856",
+              "h94TQOK7NRA@1859",
+              "h94TQOK7NRA@1861",
+              "h94TQOK7NRA@1863",
+              "h94TQOK7NRA@1865"
+            ]
+          },
+          {
+            "id": "ch03.s07.p04.r06",
+            "text": "Using an upper triangular matrix is appropriate here because the positions above the diagonal are the ones to be replaced.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@1722",
+              "h94TQOK7NRA@1724",
+              "h94TQOK7NRA@1726",
+              "h94TQOK7NRA@1730",
+              "h94TQOK7NRA@1733",
+              "h94TQOK7NRA@1736",
+              "h94TQOK7NRA@1751",
+              "h94TQOK7NRA@1753",
+              "h94TQOK7NRA@1775",
+              "h94TQOK7NRA@1777",
+              "h94TQOK7NRA@1781",
+              "h94TQOK7NRA@1783",
+              "h94TQOK7NRA@1784"
+            ]
+          },
+          {
+            "id": "ch03.s07.p04.r07",
+            "text": "The code constructs this mask from a 6 by 6 matrix of ones, takes its upper triangular part, and uses the ones as the positions to replace with negative infinity.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@1769",
+              "h94TQOK7NRA@1773",
+              "h94TQOK7NRA@1775",
+              "h94TQOK7NRA@1783",
+              "h94TQOK7NRA@1784",
+              "h94TQOK7NRA@1787",
+              "h94TQOK7NRA@1789",
+              "h94TQOK7NRA@1791",
+              "h94TQOK7NRA@1792",
+              "h94TQOK7NRA@1795",
+              "h94TQOK7NRA@1798",
+              "h94TQOK7NRA@1801",
+              "h94TQOK7NRA@1805",
+              "h94TQOK7NRA@1808"
+            ]
+          },
+          {
+            "id": "ch03.s07.p04.r08",
+            "text": "The mask fill operation finds the positions where the mask is true or positive and replaces the corresponding attention-score entries with negative infinity.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@1811",
+              "h94TQOK7NRA@1813",
+              "h94TQOK7NRA@1815",
+              "h94TQOK7NRA@1821",
+              "h94TQOK7NRA@1824",
+              "h94TQOK7NRA@1826",
+              "h94TQOK7NRA@1828",
+              "h94TQOK7NRA@1831",
+              "h94TQOK7NRA@1834",
+              "h94TQOK7NRA@1836",
+              "h94TQOK7NRA@1838",
+              "h94TQOK7NRA@1841",
+              "h94TQOK7NRA@1844",
+              "h94TQOK7NRA@1846",
+              "h94TQOK7NRA@1849",
+              "h94TQOK7NRA@1851",
+              "h94TQOK7NRA@1854"
+            ]
+          },
+          {
+            "id": "ch03.s07.p04.r09",
+            "text": "After masking, the attention scores are divided by the square root of the key dimension and then softmax is applied.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@1870",
+              "h94TQOK7NRA@1872",
+              "h94TQOK7NRA@1875",
+              "h94TQOK7NRA@1877",
+              "h94TQOK7NRA@1878"
+            ]
+          },
+          {
+            "id": "ch03.s07.p04.r10",
+            "text": "Setting future-score entries to negative infinity makes their exponentials zero, so softmax turns those positions into zeros and automatically produces rows that sum to one.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@1651",
+              "h94TQOK7NRA@1654",
+              "h94TQOK7NRA@1656",
+              "h94TQOK7NRA@1660",
+              "h94TQOK7NRA@1662",
+              "h94TQOK7NRA@1664",
+              "h94TQOK7NRA@1700",
+              "h94TQOK7NRA@1703",
+              "h94TQOK7NRA@1705",
+              "h94TQOK7NRA@1707",
+              "h94TQOK7NRA@1709",
+              "h94TQOK7NRA@1711",
+              "h94TQOK7NRA@1713",
+              "h94TQOK7NRA@1715",
+              "h94TQOK7NRA@1881",
+              "h94TQOK7NRA@1883",
+              "h94TQOK7NRA@1885"
+            ]
+          },
+          {
+            "id": "ch03.s07.p04.r11",
+            "text": "Applying the negative-infinity mask before softmax avoids leakage because future-token influence is removed before normalization.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@1669",
+              "h94TQOK7NRA@1671",
+              "h94TQOK7NRA@1674",
+              "h94TQOK7NRA@1676",
+              "h94TQOK7NRA@1678",
+              "h94TQOK7NRA@1680",
+              "h94TQOK7NRA@1682",
+              "h94TQOK7NRA@1684",
+              "h94TQOK7NRA@1685",
+              "h94TQOK7NRA@1688",
+              "h94TQOK7NRA@1689",
+              "h94TQOK7NRA@1890",
+              "h94TQOK7NRA@1892",
+              "h94TQOK7NRA@1894",
+              "h94TQOK7NRA@1897",
+              "h94TQOK7NRA@1899"
+            ]
+          },
+          {
+            "id": "ch03.s07.p04.r12",
+            "text": "Masking in transformers sets scores for future tokens to a very large negative value so their influence in softmax is effectively zero, and softmax then recalculates attention weights among the unmasked tokens.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@1923",
+              "h94TQOK7NRA@1926",
+              "h94TQOK7NRA@1928",
+              "h94TQOK7NRA@1930",
+              "h94TQOK7NRA@1933",
+              "h94TQOK7NRA@1935",
+              "h94TQOK7NRA@1938",
+              "h94TQOK7NRA@1939"
+            ]
+          },
+          {
+            "id": "ch03.s07.p04.r13",
+            "text": "This ensures no information leakage from masked tokens.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@1942",
+              "h94TQOK7NRA@1944",
+              "h94TQOK7NRA@1947"
+            ]
+          },
+          {
+            "id": "ch03.s07.p04.r14",
+            "text": "Once the attention weight matrix is obtained, it is multiplied by the value matrix to get the context vector.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@1949",
+              "h94TQOK7NRA@1951",
+              "h94TQOK7NRA@1954",
+              "h94TQOK7NRA@1956"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch03.s07.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s07.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s07.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s07.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s07.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s07.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s07.p01.07": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s07.p01.08": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s07.p02.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s07.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s07.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s07.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s07.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s07.p02.06": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s07.p03.r01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.62,
+        "reason": "Connective sentence makes a factual claim (that the mask comes from triangular matrices) rather than a pure transition; no citations provided to verify it."
+      },
+      "ch03.s07.p03.r02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s07.p03.r03": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s07.p03.r04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s07.p03.r05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s07.p03.r06": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s07.p03.r07": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s07.p03.r08": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s07.p03.r09": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s07.p03.r10": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s07.p04.r01": {
+        "verdict": "ok",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s07.p04.r02": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s07.p04.r03": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s07.p04.r04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s07.p04.r05": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s07.p04.r06": {
+        "verdict": "supported",
+        "confidence": 0.85,
+        "reason": ""
+      },
+      "ch03.s07.p04.r07": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s07.p04.r08": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s07.p04.r09": {
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "the cited line says to divide the mask matrix by sqrt(key dimension), not the (masked) attention scores; it does not clearly support 'after masking, the attention scores are divided by the square root of the key dimension'."
+      },
+      "ch03.s07.p04.r10": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s07.p04.r11": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s07.p04.r12": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s07.p04.r13": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s07.p04.r14": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch03.s07.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s07.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s07.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s07.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s07.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s07.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s07.p01.07": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s07.p01.08": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s07.p02.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s07.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s07.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s07.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s07.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s07.p02.06": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s07.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.8,
+        "reason": ""
+      },
+      "ch03.s07.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch03.s07.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s07.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s07.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s07.p03.06": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s07.p03.07": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s07.p03.08": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s07.p03.09": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s07.p03.10": {
+        "verdict": "partial",
+        "confidence": 0.62,
+        "reason": "cited lines support that after the main causal-attention modification they multiply with the values matrix to get the context vector matrix, but they do not explicitly enumerate the modification as 'mask future positions, renormalize, and only then multiply' in the same statement."
+      },
+      "ch03.s07.p04.01": {
+        "verdict": "ok",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s07.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s07.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s07.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s07.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s07.p04.06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s07.p04.07": {
+        "verdict": "partial",
+        "confidence": 0.74,
+        "reason": "Captions support: start with a 6x6 matrix of ones, take an upper-triangular mask, and replace the 1s (notably above the diagonal) with negative infinity. But the sentence says it uses the ones above the diagonal as the positions; the cited lines also describe an upper-triangular matrix (which typically includes the diagonal), so restricting it specifically to 'above the diagonal' is not fully supported from these lines alone."
+      },
+      "ch03.s07.p04.08": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s07.p04.09": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s07.p04.10": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s07.p04.11": {
+        "verdict": "supported",
+        "confidence": 0.91,
+        "reason": ""
+      },
+      "ch03.s07.p04.12": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s07.p04.13": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s07.p04.14": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "ch03.s07.p03",
+      "ch03.s07.p04"
+    ],
+    "queue": [
+      {
+        "sentence_id": "ch03.s07.p03.r01",
+        "text": "The mask itself comes from triangular matrices.",
+        "cites": [],
+        "verdict": "claim_in_connective",
+        "confidence": 0.62,
+        "reason": "Connective sentence makes a factual claim (that the mask comes from triangular matrices) rather than a pure transition; no citations provided to verify it.",
+        "status": "open"
+      },
+      {
+        "sentence_id": "ch03.s07.p04.r09",
+        "text": "After masking, the attention scores are divided by the square root of the key dimension and then softmax is applied.",
+        "cites": [
+          "h94TQOK7NRA@1870",
+          "h94TQOK7NRA@1872",
+          "h94TQOK7NRA@1875",
+          "h94TQOK7NRA@1877",
+          "h94TQOK7NRA@1878"
+        ],
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "the cited line says to divide the mask matrix by sqrt(key dimension), not the (masked) attention scores; it does not clearly support 'after masking, the attention scores are divided by the square root of the key dimension'.",
+        "status": "open"
+      }
+    ]
+  }
+}

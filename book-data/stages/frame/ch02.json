@@ -1,0 +1,585 @@
+{
+  "stage": "frame",
+  "item": "ch02",
+  "inputs_hash": "3b8600db318efa52c04dd59b87dfa310f3f223005dc719f44d96236b00db3479",
+  "output_hash": "f940dd280d9f564b8bcfdd10060b2712fd91c62b9045e7efbd040c4a022eb617",
+  "output": {
+    "section_id": "ch02.open",
+    "paragraphs": [
+      {
+        "id": "ch02.open.p01",
+        "sentences": [
+          {
+            "id": "ch02.open.p01.01",
+            "text": "The previous chapter established what large language models are and where transformers fit; this chapter turns to the practical question of how raw text becomes something a model can actually consume.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch02.open.p01.02",
+            "text": "Data preprocessing matters because it is presented as one of the most fundamental building blocks of a strongly performing large language model, and because text such as paragraphs, documents, or a PDF file cannot be given directly as input and must be processed first.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@13",
+              "mk-6cFebjis@15",
+              "mk-6cFebjis@18",
+              "mk-6cFebjis@20",
+              "mk-6cFebjis@30",
+              "mk-6cFebjis@32",
+              "mk-6cFebjis@36",
+              "mk-6cFebjis@50",
+              "mk-6cFebjis@54",
+              "mk-6cFebjis@56",
+              "mk-6cFebjis@59",
+              "mk-6cFebjis@63",
+              "mk-6cFebjis@66",
+              "mk-6cFebjis@70",
+              "mk-6cFebjis@72"
+            ]
+          },
+          {
+            "id": "ch02.open.p01.03",
+            "text": "The core pipeline runs from tokenization to token IDs to token embeddings to positional embeddings and finally to input embeddings, which makes the data ready to be fed into the model architecture or pre-training process.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@92",
+              "mk-6cFebjis@94",
+              "mk-6cFebjis@98",
+              "mk-6cFebjis@101",
+              "mk-6cFebjis@104",
+              "mk-6cFebjis@107",
+              "mk-6cFebjis@110",
+              "mk-6cFebjis@112",
+              "mk-6cFebjis@115",
+              "mk-6cFebjis@117",
+              "mk-6cFebjis@119",
+              "mk-6cFebjis@121",
+              "mk-6cFebjis@123",
+              "ghCSGRgVB_o@116",
+              "ghCSGRgVB_o@119",
+              "ghCSGRgVB_o@122",
+              "ghCSGRgVB_o@124",
+              "ghCSGRgVB_o@127",
+              "ghCSGRgVB_o@130",
+              "ghCSGRgVB_o@134",
+              "ghCSGRgVB_o@136",
+              "ghCSGRgVB_o@139",
+              "ghCSGRgVB_o@141",
+              "ghCSGRgVB_o@143",
+              "mk-6cFebjis@5594",
+              "mk-6cFebjis@5596",
+              "mk-6cFebjis@5599",
+              "mk-6cFebjis@5602",
+              "mk-6cFebjis@5604",
+              "mk-6cFebjis@5606",
+              "mk-6cFebjis@5608",
+              "mk-6cFebjis@5610",
+              "mk-6cFebjis@5614"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.open.p02",
+        "sentences": [
+          {
+            "id": "ch02.open.p02.01",
+            "text": "We begin with why preprocessing exists, then build intuition with word-based tokenization, a simple Python tokenizer, and the limits of that approach, including unknown and boundary tokens.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch02.open.p02.02",
+            "text": "From there the chapter broadens to character and subword tokenization, introduces byte pair encoding and its role in modern LLM tokenizers, and uses the GPT-2 tokenizer through \"tiktoken\" while noting that the mechanics of subword BPE are only introduced indirectly here.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch02.open.p02.03",
+            "text": "The closing sections move from token IDs to token embeddings, embedding matrices and lookup layers, positional information, and the creation of next-token training examples, setting up the attention machinery of the next chapter.",
+            "type": "R",
+            "cites": []
+          }
+        ]
+      },
+      {
+        "id": "ch02.glance.p01",
+        "sentences": [
+          {
+            "id": "ch02.glance.p01.01",
+            "text": "Preprocessing is the procedure of processing text data before it is fed into a large language model, and it is described as a fundamental building block for strong model performance.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@30",
+              "mk-6cFebjis@32",
+              "mk-6cFebjis@36",
+              "mk-6cFebjis@63",
+              "mk-6cFebjis@66",
+              "mk-6cFebjis@70",
+              "mk-6cFebjis@72"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.glance.p02",
+        "sentences": [
+          {
+            "id": "ch02.glance.p02.01",
+            "text": "A model input pipeline starts by breaking input text into tokens, converting those tokens into token IDs, and then converting the token IDs into token embeddings used to train the model.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@58",
+              "ghCSGRgVB_o@60",
+              "ghCSGRgVB_o@69",
+              "ghCSGRgVB_o@71",
+              "ghCSGRgVB_o@119",
+              "ghCSGRgVB_o@122",
+              "ghCSGRgVB_o@124",
+              "ghCSGRgVB_o@127",
+              "ghCSGRgVB_o@134",
+              "ghCSGRgVB_o@136",
+              "ghCSGRgVB_o@139",
+              "ghCSGRgVB_o@141",
+              "ghCSGRgVB_o@143",
+              "ghCSGRgVB_o@146"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.glance.p03",
+        "sentences": [
+          {
+            "id": "ch02.glance.p03.01",
+            "text": "There are three tokenization families here: word-based, subword-based, and character-based tokenizers.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@177",
+              "fKd8s29e-l4@179",
+              "fKd8s29e-l4@182",
+              "fKd8s29e-l4@185",
+              "fKd8s29e-l4@188",
+              "fKd8s29e-l4@191"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.glance.p04",
+        "sentences": [
+          {
+            "id": "ch02.glance.p04.01",
+            "text": "A word-based tokenizer usually treats each word as one token, but a simple split on whitespace is not enough because punctuation should often be separated and whitespace tokens may need to be removed.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@196",
+              "fKd8s29e-l4@198",
+              "fKd8s29e-l4@201",
+              "mk-6cFebjis@245",
+              "mk-6cFebjis@247",
+              "mk-6cFebjis@249",
+              "mk-6cFebjis@498",
+              "mk-6cFebjis@502",
+              "mk-6cFebjis@507",
+              "mk-6cFebjis@509",
+              "mk-6cFebjis@511",
+              "mk-6cFebjis@513",
+              "mk-6cFebjis@518",
+              "mk-6cFebjis@520",
+              "mk-6cFebjis@537",
+              "mk-6cFebjis@539",
+              "mk-6cFebjis@561",
+              "mk-6cFebjis@564",
+              "mk-6cFebjis@567",
+              "mk-6cFebjis@569",
+              "mk-6cFebjis@573",
+              "mk-6cFebjis@575"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.glance.p05",
+        "sentences": [
+          {
+            "id": "ch02.glance.p05.r01",
+            "text": "A vocabulary maps each unique token to a unique integer token ID, typically by removing duplicate tokens and sorting the remaining tokens in ascending or alphabetical order.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@328",
+              "fKd8s29e-l4@330",
+              "fKd8s29e-l4@333",
+              "fKd8s29e-l4@335",
+              "mk-6cFebjis@821",
+              "mk-6cFebjis@823",
+              "mk-6cFebjis@826",
+              "mk-6cFebjis@828",
+              "mk-6cFebjis@842",
+              "mk-6cFebjis@845",
+              "mk-6cFebjis@862",
+              "mk-6cFebjis@866",
+              "mk-6cFebjis@869",
+              "mk-6cFebjis@871",
+              "mk-6cFebjis@899",
+              "mk-6cFebjis@902",
+              "mk-6cFebjis@905",
+              "mk-6cFebjis@908",
+              "mk-6cFebjis@920",
+              "mk-6cFebjis@922",
+              "mk-6cFebjis@924"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch02.open.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch02.open.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch02.open.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.open.p02.01": {
+        "verdict": "ok",
+        "confidence": 0.82,
+        "reason": ""
+      },
+      "ch02.open.p02.02": {
+        "verdict": "ok",
+        "confidence": 0.82,
+        "reason": ""
+      },
+      "ch02.open.p02.03": {
+        "verdict": "ok",
+        "confidence": 0.82,
+        "reason": ""
+      },
+      "ch02.glance.p01.01": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch02.glance.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.glance.p03.01": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch02.glance.p04.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.glance.p05.r01": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch02.open.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch02.open.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch02.open.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.open.p02.01": {
+        "verdict": "ok",
+        "confidence": 0.82,
+        "reason": ""
+      },
+      "ch02.open.p02.02": {
+        "verdict": "ok",
+        "confidence": 0.82,
+        "reason": ""
+      },
+      "ch02.open.p02.03": {
+        "verdict": "ok",
+        "confidence": 0.82,
+        "reason": ""
+      },
+      "ch02.glance.p01.01": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch02.glance.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.glance.p03.01": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch02.glance.p04.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.glance.p05.01": {
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "the captions support that a vocabulary maps each unique token to a unique integer token id and that duplicates are removed and tokens sorted ascending/alphabetical, but they do not explicitly state that this mapping is a 'dictionary' in the sense of a token->id map (one line says vocabulary is a dictionary with tokens arranged ascending, which is ambiguous), nor that the sorting necessarily happens after duplicate removal as a strict procedure."
+      }
+    },
+    "rewritten": [
+      "ch02.glance.p05"
+    ],
+    "queue": [],
+    "opener": [
+      {
+        "id": "ch02.open.p01",
+        "sentences": [
+          {
+            "id": "ch02.open.p01.01",
+            "text": "The previous chapter established what large language models are and where transformers fit; this chapter turns to the practical question of how raw text becomes something a model can actually consume.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch02.open.p01.02",
+            "text": "Data preprocessing matters because it is presented as one of the most fundamental building blocks of a strongly performing large language model, and because text such as paragraphs, documents, or a PDF file cannot be given directly as input and must be processed first.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@13",
+              "mk-6cFebjis@15",
+              "mk-6cFebjis@18",
+              "mk-6cFebjis@20",
+              "mk-6cFebjis@30",
+              "mk-6cFebjis@32",
+              "mk-6cFebjis@36",
+              "mk-6cFebjis@50",
+              "mk-6cFebjis@54",
+              "mk-6cFebjis@56",
+              "mk-6cFebjis@59",
+              "mk-6cFebjis@63",
+              "mk-6cFebjis@66",
+              "mk-6cFebjis@70",
+              "mk-6cFebjis@72"
+            ]
+          },
+          {
+            "id": "ch02.open.p01.03",
+            "text": "The core pipeline runs from tokenization to token IDs to token embeddings to positional embeddings and finally to input embeddings, which makes the data ready to be fed into the model architecture or pre-training process.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@92",
+              "mk-6cFebjis@94",
+              "mk-6cFebjis@98",
+              "mk-6cFebjis@101",
+              "mk-6cFebjis@104",
+              "mk-6cFebjis@107",
+              "mk-6cFebjis@110",
+              "mk-6cFebjis@112",
+              "mk-6cFebjis@115",
+              "mk-6cFebjis@117",
+              "mk-6cFebjis@119",
+              "mk-6cFebjis@121",
+              "mk-6cFebjis@123",
+              "ghCSGRgVB_o@116",
+              "ghCSGRgVB_o@119",
+              "ghCSGRgVB_o@122",
+              "ghCSGRgVB_o@124",
+              "ghCSGRgVB_o@127",
+              "ghCSGRgVB_o@130",
+              "ghCSGRgVB_o@134",
+              "ghCSGRgVB_o@136",
+              "ghCSGRgVB_o@139",
+              "ghCSGRgVB_o@141",
+              "ghCSGRgVB_o@143",
+              "mk-6cFebjis@5594",
+              "mk-6cFebjis@5596",
+              "mk-6cFebjis@5599",
+              "mk-6cFebjis@5602",
+              "mk-6cFebjis@5604",
+              "mk-6cFebjis@5606",
+              "mk-6cFebjis@5608",
+              "mk-6cFebjis@5610",
+              "mk-6cFebjis@5614"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.open.p02",
+        "sentences": [
+          {
+            "id": "ch02.open.p02.01",
+            "text": "We begin with why preprocessing exists, then build intuition with word-based tokenization, a simple Python tokenizer, and the limits of that approach, including unknown and boundary tokens.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch02.open.p02.02",
+            "text": "From there the chapter broadens to character and subword tokenization, introduces byte pair encoding and its role in modern LLM tokenizers, and uses the GPT-2 tokenizer through \"tiktoken\" while noting that the mechanics of subword BPE are only introduced indirectly here.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch02.open.p02.03",
+            "text": "The closing sections move from token IDs to token embeddings, embedding matrices and lookup layers, positional information, and the creation of next-token training examples, setting up the attention machinery of the next chapter.",
+            "type": "R",
+            "cites": []
+          }
+        ]
+      }
+    ],
+    "at_a_glance": [
+      {
+        "id": "ch02.glance.p01",
+        "sentences": [
+          {
+            "id": "ch02.glance.p01.01",
+            "text": "Preprocessing is the procedure of processing text data before it is fed into a large language model, and it is described as a fundamental building block for strong model performance.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@30",
+              "mk-6cFebjis@32",
+              "mk-6cFebjis@36",
+              "mk-6cFebjis@63",
+              "mk-6cFebjis@66",
+              "mk-6cFebjis@70",
+              "mk-6cFebjis@72"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.glance.p02",
+        "sentences": [
+          {
+            "id": "ch02.glance.p02.01",
+            "text": "A model input pipeline starts by breaking input text into tokens, converting those tokens into token IDs, and then converting the token IDs into token embeddings used to train the model.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@58",
+              "ghCSGRgVB_o@60",
+              "ghCSGRgVB_o@69",
+              "ghCSGRgVB_o@71",
+              "ghCSGRgVB_o@119",
+              "ghCSGRgVB_o@122",
+              "ghCSGRgVB_o@124",
+              "ghCSGRgVB_o@127",
+              "ghCSGRgVB_o@134",
+              "ghCSGRgVB_o@136",
+              "ghCSGRgVB_o@139",
+              "ghCSGRgVB_o@141",
+              "ghCSGRgVB_o@143",
+              "ghCSGRgVB_o@146"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.glance.p03",
+        "sentences": [
+          {
+            "id": "ch02.glance.p03.01",
+            "text": "There are three tokenization families here: word-based, subword-based, and character-based tokenizers.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@177",
+              "fKd8s29e-l4@179",
+              "fKd8s29e-l4@182",
+              "fKd8s29e-l4@185",
+              "fKd8s29e-l4@188",
+              "fKd8s29e-l4@191"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.glance.p04",
+        "sentences": [
+          {
+            "id": "ch02.glance.p04.01",
+            "text": "A word-based tokenizer usually treats each word as one token, but a simple split on whitespace is not enough because punctuation should often be separated and whitespace tokens may need to be removed.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@196",
+              "fKd8s29e-l4@198",
+              "fKd8s29e-l4@201",
+              "mk-6cFebjis@245",
+              "mk-6cFebjis@247",
+              "mk-6cFebjis@249",
+              "mk-6cFebjis@498",
+              "mk-6cFebjis@502",
+              "mk-6cFebjis@507",
+              "mk-6cFebjis@509",
+              "mk-6cFebjis@511",
+              "mk-6cFebjis@513",
+              "mk-6cFebjis@518",
+              "mk-6cFebjis@520",
+              "mk-6cFebjis@537",
+              "mk-6cFebjis@539",
+              "mk-6cFebjis@561",
+              "mk-6cFebjis@564",
+              "mk-6cFebjis@567",
+              "mk-6cFebjis@569",
+              "mk-6cFebjis@573",
+              "mk-6cFebjis@575"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.glance.p05",
+        "sentences": [
+          {
+            "id": "ch02.glance.p05.r01",
+            "text": "A vocabulary maps each unique token to a unique integer token ID, typically by removing duplicate tokens and sorting the remaining tokens in ascending or alphabetical order.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@328",
+              "fKd8s29e-l4@330",
+              "fKd8s29e-l4@333",
+              "fKd8s29e-l4@335",
+              "mk-6cFebjis@821",
+              "mk-6cFebjis@823",
+              "mk-6cFebjis@826",
+              "mk-6cFebjis@828",
+              "mk-6cFebjis@842",
+              "mk-6cFebjis@845",
+              "mk-6cFebjis@862",
+              "mk-6cFebjis@866",
+              "mk-6cFebjis@869",
+              "mk-6cFebjis@871",
+              "mk-6cFebjis@899",
+              "mk-6cFebjis@902",
+              "mk-6cFebjis@905",
+              "mk-6cFebjis@908",
+              "mk-6cFebjis@920",
+              "mk-6cFebjis@922",
+              "mk-6cFebjis@924"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

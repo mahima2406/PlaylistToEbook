@@ -1,0 +1,449 @@
+{
+  "stage": "crosscheck",
+  "item": "ch02.s08",
+  "inputs_hash": "6061c05268ca2118b48217daac7959c25ef91a98c70e3e25921788f6f4d471ac",
+  "output_hash": "d823478f786dfa2c47a2d54f0e14d69717357799d04f35603151d1705fde4957",
+  "output": {
+    "section_id": "ch02.s08",
+    "checked": 36,
+    "counts": {
+      "agrees": 6,
+      "contradicts": 1,
+      "not_covered": 29
+    },
+    "results": [
+      {
+        "sentence_id": "ch02.s08.p01.02",
+        "text": "Modern LLMs such as GPT-2 and GPT-3 usually use byte pair encoding, so it is important to understand it.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell71"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference section is titled “BytePair encoding” and shows using a GPT-2 tokenizer via tiktoken (get_encoding(\"gpt2\")), consistent with modern GPT-style models using BPE-style tokenization."
+      },
+      {
+        "sentence_id": "ch02.s08.p01.03",
+        "text": "Byte pair encoding, or BPE, is a subword tokenization algorithm.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell71"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references show a BPE section and GPT-2 tokenizer usage but do not explicitly define BPE as a subword tokenization algorithm."
+      },
+      {
+        "sentence_id": "ch02.s08.p01.04",
+        "text": "It is a subword-based method because the tokens are subwords rather than full words or full characters.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell76",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell57"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly states that BPE tokenizers break down unknown words into subwords and individual characters, aligning with the idea that tokens can be subwords rather than full words."
+      },
+      {
+        "sentence_id": "ch02.s08.p01.05",
+        "text": "For large language models, byte pair encoding is slightly modified so that it converts sentences into subwords.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell76",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show GPT-2 tokenization and that BPE breaks words into subwords/characters, but they do not state that BPE is “slightly modified” for LLMs or describe such a modification."
+      },
+      {
+        "sentence_id": "ch02.s08.p01.06",
+        "text": "In that role, it keeps the most common words as single tokens and breaks rare words into two or more subword tokens.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell36",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The passages shown discuss vocab construction and special tokens but do not describe BPE behavior of keeping common words as single tokens and splitting rarer words into multiple subword tokens."
+      },
+      {
+        "sentence_id": "ch02.s08.p01.07",
+        "text": "A simple example is that a frequent word like \"boy\" can stay as one token, while a rarer related word like \"boys\" can be split into \"boy\" and \"s\".",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell83",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell85",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell120"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference passage provides the specific example of “boy” vs “boys” being split into “boy” and “s” or an equivalent illustrative split."
+      },
+      {
+        "sentence_id": "ch02.s08.p01.08",
+        "text": "This preserves a shared root token across related words, and the same idea helps with pairs such as \"tokens\" and \"tokenizing\".",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell12",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell13",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not discuss preserving shared root tokens across related words (e.g., tokens/tokenizing) as a benefit of subword tokenization."
+      },
+      {
+        "sentence_id": "ch02.s08.p02.01",
+        "text": "To see how the algorithm builds such a vocabulary, consider a small data corpus of words.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell108",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell126"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not describe demonstrating the BPE algorithm building a vocabulary from a small corpus of words; the cited cell about a small vocabulary is about embeddings, not BPE vocabulary construction."
+      },
+      {
+        "sentence_id": "ch02.s08.p02.02",
+        "text": "In this corpus, the words are \"old\", \"older\", \"finest\", and \"lowest\".",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell36",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell95"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the cited reference passages mention a corpus containing the words “old”, “older”, “finest”, and “lowest”."
+      },
+      {
+        "sentence_id": "ch02.s08.p02.03",
+        "text": "With word-based tokenization, these would simply be four tokens, while character-level tokenization would make each character its own token.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell40"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While tokenization examples are mentioned, the references do not explicitly contrast word-based tokenization yielding four tokens versus character-level tokenization making each character a token for those words."
+      },
+      {
+        "sentence_id": "ch02.s08.p02.04",
+        "text": "Before applying BPE for subword tokenization, each word is augmented with an end-of-word marker so the tokenizer knows where the word ends.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell120",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell6"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not mention augmenting each word with an end-of-word marker prior to applying BPE."
+      },
+      {
+        "sentence_id": "ch02.s08.p02.05",
+        "text": "In the example, \"old\", \"older\", \"finest\", and \"lowest\" are all written with the added end token.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell67"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not show the example words written with an added end token/end-of-word marker."
+      },
+      {
+        "sentence_id": "ch02.s08.p02.06",
+        "text": "The first step is then to split the words into characters and make a frequency table using the word frequencies in the corpus.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell54",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell73"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references discuss perplexity, printing characters to check text loading, and attention score computation; they do not describe a first step of splitting words into characters and building a frequency table from corpus word frequencies."
+      },
+      {
+        "sentence_id": "ch02.s08.p02.07",
+        "text": "Here, \"old\" appears 7 times, \"older\" 3 times, \"finest\" 9 times, and \"lowest\" 4 times.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell103"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the cited passages provide counts for the words \"old\", \"older\", \"finest\", or \"lowest\"."
+      },
+      {
+        "sentence_id": "ch02.s08.p02.08",
+        "text": "Because every word token includes the end-of-word marker, that marker appears once for every word token in the corpus, which is 23 times here.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell120",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell6",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell67"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references shown are about embeddings/attention and do not mention an end-of-word marker or that it appears once per word token (23 times)."
+      },
+      {
+        "sentence_id": "ch02.s08.p03.r01",
+        "text": "The modified BPE procedure repeatedly finds the most frequent pairing in the dataset and merges that pair into a new token.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell70",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell65",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell76"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states GPT-2 used BPE and describes BPE merges/trained merges; this is consistent with a BPE-style procedure that repeatedly merges frequent pairs into new tokens, though it does not spell out the full algorithmic step-by-step."
+      },
+      {
+        "sentence_id": "ch02.s08.p03.r02",
+        "text": "In the first iteration of this corpus, the most frequent pair is \"e\" and \"s\".",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell93"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited material does not discuss a specific corpus iteration or identify \"e\" and \"s\" as the most frequent pair."
+      },
+      {
+        "sentence_id": "ch02.s08.p03.r03",
+        "text": "That pair occurs 13 times in total: 9 times in \"finest\" and 4 times in \"lowest\".",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference passage provides the stated pair counts (13 total, 9 in \"finest\" and 4 in \"lowest\")."
+      },
+      {
+        "sentence_id": "ch02.s08.p03.r04",
+        "text": "The tokenizer merges them into the subword token \"es\" and updates the token table.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell50",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell44"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the references mention encode/decode, they do not describe merging the specific pair into the subword token \"es\" or updating a token/frequency table."
+      },
+      {
+        "sentence_id": "ch02.s08.p03.r05",
+        "text": "When \"es\" is added, its count is 13, 13 is subtracted from the count of \"e\", and the count of \"s\" drops to zero in this example.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell11"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not cover BPE token count bookkeeping such as adding \"es\" with count 13 and subtracting from counts of \"e\" and \"s\"."
+      },
+      {
+        "sentence_id": "ch02.s08.p03.r07",
+        "text": "Once \"es\" becomes a token, the next frequent pair is \"es\" with \"t\", producing the token \"EST\" with count 13, while \"es\" drops to zero occurrences.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell91",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages are about next-token prediction and embeddings, not a BPE merge sequence producing \"EST\" with specific counts."
+      },
+      {
+        "sentence_id": "ch02.s08.p04.r02",
+        "text": "After \"EST\" is formed, the pair \"EST\" and the end-of-word marker appears 13 times, more than any other pair in these words.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell95",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell71"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference discusses a token \"EST\", an end-of-word marker, or frequency comparisons of pairs appearing 13 times."
+      },
+      {
+        "sentence_id": "ch02.s08.p04.r03",
+        "text": "Merging \"EST\" with the end-of-word marker encodes that \"EST\" is an ending sequence in this dataset.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell29",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell29",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not explain merging a token with an end-of-word marker to encode that it is an ending sequence; they instead discuss datasets, padding, and attention."
+      },
+      {
+        "sentence_id": "ch02.s08.p04.r04",
+        "text": "That distinction lets the tokenizer treat a word like \"highest\" differently from \"estimate\", where \"EST\" is not at the end.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell83",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell85",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Nothing in the provided excerpts discusses end-of-word-sensitive tokens allowing different treatment of words like \"highest\" vs \"estimate\" based on whether a subword occurs at the end."
+      },
+      {
+        "sentence_id": "ch02.s08.p04.r07",
+        "text": "That pair is merged into a new token, and then that token is merged with \"d\" to form another token that appears 10 times.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell67",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell33",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell66"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references discuss attention masks and token IDs generally, but do not describe any specific BPE merge sequence involving a pair merged then merged with \"d\" to yield a token appearing 10 times."
+      },
+      {
+        "sentence_id": "ch02.s08.p04.r08",
+        "text": "The token \"old\" captures a root shared by both \"old\" and \"older\", again preserving structure that word-level and character-level tokenization miss.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference snippet shown is about input examples with token IDs after tokenization; it does not discuss merges like \"old\" capturing a shared root with \"older\" or compare word/character tokenization structure."
+      },
+      {
+        "sentence_id": "ch02.s08.p04.r09",
+        "text": "By contrast, a frequent sequence that appears only inside one word, such as the beginning of \"finest\", is not a useful merge just because it repeats within that single word.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell81",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell120",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages do not discuss BPE merge utility criteria (e.g., rejecting merges that repeat only within a single word such as \"finest\")."
+      },
+      {
+        "sentence_id": "ch02.s08.p05.02",
+        "text": "Those final tokens serve as the vocabulary for later training steps such as vector embedding.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell28"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the references mention embedding dimensions and batching, they do not state that the final tokens from BPE (or tokenization) serve as the vocabulary for later steps such as vector embeddings."
+      },
+      {
+        "sentence_id": "ch02.s08.p05.04",
+        "text": "Compared with word-level encoding, this can reduce the number of tokens because related words like \"boy\" and \"boys\" do not both need separate full-word tokens.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell120",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell136",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss tokenization into tokens and token IDs and adding special tokens, but do not cover the claim that subword tokenization reduces token count vs word-level by avoiding separate full-word tokens for related forms like \"boy\"/\"boys\"."
+      },
+      {
+        "sentence_id": "ch02.s08.p06.r02",
+        "text": "Byte pair encoding helps solve the out-of-vocabulary problem because its vocabulary includes subwords and sometimes characters.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell76",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references explicitly state that BPE tokenizers break down unknown words into subwords and individual characters, enabling handling of out-of-vocabulary words."
+      },
+      {
+        "sentence_id": "ch02.s08.p06.r03",
+        "text": "A word-based tokenizer can fail on an unknown word, but a BPE tokenizer can still produce token IDs for it.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell50",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell49",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell15"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references include encode/decode usage and BPE handling unknown words, but do not explicitly contrast failure of a word-based tokenizer on unknown words versus BPE still producing token IDs in the cited snippets."
+      },
+      {
+        "sentence_id": "ch02.s08.p06.r04",
+        "text": "The underlying algorithm breaks words that are not in the predefined vocabulary into smaller subword units or even individual characters.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell13",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell70",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell76"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states GPT-2 BPE allows breaking down words not in the predefined vocabulary into smaller subword units or even individual characters."
+      },
+      {
+        "sentence_id": "ch02.s08.p06.r05",
+        "text": "Because of that, an unfamiliar word can be represented as a sequence of subword tokens or characters.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell57",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell70"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference gives an example of an OOV word tokenized into subword pieces, supporting that unfamiliar words can be represented as sequences of subword tokens/characters."
+      },
+      {
+        "sentence_id": "ch02.s08.p06.r06",
+        "text": "To encode such text, the tokenizer scans from left to right, breaks it into characters or subwords based on what exists in the vocabulary, and assigns each piece a token ID.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell142",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell50",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell76"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages state BPE breaks unknown words into subwords/characters and that tokenizers encode/decode to IDs, but do not describe the specific left-to-right scanning procedure and selection logic claimed."
+      },
+      {
+        "sentence_id": "ch02.s08.p06.r07",
+        "text": "That is why BPE does not need a special unknown token to deal with unseen words.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell52",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell76"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The references say it is useful to add special tokens for unknown words (e.g., \"<|unk|>\") to deal with cases where a word is not in the vocabulary, which conflicts with the claim that BPE does not need an unknown token."
+      },
+      {
+        "sentence_id": "ch02.s08.p06.r08",
+        "text": "The highlighted advantages are that it keeps the vocabulary from becoming too large, retains root-word meaning, and automatically deals with unknown words.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell52",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention adding unknown-word special tokens and discuss perplexity, but do not assert the combined set of advantages (smaller vocabulary, retains root-word meaning, automatically deals with unknown words) as stated."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch02.s08.p06.r07",
+        "text": "That is why BPE does not need a special unknown token to deal with unseen words.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell52",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell76"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The references say it is useful to add special tokens for unknown words (e.g., \"<|unk|>\") to deal with cases where a word is not in the vocabulary, which conflicts with the claim that BPE does not need an unknown token."
+      }
+    ]
+  }
+}

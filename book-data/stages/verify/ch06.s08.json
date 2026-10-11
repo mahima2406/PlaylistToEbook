@@ -1,0 +1,626 @@
+{
+  "stage": "verify",
+  "item": "ch06.s08",
+  "inputs_hash": "1f060a42c5264585a826407c12364250b8bd9204c9561e832ac0c8339bf71818",
+  "output_hash": "2a97bd9a538632e78da1004ea69f9a409e85ca053a0bb35598eb5dce1736f482",
+  "output": {
+    "section_id": "ch06.s08",
+    "paragraphs": [
+      {
+        "id": "ch06.s08.p01",
+        "sentences": [
+          {
+            "id": "ch06.s08.p01.01",
+            "text": "How does a model move from a freshly defined GPT architecture to a useful starting point for instruction fine-tuning?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s08.p01.02",
+            "text": "Loading a pre-trained LLM means taking the LLM architecture and filling it with weights that were trained earlier.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@94",
+              "__OiQznq4ao@98",
+              "__OiQznq4ao@101",
+              "__OiQznq4ao@337",
+              "__OiQznq4ao@340",
+              "__OiQznq4ao@728",
+              "__OiQznq4ao@733"
+            ]
+          },
+          {
+            "id": "ch06.s08.p01.03",
+            "text": "Those trainable parts include the query, key, and value weight matrices in multi-head attention, the weights in the feed-forward network, the scale and shift parameters in layer normalization, and the token and positional embedding layers.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@104",
+              "__OiQznq4ao@106",
+              "__OiQznq4ao@108",
+              "__OiQznq4ao@111",
+              "__OiQznq4ao@113",
+              "__OiQznq4ao@116",
+              "__OiQznq4ao@118",
+              "__OiQznq4ao@120",
+              "__OiQznq4ao@124",
+              "__OiQznq4ao@126",
+              "__OiQznq4ao@129"
+            ]
+          },
+          {
+            "id": "ch06.s08.p01.04",
+            "text": "When all of these trainable weights are added together, the model has more than 1 million or more than 100 million trainable parameters.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@130",
+              "__OiQznq4ao@133",
+              "__OiQznq4ao@134",
+              "__OiQznq4ao@136"
+            ]
+          },
+          {
+            "id": "ch06.s08.p01.05",
+            "text": "In pre-training, these parameters are trained on a huge amount of data.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@138",
+              "__OiQznq4ao@140",
+              "__OiQznq4ao@142"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s08.p02",
+        "sentences": [
+          {
+            "id": "ch06.s08.p02.r01",
+            "text": "OpenAI pre-trained GPT-2 on a huge amount of data, optimized its trainable weights, and released those weights publicly so that users can access and use them.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@145",
+              "__OiQznq4ao@149",
+              "__OiQznq4ao@152",
+              "__OiQznq4ao@155",
+              "__OiQznq4ao@158",
+              "__OiQznq4ao@160",
+              "__OiQznq4ao@161",
+              "__OiQznq4ao@164",
+              "__OiQznq4ao@165",
+              "__OiQznq4ao@167",
+              "__OiQznq4ao@170",
+              "__OiQznq4ao@172"
+            ]
+          },
+          {
+            "id": "ch06.s08.p02.r02",
+            "text": "Those GPT-2 weights were released for multiple model sizes, including 124 million, 345 million, 774 million, and 1558 million parameters, and they can be downloaded from folders corresponding to those parameter sizes.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@174",
+              "__OiQznq4ao@176",
+              "__OiQznq4ao@178",
+              "__OiQznq4ao@180",
+              "__OiQznq4ao@183",
+              "__OiQznq4ao@188",
+              "__OiQznq4ao@192",
+              "__OiQznq4ao@194",
+              "__OiQznq4ao@196"
+            ]
+          },
+          {
+            "id": "ch06.s08.p02.r03",
+            "text": "Before fine-tuning, these weights can be downloaded and reused because they already capture useful information, including semantic meaning in token embeddings, while training the whole network again from scratch would take much longer and require more computation.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@198",
+              "__OiQznq4ao@201",
+              "__OiQznq4ao@203",
+              "__OiQznq4ao@205",
+              "__OiQznq4ao@208",
+              "__OiQznq4ao@211",
+              "__OiQznq4ao@214",
+              "__OiQznq4ao@217",
+              "__OiQznq4ao@219",
+              "__OiQznq4ao@222",
+              "__OiQznq4ao@224",
+              "__OiQznq4ao@225",
+              "__OiQznq4ao@228",
+              "__OiQznq4ao@230",
+              "__OiQznq4ao@232",
+              "__OiQznq4ao@234",
+              "__OiQznq4ao@236"
+            ]
+          },
+          {
+            "id": "ch06.s08.p02.r04",
+            "text": "Reusing GPT-2 weights helps because the model starts from a much more knowledgeable state instead of a random initialization.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@241",
+              "__OiQznq4ao@244",
+              "__OiQznq4ao@247",
+              "__OiQznq4ao@248",
+              "__OiQznq4ao@251",
+              "__OiQznq4ao@253",
+              "__OiQznq4ao@257",
+              "__OiQznq4ao@259",
+              "__OiQznq4ao@261",
+              "__OiQznq4ao@269",
+              "__OiQznq4ao@273",
+              "__OiQznq4ao@283"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s08.p03",
+        "sentences": [
+          {
+            "id": "ch06.s08.p03.r01",
+            "text": "Before loading a pre-trained LLM, the workflow required downloading the dataset, converting it into the Alpaca prompt style, batching it, and creating data loaders.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@73",
+              "__OiQznq4ao@76",
+              "__OiQznq4ao@79",
+              "__OiQznq4ao@81",
+              "__OiQznq4ao@84",
+              "__OiQznq4ao@86",
+              "__OiQznq4ao@87"
+            ]
+          },
+          {
+            "id": "ch06.s08.p03.r02",
+            "text": "With the data pipeline in place, the next step is to load the model and continue from there.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s08.p03.r03",
+            "text": "The process is to load the pre-trained weights first and then train on the curated dataset using the training, testing, and validation data loaders.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@89",
+              "__OiQznq4ao@90",
+              "__OiQznq4ao@93",
+              "__OiQznq4ao@283",
+              "__OiQznq4ao@285",
+              "__OiQznq4ao@287",
+              "__OiQznq4ao@289",
+              "__OiQznq4ao@291",
+              "__OiQznq4ao@293",
+              "__OiQznq4ao@296"
+            ]
+          },
+          {
+            "id": "ch06.s08.p03.r04",
+            "text": "During fine-tuning, the weights loaded from GPT-2 still change, but starting from a knowledgeable state makes training on the specific dataset more efficient and lowers the computational time.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@298",
+              "__OiQznq4ao@300",
+              "__OiQznq4ao@302",
+              "__OiQznq4ao@303",
+              "__OiQznq4ao@306",
+              "__OiQznq4ao@308",
+              "__OiQznq4ao@310",
+              "__OiQznq4ao@311",
+              "__OiQznq4ao@313",
+              "__OiQznq4ao@316",
+              "__OiQznq4ao@318",
+              "__OiQznq4ao@320"
+            ]
+          },
+          {
+            "id": "ch06.s08.p03.r05",
+            "text": "Fine-tuning happens after pre-training because pre-training first brings the model to a knowledgeable state, and then training on a specific dataset further improves its weights and parameters.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@320",
+              "__OiQznq4ao@322",
+              "__OiQznq4ao@324",
+              "__OiQznq4ao@327",
+              "__OiQznq4ao@328",
+              "__OiQznq4ao@330",
+              "__OiQznq4ao@332",
+              "__OiQznq4ao@335"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s08.p04",
+        "sentences": [
+          {
+            "id": "ch06.s08.p04.r01",
+            "text": "For this instruction-following task, model size matters.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s08.p04.r02",
+            "text": "A pre-trained LLM by itself does not follow instructions very well, which is why it must be trained with a specific dataset.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@63",
+              "__OiQznq4ao@66",
+              "__OiQznq4ao@68",
+              "__OiQznq4ao@70"
+            ]
+          },
+          {
+            "id": "ch06.s08.p04.r03",
+            "text": "For this task, GPT-2 medium with 355 million parameters is used because the smaller 124 million parameter model did not perform very well.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@358",
+              "__OiQznq4ao@361",
+              "__OiQznq4ao@363",
+              "__OiQznq4ao@366",
+              "__OiQznq4ao@369",
+              "__OiQznq4ao@371",
+              "__OiQznq4ao@373",
+              "__OiQznq4ao@375",
+              "__OiQznq4ao@378",
+              "__OiQznq4ao@382",
+              "__OiQznq4ao@387",
+              "__OiQznq4ao@390",
+              "__OiQznq4ao@392"
+            ]
+          },
+          {
+            "id": "ch06.s08.p04.r04",
+            "text": "Using GPT-2 medium with 355 million parameters requires about 1.42 GB of storage space on the local machine.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@395",
+              "__OiQznq4ao@398",
+              "__OiQznq4ao@402",
+              "__OiQznq4ao@404",
+              "__OiQznq4ao@406"
+            ]
+          },
+          {
+            "id": "ch06.s08.p04.r05",
+            "text": "The GPT-2 medium configuration has context size 1024, 24 transformer blocks, and 16 attention heads in each transformer block.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@416",
+              "__OiQznq4ao@419",
+              "__OiQznq4ao@421",
+              "__OiQznq4ao@423",
+              "__OiQznq4ao@425",
+              "__OiQznq4ao@428",
+              "__OiQznq4ao@431",
+              "__OiQznq4ao@435",
+              "__OiQznq4ao@437"
+            ]
+          },
+          {
+            "id": "ch06.s08.p04.r06",
+            "text": "In the base configuration, the vocabulary size is 50,257, the context length is 1024, the dropout rate is zero, and the query-key-value bias is set to true.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@440",
+              "__OiQznq4ao@443",
+              "__OiQznq4ao@445",
+              "__OiQznq4ao@448",
+              "__OiQznq4ao@452",
+              "__OiQznq4ao@455",
+              "__OiQznq4ao@457",
+              "__OiQznq4ao@459",
+              "__OiQznq4ao@461"
+            ]
+          },
+          {
+            "id": "ch06.s08.p04.r07",
+            "text": "The value 50,257 is the vocabulary size on which GPT-2 was trained.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@463",
+              "__OiQznq4ao@467",
+              "__OiQznq4ao@469"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s08.p05",
+        "sentences": [
+          {
+            "id": "ch06.s08.p05.01",
+            "text": "The choice of size can be adjusted to the machine that will load the model.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s08.p05.02",
+            "text": "If a laptop has limited memory or processing speed, GPT-2 small with 124 million parameters can be used instead, and it should take about one-third to one-half as much time to load as GPT-2 medium.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@738",
+              "__OiQznq4ao@741",
+              "__OiQznq4ao@743",
+              "__OiQznq4ao@745",
+              "__OiQznq4ao@747",
+              "__OiQznq4ao@750",
+              "__OiQznq4ao@751",
+              "__OiQznq4ao@754",
+              "__OiQznq4ao@756"
+            ]
+          },
+          {
+            "id": "ch06.s08.p05.03",
+            "text": "If a laptop has high processing speed and GPU access, GPT-2 large or GPT-2 XL can be used, and they should give much better results than smaller models.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@759",
+              "__OiQznq4ao@761",
+              "__OiQznq4ao@763",
+              "__OiQznq4ao@766",
+              "__OiQznq4ao@768",
+              "__OiQznq4ao@771",
+              "__OiQznq4ao@772"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch06.s08.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s08.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch06.s08.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch06.s08.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch06.s08.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s08.p05.01": {
+        "verdict": "ok",
+        "confidence": 0.72,
+        "reason": ""
+      },
+      "ch06.s08.p05.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s08.p05.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s08.p02.r01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s08.p02.r02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s08.p02.r03": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch06.s08.p02.r04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch06.s08.p03.r01": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch06.s08.p03.r02": {
+        "verdict": "ok",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s08.p03.r03": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s08.p03.r04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s08.p03.r05": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch06.s08.p04.r01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s08.p04.r02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s08.p04.r03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s08.p04.r04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s08.p04.r05": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s08.p04.r06": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s08.p04.r07": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch06.s08.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s08.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch06.s08.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch06.s08.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch06.s08.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s08.p02.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.72,
+        "reason": "Connective sentence makes factual claims about GPT-2 weights giving direct access to a model already optimized on a large pre-training corpus; no citations provided."
+      },
+      "ch06.s08.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s08.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch06.s08.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s08.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s08.p03.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.7,
+        "reason": "Connective sentence asserts a factual relationship about fine-tuning building on (not replacing) the starting point; no citations provided."
+      },
+      "ch06.s08.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s08.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch06.s08.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch06.s08.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch06.s08.p04.01": {
+        "verdict": "ok",
+        "confidence": 0.77,
+        "reason": ""
+      },
+      "ch06.s08.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch06.s08.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s08.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s08.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s08.p04.06": {
+        "verdict": "partial",
+        "confidence": 0.78,
+        "reason": "The cited lines support vocab size 50257, context length 1024, dropout rate 0, and qkv bias=true, but they do not explicitly state that qkv bias is true specifically 'so that the bias terms are also initialized' (they say bias is initialized when initializing Q/K/V matrices, but not as a purpose statement)."
+      },
+      "ch06.s08.p04.07": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch06.s08.p05.01": {
+        "verdict": "ok",
+        "confidence": 0.72,
+        "reason": ""
+      },
+      "ch06.s08.p05.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s08.p05.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "ch06.s08.p02",
+      "ch06.s08.p03",
+      "ch06.s08.p04"
+    ],
+    "queue": []
+  }
+}

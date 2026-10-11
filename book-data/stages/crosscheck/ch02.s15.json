@@ -1,0 +1,434 @@
+{
+  "stage": "crosscheck",
+  "item": "ch02.s15",
+  "inputs_hash": "e8fcddce798fa63f2cc7d4ad2a19d31fcb87eb74f5fd48a9aeca43e9ca2431ca",
+  "output_hash": "ae73e3e863c9dff900dc46b9a371f62587929d5812835f1fa84fa926b0278908",
+  "output": {
+    "section_id": "ch02.s15",
+    "checked": 35,
+    "counts": {
+      "agrees": 19,
+      "contradicts": 0,
+      "not_covered": 16
+    },
+    "results": [
+      {
+        "sentence_id": "ch02.s15.p01.02",
+        "text": "Creating input-target pairs is an important part of realistic data preprocessing for large language models.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell56",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell65",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell68"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ch07 section on creating data loaders for an instruction dataset shows construction/inspection of input and target batches, consistent with the importance of creating input-target pairs in preprocessing."
+      },
+      {
+        "sentence_id": "ch02.s15.p01.03",
+        "text": "Large language models are trained to predict the next word from the preceding words.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell82",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ch02 explicitly states training is to generate one word at a time and that targets are inputs shifted by one position to predict the next word."
+      },
+      {
+        "sentence_id": "ch02.s15.p01.04",
+        "text": "For example, if the input is \"llm\", the next word is \"learn\"; if the input is \"llms learn\", the next word is \"to\"; if the input is \"llms learn to\", the next word is \"predict\"; and if the input is \"the llms learn to predict\", the next word is \"one\".",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell82"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References describe next-word prediction and shifted targets but do not provide or verify the specific example sequence ('llm'→'learn', etc.)."
+      },
+      {
+        "sentence_id": "ch02.s15.p01.05",
+        "text": "To represent this numerically, the preprocessing first chooses a context size.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell84"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ch02 code explicitly sets a context_size and then slices x and y based on it."
+      },
+      {
+        "sentence_id": "ch02.s15.p01.06",
+        "text": "Context size is the maximum length of the input that the large language model sees at one time, meaning the number of tokens it processes to predict the next word.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell82"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References describe setting max_length equal to the model’s supported context length and using those tokens as inputs for next-token prediction (targets shifted)."
+      },
+      {
+        "sentence_id": "ch02.s15.p02.r01",
+        "text": "Once the context size is fixed, the text sample is broken into input-output pairs based on that size.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell84",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell66",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell19"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ch02 shows that once context_size is set, the sample is sliced into an input sequence x of that size and a corresponding target y shifted by one token (an input-output pair based on that size)."
+      },
+      {
+        "sentence_id": "ch02.s15.p02.r02",
+        "text": "With the sample sequence \"one word at a time\", the model should predict \"word\" from \"one\", then \"at\" from \"one word\", then \"a\" from \"one word at\", and then \"time\" from \"one word at a\".",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell83",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell5"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References state the model generates one word at a time / predicts next word from preceding words, which matches the described stepwise predictions for the sample phrase."
+      },
+      {
+        "sentence_id": "ch02.s15.p02.r03",
+        "text": "One input-output pair therefore contains multiple prediction tasks.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell85",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell76"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ch02 indicates prediction happens ‘one by one’ across positions within a chunk, implying an (input,target) sequence pair corresponds to multiple next-token predictions."
+      },
+      {
+        "sentence_id": "ch02.s15.p02.r04",
+        "text": "In the four-token example, each pair contains four prediction tasks.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell115"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited cells about four input ids and embedding lookup do not establish that a four-token example yields four prediction tasks per pair (and typically next-token prediction over length 4 corresponds to 4 positions in the loss only if targets align that way; the reference here doesn’t state it)."
+      },
+      {
+        "sentence_id": "ch02.s15.p02.r05",
+        "text": "Before introducing token embeddings or positional embeddings, it is important to understand how data is loaded, how inputs and outputs are given to the model, and why context size and stride matter.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell130",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages show creating token and positional embeddings, but do not state that understanding data loading/context size/stride must come before introducing embeddings."
+      },
+      {
+        "sentence_id": "ch02.s15.p03.r01",
+        "text": "A PyTorch data loader can be used to create these input-target pairs with a sliding window approach.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell91",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell78",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell90"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ch02 section on data sampling with a sliding window explicitly describes a sliding window approach; this is typically implemented via a PyTorch-style dataset/dataloader pipeline and is consistent with the sentence."
+      },
+      {
+        "sentence_id": "ch02.s15.p03.r02",
+        "text": "The code reads the raw text, encodes it with the byte pair tokenizer from tiktoken, and prints that the encoded text has length 5145 tokens.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell71"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References show using tiktoken GPT-2 BPE tokenizer, but do not include the claimed printed tokenized length value of 5145 tokens."
+      },
+      {
+        "sentence_id": "ch02.s15.p03.r03",
+        "text": "The same input-output pairs can be viewed either as token ID sequences or as textual sequences that show the next-word targets.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell7",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references describe inputs/targets as token IDs (via encoding) and also explain, at the text level, that targets look like inputs shifted by one position to represent next-word prediction."
+      },
+      {
+        "sentence_id": "ch02.s15.p03.r04",
+        "text": "For example, one ID-based pair is described as \"290\" to \"4920\", then \"290\" and \"4920\" to \"2241\", and the textual version is shown with inputs such as \"and\" paired with \"established\" and \"and established\" paired with \"himself\".",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell99",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell63"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages do not mention the specific ID pairs (290→4920→2241) or the specific text example ('and'→'established'→'himself')."
+      },
+      {
+        "sentence_id": "ch02.s15.p03.r05",
+        "text": "To build the data loader, first encode the entire text into token IDs and then chunk the text into overlapping sequences.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell44",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell46",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell93"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The dataset code explicitly tokenizes the entire text into token IDs first, then uses a sliding window to chunk it into overlapping sequences."
+      },
+      {
+        "sentence_id": "ch02.s15.p04.r01",
+        "text": "Stride is how many positions the input window moves to create the next input sequence.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell42"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the cited passages define stride as the number of positions the window moves (though the dataset code uses a stride variable, this specific definition is not shown in the provided excerpt)."
+      },
+      {
+        "sentence_id": "ch02.s15.p04.r02",
+        "text": "When the stride is four, consecutive inputs do not overlap.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell62",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell115",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell36"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references shown do not state that stride=4 implies no overlap; the cited cells do not describe overlap behavior for that specific stride."
+      },
+      {
+        "sentence_id": "ch02.s15.p04.r03",
+        "text": "In that case, examples are described with a first input such as \"in the heart of\" and a second input such as \"the city stood the\".",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell25",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell97"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not include the specific example phrases 'in the heart of' and 'the city stood the' in the context of stride/no-overlap examples."
+      },
+      {
+        "sentence_id": "ch02.s15.p04.r04",
+        "text": "When the stride is one, consecutive inputs overlap, as in moving from \"in the heart of\" to \"the heart of the\".",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell18",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages do not discuss stride=1 overlap with the example 'in the heart of' → 'the heart of the'."
+      },
+      {
+        "sentence_id": "ch02.s15.p04.r05",
+        "text": "The method is called a sliding window approach because the input window slides by the stride amount to create the next input sequence.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell91",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell78",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell92"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Chapter 2 references explicitly describe using a sliding window approach and changing the position (e.g., by +1), consistent with the idea that the window slides by the stride amount to create the next sequence."
+      },
+      {
+        "sentence_id": "ch02.s15.p04.r06",
+        "text": "The final tensors created by this process are input IDs and target IDs.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell93",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell49",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell26"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The GPTDatasetV1 code builds and stores two tensors/lists: self.input_ids and self.target_ids, indicating the final outputs of the process are inputs and corresponding targets."
+      },
+      {
+        "sentence_id": "ch02.s15.p05.01",
+        "text": "In this setup, each row of the input tensor is one input to the large language model, and the corresponding row of the target tensor is the matching output.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell25"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references describe inputs as multiple training examples arranged in rows (two examples/rows) and corresponding targets for those inputs; this is consistent with each row being an input example with a matching target row."
+      },
+      {
+        "sentence_id": "ch02.s15.p05.02",
+        "text": "Corresponding rows therefore form input-output pairs: the first row of tensor \"X\" matches the first row of tensor \"Y\", the second row matches the second row, and so on.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell53",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell140"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited chapter 3 cells discuss row-wise normalization and attention-related matrices, not the row-wise pairing relationship between tensors X and Y for input-target data."
+      },
+      {
+        "sentence_id": "ch02.s15.p05.03",
+        "text": "The target tensor is the input tensor shifted by one word because the model is trained to predict the next word.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell82",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references explicitly state that because we predict the next word, the targets are the inputs shifted by one position."
+      },
+      {
+        "sentence_id": "ch02.s15.p05.04",
+        "text": "To construct the tensors, the code loops over the token IDs using the context length and stride, appends each input chunk to the input ID tensor, and appends the corresponding target chunk to the target ID tensor.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell93",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch02/01_main-chapter-code/dataloader.ipynb#cell5"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The GPTDatasetV1 code tokenizes the text, loops over token_ids with range(0, len(token_ids)-max_length, stride), slices an input_chunk of length max_length and a target_chunk shifted by 1, and appends them to self.input_ids and self.target_ids."
+      },
+      {
+        "sentence_id": "ch02.s15.p05.05",
+        "text": "An input chunk is the group of token IDs in one context window, and a target chunk is that same chunk shifted by one position.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell82",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell93",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell85"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states that targets are inputs shifted by one position to predict the next word, matching input_chunk as one context window and target_chunk as the one-step-shifted version."
+      },
+      {
+        "sentence_id": "ch02.s15.p05.06",
+        "text": "As the code runs, each iteration appends one row to the input tensor and the corresponding row to the target tensor, and looping over the whole text produces all training inputs and outputs.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell18"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "In the dataset construction loop, each iteration adds one input sequence and its corresponding shifted target sequence; iterating across the text produces the set of training input/target sequences."
+      },
+      {
+        "sentence_id": "ch02.s15.p06.01",
+        "text": "After the input-output pairs are created, the dataset is passed to a data loader, which processes the dataset and generates input-output batches from the input and output tensors.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell65",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell92"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The chapter 2 reference indicates creating a dataset and dataloader to extract chunks; this is consistent with passing the dataset to a DataLoader to produce batches of input/target tensors."
+      },
+      {
+        "sentence_id": "ch02.s15.p06.02",
+        "text": "Batch size is how many input-output pairs are processed at one time before updating the parameters, which is the same notion of batch size used in other machine learning frameworks.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell83"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references include loss computation on a batch and general batching usage, but they do not explicitly define batch size as the number of input-output pairs processed before a parameter update or compare it to other frameworks."
+      },
+      {
+        "sentence_id": "ch02.s15.p06.03",
+        "text": "A batch size of one means one input-output pair is processed before a parameter update, while a batch size of four means four input-output pairs are processed before updating the parameters.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell65"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the cited passages explicitly states the relationship between batch size (1 vs 4) and the timing of parameter updates; they show examples of multiple inputs and batch loss computation but not update frequency semantics."
+      },
+      {
+        "sentence_id": "ch02.s15.p06.04",
+        "text": "The number of workers specifies how many CPU threads are used to split the code for parallel processing.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell6",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not discuss DataLoader num_workers or CPU threads/parallel splitting behavior."
+      },
+      {
+        "sentence_id": "ch02.s15.p06.05",
+        "text": "With a batch size of eight, the model parameters are updated only after the entire batch is processed.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell95",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell38"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited code shows computing loss on a batch and iterating through loaders, but it does not state that parameters are updated only after an entire batch of size 8 is processed."
+      },
+      {
+        "sentence_id": "ch02.s15.p06.06",
+        "text": "In the shown batch example, the input has eight inputs and the output has eight rows, where each row corresponds to an input-output pair.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell120",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell25",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages do not show an example with batch size 8 producing 8 input rows and 8 output rows; the shown batch example in ch03 is batch size 2 and discusses row conventions generally."
+      },
+      {
+        "sentence_id": "ch02.s15.p06.07",
+        "text": "The input data is arranged in batches of eight with a context length of four, so each batch contains eight sequences of four tokens each.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell127",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell39"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly states that with batch size 8 and 4 tokens each (context length 4), the embedded batch tensor has shape 8 x 4 x 256, implying each batch contains eight sequences of four tokens."
+      },
+      {
+        "sentence_id": "ch02.s15.p06.08",
+        "text": "Each input-output pair in that example contains four words in the input and four next-word prediction targets in the output, so each pair has four prediction tasks.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell115",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell95"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the references discuss next-word prediction and shifting targets, they do not explicitly state that with context length 4 each input-output pair contains four targets (i.e., four prediction tasks) in that specific example."
+      }
+    ],
+    "conflicts": []
+  }
+}

@@ -1,0 +1,566 @@
+{
+  "stage": "crosscheck",
+  "item": "ch03.s08",
+  "inputs_hash": "4ef699ab999933f3573c67db6a68fe38049fb2a8e3b593bae43b20688ed6b50f",
+  "output_hash": "db14e023d8f136f2f558b03c58ae87665b3f95db6564d738f0c95a3488ce87e7",
+  "output": {
+    "section_id": "ch03.s08",
+    "checked": 44,
+    "counts": {
+      "agrees": 21,
+      "contradicts": 2,
+      "not_covered": 21
+    },
+    "results": [
+      {
+        "sentence_id": "ch03.s08.p01.r02",
+        "text": "Dropout is a deep learning technique where you take a neural network and randomly switch neurons in different layers to zero.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell39",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell43"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references discuss activation functions and implementing a feedforward module, but do not define dropout as randomly switching neurons to zero."
+      },
+      {
+        "sentence_id": "ch03.s08.p01.r03",
+        "text": "A simple way to think about dropout is that it prevents a lazy-neuron or codependency problem: if one neuron relies on others to do most of the work, switching those others off forces it to participate.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell29"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference passage is about dataset padding in SpamDataset and does not discuss dropout’s purpose or the lazy-neuron/codependency intuition."
+      },
+      {
+        "sentence_id": "ch03.s08.p01.r05",
+        "text": "In transformer architectures, including GPT, dropout in the attention mechanism is usually applied either after calculating attention scores or after applying attention weights to the value vectors.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell112",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell21"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly says dropout can be applied after computing attention weights or after multiplying attention weights with value vectors."
+      },
+      {
+        "sentence_id": "ch03.s08.p01.r06",
+        "text": "A more common choice is to apply dropout after calculating the attention weights or attention scores rather than after forming the context vector.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell112",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell21",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell95"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states applying the dropout mask after computing attention weights is more common, compared to applying it later (e.g., after multiplying by value vectors)."
+      },
+      {
+        "sentence_id": "ch03.s08.p02.r01",
+        "text": "For causal attention, dropout is applied by first creating a dropout mask that specifies what neurons need to be randomly turned off.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell112",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell115",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell122"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference describes applying a dropout mask (via torch.nn.Dropout) in the attention setting, i.e., randomly masking attention weights during training."
+      },
+      {
+        "sentence_id": "ch03.s08.p02.r02",
+        "text": "With dropout probability 0.5, on average 50% of the attention weights in each row are turned off.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell112",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell115",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explains that a dropout rate of 50% means randomly masking out half of the attention weights (on average)."
+      },
+      {
+        "sentence_id": "ch03.s08.p02.r03",
+        "text": "This operates row by row by randomly zeroing out some elements with the chosen probability.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell53",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the reference shows row-wise normalization of attention weights, it does not state that dropout operates row-by-row when applied."
+      },
+      {
+        "sentence_id": "ch03.s08.p02.r04",
+        "text": "To illustrate this in Python, PyTorch dropout with rate 0.5 is first applied to a 6 by 6 tensor of ones before it is applied to the attention weight matrix.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell115",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell112",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell114"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The code example applies Dropout(0.5) to a 6x6 tensor of ones as an illustration, in the section discussing applying dropout to attention weights."
+      },
+      {
+        "sentence_id": "ch03.s08.p02.r05",
+        "text": "When dropout with rate 0.5 is applied, the weights that are not switched off are rescaled by a factor of two.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell114",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell112",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell115"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states that with dropout rate 0.5, non-dropped values are scaled by 1/0.5 = 2."
+      },
+      {
+        "sentence_id": "ch03.s08.p02.r06",
+        "text": "Because dropout is probabilistic, an exact number of weights need not be switched off in every row, but over many rows the average matches the dropout rate.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell115",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell114",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell112"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references describe masking half the weights and show an example, but they do not explicitly discuss probabilistic variation per row and convergence to the average over many rows."
+      },
+      {
+        "sentence_id": "ch03.s08.p02.r07",
+        "text": "Applied to an attention weight matrix at rate 50%, dropout randomly sets about half of the elements to zero and scales the remaining elements up by a factor of two.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell114",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell112",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell46"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states dropout at 50% masks about half the attention weights and scales the remaining values by a factor of 2."
+      },
+      {
+        "sentence_id": "ch03.s08.p02.r08",
+        "text": "In PyTorch dropout, outputs are scaled by a factor of 1 divided by 1 minus p.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell114",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell115",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell64"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference gives the scaling formula as 1/(1 - dropout_rate), which matches 1/(1-p) for PyTorch dropout."
+      },
+      {
+        "sentence_id": "ch03.s08.p02.r09",
+        "text": "That scaling maintains the overall balance of the attention weights so that the average influence of the attention mechanism remains consistent during training and inference.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell122",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference mentions scaled dot-product attention and scaling by sqrt(d_k), but does not state that scaling maintains overall balance so average influence remains consistent during training and inference."
+      },
+      {
+        "sentence_id": "ch03.s08.p03.01",
+        "text": "The same dropout layer can then be applied directly to the final attention weight matrix by creating a dropout class instance with input argument 0.5 and applying it to that matrix.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell115",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell112"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference shows creating torch.nn.Dropout(0.5) and applying it to a matrix (example of ones; also applied to attn_weights), consistent with applying a dropout layer instance directly to the attention weight matrix."
+      },
+      {
+        "sentence_id": "ch03.s08.p03.02",
+        "text": "After dropout is applied, some attention weights are randomly set to zero and the remaining weights are scaled up.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell112",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell21",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell116"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference demonstrates dropout on attention weights and describes masking out half the weights; PyTorch dropout also scales remaining non-dropped elements, consistent with 'set to zero and remaining scaled up.'"
+      },
+      {
+        "sentence_id": "ch03.s08.p03.03",
+        "text": "The causal attention class follows the earlier self-attention structure but adds causal masking and dropout.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell118",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell97",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell111"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference section describes implementing self-attention including causal and dropout masks in a compact CausalAttention class, consistent with adding causal masking and dropout to the earlier structure."
+      },
+      {
+        "sentence_id": "ch03.s08.p03.04",
+        "text": "Its computation is: multiply the inputs by the query, key, and value weight matrices to obtain queries, keys, and values; multiply queries by keys transpose to get attention scores; replace elements above the diagonal with negative infinity; scale by the square root of the dimension; apply dropout and softmax to obtain attention weights; and multiply those attention weights by the values to get the context vector matrix.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell101",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference indicates scaling of attention scores occurs before softmax, but it does not support 'replace elements above the diagonal with negative infinity' (it describes multiplying by a mask to zero out scores above the diagonal), and it does not support applying dropout before softmax (it describes applying dropout after computing attention weights, i.e., after softmax)."
+      },
+      {
+        "sentence_id": "ch03.s08.p04.01",
+        "text": "The class also needs to handle multiple sentences at once as batches.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell31",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell126",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell119"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly states an additional implementation step is to handle batches with more than one input so CausalAttention supports batch outputs."
+      },
+      {
+        "sentence_id": "ch03.s08.p04.02",
+        "text": "A simple batch is formed with two inputs so that the model receives a tensor containing two sequences, each of shape 6 by 3.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell120",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell62",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference code stacks two copies of inputs and comments that the resulting batch shape is (2, 6, 3): 2 sequences, 6 tokens each, embedding dimension 3."
+      },
+      {
+        "sentence_id": "ch03.s08.p04.03",
+        "text": "This batched input is a 3D tensor of two input texts with six tokens each, where each token has a three-dimensional embedding vector.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell127",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell63",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference for cell120 indicates the stacked batch is a 3D tensor representing two inputs with six tokens each and 3D embeddings per token."
+      },
+      {
+        "sentence_id": "ch03.s08.p04.04",
+        "text": "With batching, the input shape becomes batch size by number of tokens by embedding dimension, unlike the earlier self-attention version without batches.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell66",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell38"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the references show batched tensors exist (e.g., batch with shape (2,6,3)), they do not explicitly contrast the batched shape (B,T,d) with an earlier non-batched self-attention version in the cited passages."
+      },
+      {
+        "sentence_id": "ch03.s08.p04.05",
+        "text": "The batched computation still multiplies the input by the key, query, and value weight matrices to obtain keys, queries, and values, and then multiplies queries by the transpose of keys.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell98",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell72",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided reference snippet shows non-batched computation (queries = W_query(inputs); attn_scores = queries @ keys.T) and does not show or describe the batched version performing the same operations."
+      },
+      {
+        "sentence_id": "ch03.s08.p04.06",
+        "text": "In the transpose operation with dimensions 1 and 2, the focus is on the token dimensions inside each batch.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell38",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell117"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not discuss a transpose operation with dimensions 1 and 2, nor explain that it targets token dimensions within each batch."
+      },
+      {
+        "sentence_id": "ch03.s08.p04.07",
+        "text": "Using \"keys.transpose(1, 2)\" makes the matrix multiplication possible within each batch.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell48"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not mention using keys.transpose(1, 2) specifically or explain it as enabling matrix multiplication within each batch."
+      },
+      {
+        "sentence_id": "ch03.s08.p04.08",
+        "text": "This transpose preserves the batch rows while transposing the matrix inside each batch.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell38",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell127"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references discuss batch tensor shapes (e.g., 8×4×256) and show batching in model forward passes, but they do not describe or show a specific transpose operation that preserves batch rows while transposing matrices within each batch."
+      },
+      {
+        "sentence_id": "ch03.s08.p04.09",
+        "text": "When queries are multiplied by the transposed keys, each batch is processed separately and the resulting attention score matrices are stacked together.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell75",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell98"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show dot products and a 2D computation (queries @ keys.T) and a single-example dot product, but do not cover the batched case where each batch is processed separately and score matrices are stacked."
+      },
+      {
+        "sentence_id": "ch03.s08.p05.r02",
+        "text": "Here, the upper triangular mask has ones above the diagonal and zeros below the diagonal.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell99",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell101",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell106"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference explicitly describes using torch.tril to create a mask with 1s on/below the diagonal and 0s above; the sentence claims an upper-triangular mask with 1s above and 0s below."
+      },
+      {
+        "sentence_id": "ch03.s08.p05.r03",
+        "text": "In causal attention, positions marked by ones in that upper triangular mask are replaced with negative infinity in the attention scores matrix.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell106",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell101",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell97"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states that a more efficient approach is to mask the unnormalized attention scores above the diagonal with negative infinity before softmax; this corresponds to replacing positions indicated by the (upper-triangular) causal mask with -inf."
+      },
+      {
+        "sentence_id": "ch03.s08.p05.r04",
+        "text": "After masking, the scores are divided by the square root of the key dimension and softmax is applied to obtain the attention weight matrix.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states attention scores are scaled by dividing by sqrt(d_k) and then softmax is used to obtain attention weights."
+      },
+      {
+        "sentence_id": "ch03.s08.p05.r05",
+        "text": "After softmax, the rows of the attention weight matrix sum to one with the causal mask applied.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell104",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell103",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell101"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explains softmax produces rows summing to 1 and that masking after softmax disrupts this, requiring renormalization; applying the causal mask appropriately (before or with subsequent renormalization) yields rows summing to 1."
+      },
+      {
+        "sentence_id": "ch03.s08.p05.r06",
+        "text": "Then dropout is applied to the attention weights, the context vector is computed as attention weights multiplied by values, and that context vector is returned.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell38"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention computing context vectors from attention weights and inputs/values, but do not cover applying dropout to attention weights and returning the context vector in the described combined sequence."
+      },
+      {
+        "sentence_id": "ch03.s08.p06.r01",
+        "text": "In the worked example, the context length is taken as batch.shape[1], which is 6 for the given batch.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell38",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85",
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell14"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show context_length is set to max_length and batch is input_embeddings, but do not state that context length is taken as batch.shape[1] nor that it equals 6 for a specific batch."
+      },
+      {
+        "sentence_id": "ch03.s08.p06.r02",
+        "text": "The causal attention class is instantiated with input dimension D_in = 3, output dimension D_out = 2, context length 6, and dropout rate 0.0.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell133",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell121"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference shows the CausalAttention constructor signature and that a mask is created with torch.triu(..., diagonal=1), and separately discusses using d_out=2 in a multihead context, but it does not specify an instantiation with d_in=3, d_out=2, context_length=6, dropout=0.0."
+      },
+      {
+        "sentence_id": "ch03.s08.p06.r03",
+        "text": "Passing the stacked batch into this class produces a 3D output tensor of shape 2 × 6 × 2, because each of the two inputs yields a 6 × 2 context vector matrix.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell120",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell127"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference shows a batch constructed with shape corresponding to 2 inputs × 6 tokens × 3 embedding dim, but does not show passing it through CausalAttention and obtaining an output of shape 2×6×2."
+      },
+      {
+        "sentence_id": "ch03.s08.p06.r04",
+        "text": "Printing the context vectors shows that the first 6 × 2 matrix corresponds to the first input and the second 6 × 2 matrix corresponds to the second input, stacked together.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell140",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss batched/head-wise matrix multiplication behavior and show printing per-head matrices, but do not show printing context vectors as two stacked 6×2 matrices corresponding to two batch elements."
+      },
+      {
+        "sentence_id": "ch03.s08.p06.r05",
+        "text": "That confirms that the implemented causal attention class can handle batches.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell119",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell118",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell104"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly states an additional implementation goal is to handle batches of more than one input so that CausalAttention supports batch outputs, indicating the class can handle batches."
+      },
+      {
+        "sentence_id": "ch03.s08.p07.02",
+        "text": "A buffer is useful for fixed tensors such as the causal mask that do not need to be trained.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell94",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell29",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell104"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references discuss causal masking and training, but do not mention PyTorch buffers or using them for fixed, non-trainable tensors like a causal mask."
+      },
+      {
+        "sentence_id": "ch03.s08.p07.03",
+        "text": "Using \"register_buffer\" for fixed matrices like the mask causes them to move automatically with the model to the appropriate device, such as CPU or GPU.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell70",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell59",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell85"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss moving models/data to devices (CPU/GPU/MPS) and device settings, but do not mention `register_buffer` or its behavior of moving with the model."
+      },
+      {
+        "sentence_id": "ch03.s08.p07.04",
+        "text": "Defining fixed, untrained tensors with \"register_buffer\" is more convenient because it avoids manually ensuring that they are on the same device as the model parameters and helps prevent device mismatch errors.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell71",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell60",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell121"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show manual device selection and `.to(device)` usage, but do not cover `register_buffer` or claims about avoiding device mismatch errors via buffers."
+      },
+      {
+        "sentence_id": "ch03.s08.p07.05",
+        "text": "Slicing the mask by the number of tokens ensures that if a batch has fewer tokens than the supported context size, the mask is created only up to the actual number of tokens.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell87",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited reference shows cropping the input context (`idx[:, -context_size:]`) during generation, but it does not describe slicing an attention mask by number of tokens or mask construction behavior for shorter batches."
+      },
+      {
+        "sentence_id": "ch03.s08.p07.06",
+        "text": "Taken together, this class applies a causal attention mask so that elements above the diagonal are set to zero, uses softmax so each row of attention weights sums to one, and includes dropout for generalizability and to prevent overfitting.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell101",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell99",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell106"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references describe causal masking (upper-triangular future positions masked), applying softmax/renormalization so attention weights sum to 1, and discuss masking scores with -inf before softmax; this is consistent with a class that applies causal masking and softmax normalization (and dropout is referenced as part of causal/dropout masks in the attention summary)."
+      },
+      {
+        "sentence_id": "ch03.s08.p07.07",
+        "text": "Stacking multiple causal attention heads together leads to multi-head attention, which is what GPT implements.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell125",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell126",
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell8"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references explicitly state that stacking multiple single-head attention modules yields multi-head attention, and discuss this as the multi-head attention idea used in GPT-like models."
+      },
+      {
+        "sentence_id": "ch03.s08.p07.08",
+        "text": "To understand multi-head attention, it is necessary first to understand causal attention, and causal attention in turn depends on understanding keys, queries, and values.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell97",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell130",
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell8"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references present causal self-attention first and then build multi-head attention by wrapping/deriving it, and they explicitly reference W_query, W_key, and W_value in the multi-head formulation, supporting the dependency chain described."
+      },
+      {
+        "sentence_id": "ch03.s08.p07.09",
+        "text": "Understanding dimensions, batches, three-dimensional tensors, matrices, and linear algebra fundamentals is therefore important for understanding how attention works.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell6",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell7",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell10"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention high-dimensional embeddings and difficulty visualizing many dimensions, but do not state that understanding batches/3D tensors/matrices/linear algebra fundamentals is important for understanding attention."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch03.s08.p03.04",
+        "text": "Its computation is: multiply the inputs by the query, key, and value weight matrices to obtain queries, keys, and values; multiply queries by keys transpose to get attention scores; replace elements above the diagonal with negative infinity; scale by the square root of the dimension; apply dropout and softmax to obtain attention weights; and multiply those attention weights by the values to get the context vector matrix.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell101",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference indicates scaling of attention scores occurs before softmax, but it does not support 'replace elements above the diagonal with negative infinity' (it describes multiplying by a mask to zero out scores above the diagonal), and it does not support applying dropout before softmax (it describes applying dropout after computing attention weights, i.e., after softmax)."
+      },
+      {
+        "sentence_id": "ch03.s08.p05.r02",
+        "text": "Here, the upper triangular mask has ones above the diagonal and zeros below the diagonal.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell99",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell101",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell106"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference explicitly describes using torch.tril to create a mask with 1s on/below the diagonal and 0s above; the sentence claims an upper-triangular mask with 1s above and 0s below."
+      }
+    ]
+  }
+}

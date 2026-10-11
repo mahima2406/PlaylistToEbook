@@ -1,0 +1,307 @@
+{
+  "stage": "crosscheck",
+  "item": "ch05.s02",
+  "inputs_hash": "9d4de0500b86299341d151aa1069e4d66bc86e258a42c85b0427ca4e82ab1d8e",
+  "output_hash": "2146786f48376911aad2e70b0ce0fc8bf9dcb962fde4e30f4df7ec6953cddf4c",
+  "output": {
+    "section_id": "ch05.s02",
+    "checked": 22,
+    "counts": {
+      "agrees": 6,
+      "contradicts": 2,
+      "not_covered": 14
+    },
+    "results": [
+      {
+        "sentence_id": "ch05.s02.p01.02",
+        "text": "Because the GPT-2 weights were originally saved via TensorFlow while the code used so far is in PyTorch, this setup installs TensorFlow and the \"tqdm\" library.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell128",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell132",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell2"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly states OpenAI used TensorFlow so TensorFlow must be installed/used to load weights, and identifies tqdm as the progress bar library; the package list includes both."
+      },
+      {
+        "sentence_id": "ch05.s02.p01.03",
+        "text": "TensorFlow should be version 2.15 or higher, and \"tqdm\" should be version 4.66 or higher.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell130",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell2",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell3"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show printing TensorFlow and tqdm versions but do not specify minimum required versions like TensorFlow>=2.15 or tqdm>=4.66."
+      },
+      {
+        "sentence_id": "ch05.s02.p01.04",
+        "text": "After importing both libraries, the code prints the installed TensorFlow version and the installed \"tqdm\" version on the system.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell130",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell128",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell2"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "A reference cell prints the installed TensorFlow and tqdm versions via importlib.metadata.version."
+      },
+      {
+        "sentence_id": "ch05.s02.p01.06",
+        "text": "Before the weights can be integrated with the GPT architecture, a number of preprocessing steps are still required.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell109",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell61",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell6"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided passages discuss preprocessing for classification and general architecture notes, but do not state that preprocessing steps are required before integrating pretrained weights with the GPT architecture."
+      },
+      {
+        "sentence_id": "ch05.s02.p02.02",
+        "text": "OpenAI made GPT-2 weights public for models with 124 million, 355 million, 774 million, and 1558 million parameters.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell9",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell87"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention 124M and 355M GPT-2 variants but do not list the full set of public GPT-2 sizes (124M, 355M, 774M, 1558M)."
+      },
+      {
+        "sentence_id": "ch05.s02.p02.03",
+        "text": "The settings shown here correspond to the smallest GPT-2 model.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell77",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell99",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell66"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No cited passage shows the specific settings in question or ties them to the smallest GPT-2 model."
+      },
+      {
+        "sentence_id": "ch05.s02.p02.04",
+        "text": "For simplicity, the model loaded here is the 124 million parameter version rather than the larger 355 million, 774 million, or 1.5 billion parameter releases.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell9",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell87"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference states they load the medium 355M model instead of the smallest 124M model; S7 claims they load 124M for simplicity."
+      },
+      {
+        "sentence_id": "ch05.s02.p02.05",
+        "text": "This 124 million parameter model has 12 transformer blocks.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell9",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell143"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages do not state the number of transformer blocks for the 124M model (e.g., 12)."
+      },
+      {
+        "sentence_id": "ch05.s02.p02.06",
+        "text": "As GPT-2 models become more complex, the number of transformer blocks increases.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell143",
+          "ref:ch05/01_main-chapter-code/gpt_generate.py",
+          "ref:ch06/01_main-chapter-code/previous_chapters.py"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references show iterating over blocks in loaded parameters but do not state or compare how the number of blocks changes with model size."
+      },
+      {
+        "sentence_id": "ch05.s02.p02.07",
+        "text": "The same loading code can also be run for the larger GPT-2 architectures.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell10",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell72"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference notes that chapter 7 loads a pretrained GPT model using the same code as earlier sections, implying the loading approach is reused for different GPT(-2) setups."
+      },
+      {
+        "sentence_id": "ch05.s02.p03.02",
+        "text": "The file \"gpt_download3.py\" contains three functions: the main function \"download_and_load_gpt2\" and the helper functions \"download_file\" and \"load_gpt2_params_from_tf_checkpoint\".",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell131",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell133",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell44"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references import from gpt_download.py but do not mention a file named gpt_download3.py or enumerate its functions."
+      },
+      {
+        "sentence_id": "ch05.s02.p03.03",
+        "text": "The main function performs two jobs: it first downloads the seven GPT-2 files to the local computer, and then it calls the TensorFlow checkpoint-loading function.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell113",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell76",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No referenced passage describes the main function’s internal steps (downloading seven files and calling the TensorFlow checkpoint loader)."
+      },
+      {
+        "sentence_id": "ch05.s02.p03.04",
+        "text": "That second step stores the extracted parameters in a dictionary called \"params\".",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell74",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell78",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell66"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The referenced cells discuss counting model parameters and input embedding sizes; they do not describe a step that stores extracted parameters in a dictionary named \"params\"."
+      },
+      {
+        "sentence_id": "ch05.s02.p03.05",
+        "text": "In the download step, the code specifies a URL, calls the download function, fetches the seven files, and saves them on the local machine.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell131",
+          "ref:ch05/01_main-chapter-code/gpt_download.py",
+          "ref:ch06/01_main-chapter-code/gpt_download.py"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show importing a download function and part of its definition, but they do not show the code specifying a URL, downloading exactly seven files, and saving them locally."
+      },
+      {
+        "sentence_id": "ch05.s02.p03.06",
+        "text": "The \"checkpoint\" file defines the model checkpoint path, meaning the path where the current GPT-2 parameters and weights are stored.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell13",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell10",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell53"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the provided references mention a GPT-2 \"checkpoint\" file that defines a model checkpoint path; the shown code relates to downloading spam data, downloading a text file, or loading JSON."
+      },
+      {
+        "sentence_id": "ch05.s02.p03.07",
+        "text": "After downloading, the code uses TensorFlow's latest checkpoint utility to search the model directory, find the checkpoint entry, and identify where the model parameters are stored.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell124",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell118",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell68"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference shows loading a PyTorch checkpoint directly via torch.load(\"model_and_optimizer.pth\") and then loading state_dicts; it does not use TensorFlow's latest_checkpoint utility to search a directory for checkpoint entries."
+      },
+      {
+        "sentence_id": "ch05.s02.p03.08",
+        "text": "The purpose of \"load_gpt2_params_from_tf_checkpoint\" is to extract parameter values from the TensorFlow checkpoint and convert them into the \"params\" dictionary.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell135",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell44",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell78"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show that a \"params\" dictionary exists and is returned by download_and_load_gpt2, but they do not mention a function named load_gpt2_params_from_tf_checkpoint or describe its purpose."
+      },
+      {
+        "sentence_id": "ch05.s02.p04.02",
+        "text": "The notebook imports \"download_and_load_gpt2\" from the Python file and then runs that function.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell131",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell44",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell133"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The notebook imports download_and_load_gpt2 from gpt_download and calls it (e.g., settings, params = download_and_load_gpt2(...))."
+      },
+      {
+        "sentence_id": "ch05.s02.p04.03",
+        "text": "Running it requires two arguments: the model size and the directory.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell112",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell137",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell67"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The call sites show download_and_load_gpt2 invoked with model_size and models_dir, and the function signature is download_and_load_gpt2(model_size, models_dir)."
+      },
+      {
+        "sentence_id": "ch05.s02.p04.04",
+        "text": "The model size can also be set to 355 million, 774 million, or 1558 million, and experimentation with these options is encouraged.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell87",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell9"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention using 355M and discuss model size differences, but do not state that 774M or 1558M can be set or that experimentation with these options is encouraged (though another snippet elsewhere notes supported sizes, it doesn't include the encouragement claim)."
+      },
+      {
+        "sentence_id": "ch05.s02.p04.05",
+        "text": "After the function runs, it returns both the \"settings\" dictionary and the \"params\" dictionary.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell135",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell109",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell11"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference shows unpacking two return values (settings, params = download_and_load_gpt2(...)), consistent with returning both dictionaries."
+      },
+      {
+        "sentence_id": "ch05.s02.p04.06",
+        "text": "This download-and-load stage is the most time-consuming part, taking about 5 to 10 minutes for roughly 500 megabytes in the example, and better internet connectivity helps the process complete smoothly.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell77",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell89",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell98"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references time training loops, not the GPT-2 download-and-load stage, and they do not mention 5–10 minutes, ~500MB, or that internet connectivity affects download smoothness."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch05.s02.p02.04",
+        "text": "For simplicity, the model loaded here is the 124 million parameter version rather than the larger 355 million, 774 million, or 1.5 billion parameter releases.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell9",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell87"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference states they load the medium 355M model instead of the smallest 124M model; S7 claims they load 124M for simplicity."
+      },
+      {
+        "sentence_id": "ch05.s02.p03.07",
+        "text": "After downloading, the code uses TensorFlow's latest checkpoint utility to search the model directory, find the checkpoint entry, and identify where the model parameters are stored.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell124",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell118",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell68"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference shows loading a PyTorch checkpoint directly via torch.load(\"model_and_optimizer.pth\") and then loading state_dicts; it does not use TensorFlow's latest_checkpoint utility to search a directory for checkpoint entries."
+      }
+    ]
+  }
+}

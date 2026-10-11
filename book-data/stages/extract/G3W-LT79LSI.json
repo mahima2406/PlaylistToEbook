@@ -1,0 +1,1376 @@
+{
+  "stage": "extract",
+  "item": "G3W-LT79LSI",
+  "inputs_hash": "ea64fdfb9a1064c094796e43f46cfc1324718fe83ae388a8745db65aa17c2630",
+  "output_hash": "1032fd8381d0b4323ffd7d28bd0f822cd151d51ee719e5fc5f344be767d0fb09",
+  "output": {
+    "video_id": "G3W-LT79LSI",
+    "points": [
+      {
+        "id": "G3W-LT79LSI:p001",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The transformer block includes layer normalization, masked multi-head attention, dropout, shortcut connections, another layer normalization, a feed-forward neural network, another dropout layer, and another shortcut connection.",
+        "line_ids": [
+          "G3W-LT79LSI@66",
+          "G3W-LT79LSI@68",
+          "G3W-LT79LSI@70",
+          "G3W-LT79LSI@72",
+          "G3W-LT79LSI@75",
+          "G3W-LT79LSI@77",
+          "G3W-LT79LSI@80",
+          "G3W-LT79LSI@81",
+          "G3W-LT79LSI@83",
+          "G3W-LT79LSI@86"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p002",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Layer normalization appears at multiple places within the transformer block and also outside the transformer block in the GPT architecture.",
+        "line_ids": [
+          "G3W-LT79LSI@148",
+          "G3W-LT79LSI@150",
+          "G3W-LT79LSI@152",
+          "G3W-LT79LSI@155",
+          "G3W-LT79LSI@157",
+          "G3W-LT79LSI@159",
+          "G3W-LT79LSI@161",
+          "G3W-LT79LSI@163",
+          "G3W-LT79LSI@166",
+          "G3W-LT79LSI@168",
+          "G3W-LT79LSI@170"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p003",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 2,
+        "text": "It makes sense to define layer normalization as a separate class when coding GPT because it is used both inside the transformer block and again after the transformer output.",
+        "line_ids": [
+          "G3W-LT79LSI@174",
+          "G3W-LT79LSI@176",
+          "G3W-LT79LSI@177",
+          "G3W-LT79LSI@217",
+          "G3W-LT79LSI@219",
+          "G3W-LT79LSI@221",
+          "G3W-LT79LSI@226",
+          "G3W-LT79LSI@228",
+          "G3W-LT79LSI@230",
+          "G3W-LT79LSI@261",
+          "G3W-LT79LSI@263",
+          "G3W-LT79LSI@265",
+          "G3W-LT79LSI@271",
+          "G3W-LT79LSI@273",
+          "G3W-LT79LSI@275",
+          "G3W-LT79LSI@277",
+          "G3W-LT79LSI@279"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p004",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Layer normalization is important because it improves the stability and efficiency of training deep neural networks.",
+        "line_ids": [
+          "G3W-LT79LSI@296",
+          "G3W-LT79LSI@298",
+          "G3W-LT79LSI@300",
+          "G3W-LT79LSI@303",
+          "G3W-LT79LSI@305",
+          "G3W-LT79LSI@307",
+          "G3W-LT79LSI@326",
+          "G3W-LT79LSI@328",
+          "G3W-LT79LSI@349",
+          "G3W-LT79LSI@352",
+          "G3W-LT79LSI@355",
+          "G3W-LT79LSI@358"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p005",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Training deep neural networks with many layers can be challenging because they can suffer from vanishing gradients or exploding gradients, which causes unstable training dynamics.",
+        "line_ids": [
+          "G3W-LT79LSI@333",
+          "G3W-LT79LSI@335",
+          "G3W-LT79LSI@337",
+          "G3W-LT79LSI@340",
+          "G3W-LT79LSI@343",
+          "G3W-LT79LSI@345"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p006",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 3,
+        "text": "If a layer's output is too large or too small, the gradient magnitudes can also become too large or too small.",
+        "line_ids": [
+          "G3W-LT79LSI@433",
+          "G3W-LT79LSI@436",
+          "G3W-LT79LSI@437",
+          "G3W-LT79LSI@439",
+          "G3W-LT79LSI@442",
+          "G3W-LT79LSI@445",
+          "G3W-LT79LSI@447",
+          "G3W-LT79LSI@449"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p007",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 2,
+        "text": "If a gradient becomes too large during backpropagation, repeated multiplication can make earlier-layer gradients explode.",
+        "line_ids": [
+          "G3W-LT79LSI@450",
+          "G3W-LT79LSI@451",
+          "G3W-LT79LSI@453",
+          "G3W-LT79LSI@455",
+          "G3W-LT79LSI@457",
+          "G3W-LT79LSI@460",
+          "G3W-LT79LSI@462",
+          "G3W-LT79LSI@464",
+          "G3W-LT79LSI@466",
+          "G3W-LT79LSI@468",
+          "G3W-LT79LSI@470",
+          "G3W-LT79LSI@472"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p008",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 2,
+        "text": "If a gradient becomes very small during backpropagation, earlier-layer gradients become very small, parameter updates become negligible, and learning stagnates.",
+        "line_ids": [
+          "G3W-LT79LSI@473",
+          "G3W-LT79LSI@475",
+          "G3W-LT79LSI@478",
+          "G3W-LT79LSI@480",
+          "G3W-LT79LSI@482",
+          "G3W-LT79LSI@483",
+          "G3W-LT79LSI@485",
+          "G3W-LT79LSI@487",
+          "G3W-LT79LSI@489",
+          "G3W-LT79LSI@491",
+          "G3W-LT79LSI@494",
+          "G3W-LT79LSI@496"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p009",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Both very small gradients and very large gradients lead to unstable training dynamics.",
+        "line_ids": [
+          "G3W-LT79LSI@498",
+          "G3W-LT79LSI@501",
+          "G3W-LT79LSI@503",
+          "G3W-LT79LSI@505",
+          "G3W-LT79LSI@508"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p010",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 3,
+        "text": "By controlling the magnitude of layer outputs, layer normalization helps keep gradient magnitudes from becoming too large or too small, which leads to stable training dynamics.",
+        "line_ids": [
+          "G3W-LT79LSI@511",
+          "G3W-LT79LSI@512",
+          "G3W-LT79LSI@515",
+          "G3W-LT79LSI@517",
+          "G3W-LT79LSI@518",
+          "G3W-LT79LSI@523",
+          "G3W-LT79LSI@525",
+          "G3W-LT79LSI@527",
+          "G3W-LT79LSI@540",
+          "G3W-LT79LSI@542",
+          "G3W-LT79LSI@544"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p011",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Internal covariate shift is the problem that, as training proceeds, the input distribution seen by a layer changes from one iteration to another.",
+        "line_ids": [
+          "G3W-LT79LSI@567",
+          "G3W-LT79LSI@569",
+          "G3W-LT79LSI@571",
+          "G3W-LT79LSI@573",
+          "G3W-LT79LSI@575",
+          "G3W-LT79LSI@577",
+          "G3W-LT79LSI@580",
+          "G3W-LT79LSI@582",
+          "G3W-LT79LSI@583",
+          "G3W-LT79LSI@585",
+          "G3W-LT79LSI@588",
+          "G3W-LT79LSI@590"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p012",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Changing input distributions at each layer make training difficult, make weight updates harder, and delay convergence to an optimal solution.",
+        "line_ids": [
+          "G3W-LT79LSI@592",
+          "G3W-LT79LSI@594",
+          "G3W-LT79LSI@596",
+          "G3W-LT79LSI@598",
+          "G3W-LT79LSI@600",
+          "G3W-LT79LSI@603",
+          "G3W-LT79LSI@605",
+          "G3W-LT79LSI@608"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p013",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Layer normalization helps reduce internal covariate shift by fixing the mean and standard deviation of each layer's outputs, which accelerates convergence.",
+        "line_ids": [
+          "G3W-LT79LSI@611",
+          "G3W-LT79LSI@613",
+          "G3W-LT79LSI@614",
+          "G3W-LT79LSI@617",
+          "G3W-LT79LSI@619",
+          "G3W-LT79LSI@621",
+          "G3W-LT79LSI@623",
+          "G3W-LT79LSI@625",
+          "G3W-LT79LSI@629",
+          "G3W-LT79LSI@631",
+          "G3W-LT79LSI@633"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p014",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The two main reasons for using layer normalization are to stabilize training by preventing vanishing or exploding gradients and to reduce internal covariate shift so convergence is faster.",
+        "line_ids": [
+          "G3W-LT79LSI@635",
+          "G3W-LT79LSI@637",
+          "G3W-LT79LSI@639",
+          "G3W-LT79LSI@642",
+          "G3W-LT79LSI@644",
+          "G3W-LT79LSI@646",
+          "G3W-LT79LSI@649",
+          "G3W-LT79LSI@651",
+          "G3W-LT79LSI@654",
+          "G3W-LT79LSI@656",
+          "G3W-LT79LSI@658"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p015",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 1,
+        "text": "Layer normalization is used not only in GPT and LLM architectures but also very frequently in many deep learning architectures.",
+        "line_ids": [
+          "G3W-LT79LSI@661",
+          "G3W-LT79LSI@663",
+          "G3W-LT79LSI@666",
+          "G3W-LT79LSI@667",
+          "G3W-LT79LSI@669",
+          "G3W-LT79LSI@672"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p016",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The main idea of layer normalization is to take the outputs of a specific layer and adjust them so that they have mean zero and variance one.",
+        "line_ids": [
+          "G3W-LT79LSI@672",
+          "G3W-LT79LSI@676",
+          "G3W-LT79LSI@680",
+          "G3W-LT79LSI@683",
+          "G3W-LT79LSI@685",
+          "G3W-LT79LSI@687",
+          "G3W-LT79LSI@689",
+          "G3W-LT79LSI@691"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p017",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "equation",
+        "importance": 2,
+        "text": "In the example, the mean of four layer outputs is computed as (X1 + X2 + X3 + X4) / 4, which equals 2.15.",
+        "line_ids": [
+          "G3W-LT79LSI@701",
+          "G3W-LT79LSI@705",
+          "G3W-LT79LSI@711",
+          "G3W-LT79LSI@715",
+          "G3W-LT79LSI@717",
+          "G3W-LT79LSI@719",
+          "G3W-LT79LSI@722",
+          "G3W-LT79LSI@726"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p018",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "equation",
+        "importance": 2,
+        "text": "In the example, the variance is computed as one fourth of the sum of the squared differences between each output and the mean.",
+        "line_ids": [
+          "G3W-LT79LSI@728",
+          "G3W-LT79LSI@731",
+          "G3W-LT79LSI@734",
+          "G3W-LT79LSI@737",
+          "G3W-LT79LSI@740",
+          "G3W-LT79LSI@743",
+          "G3W-LT79LSI@746"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p019",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To normalize layer outputs, subtract the mean from each output and divide by the square root of the variance, which is the standard deviation.",
+        "line_ids": [
+          "G3W-LT79LSI@748",
+          "G3W-LT79LSI@750",
+          "G3W-LT79LSI@753",
+          "G3W-LT79LSI@755",
+          "G3W-LT79LSI@757",
+          "G3W-LT79LSI@758",
+          "G3W-LT79LSI@762",
+          "G3W-LT79LSI@765",
+          "G3W-LT79LSI@768",
+          "G3W-LT79LSI@770",
+          "G3W-LT79LSI@774",
+          "G3W-LT79LSI@777"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p020",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 3,
+        "text": "After normalization, the normalized values have mean zero.",
+        "line_ids": [
+          "G3W-LT79LSI@779",
+          "G3W-LT79LSI@782",
+          "G3W-LT79LSI@784",
+          "G3W-LT79LSI@787",
+          "G3W-LT79LSI@789",
+          "G3W-LT79LSI@794",
+          "G3W-LT79LSI@799"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p021",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 3,
+        "text": "After normalization, the normalized values have variance one.",
+        "line_ids": [
+          "G3W-LT79LSI@799",
+          "G3W-LT79LSI@801",
+          "G3W-LT79LSI@803",
+          "G3W-LT79LSI@806",
+          "G3W-LT79LSI@809",
+          "G3W-LT79LSI@812",
+          "G3W-LT79LSI@815",
+          "G3W-LT79LSI@817",
+          "G3W-LT79LSI@819",
+          "G3W-LT79LSI@824",
+          "G3W-LT79LSI@826"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p022",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Layer normalization adjusts the outputs of every neural network layer to have mean zero and variance one, and this helps stabilize training and reduce internal covariate shift.",
+        "line_ids": [
+          "G3W-LT79LSI@830",
+          "G3W-LT79LSI@833",
+          "G3W-LT79LSI@834",
+          "G3W-LT79LSI@837",
+          "G3W-LT79LSI@839",
+          "G3W-LT79LSI@842",
+          "G3W-LT79LSI@844",
+          "G3W-LT79LSI@846"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p023",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In GPT and modern transformer architectures, layer normalization is applied before multi-head attention, before the neural network module inside the transformer block, and once more outside the transformer block.",
+        "line_ids": [
+          "G3W-LT79LSI@858",
+          "G3W-LT79LSI@862",
+          "G3W-LT79LSI@863",
+          "G3W-LT79LSI@865",
+          "G3W-LT79LSI@868",
+          "G3W-LT79LSI@870",
+          "G3W-LT79LSI@872",
+          "G3W-LT79LSI@875",
+          "G3W-LT79LSI@878",
+          "G3W-LT79LSI@880",
+          "G3W-LT79LSI@882",
+          "G3W-LT79LSI@884",
+          "G3W-LT79LSI@886",
+          "G3W-LT79LSI@888",
+          "G3W-LT79LSI@890",
+          "G3W-LT79LSI@894",
+          "G3W-LT79LSI@899"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p024",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Layer normalization appears three times in the architecture being discussed: around the multi-head attention module and once before the final output layer.",
+        "line_ids": [
+          "G3W-LT79LSI@900",
+          "G3W-LT79LSI@902",
+          "G3W-LT79LSI@904",
+          "G3W-LT79LSI@907",
+          "G3W-LT79LSI@920",
+          "G3W-LT79LSI@923"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p025",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "Layer normalization is performed by subtracting the mean from each layer output and dividing by the square root of the variance.",
+        "line_ids": [
+          "G3W-LT79LSI@949",
+          "G3W-LT79LSI@952",
+          "G3W-LT79LSI@954",
+          "G3W-LT79LSI@956",
+          "G3W-LT79LSI@958",
+          "G3W-LT79LSI@960"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p026",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 3,
+        "text": "After layer normalization, the normalized outputs have mean zero and variance one.",
+        "line_ids": [
+          "G3W-LT79LSI@965",
+          "G3W-LT79LSI@967",
+          "G3W-LT79LSI@968",
+          "G3W-LT79LSI@970"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p027",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "To illustrate layer normalization in code, the lecturer first applies it to a simple neural network and then builds a separate layer normalization class to integrate into the GPT architecture.",
+        "line_ids": [
+          "G3W-LT79LSI@981",
+          "G3W-LT79LSI@982",
+          "G3W-LT79LSI@984",
+          "G3W-LT79LSI@986",
+          "G3W-LT79LSI@988",
+          "G3W-LT79LSI@990",
+          "G3W-LT79LSI@992",
+          "G3W-LT79LSI@994"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p028",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In the example, the input tensor has shape 2 by 5 because there are two batches and each batch has five inputs.",
+        "line_ids": [
+          "G3W-LT79LSI@1033",
+          "G3W-LT79LSI@1035",
+          "G3W-LT79LSI@1037",
+          "G3W-LT79LSI@1040",
+          "G3W-LT79LSI@1044",
+          "G3W-LT79LSI@1082",
+          "G3W-LT79LSI@1084",
+          "G3W-LT79LSI@1087",
+          "G3W-LT79LSI@1089"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p029",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The example network layer takes five inputs and produces six outputs, so the output tensor has shape 2 by 6, with one row of six outputs for each batch.",
+        "line_ids": [
+          "G3W-LT79LSI@1057",
+          "G3W-LT79LSI@1059",
+          "G3W-LT79LSI@1063",
+          "G3W-LT79LSI@1065",
+          "G3W-LT79LSI@1068",
+          "G3W-LT79LSI@1070",
+          "G3W-LT79LSI@1074",
+          "G3W-LT79LSI@1076",
+          "G3W-LT79LSI@1126",
+          "G3W-LT79LSI@1128",
+          "G3W-LT79LSI@1130",
+          "G3W-LT79LSI@1133"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p030",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The example neural network consists of a linear layer followed by a ReLU activation function.",
+        "line_ids": [
+          "G3W-LT79LSI@1182",
+          "G3W-LT79LSI@1184",
+          "G3W-LT79LSI@1186",
+          "G3W-LT79LSI@1188"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p031",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "definition",
+        "importance": 2,
+        "text": "The ReLU activation function outputs x when x is positive and outputs zero when x is negative.",
+        "line_ids": [
+          "G3W-LT79LSI@1196",
+          "G3W-LT79LSI@1199",
+          "G3W-LT79LSI@1201",
+          "G3W-LT79LSI@1204"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p032",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In layer normalization, the normalization is applied separately to each batch by replacing each output value with that output minus the batch mean divided by the square root of the batch variance.",
+        "line_ids": [
+          "G3W-LT79LSI@1211",
+          "G3W-LT79LSI@1213",
+          "G3W-LT79LSI@1223",
+          "G3W-LT79LSI@1225",
+          "G3W-LT79LSI@1227",
+          "G3W-LT79LSI@1233",
+          "G3W-LT79LSI@1237",
+          "G3W-LT79LSI@1244",
+          "G3W-LT79LSI@1250",
+          "G3W-LT79LSI@1263",
+          "G3W-LT79LSI@1266",
+          "G3W-LT79LSI@1279",
+          "G3W-LT79LSI@1281",
+          "G3W-LT79LSI@1283"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p033",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In code, the mean is computed with dimension equal to minus one to take the mean across the columns for each batch.",
+        "line_ids": [
+          "G3W-LT79LSI@1292",
+          "G3W-LT79LSI@1294",
+          "G3W-LT79LSI@1296",
+          "G3W-LT79LSI@1299",
+          "G3W-LT79LSI@1301",
+          "G3W-LT79LSI@1304",
+          "G3W-LT79LSI@1306",
+          "G3W-LT79LSI@1308"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p034",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Using keepdim equal to true preserves the mean as a 2 by 1 matrix instead of reducing it to a vector, which helps keep dimensions aligned for later calculations.",
+        "line_ids": [
+          "G3W-LT79LSI@1311",
+          "G3W-LT79LSI@1313",
+          "G3W-LT79LSI@1315",
+          "G3W-LT79LSI@1317",
+          "G3W-LT79LSI@1319",
+          "G3W-LT79LSI@1322",
+          "G3W-LT79LSI@1324",
+          "G3W-LT79LSI@1329",
+          "G3W-LT79LSI@1331",
+          "G3W-LT79LSI@1343",
+          "G3W-LT79LSI@1345",
+          "G3W-LT79LSI@1350",
+          "G3W-LT79LSI@1352",
+          "G3W-LT79LSI@1355",
+          "G3W-LT79LSI@1357",
+          "G3W-LT79LSI@1359"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p035",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The variance is also computed across the columns for both batches with keepdim equal to true.",
+        "line_ids": [
+          "G3W-LT79LSI@1366",
+          "G3W-LT79LSI@1368",
+          "G3W-LT79LSI@1370",
+          "G3W-LT79LSI@1372",
+          "G3W-LT79LSI@1374"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p036",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 2,
+        "text": "If keepdim equal to true is not used, subtracting the mean from each individual element later can cause problems.",
+        "line_ids": [
+          "G3W-LT79LSI@1414",
+          "G3W-LT79LSI@1416",
+          "G3W-LT79LSI@1418",
+          "G3W-LT79LSI@1420",
+          "G3W-LT79LSI@1422"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p037",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The main normalization step in code is to subtract the mean tensor from the output tensor and divide by the square root of the variance.",
+        "line_ids": [
+          "G3W-LT79LSI@1443",
+          "G3W-LT79LSI@1445",
+          "G3W-LT79LSI@1448",
+          "G3W-LT79LSI@1449",
+          "G3W-LT79LSI@1453",
+          "G3W-LT79LSI@1455",
+          "G3W-LT79LSI@1457",
+          "G3W-LT79LSI@1465",
+          "G3W-LT79LSI@1466",
+          "G3W-LT79LSI@1468"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p038",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 3,
+        "text": "After normalization in the example, the mean of each batch is approximately zero and the variance of each batch is one.",
+        "line_ids": [
+          "G3W-LT79LSI@1486",
+          "G3W-LT79LSI@1488",
+          "G3W-LT79LSI@1491",
+          "G3W-LT79LSI@1493",
+          "G3W-LT79LSI@1495",
+          "G3W-LT79LSI@1500",
+          "G3W-LT79LSI@1505",
+          "G3W-LT79LSI@1507",
+          "G3W-LT79LSI@1509",
+          "G3W-LT79LSI@1511",
+          "G3W-LT79LSI@1513",
+          "G3W-LT79LSI@1515"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p039",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Very small nonzero mean values after normalization are due to numerical errors in Python and can be treated as zero.",
+        "line_ids": [
+          "G3W-LT79LSI@1521",
+          "G3W-LT79LSI@1524",
+          "G3W-LT79LSI@1528",
+          "G3W-LT79LSI@1531"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p040",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 1,
+        "text": "Turning off scientific notation in the printed output makes the normalized means appear as zero and the variances appear as one for both batches.",
+        "line_ids": [
+          "G3W-LT79LSI@1537",
+          "G3W-LT79LSI@1539",
+          "G3W-LT79LSI@1547",
+          "G3W-LT79LSI@1549",
+          "G3W-LT79LSI@1551",
+          "G3W-LT79LSI@1553",
+          "G3W-LT79LSI@1555",
+          "G3W-LT79LSI@1557",
+          "G3W-LT79LSI@1559"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p041",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The layer normalization class takes the output of a layer as input and applies normalization to it.",
+        "line_ids": [
+          "G3W-LT79LSI@1564",
+          "G3W-LT79LSI@1567",
+          "G3W-LT79LSI@1571",
+          "G3W-LT79LSI@1573",
+          "G3W-LT79LSI@1576",
+          "G3W-LT79LSI@1580"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p042",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In the GPT setting, layer normalization is applied by taking the mean and variance across the embedding dimension for each row, which corresponds to each token embedding.",
+        "line_ids": [
+          "G3W-LT79LSI@1617",
+          "G3W-LT79LSI@1619",
+          "G3W-LT79LSI@1622",
+          "G3W-LT79LSI@1624",
+          "G3W-LT79LSI@1639",
+          "G3W-LT79LSI@1641",
+          "G3W-LT79LSI@1643",
+          "G3W-LT79LSI@1647",
+          "G3W-LT79LSI@1650",
+          "G3W-LT79LSI@1652",
+          "G3W-LT79LSI@1655",
+          "G3W-LT79LSI@1657",
+          "G3W-LT79LSI@1659",
+          "G3W-LT79LSI@1661"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p043",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 2,
+        "text": "For GPT-2 in this lecture, the embedding size is 768.",
+        "line_ids": [
+          "G3W-LT79LSI@1624",
+          "G3W-LT79LSI@1629",
+          "G3W-LT79LSI@1635"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p044",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The embedding dimension must be passed when creating the layer normalization class because the trainable scale and shift parameters have sizes determined by the embedding dimension.",
+        "line_ids": [
+          "G3W-LT79LSI@1668",
+          "G3W-LT79LSI@1671",
+          "G3W-LT79LSI@1673",
+          "G3W-LT79LSI@1675",
+          "G3W-LT79LSI@1677",
+          "G3W-LT79LSI@1679",
+          "G3W-LT79LSI@1681",
+          "G3W-LT79LSI@1684",
+          "G3W-LT79LSI@1686",
+          "G3W-LT79LSI@1688",
+          "G3W-LT79LSI@1691",
+          "G3W-LT79LSI@1692"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p045",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Normalization does not change dimensions, so the output of layer normalization has the same dimensions as its input.",
+        "line_ids": [
+          "G3W-LT79LSI@1693",
+          "G3W-LT79LSI@1696",
+          "G3W-LT79LSI@1698",
+          "G3W-LT79LSI@1700",
+          "G3W-LT79LSI@1702",
+          "G3W-LT79LSI@1704",
+          "G3W-LT79LSI@1706"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p046",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In the forward method of the layer normalization class, the model takes the mean across columns, takes the variance across columns, subtracts the mean, and divides by the square root of the variance.",
+        "line_ids": [
+          "G3W-LT79LSI@1713",
+          "G3W-LT79LSI@1715",
+          "G3W-LT79LSI@1716",
+          "G3W-LT79LSI@1718",
+          "G3W-LT79LSI@1720",
+          "G3W-LT79LSI@1722",
+          "G3W-LT79LSI@1725",
+          "G3W-LT79LSI@1731",
+          "G3W-LT79LSI@1733",
+          "G3W-LT79LSI@1744",
+          "G3W-LT79LSI@1746",
+          "G3W-LT79LSI@1749"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p047",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Epsilon is a small constant added to the variance to prevent division by zero during normalization.",
+        "line_ids": [
+          "G3W-LT79LSI@1751",
+          "G3W-LT79LSI@1753",
+          "G3W-LT79LSI@1756",
+          "G3W-LT79LSI@1757",
+          "G3W-LT79LSI@1759",
+          "G3W-LT79LSI@1761",
+          "G3W-LT79LSI@1763",
+          "G3W-LT79LSI@1766"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p048",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 3,
+        "text": "After the normalization step, the output is further transformed using trainable scale and shift parameters.",
+        "line_ids": [
+          "G3W-LT79LSI@1770",
+          "G3W-LT79LSI@1772",
+          "G3W-LT79LSI@1774",
+          "G3W-LT79LSI@1776"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p049",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The scale and shift are trainable parameters with the same dimension as the input, and the model adjusts them during training if doing so improves performance on the training task.",
+        "line_ids": [
+          "G3W-LT79LSI@1779",
+          "G3W-LT79LSI@1782",
+          "G3W-LT79LSI@1784",
+          "G3W-LT79LSI@1786",
+          "G3W-LT79LSI@1787",
+          "G3W-LT79LSI@1789",
+          "G3W-LT79LSI@1792",
+          "G3W-LT79LSI@1794",
+          "G3W-LT79LSI@1797",
+          "G3W-LT79LSI@1799",
+          "G3W-LT79LSI@1801",
+          "G3W-LT79LSI@1804",
+          "G3W-LT79LSI@1805"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p050",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The scale and shift in layer normalization are trainable parameters that act like adjustable knobs to fine-tune the normalization.",
+        "line_ids": [
+          "G3W-LT79LSI@1810",
+          "G3W-LT79LSI@1812",
+          "G3W-LT79LSI@1815",
+          "G3W-LT79LSI@1817",
+          "G3W-LT79LSI@1819",
+          "G3W-LT79LSI@1822",
+          "G3W-LT79LSI@1825",
+          "G3W-LT79LSI@1827",
+          "G3W-LT79LSI@1828",
+          "G3W-LT79LSI@1830",
+          "G3W-LT79LSI@1832",
+          "G3W-LT79LSI@1834"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p051",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The scale and shift vectors have the embedding dimension so they can be applied to the normalized output by element-wise multiplication and element-wise addition.",
+        "line_ids": [
+          "G3W-LT79LSI@1837",
+          "G3W-LT79LSI@1841",
+          "G3W-LT79LSI@1843",
+          "G3W-LT79LSI@1847",
+          "G3W-LT79LSI@1849",
+          "G3W-LT79LSI@1851",
+          "G3W-LT79LSI@1855",
+          "G3W-LT79LSI@1858",
+          "G3W-LT79LSI@1861",
+          "G3W-LT79LSI@1863",
+          "G3W-LT79LSI@1865",
+          "G3W-LT79LSI@1867"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p052",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The epsilon parameter in layer normalization is set to a small value such as 10^-5.",
+        "line_ids": [
+          "G3W-LT79LSI@1867",
+          "G3W-LT79LSI@1870",
+          "G3W-LT79LSI@1873"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p053",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The main step in layer normalization is to take each row of the input, subtract its mean, and divide by the square root of its variance.",
+        "line_ids": [
+          "G3W-LT79LSI@1873",
+          "G3W-LT79LSI@1875",
+          "G3W-LT79LSI@1877",
+          "G3W-LT79LSI@1879",
+          "G3W-LT79LSI@1881",
+          "G3W-LT79LSI@1883"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p054",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 3,
+        "text": "After layer normalization, the mean of each resulting row is zero and the standard deviation is one.",
+        "line_ids": [
+          "G3W-LT79LSI@1883",
+          "G3W-LT79LSI@1885",
+          "G3W-LT79LSI@1888",
+          "G3W-LT79LSI@1890",
+          "G3W-LT79LSI@1892"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p055",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Setting unbiased to true in the variance calculation applies Bessel's correction, which divides by n minus 1 instead of n.",
+        "line_ids": [
+          "G3W-LT79LSI@1912",
+          "G3W-LT79LSI@1915",
+          "G3W-LT79LSI@1917",
+          "G3W-LT79LSI@1919",
+          "G3W-LT79LSI@1922",
+          "G3W-LT79LSI@1924",
+          "G3W-LT79LSI@1926",
+          "G3W-LT79LSI@1928",
+          "G3W-LT79LSI@1931",
+          "G3W-LT79LSI@1933",
+          "G3W-LT79LSI@1935",
+          "G3W-LT79LSI@1937"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p056",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In large language models, using n instead of n minus 1 for variance makes little practical difference because the embedding dimension is large.",
+        "line_ids": [
+          "G3W-LT79LSI@1959",
+          "G3W-LT79LSI@1960",
+          "G3W-LT79LSI@1962",
+          "G3W-LT79LSI@1964",
+          "G3W-LT79LSI@1965"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p057",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Using n minus 1 instead of n in the sample variance formula gives an unbiased variance estimate.",
+        "line_ids": [
+          "G3W-LT79LSI@1968",
+          "G3W-LT79LSI@1971",
+          "G3W-LT79LSI@1974",
+          "G3W-LT79LSI@1976",
+          "G3W-LT79LSI@1978",
+          "G3W-LT79LSI@1981",
+          "G3W-LT79LSI@1984"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p058",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 3,
+        "text": "For this implementation, setting unbiased to false works well and is chosen for compatibility with GPT-2 normalization layers and TensorFlow's default behavior used in the original GPT-2 model.",
+        "line_ids": [
+          "G3W-LT79LSI@1984",
+          "G3W-LT79LSI@1987",
+          "G3W-LT79LSI@1989",
+          "G3W-LT79LSI@1992",
+          "G3W-LT79LSI@1994",
+          "G3W-LT79LSI@1996",
+          "G3W-LT79LSI@2000",
+          "G3W-LT79LSI@2003",
+          "G3W-LT79LSI@2004",
+          "G3W-LT79LSI@2007",
+          "G3W-LT79LSI@2010",
+          "G3W-LT79LSI@2011"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p059",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "code",
+        "importance": 2,
+        "text": "The lecturer creates an instance of the layer normalization class by passing in the embedding dimension, which is set to five for the batch example.",
+        "line_ids": [
+          "G3W-LT79LSI@2014",
+          "G3W-LT79LSI@2016",
+          "G3W-LT79LSI@2018",
+          "G3W-LT79LSI@2020",
+          "G3W-LT79LSI@2022",
+          "G3W-LT79LSI@2024",
+          "G3W-LT79LSI@2028",
+          "G3W-LT79LSI@2030",
+          "G3W-LT79LSI@2032",
+          "G3W-LT79LSI@2034",
+          "G3W-LT79LSI@2037",
+          "G3W-LT79LSI@2039",
+          "G3W-LT79LSI@2041",
+          "G3W-LT79LSI@2044"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p060",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "code",
+        "importance": 3,
+        "text": "The batch example is passed through the layer normalization layer, which computes the mean and variance across the dimensions, subtracts the mean, and divides by the square root of the variance.",
+        "line_ids": [
+          "G3W-LT79LSI@2056",
+          "G3W-LT79LSI@2059",
+          "G3W-LT79LSI@2061",
+          "G3W-LT79LSI@2062",
+          "G3W-LT79LSI@2064",
+          "G3W-LT79LSI@2067",
+          "G3W-LT79LSI@2069",
+          "G3W-LT79LSI@2071",
+          "G3W-LT79LSI@2073",
+          "G3W-LT79LSI@2075"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p061",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "code",
+        "importance": 3,
+        "text": "In the printed batch example, layer normalization is applied separately to each batch item by subtracting that item's mean from its elements and dividing its elements by the square root of that item's variance.",
+        "line_ids": [
+          "G3W-LT79LSI@2083",
+          "G3W-LT79LSI@2084",
+          "G3W-LT79LSI@2085",
+          "G3W-LT79LSI@2092",
+          "G3W-LT79LSI@2095",
+          "G3W-LT79LSI@2099",
+          "G3W-LT79LSI@2101",
+          "G3W-LT79LSI@2103",
+          "G3W-LT79LSI@2105",
+          "G3W-LT79LSI@2107",
+          "G3W-LT79LSI@2110",
+          "G3W-LT79LSI@2112"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p062",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The output of the layer normalization code has mean zero and variance one for both batch items, showing that the code works as expected.",
+        "line_ids": [
+          "G3W-LT79LSI@2114",
+          "G3W-LT79LSI@2116",
+          "G3W-LT79LSI@2118",
+          "G3W-LT79LSI@2121",
+          "G3W-LT79LSI@2123",
+          "G3W-LT79LSI@2124",
+          "G3W-LT79LSI@2127",
+          "G3W-LT79LSI@2129",
+          "G3W-LT79LSI@2131",
+          "G3W-LT79LSI@2133",
+          "G3W-LT79LSI@2136",
+          "G3W-LT79LSI@2139",
+          "G3W-LT79LSI@2141",
+          "G3W-LT79LSI@2143"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p063",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Layer normalization and batch normalization are very different from each other.",
+        "line_ids": [
+          "G3W-LT79LSI@2216",
+          "G3W-LT79LSI@2218",
+          "G3W-LT79LSI@2221",
+          "G3W-LT79LSI@2223",
+          "G3W-LT79LSI@2225",
+          "G3W-LT79LSI@2228",
+          "G3W-LT79LSI@2230"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p064",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "definition",
+        "importance": 3,
+        "text": "In layer normalization, normalization is usually done along the feature dimension, which is the columns, and it does not depend on the batch size.",
+        "line_ids": [
+          "G3W-LT79LSI@2230",
+          "G3W-LT79LSI@2232",
+          "G3W-LT79LSI@2234",
+          "G3W-LT79LSI@2235",
+          "G3W-LT79LSI@2238",
+          "G3W-LT79LSI@2241"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p065",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In layer normalization, each layer's output is normalized using its mean and standard deviation regardless of batch size.",
+        "line_ids": [
+          "G3W-LT79LSI@2241",
+          "G3W-LT79LSI@2243",
+          "G3W-LT79LSI@2245",
+          "G3W-LT79LSI@2247"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p066",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "definition",
+        "importance": 3,
+        "text": "In batch normalization, normalization is performed for an entire batch, so it depends on the batch size.",
+        "line_ids": [
+          "G3W-LT79LSI@2247",
+          "G3W-LT79LSI@2249",
+          "G3W-LT79LSI@2250",
+          "G3W-LT79LSI@2253",
+          "G3W-LT79LSI@2256"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p067",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Batch normalization is less flexible because batch size is often determined by available hardware.",
+        "line_ids": [
+          "G3W-LT79LSI@2256",
+          "G3W-LT79LSI@2258",
+          "G3W-LT79LSI@2260",
+          "G3W-LT79LSI@2262",
+          "G3W-LT79LSI@2265",
+          "G3W-LT79LSI@2267",
+          "G3W-LT79LSI@2269",
+          "G3W-LT79LSI@2271",
+          "G3W-LT79LSI@2274"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p068",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Layer normalization is more flexible because it is independent of batch size and provides more flexibility and stability for distributed training.",
+        "line_ids": [
+          "G3W-LT79LSI@2276",
+          "G3W-LT79LSI@2278",
+          "G3W-LT79LSI@2280",
+          "G3W-LT79LSI@2282",
+          "G3W-LT79LSI@2284"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p069",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 3,
+        "text": "When resources or hardware capabilities force small batch sizes, or when batch-size-independent normalization is desired, layer normalization is a better choice than batch normalization.",
+        "line_ids": [
+          "G3W-LT79LSI@2284",
+          "G3W-LT79LSI@2287",
+          "G3W-LT79LSI@2289",
+          "G3W-LT79LSI@2291",
+          "G3W-LT79LSI@2294",
+          "G3W-LT79LSI@2295",
+          "G3W-LT79LSI@2298",
+          "G3W-LT79LSI@2300",
+          "G3W-LT79LSI@2302"
+        ]
+      },
+      {
+        "id": "G3W-LT79LSI:p070",
+        "video_id": "G3W-LT79LSI",
+        "lecture": 20,
+        "kind": "claim",
+        "importance": 1,
+        "text": "Layer normalization is one of the building blocks needed to understand the GPT architecture, alongside components such as the GPT backbone, GELU activation, feed-forward networks, shortcut connections, and the transformer block.",
+        "line_ids": [
+          "G3W-LT79LSI@2156",
+          "G3W-LT79LSI@2158",
+          "G3W-LT79LSI@2160",
+          "G3W-LT79LSI@2164",
+          "G3W-LT79LSI@2165",
+          "G3W-LT79LSI@2168",
+          "G3W-LT79LSI@2170",
+          "G3W-LT79LSI@2171",
+          "G3W-LT79LSI@2174",
+          "G3W-LT79LSI@2176",
+          "G3W-LT79LSI@2178",
+          "G3W-LT79LSI@2181",
+          "G3W-LT79LSI@2182",
+          "G3W-LT79LSI@2185",
+          "G3W-LT79LSI@2187",
+          "G3W-LT79LSI@2189",
+          "G3W-LT79LSI@2190",
+          "G3W-LT79LSI@2192",
+          "G3W-LT79LSI@2194",
+          "G3W-LT79LSI@2197",
+          "G3W-LT79LSI@2199",
+          "G3W-LT79LSI@2201"
+        ]
+      }
+    ],
+    "inventory": [
+      {
+        "chunk": "G3W-LT79LSI@0-902",
+        "start": 0,
+        "end": 902,
+        "points": 23,
+        "core_points": 15,
+        "invalid_points": 0,
+        "flag": null
+      },
+      {
+        "chunk": "G3W-LT79LSI@900-1812",
+        "start": 900,
+        "end": 1812,
+        "points": 26,
+        "core_points": 16,
+        "invalid_points": 0,
+        "flag": null
+      },
+      {
+        "chunk": "G3W-LT79LSI@1810-2332",
+        "start": 1810,
+        "end": 2332,
+        "points": 21,
+        "core_points": 12,
+        "invalid_points": 0,
+        "flag": null
+      }
+    ]
+  }
+}

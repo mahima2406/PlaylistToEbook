@@ -1,0 +1,210 @@
+{
+  "stage": "crosscheck",
+  "item": "ch05.s10",
+  "inputs_hash": "67207a3e4523f310c0520f5100fdeb09c154cd0211cfc976a6e571f97b249501",
+  "output_hash": "1e6c35d975aaa5c097d0285c6c34da1eb3ce8a8b00d745ed8fce2aa80cf5d587",
+  "output": {
+    "section_id": "ch05.s10",
+    "checked": 15,
+    "counts": {
+      "agrees": 9,
+      "contradicts": 1,
+      "not_covered": 5
+    },
+    "results": [
+      {
+        "sentence_id": "ch05.s10.p01.r02",
+        "text": "For this classification task, the original final output layer took 768 inputs, matching the embedding dimension, and produced 50,257 outputs, matching the vocabulary size.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell56",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell66"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs state GPT-2 small uses emb_dim=768 and the original output head maps 768-d embeddings to 50,257 vocabulary logits."
+      },
+      {
+        "sentence_id": "ch05.s10.p01.r03",
+        "text": "That layer is replaced with a classification head that still takes 768 inputs but produces 2 outputs, for spam or no spam.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell64",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell56",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell68"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref says the vocab-sized output layer is replaced for binary classification using emb_dim=768, yielding 2 classes (spam/not spam)."
+      },
+      {
+        "sentence_id": "ch05.s10.p01.r04",
+        "text": "Attaching this classification head on top of the GPT architecture allows the model to be used for a classification task.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell53",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell50",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell52"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Section 6.5 explicitly describes modifying the pretrained LLM by adding/replacing an output head to make it ready for classification finetuning."
+      },
+      {
+        "sentence_id": "ch05.s10.p01.r05",
+        "text": "Fine-tuning requires changing the GPT model architecture so that the model answers better and its accuracy improves.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell105",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell66"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs show adding a classification head and report accuracy, but do not state that fine-tuning in general requires changing the GPT architecture ‘so that the model answers better’; the claim about requirement and rationale isn’t directly addressed."
+      },
+      {
+        "sentence_id": "ch05.s10.p02.02",
+        "text": "For example, if the input is \"do you have time\", each token produces two outputs corresponding to spam or no spam.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell8",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell107",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell48"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs explain the model outputs class-label logits for a fixed set of classes (spam/not spam) and that there is one output vector per input token, implying two values per token in binary classification."
+      },
+      {
+        "sentence_id": "ch05.s10.p02.03",
+        "text": "With one sample containing four tokens, the output tensor has shape 1 x 4 x 2: one batch element, four tokens, and two outputs per token.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell64",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell65"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref explicitly notes output shape is (batch_size, num_tokens, num_classes) and that with 4 input tokens the output consists of 4 two-dimensional vectors (so for batch size 1: 1×4×2)."
+      },
+      {
+        "sentence_id": "ch05.s10.p02.04",
+        "text": "For classification, only the output of the last token is used, because the last token contains information about the other tokens through its attention weights.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell67",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell74",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell68"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref explains causal attention makes the last token contain information about prior tokens and therefore they focus on outputs[:, -1, :] for spam classification."
+      },
+      {
+        "sentence_id": "ch05.s10.p02.05",
+        "text": "The final output used for the decision is therefore the pair of values produced by that last token.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell74",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref highlights examining the last token output via outputs[:, -1, :], which in binary classification is a 2-value logit vector used for the decision."
+      },
+      {
+        "sentence_id": "ch05.s10.p03.r02",
+        "text": "The procedure is to take the last-token outputs, apply softmax to convert them into probabilities, and then choose the index with the highest value.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell75",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell74"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref states they take logits, optionally apply softmax to get probabilities, then use argmax to get the predicted class index."
+      },
+      {
+        "sentence_id": "ch05.s10.p03.r03",
+        "text": "For example, one message can produce probabilities 0.99 and 0.01 after softmax, and then the predicted class is index 0, which means no spam.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell56",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell55",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell109"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs do not provide the specific numeric probability example (0.99/0.01) nor explicitly map class index 0 to ‘no spam’ in the quoted passages."
+      },
+      {
+        "sentence_id": "ch05.s10.p03.r04",
+        "text": "Another message can produce probabilities 0.01 and 0.99 after softmax, and then the predicted class is index 1, which means spam.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell56",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell55",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell109"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs do not provide the specific numeric probability example (0.01/0.99) nor explicitly map class index 1 to ‘spam’ in the quoted passages."
+      },
+      {
+        "sentence_id": "ch05.s10.p03.r05",
+        "text": "Applying softmax is unnecessary when only the predicted class is needed, because the index of the largest logit is the same as the index of the highest probability.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell77",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell75",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref explicitly notes softmax is optional because the largest logit corresponds to the largest probability, so argmax is unchanged."
+      },
+      {
+        "sentence_id": "ch05.s10.p04.r02",
+        "text": "For a last-token output of -3.5983 and 3.9902, the code applies softmax, prints the resulting probabilities, and then uses argmax to find the class label.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell76",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell78",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "One referenced cell applies softmax to the last-token logits and then argmax (cell76), but another referenced cell takes the last-token logits directly and applies argmax without softmax (cell78). So it is not consistently true that the code applies softmax, prints probabilities, and then uses argmax."
+      },
+      {
+        "sentence_id": "ch05.s10.p04.r03",
+        "text": "In that example, one printed softmax value is 0.9995.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell85",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell49"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the provided references show printed softmax probabilities or the specific value 0.9995."
+      },
+      {
+        "sentence_id": "ch05.s10.p04.r04",
+        "text": "Because 0.9995 is larger, argmax returns class label 1, so the model predicts that the input text is spam.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell109",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell78",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell76"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show using argmax on either probas or logits to get an integer label, and mention mapping labels to class names, but they do not state a probability of 0.9995, do not state that argmax returns label 1 because of it, and do not specify that label 1 corresponds to 'spam' in the provided excerpts."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch05.s10.p04.r02",
+        "text": "For a last-token output of -3.5983 and 3.9902, the code applies softmax, prints the resulting probabilities, and then uses argmax to find the class label.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell76",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell78",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "One referenced cell applies softmax to the last-token logits and then argmax (cell76), but another referenced cell takes the last-token logits directly and applies argmax without softmax (cell78). So it is not consistently true that the code applies softmax, prints probabilities, and then uses argmax."
+      }
+    ]
+  }
+}

@@ -1,0 +1,1946 @@
+{
+  "stage": "extract",
+  "item": "bkUkcyL_Xxc",
+  "inputs_hash": "d5175d18a8033f42aa3217d50ba786f2aedcb5670b98208a81b649d54026ee68",
+  "output_hash": "1272a6773415fdf3e4595a648e8a5d1680c575cd5f0f748ece813dac58eeee2e",
+  "output": {
+    "video_id": "bkUkcyL_Xxc",
+    "points": [
+      {
+        "id": "bkUkcyL_Xxc:p001",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Pre-trained large language models are good at text completion but struggle to follow specific instructions, so instruction fine-tuning is needed.",
+        "line_ids": [
+          "bkUkcyL_Xxc@29",
+          "bkUkcyL_Xxc@32",
+          "bkUkcyL_Xxc@34",
+          "bkUkcyL_Xxc@36",
+          "bkUkcyL_Xxc@46",
+          "bkUkcyL_Xxc@49",
+          "bkUkcyL_Xxc@50"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p002",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "definition",
+        "importance": 3,
+        "text": "In instruction fine-tuning, the dataset consists of instructions and the desired responses, sometimes with an additional input field.",
+        "line_ids": [
+          "bkUkcyL_Xxc@52",
+          "bkUkcyL_Xxc@55",
+          "bkUkcyL_Xxc@57",
+          "bkUkcyL_Xxc@59",
+          "bkUkcyL_Xxc@97",
+          "bkUkcyL_Xxc@99",
+          "bkUkcyL_Xxc@105",
+          "bkUkcyL_Xxc@107"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p003",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The dataset used here contains 1100 instruction-output pairs.",
+        "line_ids": [
+          "bkUkcyL_Xxc@65",
+          "bkUkcyL_Xxc@67",
+          "bkUkcyL_Xxc@70"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p004",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Formatting the dataset means converting entries with instruction, input, and output into the Alpaca prompt style before feeding them to the model for fine-tuning.",
+        "line_ids": [
+          "bkUkcyL_Xxc@133",
+          "bkUkcyL_Xxc@136",
+          "bkUkcyL_Xxc@138",
+          "bkUkcyL_Xxc@152",
+          "bkUkcyL_Xxc@154",
+          "bkUkcyL_Xxc@157",
+          "bkUkcyL_Xxc@159",
+          "bkUkcyL_Xxc@162"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p005",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In the Alpaca prompt style, the prompt includes a fixed introductory instruction, then the instruction, the input if present, and the response taken from the dataset output.",
+        "line_ids": [
+          "bkUkcyL_Xxc@182",
+          "bkUkcyL_Xxc@184",
+          "bkUkcyL_Xxc@186",
+          "bkUkcyL_Xxc@188",
+          "bkUkcyL_Xxc@193",
+          "bkUkcyL_Xxc@198",
+          "bkUkcyL_Xxc@202",
+          "bkUkcyL_Xxc@206",
+          "bkUkcyL_Xxc@207",
+          "bkUkcyL_Xxc@209"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p006",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The dataset was split into 85% training, 10% testing, and 5% validation.",
+        "line_ids": [
+          "bkUkcyL_Xxc@225",
+          "bkUkcyL_Xxc@226",
+          "bkUkcyL_Xxc@229",
+          "bkUkcyL_Xxc@232"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p007",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 2,
+        "text": "With 1100 total pairs, the split gives 935 training examples, 55 validation examples, and 110 test examples.",
+        "line_ids": [
+          "bkUkcyL_Xxc@340",
+          "bkUkcyL_Xxc@342",
+          "bkUkcyL_Xxc@345",
+          "bkUkcyL_Xxc@348"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p008",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "code",
+        "importance": 2,
+        "text": "The code downloads the dataset, verifies it by printing selected examples, and uses a function called format_input to convert entries into the Alpaca prompt format.",
+        "line_ids": [
+          "bkUkcyL_Xxc@240",
+          "bkUkcyL_Xxc@242",
+          "bkUkcyL_Xxc@246",
+          "bkUkcyL_Xxc@248",
+          "bkUkcyL_Xxc@251",
+          "bkUkcyL_Xxc@256",
+          "bkUkcyL_Xxc@261",
+          "bkUkcyL_Xxc@265",
+          "bkUkcyL_Xxc@267"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p009",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "code",
+        "importance": 3,
+        "text": "The format_input function takes an entry containing instruction, input, and output and constructs the Alpaca-style prompt by combining the instruction and input and then appending the desired response.",
+        "line_ids": [
+          "bkUkcyL_Xxc@270",
+          "bkUkcyL_Xxc@272",
+          "bkUkcyL_Xxc@275",
+          "bkUkcyL_Xxc@277",
+          "bkUkcyL_Xxc@280",
+          "bkUkcyL_Xxc@283",
+          "bkUkcyL_Xxc@285",
+          "bkUkcyL_Xxc@300",
+          "bkUkcyL_Xxc@302",
+          "bkUkcyL_Xxc@304"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p010",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Batching the dataset means converting each prompt into a numerical representation so that each sample becomes a row in a batch.",
+        "line_ids": [
+          "bkUkcyL_Xxc@385",
+          "bkUkcyL_Xxc@387",
+          "bkUkcyL_Xxc@409",
+          "bkUkcyL_Xxc@411",
+          "bkUkcyL_Xxc@430",
+          "bkUkcyL_Xxc@433",
+          "bkUkcyL_Xxc@435",
+          "bkUkcyL_Xxc@450",
+          "bkUkcyL_Xxc@452",
+          "bkUkcyL_Xxc@458",
+          "bkUkcyL_Xxc@462",
+          "bkUkcyL_Xxc@468"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p011",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "To batch prompts together, all rows in the batch must have the same size, meaning the same number of columns or token positions.",
+        "line_ids": [
+          "bkUkcyL_Xxc@472",
+          "bkUkcyL_Xxc@474",
+          "bkUkcyL_Xxc@476",
+          "bkUkcyL_Xxc@479",
+          "bkUkcyL_Xxc@481",
+          "bkUkcyL_Xxc@483",
+          "bkUkcyL_Xxc@485"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p012",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Different instruction-output pairs produce prompts of different lengths, so their tokenized representations also have different lengths.",
+        "line_ids": [
+          "bkUkcyL_Xxc@488",
+          "bkUkcyL_Xxc@491",
+          "bkUkcyL_Xxc@493",
+          "bkUkcyL_Xxc@495",
+          "bkUkcyL_Xxc@497",
+          "bkUkcyL_Xxc@503",
+          "bkUkcyL_Xxc@505"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p013",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The first step in converting formatted data into a numerical representation is tokenization, where a tokenizer converts each prompt into token IDs.",
+        "line_ids": [
+          "bkUkcyL_Xxc@547",
+          "bkUkcyL_Xxc@550",
+          "bkUkcyL_Xxc@553",
+          "bkUkcyL_Xxc@554",
+          "bkUkcyL_Xxc@558",
+          "bkUkcyL_Xxc@560",
+          "bkUkcyL_Xxc@563",
+          "bkUkcyL_Xxc@565",
+          "bkUkcyL_Xxc@567"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p014",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The tokenizer used is the byte pair encoder used by OpenAI, accessed through the tiktoken library.",
+        "line_ids": [
+          "bkUkcyL_Xxc@558",
+          "bkUkcyL_Xxc@560",
+          "bkUkcyL_Xxc@605",
+          "bkUkcyL_Xxc@608",
+          "bkUkcyL_Xxc@610",
+          "bkUkcyL_Xxc@613"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p015",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "For every instruction-input-output example, the process is to convert it into the Alpaca prompt format and then convert that prompt into token IDs.",
+        "line_ids": [
+          "bkUkcyL_Xxc@617",
+          "bkUkcyL_Xxc@619",
+          "bkUkcyL_Xxc@621",
+          "bkUkcyL_Xxc@623",
+          "bkUkcyL_Xxc@626",
+          "bkUkcyL_Xxc@629",
+          "bkUkcyL_Xxc@632"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p016",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Because prompts can have different lengths, the number of token IDs differs across samples, but samples in the same batch must have the same number of token IDs.",
+        "line_ids": [
+          "bkUkcyL_Xxc@638",
+          "bkUkcyL_Xxc@640",
+          "bkUkcyL_Xxc@642",
+          "bkUkcyL_Xxc@644",
+          "bkUkcyL_Xxc@646",
+          "bkUkcyL_Xxc@659",
+          "bkUkcyL_Xxc@661",
+          "bkUkcyL_Xxc@664",
+          "bkUkcyL_Xxc@668",
+          "bkUkcyL_Xxc@672",
+          "bkUkcyL_Xxc@674",
+          "bkUkcyL_Xxc@677"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p017",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To make all samples in a batch the same length, find the longest token sequence in the batch and pad the shorter sequences with extra tokens until they match that length.",
+        "line_ids": [
+          "bkUkcyL_Xxc@693",
+          "bkUkcyL_Xxc@695",
+          "bkUkcyL_Xxc@698",
+          "bkUkcyL_Xxc@707",
+          "bkUkcyL_Xxc@712",
+          "bkUkcyL_Xxc@714",
+          "bkUkcyL_Xxc@716",
+          "bkUkcyL_Xxc@726",
+          "bkUkcyL_Xxc@728",
+          "bkUkcyL_Xxc@730",
+          "bkUkcyL_Xxc@736",
+          "bkUkcyL_Xxc@738",
+          "bkUkcyL_Xxc@740",
+          "bkUkcyL_Xxc@745",
+          "bkUkcyL_Xxc@747",
+          "bkUkcyL_Xxc@749",
+          "bkUkcyL_Xxc@753",
+          "bkUkcyL_Xxc@756"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p018",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "After padding, all numerical representations in the batch have the same length, so they can be processed together as a batch.",
+        "line_ids": [
+          "bkUkcyL_Xxc@772",
+          "bkUkcyL_Xxc@774",
+          "bkUkcyL_Xxc@776",
+          "bkUkcyL_Xxc@779",
+          "bkUkcyL_Xxc@781",
+          "bkUkcyL_Xxc@783",
+          "bkUkcyL_Xxc@881",
+          "bkUkcyL_Xxc@883",
+          "bkUkcyL_Xxc@885",
+          "bkUkcyL_Xxc@887",
+          "bkUkcyL_Xxc@889"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p019",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The padding token 50256 is the end-of-text token.",
+        "line_ids": [
+          "bkUkcyL_Xxc@783",
+          "bkUkcyL_Xxc@786",
+          "bkUkcyL_Xxc@806",
+          "bkUkcyL_Xxc@809",
+          "bkUkcyL_Xxc@812"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p020",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 2,
+        "text": "GPT-2 has a vocabulary size of 50257, so token IDs run from 0 to 50256, and 50256 is the last token ID.",
+        "line_ids": [
+          "bkUkcyL_Xxc@790",
+          "bkUkcyL_Xxc@793",
+          "bkUkcyL_Xxc@796",
+          "bkUkcyL_Xxc@800",
+          "bkUkcyL_Xxc@802",
+          "bkUkcyL_Xxc@804",
+          "bkUkcyL_Xxc@806"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p021",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The end-of-text token marks that one text sample has ended and a new text sample begins.",
+        "line_ids": [
+          "bkUkcyL_Xxc@809",
+          "bkUkcyL_Xxc@812",
+          "bkUkcyL_Xxc@813",
+          "bkUkcyL_Xxc@816",
+          "bkUkcyL_Xxc@818"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p022",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Padding uses the end-of-text token because using another token ID could correspond to an actual token and confuse training.",
+        "line_ids": [
+          "bkUkcyL_Xxc@818",
+          "bkUkcyL_Xxc@820",
+          "bkUkcyL_Xxc@822",
+          "bkUkcyL_Xxc@824",
+          "bkUkcyL_Xxc@826",
+          "bkUkcyL_Xxc@828",
+          "bkUkcyL_Xxc@830",
+          "bkUkcyL_Xxc@832",
+          "bkUkcyL_Xxc@834"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p023",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "Padding is done separately for each batch by finding the longest sequence in that batch and appending 50256 to the other sequences until all lengths match.",
+        "line_ids": [
+          "bkUkcyL_Xxc@836",
+          "bkUkcyL_Xxc@838",
+          "bkUkcyL_Xxc@839",
+          "bkUkcyL_Xxc@841",
+          "bkUkcyL_Xxc@842",
+          "bkUkcyL_Xxc@844",
+          "bkUkcyL_Xxc@846",
+          "bkUkcyL_Xxc@849",
+          "bkUkcyL_Xxc@851",
+          "bkUkcyL_Xxc@854",
+          "bkUkcyL_Xxc@857",
+          "bkUkcyL_Xxc@858",
+          "bkUkcyL_Xxc@860",
+          "bkUkcyL_Xxc@862",
+          "bkUkcyL_Xxc@864",
+          "bkUkcyL_Xxc@866",
+          "bkUkcyL_Xxc@868",
+          "bkUkcyL_Xxc@873",
+          "bkUkcyL_Xxc@876",
+          "bkUkcyL_Xxc@879"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p024",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The target token IDs for training are created by shifting the input token IDs to the right by one position and adding the padding token 50256 so the target has the same length as the input.",
+        "line_ids": [
+          "bkUkcyL_Xxc@909",
+          "bkUkcyL_Xxc@912",
+          "bkUkcyL_Xxc@925",
+          "bkUkcyL_Xxc@930",
+          "bkUkcyL_Xxc@934",
+          "bkUkcyL_Xxc@950",
+          "bkUkcyL_Xxc@952"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p025",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "equation",
+        "importance": 2,
+        "text": "If the input token IDs are 0 1 2 3 4, the target token IDs are 1 2 3 4 50256.",
+        "line_ids": [
+          "bkUkcyL_Xxc@936",
+          "bkUkcyL_Xxc@938",
+          "bkUkcyL_Xxc@942",
+          "bkUkcyL_Xxc@945",
+          "bkUkcyL_Xxc@948",
+          "bkUkcyL_Xxc@950"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p026",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "equation",
+        "importance": 2,
+        "text": "If the input token IDs are 56 50256 50256 50256, the target is formed by removing the first token, keeping the remaining tokens, and padding with an extra 50256.",
+        "line_ids": [
+          "bkUkcyL_Xxc@957b",
+          "bkUkcyL_Xxc@960",
+          "bkUkcyL_Xxc@964",
+          "bkUkcyL_Xxc@966",
+          "bkUkcyL_Xxc@969",
+          "bkUkcyL_Xxc@971",
+          "bkUkcyL_Xxc@973"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p027",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Creating the shifted target is the most important step in the fine-tuning process and can be hard to grasp.",
+        "line_ids": [
+          "bkUkcyL_Xxc@974",
+          "bkUkcyL_Xxc@976",
+          "bkUkcyL_Xxc@979",
+          "bkUkcyL_Xxc@981"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p028",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The target is shifted by one because instruction fine-tuning still uses the next token prediction task.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1010",
+          "bkUkcyL_Xxc@1012",
+          "bkUkcyL_Xxc@1016",
+          "bkUkcyL_Xxc@1018"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p029",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "equation",
+        "importance": 2,
+        "text": "A shifted input-target sequence means that if the input is 0, the output should be 1; if the input is 0 and 1, the target is 2; if the input is 0 1 and 2, the target is 3; and if the input is 0 1 2 3, the target is 4.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1042",
+          "bkUkcyL_Xxc@1045",
+          "bkUkcyL_Xxc@1048",
+          "bkUkcyL_Xxc@1049",
+          "bkUkcyL_Xxc@1051",
+          "bkUkcyL_Xxc@1055",
+          "bkUkcyL_Xxc@1057"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p030",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 2,
+        "text": "When the input reaches the full sequence, the model is at the end of the sentence.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1062",
+          "bkUkcyL_Xxc@1064"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p031",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Training on the shifted sequence teaches the model sequentially to predict each next token, including the response tokens after the instruction and input.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1066",
+          "bkUkcyL_Xxc@1068",
+          "bkUkcyL_Xxc@1069",
+          "bkUkcyL_Xxc@1072",
+          "bkUkcyL_Xxc@1078",
+          "bkUkcyL_Xxc@1080",
+          "bkUkcyL_Xxc@1085",
+          "bkUkcyL_Xxc@1088"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p032",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Although this setup includes some redundant training, the model is trained through next token prediction so that, once it has seen the instruction and input, it predicts the response.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1097",
+          "bkUkcyL_Xxc@1099",
+          "bkUkcyL_Xxc@1101",
+          "bkUkcyL_Xxc@1103",
+          "bkUkcyL_Xxc@1106",
+          "bkUkcyL_Xxc@1110",
+          "bkUkcyL_Xxc@1111",
+          "bkUkcyL_Xxc@1113"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p033",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In instruction fine-tuning, the input is the full sequence and the target is the full sequence shifted by one, not just the response alone.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1127",
+          "bkUkcyL_Xxc@1129",
+          "bkUkcyL_Xxc@1132",
+          "bkUkcyL_Xxc@1134",
+          "bkUkcyL_Xxc@1136",
+          "bkUkcyL_Xxc@1139",
+          "bkUkcyL_Xxc@1141"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p034",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The input sequence itself contains both the instruction-input part and the output part, because LLMs are trained with next token prediction.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1143",
+          "bkUkcyL_Xxc@1146",
+          "bkUkcyL_Xxc@1149",
+          "bkUkcyL_Xxc@1151",
+          "bkUkcyL_Xxc@1153"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p035",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "By learning to predict the next token, the LLM learns to follow instructions and produce the response once enough of the prompt has been seen.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1155",
+          "bkUkcyL_Xxc@1158",
+          "bkUkcyL_Xxc@1160",
+          "bkUkcyL_Xxc@1162",
+          "bkUkcyL_Xxc@1165",
+          "bkUkcyL_Xxc@1167",
+          "bkUkcyL_Xxc@1170"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p036",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Instruction fine-tuning is very similar to pre-training because both use targets shifted by one token.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1172",
+          "bkUkcyL_Xxc@1173",
+          "bkUkcyL_Xxc@1175",
+          "bkUkcyL_Xxc@1177",
+          "bkUkcyL_Xxc@1179",
+          "bkUkcyL_Xxc@1181",
+          "bkUkcyL_Xxc@1183"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p037",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Even though this shifted-target setup is nonintuitive in instruction fine-tuning, it works because predicting the next token teaches the model to take the instruction and input and predict the response.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1181",
+          "bkUkcyL_Xxc@1183",
+          "bkUkcyL_Xxc@1187",
+          "bkUkcyL_Xxc@1189",
+          "bkUkcyL_Xxc@1191",
+          "bkUkcyL_Xxc@1194"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p038",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To create target token IDs, shift the inputs by one and add an additional padding token to indicate the end of the sentence.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1198",
+          "bkUkcyL_Xxc@1200",
+          "bkUkcyL_Xxc@1202",
+          "bkUkcyL_Xxc@1204",
+          "bkUkcyL_Xxc@1206",
+          "bkUkcyL_Xxc@1208",
+          "bkUkcyL_Xxc@1210",
+          "bkUkcyL_Xxc@1213"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p039",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In the target token IDs, replace padding tokens 50256 with minus 100, but leave the first 50256 unchanged because it indicates end of text.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1217",
+          "bkUkcyL_Xxc@1220",
+          "bkUkcyL_Xxc@1224",
+          "bkUkcyL_Xxc@1225",
+          "bkUkcyL_Xxc@1230",
+          "bkUkcyL_Xxc@1234",
+          "bkUkcyL_Xxc@1247",
+          "bkUkcyL_Xxc@1249",
+          "bkUkcyL_Xxc@1251"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p040",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "If a target contains multiple 50256 values, keep the first 50256 and replace all remaining 50256 values with minus 100.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1254",
+          "bkUkcyL_Xxc@1257",
+          "bkUkcyL_Xxc@1260",
+          "bkUkcyL_Xxc@1262",
+          "bkUkcyL_Xxc@1264",
+          "bkUkcyL_Xxc@1268",
+          "bkUkcyL_Xxc@1270",
+          "bkUkcyL_Xxc@1273",
+          "bkUkcyL_Xxc@1275",
+          "bkUkcyL_Xxc@1277",
+          "bkUkcyL_Xxc@1279",
+          "bkUkcyL_Xxc@1284"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p041",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The value minus 100 is used because PyTorch cross entropy loss uses minus 100 as the default ignore index.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1287",
+          "bkUkcyL_Xxc@1289",
+          "bkUkcyL_Xxc@1291",
+          "bkUkcyL_Xxc@1296",
+          "bkUkcyL_Xxc@1298",
+          "bkUkcyL_Xxc@1301",
+          "bkUkcyL_Xxc@1304",
+          "bkUkcyL_Xxc@1306"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p042",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Replacing extra padding positions with minus 100 prevents those unimportant added tokens from being included in the loss function, which makes training more efficient.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1306",
+          "bkUkcyL_Xxc@1309",
+          "bkUkcyL_Xxc@1311",
+          "bkUkcyL_Xxc@1313",
+          "bkUkcyL_Xxc@1315",
+          "bkUkcyL_Xxc@1317",
+          "bkUkcyL_Xxc@1319",
+          "bkUkcyL_Xxc@1321",
+          "bkUkcyL_Xxc@1323"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p043",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The first 50256 must be retained because it marks the end of a particular text, but the remaining 50256 token IDs are unnecessary and can be replaced with minus 100.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1324",
+          "bkUkcyL_Xxc@1327",
+          "bkUkcyL_Xxc@1330",
+          "bkUkcyL_Xxc@1333",
+          "bkUkcyL_Xxc@1335",
+          "bkUkcyL_Xxc@1338",
+          "bkUkcyL_Xxc@1339"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p044",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "Data batching is done in five steps: format the data with the prompt template, convert the prompt to token IDs, pad samples with 50256 to match the longest sample in the batch, create target token IDs by shifting the input by one, and replace all 50256 tokens except the first with minus 100.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1347",
+          "bkUkcyL_Xxc@1349",
+          "bkUkcyL_Xxc@1352",
+          "bkUkcyL_Xxc@1354",
+          "bkUkcyL_Xxc@1356",
+          "bkUkcyL_Xxc@1360",
+          "bkUkcyL_Xxc@1362",
+          "bkUkcyL_Xxc@1365",
+          "bkUkcyL_Xxc@1369",
+          "bkUkcyL_Xxc@1372",
+          "bkUkcyL_Xxc@1375",
+          "bkUkcyL_Xxc@1377",
+          "bkUkcyL_Xxc@1383",
+          "bkUkcyL_Xxc@1385",
+          "bkUkcyL_Xxc@1389",
+          "bkUkcyL_Xxc@1391",
+          "bkUkcyL_Xxc@1406",
+          "bkUkcyL_Xxc@1409",
+          "bkUkcyL_Xxc@1412"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p045",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The reason the shifted target works is that the LLM learns next token prediction, and in that process it learns that after the instruction and input it must predict the output.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1394",
+          "bkUkcyL_Xxc@1396",
+          "bkUkcyL_Xxc@1397",
+          "bkUkcyL_Xxc@1400",
+          "bkUkcyL_Xxc@1402",
+          "bkUkcyL_Xxc@1404"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p046",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The minus 100 replacement is done to exclude those tokens from the training loss because PyTorch cross entropy loss uses an ignore index of minus 100.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1412",
+          "bkUkcyL_Xxc@1414",
+          "bkUkcyL_Xxc@1416",
+          "bkUkcyL_Xxc@1418",
+          "bkUkcyL_Xxc@1420",
+          "bkUkcyL_Xxc@1423",
+          "bkUkcyL_Xxc@1425"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p047",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The dataset has already been split into training, testing, and validation sets with 85 percent for training, 10 percent for testing, and 5 percent for validation.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1449",
+          "bkUkcyL_Xxc@1451",
+          "bkUkcyL_Xxc@1453",
+          "bkUkcyL_Xxc@1456",
+          "bkUkcyL_Xxc@1459",
+          "bkUkcyL_Xxc@1462"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p048",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "code",
+        "importance": 3,
+        "text": "The next coding step is to create an instruction dataset class that takes the dataset, formats each example into Alpaca-style prompt text, and converts it into token IDs.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1464",
+          "bkUkcyL_Xxc@1466",
+          "bkUkcyL_Xxc@1470",
+          "bkUkcyL_Xxc@1472",
+          "bkUkcyL_Xxc@1475",
+          "bkUkcyL_Xxc@1477",
+          "bkUkcyL_Xxc@1480",
+          "bkUkcyL_Xxc@1482"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p049",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "code",
+        "importance": 3,
+        "text": "The instruction dataset class uses the format_input function to turn each instruction-input-output entry into the instruction and input text, then appends the response to create the full Alpaca-format text.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1484",
+          "bkUkcyL_Xxc@1486",
+          "bkUkcyL_Xxc@1489",
+          "bkUkcyL_Xxc@1490",
+          "bkUkcyL_Xxc@1493",
+          "bkUkcyL_Xxc@1495",
+          "bkUkcyL_Xxc@1496",
+          "bkUkcyL_Xxc@1500",
+          "bkUkcyL_Xxc@1503",
+          "bkUkcyL_Xxc@1505",
+          "bkUkcyL_Xxc@1507",
+          "bkUkcyL_Xxc@1510"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p050",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "code",
+        "importance": 2,
+        "text": "When an instance of the instruction dataset class is created, it stores the dataset, applies the formatting function to each entry, appends the response, and produces the full Alpaca-format text.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1512",
+          "bkUkcyL_Xxc@1515",
+          "bkUkcyL_Xxc@1518",
+          "bkUkcyL_Xxc@1520",
+          "bkUkcyL_Xxc@1523",
+          "bkUkcyL_Xxc@1527",
+          "bkUkcyL_Xxc@1530",
+          "bkUkcyL_Xxc@1532",
+          "bkUkcyL_Xxc@1534",
+          "bkUkcyL_Xxc@1536"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p051",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "code",
+        "importance": 2,
+        "text": "The formatted data is then tokenized by creating an empty list and appending the token IDs for each prompt to that list.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1539",
+          "bkUkcyL_Xxc@1541",
+          "bkUkcyL_Xxc@1543",
+          "bkUkcyL_Xxc@1547",
+          "bkUkcyL_Xxc@1550",
+          "bkUkcyL_Xxc@1553",
+          "bkUkcyL_Xxc@1555",
+          "bkUkcyL_Xxc@1557",
+          "bkUkcyL_Xxc@1560",
+          "bkUkcyL_Xxc@1562",
+          "bkUkcyL_Xxc@1564"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p052",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "code",
+        "importance": 2,
+        "text": "The tokenizer passed to the instruction dataset class is the tiktoken library.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1573",
+          "bkUkcyL_Xxc@1576",
+          "bkUkcyL_Xxc@1579",
+          "bkUkcyL_Xxc@1581",
+          "bkUkcyL_Xxc@1583"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p053",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The instruction dataset class returns token IDs for each dataset entry after converting it into the Alpaca-style prompt.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1600",
+          "bkUkcyL_Xxc@1602",
+          "bkUkcyL_Xxc@1604",
+          "bkUkcyL_Xxc@1608",
+          "bkUkcyL_Xxc@1610",
+          "bkUkcyL_Xxc@1612",
+          "bkUkcyL_Xxc@1616"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p054",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The end-of-text token ID is 50256, which is why 50256 is used to mark end of text.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1626",
+          "bkUkcyL_Xxc@1628",
+          "bkUkcyL_Xxc@1631",
+          "bkUkcyL_Xxc@1633",
+          "bkUkcyL_Xxc@1634",
+          "bkUkcyL_Xxc@1637",
+          "bkUkcyL_Xxc@1640"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p055",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The custom collate function takes the inputs in each batch, finds the input with the maximum length, and pads all other inputs with token ID 50256.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1643",
+          "bkUkcyL_Xxc@1644",
+          "bkUkcyL_Xxc@1647",
+          "bkUkcyL_Xxc@1649",
+          "bkUkcyL_Xxc@1651",
+          "bkUkcyL_Xxc@1653",
+          "bkUkcyL_Xxc@1656",
+          "bkUkcyL_Xxc@1658",
+          "bkUkcyL_Xxc@1660",
+          "bkUkcyL_Xxc@1663",
+          "bkUkcyL_Xxc@1667"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p056",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "code",
+        "importance": 2,
+        "text": "The custom collate function takes a batch, a padding token ID of 50256, and a device such as CPU.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1669b",
+          "bkUkcyL_Xxc@1673",
+          "bkUkcyL_Xxc@1675",
+          "bkUkcyL_Xxc@1678",
+          "bkUkcyL_Xxc@1681",
+          "bkUkcyL_Xxc@1683"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p057",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The custom collate function finds the longest sequence in the batch, pads the other sequences to that length, converts the list of inputs into a tensor, and transfers it to the target device.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1686",
+          "bkUkcyL_Xxc@1688",
+          "bkUkcyL_Xxc@1690",
+          "bkUkcyL_Xxc@1692",
+          "bkUkcyL_Xxc@1694",
+          "bkUkcyL_Xxc@1696",
+          "bkUkcyL_Xxc@1698",
+          "bkUkcyL_Xxc@1701",
+          "bkUkcyL_Xxc@1702"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p058",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "The custom collate function first finds the longest sequence length in the batch and adds one to that length.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1710",
+          "bkUkcyL_Xxc@1712",
+          "bkUkcyL_Xxc@1715",
+          "bkUkcyL_Xxc@1716",
+          "bkUkcyL_Xxc@1719",
+          "bkUkcyL_Xxc@1721",
+          "bkUkcyL_Xxc@1723",
+          "bkUkcyL_Xxc@1725"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p059",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "For every item in the batch, the function first adds one 50256 token and then pads with additional 50256 tokens until the sequence reaches the maximum length.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1731",
+          "bkUkcyL_Xxc@1733",
+          "bkUkcyL_Xxc@1735",
+          "bkUkcyL_Xxc@1738",
+          "bkUkcyL_Xxc@1741",
+          "bkUkcyL_Xxc@1743",
+          "bkUkcyL_Xxc@1746"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p060",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "After padding, the function removes the extra added token.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1749",
+          "bkUkcyL_Xxc@1751",
+          "bkUkcyL_Xxc@1754",
+          "bkUkcyL_Xxc@1756"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p061",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The reason for adding an extra 50256 token first is that it later makes creating the target simple, because the target can then be formed by removing the first element of the input.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1794",
+          "bkUkcyL_Xxc@1797",
+          "bkUkcyL_Xxc@1799",
+          "bkUkcyL_Xxc@1801",
+          "bkUkcyL_Xxc@1803",
+          "bkUkcyL_Xxc@1806",
+          "bkUkcyL_Xxc@1807",
+          "bkUkcyL_Xxc@1809",
+          "bkUkcyL_Xxc@1812",
+          "bkUkcyL_Xxc@1813"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p062",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To make target token IDs easy to create, the code adds an extra 50256 token to each input first and removes or uses it later.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1815",
+          "bkUkcyL_Xxc@1819",
+          "bkUkcyL_Xxc@1822",
+          "bkUkcyL_Xxc@1824",
+          "bkUkcyL_Xxc@1827",
+          "bkUkcyL_Xxc@1829",
+          "bkUkcyL_Xxc@1831"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p063",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The inputs in a batch are padded with 50256 so that every sequence has the same length as the longest input in the batch.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1834",
+          "bkUkcyL_Xxc@1836",
+          "bkUkcyL_Xxc@1839",
+          "bkUkcyL_Xxc@1842",
+          "bkUkcyL_Xxc@1846",
+          "bkUkcyL_Xxc@1849",
+          "bkUkcyL_Xxc@1852",
+          "bkUkcyL_Xxc@1854"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p064",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "code",
+        "importance": 2,
+        "text": "The custom collate draft one function converts the padded batch into an input tensor and returns it.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1856",
+          "bkUkcyL_Xxc@1858",
+          "bkUkcyL_Xxc@1862",
+          "bkUkcyL_Xxc@1864",
+          "bkUkcyL_Xxc@1867"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p065",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "In the example with input lengths 5, 2, and 3, the first input stays unchanged, the second is padded with 50256 three times, and the third is padded with 50256 two times so all rows have length 5.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1871",
+          "bkUkcyL_Xxc@1874",
+          "bkUkcyL_Xxc@1876",
+          "bkUkcyL_Xxc@1878",
+          "bkUkcyL_Xxc@1880",
+          "bkUkcyL_Xxc@1882",
+          "bkUkcyL_Xxc@1884",
+          "bkUkcyL_Xxc@1886",
+          "bkUkcyL_Xxc@1889",
+          "bkUkcyL_Xxc@1891",
+          "bkUkcyL_Xxc@1892",
+          "bkUkcyL_Xxc@1895",
+          "bkUkcyL_Xxc@1898",
+          "bkUkcyL_Xxc@1900",
+          "bkUkcyL_Xxc@1903",
+          "bkUkcyL_Xxc@1905",
+          "bkUkcyL_Xxc@1907",
+          "bkUkcyL_Xxc@1909",
+          "bkUkcyL_Xxc@1912",
+          "bkUkcyL_Xxc@1915",
+          "bkUkcyL_Xxc@1918",
+          "bkUkcyL_Xxc@1920"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p066",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "For training, batches must include target token IDs because they represent what the model should generate and are used to compute the loss.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1932",
+          "bkUkcyL_Xxc@1934",
+          "bkUkcyL_Xxc@1937",
+          "bkUkcyL_Xxc@1939",
+          "bkUkcyL_Xxc@1941",
+          "bkUkcyL_Xxc@1944",
+          "bkUkcyL_Xxc@1946",
+          "bkUkcyL_Xxc@1948",
+          "bkUkcyL_Xxc@1950",
+          "bkUkcyL_Xxc@1952",
+          "bkUkcyL_Xxc@1955",
+          "bkUkcyL_Xxc@1956",
+          "bkUkcyL_Xxc@1959",
+          "bkUkcyL_Xxc@1961",
+          "bkUkcyL_Xxc@1963"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p067",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The target token IDs are created by shifting the input to the right by one position and adding a padding token at the end.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1966",
+          "bkUkcyL_Xxc@1968",
+          "bkUkcyL_Xxc@1970",
+          "bkUkcyL_Xxc@1971",
+          "bkUkcyL_Xxc@1974",
+          "bkUkcyL_Xxc@1976",
+          "bkUkcyL_Xxc@1978"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p068",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "code",
+        "importance": 3,
+        "text": "In the code, the targets are formed by taking the padded input from the second element onward, which works because an extra 50256 token was already added.",
+        "line_ids": [
+          "bkUkcyL_Xxc@1978",
+          "bkUkcyL_Xxc@1980",
+          "bkUkcyL_Xxc@1983",
+          "bkUkcyL_Xxc@1986",
+          "bkUkcyL_Xxc@1988",
+          "bkUkcyL_Xxc@1990",
+          "bkUkcyL_Xxc@1993",
+          "bkUkcyL_Xxc@1995",
+          "bkUkcyL_Xxc@1997",
+          "bkUkcyL_Xxc@1999",
+          "bkUkcyL_Xxc@2002",
+          "bkUkcyL_Xxc@2005",
+          "bkUkcyL_Xxc@2007",
+          "bkUkcyL_Xxc@2010",
+          "bkUkcyL_Xxc@2013",
+          "bkUkcyL_Xxc@2015",
+          "bkUkcyL_Xxc@2018"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p069",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A simple way to understand the batching code is that the inputs are padded to the same length and the targets are the inputs shifted to the right by one.",
+        "line_ids": [
+          "bkUkcyL_Xxc@2056",
+          "bkUkcyL_Xxc@2059",
+          "bkUkcyL_Xxc@2060",
+          "bkUkcyL_Xxc@2062",
+          "bkUkcyL_Xxc@2064",
+          "bkUkcyL_Xxc@2066",
+          "bkUkcyL_Xxc@2068"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p070",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "It may seem nonintuitive that the true values include the instruction and input as well as the response, but in next-word prediction the LLM learns to predict the response from the instruction and input.",
+        "line_ids": [
+          "bkUkcyL_Xxc@2070",
+          "bkUkcyL_Xxc@2072",
+          "bkUkcyL_Xxc@2077",
+          "bkUkcyL_Xxc@2080",
+          "bkUkcyL_Xxc@2082",
+          "bkUkcyL_Xxc@2083",
+          "bkUkcyL_Xxc@2085",
+          "bkUkcyL_Xxc@2087",
+          "bkUkcyL_Xxc@2090",
+          "bkUkcyL_Xxc@2091",
+          "bkUkcyL_Xxc@2093",
+          "bkUkcyL_Xxc@2095",
+          "bkUkcyL_Xxc@2096"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p071",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "Custom collate draft two truncates the last token for the inputs so they have the correct length and shifts the input to the right by one to create the target tensor.",
+        "line_ids": [
+          "bkUkcyL_Xxc@2117",
+          "bkUkcyL_Xxc@2119",
+          "bkUkcyL_Xxc@2122",
+          "bkUkcyL_Xxc@2124",
+          "bkUkcyL_Xxc@2126",
+          "bkUkcyL_Xxc@2128",
+          "bkUkcyL_Xxc@2130"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p072",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "In the draft two example, each target row is the corresponding input row shifted right by one position, with a 50256 token appended at the end.",
+        "line_ids": [
+          "bkUkcyL_Xxc@2143",
+          "bkUkcyL_Xxc@2145",
+          "bkUkcyL_Xxc@2147",
+          "bkUkcyL_Xxc@2150",
+          "bkUkcyL_Xxc@2153",
+          "bkUkcyL_Xxc@2155",
+          "bkUkcyL_Xxc@2156",
+          "bkUkcyL_Xxc@2158",
+          "bkUkcyL_Xxc@2160",
+          "bkUkcyL_Xxc@2162",
+          "bkUkcyL_Xxc@2164",
+          "bkUkcyL_Xxc@2167",
+          "bkUkcyL_Xxc@2169",
+          "bkUkcyL_Xxc@2171",
+          "bkUkcyL_Xxc@2173",
+          "bkUkcyL_Xxc@2175",
+          "bkUkcyL_Xxc@2177",
+          "bkUkcyL_Xxc@2180",
+          "bkUkcyL_Xxc@2182",
+          "bkUkcyL_Xxc@2184",
+          "bkUkcyL_Xxc@2186",
+          "bkUkcyL_Xxc@2188",
+          "bkUkcyL_Xxc@2191",
+          "bkUkcyL_Xxc@2193",
+          "bkUkcyL_Xxc@2195",
+          "bkUkcyL_Xxc@2197"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p073",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "After creating targets, all padding tokens except the first 50256 are replaced with -100 so they do not contribute to the training loss.",
+        "line_ids": [
+          "bkUkcyL_Xxc@2201",
+          "bkUkcyL_Xxc@2203",
+          "bkUkcyL_Xxc@2205",
+          "bkUkcyL_Xxc@2207",
+          "bkUkcyL_Xxc@2209",
+          "bkUkcyL_Xxc@2212",
+          "bkUkcyL_Xxc@2214",
+          "bkUkcyL_Xxc@2218",
+          "bkUkcyL_Xxc@2220",
+          "bkUkcyL_Xxc@2222",
+          "bkUkcyL_Xxc@2224",
+          "bkUkcyL_Xxc@2226",
+          "bkUkcyL_Xxc@2228"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p074",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "One 50256 end-of-text token is kept because it teaches the LLM when to generate an end-of-text token to mark that the response is complete.",
+        "line_ids": [
+          "bkUkcyL_Xxc@2235",
+          "bkUkcyL_Xxc@2237",
+          "bkUkcyL_Xxc@2238",
+          "bkUkcyL_Xxc@2242",
+          "bkUkcyL_Xxc@2245",
+          "bkUkcyL_Xxc@2247",
+          "bkUkcyL_Xxc@2249",
+          "bkUkcyL_Xxc@2251",
+          "bkUkcyL_Xxc@2253",
+          "bkUkcyL_Xxc@2255",
+          "bkUkcyL_Xxc@2257",
+          "bkUkcyL_Xxc@2259",
+          "bkUkcyL_Xxc@2262",
+          "bkUkcyL_Xxc@2265"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p075",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "code",
+        "importance": 3,
+        "text": "In the final custom collate function, a mask is created over target positions equal to the padding token ID, the first 50256 is excluded from replacement, and the remaining padded target positions are set to the ignore index -100.",
+        "line_ids": [
+          "bkUkcyL_Xxc@2267",
+          "bkUkcyL_Xxc@2270",
+          "bkUkcyL_Xxc@2271",
+          "bkUkcyL_Xxc@2273",
+          "bkUkcyL_Xxc@2276",
+          "bkUkcyL_Xxc@2278",
+          "bkUkcyL_Xxc@2281",
+          "bkUkcyL_Xxc@2282",
+          "bkUkcyL_Xxc@2285",
+          "bkUkcyL_Xxc@2288",
+          "bkUkcyL_Xxc@2290",
+          "bkUkcyL_Xxc@2292",
+          "bkUkcyL_Xxc@2296",
+          "bkUkcyL_Xxc@2299",
+          "bkUkcyL_Xxc@2302",
+          "bkUkcyL_Xxc@2304",
+          "bkUkcyL_Xxc@2306",
+          "bkUkcyL_Xxc@2308",
+          "bkUkcyL_Xxc@2311",
+          "bkUkcyL_Xxc@2313",
+          "bkUkcyL_Xxc@2314"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p076",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "With this modified collate function, the inputs stay unchanged, while in the target tensor all 50256 values after the first one are replaced by -100.",
+        "line_ids": [
+          "bkUkcyL_Xxc@2398",
+          "bkUkcyL_Xxc@2399",
+          "bkUkcyL_Xxc@2402",
+          "bkUkcyL_Xxc@2404",
+          "bkUkcyL_Xxc@2408",
+          "bkUkcyL_Xxc@2411",
+          "bkUkcyL_Xxc@2414",
+          "bkUkcyL_Xxc@2417",
+          "bkUkcyL_Xxc@2419",
+          "bkUkcyL_Xxc@2421",
+          "bkUkcyL_Xxc@2424",
+          "bkUkcyL_Xxc@2427",
+          "bkUkcyL_Xxc@2428"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p077",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The custom collate function implements the full whiteboard procedure: padding inputs, creating target token IDs, and replacing padded target tokens with the placeholder value -100, also called the ignore index.",
+        "line_ids": [
+          "bkUkcyL_Xxc@2430",
+          "bkUkcyL_Xxc@2434",
+          "bkUkcyL_Xxc@2436",
+          "bkUkcyL_Xxc@2438",
+          "bkUkcyL_Xxc@2440",
+          "bkUkcyL_Xxc@2442",
+          "bkUkcyL_Xxc@2444",
+          "bkUkcyL_Xxc@2447",
+          "bkUkcyL_Xxc@2451",
+          "bkUkcyL_Xxc@2454",
+          "bkUkcyL_Xxc@2456",
+          "bkUkcyL_Xxc@2458",
+          "bkUkcyL_Xxc@2460",
+          "bkUkcyL_Xxc@2462"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p078",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "definition",
+        "importance": 2,
+        "text": "The cross-entropy loss is calculated from a logits tensor of predictions and a target tensor of true answers.",
+        "line_ids": [
+          "bkUkcyL_Xxc@2481",
+          "bkUkcyL_Xxc@2484",
+          "bkUkcyL_Xxc@2486",
+          "bkUkcyL_Xxc@2489",
+          "bkUkcyL_Xxc@2491",
+          "bkUkcyL_Xxc@2494",
+          "bkUkcyL_Xxc@2496",
+          "bkUkcyL_Xxc@2498",
+          "bkUkcyL_Xxc@2500",
+          "bkUkcyL_Xxc@2502",
+          "bkUkcyL_Xxc@2506",
+          "bkUkcyL_Xxc@2508",
+          "bkUkcyL_Xxc@2510",
+          "bkUkcyL_Xxc@2512",
+          "bkUkcyL_Xxc@2515",
+          "bkUkcyL_Xxc@2517",
+          "bkUkcyL_Xxc@2520",
+          "bkUkcyL_Xxc@2522",
+          "bkUkcyL_Xxc@2525",
+          "bkUkcyL_Xxc@2526",
+          "bkUkcyL_Xxc@2529"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p079",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "In the loss demonstration, adding a third example changes the loss, but if that third target is set to -100, the loss becomes the same as before, as if the third example had no effect.",
+        "line_ids": [
+          "bkUkcyL_Xxc@2536",
+          "bkUkcyL_Xxc@2538",
+          "bkUkcyL_Xxc@2541",
+          "bkUkcyL_Xxc@2543",
+          "bkUkcyL_Xxc@2546",
+          "bkUkcyL_Xxc@2547",
+          "bkUkcyL_Xxc@2550",
+          "bkUkcyL_Xxc@2552",
+          "bkUkcyL_Xxc@2555",
+          "bkUkcyL_Xxc@2557",
+          "bkUkcyL_Xxc@2558",
+          "bkUkcyL_Xxc@2561",
+          "bkUkcyL_Xxc@2563",
+          "bkUkcyL_Xxc@2566",
+          "bkUkcyL_Xxc@2568",
+          "bkUkcyL_Xxc@2570",
+          "bkUkcyL_Xxc@2573",
+          "bkUkcyL_Xxc@2576",
+          "bkUkcyL_Xxc@2578",
+          "bkUkcyL_Xxc@2580",
+          "bkUkcyL_Xxc@2584",
+          "bkUkcyL_Xxc@2586",
+          "bkUkcyL_Xxc@2588",
+          "bkUkcyL_Xxc@2590",
+          "bkUkcyL_Xxc@2593",
+          "bkUkcyL_Xxc@2596",
+          "bkUkcyL_Xxc@2598",
+          "bkUkcyL_Xxc@2600",
+          "bkUkcyL_Xxc@2602",
+          "bkUkcyL_Xxc@2606",
+          "bkUkcyL_Xxc@2608",
+          "bkUkcyL_Xxc@2611",
+          "bkUkcyL_Xxc@2613"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p080",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "When a target value is -100, the cross-entropy loss ignores that entry.",
+        "line_ids": [
+          "bkUkcyL_Xxc@2613",
+          "bkUkcyL_Xxc@2615",
+          "bkUkcyL_Xxc@2617",
+          "bkUkcyL_Xxc@2619",
+          "bkUkcyL_Xxc@2621",
+          "bkUkcyL_Xxc@2623",
+          "bkUkcyL_Xxc@2626",
+          "bkUkcyL_Xxc@2628",
+          "bkUkcyL_Xxc@2631"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p081",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In PyTorch, the default ignore_index of the cross-entropy loss is -100, so all targets labeled -100 are ignored.",
+        "line_ids": [
+          "bkUkcyL_Xxc@2641",
+          "bkUkcyL_Xxc@2643",
+          "bkUkcyL_Xxc@2646",
+          "bkUkcyL_Xxc@2648",
+          "bkUkcyL_Xxc@2651",
+          "bkUkcyL_Xxc@2654",
+          "bkUkcyL_Xxc@2656",
+          "bkUkcyL_Xxc@2658",
+          "bkUkcyL_Xxc@2660",
+          "bkUkcyL_Xxc@2662",
+          "bkUkcyL_Xxc@2664",
+          "bkUkcyL_Xxc@2667",
+          "bkUkcyL_Xxc@2669"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p082",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Ignoring target positions labeled -100 is useful here because the extra end-of-text padding tokens are not meaningful and should not affect the loss.",
+        "line_ids": [
+          "bkUkcyL_Xxc@2669",
+          "bkUkcyL_Xxc@2672",
+          "bkUkcyL_Xxc@2674",
+          "bkUkcyL_Xxc@2676",
+          "bkUkcyL_Xxc@2678",
+          "bkUkcyL_Xxc@2681",
+          "bkUkcyL_Xxc@2682",
+          "bkUkcyL_Xxc@2684",
+          "bkUkcyL_Xxc@2687",
+          "bkUkcyL_Xxc@2690",
+          "bkUkcyL_Xxc@2691",
+          "bkUkcyL_Xxc@2693",
+          "bkUkcyL_Xxc@2697",
+          "bkUkcyL_Xxc@2701",
+          "bkUkcyL_Xxc@2703",
+          "bkUkcyL_Xxc@2705",
+          "bkUkcyL_Xxc@2707"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p083",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The batching procedure uses the ignore index specifically to ignore additional end-of-text tokens added for padding while still keeping one 50256 token.",
+        "line_ids": [
+          "bkUkcyL_Xxc@2687",
+          "bkUkcyL_Xxc@2690",
+          "bkUkcyL_Xxc@2691",
+          "bkUkcyL_Xxc@2693",
+          "bkUkcyL_Xxc@2697",
+          "bkUkcyL_Xxc@2701",
+          "bkUkcyL_Xxc@2703",
+          "bkUkcyL_Xxc@2705",
+          "bkUkcyL_Xxc@2707",
+          "bkUkcyL_Xxc@2709",
+          "bkUkcyL_Xxc@2713"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p084",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "When replacing padding-related 50256 tokens in the targets with -100, the first 50256 should be retained.",
+        "line_ids": [
+          "bkUkcyL_Xxc@2720",
+          "bkUkcyL_Xxc@2723",
+          "bkUkcyL_Xxc@2727",
+          "bkUkcyL_Xxc@2729"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p085",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The first 50256 is retained because it helps the LLM learn to generate end-of-text tokens, which indicate that the response is complete.",
+        "line_ids": [
+          "bkUkcyL_Xxc@2732",
+          "bkUkcyL_Xxc@2734",
+          "bkUkcyL_Xxc@2736",
+          "bkUkcyL_Xxc@2738"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p086",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In instruction fine-tuning, creating batches is very important because it involves several specific steps such as padding tokens, using -100, and creating target token IDs by shifting input token IDs to the right by one.",
+        "line_ids": [
+          "bkUkcyL_Xxc@2761",
+          "bkUkcyL_Xxc@2763",
+          "bkUkcyL_Xxc@2765",
+          "bkUkcyL_Xxc@2768",
+          "bkUkcyL_Xxc@2770",
+          "bkUkcyL_Xxc@2778",
+          "bkUkcyL_Xxc@2779"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p087",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The batching process for instruction fine-tuning is to convert the data to the Alpaca prompt template, tokenize the formatted data into token IDs, append padding tokens to all tokenized input sequences within each batch so that all sequences in that batch have the same length, create target token IDs by shifting the input token ID tensor to the right by one, and then replace padding-token 50256 values with -100 except for the first 50256 that indicates end of text.",
+        "line_ids": [
+          "bkUkcyL_Xxc@2782",
+          "bkUkcyL_Xxc@2784",
+          "bkUkcyL_Xxc@2786",
+          "bkUkcyL_Xxc@2788",
+          "bkUkcyL_Xxc@2790",
+          "bkUkcyL_Xxc@2792",
+          "bkUkcyL_Xxc@2794",
+          "bkUkcyL_Xxc@2797",
+          "bkUkcyL_Xxc@2799",
+          "bkUkcyL_Xxc@2802",
+          "bkUkcyL_Xxc@2804",
+          "bkUkcyL_Xxc@2807",
+          "bkUkcyL_Xxc@2809",
+          "bkUkcyL_Xxc@2811",
+          "bkUkcyL_Xxc@2813",
+          "bkUkcyL_Xxc@2817",
+          "bkUkcyL_Xxc@2820"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p088",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Some researchers also mask the target token IDs so that only the response part matters during training.",
+        "line_ids": [
+          "bkUkcyL_Xxc@2822",
+          "bkUkcyL_Xxc@2824",
+          "bkUkcyL_Xxc@2827",
+          "bkUkcyL_Xxc@2843",
+          "bkUkcyL_Xxc@2845",
+          "bkUkcyL_Xxc@2847",
+          "bkUkcyL_Xxc@2852",
+          "bkUkcyL_Xxc@2855",
+          "bkUkcyL_Xxc@2857",
+          "bkUkcyL_Xxc@2859"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p089",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Masking the non-response parts of the target with -100 makes those tokens ignored in the loss function calculation.",
+        "line_ids": [
+          "bkUkcyL_Xxc@2862",
+          "bkUkcyL_Xxc@2865",
+          "bkUkcyL_Xxc@2867",
+          "bkUkcyL_Xxc@2882",
+          "bkUkcyL_Xxc@2885",
+          "bkUkcyL_Xxc@2886",
+          "bkUkcyL_Xxc@2888"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p090",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Masking the target token IDs means masking out the target token IDs that correspond to the instructions.",
+        "line_ids": [
+          "bkUkcyL_Xxc@2896",
+          "bkUkcyL_Xxc@2901",
+          "bkUkcyL_Xxc@2903",
+          "bkUkcyL_Xxc@2905",
+          "bkUkcyL_Xxc@2907",
+          "bkUkcyL_Xxc@2908",
+          "bkUkcyL_Xxc@2911"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p091",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "If target token IDs corresponding to the instruction are masked out, the LLM cross-entropy loss is calculated only for the generated response target IDs.",
+        "line_ids": [
+          "bkUkcyL_Xxc@2911",
+          "bkUkcyL_Xxc@2913",
+          "bkUkcyL_Xxc@2915",
+          "bkUkcyL_Xxc@2917"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p092",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Masking out instruction tokens trains the model to focus on generating accurate responses rather than memorizing instructions, which can help reduce overfitting.",
+        "line_ids": [
+          "bkUkcyL_Xxc@2920",
+          "bkUkcyL_Xxc@2922",
+          "bkUkcyL_Xxc@2924",
+          "bkUkcyL_Xxc@2926",
+          "bkUkcyL_Xxc@2928",
+          "bkUkcyL_Xxc@2931",
+          "bkUkcyL_Xxc@2933",
+          "bkUkcyL_Xxc@2935",
+          "bkUkcyL_Xxc@2938"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p093",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 3,
+        "text": "It is not yet confirmed whether masking instructions is the best approach during instruction fine-tuning, and researchers are divided on whether it is universally beneficial.",
+        "line_ids": [
+          "bkUkcyL_Xxc@2941",
+          "bkUkcyL_Xxc@2944",
+          "bkUkcyL_Xxc@2945",
+          "bkUkcyL_Xxc@2948",
+          "bkUkcyL_Xxc@2950",
+          "bkUkcyL_Xxc@2952",
+          "bkUkcyL_Xxc@2953"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p094",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 2,
+        "text": "A recent paper titled \"Instruction Tuning With Loss Over Instructions\" reported that not masking the instruction benefits LLM performance.",
+        "line_ids": [
+          "bkUkcyL_Xxc@2956",
+          "bkUkcyL_Xxc@2958",
+          "bkUkcyL_Xxc@2961",
+          "bkUkcyL_Xxc@2962",
+          "bkUkcyL_Xxc@2970",
+          "bkUkcyL_Xxc@2972",
+          "bkUkcyL_Xxc@2974",
+          "bkUkcyL_Xxc@2977",
+          "bkUkcyL_Xxc@2980",
+          "bkUkcyL_Xxc@2982"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p095",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Whether masking or not masking is best is still an open research question.",
+        "line_ids": [
+          "bkUkcyL_Xxc@2985",
+          "bkUkcyL_Xxc@2987",
+          "bkUkcyL_Xxc@2989"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p096",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "Masking is implemented by replacing the token IDs of the target text with -100.",
+        "line_ids": [
+          "bkUkcyL_Xxc@2995",
+          "bkUkcyL_Xxc@2998",
+          "bkUkcyL_Xxc@3000",
+          "bkUkcyL_Xxc@3002"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p097",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "visual_ref",
+        "importance": 1,
+        "text": "The lecturer indicates on the whiteboard that masking is done by replacing target-text token IDs with -100.",
+        "line_ids": [
+          "bkUkcyL_Xxc@3000",
+          "bkUkcyL_Xxc@3002",
+          "bkUkcyL_Xxc@3004"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p098",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 1,
+        "text": "In this implementation series, the lecturer will not apply masking and will leave it as an optional exercise.",
+        "line_ids": [
+          "bkUkcyL_Xxc@3006",
+          "bkUkcyL_Xxc@3010",
+          "bkUkcyL_Xxc@3012",
+          "bkUkcyL_Xxc@3014"
+        ]
+      },
+      {
+        "id": "bkUkcyL_Xxc:p099",
+        "video_id": "bkUkcyL_Xxc",
+        "lecture": 38,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Batching the dataset involves five detailed steps.",
+        "line_ids": [
+          "bkUkcyL_Xxc@3042",
+          "bkUkcyL_Xxc@3044",
+          "bkUkcyL_Xxc@3057",
+          "bkUkcyL_Xxc@3060",
+          "bkUkcyL_Xxc@3062"
+        ]
+      }
+    ],
+    "inventory": [
+      {
+        "chunk": "bkUkcyL_Xxc@0-907",
+        "start": 0,
+        "end": 907,
+        "points": 23,
+        "core_points": 16,
+        "invalid_points": 0,
+        "flag": null
+      },
+      {
+        "chunk": "bkUkcyL_Xxc@904-1819",
+        "start": 904,
+        "end": 1819,
+        "points": 38,
+        "core_points": 22,
+        "invalid_points": 0,
+        "flag": null
+      },
+      {
+        "chunk": "bkUkcyL_Xxc@1815-2717",
+        "start": 1815,
+        "end": 2717,
+        "points": 22,
+        "core_points": 16,
+        "invalid_points": 0,
+        "flag": null
+      },
+      {
+        "chunk": "bkUkcyL_Xxc@2715-3118",
+        "start": 2715,
+        "end": 3118,
+        "points": 16,
+        "core_points": 8,
+        "invalid_points": 0,
+        "flag": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,918 @@
+{
+  "stage": "verify",
+  "item": "ch04.s07",
+  "inputs_hash": "bf72495800aca9f76d76bf68ef78fd63ff9f43550184a6449c6e2edb2c39acf8",
+  "output_hash": "a3d9ac750364e28a6bc1dae975abb05bbe9eb410e8c3f6d1f6cc23b9e2541279",
+  "output": {
+    "section_id": "ch04.s07",
+    "paragraphs": [
+      {
+        "id": "ch04.s07.p01",
+        "sentences": [
+          {
+            "id": "ch04.s07.p01.01",
+            "text": "How does a GPT model turn an input sequence into next-token predictions, and what counts as the correct answer for each position?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s07.p01.02",
+            "text": "Here, the word \"target\" means the true values.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@509",
+              "7TKCrt--bWI@511",
+              "7TKCrt--bWI@513",
+              "7TKCrt--bWI@515"
+            ]
+          },
+          {
+            "id": "ch04.s07.p01.03",
+            "text": "The loss function is determined by the predicted values and the target values and how close they are.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@518",
+              "7TKCrt--bWI@519",
+              "7TKCrt--bWI@521"
+            ]
+          },
+          {
+            "id": "ch04.s07.p01.04",
+            "text": "For the input tokens \"every effort moves\", there are three prediction tasks.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@565",
+              "7TKCrt--bWI@601",
+              "7TKCrt--bWI@604",
+              "7TKCrt--bWI@608"
+            ]
+          },
+          {
+            "id": "ch04.s07.p01.05",
+            "text": "From the prefix \"every\", the correct next token is \"effort\".",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@610",
+              "7TKCrt--bWI@613",
+              "7TKCrt--bWI@615",
+              "7TKCrt--bWI@617"
+            ]
+          },
+          {
+            "id": "ch04.s07.p01.06",
+            "text": "From the prefix \"every effort\", the correct next token is \"moves\".",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@617",
+              "7TKCrt--bWI@620",
+              "7TKCrt--bWI@623",
+              "7TKCrt--bWI@627"
+            ]
+          },
+          {
+            "id": "ch04.s07.p01.07",
+            "text": "From the prefix \"every effort moves\", the correct next token is \"you\".",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@627",
+              "7TKCrt--bWI@630",
+              "7TKCrt--bWI@632",
+              "7TKCrt--bWI@635"
+            ]
+          },
+          {
+            "id": "ch04.s07.p01.08",
+            "text": "For the input tokens \"I really like\", there are also three prediction tasks.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@568",
+              "7TKCrt--bWI@639",
+              "7TKCrt--bWI@641",
+              "7TKCrt--bWI@656"
+            ]
+          },
+          {
+            "id": "ch04.s07.p01.09",
+            "text": "From the prefix \"I\", the correct next token is \"really\".",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@639",
+              "7TKCrt--bWI@641",
+              "7TKCrt--bWI@644"
+            ]
+          },
+          {
+            "id": "ch04.s07.p01.10",
+            "text": "From the prefix \"I really\", the correct next token is \"like\".",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@644",
+              "7TKCrt--bWI@647"
+            ]
+          },
+          {
+            "id": "ch04.s07.p01.11",
+            "text": "From the prefix \"I really like\", the correct next token is \"chocolate\".",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@647",
+              "7TKCrt--bWI@650",
+              "7TKCrt--bWI@651",
+              "7TKCrt--bWI@654"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s07.p02",
+        "sentences": [
+          {
+            "id": "ch04.s07.p02.r01",
+            "text": "When the input has three tokens, there are three prediction tasks.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@1007",
+              "7TKCrt--bWI@1010",
+              "7TKCrt--bWI@1012",
+              "7TKCrt--bWI@1014"
+            ]
+          },
+          {
+            "id": "ch04.s07.p02.r02",
+            "text": "The targets are the true prediction values for the given inputs.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@694",
+              "7TKCrt--bWI@696",
+              "7TKCrt--bWI@698",
+              "7TKCrt--bWI@701",
+              "7TKCrt--bWI@703"
+            ]
+          },
+          {
+            "id": "ch04.s07.p02.r03",
+            "text": "In code, the first batch targets are 3626, 610, and 345, and the second batch targets are 1107, 588, and 11311.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@1499",
+              "7TKCrt--bWI@1501",
+              "7TKCrt--bWI@1505",
+              "7TKCrt--bWI@1507",
+              "7TKCrt--bWI@1510",
+              "7TKCrt--bWI@1511"
+            ]
+          },
+          {
+            "id": "ch04.s07.p02.r04",
+            "text": "These targets are the input shifted by one position.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@1511",
+              "7TKCrt--bWI@1515"
+            ]
+          },
+          {
+            "id": "ch04.s07.p02.r05",
+            "text": "The reason given is that there are three input-output pairs.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@1522",
+              "7TKCrt--bWI@1524",
+              "7TKCrt--bWI@1526"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s07.p03",
+        "sentences": [
+          {
+            "id": "ch04.s07.p03.r01",
+            "text": "The function \"text to token IDs\" converts input text into token IDs using the tiktoken tokenizer, and \"token IDs to text\" does the reverse conversion.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@1383",
+              "7TKCrt--bWI@1385",
+              "7TKCrt--bWI@1390",
+              "7TKCrt--bWI@1393",
+              "7TKCrt--bWI@1397",
+              "7TKCrt--bWI@1399",
+              "7TKCrt--bWI@1401",
+              "7TKCrt--bWI@1403"
+            ]
+          },
+          {
+            "id": "ch04.s07.p03.r02",
+            "text": "For a simple illustration, it is enough to use a vocabulary with seven elements, even though the actual example vocabulary has 50257 elements.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@790",
+              "7TKCrt--bWI@792",
+              "7TKCrt--bWI@794",
+              "7TKCrt--bWI@796",
+              "7TKCrt--bWI@798",
+              "7TKCrt--bWI@801",
+              "7TKCrt--bWI@803",
+              "7TKCrt--bWI@805",
+              "7TKCrt--bWI@808",
+              "7TKCrt--bWI@809"
+            ]
+          },
+          {
+            "id": "ch04.s07.p03.r03",
+            "text": "In that toy vocabulary, the input text \"every effort moves\" maps to the token IDs 2, 1, and 4.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@815",
+              "7TKCrt--bWI@818",
+              "7TKCrt--bWI@821",
+              "7TKCrt--bWI@823",
+              "7TKCrt--bWI@826",
+              "7TKCrt--bWI@830",
+              "7TKCrt--bWI@832",
+              "7TKCrt--bWI@834"
+            ]
+          },
+          {
+            "id": "ch04.s07.p03.r04",
+            "text": "The input tensor is then passed into the GPT model, which returns an output tensor called the logit tensor.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@746",
+              "7TKCrt--bWI@749",
+              "7TKCrt--bWI@756",
+              "7TKCrt--bWI@759",
+              "7TKCrt--bWI@761",
+              "7TKCrt--bWI@765"
+            ]
+          },
+          {
+            "id": "ch04.s07.p03.r05",
+            "text": "To generate outputs, the logits are passed through softmax because the logits are not yet normalized into probabilities between 0 and 1.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@1550",
+              "7TKCrt--bWI@1552",
+              "7TKCrt--bWI@1555",
+              "7TKCrt--bWI@1558",
+              "7TKCrt--bWI@1560",
+              "7TKCrt--bWI@1563",
+              "7TKCrt--bWI@1565"
+            ]
+          },
+          {
+            "id": "ch04.s07.p03.r06",
+            "text": "After softmax, the output matrix has one row for each input token and one column for each vocabulary element.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@858",
+              "7TKCrt--bWI@861",
+              "7TKCrt--bWI@867",
+              "7TKCrt--bWI@869",
+              "7TKCrt--bWI@871",
+              "7TKCrt--bWI@873",
+              "7TKCrt--bWI@876",
+              "7TKCrt--bWI@879",
+              "7TKCrt--bWI@883",
+              "7TKCrt--bWI@885"
+            ]
+          },
+          {
+            "id": "ch04.s07.p03.r07",
+            "text": "In the batched case, the probabilities have shape batch size, number of tokens, and vocabulary size, which is described as 2, 3, 50257.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@1638",
+              "7TKCrt--bWI@1641",
+              "7TKCrt--bWI@1643",
+              "7TKCrt--bWI@1645",
+              "7TKCrt--bWI@1649"
+            ]
+          },
+          {
+            "id": "ch04.s07.p03.r08",
+            "text": "Each row contains the probabilities of the possible next tokens.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@887",
+              "7TKCrt--bWI@889",
+              "7TKCrt--bWI@891"
+            ]
+          },
+          {
+            "id": "ch04.s07.p03.r09",
+            "text": "For each input prefix, the row gives the probabilities of the next token.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@937",
+              "7TKCrt--bWI@941",
+              "7TKCrt--bWI@943",
+              "7TKCrt--bWI@945"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s07.p04",
+        "sentences": [
+          {
+            "id": "ch04.s07.p04.r01",
+            "text": "To get output token IDs, the inputs pass through the GPT architecture to produce logits, softmax is applied to obtain probabilities, and then the index with the highest probability is extracted from each row.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@1241",
+              "7TKCrt--bWI@1244",
+              "7TKCrt--bWI@1246",
+              "7TKCrt--bWI@1248",
+              "7TKCrt--bWI@1250",
+              "7TKCrt--bWI@1252",
+              "7TKCrt--bWI@1255",
+              "7TKCrt--bWI@1258",
+              "7TKCrt--bWI@1262",
+              "7TKCrt--bWI@1264"
+            ]
+          },
+          {
+            "id": "ch04.s07.p04.r02",
+            "text": "Using \"torch.argmax\" with dimension equal to minus one selects the index of the maximum value along the vocabulary dimension for each row.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@1652",
+              "7TKCrt--bWI@1654",
+              "7TKCrt--bWI@1658",
+              "7TKCrt--bWI@1660",
+              "7TKCrt--bWI@1670",
+              "7TKCrt--bWI@1673",
+              "7TKCrt--bWI@1676",
+              "7TKCrt--bWI@1679",
+              "7TKCrt--bWI@1682",
+              "7TKCrt--bWI@1685",
+              "7TKCrt--bWI@1686",
+              "7TKCrt--bWI@1688",
+              "7TKCrt--bWI@1690",
+              "7TKCrt--bWI@1692",
+              "7TKCrt--bWI@1694"
+            ]
+          },
+          {
+            "id": "ch04.s07.p04.r03",
+            "text": "In the toy example, the three predicted output token IDs for \"every effort moves\" are 1, 4, and 5.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@1014",
+              "7TKCrt--bWI@1019",
+              "7TKCrt--bWI@1028",
+              "7TKCrt--bWI@1031",
+              "7TKCrt--bWI@1036",
+              "7TKCrt--bWI@1038",
+              "7TKCrt--bWI@1041",
+              "7TKCrt--bWI@1045",
+              "7TKCrt--bWI@1049"
+            ]
+          },
+          {
+            "id": "ch04.s07.p04.r04",
+            "text": "These correspond to the tokens \"effort\", \"moves\", and \"you\".",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@1021",
+              "7TKCrt--bWI@1023",
+              "7TKCrt--bWI@1031",
+              "7TKCrt--bWI@1033",
+              "7TKCrt--bWI@1038",
+              "7TKCrt--bWI@1065"
+            ]
+          },
+          {
+            "id": "ch04.s07.p04.r05",
+            "text": "In the cited example, GPT-2's vocabulary size is stated as 5257, and the range of the output token ID is stated as 0 to 50257, whereas in the toy example the vocabulary size was 7 and the range was 0 to 7.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@1113",
+              "7TKCrt--bWI@1115",
+              "7TKCrt--bWI@1118",
+              "7TKCrt--bWI@1121",
+              "7TKCrt--bWI@1125"
+            ]
+          },
+          {
+            "id": "ch04.s07.p04.r06",
+            "text": "After obtaining output token IDs, they can be decoded back into text to inspect the model's prediction.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@1725",
+              "7TKCrt--bWI@1728",
+              "7TKCrt--bWI@1730",
+              "7TKCrt--bWI@1733",
+              "7TKCrt--bWI@1735",
+              "7TKCrt--bWI@1738",
+              "7TKCrt--bWI@1740"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s07.p05",
+        "sentences": [
+          {
+            "id": "ch04.s07.p05.r01",
+            "text": "For the first batch, the target text is \"effort moves you\", but the decoded output is \"armed H Netflix\".",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@1747",
+              "7TKCrt--bWI@1752",
+              "7TKCrt--bWI@1755",
+              "7TKCrt--bWI@1772",
+              "7TKCrt--bWI@1774",
+              "7TKCrt--bWI@1776",
+              "7TKCrt--bWI@1778",
+              "7TKCrt--bWI@1780"
+            ]
+          },
+          {
+            "id": "ch04.s07.p05.r02",
+            "text": "This shows a large mismatch between outputs and targets.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@1782",
+              "7TKCrt--bWI@1784",
+              "7TKCrt--bWI@1786",
+              "7TKCrt--bWI@1788"
+            ]
+          },
+          {
+            "id": "ch04.s07.p05.r03",
+            "text": "The model has not yet been optimized, the loss function has not yet been minimized, and the current output token IDs are not the actual target token IDs because training has not happened yet.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@1174",
+              "7TKCrt--bWI@1177",
+              "7TKCrt--bWI@1179",
+              "7TKCrt--bWI@1181",
+              "7TKCrt--bWI@1791",
+              "7TKCrt--bWI@1795",
+              "7TKCrt--bWI@1797",
+              "7TKCrt--bWI@1798"
+            ]
+          },
+          {
+            "id": "ch04.s07.p05.r04",
+            "text": "The goal is for the model's output token IDs to be as close as possible to the target token IDs.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@1166",
+              "7TKCrt--bWI@1168",
+              "7TKCrt--bWI@1183",
+              "7TKCrt--bWI@1186",
+              "7TKCrt--bWI@1188"
+            ]
+          },
+          {
+            "id": "ch04.s07.p05.r05",
+            "text": "The loss function is defined between the outputs and the targets so that the target text and output text become as close as possible.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@1190",
+              "7TKCrt--bWI@1192",
+              "7TKCrt--bWI@1193",
+              "7TKCrt--bWI@1801",
+              "7TKCrt--bWI@1802",
+              "7TKCrt--bWI@1805",
+              "7TKCrt--bWI@1810",
+              "7TKCrt--bWI@1813"
+            ]
+          },
+          {
+            "id": "ch04.s07.p05.r06",
+            "text": "An untrained model does not yet produce good text, which is why a loss function is needed to measure how good the text is.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@1463",
+              "7TKCrt--bWI@1465",
+              "7TKCrt--bWI@1468",
+              "7TKCrt--bWI@1470",
+              "7TKCrt--bWI@1473"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch04.s07.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s07.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch04.s07.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s07.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.84,
+        "reason": ""
+      },
+      "ch04.s07.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch04.s07.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch04.s07.p01.07": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s07.p01.08": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s07.p01.09": {
+        "verdict": "supported",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch04.s07.p01.10": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch04.s07.p01.11": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s07.p02.r01": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s07.p02.r02": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch04.s07.p02.r03": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s07.p02.r04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s07.p02.r05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s07.p03.r01": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s07.p03.r02": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch04.s07.p03.r03": {
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch04.s07.p03.r04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s07.p03.r05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s07.p03.r06": {
+        "verdict": "supported",
+        "confidence": 0.85,
+        "reason": ""
+      },
+      "ch04.s07.p03.r07": {
+        "verdict": "supported",
+        "confidence": 0.83,
+        "reason": ""
+      },
+      "ch04.s07.p03.r08": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s07.p03.r09": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch04.s07.p04.r01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s07.p04.r02": {
+        "verdict": "supported",
+        "confidence": 0.91,
+        "reason": ""
+      },
+      "ch04.s07.p04.r03": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch04.s07.p04.r04": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch04.s07.p04.r05": {
+        "verdict": "partial",
+        "confidence": 0.67,
+        "reason": "The lines state the output token ID range is 0 to 50257, but the vocabulary size is given as 5257 (likely a misheard 50257). As written, the sentence’s claim that GPT-2 vocabulary size is 5257 is not supported by the same lines that imply a 50257-size vocab; also the toy example range '0 to 7' is stated but would typically be 0 to 6—caption says 0 to 7 though."
+      },
+      "ch04.s07.p04.r06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s07.p05.r01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s07.p05.r02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s07.p05.r03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s07.p05.r04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s07.p05.r05": {
+        "verdict": "supported",
+        "confidence": 0.91,
+        "reason": ""
+      },
+      "ch04.s07.p05.r06": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch04.s07.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s07.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch04.s07.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s07.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.84,
+        "reason": ""
+      },
+      "ch04.s07.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch04.s07.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch04.s07.p01.07": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s07.p01.08": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s07.p01.09": {
+        "verdict": "supported",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch04.s07.p01.10": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch04.s07.p01.11": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s07.p02.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.6,
+        "reason": "asserts a factual relationship about target tensor shape matching input tensor positions, but no citation is provided here to support it"
+      },
+      "ch04.s07.p02.02": {
+        "verdict": "partial",
+        "confidence": 0.62,
+        "reason": "captions support that three tokens imply three prediction tasks, but do not state the added detail that they are specifically 'one for each growing prefix' of the input"
+      },
+      "ch04.s07.p02.03": {
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "captions support that targets are 'true values' / 'true prediction values' for the inputs, but do not explicitly state that these are what the model 'should output' (a prescriptive claim)"
+      },
+      "ch04.s07.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s07.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s07.p02.06": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch04.s07.p03.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.85,
+        "reason": "Although labeled CONNECTIVE, it makes factual/process claims about prediction generation steps (convert to token IDs, pass through model, convert back)."
+      },
+      "ch04.s07.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s07.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s07.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s07.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s07.p03.06": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s07.p03.07": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s07.p03.08": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s07.p03.09": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s07.p03.10": {
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "Supported: row values correspond to probabilities of the next token given an input token/prefix. Not explicitly supported: that it covers 'all possible next tokens in the vocabulary' (i.e., all vocabulary items)."
+      },
+      "ch04.s07.p04.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.86,
+        "reason": "Although labeled CONNECTIVE, it asserts a factual method for obtaining a prediction (choose most probable token in each row)."
+      },
+      "ch04.s07.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s07.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch04.s07.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch04.s07.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s07.p04.06": {
+        "verdict": "partial",
+        "confidence": 0.74,
+        "reason": "Caption states gpt2 vocabulary size as 5257 (likely misheard) while also stating output token ID range 0 to 50257; the sentence’s specific value 50257 for vocabulary size and the claim that IDs range 0 to 50257 are not fully supported/are internally inconsistent with the cited lines."
+      },
+      "ch04.s07.p04.07": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s07.p05.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.76,
+        "reason": "Asserts a factual interpretation ('decoded text shows why a loss function is needed') without citations."
+      },
+      "ch04.s07.p05.02": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch04.s07.p05.03": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch04.s07.p05.04": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch04.s07.p05.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s07.p05.06": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch04.s07.p05.07": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "ch04.s07.p02",
+      "ch04.s07.p03",
+      "ch04.s07.p04",
+      "ch04.s07.p05"
+    ],
+    "queue": [
+      {
+        "sentence_id": "ch04.s07.p04.r05",
+        "text": "In the cited example, GPT-2's vocabulary size is stated as 5257, and the range of the output token ID is stated as 0 to 50257, whereas in the toy example the vocabulary size was 7 and the range was 0 to 7.",
+        "cites": [
+          "7TKCrt--bWI@1113",
+          "7TKCrt--bWI@1115",
+          "7TKCrt--bWI@1118",
+          "7TKCrt--bWI@1121",
+          "7TKCrt--bWI@1125"
+        ],
+        "verdict": "partial",
+        "confidence": 0.67,
+        "reason": "The lines state the output token ID range is 0 to 50257, but the vocabulary size is given as 5257 (likely a misheard 50257). As written, the sentence’s claim that GPT-2 vocabulary size is 5257 is not supported by the same lines that imply a 50257-size vocab; also the toy example range '0 to 7' is stated but would typically be 0 to 6—caption says 0 to 7 though.",
+        "status": "open"
+      }
+    ]
+  }
+}

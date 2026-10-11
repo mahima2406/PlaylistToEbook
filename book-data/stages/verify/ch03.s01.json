@@ -1,0 +1,644 @@
+{
+  "stage": "verify",
+  "item": "ch03.s01",
+  "inputs_hash": "35cdf53cd066481a97993b6b957c02820100190709abf40178e4d1575f5df035",
+  "output_hash": "50d18d51e2e8e55ccd2c9018b7fd3ca03eb3b8ef35016a2cdbe941fa6a0ed86a",
+  "output": {
+    "section_id": "ch03.s01",
+    "paragraphs": [
+      {
+        "id": "ch03.s01.p01",
+        "sentences": [
+          {
+            "id": "ch03.s01.p01.01",
+            "text": "How does a sentence become the vectors that attention can work on, and why is more than a plain embedding needed for next-word prediction?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s01.p01.02",
+            "text": "A large language model data pipeline first converts words into tokens, then tokens into token IDs, and then token IDs into vector embeddings.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@165",
+              "eSRhpYLerw4@170",
+              "eSRhpYLerw4@180",
+              "eSRhpYLerw4@183",
+              "eSRhpYLerw4@185",
+              "h94TQOK7NRA@117",
+              "h94TQOK7NRA@120",
+              "h94TQOK7NRA@122",
+              "h94TQOK7NRA@125",
+              "h94TQOK7NRA@128"
+            ]
+          },
+          {
+            "id": "ch03.s01.p01.03",
+            "text": "For the sentence \"your journey starts with one step\", the six words are used as the tokens for the demonstration, and each token is assigned a three-dimensional vector embedding.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@154",
+              "eSRhpYLerw4@156",
+              "eSRhpYLerw4@204",
+              "eSRhpYLerw4@207",
+              "eSRhpYLerw4@211",
+              "eSRhpYLerw4@390",
+              "eSRhpYLerw4@392",
+              "eSRhpYLerw4@395",
+              "eSRhpYLerw4@397",
+              "h94TQOK7NRA@107",
+              "h94TQOK7NRA@110",
+              "h94TQOK7NRA@131",
+              "h94TQOK7NRA@133",
+              "h94TQOK7NRA@166",
+              "h94TQOK7NRA@168",
+              "h94TQOK7NRA@170"
+            ]
+          },
+          {
+            "id": "ch03.s01.p01.04",
+            "text": "GPT uses byte pair encoding, described here as a subword tokenizer.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@173",
+              "eSRhpYLerw4@176",
+              "h94TQOK7NRA@149",
+              "h94TQOK7NRA@153",
+              "h94TQOK7NRA@155"
+            ]
+          },
+          {
+            "id": "ch03.s01.p01.05",
+            "text": "Because of that, one token is not generally equal to one word, but for simplicity the terms \"token\" and \"word\" are used interchangeably here.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@420",
+              "eSRhpYLerw4@422",
+              "eSRhpYLerw4@425",
+              "eSRhpYLerw4@427",
+              "eSRhpYLerw4@430",
+              "eSRhpYLerw4@433",
+              "eSRhpYLerw4@436",
+              "h94TQOK7NRA@147",
+              "h94TQOK7NRA@149",
+              "h94TQOK7NRA@153",
+              "h94TQOK7NRA@155",
+              "h94TQOK7NRA@158",
+              "h94TQOK7NRA@159",
+              "h94TQOK7NRA@162"
+            ]
+          },
+          {
+            "id": "ch03.s01.p01.06",
+            "text": "A vector embedding is the vector representation of a token in a higher-dimensional space.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@185",
+              "eSRhpYLerw4@188",
+              "eSRhpYLerw4@192",
+              "eSRhpYLerw4@193"
+            ]
+          },
+          {
+            "id": "ch03.s01.p01.07",
+            "text": "In large language models such as GPT, that space can be much larger, with dimensions described here as 500, 700, or even more than 1000, but the running example uses three dimensions for simplicity and illustration.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@196",
+              "eSRhpYLerw4@199",
+              "eSRhpYLerw4@201",
+              "eSRhpYLerw4@204",
+              "eSRhpYLerw4@207",
+              "eSRhpYLerw4@596",
+              "eSRhpYLerw4@598",
+              "eSRhpYLerw4@599",
+              "eSRhpYLerw4@601",
+              "eSRhpYLerw4@604",
+              "eSRhpYLerw4@610",
+              "eSRhpYLerw4@612",
+              "eSRhpYLerw4@614",
+              "eSRhpYLerw4@616"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s01.p02",
+        "sentences": [
+          {
+            "id": "ch03.s01.p02.01",
+            "text": "These embeddings already carry useful meaning, but they are still not enough.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s01.p02.02",
+            "text": "Embedding vectors capture the semantic meaning of words, so semantically related words are closer to each other in the vector space.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@217",
+              "eSRhpYLerw4@219",
+              "eSRhpYLerw4@222",
+              "eSRhpYLerw4@224",
+              "eSRhpYLerw4@226",
+              "eSRhpYLerw4@229",
+              "eSRhpYLerw4@656",
+              "eSRhpYLerw4@658",
+              "eSRhpYLerw4@660",
+              "eSRhpYLerw4@662",
+              "eSRhpYLerw4@665"
+            ]
+          },
+          {
+            "id": "ch03.s01.p02.03",
+            "text": "Examples given for this closeness include \"cat\" and \"puppy\", \"cat\" and \"kitten\", and \"dog\" and \"puppy\".",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@222",
+              "eSRhpYLerw4@224",
+              "eSRhpYLerw4@226"
+            ]
+          },
+          {
+            "id": "ch03.s01.p02.04",
+            "text": "An input embedding encodes the meaning of a word itself, but it does not contain information about how that word relates to the other words in the sentence.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@242",
+              "eSRhpYLerw4@244",
+              "eSRhpYLerw4@246",
+              "eSRhpYLerw4@250",
+              "eSRhpYLerw4@253",
+              "eSRhpYLerw4@255",
+              "eSRhpYLerw4@272",
+              "eSRhpYLerw4@274",
+              "h94TQOK7NRA@205",
+              "h94TQOK7NRA@209",
+              "h94TQOK7NRA@212",
+              "h94TQOK7NRA@215",
+              "h94TQOK7NRA@218",
+              "h94TQOK7NRA@220",
+              "h94TQOK7NRA@233",
+              "h94TQOK7NRA@235"
+            ]
+          },
+          {
+            "id": "ch03.s01.p02.05",
+            "text": "For example, the embedding for \"journey\" does not say how \"journey\" relates to words such as \"your\", \"starts\", \"with\", \"one\", and \"step\", or how much relative importance those words have with respect to \"journey\".",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@255",
+              "eSRhpYLerw4@258",
+              "eSRhpYLerw4@261",
+              "eSRhpYLerw4@264",
+              "eSRhpYLerw4@267",
+              "h94TQOK7NRA@218",
+              "h94TQOK7NRA@220",
+              "h94TQOK7NRA@224",
+              "h94TQOK7NRA@226",
+              "h94TQOK7NRA@228",
+              "h94TQOK7NRA@230"
+            ]
+          },
+          {
+            "id": "ch03.s01.p02.06",
+            "text": "That relational information is crucial for predicting the next word, because the model needs context and needs to know how much attention should be paid to the different words in the sequence.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@277",
+              "eSRhpYLerw4@279",
+              "eSRhpYLerw4@282",
+              "eSRhpYLerw4@284",
+              "eSRhpYLerw4@286",
+              "eSRhpYLerw4@295",
+              "eSRhpYLerw4@298",
+              "h94TQOK7NRA@255",
+              "h94TQOK7NRA@257",
+              "h94TQOK7NRA@259",
+              "h94TQOK7NRA@261",
+              "h94TQOK7NRA@264",
+              "h94TQOK7NRA@267",
+              "h94TQOK7NRA@269",
+              "h94TQOK7NRA@271"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s01.p03",
+        "sentences": [
+          {
+            "id": "ch03.s01.p03.01",
+            "text": "Attention is introduced to add exactly this missing context.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s01.p03.02",
+            "text": "The goal of an attention mechanism is to take the input embeddings for tokens and transform them into context vectors, also called context embeddings.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@305",
+              "eSRhpYLerw4@307",
+              "eSRhpYLerw4@309",
+              "eSRhpYLerw4@312",
+              "eSRhpYLerw4@315",
+              "eSRhpYLerw4@317",
+              "h94TQOK7NRA@184",
+              "h94TQOK7NRA@187",
+              "h94TQOK7NRA@189",
+              "h94TQOK7NRA@191",
+              "h94TQOK7NRA@194"
+            ]
+          },
+          {
+            "id": "ch03.s01.p03.03",
+            "text": "A context vector is an enriched embedding vector: it contains the semantic meaning of the word and also information about how that word relates to other words in the sentence and how much attention should be paid to them.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@319",
+              "eSRhpYLerw4@322",
+              "eSRhpYLerw4@324",
+              "eSRhpYLerw4@325",
+              "eSRhpYLerw4@328",
+              "eSRhpYLerw4@329",
+              "eSRhpYLerw4@331",
+              "eSRhpYLerw4@334",
+              "eSRhpYLerw4@337",
+              "h94TQOK7NRA@235",
+              "h94TQOK7NRA@238",
+              "h94TQOK7NRA@240",
+              "h94TQOK7NRA@242",
+              "h94TQOK7NRA@244",
+              "h94TQOK7NRA@247",
+              "h94TQOK7NRA@267",
+              "h94TQOK7NRA@269"
+            ]
+          },
+          {
+            "id": "ch03.s01.p03.04",
+            "text": "This contextual information helps next-word prediction and makes it better and more reliable.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@337",
+              "eSRhpYLerw4@339",
+              "eSRhpYLerw4@342",
+              "eSRhpYLerw4@344",
+              "h94TQOK7NRA@257",
+              "h94TQOK7NRA@259",
+              "h94TQOK7NRA@261",
+              "h94TQOK7NRA@264"
+            ]
+          },
+          {
+            "id": "ch03.s01.p03.05",
+            "text": "Attention produces one context vector for each input embedding vector.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@346",
+              "eSRhpYLerw4@348",
+              "eSRhpYLerw4@351",
+              "eSRhpYLerw4@355",
+              "eSRhpYLerw4@357",
+              "eSRhpYLerw4@359",
+              "eSRhpYLerw4@457",
+              "eSRhpYLerw4@460"
+            ]
+          },
+          {
+            "id": "ch03.s01.p03.06",
+            "text": "That same goal is shared by simplified attention and by the multi-head attention used in modern large language models: convert embedding vectors into context vectors that are then used as inputs to the model.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@360",
+              "eSRhpYLerw4@362",
+              "eSRhpYLerw4@364",
+              "eSRhpYLerw4@366",
+              "eSRhpYLerw4@369",
+              "eSRhpYLerw4@371",
+              "eSRhpYLerw4@373",
+              "eSRhpYLerw4@375",
+              "eSRhpYLerw4@378",
+              "eSRhpYLerw4@380",
+              "eSRhpYLerw4@382"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s01.p04",
+        "sentences": [
+          {
+            "id": "ch03.s01.p04.01",
+            "text": "To make the notation concrete, the input embeddings are written as \"x\".",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s01.p04.02",
+            "text": "\"x1\" denotes the vector representation of the first token, \"x2\" the vector representation of the second token, and \"x3\" the vector representation of the third token.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@401",
+              "eSRhpYLerw4@403",
+              "eSRhpYLerw4@405",
+              "eSRhpYLerw4@408",
+              "eSRhpYLerw4@411",
+              "eSRhpYLerw4@414",
+              "eSRhpYLerw4@415"
+            ]
+          },
+          {
+            "id": "ch03.s01.p04.03",
+            "text": "For the word \"journey\", which is the second word in the sentence, the input embedding is \"x2\", and its context vector is denoted by \"z2\".",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@442",
+              "eSRhpYLerw4@445",
+              "eSRhpYLerw4@454",
+              "eSRhpYLerw4@456",
+              "eSRhpYLerw4@457"
+            ]
+          },
+          {
+            "id": "ch03.s01.p04.04",
+            "text": "In the Python implementation, the inputs are stored as a tensor containing six three-dimensional embedding vectors, one for each token in the sentence.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@617",
+              "eSRhpYLerw4@620",
+              "eSRhpYLerw4@623",
+              "eSRhpYLerw4@627",
+              "eSRhpYLerw4@639",
+              "eSRhpYLerw4@642",
+              "eSRhpYLerw4@644",
+              "eSRhpYLerw4@646"
+            ]
+          },
+          {
+            "id": "ch03.s01.p04.05",
+            "text": "In that tensor, each row represents a token and each column represents a vector dimension, so with three dimensions there are three columns.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@720",
+              "eSRhpYLerw4@721",
+              "eSRhpYLerw4@723",
+              "eSRhpYLerw4@725",
+              "eSRhpYLerw4@727",
+              "eSRhpYLerw4@732",
+              "eSRhpYLerw4@734",
+              "eSRhpYLerw4@736",
+              "eSRhpYLerw4@738"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch03.s01.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s01.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s01.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s01.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s01.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s01.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.87,
+        "reason": ""
+      },
+      "ch03.s01.p01.07": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s01.p02.01": {
+        "verdict": "ok",
+        "confidence": 0.75,
+        "reason": ""
+      },
+      "ch03.s01.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s01.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s01.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s01.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s01.p02.06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s01.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch03.s01.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s01.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s01.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s01.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s01.p03.06": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s01.p04.01": {
+        "verdict": "ok",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch03.s01.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s01.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s01.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s01.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch03.s01.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s01.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s01.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s01.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s01.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s01.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.87,
+        "reason": ""
+      },
+      "ch03.s01.p01.07": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s01.p02.01": {
+        "verdict": "ok",
+        "confidence": 0.75,
+        "reason": ""
+      },
+      "ch03.s01.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s01.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s01.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s01.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s01.p02.06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s01.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch03.s01.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s01.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s01.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s01.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s01.p03.06": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s01.p04.01": {
+        "verdict": "ok",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch03.s01.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s01.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s01.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s01.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      }
+    },
+    "rewritten": [],
+    "queue": []
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "stage": "listings",
+  "item": "ch05.s10",
+  "inputs_hash": "f2fc924be0857c819a95a83fb694659cf7b55b0b1b8a55c4e75ed29ba859805e",
+  "output_hash": "2259d215b7d8b9902441c692ae13b6e4c4c6a0098b7513b2eaf052239c36e77e",
+  "output": {
+    "section_id": "ch05.s10",
+    "listings": [
+      {
+        "id": "ch05.s10.code1",
+        "ref": "ref:ch06/01_main-chapter-code/ch06.ipynb#cell76",
+        "path": "ch06/01_main-chapter-code/ch06.ipynb",
+        "caption": "This code applies softmax to the last-token outputs, takes the argmax of the resulting two-class probabilities, and prints the predicted class label.",
+        "code": "probas = torch.softmax(outputs[:, -1, :], dim=-1)\nlabel = torch.argmax(probas)\nprint(\"Class label:\", label.item())",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The code takes the last-token outputs (outputs[:, -1, :]), applies softmax over the class dimension to get probabilities, then uses argmax to select the predicted class and prints it. This directly demonstrates the section’s described procedure, and the caption accurately describes what the code does (aside from not explicitly showing that it’s two-class, which is implied by the section context)."
+      }
+    ],
+    "rejected": [
+      {
+        "id": "ch05.s10.code2",
+        "ref": "ref:ch06/01_main-chapter-code/ch06.ipynb#cell78",
+        "path": "ch06/01_main-chapter-code/ch06.ipynb",
+        "caption": "This code selects the last-token logits directly, computes the highest-scoring class with argmax, and prints the class label.",
+        "code": "logits = outputs[:, -1, :]\nlabel = torch.argmax(logits)\nprint(\"Class label:\", label.item())",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The code does select last-token logits and uses argmax to get a predicted class label, which aligns with part of the section. However, the section also teaches optionally applying softmax and printing probabilities, while the code neither applies softmax nor prints probabilities. The caption claims it computes the highest-scoring class with argmax and prints the class label, which is accurate, but it omits the softmax/probability aspect emphasized in the section."
+      }
+    ]
+  }
+}

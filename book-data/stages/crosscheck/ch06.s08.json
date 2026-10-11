@@ -1,0 +1,232 @@
+{
+  "stage": "crosscheck",
+  "item": "ch06.s08",
+  "inputs_hash": "92a1b024581e4d28e71ff0d90ccc3f49ba9cb37d32ec64c420d7c1c38a4c88c4",
+  "output_hash": "02efb717ce5bda2a7ccb306cbbba1c098979eefe2d47ac6ece232056e00c9e86",
+  "output": {
+    "section_id": "ch06.s08",
+    "checked": 17,
+    "counts": {
+      "agrees": 5,
+      "contradicts": 1,
+      "not_covered": 11
+    },
+    "results": [
+      {
+        "sentence_id": "ch06.s08.p01.02",
+        "text": "Loading a pre-trained LLM means taking the LLM architecture and filling it with weights that were trained earlier.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell5",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell71",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell29"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The loading-pretrained section describes instantiating the model architecture and then loading a state_dict of previously trained weights (contrasted with random initialization / not trained yet)."
+      },
+      {
+        "sentence_id": "ch06.s08.p01.03",
+        "text": "Those trainable parts include the query, key, and value weight matrices in multi-head attention, the weights in the feed-forward network, the scale and shift parameters in layer normalization, and the token and positional embedding layers.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell130",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs explicitly identify trainable W_query/W_key/W_value in multi-head attention and trainable scale/shift in layer norm; embeddings are described as part of the model and updated during training, and the architecture includes FFN weights."
+      },
+      {
+        "sentence_id": "ch06.s08.p01.04",
+        "text": "When all of these trainable weights are added together, the model has more than 1 million or more than 100 million trainable parameters.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell87",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell95"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References mention specific model sizes (124M, 355M) but do not make the general claim that summing components yields “more than 1 million or more than 100 million” parameters."
+      },
+      {
+        "sentence_id": "ch06.s08.p01.05",
+        "text": "In pre-training, these parameters are trained on a huge amount of data.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell6",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell104",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell29"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs note embeddings are trained and that LLMs have many parameters, but do not state that in pre-training the parameters are trained on a huge amount of data."
+      },
+      {
+        "sentence_id": "ch06.s08.p02.r01",
+        "text": "OpenAI pre-trained GPT-2 on a huge amount of data, optimized its trainable weights, and released those weights publicly so that users can access and use them.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell125"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Only a section heading about loading pretrained weights from OpenAI is provided; the passages here do not explicitly state OpenAI pretrained GPT-2 on huge data and released weights publicly."
+      },
+      {
+        "sentence_id": "ch06.s08.p02.r02",
+        "text": "Those GPT-2 weights were released for multiple model sizes, including 124 million, 345 million, 774 million, and 1558 million parameters, and they can be downloaded from folders corresponding to those parameter sizes.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell9",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell8"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs mention 124M and a “medium” 355M model, but do not list the set 124M/345M/774M/1558M nor describe downloading from folders corresponding to those sizes."
+      },
+      {
+        "sentence_id": "ch06.s08.p02.r04",
+        "text": "Reusing GPT-2 weights helps because the model starts from a much more knowledgeable state instead of a random initialization.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell71",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell123",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell117"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs show random initialization and how to load saved state_dicts, but do not state the rationale that pretrained weights help because the model starts more knowledgeable than random init."
+      },
+      {
+        "sentence_id": "ch06.s08.p03.r01",
+        "text": "Before loading a pre-trained LLM, the workflow required downloading the dataset, converting it into the Alpaca prompt style, batching it, and creating data loaders.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell34",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell25",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell17"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs mention Alpaca-style prompt formatting and creating data loaders, but do not establish this as the required workflow “before loading a pretrained LLM,” nor mention downloading the dataset and converting it in that specific ordered way."
+      },
+      {
+        "sentence_id": "ch06.s08.p03.r03",
+        "text": "The process is to load the pre-trained weights first and then train on the curated dataset using the training, testing, and validation data loaders.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell57",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell34"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs cover creating train/val/test data loaders and (elsewhere) dataset splitting, but the provided passages do not describe the sequence ‘load pretrained weights first, then train using the loaders.’"
+      },
+      {
+        "sentence_id": "ch06.s08.p03.r05",
+        "text": "Fine-tuning happens after pre-training because pre-training first brings the model to a knowledgeable state, and then training on a specific dataset further improves its weights and parameters.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell29",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell104"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs do not state the conceptual ordering/justification that fine-tuning follows pre-training because pre-training makes the model knowledgeable and fine-tuning further improves weights for a specific dataset."
+      },
+      {
+        "sentence_id": "ch06.s08.p04.r02",
+        "text": "A pre-trained LLM by itself does not follow instructions very well, which is why it must be trained with a specific dataset.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell1",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell5"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs explicitly say a pretrained LLM is good at text completion but not at following instructions, and that instruction finetuning teaches it to follow instructions better."
+      },
+      {
+        "sentence_id": "ch06.s08.p04.r03",
+        "text": "For this task, GPT-2 medium with 355 million parameters is used because the smaller 124 million parameter model did not perform very well.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell9",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell87"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref explicitly states using GPT-2 medium (355M) because the 124M model is too small to achieve qualitatively reasonable results for instruction finetuning."
+      },
+      {
+        "sentence_id": "ch06.s08.p04.r04",
+        "text": "Using GPT-2 medium with 355 million parameters requires about 1.42 GB of storage space on the local machine.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell87",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell109"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention using GPT-2 medium (355M) vs small (124M) and separately note Llama 3 8B takes 4.7 GB, but they do not state GPT-2 medium’s local storage requirement (1.42 GB)."
+      },
+      {
+        "sentence_id": "ch06.s08.p04.r05",
+        "text": "The GPT-2 medium configuration has context size 1024, 24 transformer blocks, and 16 attention heads in each transformer block.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell59",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell64"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages show usage of a TransformerBlock with GPT_CONFIG_124M and an example tensor shape, but do not provide GPT-2 medium’s specific configuration values (context 1024, 24 layers, 16 heads)."
+      },
+      {
+        "sentence_id": "ch06.s08.p04.r06",
+        "text": "In the base configuration, the vocabulary size is 50,257, the context length is 1024, the dropout rate is zero, and the query-key-value bias is set to true.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell10",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell12",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell11"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "GPT_CONFIG_124M in the reference sets vocab_size=50257 and context_length=1024, but drop_rate=0.1 (not 0) and qkv_bias=False (not true)."
+      },
+      {
+        "sentence_id": "ch06.s08.p04.r07",
+        "text": "The value 50,257 is the vocabulary size on which GPT-2 was trained.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell125",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell56",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states the BytePair encoder has a vocabulary size of 50,257 and repeatedly uses 50,257 as the model’s vocabulary/output dimension, consistent with GPT-2 being trained with that vocabulary size."
+      },
+      {
+        "sentence_id": "ch06.s08.p05.02",
+        "text": "If a laptop has limited memory or processing speed, GPT-2 small with 124 million parameters can be used instead, and it should take about one-third to one-half as much time to load as GPT-2 medium.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell83",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell85"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references say the 124M model exists and was not used because it’s too small for good instruction finetuning, but they do not quantify relative loading time (one-third to one-half of GPT-2 medium)."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch06.s08.p04.r06",
+        "text": "In the base configuration, the vocabulary size is 50,257, the context length is 1024, the dropout rate is zero, and the query-key-value bias is set to true.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell10",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell12",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell11"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "GPT_CONFIG_124M in the reference sets vocab_size=50257 and context_length=1024, but drop_rate=0.1 (not 0) and qkv_bias=False (not true)."
+      }
+    ]
+  }
+}

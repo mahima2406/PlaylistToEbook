@@ -1,0 +1,458 @@
+{
+  "stage": "crosscheck",
+  "item": "ch06.s13",
+  "inputs_hash": "4fe7f7de687873c56585f992de23e9a4bb26e8271783783a80a85a335ae2f4e0",
+  "output_hash": "8354d580d91e2f1943a3e125cf6317cc1e111987132e71d250c2fe122f9c5e8f",
+  "output": {
+    "section_id": "ch06.s13",
+    "checked": 37,
+    "counts": {
+      "agrees": 21,
+      "contradicts": 1,
+      "not_covered": 15
+    },
+    "results": [
+      {
+        "sentence_id": "ch06.s13.p01.r02",
+        "text": "Ollama is software, or an application, for efficiently running large language models on a laptop.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell112",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell106",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell107"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference states Ollama is an application to run LLMs efficiently and shows checking that the ollama process is running before use."
+      },
+      {
+        "sentence_id": "ch06.s13.p01.r03",
+        "text": "It lets you run local models such as Llama 3, Mistral, and Gemma 2 on a PC or laptop.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell97"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided reference snippet discusses training time on hardware and does not mention Ollama or running specific local models (Llama 3, Mistral, Gemma 2)."
+      },
+      {
+        "sentence_id": "ch06.s13.p01.r04",
+        "text": "Ollama is used for inference only, not for pre-training.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell122",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell106",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell112"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference explicitly notes Ollama is for generating text (inference) and not for training or finetuning."
+      },
+      {
+        "sentence_id": "ch06.s13.p01.r05",
+        "text": "It is only a tool for generating text with LLM inference and does not support training or fine-tuning.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell82",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell122"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited references discuss generating text and training vs inference generally, but do not specifically state Ollama is only for text generation and does not support training/finetuning."
+      },
+      {
+        "sentence_id": "ch06.s13.p01.r06",
+        "text": "It is also described as a very commonly used LLM inference application.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell58"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference provided is about dataset length for training and does not describe Ollama as commonly used."
+      },
+      {
+        "sentence_id": "ch06.s13.p01.r07",
+        "text": "The evaluation setup uses an instruction-fine-tuned Llama 3 model, accessed through Ollama.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell105",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell106",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell120"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference says the evaluation uses an instruction-finetuned 8B Llama 3 model that can be run locally via ollama."
+      },
+      {
+        "sentence_id": "ch06.s13.p01.r08",
+        "text": "That model is chosen because it has already been fine-tuned on many instructions and is already trained to follow instructions well.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell1",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell5"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References explain that pretrained models are not good at following instructions and that instruction finetuning improves this, but do not state that the evaluation model was chosen because it already follows instructions well."
+      },
+      {
+        "sentence_id": "ch06.s13.p01.r09",
+        "text": "The idea is to use Llama 3 to evaluate an LLM by comparing the correct output with the model response and assigning a score.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell118",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell121",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell123"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference code constructs a prompt including input, correct output, and model response, and asks Llama 3 to score the response 0–100."
+      },
+      {
+        "sentence_id": "ch06.s13.p01.r10",
+        "text": "Because the evaluator model is already trained to follow instructions, it is expected to do a great job on the new instruction of producing an evaluation score.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell1",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell5"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References contrast pretrained vs instruction-finetuned models, but do not claim the evaluator is expected to do a great job on the scoring instruction."
+      },
+      {
+        "sentence_id": "ch06.s13.p02.01",
+        "text": "To install Ollama, go to \"ollama.com\", click download, choose the version for your operating system, and follow the installation steps.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell106",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell107",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell111"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference instructs installing Ollama by visiting ollama.com, downloading the app for the OS, and following instructions, with OS-specific notes."
+      },
+      {
+        "sentence_id": "ch06.s13.p02.02",
+        "text": "After installation, open a terminal and run \"ollama run llama3\".",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell116",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell107",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell114"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference explicitly suggests using `ollama run llama3` in the terminal to download the llama3 model if it is missing."
+      },
+      {
+        "sentence_id": "ch06.s13.p02.03",
+        "text": "On Windows, first run \"ollama serve\" and then run \"ollama run llama3\".",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell114",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell107",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell106"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Reference gives a general instruction (start the app or run `ollama serve`) for using Ollama from the command line, but does not specify a Windows-only sequence of first `ollama serve` then `ollama run llama3`."
+      },
+      {
+        "sentence_id": "ch06.s13.p02.04",
+        "text": "Running Llama 3 this way downloads files of about 4.7 GB, and the model takes substantial space and memory because it has 8 billion parameters.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell109"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference states the 8B Llama 3 model is automatically downloaded and takes up 4.7 GB of storage space; 8B parameters implies substantial space/memory."
+      },
+      {
+        "sentence_id": "ch06.s13.p02.06",
+        "text": "Once it is loaded, you can interact with Llama 3 by asking questions.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell129",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell144",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell147"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided references do not explicitly state that once loaded you can interact by asking questions (they show running/evaluating, but not this general statement)."
+      },
+      {
+        "sentence_id": "ch06.s13.p02.07",
+        "text": "A simple check is to ask a question and confirm that a response comes back.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell80",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell92",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell25"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References show printing generated text and scoring prompts, but do not describe a 'simple check' of asking a question and confirming a response comes back."
+      },
+      {
+        "sentence_id": "ch06.s13.p02.08",
+        "text": "You must keep Ollama running while executing the later code, because if you shut down the terminal, Ollama stops and the code will not execute.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell112",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell107",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell114"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference says ollama must be running (app or `ollama serve` in separate terminal) and the notebook checks and errors if not running; it instructs to ensure it is still running before next cells."
+      },
+      {
+        "sentence_id": "ch06.s13.p02.09",
+        "text": "Before using Ollama to evaluate test responses, run the verification code and confirm that it prints \"Ollama running = true\"; if it prints false, Ollama is not running successfully.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell112",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell111",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell114"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference explicitly describes code that checks whether ollama is running before evaluating test responses and indicates it should print \"Ollama running: True\"; otherwise it raises an error."
+      },
+      {
+        "sentence_id": "ch06.s13.p02.10",
+        "text": "Before later code cells, check again that Ollama is still active by confirming that the earlier test prints \"Ollama running = True\".",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell114",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell112",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell111"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference instructs to make sure ollama is still running before proceeding and that earlier cells should print \"Ollama running: True\"; the check code prints that status."
+      },
+      {
+        "sentence_id": "ch06.s13.p03.r01",
+        "text": "Instead of repeatedly running \"ollama run llama3\" in the terminal, a function named \"query_model\" can be used from Python to interact with a Llama model through the API.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell114",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell116",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell109"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference describes a REST API alternative to `ollama run` and provides a Python function `query_model` to query the model."
+      },
+      {
+        "sentence_id": "ch06.s13.p03.r02",
+        "text": "The \"query_model\" function takes a prompt and a model, sends an API request to that model based on the prompt, and returns the generated response.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell120",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell118",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell115"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "`query_model(prompt, model=..., url=...)` constructs an API payload with the given prompt and model and is used to obtain and return a response."
+      },
+      {
+        "sentence_id": "ch06.s13.p03.r03",
+        "text": "In a simple demo, \"query_model\" is called with a prompt such as \"what do llamas eat\" and a model such as Llama 3, and then the response is printed.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell109",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell115",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell118"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References show `query_model` used for scoring prompts over test entries, but do not show a demo prompt like \"what do llamas eat\" nor explicitly printing that specific interaction."
+      },
+      {
+        "sentence_id": "ch06.s13.p03.r04",
+        "text": "If no model is specified, \"query_model\" uses Llama 3 by default.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell123"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The function definition sets `model=\"llama3\"` as the default when no model is specified."
+      },
+      {
+        "sentence_id": "ch06.s13.p03.r05",
+        "text": "Querying local models this way can require substantial compute and memory, can be slow on CPU, and may require freeing 15 to 20 GB of memory for the code to run.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell79"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No provided reference states needing 15–20 GB free memory, CPU slowness, or substantial compute/memory for this local querying setup."
+      },
+      {
+        "sentence_id": "ch06.s13.p04.r02",
+        "text": "In this setup, the prompt sent through \"query_model\" asks the evaluator model to compare the output and the model response and assign a score.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell118",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell121",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell120"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References show prompts that present the input and correct output and ask the evaluator to score the model response on 0–100, i.e., compare expected output vs model response and assign a score."
+      },
+      {
+        "sentence_id": "ch06.s13.p04.r03",
+        "text": "To evaluate fine-tuned responses, prompt Llama 3 to rate the fine-tuned model's responses on a scale from 0 to 100.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell117",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell99",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell120"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference describes using Llama 3 via `query_model` to score model responses on a 0–100 scale and mentions tweaking the prompt to return integers in that range."
+      },
+      {
+        "sentence_id": "ch06.s13.p04.r04",
+        "text": "The evaluation prompt includes the instruction and input, the correct output, and the model response, and asks for a score where 100 is the best score.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell118",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell121",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell120"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The shown prompt explicitly includes input/instruction (`format_input(entry)`), the correct output, the model response, and requests a 0–100 score where 100 is best."
+      },
+      {
+        "sentence_id": "ch06.s13.p04.r05",
+        "text": "The example evaluation code tests three data points and prints each model response together with the score assigned by a Llama 8 billion model.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell123",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell120",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell118"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The example code iterates over `test_data[:3]`, prints the model response and the score returned by `query_model`; the surrounding text references Llama 3 8B models, consistent with 'Llama 8 billion model' wording."
+      },
+      {
+        "sentence_id": "ch06.s13.p04.r06",
+        "text": "In the first example, the evaluator gives 85 out of 100 because the response uses a simile correctly and captures the intended meaning, even though it is less vivid than the reference answer.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell119",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell120"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not include the specific first example’s content or a stated score of 85 with that rationale."
+      },
+      {
+        "sentence_id": "ch06.s13.p04.r07",
+        "text": "In the second example, the evaluator gives 20 out of 100 because the response does not directly answer the question, is largely irrelevant, and contains inaccuracies.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell119",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell120",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references shown do not provide the second example’s specific score (20/100) or the described justification."
+      },
+      {
+        "sentence_id": "ch06.s13.p04.r08",
+        "text": "In the third example, the evaluator gives 0 out of 100 because the answer is factually incorrect and irrelevant.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell119",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell120",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references shown do not provide the third example’s specific score (0/100) or the described justification."
+      },
+      {
+        "sentence_id": "ch06.s13.p05.r03",
+        "text": "It can provide reasonable evaluations and assign partial credit as well as zero when an answer is incorrect.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell120",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell119",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell81"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly says Llama 3 provides reasonable evaluation and gives partial points for partially correct answers; it does not explicitly mention zero, but zero is consistent with a 0–100 scale and not contradicted."
+      },
+      {
+        "sentence_id": "ch06.s13.p05.r04",
+        "text": "If you want only a numeric metric instead of a qualitative explanation, change the prompt so the evaluator responds with an integer number only.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell20",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The cited reference is from chapter 6 about converting string labels to integers and does not discuss evaluation prompts or 'Respond with the integer number only'; the relevant chapter 7 cell (121) does, but it is not the provided reference for S8."
+      },
+      {
+        "sentence_id": "ch06.s13.p05.r05",
+        "text": "A function is also available that iterates over the entire test set, computes this kind of score for every instruction, and then calculates an average score.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell121",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell32",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell123"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "`generate_model_scores` iterates over entries, queries a 0–100 integer score per entry, and the surrounding text discusses computing an average score over the test set."
+      },
+      {
+        "sentence_id": "ch06.s13.p05.r06",
+        "text": "That full-test-set function is not run on the shown machine because of hardware limitations, while faster hardware such as an M3 MacBook Air or a GPU can run it much more quickly.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell97",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell88",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell120"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference states the full evaluation takes about 1 minute on an M3 MacBook Air, but does not say it was not run on the shown machine due to hardware limitations."
+      },
+      {
+        "sentence_id": "ch06.s13.p05.r07",
+        "text": "Ollama is not entirely deterministic, so your scores may differ slightly, but the method still provides a framework for quantitative evaluation.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell122"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly notes ollama is not fully deterministic across operating systems and that numbers may differ slightly, while still using the average score as a comparative reference."
+      },
+      {
+        "sentence_id": "ch06.s13.p05.r08",
+        "text": "When the full evaluation is run, the fine-tuned model achieves an average score above 50, which can be used as a benchmark for comparing other models or training configurations.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell122",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell123",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell120"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states the fine-tuned model achieves an average score above 50 and that this can be used as a reference point to compare models or training settings."
+      },
+      {
+        "sentence_id": "ch06.s13.p05.r09",
+        "text": "That average is described as just above 50, around 55%, and not very good, because some answers are correct and some are wrong.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell83"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference states the accuracies are \"not very good\" because the model hasn't been finetuned, but it does not mention an average of ~55% or explain it as a mix of correct and wrong answers."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch06.s13.p05.r04",
+        "text": "If you want only a numeric metric instead of a qualitative explanation, change the prompt so the evaluator responds with an integer number only.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell20",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The cited reference is from chapter 6 about converting string labels to integers and does not discuss evaluation prompts or 'Respond with the integer number only'; the relevant chapter 7 cell (121) does, but it is not the provided reference for S8."
+      }
+    ]
+  }
+}

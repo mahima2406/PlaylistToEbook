@@ -1,0 +1,33 @@
+{
+  "stage": "listings",
+  "item": "ch06.s06",
+  "inputs_hash": "cd9320a8a5af5e851f6692c8711bc91f4ee32313c32e55389c179348115770a5",
+  "output_hash": "3df8000ce76a77bd41a30024c5d1371f72becff2737ead003c3eeb36700fb0db",
+  "output": {
+    "section_id": "ch06.s06",
+    "listings": [
+      {
+        "id": "ch06.s06.code1",
+        "ref": "ref:ch07/01_main-chapter-code/ch07.ipynb#cell45",
+        "path": "ch07/01_main-chapter-code/ch07.ipynb",
+        "caption": "This collate function pads each sequence with token 50256, builds shifted input and target tensors, keeps the first 50256 in each target, and replaces any later 50256 target positions with -100.",
+        "code": "def custom_collate_fn(\n    batch,\n    pad_token_id=50256,\n    ignore_index=-100,\n    allowed_max_length=None,\n    device=\"cpu\"\n):\n    # Find the longest sequence in the batch\n    batch_max_length = max(len(item)+1 for item in batch)\n\n    # Pad and prepare inputs and targets\n    inputs_lst, targets_lst = [], []\n\n    for item in batch:\n        new_item = item.copy()\n        # Add an <|endoftext|> token\n        new_item += [pad_token_id]\n        # Pad sequences to max_length\n        padded = (\n            new_item + [pad_token_id] *\n            (batch_max_length - len(new_item))\n        )\n        inputs = torch.tensor(padded[:-1])  # Truncate the last token for inputs\n        targets = torch.tensor(padded[1:])  # Shift +1 to the right for targets\n\n        # New: Replace all but the first padding tokens in targets by ignore_index\n        mask = targets == pad_token_id\n        indices = torch.nonzero(mask).squeeze()\n        if indices.numel() > 1:\n            targets[indices[1:]] = ignore_index",
+        "truncated": true,
+        "check": "matches",
+        "reason": "The code pads sequences with 50256, constructs inputs as padded[:-1] and targets as padded[1:], then finds positions in targets equal to the pad token and replaces all but the first occurrence with -100. This directly implements the section’s rule (keep the first 50256, ignore subsequent 50256 in targets) and the caption accurately describes these behaviors."
+      }
+    ],
+    "rejected": [
+      {
+        "id": "ch06.s06.code2",
+        "ref": "ref:ch07/01_main-chapter-code/ch07.ipynb#cell52",
+        "path": "ch07/01_main-chapter-code/ch07.ipynb",
+        "caption": "This snippet computes cross-entropy loss with a target tensor containing -100 to show that ignored target positions do not affect the loss.",
+        "code": "targets_3 = torch.tensor([0, 1, -100])\n\nloss_3 = torch.nn.functional.cross_entropy(logits_2, targets_3)\nprint(loss_3)\nprint(\"loss_1 == loss_3:\", loss_1 == loss_3)",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The section is about constructing target tensors by selectively replacing padding token IDs (50256) with -100 while keeping the first 50256, using a mask in a custom collate function. The snippet instead only demonstrates that cross-entropy ignores targets equal to -100. It does not implement or demonstrate the specific 50256-first-occurrence logic, masking, or collate-function behavior described. The caption accurately describes what this snippet does, but it only covers a subset of the section’s teaching."
+      }
+    ]
+  }
+}

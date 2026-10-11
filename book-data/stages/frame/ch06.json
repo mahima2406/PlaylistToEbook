@@ -1,0 +1,425 @@
+{
+  "stage": "frame",
+  "item": "ch06",
+  "inputs_hash": "138e4f5b61c3b7f73a3863e590b837659b0c867cc92aad0baa321ac7887e0a58",
+  "output_hash": "0f18dc9012758a2adb4e407c22bd6777d05afc449ebe91c99ed2fc04a75afcc2",
+  "output": {
+    "section_id": "ch06.open",
+    "paragraphs": [
+      {
+        "id": "ch06.open.p01",
+        "sentences": [
+          {
+            "id": "ch06.open.p01.r01",
+            "text": "Pretrained LLMs are good at text completion but struggle with following specific instructions, which is why instruction fine-tuning is used to make them better at responding to instructions.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@32",
+              "bkUkcyL_Xxc@34",
+              "bkUkcyL_Xxc@36",
+              "bkUkcyL_Xxc@46",
+              "bkUkcyL_Xxc@49",
+              "7m2jV7BOFkA@77",
+              "7m2jV7BOFkA@79",
+              "7m2jV7BOFkA@84",
+              "7m2jV7BOFkA@85"
+            ]
+          },
+          {
+            "id": "ch06.open.p01.r02",
+            "text": "If you are comfortable with PyTorch training loops, data loaders, and transfer-learning conventions from the previous chapter, you already have most of the practical setup; where this chapter adds new ideas, it will make the data shape and training target explicit before moving into evaluation.",
+            "type": "R",
+            "cites": []
+          }
+        ]
+      },
+      {
+        "id": "ch06.open.p02",
+        "sentences": [
+          {
+            "id": "ch06.open.p02.01",
+            "text": "We begin by clarifying why instruction fine-tuning is needed, what the instruction dataset contains, and how instruction, input, and output records are converted into Alpaca-style prompts.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch06.open.p02.02",
+            "text": "Next, we walk through tokenization, variable-length sequences, per-batch padding with the end-of-text token, shifted targets for next-token prediction, ignoring padding in the loss with \"-100\", and the complete batching recipe, including optional masking choices.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch06.open.p02.03",
+            "text": "From there, we load pretrained GPT-2 weights, map those parameters into the model, check the model before fine-tuning, and then close by evaluating a fine-tuned model with examples, response extraction, broader benchmarking ideas such as MMLU, automated judging with \"Ollama\" and \"Llama 3\", and practical directions for improving results.",
+            "type": "R",
+            "cites": []
+          }
+        ]
+      },
+      {
+        "id": "ch06.glance.p01",
+        "sentences": [
+          {
+            "id": "ch06.glance.p01.01",
+            "text": "Pretrained LLMs can complete text well, but they do not follow specific instructions well enough on their own, which is why instruction fine-tuning is needed.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@32",
+              "bkUkcyL_Xxc@36",
+              "bkUkcyL_Xxc@46",
+              "bkUkcyL_Xxc@49",
+              "__OiQznq4ao@63",
+              "__OiQznq4ao@68"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.glance.p02",
+        "sentences": [
+          {
+            "id": "ch06.glance.p02.01",
+            "text": "Instruction fine-tuning uses examples made of instructions and desired responses, and some examples also include an additional input field.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@52",
+              "bkUkcyL_Xxc@57",
+              "bkUkcyL_Xxc@59",
+              "bkUkcyL_Xxc@97",
+              "bkUkcyL_Xxc@105"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.glance.p03",
+        "sentences": [
+          {
+            "id": "ch06.glance.p03.01",
+            "text": "The dataset used here has 1,100 instruction-input-output entries from various fields, and its purpose is to teach the model to follow instructions correctly.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@37",
+              "__OiQznq4ao@41",
+              "__OiQznq4ao@44",
+              "__OiQznq4ao@51",
+              "__OiQznq4ao@53"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.glance.p04",
+        "sentences": [
+          {
+            "id": "ch06.glance.p04.01",
+            "text": "Before fine-tuning, each dataset entry is converted into an Alpaca-style prompt that combines a fixed introductory template with the instruction, the input when present, and the response from the dataset output.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@136",
+              "bkUkcyL_Xxc@138",
+              "bkUkcyL_Xxc@154",
+              "bkUkcyL_Xxc@157",
+              "bkUkcyL_Xxc@186",
+              "bkUkcyL_Xxc@198",
+              "bkUkcyL_Xxc@202",
+              "bkUkcyL_Xxc@207"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.glance.p05",
+        "sentences": [
+          {
+            "id": "ch06.glance.p05.01",
+            "text": "When batching tokenized prompts, shorter sequences are padded within each batch to the length of the longest sequence using token ID 50256, the end-of-text token, so all rows have the same number of token positions.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@637",
+              "bkUkcyL_Xxc@644",
+              "bkUkcyL_Xxc@666",
+              "bkUkcyL_Xxc@674",
+              "bkUkcyL_Xxc@736",
+              "bkUkcyL_Xxc@740",
+              "bkUkcyL_Xxc@763",
+              "bkUkcyL_Xxc@786",
+              "bkUkcyL_Xxc@809",
+              "bkUkcyL_Xxc@830",
+              "bkUkcyL_Xxc@842",
+              "bkUkcyL_Xxc@876"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch06.open.p02.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.open.p02.02": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.open.p02.03": {
+        "verdict": "ok",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch06.glance.p01.01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.glance.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.glance.p03.01": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch06.glance.p04.01": {
+        "verdict": "supported",
+        "confidence": 0.87,
+        "reason": ""
+      },
+      "ch06.glance.p05.01": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch06.open.p01.r01": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch06.open.p01.r02": {
+        "verdict": "roadmap_mismatch",
+        "confidence": 0.62,
+        "reason": "The outline for Chapter 6 does not state that it assumes comfort with PyTorch training loops, data loaders, and transfer-learning conventions from the previous chapter, nor that it will explicitly cover data shape and training targets before evaluation; those organizational/assumption details are not supported by the provided outline."
+      }
+    },
+    "first_pass": {
+      "ch06.open.p01.01": {
+        "verdict": "partial",
+        "confidence": 0.78,
+        "reason": "Cited lines support that pretrained LLMs are good at text completion, struggle with specific instructions, and instruction fine-tuning is needed to improve instruction responses. They do not support the added claim that the previous chapter specifically showed adapting pretrained GPT-2 to a supervised classification task, nor the explicit contrast of 'predicting a class label' vs 'responding to instructions'."
+      },
+      "ch06.open.p01.02": {
+        "verdict": "ok",
+        "confidence": 0.72,
+        "reason": ""
+      },
+      "ch06.open.p02.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.open.p02.02": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.open.p02.03": {
+        "verdict": "ok",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch06.glance.p01.01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.glance.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.glance.p03.01": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch06.glance.p04.01": {
+        "verdict": "supported",
+        "confidence": 0.87,
+        "reason": ""
+      },
+      "ch06.glance.p05.01": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "ch06.open.p01"
+    ],
+    "queue": [
+      {
+        "sentence_id": "ch06.open.p01.r02",
+        "text": "If you are comfortable with PyTorch training loops, data loaders, and transfer-learning conventions from the previous chapter, you already have most of the practical setup; where this chapter adds new ideas, it will make the data shape and training target explicit before moving into evaluation.",
+        "cites": [],
+        "verdict": "roadmap_mismatch",
+        "confidence": 0.62,
+        "reason": "The outline for Chapter 6 does not state that it assumes comfort with PyTorch training loops, data loaders, and transfer-learning conventions from the previous chapter, nor that it will explicitly cover data shape and training targets before evaluation; those organizational/assumption details are not supported by the provided outline.",
+        "status": "open"
+      }
+    ],
+    "opener": [
+      {
+        "id": "ch06.open.p01",
+        "sentences": [
+          {
+            "id": "ch06.open.p01.r01",
+            "text": "Pretrained LLMs are good at text completion but struggle with following specific instructions, which is why instruction fine-tuning is used to make them better at responding to instructions.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@32",
+              "bkUkcyL_Xxc@34",
+              "bkUkcyL_Xxc@36",
+              "bkUkcyL_Xxc@46",
+              "bkUkcyL_Xxc@49",
+              "7m2jV7BOFkA@77",
+              "7m2jV7BOFkA@79",
+              "7m2jV7BOFkA@84",
+              "7m2jV7BOFkA@85"
+            ]
+          },
+          {
+            "id": "ch06.open.p01.r02",
+            "text": "If you are comfortable with PyTorch training loops, data loaders, and transfer-learning conventions from the previous chapter, you already have most of the practical setup; where this chapter adds new ideas, it will make the data shape and training target explicit before moving into evaluation.",
+            "type": "R",
+            "cites": []
+          }
+        ]
+      },
+      {
+        "id": "ch06.open.p02",
+        "sentences": [
+          {
+            "id": "ch06.open.p02.01",
+            "text": "We begin by clarifying why instruction fine-tuning is needed, what the instruction dataset contains, and how instruction, input, and output records are converted into Alpaca-style prompts.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch06.open.p02.02",
+            "text": "Next, we walk through tokenization, variable-length sequences, per-batch padding with the end-of-text token, shifted targets for next-token prediction, ignoring padding in the loss with \"-100\", and the complete batching recipe, including optional masking choices.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch06.open.p02.03",
+            "text": "From there, we load pretrained GPT-2 weights, map those parameters into the model, check the model before fine-tuning, and then close by evaluating a fine-tuned model with examples, response extraction, broader benchmarking ideas such as MMLU, automated judging with \"Ollama\" and \"Llama 3\", and practical directions for improving results.",
+            "type": "R",
+            "cites": []
+          }
+        ]
+      }
+    ],
+    "at_a_glance": [
+      {
+        "id": "ch06.glance.p01",
+        "sentences": [
+          {
+            "id": "ch06.glance.p01.01",
+            "text": "Pretrained LLMs can complete text well, but they do not follow specific instructions well enough on their own, which is why instruction fine-tuning is needed.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@32",
+              "bkUkcyL_Xxc@36",
+              "bkUkcyL_Xxc@46",
+              "bkUkcyL_Xxc@49",
+              "__OiQznq4ao@63",
+              "__OiQznq4ao@68"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.glance.p02",
+        "sentences": [
+          {
+            "id": "ch06.glance.p02.01",
+            "text": "Instruction fine-tuning uses examples made of instructions and desired responses, and some examples also include an additional input field.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@52",
+              "bkUkcyL_Xxc@57",
+              "bkUkcyL_Xxc@59",
+              "bkUkcyL_Xxc@97",
+              "bkUkcyL_Xxc@105"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.glance.p03",
+        "sentences": [
+          {
+            "id": "ch06.glance.p03.01",
+            "text": "The dataset used here has 1,100 instruction-input-output entries from various fields, and its purpose is to teach the model to follow instructions correctly.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@37",
+              "__OiQznq4ao@41",
+              "__OiQznq4ao@44",
+              "__OiQznq4ao@51",
+              "__OiQznq4ao@53"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.glance.p04",
+        "sentences": [
+          {
+            "id": "ch06.glance.p04.01",
+            "text": "Before fine-tuning, each dataset entry is converted into an Alpaca-style prompt that combines a fixed introductory template with the instruction, the input when present, and the response from the dataset output.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@136",
+              "bkUkcyL_Xxc@138",
+              "bkUkcyL_Xxc@154",
+              "bkUkcyL_Xxc@157",
+              "bkUkcyL_Xxc@186",
+              "bkUkcyL_Xxc@198",
+              "bkUkcyL_Xxc@202",
+              "bkUkcyL_Xxc@207"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.glance.p05",
+        "sentences": [
+          {
+            "id": "ch06.glance.p05.01",
+            "text": "When batching tokenized prompts, shorter sequences are padded within each batch to the length of the longest sequence using token ID 50256, the end-of-text token, so all rows have the same number of token positions.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@637",
+              "bkUkcyL_Xxc@644",
+              "bkUkcyL_Xxc@666",
+              "bkUkcyL_Xxc@674",
+              "bkUkcyL_Xxc@736",
+              "bkUkcyL_Xxc@740",
+              "bkUkcyL_Xxc@763",
+              "bkUkcyL_Xxc@786",
+              "bkUkcyL_Xxc@809",
+              "bkUkcyL_Xxc@830",
+              "bkUkcyL_Xxc@842",
+              "bkUkcyL_Xxc@876"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

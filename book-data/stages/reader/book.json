@@ -1,0 +1,266 @@
+{
+  "stage": "reader",
+  "item": "book",
+  "inputs_hash": "fd36f6e9ee8fb23f13c9f3081aba3a5fe1b03c08bd309c1c1992934e9f55ad5c",
+  "output_hash": "55ed2f199220ac852e40f0975ffb93c31c69208a91a9b29132be4042f52fbf20",
+  "output": {
+    "contract": {
+      "primary_learning_outcome": {
+        "value": "Build a large language model from scratch and understand its foundations in depth so the learner can explain and implement core LLM components confidently.",
+        "status": "override",
+        "evidence": [
+          "Xpr8D6LeAtw@10",
+          "Xpr8D6LeAtw@119",
+          "Xpr8D6LeAtw@139",
+          "Xpr8D6LeAtw@150",
+          "Xpr8D6LeAtw@155",
+          "Xpr8D6LeAtw@652",
+          "Xpr8D6LeAtw@656",
+          "Xpr8D6LeAtw@877",
+          "Xpr8D6LeAtw@882",
+          "Xpr8D6LeAtw@897",
+          "Xpr8D6LeAtw@903"
+        ]
+      },
+      "reader_profile": {
+        "value": "A Python programmer learning LLM concepts from first principles, likely a beginner to LLMs who wants a deep, serious, implementation-oriented path rather than app-level usage, potentially for career transition or interview readiness.",
+        "status": "override",
+        "evidence": [
+          "Xpr8D6LeAtw@57",
+          "Xpr8D6LeAtw@59",
+          "Xpr8D6LeAtw@61",
+          "Xpr8D6LeAtw@150",
+          "Xpr8D6LeAtw@153",
+          "Xpr8D6LeAtw@664",
+          "Xpr8D6LeAtw@667",
+          "Xpr8D6LeAtw@842",
+          "Xpr8D6LeAtw@846"
+        ]
+      },
+      "known_prior_skills": [
+        {
+          "value": "Python programming",
+          "status": "override",
+          "evidence": [
+            "mk-6cFebjis:p031",
+            "h94TQOK7NRA:p088",
+            "bkUkcyL_Xxc:p049"
+          ]
+        }
+      ],
+      "unknown_prior_skills": [
+        {
+          "value": "Linear algebra",
+          "status": "unknown",
+          "evidence": []
+        },
+        {
+          "value": "Calculus and backpropagation",
+          "status": "unknown",
+          "evidence": []
+        },
+        {
+          "value": "Probability and statistics",
+          "status": "unknown",
+          "evidence": []
+        },
+        {
+          "value": "PyTorch or deep learning framework experience",
+          "status": "unknown",
+          "evidence": []
+        },
+        {
+          "value": "Machine learning fundamentals",
+          "status": "unknown",
+          "evidence": []
+        },
+        {
+          "value": "Natural language processing background",
+          "status": "unknown",
+          "evidence": []
+        },
+        {
+          "value": "Familiarity with transformers or attention",
+          "status": "unknown",
+          "evidence": []
+        }
+      ],
+      "instructional_modes": [
+        {
+          "value": "Teach from the basics without assuming prior knowledge",
+          "status": "observed",
+          "evidence": [
+            "Xpr8D6LeAtw@57",
+            "Xpr8D6LeAtw@59",
+            "Xpr8D6LeAtw@61",
+            "Xpr8D6LeAtw@150",
+            "Xpr8D6LeAtw@153",
+            "Xpr8D6LeAtw:p001"
+          ]
+        },
+        {
+          "value": "Step-by-step coding in Python from scratch",
+          "status": "inferred",
+          "evidence": [
+            "mk-6cFebjis:p031",
+            "h94TQOK7NRA:p088",
+            "K5u9eEaoxFg:p096",
+            "Zxf-34voZss:p001"
+          ]
+        },
+        {
+          "value": "Detailed mathematical explanation of components",
+          "status": "inferred",
+          "evidence": [
+            "ghCSGRgVB_o:p088",
+            "eSRhpYLerw4:p109",
+            "K5u9eEaoxFg:p057",
+            "Zxf-34voZss:p044"
+          ]
+        },
+        {
+          "value": "Whiteboard-style conceptual explanation with detailed notes",
+          "status": "observed",
+          "evidence": [
+            "Xpr8D6LeAtw@181",
+            "Xpr8D6LeAtw@186",
+            "Xpr8D6LeAtw@781",
+            "Xpr8D6LeAtw@799",
+            "Xpr8D6LeAtw@827"
+          ]
+        },
+        {
+          "value": "Project-based hands-on fine-tuning and evaluation",
+          "status": "inferred",
+          "evidence": [
+            "f6zqClXOh7Y:p010",
+            "0PpxZ3kNPWo:p094",
+            "bkUkcyL_Xxc:p049",
+            "__OiQznq4ao:p045",
+            "7m2jV7BOFkA:p050"
+          ]
+        }
+      ],
+      "representations_to_preserve": [
+        {
+          "value": "Python code and implementation details",
+          "status": "observed",
+          "evidence": [
+            "mk-6cFebjis:p031",
+            "h94TQOK7NRA:p088",
+            "K5u9eEaoxFg:p096",
+            "bkUkcyL_Xxc:p049"
+          ]
+        },
+        {
+          "value": "Whiteboard lecture-note style derivations and explanations",
+          "status": "observed",
+          "evidence": [
+            "Xpr8D6LeAtw@183",
+            "Xpr8D6LeAtw@186",
+            "Xpr8D6LeAtw@781",
+            "Xpr8D6LeAtw@799"
+          ]
+        },
+        {
+          "value": "Matrices, vectors, tensor shapes, and dimensional reasoning",
+          "status": "observed",
+          "evidence": [
+            "ghCSGRgVB_o:p088",
+            "eSRhpYLerw4:p109",
+            "h94TQOK7NRA:p088",
+            "K5u9eEaoxFg:p057",
+            "Zxf-34voZss:p044"
+          ]
+        },
+        {
+          "value": "Worked tokenization and preprocessing examples",
+          "status": "observed",
+          "evidence": [
+            "fKd8s29e-l4:p064",
+            "fKd8s29e-l4:p105",
+            "mk-6cFebjis:p075",
+            "mk-6cFebjis:p123"
+          ]
+        },
+        {
+          "value": "Training, fine-tuning, and evaluation pipeline representations",
+          "status": "observed",
+          "evidence": [
+            "Zxf-34voZss:p001",
+            "f6zqClXOh7Y:p010",
+            "0PpxZ3kNPWo:p094",
+            "__OiQznq4ao:p045",
+            "7m2jV7BOFkA:p050"
+          ]
+        }
+      ],
+      "uncertainties_to_validate": [
+        "Whether the book should explicitly teach mathematical prerequisites such as linear algebra, probability, and calculus, since the series says it assumes nothing but the supplied evidence does not prove these are already known or fully introduced.",
+        "Whether PyTorch is a required prior tool skill or should be introduced from scratch; coding evidence shows Python usage but does not establish framework familiarity.",
+        "Whether the intended reader is a complete beginner to machine learning or only a beginner to LLMs.",
+        "How much career/interview guidance should be preserved versus keeping the book purely technical.",
+        "Whether app-level ecosystem tools should be largely excluded or only briefly contextualized, since the course positions them as secondary to fundamentals."
+      ],
+      "editorial_rules": [
+        "Address the reader as a Python programmer learning LLM concepts; keep Python as the implementation language.",
+        "Do not assume prior knowledge unless supported by supplied evidence; when a prerequisite seems necessary but unsupported, flag it explicitly.",
+        "Preserve the from-first-principles progression: basics of LLMs and transformers, tokenization and embeddings, preprocessing, attention variants, normalization and shortcuts, full GPT construction, pretraining, sampling, pretrained weights, classification fine-tuning, instruction fine-tuning, and evaluation.",
+        "Favor deep technical explanation over quick app-building shortcuts.",
+        "Keep observation and inference separate in exposition of reader prerequisites; presenting a formula or code example does not imply the reader already knows the underlying math.",
+        "Retain detailed notes/whiteboard style, worked examples, and explicit shape/parameter-count reasoning.",
+        "Include hands-on coding and end-to-end build steps so the reader can reproduce components from scratch.",
+        "Flag prerequisite gaps where the source evidence does not establish them, especially mathematics and ML background."
+      ]
+    },
+    "brief": "A Python programmer learning the concepts covered by the source course. Introduce prerequisites when supported by the supplied evidence; flag gaps.",
+    "sampled_points": [
+      "Xpr8D6LeAtw:p001",
+      "3dWzNZXA8DY:p026",
+      "NLn4eetGmf8:p010",
+      "NLn4eetGmf8:p047",
+      "NLn4eetGmf8:p091",
+      "z9fgKz1Drlc:p032",
+      "fKd8s29e-l4:p016",
+      "fKd8s29e-l4:p064",
+      "fKd8s29e-l4:p105",
+      "ghCSGRgVB_o:p046",
+      "ghCSGRgVB_o:p088",
+      "mk-6cFebjis:p031",
+      "mk-6cFebjis:p075",
+      "mk-6cFebjis:p123",
+      "mk-6cFebjis:p169",
+      "eSRhpYLerw4:p004",
+      "eSRhpYLerw4:p054",
+      "eSRhpYLerw4:p109",
+      "h94TQOK7NRA:p006",
+      "h94TQOK7NRA:p049",
+      "h94TQOK7NRA:p088",
+      "K5u9eEaoxFg:p023",
+      "K5u9eEaoxFg:p057",
+      "K5u9eEaoxFg:p096",
+      "G3W-LT79LSI:p048",
+      "2r0QahNdwMw:p021",
+      "G3-JgHckzjw:p003",
+      "G3-JgHckzjw:p044",
+      "G3-JgHckzjw:p094",
+      "7TKCrt--bWI:p039",
+      "Zxf-34voZss:p001",
+      "Zxf-34voZss:p044",
+      "EhU32O7DkA4:p004",
+      "yXrGeDNuymY:p002",
+      "yXrGeDNuymY:p044",
+      "yXrGeDNuymY:p082",
+      "f6zqClXOh7Y:p010",
+      "f6zqClXOh7Y:p053",
+      "0PpxZ3kNPWo:p043",
+      "0PpxZ3kNPWo:p094",
+      "bkUkcyL_Xxc:p010",
+      "bkUkcyL_Xxc:p049",
+      "bkUkcyL_Xxc:p096",
+      "__OiQznq4ao:p045",
+      "7m2jV7BOFkA:p050"
+    ],
+    "intro_lecture": "Xpr8D6LeAtw"
+  }
+}

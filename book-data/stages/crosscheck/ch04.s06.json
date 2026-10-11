@@ -1,0 +1,374 @@
+{
+  "stage": "crosscheck",
+  "item": "ch04.s06",
+  "inputs_hash": "e4885482fab6cac79ba520189229e2755b1b7271dac5b546f77451b60e0affd8",
+  "output_hash": "afdb35a8bddec7cbbf21c6cba08a569de3db3dc7d54fe8f66fa938ce74b4bc1d",
+  "output": {
+    "section_id": "ch04.s06",
+    "checked": 30,
+    "counts": {
+      "agrees": 11,
+      "contradicts": 0,
+      "not_covered": 19
+    },
+    "results": [
+      {
+        "sentence_id": "ch04.s06.p01.r02",
+        "text": "The model workflow starts with input IDs, converts them into token embeddings, adds positional embeddings, applies dropout, passes the result through the Transformer block, applies another layer normalization layer, applies an output head layer, and returns the logits.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell116",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs cover token+positional embeddings being added, and discuss LayerNorm generally, but do not present the full end-to-end workflow ordering (dropout → Transformer blocks → final norm → output head → logits) in one place."
+      },
+      {
+        "sentence_id": "ch04.s06.p01.r03",
+        "text": "After the input embeddings are formed by combining token embeddings and positional embeddings, the remaining stages are dropout, the Transformer blocks, another layer of normalization, and the output head.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs show how input embeddings are formed by adding token and positional embeddings, but do not specify the subsequent full pipeline stages (dropout, transformer blocks, final normalization, output head)."
+      },
+      {
+        "sentence_id": "ch04.s06.p01.r04",
+        "text": "An earlier version of the GPTModel class already had a forward method, but its Transformer block and layer normalization were only dummy implementations.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell13"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref shows a DummyGPTModel using placeholder DummyTransformerBlock and DummyLayerNorm, consistent with an earlier version having dummy implementations."
+      },
+      {
+        "sentence_id": "ch04.s06.p01.r05",
+        "text": "Over the last three to four lectures, the layer normalization class, feed-forward neural network class, and Transformer class were coded.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell21",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell38",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs indicate sections implementing LayerNorm and a feed-forward network and later a transformer block, but do not state this occurred over the last three to four lectures or explicitly list that sequence as lecture timing."
+      },
+      {
+        "sentence_id": "ch04.s06.p01.r06",
+        "text": "The Transformer block class itself was coded in the last step of that sequence.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell59"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs indicate the transformer block is implemented (section 4.5) and then plugged into the GPT architecture near the end (cell67), consistent with it being coded at the last step of the sequence."
+      },
+      {
+        "sentence_id": "ch04.s06.p02.r01",
+        "text": "The stacked Transformer portion is implemented by chaining 12 Transformer blocks with nn.Sequential.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell24",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided refs do not state that 12 blocks are chained with nn.Sequential in the stacked transformer portion; they only describe what a transformer block is and unrelated dataset splitting."
+      },
+      {
+        "sentence_id": "ch04.s06.p02.r02",
+        "text": "A simple test batch passed through the model produces an output whose last dimension is the vocabulary size, 50257.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell95",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No provided reference shows a model forward-pass output shape or confirms the last dimension equals vocab size 50257."
+      },
+      {
+        "sentence_id": "ch04.s06.p02.r03",
+        "text": "The full output tensor has shape 2 by 4 by 50257, corresponding to two batches, four tokens in each batch, and the vocabulary size.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell21"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Ref states logits for 2 examples with 3 tokens each and vocab size 50,257 (so shape would be 2×3×50257), not 2×4×50257; the exact 2×4×50257 case is not shown in the provided passages."
+      },
+      {
+        "sentence_id": "ch04.s06.p02.r04",
+        "text": "Even this compact implementation has more than 100 million parameters because it includes 12 Transformer blocks, eight steps in each block, expansion and contraction layers inside each block, and additional token and positional embedding parameters.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell59",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell63"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs describe what a transformer block contains and an example embedding size, but do not mention total parameter count being >100M, nor justify it via 'eight steps' per block, expansion/contraction, and embeddings."
+      },
+      {
+        "sentence_id": "ch04.s06.p03.r01",
+        "text": "Using the numel method, short for number of elements, we can collect the total number of parameters in the model's parameter tensors.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell74",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell78",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell77"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref explicitly sums p.numel() over model.parameters() to compute total number of parameters; numel is used as the count of elements in parameter tensors."
+      },
+      {
+        "sentence_id": "ch04.s06.p03.r02",
+        "text": "If you print out the total number of parameters, you will see that the number of parameters is equal to 163 million.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell74",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell78",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell39"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs show code to print total parameters but do not provide the printed value 163 million in the supplied passages."
+      },
+      {
+        "sentence_id": "ch04.s06.p03.r03",
+        "text": "The model’s parameters come from token embeddings, positional embeddings, Transformer block parameters, and the final layer before the logits.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell130",
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell6"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs cover token and positional embeddings and adding them, but do not enumerate all parameter sources (transformer block parameters and final pre-logits layer) as stated."
+      },
+      {
+        "sentence_id": "ch04.s06.p03.r04",
+        "text": "The token embedding parameter count is vocabulary size multiplied by embedding dimension, and the positional embedding parameter count is context size multiplied by embedding dimension.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell66",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell132"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference shows embeddings implemented via torch.nn.Embedding(num_embeddings, embedding_dim), e.g., positional embeddings use (context_length, output_dim), implying parameter counts are the product of those dimensions; same logic applies to token embeddings."
+      },
+      {
+        "sentence_id": "ch04.s06.p03.r05",
+        "text": "Together, the token and positional embeddings contribute 38.4 million parameters, and those embedding parameters are also optimized during training.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference explains that token and positional embeddings are added to form input embeddings, but it does not provide or confirm the specific total of 38.4M parameters for embeddings, nor explicitly state that these embedding parameters are optimized during training."
+      },
+      {
+        "sentence_id": "ch04.s06.p03.r06",
+        "text": "Inside multi-head attention, the query, key, and value weights are three trainable matrices of size 768 by 768, for 1.77 million parameters.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell130",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell70"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference introduces Wq, Wk, Wv as trainable matrices and discusses creating single weight matrices and splitting into heads, but it does not state they are each 768×768 nor confirm the 1.77M parameter count."
+      },
+      {
+        "sentence_id": "ch04.s06.p03.r07",
+        "text": "The multi-head attention block also includes an output head, and the total number of parameters in that block is 2.36 million.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell133",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell8"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages discuss output dimension behavior for MultiHeadAttention and mention transformer blocks at a high level, but they do not state an output projection head parameterization nor confirm a total of 2.36M parameters for the attention block."
+      },
+      {
+        "sentence_id": "ch04.s06.p04.r01",
+        "text": "The feed-forward network uses an expansion-contraction pattern, projecting from the embedding dimension to a hidden layer of four times that size and then compressing back, and it contributes 4.72 million parameters.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell38",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference points to implementing a feed-forward network section and discusses weight tying elsewhere, but does not state the 4× expansion/contraction specifics here nor the 4.72M parameter count."
+      },
+      {
+        "sentence_id": "ch04.s06.p04.r02",
+        "text": "One Transformer block contributes 2.36 million plus 4.72 million parameters, and across 12 Transformer blocks that totals 85.2 million parameters.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell87",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell9"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention model sizes (124M, 355M) but do not provide the per-block parameter counts (2.36M, 4.72M) or the computed 85.2M across 12 blocks."
+      },
+      {
+        "sentence_id": "ch04.s06.p04.r03",
+        "text": "The final layer has embedding dimension multiplied by vocabulary size parameters, which is 38.4 million.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states the output layer projects 768-dimensional embeddings back into a 50,257-dimensional representation, implying an output weight matrix of shape (vocab_size, embedding_dim) and thus vocab_size×embedding_dim parameters (ignoring any bias term)."
+      },
+      {
+        "sentence_id": "ch04.s06.p04.r04",
+        "text": "Adding 38.4 million embedding parameters, 85.2 million Transformer parameters, and 38.4 million final-layer parameters gives about 162 million parameters in total.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell87",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell74"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the reference shows code to compute total parameters and separately discusses embedding/output layers, it does not confirm the specific component totals (38.4M, 85.2M, 38.4M) nor the summed ~162M figure."
+      },
+      {
+        "sentence_id": "ch04.s06.p04.r05",
+        "text": "This is why the model being trained is on the order of more than 100 million parameters.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell87",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference discusses models with 124M and 355M parameters and also notes an implementation having 163M parameters, supporting the claim that the trained model is on the order of >100M parameters."
+      },
+      {
+        "sentence_id": "ch04.s06.p05.01",
+        "text": "The gap between 163 million parameters in this implementation and 124 million parameters in the smallest GPT-2 comes from weight tying.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell8",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell87"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly says the model has 163M not 124M because the original GPT-2 paper applied weight tying by reusing the token embedding layer as the output layer."
+      },
+      {
+        "sentence_id": "ch04.s06.p05.02",
+        "text": "In the original GPT-2 architecture, weight tying means reusing the token embedding layer weights in the output layer.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell111",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell132"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly defines weight tying as reusing the token embedding layer (tok_emb) as the output layer (out_head) via setting self.out_head.weight = self.tok_emb.weight."
+      },
+      {
+        "sentence_id": "ch04.s06.p05.03",
+        "text": "The token embedding layer and the output layer have the same shape, 50257 by 768, which is why those parameters can be reused.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell77",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell76"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference describes token embeddings mapping 50,257 to 768 and the output layer mapping 768 back to 50,257, and it also prints both layer weight shapes, supporting that they match (50257×768) enabling reuse."
+      },
+      {
+        "sentence_id": "ch04.s06.p05.04",
+        "text": "If the output-layer parameters are excluded because of weight tying, the total becomes 124 million parameters, matching the GPT-2 model size.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell78",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell74",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell77"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explains GPT-2 uses weight tying (reusing tok_emb as out_head) and shows computing total_params_gpt2 by subtracting out_head parameters, yielding a 124M-parameter count."
+      },
+      {
+        "sentence_id": "ch04.s06.p05.05",
+        "text": "Weight tying reduces the overall memory footprint and the computational complexity of the model.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell79",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss what weight tying is and that it changes the parameter count, but they do not state that it reduces computational complexity (and do not explicitly claim reduced memory footprint beyond the parameter-count implication)."
+      },
+      {
+        "sentence_id": "ch04.s06.p05.06",
+        "text": "This implementation keeps separate token embedding and output layers because separate layers give better training and model performance, and the same choice is described as true for modern LLMs as well.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not claim that separate embedding/output layers give better training/performance, nor that this is typical for modern LLMs; they only note weight tying was used in GPT-2 and that the author trained without it for convenience."
+      },
+      {
+        "sentence_id": "ch04.s06.p06.r01",
+        "text": "For this model, 163 million parameters require around 600 megabytes of space.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell87"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The supplied passages mention parameter counts (124M, 355M) but do not provide or confirm the statement that 163M parameters require ~600 MB."
+      },
+      {
+        "sentence_id": "ch04.s06.p06.r02",
+        "text": "Assuming each parameter is a 32-bit float taking 4 bytes, the size is computed by multiplying the total number of parameters by 4, which gives about 620 MB.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell80",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell74",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell78"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The code explicitly computes total_size_bytes = total_params * 4 (float32) and converts to MB; for 163M parameters this is about 620 MB, consistent with the sentence."
+      },
+      {
+        "sentence_id": "ch04.s06.p06.r03",
+        "text": "This illustrates the relatively large storage capacity required to accommodate even relatively small LLMs, while extremely large models are described as impossible to run on local devices, which is why GPU access is needed.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell85",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell52"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references state small models can run on a laptop and inference may not need a GPU, and they cite huge GPU-hour requirements for training large models, but they do not claim extremely large models are impossible to run locally specifically due to storage capacity or that GPU access is needed for that reason."
+      }
+    ],
+    "conflicts": []
+  }
+}

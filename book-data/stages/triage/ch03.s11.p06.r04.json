@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch03.s11.p06.r04",
+  "inputs_hash": "746115497ea5e1df0c4969c0a72d58fc5f1e1d25695ab86a6279ca117237d242",
+  "output_hash": "8fded8cd9dd378555426dfc657cae0c6e54963b739bb89956296ce935eece4d9",
+  "output": {
+    "decision": "edit",
+    "text": "The loss is defined from the model output y and the ground truth; for example, when the ground truth is zero, the loss is based on y - 0.",
+    "reason": "The captions support that the loss uses y minus the ground truth and give the zero-target example, but they do not clearly confirm the squaring.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "e4e3073a18722c26c4240a3130115cc6505ee849557d7648044b6657d0cfceee"
+  }
+}

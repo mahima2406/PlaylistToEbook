@@ -1,0 +1,839 @@
+{
+  "stage": "crosscheck",
+  "item": "ch03.s10",
+  "inputs_hash": "7fca4f333b7999ca77318ea9d66825a3222535ee03ffe03658ea69590aeebfed",
+  "output_hash": "5314764d0efe2903ce10292372bccbc9dd343dbb0da6942afbc67b2f8ad95703",
+  "output": {
+    "section_id": "ch03.s10",
+    "checked": 64,
+    "counts": {
+      "agrees": 31,
+      "contradicts": 5,
+      "not_covered": 28
+    },
+    "results": [
+      {
+        "sentence_id": "ch03.s10.p01.02",
+        "text": "A transformer block contains layer normalization, masked multi-head attention, dropout, shortcut connections, another layer normalization, a feed-forward neural network, another dropout layer, and another shortcut connection.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell57",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell21",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell55"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited cells discuss layer normalization and shortcut connections in an example deep network and mention transformer blocks at a high level, but they do not specify the full transformer block sublayer sequence (LN, masked MHA, dropout, residual, LN, FFN, dropout, residual)."
+      },
+      {
+        "sentence_id": "ch03.s10.p01.03",
+        "text": "Layer normalization appears at multiple places inside the transformer block and also outside the transformer block in the GPT architecture.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references note that transformer blocks are repeated and mention that transformer blocks use dropout and shortcut connections, but they do not explicitly state that layer normalization appears multiple places inside the block and also outside it in the GPT architecture."
+      },
+      {
+        "sentence_id": "ch03.s10.p01.04",
+        "text": "In the architecture here, normalization appears before the attention head, after the attention head, and once again after coming out of the transformer block, before output processing.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell133",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states layer normalization is applied both before and after the multi-head attention module within the transformer block and also before the final output layer, matching the described placements."
+      },
+      {
+        "sentence_id": "ch03.s10.p01.05",
+        "text": "That repeated use is why it makes sense to define layer normalization as a separate class when coding GPT.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell66",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell18",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell122"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages do not discuss the coding/design motivation for defining LayerNorm as a separate class due to repeated use."
+      },
+      {
+        "sentence_id": "ch03.s10.p01.06",
+        "text": "In GPT and modern transformer architectures, layer normalization is applied before multi-head attention, before the neural network module inside the transformer block, and once more outside the transformer block before the final output layer.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell59"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference says LayerNorm is applied both before and after the multi-head attention module within the transformer block and before the final output layer. S5 instead claims it is applied before MHA, before the FFN inside the block, and before the final output layer, omitting the stated post-attention LayerNorm and introducing a pre-FFN placement not stated here."
+      },
+      {
+        "sentence_id": "ch03.s10.p01.07",
+        "text": "Overall, it appears three times in the architecture being discussed: around the multi-head attention module and once before the final output layer.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell133",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell8"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly lists three applications: before MHA, after MHA, and before the final output layer."
+      },
+      {
+        "sentence_id": "ch03.s10.p02.r02",
+        "text": "Layer normalization is important because it improves the stability and efficiency of training deep neural networks.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell21",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell36"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference says LayerNorm stabilizes training and enables faster convergence, which aligns with improving stability and efficiency."
+      },
+      {
+        "sentence_id": "ch03.s10.p02.r03",
+        "text": "Training deep neural networks with many layers can be challenging because they can suffer from vanishing gradients or exploding gradients, which leads to unstable training dynamics.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell58",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell57"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference notes gradients can vanish in early layers and that shortcut connections prevent vanishing gradients, consistent with the general claim about vanishing/exploding gradients causing unstable training."
+      },
+      {
+        "sentence_id": "ch03.s10.p02.r04",
+        "text": "If a layer's output is too large or too small, gradient magnitudes can also become too large or too small.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell139",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not discuss how overly large/small activations affect gradient magnitudes."
+      },
+      {
+        "sentence_id": "ch03.s10.p02.r06",
+        "text": "If a gradient becomes very small during backpropagation, the gradients at earlier layers also become very small, parameter updates do not happen in practice, and learning stagnates.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell63",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell22",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell90"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not address the effect of very small gradients during backpropagation on earlier layers and learning stagnation."
+      },
+      {
+        "sentence_id": "ch03.s10.p02.r07",
+        "text": "Both very small gradients and very large gradients lead to unstable training dynamics.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell63",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell90"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not discuss very small or very large gradients leading to unstable training dynamics."
+      },
+      {
+        "sentence_id": "ch03.s10.p03.02",
+        "text": "Internal covariate shift is the problem that, as training proceeds, the input distribution seen by a layer changes from one iteration to another.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages discuss scale/shift parameters and training/validation/perplexity, but do not define internal covariate shift."
+      },
+      {
+        "sentence_id": "ch03.s10.p03.04",
+        "text": "Layer normalization helps reduce internal covariate shift by fixing the mean and standard deviation of each layer's outputs, which accelerates convergence.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs state LayerNorm centers activations to mean 0 and variance 1 and that this stabilizes training and enables faster convergence; they do not explicitly mention 'internal covariate shift' but nothing conflicts with it."
+      },
+      {
+        "sentence_id": "ch03.s10.p03.05",
+        "text": "The two main reasons for using layer normalization are to stabilize training by preventing vanishing or exploding gradients and to reduce internal covariate shift so convergence is faster.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs mention stabilizing training and faster convergence, but do not attribute this to preventing vanishing/exploding gradients or to reducing internal covariate shift."
+      },
+      {
+        "sentence_id": "ch03.s10.p03.06",
+        "text": "The main idea of layer normalization is to take the outputs of a specific layer and adjust them so that they have mean zero and variance one.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs describe subtracting mean and normalizing variance to 1 (mean 0, variance 1) for a layer’s activations (with optional learned scale/shift)."
+      },
+      {
+        "sentence_id": "ch03.s10.p03.07",
+        "text": "Layer normalization adjusts the outputs of every neural network layer to have mean zero and variance one, and this helps stabilize training and reduce internal covariate shift.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Refs say LayerNorm is applied at specific points in the transformer block (before/after attention and before final output), not that it adjusts outputs of every neural network layer."
+      },
+      {
+        "sentence_id": "ch03.s10.p04.02",
+        "text": "For four layer outputs \"X1\", \"X2\", \"X3\", and \"X4\", the mean is computed as (\"X1\" + \"X2\" + \"X3\" + \"X4\") / 4, which in the example equals 2.15.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell110"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided refs do not contain the X1..X4 example or the numeric mean 2.15; the cited ch02 cell is unrelated."
+      },
+      {
+        "sentence_id": "ch03.s10.p04.03",
+        "text": "The variance is computed as one fourth of the sum of the squared differences between each output and the mean.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs mention computing mean/variance but do not specify the variance formula as 'one fourth of the sum of squared differences' (and PyTorch variance details are not provided in the excerpts)."
+      },
+      {
+        "sentence_id": "ch03.s10.p04.04",
+        "text": "To normalize the outputs, subtract the mean from each output and divide by the square root of the variance, which is the standard deviation.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref explicitly states subtract mean and divide by the square root of the variance (standard deviation)."
+      },
+      {
+        "sentence_id": "ch03.s10.p04.05",
+        "text": "After this normalization, the normalized values have mean zero.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell28",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell24",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell30"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Code normalizes (out-mean)/sqrt(var) and then recomputes mean of normalized outputs, consistent with achieving mean ~0."
+      },
+      {
+        "sentence_id": "ch03.s10.p04.06",
+        "text": "After this normalization, the normalized values have variance one.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs state normalization yields variance 1, and the code recomputes variance after normalization to verify it."
+      },
+      {
+        "sentence_id": "ch03.s10.p04.07",
+        "text": "The same procedure can be summarized simply as subtracting the mean from each layer output and dividing by the square root of the variance.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref summarizes normalization as subtracting mean and dividing by sqrt(variance) (with later mention of additional learned scale/shift)."
+      },
+      {
+        "sentence_id": "ch03.s10.p04.08",
+        "text": "After layer normalization, the normalized outputs have mean zero and variance one.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell30"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs state LayerNorm centers to mean 0 and variance 1; code prints mean/variance after normalization consistent with this."
+      },
+      {
+        "sentence_id": "ch03.s10.p05.02",
+        "text": "To illustrate layer normalization in code, the implementation is first applied to a simple neural network and then turned into a separate layer normalization class for integration into the GPT architecture.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell21",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell18"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs show demonstrating LayerNorm with a simple network layer, but the provided excerpts do not mention turning it into a separate class and integrating it into GPT (only that it will be implemented later in the transformer block)."
+      },
+      {
+        "sentence_id": "ch03.s10.p05.03",
+        "text": "In the example, the input tensor has shape 2 by 5 because there are two batches and each batch has five inputs.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell120",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell62",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell36"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The referenced example constructs a batch with shape (2, 6, 3) (2 inputs, 6 tokens, embedding dim 3), not 2 by 5. Separately, another reference shows inputs shaped (batch_size, num_tokens), but does not give 5 inputs per batch for that example."
+      },
+      {
+        "sentence_id": "ch03.s10.p05.04",
+        "text": "The example network layer takes five inputs and produces six outputs, so the output tensor has shape 2 by 6, with one row of six outputs for each batch.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell64",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell120",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell74"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show a model output shaped (batch_size, num_tokens, num_classes) but do not state a layer that maps 5 inputs to 6 outputs nor an output tensor of shape (2, 6) with six outputs per batch."
+      },
+      {
+        "sentence_id": "ch03.s10.p05.05",
+        "text": "This example neural network consists of a linear layer followed by a ReLU activation function.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell39",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell43",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell22"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The code defines the layer as nn.Sequential(nn.Linear(5, 6), nn.ReLU()), i.e., a linear layer followed by ReLU."
+      },
+      {
+        "sentence_id": "ch03.s10.p05.06",
+        "text": "The ReLU activation function outputs \"x\" when \"x\" is positive and outputs zero when \"x\" is negative.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell43",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell64",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell39"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states ReLU outputs the input if it is positive; otherwise it outputs zero, matching the sentence (negative case covered; zero case not discussed but not conflicting)."
+      },
+      {
+        "sentence_id": "ch03.s10.p05.07",
+        "text": "In layer normalization, normalization is applied separately to each batch in the example by replacing each output value with that output minus the batch mean divided by the square root of the batch variance.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference describes layer norm as subtracting the mean and dividing by the square root of the variance (standard deviation). The sentence says 'output minus the batch mean divided by the square root of the batch variance', which is missing the parentheses and implies subtracting (mean/sqrt(var)) rather than (output-mean)/sqrt(var), and also incorrectly frames it as a 'batch mean/variance' rather than per-row (per input) across features."
+      },
+      {
+        "sentence_id": "ch03.s10.p06.r01",
+        "text": "In code, the mean is computed with dimension equal to minus one so that the mean is taken across the columns for each batch.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell24",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The code computes mean = out.mean(dim=-1, keepdim=True), and the text explains dim=-1 applies across the last dimension (feature/column dimension) for each row/input."
+      },
+      {
+        "sentence_id": "ch03.s10.p06.r02",
+        "text": "Using keepdim equal to true preserves the mean as a 2 by 1 matrix instead of reducing it to a vector, which keeps dimensions aligned for later calculations.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell24",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell35",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell28"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The code uses keepdim=True, which keeps the mean as shape (2,1) rather than collapsing to (2,), aligning dimensions for broadcasting in later calculations."
+      },
+      {
+        "sentence_id": "ch03.s10.p06.r03",
+        "text": "The variance is also computed across the columns for both batches with keepdim equal to true.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell24"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The variance is computed as out.var(dim=-1, keepdim=True), i.e., across the last dimension (columns/features) while preserving dimensions."
+      },
+      {
+        "sentence_id": "ch03.s10.p06.r04",
+        "text": "If keepdim equal to true is not used, subtracting the mean from each individual element later can cause problems.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell24",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell35",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell28"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references use keepdim=True but do not explicitly state that omitting keepdim would cause problems when subtracting later."
+      },
+      {
+        "sentence_id": "ch03.s10.p06.r05",
+        "text": "The main normalization step in code is to subtract the mean tensor from the output tensor and divide by the square root of the variance.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The code performs out_norm = (out - mean) / torch.sqrt(var), which matches the described normalization step."
+      },
+      {
+        "sentence_id": "ch03.s10.p06.r06",
+        "text": "After normalization in the example, the mean of each batch is approximately zero and the variance of each batch is one.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states this normalization centers to mean 0 and variance 1 across the feature (column) dimension, consistent with the claim about post-normalization mean ~0 and variance ~1 per input/row."
+      },
+      {
+        "sentence_id": "ch03.s10.p07.r01",
+        "text": "The layer normalization class takes the output of a layer as input and applies normalization to it.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell18",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell21",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference describes layer normalization as centering/normalizing activations of a neural network layer, consistent with a LayerNorm class taking layer outputs (activations) and normalizing them."
+      },
+      {
+        "sentence_id": "ch03.s10.p07.r02",
+        "text": "In the GPT setting, layer normalization is applied by taking the mean and variance across the embedding dimension for each row, where each row corresponds to a token embedding.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs state normalization is applied per input row (token) and uses dim=-1 to compute mean/variance across the last (feature/embedding) dimension."
+      },
+      {
+        "sentence_id": "ch03.s10.p07.r03",
+        "text": "For GPT-2 in this example, the embedding size is 768.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell66",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell11"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs specify GPT-2 token embeddings are 768-dimensional (emb_dim=768; token embedding projects to 768-d)."
+      },
+      {
+        "sentence_id": "ch03.s10.p07.r04",
+        "text": "The embedding dimension must be passed when creating the layer normalization class because the trainable scale and shift parameters have sizes determined by the embedding dimension.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs describe adding trainable scale and shift parameters in layer norm; these parameters must match the feature/embedding dimension, implying the embedding dimension determines their sizes."
+      },
+      {
+        "sentence_id": "ch03.s10.p07.r05",
+        "text": "Normalization does not change dimensions, so the output of layer normalization has the same dimensions as its input.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell18",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell21"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided refs discuss attention input/output dimensions and introduce layer norm but do not explicitly state that layer norm preserves tensor shape."
+      },
+      {
+        "sentence_id": "ch03.s10.p07.r06",
+        "text": "In the forward method, the model takes the mean across columns, takes the variance across columns, subtracts the mean, and divides by the square root of the variance.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref explains subtracting the mean and dividing by the square root of the variance across the feature (column) dimension; mean/variance are computed per input row."
+      },
+      {
+        "sentence_id": "ch03.s10.p07.r07",
+        "text": "Epsilon is a small constant added to the variance to prevent division by zero during normalization.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell36",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs mention using eps affects variance ('Variance is not exactly 1 because we use eps') but do not explicitly state eps is added to variance to prevent division by zero."
+      },
+      {
+        "sentence_id": "ch03.s10.p07.r08",
+        "text": "After the normalization step, the output is further multiplied by the scale and shift parameters.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell73",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell61"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Ref says after normalization, two trainable parameters are applied: scale and shift. The sentence says the output is 'multiplied by the scale and shift parameters' (implying both are multiplicative), but shift is added, not multiplied."
+      },
+      {
+        "sentence_id": "ch03.s10.p07.r09",
+        "text": "The scale and shift are trainable parameters with the same dimension as the input, and the model adjusts them during training if that improves performance on the training task.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell106"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Ref supports that scale and shift are trainable and adjusted during training, but it does not state they have the same dimension as the input."
+      },
+      {
+        "sentence_id": "ch03.s10.p07.r10",
+        "text": "These scale and shift parameters act like adjustable knobs that fine-tune the normalization.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref describes scale and shift as trainable parameters that allow the model to learn appropriate scaling and shifting, consistent with them acting as adjustable knobs."
+      },
+      {
+        "sentence_id": "ch03.s10.p07.r11",
+        "text": "Because the scale and shift vectors have the embedding dimension, they can be applied to the normalized output by element-wise multiplication and element-wise addition.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell66",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell29"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs provided do not state that scale/shift vectors have embedding dimension nor explicitly describe element-wise application to the normalized output."
+      },
+      {
+        "sentence_id": "ch03.s10.p07.r12",
+        "text": "The epsilon parameter is set to a small value such as 10^-5.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell106",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell63",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell38"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No provided ref gives a specific numeric eps value such as 1e-5."
+      },
+      {
+        "sentence_id": "ch03.s10.p07.r13",
+        "text": "The main step in layer normalization is to take each row of the input, subtract its mean, and divide by the square root of its variance.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs compute mean/variance per input row and describe subtracting mean and dividing by standard deviation across the feature dimension, matching the described main normalization step."
+      },
+      {
+        "sentence_id": "ch03.s10.p07.r14",
+        "text": "After layer normalization, the mean of each resulting row is zero and the standard deviation is one.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref explains LN subtracts per-row mean and divides by sqrt(variance), yielding mean 0 and variance 1 across the feature (column) dimension for each row."
+      },
+      {
+        "sentence_id": "ch03.s10.p08.02",
+        "text": "Setting unbiased to true in the variance calculation applies Bessel's correction, which divides by n minus 1 instead of n.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided refs discuss scale/shift and per-row normalization dimension, but do not mention unbiased=True or Bessel’s correction (n-1 vs n)."
+      },
+      {
+        "sentence_id": "ch03.s10.p08.03",
+        "text": "Using n minus 1 instead of n in the sample variance formula gives an unbiased variance estimate.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs do not discuss unbiasedness of the sample variance estimator or n-1 vs n."
+      },
+      {
+        "sentence_id": "ch03.s10.p08.04",
+        "text": "In large language models, using n instead of n minus 1 makes little practical difference because the embedding dimension is large.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell58"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs mention an example embedding dimension (4) but do not relate variance denominator choice (n vs n-1) to practical impact in LLMs."
+      },
+      {
+        "sentence_id": "ch03.s10.p08.05",
+        "text": "For this implementation, setting unbiased to false works well and is chosen for compatibility with GPT-2 normalization layers and TensorFlow's default behavior used in the original GPT-2 model.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell139",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell12"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs mention GPT-2 compatibility issues for qkv_bias and other settings, and LN scale/shift, but do not state that unbiased=False is chosen for GPT-2/TensorFlow compatibility."
+      },
+      {
+        "sentence_id": "ch03.s10.p09.02",
+        "text": "An instance of the layer normalization class is created by passing in the embedding dimension, which is set to five for the batch example.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell21",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs describe demonstrating LN with a small sample and that normalization is across feature dimension, but do not state an embedding dimension of 5 or that a LayerNorm instance is created with 5 for the batch example."
+      },
+      {
+        "sentence_id": "ch03.s10.p09.03",
+        "text": "The batch example is passed through the layer normalization layer, which computes the mean and variance across the dimensions, subtracts the mean, and divides by the square root of the variance.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs describe computing mean/variance across the feature dimension and normalizing by subtracting the mean and dividing by the square root of the variance (std), with optional subsequent scale/shift."
+      },
+      {
+        "sentence_id": "ch03.s10.p09.04",
+        "text": "In the printed batch example, layer normalization is applied separately to each batch item by subtracting that item's mean from its elements and dividing its elements by the square root of that item's variance.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell24"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref states normalization is applied to each input row independently across the feature (column) dimension, matching per-batch-item mean/variance normalization."
+      },
+      {
+        "sentence_id": "ch03.s10.p09.05",
+        "text": "The output of the layer normalization code has mean zero and variance one for both batch items, showing that the code works as expected.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs state the operation centers inputs to mean 0 and variance 1 (per row across features), implying both batch items will have mean≈0 and var≈1 after normalization (before any learned scale/shift changes)."
+      },
+      {
+        "sentence_id": "ch03.s10.p10.r02",
+        "text": "Layer normalization and batch normalization are very different from each other.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell18",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell21",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs shown introduce layer normalization but do not compare it to batch normalization or claim they are very different."
+      },
+      {
+        "sentence_id": "ch03.s10.p10.r03",
+        "text": "In layer normalization, normalization is usually done along the feature dimension, which is the columns, and it does not depend on the batch size.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell18"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref explicitly says normalization is applied per row using dim=-1 across the feature dimension; this computation is per input and thus not dependent on batch size."
+      },
+      {
+        "sentence_id": "ch03.s10.p10.r04",
+        "text": "In layer normalization, each layer's output is normalized using its mean and standard deviation regardless of batch size.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell31",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref describes normalizing each input’s features using its own mean and std (sqrt variance) across the feature dimension, which does not rely on batch size."
+      },
+      {
+        "sentence_id": "ch03.s10.p10.r05",
+        "text": "In batch normalization, normalization is performed for an entire batch, so it depends on the batch size.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell38",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell15"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The referenced code shows how batches are formed and their tensor shapes, but it does not describe batch normalization or state that normalization depends on batch size."
+      },
+      {
+        "sentence_id": "ch03.s10.p10.r06",
+        "text": "Batch normalization is less flexible because batch size is often determined by available hardware.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell38",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell36"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss batch tensors, moving them to device, and a note about variance/eps, but they do not address batch normalization flexibility or relate batch size to hardware constraints."
+      },
+      {
+        "sentence_id": "ch03.s10.p10.r07",
+        "text": "Layer normalization is more flexible and provides more flexibility and stability for distributed training.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell101",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell18",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference states that layer normalization centers activations and normalizes variance, stabilizing training and enabling faster convergence, but it does not discuss distributed training flexibility/stability."
+      },
+      {
+        "sentence_id": "ch03.s10.p10.r08",
+        "text": "When resources or hardware capabilities force small batch sizes, or when batch-size-independent normalization is desired, layer normalization is a better choice than batch normalization.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell18",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell21",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages explain what layer normalization is and show unrelated training code, but they do not compare LayerNorm vs BatchNorm for small batch sizes or batch-size-independent normalization."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch03.s10.p01.06",
+        "text": "In GPT and modern transformer architectures, layer normalization is applied before multi-head attention, before the neural network module inside the transformer block, and once more outside the transformer block before the final output layer.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell59"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference says LayerNorm is applied both before and after the multi-head attention module within the transformer block and before the final output layer. S5 instead claims it is applied before MHA, before the FFN inside the block, and before the final output layer, omitting the stated post-attention LayerNorm and introducing a pre-FFN placement not stated here."
+      },
+      {
+        "sentence_id": "ch03.s10.p03.07",
+        "text": "Layer normalization adjusts the outputs of every neural network layer to have mean zero and variance one, and this helps stabilize training and reduce internal covariate shift.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Refs say LayerNorm is applied at specific points in the transformer block (before/after attention and before final output), not that it adjusts outputs of every neural network layer."
+      },
+      {
+        "sentence_id": "ch03.s10.p05.03",
+        "text": "In the example, the input tensor has shape 2 by 5 because there are two batches and each batch has five inputs.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell120",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell62",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell36"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The referenced example constructs a batch with shape (2, 6, 3) (2 inputs, 6 tokens, embedding dim 3), not 2 by 5. Separately, another reference shows inputs shaped (batch_size, num_tokens), but does not give 5 inputs per batch for that example."
+      },
+      {
+        "sentence_id": "ch03.s10.p05.07",
+        "text": "In layer normalization, normalization is applied separately to each batch in the example by replacing each output value with that output minus the batch mean divided by the square root of the batch variance.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference describes layer norm as subtracting the mean and dividing by the square root of the variance (standard deviation). The sentence says 'output minus the batch mean divided by the square root of the batch variance', which is missing the parentheses and implies subtracting (mean/sqrt(var)) rather than (output-mean)/sqrt(var), and also incorrectly frames it as a 'batch mean/variance' rather than per-row (per input) across features."
+      },
+      {
+        "sentence_id": "ch03.s10.p07.r08",
+        "text": "After the normalization step, the output is further multiplied by the scale and shift parameters.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell73",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell61"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Ref says after normalization, two trainable parameters are applied: scale and shift. The sentence says the output is 'multiplied by the scale and shift parameters' (implying both are multiplicative), but shift is added, not multiplied."
+      }
+    ]
+  }
+}

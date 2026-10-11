@@ -1,0 +1,1041 @@
+{
+  "stage": "extract",
+  "item": "z9fgKz1Drlc",
+  "inputs_hash": "ffedf02589d70c0fd8de4d38815fcc7d9ab9e8d4a6719661d18a40cec6497423",
+  "output_hash": "c2312ef2e05d390b691ae7f2974d165b84d3bfeb898f3bd9edbeecb8df98b736",
+  "output": {
+    "video_id": "z9fgKz1Drlc",
+    "points": [
+      {
+        "id": "z9fgKz1Drlc:p001",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The playlist will be divided into three stages: stage one, stage two, and stage three.",
+        "line_ids": [
+          "z9fgKz1Drlc@146",
+          "z9fgKz1Drlc@148",
+          "z9fgKz1Drlc@151",
+          "z9fgKz1Drlc@174",
+          "z9fgKz1Drlc@176"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p002",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Stage one focuses on the building blocks needed before training a large language model: data preprocessing and sampling, the attention mechanism, and the LLM architecture.",
+        "line_ids": [
+          "z9fgKz1Drlc@201",
+          "z9fgKz1Drlc@204",
+          "z9fgKz1Drlc@206",
+          "z9fgKz1Drlc@209",
+          "z9fgKz1Drlc@211",
+          "z9fgKz1Drlc@214",
+          "z9fgKz1Drlc@216",
+          "z9fgKz1Drlc@220",
+          "z9fgKz1Drlc@222",
+          "z9fgKz1Drlc@224",
+          "z9fgKz1Drlc@226"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p003",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "In stage one, the course will cover how data is collected from different datasets, how it is processed, and how it is sampled.",
+        "line_ids": [
+          "z9fgKz1Drlc@229",
+          "z9fgKz1Drlc@231",
+          "z9fgKz1Drlc@234",
+          "z9fgKz1Drlc@236"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p004",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In stage one, the course will build the attention mechanism from scratch in Python and explain key, query, value, attention scores, positional encoding, and vector embeddings.",
+        "line_ids": [
+          "z9fgKz1Drlc@236",
+          "z9fgKz1Drlc@238",
+          "z9fgKz1Drlc@240",
+          "z9fgKz1Drlc@242",
+          "z9fgKz1Drlc@245",
+          "z9fgKz1Drlc@248",
+          "z9fgKz1Drlc@250",
+          "z9fgKz1Drlc@252"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p005",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In stage one, the course will cover the LLM architecture, including how to stack layers and where the attention head goes, to understand the basic mechanism behind a large language model.",
+        "line_ids": [
+          "z9fgKz1Drlc@252",
+          "z9fgKz1Drlc@254",
+          "z9fgKz1Drlc@257",
+          "z9fgKz1Drlc@259",
+          "z9fgKz1Drlc@261",
+          "z9fgKz1Drlc@265",
+          "z9fgKz1Drlc@268",
+          "z9fgKz1Drlc@269",
+          "z9fgKz1Drlc@272"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p006",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "definition",
+        "importance": 3,
+        "text": "A token can be thought of as a unit of a sentence.",
+        "line_ids": [
+          "z9fgKz1Drlc@276",
+          "z9fgKz1Drlc@279",
+          "z9fgKz1Drlc@281",
+          "z9fgKz1Drlc@284",
+          "z9fgKz1Drlc@286"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p007",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "Tokenization breaks sentences down into individual tokens in a particular way.",
+        "line_ids": [
+          "z9fgKz1Drlc@276",
+          "z9fgKz1Drlc@279",
+          "z9fgKz1Drlc@281",
+          "z9fgKz1Drlc@288",
+          "z9fgKz1Drlc@290"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p008",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Vector embedding transforms each word after tokenization into a very high-dimensional vector space so that semantic meaning between words is captured.",
+        "line_ids": [
+          "z9fgKz1Drlc@293",
+          "z9fgKz1Drlc@296",
+          "z9fgKz1Drlc@299",
+          "z9fgKz1Drlc@301",
+          "z9fgKz1Drlc@304"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p009",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "In a vector embedding space, words with similar meanings should lie closer together, such as apple, banana, and orange; king, man, and woman; and football, golf, and tennis.",
+        "line_ids": [
+          "z9fgKz1Drlc@307",
+          "z9fgKz1Drlc@310",
+          "z9fgKz1Drlc@312",
+          "z9fgKz1Drlc@314",
+          "z9fgKz1Drlc@317",
+          "z9fgKz1Drlc@318",
+          "z9fgKz1Drlc@320",
+          "z9fgKz1Drlc@322",
+          "z9fgKz1Drlc@325",
+          "z9fgKz1Drlc@327",
+          "z9fgKz1Drlc@330",
+          "z9fgKz1Drlc@332",
+          "z9fgKz1Drlc@336",
+          "z9fgKz1Drlc@338",
+          "z9fgKz1Drlc@340"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p010",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Positional encoding gives the model information about the order in which words appear in a sentence.",
+        "line_ids": [
+          "z9fgKz1Drlc@345",
+          "z9fgKz1Drlc@347",
+          "z9fgKz1Drlc@349",
+          "z9fgKz1Drlc@352",
+          "z9fgKz1Drlc@354"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p011",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "The course will cover how to construct batches from a large dataset and feed those batches to the large language model.",
+        "line_ids": [
+          "z9fgKz1Drlc@355",
+          "z9fgKz1Drlc@358",
+          "z9fgKz1Drlc@361",
+          "z9fgKz1Drlc@364",
+          "z9fgKz1Drlc@366",
+          "z9fgKz1Drlc@369",
+          "z9fgKz1Drlc@371"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p012",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The next-word prediction task gives a bunch of words and predicts the next word.",
+        "line_ids": [
+          "z9fgKz1Drlc@374",
+          "z9fgKz1Drlc@376",
+          "z9fgKz1Drlc@378"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p013",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "definition",
+        "importance": 2,
+        "text": "Context refers to how many words should be taken for training to predict the next output.",
+        "line_ids": [
+          "z9fgKz1Drlc@380",
+          "z9fgKz1Drlc@382",
+          "z9fgKz1Drlc@385"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p014",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Batching the data in different sets makes computation much more efficient.",
+        "line_ids": [
+          "z9fgKz1Drlc@387",
+          "z9fgKz1Drlc@391",
+          "z9fgKz1Drlc@393"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p015",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "Before pre-training, a data batching sequence is implemented before giving the dataset to the large language model.",
+        "line_ids": [
+          "z9fgKz1Drlc@396",
+          "z9fgKz1Drlc@398",
+          "z9fgKz1Drlc@401",
+          "z9fgKz1Drlc@404"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p016",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The course will explain the parts of the Transformer attention mechanism, including multi-head attention, positional encoding, input embedding, and output embedding.",
+        "line_ids": [
+          "z9fgKz1Drlc@406",
+          "z9fgKz1Drlc@408",
+          "z9fgKz1Drlc@410",
+          "z9fgKz1Drlc@412",
+          "z9fgKz1Drlc@414",
+          "z9fgKz1Drlc@416",
+          "z9fgKz1Drlc@419",
+          "z9fgKz1Drlc@421",
+          "z9fgKz1Drlc@423",
+          "z9fgKz1Drlc@425"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p017",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Stage two is pre-training: after assembling the data and constructing the LLM architecture, code is written to train the model on the underlying dataset.",
+        "line_ids": [
+          "z9fgKz1Drlc@440",
+          "z9fgKz1Drlc@443",
+          "z9fgKz1Drlc@445",
+          "z9fgKz1Drlc@447",
+          "z9fgKz1Drlc@449",
+          "z9fgKz1Drlc@451",
+          "z9fgKz1Drlc@453",
+          "z9fgKz1Drlc@455",
+          "z9fgKz1Drlc@457",
+          "z9fgKz1Drlc@460"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p018",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Pre-training builds a foundational model on unlabeled data.",
+        "line_ids": [
+          "z9fgKz1Drlc@460",
+          "z9fgKz1Drlc@463",
+          "z9fgKz1Drlc@465",
+          "z9fgKz1Drlc@467",
+          "z9fgKz1Drlc@557",
+          "z9fgKz1Drlc@560"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p019",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In the training procedure, the training dataset is broken into epochs, the gradient of the loss is computed in each epoch, the parameters are updated, and sample text is generated for visual inspection.",
+        "line_ids": [
+          "z9fgKz1Drlc@472",
+          "z9fgKz1Drlc@473",
+          "z9fgKz1Drlc@476",
+          "z9fgKz1Drlc@480",
+          "z9fgKz1Drlc@482",
+          "z9fgKz1Drlc@484",
+          "z9fgKz1Drlc@486",
+          "z9fgKz1Drlc@488"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p020",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "Stage two also includes model evaluation and loading pretrained weights.",
+        "line_ids": [
+          "z9fgKz1Drlc@491",
+          "z9fgKz1Drlc@493",
+          "z9fgKz1Drlc@495",
+          "z9fgKz1Drlc@497",
+          "z9fgKz1Drlc@499",
+          "z9fgKz1Drlc@501",
+          "z9fgKz1Drlc@504",
+          "z9fgKz1Drlc@506"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p021",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "The course will implement functions to save and load large language model weights so the model can be reused or training can be continued later.",
+        "line_ids": [
+          "z9fgKz1Drlc@506",
+          "z9fgKz1Drlc@508",
+          "z9fgKz1Drlc@510",
+          "z9fgKz1Drlc@513",
+          "z9fgKz1Drlc@515"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p022",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Saving and loading weights saves a lot of computational cost and memory.",
+        "line_ids": [
+          "z9fgKz1Drlc@515",
+          "z9fgKz1Drlc@518",
+          "z9fgKz1Drlc@519",
+          "z9fgKz1Drlc@521",
+          "z9fgKz1Drlc@523",
+          "z9fgKz1Drlc@524"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p023",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "The course will load pretrained weights from OpenAI into its large language model.",
+        "line_ids": [
+          "z9fgKz1Drlc@527",
+          "z9fgKz1Drlc@529",
+          "z9fgKz1Drlc@532",
+          "z9fgKz1Drlc@534",
+          "z9fgKz1Drlc@536",
+          "z9fgKz1Drlc@538"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p024",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Stage two consists of the training loop, model evaluation, and loading pretrained weights to build a foundational model.",
+        "line_ids": [
+          "z9fgKz1Drlc@542",
+          "z9fgKz1Drlc@544",
+          "z9fgKz1Drlc@546",
+          "z9fgKz1Drlc@549",
+          "z9fgKz1Drlc@550",
+          "z9fgKz1Drlc@552"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p025",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Stage three focuses on fine-tuning the large language model to build specific applications.",
+        "line_ids": [
+          "z9fgKz1Drlc@562",
+          "z9fgKz1Drlc@565",
+          "z9fgKz1Drlc@567",
+          "z9fgKz1Drlc@569",
+          "z9fgKz1Drlc@571",
+          "z9fgKz1Drlc@573"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p026",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The playlist will build two fine-tuned applications: a classifier and a personal assistant.",
+        "line_ids": [
+          "z9fgKz1Drlc@573",
+          "z9fgKz1Drlc@575",
+          "z9fgKz1Drlc@577",
+          "z9fgKz1Drlc@579",
+          "z9fgKz1Drlc@581"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p027",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "A fine-tuned classifier can label emails such as a prize message as spam and a dinner plan message as not spam.",
+        "line_ids": [
+          "z9fgKz1Drlc@584",
+          "z9fgKz1Drlc@586",
+          "z9fgKz1Drlc@588",
+          "z9fgKz1Drlc@590",
+          "z9fgKz1Drlc@594",
+          "z9fgKz1Drlc@596",
+          "z9fgKz1Drlc@598",
+          "z9fgKz1Drlc@601",
+          "z9fgKz1Drlc@603",
+          "z9fgKz1Drlc@605"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p028",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A pretrained foundational model alone is not enough for spam classification because the model must be trained with labeled data.",
+        "line_ids": [
+          "z9fgKz1Drlc@608",
+          "z9fgKz1Drlc@610",
+          "z9fgKz1Drlc@612",
+          "z9fgKz1Drlc@614",
+          "z9fgKz1Drlc@616",
+          "z9fgKz1Drlc@617",
+          "z9fgKz1Drlc@620"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p029",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To build an email classification application, additional labeled data such as spam and not spam examples is given to the foundational model for fine-tuning.",
+        "line_ids": [
+          "z9fgKz1Drlc@620",
+          "z9fgKz1Drlc@622",
+          "z9fgKz1Drlc@624",
+          "z9fgKz1Drlc@626",
+          "z9fgKz1Drlc@628",
+          "z9fgKz1Drlc@630",
+          "z9fgKz1Drlc@634",
+          "z9fgKz1Drlc@636"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p030",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Another fine-tuned application is a chatbot that takes an instruction and an input and produces an output.",
+        "line_ids": [
+          "z9fgKz1Drlc@638",
+          "z9fgKz1Drlc@640",
+          "z9fgKz1Drlc@642",
+          "z9fgKz1Drlc@644",
+          "z9fgKz1Drlc@646",
+          "z9fgKz1Drlc@648"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p031",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 2,
+        "text": "To understand LLMs well, stage one, stage two, and stage three are all important, not just application-building in stage three.",
+        "line_ids": [
+          "z9fgKz1Drlc@654",
+          "z9fgKz1Drlc@656",
+          "z9fgKz1Drlc@658",
+          "z9fgKz1Drlc@660",
+          "z9fgKz1Drlc@662",
+          "z9fgKz1Drlc@664",
+          "z9fgKz1Drlc@673",
+          "z9fgKz1Drlc@675",
+          "z9fgKz1Drlc@677",
+          "z9fgKz1Drlc@679",
+          "z9fgKz1Drlc@681",
+          "z9fgKz1Drlc@683",
+          "z9fgKz1Drlc@685",
+          "z9fgKz1Drlc@687",
+          "z9fgKz1Drlc@690",
+          "z9fgKz1Drlc@693"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p032",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Large language models have transformed natural language processing by advancing the generation, understanding, and translation of human language.",
+        "line_ids": [
+          "z9fgKz1Drlc@746",
+          "z9fgKz1Drlc@749",
+          "z9fgKz1Drlc@751",
+          "z9fgKz1Drlc@754",
+          "z9fgKz1Drlc@756",
+          "z9fgKz1Drlc@758",
+          "z9fgKz1Drlc@760"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p033",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Before large language models, natural language processing typically required training a separate algorithm for each specific task.",
+        "line_ids": [
+          "z9fgKz1Drlc@760",
+          "z9fgKz1Drlc@763",
+          "z9fgKz1Drlc@765",
+          "z9fgKz1Drlc@767"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p034",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Large language models are generic because training them for next-word prediction can produce emergent properties that make them useful for many tasks.",
+        "line_ids": [
+          "z9fgKz1Drlc@767",
+          "z9fgKz1Drlc@769",
+          "z9fgKz1Drlc@771",
+          "z9fgKz1Drlc@773",
+          "z9fgKz1Drlc@775",
+          "z9fgKz1Drlc@777",
+          "z9fgKz1Drlc@780",
+          "z9fgKz1Drlc@783",
+          "z9fgKz1Drlc@785",
+          "z9fgKz1Drlc@787",
+          "z9fgKz1Drlc@790",
+          "z9fgKz1Drlc@793"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p035",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 2,
+        "text": "These emergent properties make large language models useful for tasks such as multiple-choice questions, text summarization, emotion classification, and language translation.",
+        "line_ids": [
+          "z9fgKz1Drlc@777",
+          "z9fgKz1Drlc@780",
+          "z9fgKz1Drlc@783",
+          "z9fgKz1Drlc@785",
+          "z9fgKz1Drlc@787"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p036",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Modern large language models are trained in two main steps: pre-training on unlabeled data to create a foundational model, and then fine-tuning.",
+        "line_ids": [
+          "z9fgKz1Drlc@795",
+          "z9fgKz1Drlc@798",
+          "z9fgKz1Drlc@800",
+          "z9fgKz1Drlc@803",
+          "z9fgKz1Drlc@805"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p037",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Pre-training requires very large datasets, typically billions of words, and is expensive.",
+        "line_ids": [
+          "z9fgKz1Drlc@805",
+          "z9fgKz1Drlc@808",
+          "z9fgKz1Drlc@811",
+          "z9fgKz1Drlc@813",
+          "z9fgKz1Drlc@817",
+          "z9fgKz1Drlc@819",
+          "z9fgKz1Drlc@822"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p038",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The lecture states that pre-training GPT-3 cost about 4.6 million dollars.",
+        "line_ids": [
+          "z9fgKz1Drlc@811",
+          "z9fgKz1Drlc@813",
+          "z9fgKz1Drlc@817"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p039",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Fine-tuning means providing a model with a smaller, specific labeled dataset and further training it to build a better task-specific model.",
+        "line_ids": [
+          "z9fgKz1Drlc@839",
+          "z9fgKz1Drlc@842",
+          "z9fgKz1Drlc@844",
+          "z9fgKz1Drlc@846",
+          "z9fgKz1Drlc@847",
+          "z9fgKz1Drlc@850"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p040",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Companies typically fine-tune pretrained LLMs for production use rather than deploying the pretrained model directly.",
+        "line_ids": [
+          "z9fgKz1Drlc@854",
+          "z9fgKz1Drlc@856",
+          "z9fgKz1Drlc@859",
+          "z9fgKz1Drlc@861",
+          "z9fgKz1Drlc@863",
+          "z9fgKz1Drlc@866",
+          "z9fgKz1Drlc@869"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p041",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In pre-training, the dataset is unlabeled and autoregressive because the sentence structure itself creates the labels by predicting the next word.",
+        "line_ids": [
+          "z9fgKz1Drlc@871",
+          "z9fgKz1Drlc@873",
+          "z9fgKz1Drlc@875",
+          "z9fgKz1Drlc@877",
+          "z9fgKz1Drlc@879",
+          "z9fgKz1Drlc@882"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p042",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In fine-tuning, a labeled dataset is used, such as labels for spam versus not spam or good versus bad answers.",
+        "line_ids": [
+          "z9fgKz1Drlc@882",
+          "z9fgKz1Drlc@884",
+          "z9fgKz1Drlc@887",
+          "z9fgKz1Drlc@889",
+          "z9fgKz1Drlc@891",
+          "z9fgKz1Drlc@893",
+          "z9fgKz1Drlc@895"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p043",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Fine-tuning is generally needed for building production-ready LLM applications.",
+        "line_ids": [
+          "z9fgKz1Drlc@895",
+          "z9fgKz1Drlc@897",
+          "z9fgKz1Drlc@899"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p044",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Fine-tuned LLMs can outperform only pretrained LLMs on specific tasks.",
+        "line_ids": [
+          "z9fgKz1Drlc@901",
+          "z9fgKz1Drlc@903",
+          "z9fgKz1Drlc@906",
+          "z9fgKz1Drlc@909",
+          "z9fgKz1Drlc@911",
+          "z9fgKz1Drlc@913",
+          "z9fgKz1Drlc@915",
+          "z9fgKz1Drlc@918",
+          "z9fgKz1Drlc@920",
+          "z9fgKz1Drlc@922",
+          "z9fgKz1Drlc@924"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p045",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 3,
+        "text": "If you want to build a specific application on your own dataset and take it to production level, you need fine-tuning.",
+        "line_ids": [
+          "z9fgKz1Drlc@939",
+          "z9fgKz1Drlc@941",
+          "z9fgKz1Drlc@943",
+          "z9fgKz1Drlc@946",
+          "z9fgKz1Drlc@948",
+          "z9fgKz1Drlc@950"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p046",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The key idea behind the Transformer architecture is the attention mechanism.",
+        "line_ids": [
+          "z9fgKz1Drlc@954",
+          "z9fgKz1Drlc@955",
+          "z9fgKz1Drlc@957",
+          "z9fgKz1Drlc@959",
+          "z9fgKz1Drlc@962"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p047",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "visual_ref",
+        "importance": 2,
+        "text": "The lecturer shows a diagram of the Transformer architecture and points out the attention blocks as the main source of its power.",
+        "line_ids": [
+          "z9fgKz1Drlc@965",
+          "z9fgKz1Drlc@967",
+          "z9fgKz1Drlc@968",
+          "z9fgKz1Drlc@970",
+          "z9fgKz1Drlc@972",
+          "z9fgKz1Drlc@974",
+          "z9fgKz1Drlc@977"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p048",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "definition",
+        "importance": 3,
+        "text": "In a nutshell, the attention mechanism gives an LLM selective access to the whole input sequence when generating output one word at a time.",
+        "line_ids": [
+          "z9fgKz1Drlc@981",
+          "z9fgKz1Drlc@984",
+          "z9fgKz1Drlc@986",
+          "z9fgKz1Drlc@988",
+          "z9fgKz1Drlc@991"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p049",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The attention mechanism lets an LLM determine the importance of words not only in the current sentence but also in previous sentences, because context matters for predicting the next word.",
+        "line_ids": [
+          "z9fgKz1Drlc@991",
+          "z9fgKz1Drlc@993",
+          "z9fgKz1Drlc@996",
+          "z9fgKz1Drlc@999",
+          "z9fgKz1Drlc@1001",
+          "z9fgKz1Drlc@1002",
+          "z9fgKz1Drlc@1005"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p050",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The attention mechanism allows an LLM to access the entire context and assign weight to the words that are important for predicting the next word.",
+        "line_ids": [
+          "z9fgKz1Drlc@1007",
+          "z9fgKz1Drlc@1008",
+          "z9fgKz1Drlc@1011",
+          "z9fgKz1Drlc@1013",
+          "z9fgKz1Drlc@1015",
+          "z9fgKz1Drlc@1017"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p051",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The original Transformer had both an encoder and a decoder, but a Generative Pre-trained Transformer has only the decoder and no encoder.",
+        "line_ids": [
+          "z9fgKz1Drlc@1022",
+          "z9fgKz1Drlc@1024",
+          "z9fgKz1Drlc@1027",
+          "z9fgKz1Drlc@1030",
+          "z9fgKz1Drlc@1031",
+          "z9fgKz1Drlc@1035",
+          "z9fgKz1Drlc@1037",
+          "z9fgKz1Drlc@1040"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p052",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The Transformer and GPT are not the same: the Transformer paper came in 2017 with an encoder plus decoder, and GPT came in 2018 with only the decoder architecture.",
+        "line_ids": [
+          "z9fgKz1Drlc@1040",
+          "z9fgKz1Drlc@1042",
+          "z9fgKz1Drlc@1044",
+          "z9fgKz1Drlc@1047",
+          "z9fgKz1Drlc@1049"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p053",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Even GPT-4 uses only the decoder and not an encoder.",
+        "line_ids": [
+          "z9fgKz1Drlc@1052",
+          "z9fgKz1Drlc@1054"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p054",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 2,
+        "text": "GPT-2 came in 2019, and GPT-3 came in 2020 with 175 billion parameters, which changed the field because models of that size had not been seen before.",
+        "line_ids": [
+          "z9fgKz1Drlc@1058",
+          "z9fgKz1Drlc@1060",
+          "z9fgKz1Drlc@1063",
+          "z9fgKz1Drlc@1067",
+          "z9fgKz1Drlc@1069",
+          "z9fgKz1Drlc@1071"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p055",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 3,
+        "text": "LLMs are trained only to predict the next word, but they develop emergent properties.",
+        "line_ids": [
+          "z9fgKz1Drlc@1075",
+          "z9fgKz1Drlc@1077",
+          "z9fgKz1Drlc@1080",
+          "z9fgKz1Drlc@1082",
+          "z9fgKz1Drlc@1084"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p056",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Although they are only trained for next-word prediction, LLMs can show abilities such as classifying text, translating between languages, and summarizing text.",
+        "line_ids": [
+          "z9fgKz1Drlc@1087",
+          "z9fgKz1Drlc@1088",
+          "z9fgKz1Drlc@1091",
+          "z9fgKz1Drlc@1094",
+          "z9fgKz1Drlc@1096",
+          "z9fgKz1Drlc@1097",
+          "z9fgKz1Drlc@1100"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p057",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The pre-training stage works so well that LLMs develop additional useful properties, which makes them impactful for a wide range of tasks.",
+        "line_ids": [
+          "z9fgKz1Drlc@1102",
+          "z9fgKz1Drlc@1103",
+          "z9fgKz1Drlc@1106",
+          "z9fgKz1Drlc@1108",
+          "z9fgKz1Drlc@1110",
+          "z9fgKz1Drlc@1113"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p058",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The next stage of the course begins with data preparation and sampling, including working with text data, loading datasets, counting characters, and breaking data into tokens.",
+        "line_ids": [
+          "z9fgKz1Drlc@1126",
+          "z9fgKz1Drlc@1129",
+          "z9fgKz1Drlc@1131",
+          "z9fgKz1Drlc@1133",
+          "z9fgKz1Drlc@1135",
+          "z9fgKz1Drlc@1138",
+          "z9fgKz1Drlc@1140",
+          "z9fgKz1Drlc@1143",
+          "z9fgKz1Drlc@1145",
+          "z9fgKz1Drlc@1147"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p059",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The lecturer will start sharing Jupyter notebooks so that coding can begin alongside the lectures.",
+        "line_ids": [
+          "z9fgKz1Drlc@1147",
+          "z9fgKz1Drlc@1150",
+          "z9fgKz1Drlc@1152",
+          "z9fgKz1Drlc@1155"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p060",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The first six lectures are introductory and are meant to build a fundamental understanding before the course dives deeply into code from lecture 7 onward.",
+        "line_ids": [
+          "z9fgKz1Drlc@1157",
+          "z9fgKz1Drlc@1160",
+          "z9fgKz1Drlc@1163",
+          "z9fgKz1Drlc@1164",
+          "z9fgKz1Drlc@1166",
+          "z9fgKz1Drlc@1168",
+          "z9fgKz1Drlc@1170"
+        ]
+      },
+      {
+        "id": "z9fgKz1Drlc:p061",
+        "video_id": "z9fgKz1Drlc",
+        "lecture": 6,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The course teaching approach combines whiteboard explanation with coding because both theory and practical implementation are important.",
+        "line_ids": [
+          "z9fgKz1Drlc@1173",
+          "z9fgKz1Drlc@1176",
+          "z9fgKz1Drlc@1178",
+          "z9fgKz1Drlc@1180",
+          "z9fgKz1Drlc@1183",
+          "z9fgKz1Drlc@1184",
+          "z9fgKz1Drlc@1187",
+          "z9fgKz1Drlc@1189"
+        ]
+      }
+    ],
+    "inventory": [
+      {
+        "chunk": "z9fgKz1Drlc@0-932",
+        "start": 0,
+        "end": 932,
+        "points": 44,
+        "core_points": 25,
+        "flag": null
+      },
+      {
+        "chunk": "z9fgKz1Drlc@929-1211",
+        "start": 929,
+        "end": 1211,
+        "points": 17,
+        "core_points": 9,
+        "flag": null
+      }
+    ]
+  }
+}

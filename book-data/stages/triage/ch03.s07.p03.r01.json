@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch03.s07.p03.r01",
+  "inputs_hash": "1faf345e3d150451490bdf86b41e0f6eda29b054c08b2e92db1cafd5bcce3109",
+  "output_hash": "956c6fa0cccf9e456cd3f1e9d8fd5ba2fa07eb064376f5292615ef074f25afe0",
+  "output": {
+    "decision": "edit",
+    "text": "The mask is built from a triangular matrix.",
+    "reason": "The surrounding paragraph supports that the mask is constructed with torch.tril on a square matrix of ones, while the original wording is broader than necessary and has no citation.",
+    "risk": "high",
+    "check": {
+      "verdict": "claim_in_connective",
+      "confidence": 0.62,
+      "reason": "CONNECTIVE sentence makes a factual claim (that the mask is built from a triangular matrix) but provides no cited caption lines to support it."
+    },
+    "kind": "queue",
+    "sentence_hash": "f6e066a1c057352ebd42ec75bebe1914367e8dd04934d3c04238ece17a8769b1"
+  }
+}

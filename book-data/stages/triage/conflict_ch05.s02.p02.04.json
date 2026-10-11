@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch05.s02.p02.04",
+  "inputs_hash": "679b05fd536eca08bda5ed4d4314be5eb82bd0cabb77f8678f32b24ff5487fa6",
+  "output_hash": "f73fbb6bb81f427789f0658ee54ece84c6f568a56ed3c20ce52e6a85f65e9a28",
+  "output": {
+    "decision": "edit",
+    "text": "For simplicity, the model discussed here is the 124 million parameter version rather than the larger 355 million, 774 million, or 1.5 billion parameter releases.",
+    "reason": "The captions support discussing the 124M model for simplicity, but saying it is the model loaded here contradicts the reference, which loads 355M.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "2cf2e0c2acd363fc953772f8b00fa9ca3fee7f5b3284aad51ba08016e4af1b3d"
+  }
+}

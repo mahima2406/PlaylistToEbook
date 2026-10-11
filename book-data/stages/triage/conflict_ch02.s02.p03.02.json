@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch02.s02.p03.02",
+  "inputs_hash": "7cf0084a551eb3eba4029cd7fb12d3847a90996d677f1d3787cf54a74b887398",
+  "output_hash": "93e3739adf566c062644d70b71341f04186b2b056725ddb51ec43bd5953a1aa2",
+  "output": {
+    "decision": "edit",
+    "text": "A vocabulary is a dictionary containing a collection of tokens, and every token corresponds to a token ID.",
+    "reason": "The captions support the dictionary and token-to-ID mapping, but the ascending-order claim overgeneralises relative to the reference implementation.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "8d4e7b300bc4f5f352126c42041f824f20534a5468724af7acb008984ce7ca8b"
+  }
+}

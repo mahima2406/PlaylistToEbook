@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch02.s11.p05.r04",
+  "inputs_hash": "4d2dfd68688c6d8f642a90e2c954ca641f9e1ed022f21dda5d8f3ed42b9db82c",
+  "output_hash": "2dadf3a4c04c9bbbb520bb3f2e1ae1bdee6014b7b1ac5f65b425efd42391a63e",
+  "output": {
+    "decision": "edit",
+    "text": "The code computes similarity scores between word vectors for pairs such as \"woman\" and \"man\".",
+    "reason": "The captions support the similarity operation on those word pairs but not the exact code identifier formatting.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.9,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "d99f6407194ee18b4ca7255731375a28165bb0f9284ecde5c1bfd629730ac592"
+  }
+}

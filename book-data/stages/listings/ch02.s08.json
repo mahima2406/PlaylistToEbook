@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch02.s08",
+  "inputs_hash": "cda8dc6b2751220fe323399a5b7c72cc3070f1e23ca826542e2916018b1f4539",
+  "output_hash": "a626140a26835da70c28deae4b2ff905e2a92224b0691d48e0c7f227d81c936f",
+  "output": {
+    "section_id": "ch02.s08",
+    "listings": [],
+    "rejected": [
+      {
+        "id": "ch02.s08.code1",
+        "ref": "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73",
+        "path": "ch02/01_main-chapter-code/ch02.ipynb",
+        "caption": "This code loads GPT-2's byte pair encoding tokenizer with tiktoken.",
+        "code": "tokenizer = tiktoken.get_encoding(\"gpt2\")\n\ntext = (\n    \"Hello, do you like tea? <|endoftext|> In the sunlit terraces\"\n     \"of someunknownPlace.\"\n)\n\nintegers = tokenizer.encode(text, allowed_special={\"<|endoftext|>\"})\n\nprint(integers)\n\nstrings = tokenizer.decode(integers)\n\nprint(strings)",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The section teaches how BPE/subword tokenization is constructed (end-of-word marker preprocessing, building frequency tables, iterative merges, stopping criteria, and token table updates). The code does not implement or demonstrate constructing BPE merges or end-of-word markers; it only loads an existing GPT-2 BPE tokenizer (via tiktoken) and shows encoding/decoding with a special token. That is related to using a BPE tokenizer to encode text, but the caption and code do not cover the section’s core teaching points about the BPE training/merge process."
+      },
+      {
+        "id": "ch02.s08.code2",
+        "ref": "ref:ch02/01_main-chapter-code/ch02.ipynb#cell74",
+        "path": "ch02/01_main-chapter-code/ch02.ipynb",
+        "caption": "This code encodes a sample string with the GPT-2 tokenizer, allowing the special end-of-text token, and prints the resulting token IDs.",
+        "code": "text = (\n    \"Hello, do you like tea? <|endoftext|> In the sunlit terraces\"\n     \"of someunknownPlace.\"\n)\n\nintegers = tokenizer.encode(text, allowed_special={\"<|endoftext|>\"})\n\nprint(integers)\n\nstrings = tokenizer.decode(integers)\n\nprint(strings)",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The section teaches how BPE/subword tokenization is constructed (end-of-word markers, building a frequency table, repeatedly merging the most frequent pairs, stopping criteria, and updating/removing zero-frequency tokens). The code only demonstrates using an existing GPT-2 tokenizer to encode/decode text and allow a special end-of-text token; it does not show the BPE training/merge procedure or end-of-word preprocessing described. The caption accurately describes what the code does, but it doesn’t directly implement what the section teaches."
+      }
+    ]
+  }
+}

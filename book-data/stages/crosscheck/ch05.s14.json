@@ -1,0 +1,337 @@
+{
+  "stage": "crosscheck",
+  "item": "ch05.s14",
+  "inputs_hash": "d019075625bd151e5940f2edb881bc31e16a311bd555353ef0f6d8af63e818b8",
+  "output_hash": "ee39579b04dc95422576acd08d0559e7d29e34bd45ca85be2f8bdb07f4b8153d",
+  "output": {
+    "section_id": "ch05.s14",
+    "checked": 27,
+    "counts": {
+      "agrees": 13,
+      "contradicts": 0,
+      "not_covered": 14
+    },
+    "results": [
+      {
+        "sentence_id": "ch05.s14.p01.02",
+        "text": "After fine-tuning on supervised data and plotting the training and validation loss, the remaining step is to use the model on new data.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell99",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell91",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell85"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs mention plotting training/validation loss and finetuning, but do not state that the remaining step after plotting is using the model on new data."
+      },
+      {
+        "sentence_id": "ch05.s14.p01.03",
+        "text": "The real test is performance on data the model has not seen before, because the goal is to judge how well it works as a spam classifier on unseen messages.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell107",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell85",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell47"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Section 6.8 is explicitly about using the LLM as a spam classifier (implying evaluation/use on messages beyond training), consistent with focusing on unseen data for judging spam-classifier performance."
+      },
+      {
+        "sentence_id": "ch05.s14.p01.04",
+        "text": "At this final stage, the fine-tuned GPT-based model is used to classify spam messages.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell47",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell12",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell26"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs describe finetuning on spam/non-spam messages for classification and later using the finetuned GPT model in action to classify messages."
+      },
+      {
+        "sentence_id": "ch05.s14.p02.01",
+        "text": "To make that possible, a function called \"classify_review\" takes any text and predicts whether it is spam or not.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell37",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell109",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell112"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref states the `classify_review` function preprocesses input and returns the predicted class label/name (spam vs not spam)."
+      },
+      {
+        "sentence_id": "ch05.s14.p02.02",
+        "text": "The first step is to convert the input text into token IDs.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell33",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell46"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs show converting text to token IDs (e.g., `text_to_token_ids` / `tokenizer.encode`) as an initial preprocessing step."
+      },
+      {
+        "sentence_id": "ch05.s14.p02.03",
+        "text": "The tokenizer used for this is the tiktoken tokenizer, described as a byte pair encoder that takes a sentence and converts it into a bunch of tokens.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell70"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs use `tiktoken.get_encoding(\"gpt2\")` and describe GPT-2’s tokenizer as BytePair encoding that splits text into tokens/subwords."
+      },
+      {
+        "sentence_id": "ch05.s14.p02.04",
+        "text": "The model also needs its supported context length, which in this case is 1024.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell110",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell44",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell12"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref code reads supported context length from `model.pos_emb.weight.shape[0]`, and notes GPT-2 supports 1024 tokens."
+      },
+      {
+        "sentence_id": "ch05.s14.p02.05",
+        "text": "That context length is read from the positional embedding weight shape: the number of rows equals the context length, and the number of columns equals the embedding dimension.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell132",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell10"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref indicates context length corresponds to the number of rows in the positional embedding weight (shape[0]); config shows embedding dimension as the other axis (columns)."
+      },
+      {
+        "sentence_id": "ch05.s14.p03.02",
+        "text": "The working maximum length is chosen by comparing the maximum token-ID length found in the training set with the supported context length and taking the smaller of the two.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell110",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell44"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Ref shows truncation using `min(max_length, supported_context_length)` but does not state how `max_length` is chosen by comparing training-set max token length vs supported context length."
+      },
+      {
+        "sentence_id": "ch05.s14.p03.03",
+        "text": "If the training-set maximum length is greater than the context length, sequences are truncated to the context length.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell110",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell100"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref code truncates input to `min(max_length, supported_context_length)`, which implies if the chosen max_length exceeds supported context length, sequences are truncated to the context length."
+      },
+      {
+        "sentence_id": "ch05.s14.p03.04",
+        "text": "Otherwise, the maximum length from the training set is used.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell25",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs do not state that when training-set maximum length is below context length, that training-set maximum length is used (they mention setting max_length to context length for loaders, and do not describe this conditional rule)."
+      },
+      {
+        "sentence_id": "ch05.s14.p03.05",
+        "text": "Ideally, this maximum length comes from the longest message in the training dataset, but if that exceeds the context length then the context length is used instead.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell110",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell26",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While refs discuss padding to the longest message and truncating to `min(max_length, supported_context_length)`, they do not specify the stated rule that max_length ideally equals the longest training message unless it exceeds context length, in which case context length is used."
+      },
+      {
+        "sentence_id": "ch05.s14.p04.02",
+        "text": "If a new message is shorter than the chosen maximum length, it is padded with end-of-text tokens until it reaches that length.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell110",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell26"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs discuss padding shorter sequences with <|endoftext|> to match the longest sequence in a dataset/batch, but do not state padding up to a chosen maximum length; the shown classify_review snippet only shows truncation, not padding."
+      },
+      {
+        "sentence_id": "ch05.s14.p04.03",
+        "text": "The end-of-text token used for padding is 50256.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell42",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs explicitly identify <|endoftext|> padding token as token ID 50256 and show replacing 50256 with -100 for ignore_index."
+      },
+      {
+        "sentence_id": "ch05.s14.p04.04",
+        "text": "Padding every input sequence to the same length is important because batching requires every sentence to have the same number of token IDs.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell31",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell115",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell145"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs state batching multiple training examples requires padding inputs to a similar/equal length; this implies same number of token IDs per batch element."
+      },
+      {
+        "sentence_id": "ch05.s14.p04.05",
+        "text": "After tokenization and padding, the input is converted into a tensor and a batch dimension is added before inference.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell92",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell27"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided refs do not show the full inference preprocessing pipeline with padding, conversion to tensor, and adding a batch dimension."
+      },
+      {
+        "sentence_id": "ch05.s14.p04.06",
+        "text": "For inference on a new text message, the trained model is used only after making sure that the token IDs match the maximum length.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell86",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell115",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell85"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs show inference calls with context_size/max_new_tokens but do not state that inference is done only after ensuring token IDs match a maximum length."
+      },
+      {
+        "sentence_id": "ch05.s14.p05.r02",
+        "text": "During inference, the model produces logits for the last output token, and applying argmax yields the prediction of spam or not spam.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell122",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell8",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell107"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs mention spam/not-spam classification generally, but do not specify using logits for the last token and argmax to obtain the class prediction."
+      },
+      {
+        "sentence_id": "ch05.s14.p05.r03",
+        "text": "For example, the message \"you are a winner you have been specially selected to receive ,000 cash or $2,000 reward\" is passed through \"classify_review\", and the model predicts spam.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell112",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell48",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell8"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Ref shows passing a very similar winner/$1000/$2000 message through classify_review, but the output (that it predicts spam) is not included in the provided excerpt."
+      },
+      {
+        "sentence_id": "ch05.s14.p05.r04",
+        "text": "A second message, \"hey just wanted to check if we are still on for dinner tonight let me know\", is also passed through the model.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell113"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref explicitly defines the dinner message text_2 and passes it to classify_review."
+      },
+      {
+        "sentence_id": "ch05.s14.p05.r05",
+        "text": "The model predicts that this legitimate message is not spam, and these new text samples appear to show good performance.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell27",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell16"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs provided do not include the classifier output for the dinner message nor an evaluation statement that these samples show good performance."
+      },
+      {
+        "sentence_id": "ch05.s14.p06.r01",
+        "text": "The model can be saved so that it does not need to be trained again.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell29",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell16",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell63"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref states saving the model so it can be reused later without training again."
+      },
+      {
+        "sentence_id": "ch05.s14.p06.r02",
+        "text": "\"torch.save\" saves the model parameters for later use.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell119",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell118",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell114"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs explicitly say recommended is torch.save(model.state_dict(), ...) to save model weights/parameters for later."
+      },
+      {
+        "sentence_id": "ch05.s14.p06.r03",
+        "text": "\"torch.load\" loads previously saved model parameters from a specified path, and the loaded parameters can be used for inference or for further fine-tuning.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell74"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No provided ref passage describes torch.load, loading from a path, or using loaded weights for inference/fine-tuning."
+      },
+      {
+        "sentence_id": "ch05.s14.p06.r04",
+        "text": "This saves time and effort.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell77",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell89",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell98"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show code for optionally timing training runs (commented out in ch05, enabled in ch06/ch07), but they do not state or demonstrate that doing so 'saves time and effort.'"
+      },
+      {
+        "sentence_id": "ch05.s14.p06.r05",
+        "text": "Fine-tuning is necessary here because without it the model made very bad predictions and could not correctly answer a prompt asking whether a text was spam with a yes-or-no response.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell119",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell48",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell146"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references include a pre–fine-tuning spam yes/no prompt example (ch06) but do not state that the model made very bad predictions or that fine-tuning was necessary because it could not answer correctly. The other cited refs discuss evaluation prompts and weight-loading coherence, not necessity of fine-tuning for spam classification."
+      },
+      {
+        "sentence_id": "ch05.s14.p06.r06",
+        "text": "The same classification fine-tuning code can also be tried on other datasets, such as a heart disease dataset.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell81",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell25"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited reference mentions calculating accuracies for different datasets but does not mention trying the same classification fine-tuning code on a heart disease dataset or extending it to that specific dataset."
+      }
+    ],
+    "conflicts": []
+  }
+}

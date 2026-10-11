@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch05.s04.p02.r01",
+  "inputs_hash": "251de9c0e4d4067f0d01352a91df34d2617695c8f66ea81e33ace7927fad2fab",
+  "output_hash": "a653a34f8cc1cffc5714359b984ee05928e721710d0a9fa34a68814b9698e073",
+  "output": {
+    "decision": "edit",
+    "text": "The first two keys correspond to the token and positional embeddings used for GPT-2 inputs.",
+    "reason": "The available context supports identifying the first two keys with token and positional embeddings, but not the stronger claim that they 'mirror the way inputs enter GPT-2.'",
+    "risk": "high",
+    "check": {
+      "verdict": "claim_in_connective",
+      "confidence": 0.74,
+      "reason": "Although labeled CONNECTIVE, it makes a factual claim about GPT-2 inputs (that the first two keys correspond to token and positional embeddings). No cited caption lines are provided to support this."
+    },
+    "kind": "queue",
+    "sentence_hash": "a05eb72587b50e1cedceef14ae44d5ed9dcc39428452a2ce6d358d60de6ab738"
+  }
+}

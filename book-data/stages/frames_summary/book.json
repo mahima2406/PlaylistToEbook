@@ -1,0 +1,536 @@
+{
+  "stage": "frames_summary",
+  "item": "book",
+  "inputs_hash": "c25cb350573968ef7c705a2325b90fb46da1a42becff0ca4dde1f0e0b01a97e4",
+  "output_hash": "74f4f2a371eaf4578120776e56a515926b064a2e3ff5720f3e0e6a52fb8dcec1",
+  "output": {
+    "frames": [
+      {
+        "point_id": "3dWzNZXA8DY:p013",
+        "video_id": "3dWzNZXA8DY",
+        "seconds": 457,
+        "frame_sha256": "4212fe76f21b1299847f45f994339510cef0b469b0d37e0fef91ae6e804fcf75",
+        "status": "nothing to redraw"
+      },
+      {
+        "point_id": "3dWzNZXA8DY:p015",
+        "video_id": "3dWzNZXA8DY",
+        "seconds": 542,
+        "frame_sha256": "5fc67a15695a31b39dd7de65207926b5ef8127c8510d96eeeec41eec2b024e0e",
+        "status": "kept",
+        "kind": "diagram",
+        "title": "Comparison of GPT-1, GPT-2, and GPT-3",
+        "caption": "Three increasing blocks compare GPT-1, GPT-2, and GPT-3 by parameter count, decoder count, and token size.",
+        "mermaid": "flowchart LR\n  A[\"GPT-1\\n117M\\n12 decoders\\n512 token size\"] -->|\"larger than\"| B[\"GPT-2\\n1.5B\\n48 decoders\\n1024 token size\"]\n  B -->|\"larger than\"| C[\"GPT-3\\n175B parameters\\n96 decoders\\n2048 token size\"]",
+        "latex": "",
+        "claims": [
+          {
+            "text": "GPT-1 is shown with 117M parameters.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Frame labels GPT-1 with '117M' above the small block; lecturer mentions GPT-1 around 100 million parameters (approximate)."
+          },
+          {
+            "text": "GPT-1 is shown with 12 decoders.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Left of GPT-1 block shows '12 decoders'; lecturer says GPT-1 had 12 decoders."
+          },
+          {
+            "text": "GPT-1 is shown with 512 token size.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Under GPT-1 block it reads '512 token size'; lecturer states GPT-1 token size 512."
+          },
+          {
+            "text": "GPT-2 is shown with 1.5B parameters.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "GPT-2 block is labeled '1.5B'; lecturer says GPT-2 had 1.5 billion parameters."
+          },
+          {
+            "text": "GPT-2 is shown with 48 decoders.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Next to GPT-2 block it shows '48 decoders'; lecturer says GPT-2 had 48 decoders."
+          },
+          {
+            "text": "GPT-2 is shown with 1024 token size.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Under GPT-2 block it reads '1024 token size'; lecturer says GPT-2 token size 1024."
+          },
+          {
+            "text": "GPT-3 is shown with 175B parameters.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Top/right text says '175B parameters' for GPT-3; lecturer says GPT-3 had 175 billion parameters."
+          },
+          {
+            "text": "GPT-3 is shown with 96 decoders.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Next to GPT-3 block it shows '96 decoders'; lecturer says GPT-3 had 96 decoders."
+          },
+          {
+            "text": "GPT-3 is shown with 2048 token size.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Under GPT-3 block it reads '2048 token size'; lecturer says GPT-3 token size 2048."
+          },
+          {
+            "text": "The diagram shows GPT-2 as larger than GPT-1.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "GPT-2 rectangle is visibly larger than GPT-1; lecturer describes increase from GPT-1 to GPT-2."
+          },
+          {
+            "text": "The diagram shows GPT-3 as larger than GPT-2.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "GPT-3 rectangle is visibly larger than GPT-2; lecturer describes increase from GPT-2 to GPT-3."
+          },
+          {
+            "text": "From GPT-1 to GPT-3, the parameter counts increase.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Parameter labels increase across GPT-1 (117M), GPT-2 (1.5B), GPT-3 (175B); lecturer states parameters increase."
+          },
+          {
+            "text": "From GPT-1 to GPT-3, the decoder counts increase.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Decoder counts increase 12 -> 48 -> 96 as labeled; lecturer states these decoder counts."
+          },
+          {
+            "text": "From GPT-1 to GPT-3, the token sizes increase.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Token sizes increase 512 -> 1024 -> 2048 as labeled; lecturer states these token sizes."
+          }
+        ],
+        "placement": [
+          "ch01",
+          "ch01.s02.p03"
+        ]
+      },
+      {
+        "point_id": "3dWzNZXA8DY:p016",
+        "status": "no frame"
+      },
+      {
+        "point_id": "3dWzNZXA8DY:p055",
+        "video_id": "3dWzNZXA8DY",
+        "seconds": 1789,
+        "frame_sha256": "e7596a474a7014d7d8aa04517cb627d1b5081eefb55fbbc06d516a892a715a79",
+        "status": "nothing to redraw"
+      },
+      {
+        "point_id": "NLn4eetGmf8:p027",
+        "video_id": "NLn4eetGmf8",
+        "seconds": 782,
+        "frame_sha256": "508d9fe6632ebd3f4e25d6021aabc7234c4ef6ae293dc844c66f27e6d7957d2c",
+        "status": "kept",
+        "kind": "diagram",
+        "title": "Embedding model converts objects into vectors",
+        "caption": "Images, documents, and audio are input to an embedding model, which outputs numeric vector representations visualized as points in a 3D space.",
+        "mermaid": "flowchart LR\n  A[\"images\"] --> D[\"Embedding Model\"]\n  B[\"Documents\"] --> D\n  C[\"Audio\"] --> D\n  D --> E[\"0.6 0.3 0.1 ...\"]\n  D --> F[\"0.8 0.5 0.3 ...\"]\n  D --> G[\"0.4 0.2 0.9 ...\"]\n  E --> H[\"3D vector space\"]\n  F --> H\n  G --> H",
+        "latex": "",
+        "claims": [
+          {
+            "text": "Images are provided as input to the embedding model.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Frame shows an 'images' input box feeding into the Embedding Model; lecturer generally says data is put into embedding model (mentions text/documents), not contradicting images."
+          },
+          {
+            "text": "Documents are provided as input to the embedding model.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Frame shows 'Documents' as an input to the Embedding Model; lecturer explicitly talks about text from documents being embedded."
+          },
+          {
+            "text": "Audio is provided as input to the embedding model.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Frame shows 'Audio' as an input to the Embedding Model; lecturer does not mention audio here, but nothing said conflicts with it."
+          },
+          {
+            "text": "The embedding model outputs numeric vector representations.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Outputs are shown as numeric vectors (e.g., 0.6 0.3 0.1 ...); lecturer says tokenized IDs are converted into vector format/embeddings."
+          },
+          {
+            "text": "One example output vector is 0.6, 0.3, 0.1, ....",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Top example vector in frame is '0.6 0.3 0.1 ...'; lecturer discusses vectors but not these exact numbers."
+          },
+          {
+            "text": "Another example output vector is 0.8, 0.5, 0.3, ....",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Middle example vector in frame is '0.8 0.5 0.3 ...'; lecturer does not address specific values."
+          },
+          {
+            "text": "Another example output vector is 0.4, 0.2, 0.9, ....",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Bottom example vector in frame is '0.4 0.2 0.9 ...'; lecturer does not address specific values."
+          },
+          {
+            "text": "The output vectors are represented as objects as vectors.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Text under vectors reads 'Objects as vectors'; lecturer describes converting data/tokens into vectors, consistent with this idea."
+          },
+          {
+            "text": "These vectors are visualized as points in a three-dimensional space.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Right side shows a 3D scatter/axes visualization of the embeddings; lecturer says this is a three-dimensional vectorized representation that we can visualize."
+          }
+        ],
+        "placement": [
+          "ch01",
+          "ch01.s07.p03"
+        ]
+      },
+      {
+        "point_id": "NLn4eetGmf8:p080",
+        "video_id": "NLn4eetGmf8",
+        "seconds": 2014,
+        "frame_sha256": "5d9234b0599268f98dceb7072d06bac276313fb4957b1c13b717ba7d18ed58b2",
+        "status": "kept",
+        "kind": "diagram",
+        "title": "Timeline from Recurrent Neural Networks to Transformers",
+        "caption": "A three-step timeline shows Recurrent Neural Networks (1980), Long Short-Term Memory Networks (1997), and Transformers (2017), with dotted arrows progressing from left to right and annotations 'Bam!', 'Double Bam!!', and 'Triple Bam!!!'.",
+        "mermaid": "flowchart LR\n  A[\"Recurrent Neural Networks\\n1980\"] -->|\"Bam!\"| B[\"Long Short-Term Memory Networks\\n1997\"]\n  B -->|\"Double Bam!!\"| C[\"Transformers\\n2017\"]",
+        "latex": "",
+        "claims": [
+          {
+            "text": "Recurrent Neural Networks are placed at 1980.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "The leftmost stage is labeled 'Recurrent Neural Networks' with the year '1980' beneath it; lecturer says '1980 recurrent neural networks were introduced'."
+          },
+          {
+            "text": "Long Short-Term Memory Networks are placed at 1997.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "The middle stage is labeled 'Long Short-Term Memory Networks' with '1997' beneath; lecturer says 'in 1997 long short-term memory networks were introduced'."
+          },
+          {
+            "text": "Transformers are placed at 2017.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "The rightmost stage is labeled 'Transformers' with '2017' beneath; lecturer mentions Transformers came later but does not state a different year."
+          },
+          {
+            "text": "The diagram shows a progression from Recurrent Neural Networks to Long Short-Term Memory Networks.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "A dotted arrow goes from Recurrent Neural Networks to Long Short-Term Memory Networks, indicating progression; speech describes RNNs then LSTMs historically."
+          },
+          {
+            "text": "The diagram shows a progression from Long Short-Term Memory Networks to Transformers.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "A dotted arrow goes from Long Short-Term Memory Networks to Transformers, indicating progression; speech discusses that Transformers came into the picture after these."
+          },
+          {
+            "text": "The transition from Recurrent Neural Networks to Long Short-Term Memory Networks is labeled 'Bam!'.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Near the transition from RNNs toward LSTMs, the text 'Bam!' is shown; lecturer does not comment on this label."
+          },
+          {
+            "text": "The transition from Long Short-Term Memory Networks to Transformers is labeled 'Double Bam!!'.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Near the LSTM-to-Transformers transition, the text 'Double Bam!!' is shown; lecturer does not comment on this label."
+          },
+          {
+            "text": "The Transformers stage is additionally annotated with 'Triple Bam!!!'.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Next to the Transformers stage, 'Triple Bam!!!' is shown; lecturer does not comment on this label."
+          }
+        ],
+        "placement": [
+          "ch01",
+          "ch01.s09.p06"
+        ]
+      },
+      {
+        "point_id": "h94TQOK7NRA:p087",
+        "video_id": "h94TQOK7NRA",
+        "seconds": 2707,
+        "frame_sha256": "efb77170075c0cbbe4d8f45026493a73ed613ce9bd0562299e25c47fc77cedac",
+        "status": "nothing to redraw"
+      },
+      {
+        "point_id": "2r0QahNdwMw:p054",
+        "video_id": "2r0QahNdwMw",
+        "seconds": 1856,
+        "frame_sha256": "125d6a65f0490a275ede7505568b73f486b2f78025973d2f048c0dce942fde8d",
+        "status": "kept",
+        "kind": "diagram",
+        "title": "Mathematical understanding of a shortcut connection",
+        "caption": "A residual-style block where the input from Layer 1 goes through a function F and is also added directly via a shortcut, producing f(x_l)+x_l; below it, derivative expressions indicate the gradient includes an added 1 term.",
+        "mermaid": "flowchart LR\n  A[\"Layer 1\"] --> B[\"F\"]\n  A -->|\"shortcut\"| C[\"+\"]\n  B -->|\"f(x_l)\"| C\n  C --> D[\"f(x_l) + x_l\"]\n  D --> E[\"L\"]",
+        "latex": "",
+        "claims": [
+          {
+            "text": "The input from Layer 1 is sent into a function block F.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "The diagram shows an input from layer 1 (x_l) entering a block labeled F."
+          },
+          {
+            "text": "The input from Layer 1 also bypasses F through a shortcut path.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "A bypass arrow routes x_l around F directly to the addition node."
+          },
+          {
+            "text": "The shortcut path and the output of F are added together.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "The output of F and the shortcut path meet at a plus/addition point."
+          },
+          {
+            "text": "The result after addition is labeled f(x_l) + x_l.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "The post-addition output is annotated as f(x_l) + x_l (written near the output of the add block)."
+          },
+          {
+            "text": "The combined output f(x_l) + x_l feeds into L.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "An arrow from the summed output points to L, indicating it feeds into L."
+          },
+          {
+            "text": "The diagram expresses a shortcut connection from an earlier layer to a later point after F.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "The structure explicitly depicts a residual/shortcut connection from the earlier layer input to a later point after F (the add node)."
+          },
+          {
+            "text": "The derivative notes indicate that when differentiating through the residual connection, an added 1 term appears.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "The derivative working shows terms like ∂f(x_l)/∂x_l + 1, indicating the added 1 from the shortcut when differentiating."
+          },
+          {
+            "text": "The gradient with respect to the earlier layer includes both the derivative through f(x_l) and the direct shortcut contribution.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "The gradient expression includes both the path through f(x_l) (a derivative term) and the direct shortcut contribution (+1 term), matching residual backprop."
+          }
+        ],
+        "placement": [
+          "ch03",
+          "ch03.s11.p07"
+        ]
+      },
+      {
+        "point_id": "Zxf-34voZss:p099",
+        "video_id": "Zxf-34voZss",
+        "seconds": 2327,
+        "frame_sha256": "c389df076b07dbb18b61375e033a70999ff963a080759e275802347cb67b2bd7",
+        "status": "kept",
+        "kind": "diagram",
+        "title": "Training and validation loss plot",
+        "caption": "A line plot of loss versus epochs, with a top axis for tokens seen. The training loss steadily decreases, while the validation loss decreases early and then stays nearly flat with a slight rise.",
+        "mermaid": "flowchart LR\n  A[\"Epochs / Tokens seen increase\"] -->|\"training loss decreases\"| B[\"Training loss\"]\n  A -->|\"validation loss decreases at first\"| C[\"Validation loss\"]\n  C -->|\"then becomes nearly flat / slightly rises\"| D[\"Validation loss stagnation\"]\n  B -->|\"ends much lower than\"| C[\"Validation loss\"]",
+        "latex": "",
+        "claims": [
+          {
+            "text": "The horizontal axis is epochs.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "The bottom x-axis is labeled \"Epochs\" with ticks from 0 to 10, matching the lecturer’s discussion of epochs."
+          },
+          {
+            "text": "A second horizontal axis at the top shows tokens seen.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "A top x-axis labeled \"Tokens seen\" is present with values (0, 10000, 20000, 30000, 40000), consistent with the lecturer mentioning tracking tokens seen."
+          },
+          {
+            "text": "The vertical axis is loss.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "The y-axis label reads \"Loss\" and the lecturer is describing training/validation loss."
+          },
+          {
+            "text": "The plot contains a training loss curve.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Legend shows a blue curve labeled \"Training loss\" and it is plotted."
+          },
+          {
+            "text": "The plot contains a validation loss curve.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Legend shows an orange dashed curve labeled \"Validation loss\" and it is plotted."
+          },
+          {
+            "text": "The training loss starts near 10 and decreases steadily across epochs.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Training loss begins near 10 at epoch 0 and decreases steadily toward near 0 by epoch 10, matching the lecturer’s description of continuous decrease."
+          },
+          {
+            "text": "The validation loss starts near 10 and decreases during the early epochs.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Validation loss starts near 10 and drops quickly over the first couple epochs, matching the lecturer’s statement that it starts high and decreases early."
+          },
+          {
+            "text": "The validation loss then remains approximately flat around a little above 6, with a slight rise near the end.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "After early decrease, validation loss stays around slightly above 6 and shows a small uptick near the end; lecturer mentions stagnating around 6.37 after ~10th epoch, which aligns."
+          },
+          {
+            "text": "By the final epoch, the training loss is much lower than the validation loss.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "At the final epoch, the training curve is far below the validation curve (training near ~0.5 vs validation ~6.5), consistent with lecturer noting validation much larger than training indicating overfitting."
+          }
+        ],
+        "placement": [
+          "ch04",
+          "ch04.s11.p04"
+        ]
+      },
+      {
+        "point_id": "EhU32O7DkA4:p009",
+        "video_id": "EhU32O7DkA4",
+        "seconds": 268,
+        "frame_sha256": "5875348ab49af39b01224c758f1e8f27441e6e8fdfdd5a48a78a49afe98eef37",
+        "status": "kept",
+        "kind": "diagram",
+        "title": "Visualizing the Effects of Temperature Scaling",
+        "caption": "A bar chart titled \"Temperature: 0.7\" with tokens 0 through 9 on the x-axis and probabilities on the y-axis; the visible caption says each word gets equal probability as the temperature increases.",
+        "mermaid": "flowchart LR\n  T[\"Temperature: 0.7\"] --> D[\"Probability distribution over tokens 0-9\"]\n  D --> P0[\"Token 0: about 0.11\"]\n  D --> P3[\"Token 3: about 0.06\"]\n  D --> P7[\"Token 7: about 0.12\"]\n  D --> P9[\"Token 9: about 0.15\"]\n  Inc[\"Temperature increases\"] --> Eq[\"Words get more equal probability\"]",
+        "latex": "",
+        "claims": [
+          {
+            "text": "The figure shows a probability distribution over tokens 0 through 9 at temperature 0.7.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "The bar chart is labeled 'Temperature: 0.7' and shows bars for tokens 0–9."
+          },
+          {
+            "text": "At temperature 0.7, token probabilities are not equal across tokens.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Bar heights differ noticeably across tokens at temperature 0.7, so probabilities are not equal."
+          },
+          {
+            "text": "Token 9 has the highest visible probability, about 0.15.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Token 9’s bar is the tallest, near ~0.15 on the y-axis."
+          },
+          {
+            "text": "Token 3 has one of the lowest visible probabilities, about 0.06.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Token 3’s bar is among the shortest and is around ~0.06–0.07."
+          },
+          {
+            "text": "Token 7 has a higher visible probability than token 3.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "Token 7’s bar (~0.12) is clearly higher than token 3’s (~0.06–0.07)."
+          },
+          {
+            "text": "The caption states that as temperature increases, each word gets equal probability.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "The caption text under the plot reads that each word gets equal probability as the temperature increases, matching the lecturer’s explanation about higher temperature leading toward uniform probabilities."
+          }
+        ],
+        "placement": [
+          "ch04",
+          "ch04.s12.p02"
+        ]
+      },
+      {
+        "point_id": "EhU32O7DkA4:p031",
+        "video_id": "EhU32O7DkA4",
+        "seconds": 1020,
+        "frame_sha256": "594934917343226a7fe3191a38a792fad20a2fbf30de6e37c37f806e8ddc7ab3",
+        "status": "nothing to redraw"
+      },
+      {
+        "point_id": "0PpxZ3kNPWo:p041",
+        "video_id": "0PpxZ3kNPWo",
+        "seconds": 1145,
+        "frame_sha256": "e809f96dc6116e48d02f2f44ed6bbe8f6875649dba7a19860e2981570293c7e3",
+        "status": "dropped (not visible in the frame)",
+        "kind": "diagram",
+        "title": "Axes for the graph of negative log of x",
+        "caption": "A pair of coordinate axes is drawn to illustrate the upcoming graph of negative log of x.",
+        "mermaid": "flowchart LR\n  X[\"x-axis\"] -->|intersects| Y[\"y-axis\"]",
+        "latex": "",
+        "claims": [
+          {
+            "text": "The figure shows two coordinate axes.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "The frame clearly shows an x-axis and y-axis drawn as perpendicular arrows."
+          },
+          {
+            "text": "The horizontal axis intersects the vertical axis.",
+            "visible": true,
+            "speech": "consistent",
+            "reason": "The horizontal and vertical axes cross at a single point (the origin) in the drawing."
+          },
+          {
+            "text": "The axes are intended for plotting a function, referred to in the surrounding text as negative log of x.",
+            "visible": false,
+            "speech": "consistent",
+            "reason": "While the lecturer talks about plotting negative log(x), the frame only shows unlabeled axes with no curve or label indicating negative log(x)."
+          }
+        ]
+      },
+      {
+        "point_id": "__OiQznq4ao:p034",
+        "video_id": "__OiQznq4ao",
+        "seconds": 818,
+        "frame_sha256": "880b82741b07f47e2a6fa61a11dcd5bee5c4a77014a4c7f90ff081fcd3f425eb",
+        "status": "nothing to redraw"
+      },
+      {
+        "point_id": "7m2jV7BOFkA:p037",
+        "video_id": "7m2jV7BOFkA",
+        "seconds": 1147,
+        "frame_sha256": "393fdec46de57b2fd25597708f8a9f1361ccb097bad6c98e2f2fe05f7484d64b",
+        "status": "nothing to redraw"
+      },
+      {
+        "point_id": "7m2jV7BOFkA:p041",
+        "video_id": "7m2jV7BOFkA",
+        "seconds": 1222,
+        "frame_sha256": "b120a648553ddfa952018852514c9aac6609997a091a553330cfb5e411046281",
+        "status": "nothing to redraw"
+      },
+      {
+        "point_id": "7m2jV7BOFkA:p066",
+        "video_id": "7m2jV7BOFkA",
+        "seconds": 1793,
+        "frame_sha256": "6d6422a76f193d7174fd8dae2ebb6dea7218a509cc7dd8dfd48660bd94804363",
+        "status": "nothing to redraw"
+      }
+    ],
+    "kept": 6,
+    "looked_at": 16
+  }
+}

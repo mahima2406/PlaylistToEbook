@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch05.s10.p04.r02",
+  "inputs_hash": "45d0812644016702ca369c9284109646e957b7a9e0009aba210b3f04ec06fdf7",
+  "output_hash": "b208654bb0c033f8777b899072d7ba1c621c1ab0edd43082be8256c113139b85",
+  "output": {
+    "decision": "edit",
+    "text": "For a last-token output of -3.5983 and 3.9902, the code applies softmax to print the resulting probabilities and uses argmax on the last-token output to find the class label.",
+    "reason": "The captions support printing softmax probabilities, while the reference shows argmax may be applied directly to logits rather than after softmax.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.9,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "3d22a086816063bfc60835b4781e1052fe01f3ea5db5f956155e793c58f15534"
+  }
+}

@@ -1,0 +1,240 @@
+{
+  "stage": "crosscheck",
+  "item": "ch01.s01",
+  "inputs_hash": "0e3e852b651e100b43b10003d33bfa8f1331c050d0d9d2f97afe0bdacca8c054",
+  "output_hash": "16742829c7149c22ecebc0d86e9c13d71aef2d7838dd00f30a805754d8914a24",
+  "output": {
+    "section_id": "ch01.s01",
+    "checked": 20,
+    "counts": {
+      "agrees": 1,
+      "contradicts": 0,
+      "not_covered": 19
+    },
+    "results": [
+      {
+        "sentence_id": "ch01.s01.p01.02",
+        "text": "The need is pressing because large language models and generative AI are transforming everything around us, startups are forming in this space, companies are switching to large language models for various tasks, and jobs in this field are rising a lot.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell7",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell58",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell8"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages discuss evaluation, model sizing, and finetuning layers, but do not mention industry transformation, startups, company adoption, or job growth."
+      },
+      {
+        "sentence_id": "ch01.s01.p01.03",
+        "text": "A sound way to learn in this setting is to begin from the basics, assume nothing, and study the nuts and bolts of every concept.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell63",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references explain specific technical choices (batch size) and layer-norm scale/shift parameters, but do not state a general learning philosophy about starting from basics and assuming nothing."
+      },
+      {
+        "sentence_id": "ch01.s01.p01.04",
+        "text": "Many learners make the opposite mistake: they jump directly to applications, run a Google Colab notebook, follow a video, and execute code without really understanding how large language models work.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell8"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference describes coding a small GPT-2-like architecture for illustration, not learner behavior (jumping to applications without understanding)."
+      },
+      {
+        "sentence_id": "ch01.s01.p01.05",
+        "text": "When that happens, very few people know the nuts and bolts that make large language models so powerful.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell58"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The finetuning note is about which layers to train for better performance; it does not address how many people understand LLM nuts and bolts."
+      },
+      {
+        "sentence_id": "ch01.s01.p01.07",
+        "text": "The right approach is to understand the foundations, make the basics clear, and understand the nuts and bolts of how LLMs work.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell127"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The Chapter 7 final words state that implementing an LLM from scratch is the best way to understand how LLMs work, aligning with emphasizing foundations and nuts-and-bolts understanding."
+      },
+      {
+        "sentence_id": "ch01.s01.p02.r01",
+        "text": "Many courses focus on building LLM apps or on large language model concepts, but they do not teach how to build a large language model from scratch.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/tests.py",
+          "ref:ch06/01_main-chapter-code/tests.py",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell3"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show this course/book implements a GPT-like architecture and includes finetuning scripts/tests, but they do not make comparative claims about what many other courses do or do not teach."
+      },
+      {
+        "sentence_id": "ch01.s01.p02.r02",
+        "text": "Some of these courses are pretty quick courses or quick crash courses.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell52",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell54"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Occurrences of the word \"quick\" in the notebooks refer to quick checks/verification steps, not characterizations of other courses as quick or crash courses."
+      },
+      {
+        "sentence_id": "ch01.s01.p02.r03",
+        "text": "A learner seeking real understanding wants one course that teaches the foundations in a lot of detail and depth.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell6",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell7"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references introduce embeddings and note no code in a section, but do not state that a learner wants a single detailed, in-depth foundations course."
+      },
+      {
+        "sentence_id": "ch01.s01.p02.r04",
+        "text": "That depth matters because it improves the learner's skill set and builds confidence for generative AI and LLM job interviews.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell7",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The passages cover dataset splitting and next-token training targets, not claims about interview confidence or job interview performance."
+      },
+      {
+        "sentence_id": "ch01.s01.p03.02",
+        "text": "Building a large language model completely from scratch would make a learner feel very confident about the subject.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/tests.py"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The unit-test snippet only shows running a finetuning script successfully; it does not discuss learner confidence outcomes from building an LLM from scratch."
+      },
+      {
+        "sentence_id": "ch01.s01.p03.03",
+        "text": "The aim is a very comprehensive path that shows everything about building an LLM from scratch.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell73",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell13",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show parts of the training pipeline (training an LLM, downloading data, data splitting) but do not claim the path shows \"everything\" comprehensively."
+      },
+      {
+        "sentence_id": "ch01.s01.p03.04",
+        "text": "It is intended to teach everything from the basics as a beginner, without assuming anything, and to lead to building an LLM from scratch successfully by yourself by the end.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell71",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell1"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While Chapter 4 is titled implementing a GPT model from scratch and other snippets show training-target setup, the references do not explicitly state the pedagogical intent of assuming nothing/beginner-friendly or guaranteeing independent success by the end."
+      },
+      {
+        "sentence_id": "ch01.s01.p03.05",
+        "text": "Once that foundation is in place, the later application parts start seeming extremely easy.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell17"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited reference only contains a section heading about self-attention and does not discuss whether later application parts become easy after a foundation is in place."
+      },
+      {
+        "sentence_id": "ch01.s01.p03.06",
+        "text": "The planned material is extensive: detailed lecture notes are being made and shared, with a massive set of notes of maybe 200 to 300 pages and 50 to 60 videos.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell32"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference passage discusses padding/truncation behavior for validation/test sets in a SpamDataset, not the extent of planned lecture notes/pages/videos."
+      },
+      {
+        "sentence_id": "ch01.s01.p03.07",
+        "text": "Within that material, nothing will be assumed, everything will be spelled out, and it is meant for serious people who want to transition to large language models and understand LLMs the right way.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell117",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell8",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell12"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references describe practical training/model-configuration details (saving/loading weights, GPT-2-sized architecture choices, dropout/bias/context length) but do not state that nothing will be assumed or that everything will be spelled out for serious learners."
+      },
+      {
+        "sentence_id": "ch01.s01.p04.r01",
+        "text": "Application frameworks can help build LLM apps, but they are not useful if you do not know how to build an LLM yourself.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell73",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell146"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited cells cover LLM training and verifying loaded weights via coherent generation, but they do not evaluate whether application frameworks are useless without knowing how to build an LLM yourself."
+      },
+      {
+        "sentence_id": "ch01.s01.p04.r02",
+        "text": "Starting by deploying apps is not the right way to learn about LLMs; the right way is to know how to build an entire large language model from scratch.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell142",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell29",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references include code/utilities and training-target explanations, but they do not make a claim about the best learning path (deploying apps first vs building an LLM from scratch)."
+      },
+      {
+        "sentence_id": "ch01.s01.p04.r03",
+        "text": "One reason is interview readiness: if someone asks a detailed question about key, query, and value, or about positional embedding or positional encoding, you should be able to say that you built this from scratch and know the details.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references explain how positional embeddings are added to token embeddings, but they do not mention interview readiness or claiming you built these components from scratch."
+      },
+      {
+        "sentence_id": "ch01.s01.p04.r04",
+        "text": "The students who will really contribute and make an impact are the ones who know details such as how to write the Transformer code, how key-query-value works, and what positional encoding is.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell70",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell29"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show how positional embeddings and Q/K/V are computed in code, but they do not assert that impactful students are those who know these details."
+      },
+      {
+        "sentence_id": "ch01.s01.p04.r05",
+        "text": "Without understanding concepts like Transformer code, key-query-value, and positional encoding, a student's knowledge remains superficial.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell70",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell7",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell6"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references include an example of Q/K/V computation and a note that a section has no code, but they do not claim that lacking these concepts makes knowledge superficial."
+      }
+    ],
+    "conflicts": []
+  }
+}

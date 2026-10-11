@@ -1,0 +1,304 @@
+{
+  "stage": "crosscheck",
+  "item": "ch06.s05",
+  "inputs_hash": "268f1d93b53c1167cd0adf6e8fb4d5f58a6c0d47af27cbea468bde05690c72b3",
+  "output_hash": "ba8dbf6d17370ecde0339153c77ad54a196c280258e5982a226b7f0ccf71f8cf",
+  "output": {
+    "section_id": "ch06.s05",
+    "checked": 24,
+    "counts": {
+      "agrees": 7,
+      "contradicts": 0,
+      "not_covered": 17
+    },
+    "results": [
+      {
+        "sentence_id": "ch06.s05.p01.02",
+        "text": "For training, batches must include target token IDs because they represent what the model should generate and are used to compute the loss.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell46",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell65"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references show generation functions and mention input/target batches, but do not explicitly state that training batches must include target token IDs because they are used to compute the loss."
+      },
+      {
+        "sentence_id": "ch06.s05.p01.03",
+        "text": "The key step is to create the target by shifting the input token IDs to the right by one position and adding a padding token \"50256\" at the end so that the target has the same length as the input.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References state targets are inputs shifted by 1 position, and discuss padding tokens and ignore_index, but they do not specify shifting to the right plus adding token 50256 at the end as the general construction."
+      },
+      {
+        "sentence_id": "ch06.s05.p01.04",
+        "text": "If the input token IDs are \"0 1 2 3 4\", the target token IDs are \"1 2 3 4 50256\".",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell26",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell93"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference passage provides this concrete numeric example mapping \"0 1 2 3 4\" to \"1 2 3 4 50256\"."
+      },
+      {
+        "sentence_id": "ch06.s05.p01.05",
+        "text": "If the input token IDs are \"56 50256 50256 50256\", the target is formed by removing the first token, keeping the remaining tokens, and padding with an extra \"50256\".",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell42",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References mention presence of 50256 padding tokens and replacing them with -100 for loss masking, but do not describe this specific example transformation of an input containing multiple 50256 tokens into a padded shifted target."
+      },
+      {
+        "sentence_id": "ch06.s05.p01.06",
+        "text": "This shifted-target construction is described as the most important step in the fine-tuning process, and it can be hard to grasp at first.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell125",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not describe the shifted-target construction as the most important step in fine-tuning or comment that it is hard to grasp at first."
+      },
+      {
+        "sentence_id": "ch06.s05.p02.r01",
+        "text": "The reason for the shift is that instruction fine-tuning still uses the next token prediction task.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell95"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While references discuss next-token prediction generally and causal attention for next word prediction, they do not explicitly connect the shift in instruction fine-tuning targets to using the next-token prediction task."
+      },
+      {
+        "sentence_id": "ch06.s05.p02.r02",
+        "text": "A shifted input-target sequence means that if the input is \"0\", the output should be \"1\"; if the input is \"0 1\", the target is \"2\"; if the input is \"0 1 2\", the target is \"3\"; and if the input is \"0 1 2 3\", the target is \"4\".",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell54"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References mention targets are shifted by one position, but do not present the sequential illustrative breakdown (input \"0\" -> output \"1\", etc.) as stated."
+      },
+      {
+        "sentence_id": "ch06.s05.p02.r03",
+        "text": "When the input reaches the full sequence, the model is at the end of the sentence.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell81"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not discuss the claim that when the input reaches the full sequence the model is at the end of the sentence."
+      },
+      {
+        "sentence_id": "ch06.s05.p02.r04",
+        "text": "Training on the shifted sequence teaches the model sequentially to predict each next token.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell82",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Multiple references state that targets are inputs shifted by one position so the model learns to predict the next token/word, which matches the idea of teaching sequential next-token prediction."
+      },
+      {
+        "sentence_id": "ch06.s05.p02.r05",
+        "text": "Although this setup includes some redundant training, it works through next token prediction so that once the model has seen the instruction and input, it predicts the response.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell81",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References note the model is not yet good at following instructions pre-finetuning, but do not describe redundancy in training or explicitly explain that next-token prediction makes the model predict the response after seeing instruction and input."
+      },
+      {
+        "sentence_id": "ch06.s05.p03.02",
+        "text": "The input is the full sequence and the target is the full sequence shifted by one, not just the response alone.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell29",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell82"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References cover the general shifted-target setup for next-word prediction, but do not explicitly contrast full-sequence shifting versus training on the response alone for instruction fine-tuning."
+      },
+      {
+        "sentence_id": "ch06.s05.p03.03",
+        "text": "The input sequence itself contains both the instruction-input part and the output part, because LLMs are trained with next token prediction.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell104",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell18",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References show how the instruction+input text is formatted, but do not explicitly state that the input sequence contains both instruction/input and output because of next-token prediction training."
+      },
+      {
+        "sentence_id": "ch06.s05.p03.04",
+        "text": "By learning to predict the next token, the LLM learns to follow instructions and produce the response once enough of the prompt has been seen.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell1",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References explain next-token prediction via shifted targets but do not state that this causes the model to follow instructions or that it produces the response once enough of the prompt has been seen."
+      },
+      {
+        "sentence_id": "ch06.s05.p03.05",
+        "text": "Instruction fine-tuning is very similar to pre-training because both use targets shifted by one token.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell31",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell82",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref explicitly says that similar to pretraining, instruction finetuning uses targets that are inputs shifted by 1 token."
+      },
+      {
+        "sentence_id": "ch06.s05.p03.06",
+        "text": "Even though this shifted-target setup is nonintuitive in instruction fine-tuning, it works because predicting the next token teaches the model to take the instruction and input and predict the response.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell82",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs cover shifted targets for next-token prediction but do not explain the specific rationale that this teaches mapping from instruction+input to response in a nonintuitive setup."
+      },
+      {
+        "sentence_id": "ch06.s05.p03.07",
+        "text": "It may seem nonintuitive that the true values include the instruction and input as well as the response, but in next-word prediction the LLM learns to predict the response from the instruction and input.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell81",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs mention shifted targets and show an example of poor instruction following before finetuning, but do not explicitly discuss that targets include instruction+input+response and why that lets the model predict the response from instruction+input."
+      },
+      {
+        "sentence_id": "ch06.s05.p04.02",
+        "text": "A simple way to understand the batching code is that the inputs are padded to the same length and the targets are the inputs shifted to the right by one.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell82",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell18"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs describe padding inputs to a common length for batching and that targets are inputs shifted by one position."
+      },
+      {
+        "sentence_id": "ch06.s05.p04.03",
+        "text": "In the code, the targets are formed by taking the padded input from the second element onward, which works because an extra \"50256\" token was already added.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell66",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell35",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "custom_collate_draft_1 increases max length by +1 and appends pad_token_id=50256 to each item; this supports forming targets by taking the padded input from position 1 onward since an extra 50256 was added."
+      },
+      {
+        "sentence_id": "ch06.s05.p04.04",
+        "text": "Custom collate draft two truncates the last token for the inputs so they have the correct length and shifts the input to the right by one to create the target tensor.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell82",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided refs mention shifted targets generally but do not show/describe 'custom collate draft two' specifically truncating the last token for inputs and creating targets by shifting."
+      },
+      {
+        "sentence_id": "ch06.s05.p04.05",
+        "text": "In the draft two example, each target row is the corresponding input row shifted right by one position, with a \"50256\" token appended at the end.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell82",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell53"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs provided do not describe the draft two example’s exact target-row construction or mention appending 50256 at the end of each target row."
+      },
+      {
+        "sentence_id": "ch06.s05.p05.02",
+        "text": "One \"50256\" end-of-text token is kept because it teaches the LLM when to generate an end-of-text token to mark that the response is complete.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell13"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref explains ignoring extra end-of-text/padding tokens with -100 but not ignoring the first end-of-text token; this aligns with keeping one 50256 as a meaningful token rather than padding."
+      },
+      {
+        "sentence_id": "ch06.s05.p05.03",
+        "text": "When padding-related \"50256\" tokens in the targets are later replaced with \"-100\", the first \"50256\" should be retained.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell42",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref states padding 50256 tokens are replaced with -100 for ignore_index, but the first end-of-text token should not be ignored/replaced."
+      },
+      {
+        "sentence_id": "ch06.s05.p05.04",
+        "text": "The first \"50256\" must be retained because it marks the end of a particular text, while the remaining \"50256\" token IDs are unnecessary and can be replaced with \"-100\".",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref distinguishes between additional end-of-text tokens used for padding (to be ignored via -100) and the first end-of-text token that should not be ignored, consistent with it marking the sequence end."
+      },
+      {
+        "sentence_id": "ch06.s05.p05.05",
+        "text": "Retaining that first \"50256\" helps the LLM learn to generate end-of-text tokens as the signal that the response is complete.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell79",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Ref indicates the first end-of-text token should not be ignored, but does not explicitly state the purpose is to teach the model to generate end-of-text as a completion signal."
+      }
+    ],
+    "conflicts": []
+  }
+}

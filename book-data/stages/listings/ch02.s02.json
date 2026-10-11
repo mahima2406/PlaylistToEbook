@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch02.s02",
+  "inputs_hash": "55fbba6396798dece460df4756fe26717a46338a2da682f319907d6045c57d19",
+  "output_hash": "0b36b52c2d84fc8c76076ea18685d93f67c466c22a37d4c359916fadfe323b69",
+  "output": {
+    "section_id": "ch02.s02",
+    "listings": [
+      {
+        "id": "ch02.s02.code1",
+        "ref": "ref:ch02/01_main-chapter-code/ch02.ipynb#cell37",
+        "path": "ch02/01_main-chapter-code/ch02.ipynb",
+        "caption": "This code builds a vocabulary dictionary that maps each token in `all_words` to a numeric ID using `enumerate`.",
+        "code": "vocab = {token:integer for integer,token in enumerate(all_words)}",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The code uses enumerate over all_words to assign a sequential integer ID to each token and builds a token->ID vocabulary dictionary, which directly demonstrates assigning numerical token IDs to tokens in a vocabulary. The caption accurately describes this."
+      },
+      {
+        "id": "ch02.s02.code2",
+        "ref": "ref:ch02/01_main-chapter-code/ch02.ipynb#cell39",
+        "path": "ch02/01_main-chapter-code/ch02.ipynb",
+        "caption": "This code prints the first entries of the vocabulary mapping so you can see tokens paired with their assigned integer IDs.",
+        "code": "for i, item in enumerate(vocab.items()):\n    print(item)\n    if i >= 50:\n        break",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The section is about a tokenizer producing a vocabulary that maps tokens to numerical IDs. The code iterates over vocab.items() and prints the first ~51 entries, showing token–ID pairs, which directly demonstrates inspecting that mapping as described by the caption."
+      }
+    ],
+    "rejected": []
+  }
+}

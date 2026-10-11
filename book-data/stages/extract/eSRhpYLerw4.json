@@ -1,0 +1,2776 @@
+{
+  "stage": "extract",
+  "item": "eSRhpYLerw4",
+  "inputs_hash": "4bd7e182453e59217dc28d75b083e7096ce87bc42fc23a1b59f9771489b82ea8",
+  "output_hash": "1bccc67a454bc312f002dce3e5b4dd64a4d9cc10e492c22a2f11886fbed343d3",
+  "output": {
+    "video_id": "eSRhpYLerw4",
+    "points": [
+      {
+        "id": "eSRhpYLerw4:p001",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 1,
+        "text": "This lecture introduces a simplified self-attention mechanism without trainable weights, and later lectures will add trainable weights, causal attention, and multi-head attention.",
+        "line_ids": [
+          "eSRhpYLerw4@27",
+          "eSRhpYLerw4@29",
+          "eSRhpYLerw4@32",
+          "eSRhpYLerw4@34",
+          "eSRhpYLerw4@36",
+          "eSRhpYLerw4@41",
+          "eSRhpYLerw4@45",
+          "eSRhpYLerw4@47",
+          "eSRhpYLerw4@91",
+          "eSRhpYLerw4@93",
+          "eSRhpYLerw4@94",
+          "eSRhpYLerw4@96",
+          "eSRhpYLerw4@98",
+          "eSRhpYLerw4@101",
+          "eSRhpYLerw4@102",
+          "eSRhpYLerw4@105",
+          "eSRhpYLerw4@108",
+          "eSRhpYLerw4@110",
+          "eSRhpYLerw4@112"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p002",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "A sentence is first preprocessed into individual tokens, converted to token IDs, and then converted into vector embeddings.",
+        "line_ids": [
+          "eSRhpYLerw4@165",
+          "eSRhpYLerw4@168",
+          "eSRhpYLerw4@170",
+          "eSRhpYLerw4@173",
+          "eSRhpYLerw4@176",
+          "eSRhpYLerw4@178",
+          "eSRhpYLerw4@180",
+          "eSRhpYLerw4@183",
+          "eSRhpYLerw4@185",
+          "eSRhpYLerw4@188",
+          "eSRhpYLerw4@189"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p003",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 2,
+        "text": "GPT uses byte pair encoding, which is a subword tokenizer.",
+        "line_ids": [
+          "eSRhpYLerw4@173",
+          "eSRhpYLerw4@176"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p004",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "definition",
+        "importance": 3,
+        "text": "A vector embedding is the vector representation of a token in a higher-dimensional space.",
+        "line_ids": [
+          "eSRhpYLerw4@183",
+          "eSRhpYLerw4@185",
+          "eSRhpYLerw4@188",
+          "eSRhpYLerw4@189",
+          "eSRhpYLerw4@192",
+          "eSRhpYLerw4@193"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p005",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In this lecture, the embeddings are simplified to three-dimensional vectors for demonstration, even though LLM embeddings can have much higher dimensionality.",
+        "line_ids": [
+          "eSRhpYLerw4@196",
+          "eSRhpYLerw4@199",
+          "eSRhpYLerw4@201",
+          "eSRhpYLerw4@204",
+          "eSRhpYLerw4@207",
+          "eSRhpYLerw4@208",
+          "eSRhpYLerw4@417",
+          "eSRhpYLerw4@420"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p006",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Embedding vectors capture the semantic meaning of words, so semantically related words are closer to each other in the vector space.",
+        "line_ids": [
+          "eSRhpYLerw4@217",
+          "eSRhpYLerw4@219",
+          "eSRhpYLerw4@222",
+          "eSRhpYLerw4@224",
+          "eSRhpYLerw4@226",
+          "eSRhpYLerw4@229",
+          "eSRhpYLerw4@656",
+          "eSRhpYLerw4@658",
+          "eSRhpYLerw4@660",
+          "eSRhpYLerw4@662",
+          "eSRhpYLerw4@665",
+          "eSRhpYLerw4@667"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p007",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "An embedding vector captures the meaning of a word itself but does not contain information about how that word relates to other words in the sentence.",
+        "line_ids": [
+          "eSRhpYLerw4@242",
+          "eSRhpYLerw4@244",
+          "eSRhpYLerw4@246",
+          "eSRhpYLerw4@250",
+          "eSRhpYLerw4@253",
+          "eSRhpYLerw4@255",
+          "eSRhpYLerw4@258",
+          "eSRhpYLerw4@261",
+          "eSRhpYLerw4@264",
+          "eSRhpYLerw4@267",
+          "eSRhpYLerw4@270",
+          "eSRhpYLerw4@274",
+          "eSRhpYLerw4@277"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p008",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Knowing how words in a sentence relate to each other is crucial for next-word prediction because the model needs context.",
+        "line_ids": [
+          "eSRhpYLerw4@277",
+          "eSRhpYLerw4@279",
+          "eSRhpYLerw4@282",
+          "eSRhpYLerw4@284",
+          "eSRhpYLerw4@286",
+          "eSRhpYLerw4@288",
+          "eSRhpYLerw4@290",
+          "eSRhpYLerw4@293",
+          "eSRhpYLerw4@295",
+          "eSRhpYLerw4@298",
+          "eSRhpYLerw4@300",
+          "eSRhpYLerw4@302"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p009",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The goal of the attention mechanism is to transform an embedding vector into a context vector.",
+        "line_ids": [
+          "eSRhpYLerw4@305",
+          "eSRhpYLerw4@307",
+          "eSRhpYLerw4@309",
+          "eSRhpYLerw4@312",
+          "eSRhpYLerw4@315",
+          "eSRhpYLerw4@317",
+          "eSRhpYLerw4@319"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p010",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "definition",
+        "importance": 3,
+        "text": "A context vector is an enriched embedding vector that contains both the semantic meaning of a word and information about how that word relates to other words in the sentence.",
+        "line_ids": [
+          "eSRhpYLerw4@319",
+          "eSRhpYLerw4@322",
+          "eSRhpYLerw4@324",
+          "eSRhpYLerw4@325",
+          "eSRhpYLerw4@328",
+          "eSRhpYLerw4@329",
+          "eSRhpYLerw4@331",
+          "eSRhpYLerw4@334",
+          "eSRhpYLerw4@337",
+          "eSRhpYLerw4@339",
+          "eSRhpYLerw4@342",
+          "eSRhpYLerw4@344",
+          "eSRhpYLerw4@564",
+          "eSRhpYLerw4@566",
+          "eSRhpYLerw4@568",
+          "eSRhpYLerw4@570",
+          "eSRhpYLerw4@573"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p011",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Attention produces one context vector for each input embedding vector.",
+        "line_ids": [
+          "eSRhpYLerw4@346",
+          "eSRhpYLerw4@348",
+          "eSRhpYLerw4@351",
+          "eSRhpYLerw4@353",
+          "eSRhpYLerw4@355",
+          "eSRhpYLerw4@357",
+          "eSRhpYLerw4@359",
+          "eSRhpYLerw4@360",
+          "eSRhpYLerw4@362"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p012",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The main goal of both simplified attention and modern multi-head attention is to convert embedding vectors into context vectors that are then used as inputs to LLMs.",
+        "line_ids": [
+          "eSRhpYLerw4@364",
+          "eSRhpYLerw4@366",
+          "eSRhpYLerw4@369",
+          "eSRhpYLerw4@371",
+          "eSRhpYLerw4@373",
+          "eSRhpYLerw4@375",
+          "eSRhpYLerw4@378",
+          "eSRhpYLerw4@380",
+          "eSRhpYLerw4@382"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p013",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "definition",
+        "importance": 2,
+        "text": "In this lecture, the input embeddings are denoted by x, where x1 is the vector representation of the first token, x2 is the vector representation of the second token, and so on.",
+        "line_ids": [
+          "eSRhpYLerw4@390",
+          "eSRhpYLerw4@392",
+          "eSRhpYLerw4@395",
+          "eSRhpYLerw4@397",
+          "eSRhpYLerw4@399",
+          "eSRhpYLerw4@401",
+          "eSRhpYLerw4@403",
+          "eSRhpYLerw4@405",
+          "eSRhpYLerw4@408",
+          "eSRhpYLerw4@411",
+          "eSRhpYLerw4@414",
+          "eSRhpYLerw4@415"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p014",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 2,
+        "text": "For simplicity in this lecture, the terms token and word are used interchangeably, even though one token is not always equal to one word because GPT uses a subword tokenizer.",
+        "line_ids": [
+          "eSRhpYLerw4@420",
+          "eSRhpYLerw4@422",
+          "eSRhpYLerw4@425",
+          "eSRhpYLerw4@427",
+          "eSRhpYLerw4@430",
+          "eSRhpYLerw4@433",
+          "eSRhpYLerw4@436",
+          "eSRhpYLerw4@438",
+          "eSRhpYLerw4@440"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p015",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "definition",
+        "importance": 2,
+        "text": "The context vector for the second input embedding x2 is denoted by z2.",
+        "line_ids": [
+          "eSRhpYLerw4@442",
+          "eSRhpYLerw4@445",
+          "eSRhpYLerw4@448",
+          "eSRhpYLerw4@451",
+          "eSRhpYLerw4@454",
+          "eSRhpYLerw4@456",
+          "eSRhpYLerw4@457"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p016",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Attention weights specify how much attention should be given to each input token when computing a context vector.",
+        "line_ids": [
+          "eSRhpYLerw4@462",
+          "eSRhpYLerw4@465",
+          "eSRhpYLerw4@467",
+          "eSRhpYLerw4@469",
+          "eSRhpYLerw4@472",
+          "eSRhpYLerw4@474",
+          "eSRhpYLerw4@476",
+          "eSRhpYLerw4@478",
+          "eSRhpYLerw4@479",
+          "eSRhpYLerw4@482",
+          "eSRhpYLerw4@484",
+          "eSRhpYLerw4@486",
+          "eSRhpYLerw4@489",
+          "eSRhpYLerw4@491",
+          "eSRhpYLerw4@493",
+          "eSRhpYLerw4@496"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p017",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 2,
+        "text": "To derive context vectors, the lecturer will use attention weights and attention scores together with the input vectors.",
+        "line_ids": [
+          "eSRhpYLerw4@496",
+          "eSRhpYLerw4@498",
+          "eSRhpYLerw4@500",
+          "eSRhpYLerw4@503",
+          "eSRhpYLerw4@507",
+          "eSRhpYLerw4@508",
+          "eSRhpYLerw4@510",
+          "eSRhpYLerw4@512",
+          "eSRhpYLerw4@514"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p018",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "code",
+        "importance": 2,
+        "text": "The Python implementation uses a tensor of six three-dimensional embedding vectors, one for each token in the sentence.",
+        "line_ids": [
+          "eSRhpYLerw4@617",
+          "eSRhpYLerw4@620",
+          "eSRhpYLerw4@623",
+          "eSRhpYLerw4@627",
+          "eSRhpYLerw4@628",
+          "eSRhpYLerw4@630",
+          "eSRhpYLerw4@632",
+          "eSRhpYLerw4@634",
+          "eSRhpYLerw4@636",
+          "eSRhpYLerw4@639",
+          "eSRhpYLerw4@642",
+          "eSRhpYLerw4@644",
+          "eSRhpYLerw4@646"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p019",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "visual_ref",
+        "importance": 1,
+        "text": "A 3D plot is shown to visualize the embedding vectors in three-dimensional space.",
+        "line_ids": [
+          "eSRhpYLerw4@649",
+          "eSRhpYLerw4@651",
+          "eSRhpYLerw4@653",
+          "eSRhpYLerw4@656",
+          "eSRhpYLerw4@667",
+          "eSRhpYLerw4@670",
+          "eSRhpYLerw4@673",
+          "eSRhpYLerw4@674",
+          "eSRhpYLerw4@677",
+          "eSRhpYLerw4@679"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p020",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In the input tensor, each row represents a token and each column represents a vector dimension.",
+        "line_ids": [
+          "eSRhpYLerw4@720",
+          "eSRhpYLerw4@721",
+          "eSRhpYLerw4@723",
+          "eSRhpYLerw4@725",
+          "eSRhpYLerw4@727",
+          "eSRhpYLerw4@730",
+          "eSRhpYLerw4@732",
+          "eSRhpYLerw4@734",
+          "eSRhpYLerw4@736",
+          "eSRhpYLerw4@738"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p021",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "To explain the method, the lecturer first computes the context vector for the word \"journey\" and then intends to apply the same analysis to the other words.",
+        "line_ids": [
+          "eSRhpYLerw4@754",
+          "eSRhpYLerw4@757",
+          "eSRhpYLerw4@761",
+          "eSRhpYLerw4@764",
+          "eSRhpYLerw4@766",
+          "eSRhpYLerw4@769",
+          "eSRhpYLerw4@771",
+          "eSRhpYLerw4@773",
+          "eSRhpYLerw4@775",
+          "eSRhpYLerw4@777",
+          "eSRhpYLerw4@779",
+          "eSRhpYLerw4@781"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p022",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The token currently being focused on when computing attention is called the query.",
+        "line_ids": [
+          "eSRhpYLerw4@783",
+          "eSRhpYLerw4@786",
+          "eSRhpYLerw4@788",
+          "eSRhpYLerw4@792",
+          "eSRhpYLerw4@794",
+          "eSRhpYLerw4@797",
+          "eSRhpYLerw4@799",
+          "eSRhpYLerw4@802",
+          "eSRhpYLerw4@804",
+          "eSRhpYLerw4@807",
+          "eSRhpYLerw4@809",
+          "eSRhpYLerw4@811"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p023",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "When the word \"journey\" is the query, the corresponding context vector z2 contains information about both \"journey\" and the other input elements.",
+        "line_ids": [
+          "eSRhpYLerw4@827",
+          "eSRhpYLerw4@830",
+          "eSRhpYLerw4@832",
+          "eSRhpYLerw4@836",
+          "eSRhpYLerw4@839",
+          "eSRhpYLerw4@843",
+          "eSRhpYLerw4@845",
+          "eSRhpYLerw4@847",
+          "eSRhpYLerw4@850",
+          "eSRhpYLerw4@852",
+          "eSRhpYLerw4@854"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p024",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 2,
+        "text": "This lecture does not use trainable weights, although trainable weights are added later in LLMs to help models learn context better.",
+        "line_ids": [
+          "eSRhpYLerw4@857",
+          "eSRhpYLerw4@858",
+          "eSRhpYLerw4@861",
+          "eSRhpYLerw4@863",
+          "eSRhpYLerw4@865",
+          "eSRhpYLerw4@868",
+          "eSRhpYLerw4@869"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p025",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The first step in converting the embedding vector for the query into a context vector is to compute intermediate values w, which are also called attention scores.",
+        "line_ids": [
+          "eSRhpYLerw4@876",
+          "eSRhpYLerw4@878",
+          "eSRhpYLerw4@881",
+          "eSRhpYLerw4@884",
+          "eSRhpYLerw4@888",
+          "eSRhpYLerw4@890",
+          "eSRhpYLerw4@893",
+          "eSRhpYLerw4@895",
+          "eSRhpYLerw4@899",
+          "eSRhpYLerw4@901"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p026",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "definition",
+        "importance": 3,
+        "text": "An attention score quantifies how much importance should be paid to each input word or vector for a given query, and there is one attention score between the query and every input vector.",
+        "line_ids": [
+          "eSRhpYLerw4@908",
+          "eSRhpYLerw4@911",
+          "eSRhpYLerw4@913",
+          "eSRhpYLerw4@916",
+          "eSRhpYLerw4@919",
+          "eSRhpYLerw4@921",
+          "eSRhpYLerw4@923",
+          "eSRhpYLerw4@925",
+          "eSRhpYLerw4@928",
+          "eSRhpYLerw4@930",
+          "eSRhpYLerw4@933",
+          "eSRhpYLerw4@935",
+          "eSRhpYLerw4@937",
+          "eSRhpYLerw4@939",
+          "eSRhpYLerw4@942",
+          "eSRhpYLerw4@944",
+          "eSRhpYLerw4@946",
+          "eSRhpYLerw4@947"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p027",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The first step in getting the context vector is to compute attention scores so that we know how much importance to give each token in the input.",
+        "line_ids": [
+          "eSRhpYLerw4@950",
+          "eSRhpYLerw4@952",
+          "eSRhpYLerw4@954",
+          "eSRhpYLerw4@957",
+          "eSRhpYLerw4@958",
+          "eSRhpYLerw4@961"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p028",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "If embedding vectors are more aligned or have smaller angles between them, that suggests their meanings are more similar, so they should receive more attention from each other.",
+        "line_ids": [
+          "eSRhpYLerw4@1102",
+          "eSRhpYLerw4@1105",
+          "eSRhpYLerw4@1107",
+          "eSRhpYLerw4@1109",
+          "eSRhpYLerw4@1111",
+          "eSRhpYLerw4@1113",
+          "eSRhpYLerw4@1115",
+          "eSRhpYLerw4@1118",
+          "eSRhpYLerw4@1121",
+          "eSRhpYLerw4@1122"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p029",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "The vector for \"starts\" is more aligned with the query vector for \"journey\" than the vector for \"one,\" so \"starts\" should receive more importance than \"one\" when the query is \"journey.\"",
+        "line_ids": [
+          "eSRhpYLerw4@1118",
+          "eSRhpYLerw4@1121",
+          "eSRhpYLerw4@1122",
+          "eSRhpYLerw4@1126",
+          "eSRhpYLerw4@1128",
+          "eSRhpYLerw4@1129",
+          "eSRhpYLerw4@1132",
+          "eSRhpYLerw4@1133",
+          "eSRhpYLerw4@1135",
+          "eSRhpYLerw4@1137",
+          "eSRhpYLerw4@1139",
+          "eSRhpYLerw4@1142",
+          "eSRhpYLerw4@1144",
+          "eSRhpYLerw4@1146",
+          "eSRhpYLerw4@1149",
+          "eSRhpYLerw4@1151",
+          "eSRhpYLerw4@1154",
+          "eSRhpYLerw4@1156",
+          "eSRhpYLerw4@1157"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p030",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The dot product is the mathematical operation used to quantify alignment between two vectors.",
+        "line_ids": [
+          "eSRhpYLerw4@1159",
+          "eSRhpYLerw4@1161",
+          "eSRhpYLerw4@1163",
+          "eSRhpYLerw4@1166",
+          "eSRhpYLerw4@1168"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p031",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "equation",
+        "importance": 3,
+        "text": "The dot product of two vectors equals the product of their magnitudes multiplied by the cosine of the angle between them.",
+        "line_ids": [
+          "eSRhpYLerw4@1171",
+          "eSRhpYLerw4@1173",
+          "eSRhpYLerw4@1175",
+          "eSRhpYLerw4@1179",
+          "eSRhpYLerw4@1181",
+          "eSRhpYLerw4@1183",
+          "eSRhpYLerw4@1185"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p032",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "If two vectors are aligned, the angle between them is zero, the cosine is one, and the dot product is maximal; if they are perpendicular, the angle is 90 degrees, the cosine is zero, and the dot product is zero.",
+        "line_ids": [
+          "eSRhpYLerw4@1188",
+          "eSRhpYLerw4@1189",
+          "eSRhpYLerw4@1192",
+          "eSRhpYLerw4@1193",
+          "eSRhpYLerw4@1196",
+          "eSRhpYLerw4@1198",
+          "eSRhpYLerw4@1200",
+          "eSRhpYLerw4@1201",
+          "eSRhpYLerw4@1203",
+          "eSRhpYLerw4@1205",
+          "eSRhpYLerw4@1209",
+          "eSRhpYLerw4@1211",
+          "eSRhpYLerw4@1213"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p033",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A higher dot product means vectors are more aligned, while a lower dot product means they are less aligned, so the dot product encodes how aligned or far apart vectors are.",
+        "line_ids": [
+          "eSRhpYLerw4@1213",
+          "eSRhpYLerw4@1216",
+          "eSRhpYLerw4@1218",
+          "eSRhpYLerw4@1221",
+          "eSRhpYLerw4@1223",
+          "eSRhpYLerw4@1225"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p034",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Attention scores can be computed using the dot product between the query vector and each input vector, which is a key idea in understanding attention.",
+        "line_ids": [
+          "eSRhpYLerw4@1228",
+          "eSRhpYLerw4@1229",
+          "eSRhpYLerw4@1231",
+          "eSRhpYLerw4@1233",
+          "eSRhpYLerw4@1236",
+          "eSRhpYLerw4@1239",
+          "eSRhpYLerw4@1241",
+          "eSRhpYLerw4@1243",
+          "eSRhpYLerw4@1246",
+          "eSRhpYLerw4@1248",
+          "eSRhpYLerw4@1250",
+          "eSRhpYLerw4@1253",
+          "eSRhpYLerw4@1254",
+          "eSRhpYLerw4@1256",
+          "eSRhpYLerw4@1258",
+          "eSRhpYLerw4@1261",
+          "eSRhpYLerw4@1263"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p035",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In self-attention, the attention score between two tokens is based on the dot product of their vectors, so higher dot product means higher similarity and higher attention.",
+        "line_ids": [
+          "eSRhpYLerw4@1265",
+          "eSRhpYLerw4@1268",
+          "eSRhpYLerw4@1270",
+          "eSRhpYLerw4@1273",
+          "eSRhpYLerw4@1275",
+          "eSRhpYLerw4@1278",
+          "eSRhpYLerw4@1280",
+          "eSRhpYLerw4@1281",
+          "eSRhpYLerw4@1285",
+          "eSRhpYLerw4@1286",
+          "eSRhpYLerw4@1289",
+          "eSRhpYLerw4@1290",
+          "eSRhpYLerw4@1293",
+          "eSRhpYLerw4@1295",
+          "eSRhpYLerw4@1297",
+          "eSRhpYLerw4@1302",
+          "eSRhpYLerw4@1304",
+          "eSRhpYLerw4@1307",
+          "eSRhpYLerw4@1309",
+          "eSRhpYLerw4@1312",
+          "eSRhpYLerw4@1315",
+          "eSRhpYLerw4@1317",
+          "eSRhpYLerw4@1319",
+          "eSRhpYLerw4@1323",
+          "eSRhpYLerw4@1326",
+          "eSRhpYLerw4@1329",
+          "eSRhpYLerw4@1331",
+          "eSRhpYLerw4@1334",
+          "eSRhpYLerw4@1335",
+          "eSRhpYLerw4@1337"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p036",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "definition",
+        "importance": 2,
+        "text": "Saying that two tokens attend more to each other is a way of saying that their vectors are more aligned, and saying they attend less means their vectors are less aligned.",
+        "line_ids": [
+          "eSRhpYLerw4@1340",
+          "eSRhpYLerw4@1342",
+          "eSRhpYLerw4@1344",
+          "eSRhpYLerw4@1347",
+          "eSRhpYLerw4@1349",
+          "eSRhpYLerw4@1351"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p037",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "Visually, \"journey\" and \"starts\" attend more to each other because their vectors are aligned, while \"one\" and \"journey\" attend less because their vectors form a 90 degree angle.",
+        "line_ids": [
+          "eSRhpYLerw4@1353",
+          "eSRhpYLerw4@1355",
+          "eSRhpYLerw4@1357",
+          "eSRhpYLerw4@1359",
+          "eSRhpYLerw4@1361",
+          "eSRhpYLerw4@1364",
+          "eSRhpYLerw4@1366",
+          "eSRhpYLerw4@1368",
+          "eSRhpYLerw4@1370",
+          "eSRhpYLerw4@1372"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p038",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "code",
+        "importance": 2,
+        "text": "The code sets the query to inputs[1] because Python uses zero-based indexing and the second token, \"journey,\" is therefore at index 1.",
+        "line_ids": [
+          "eSRhpYLerw4@1382",
+          "eSRhpYLerw4@1383",
+          "eSRhpYLerw4@1386",
+          "eSRhpYLerw4@1388",
+          "eSRhpYLerw4@1389",
+          "eSRhpYLerw4@1392",
+          "eSRhpYLerw4@1395",
+          "eSRhpYLerw4@1398",
+          "eSRhpYLerw4@1400",
+          "eSRhpYLerw4@1403",
+          "eSRhpYLerw4@1405",
+          "eSRhpYLerw4@1408",
+          "eSRhpYLerw4@1411"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p039",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "code",
+        "importance": 3,
+        "text": "The code initializes an empty tensor for attention scores, loops over the input vectors, computes the dot product of each input vector with the query vector, and stores those dot products in the attention scores tensor.",
+        "line_ids": [
+          "eSRhpYLerw4@1414",
+          "eSRhpYLerw4@1417",
+          "eSRhpYLerw4@1419",
+          "eSRhpYLerw4@1420",
+          "eSRhpYLerw4@1423",
+          "eSRhpYLerw4@1426",
+          "eSRhpYLerw4@1428",
+          "eSRhpYLerw4@1431",
+          "eSRhpYLerw4@1434",
+          "eSRhpYLerw4@1435",
+          "eSRhpYLerw4@1438",
+          "eSRhpYLerw4@1441",
+          "eSRhpYLerw4@1442",
+          "eSRhpYLerw4@1445",
+          "eSRhpYLerw4@1447",
+          "eSRhpYLerw4@1449",
+          "eSRhpYLerw4@1452",
+          "eSRhpYLerw4@1455",
+          "eSRhpYLerw4@1457",
+          "eSRhpYLerw4@1460",
+          "eSRhpYLerw4@1464",
+          "eSRhpYLerw4@1466",
+          "eSRhpYLerw4@1467"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p040",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 2,
+        "text": "For the query \"journey,\" the largest attention scores are for \"journey,\" \"starts,\" and \"step,\" which matches the intuition that these vectors are closely aligned with \"journey.\"",
+        "line_ids": [
+          "eSRhpYLerw4@1471",
+          "eSRhpYLerw4@1473",
+          "eSRhpYLerw4@1476",
+          "eSRhpYLerw4@1480",
+          "eSRhpYLerw4@1481",
+          "eSRhpYLerw4@1484",
+          "eSRhpYLerw4@1488",
+          "eSRhpYLerw4@1490",
+          "eSRhpYLerw4@1492",
+          "eSRhpYLerw4@1494",
+          "eSRhpYLerw4@1496",
+          "eSRhpYLerw4@1499",
+          "eSRhpYLerw4@1501",
+          "eSRhpYLerw4@1503",
+          "eSRhpYLerw4@1504",
+          "eSRhpYLerw4@1506",
+          "eSRhpYLerw4@1508",
+          "eSRhpYLerw4@1510",
+          "eSRhpYLerw4@1513",
+          "eSRhpYLerw4@1515",
+          "eSRhpYLerw4@1517",
+          "eSRhpYLerw4@1519",
+          "eSRhpYLerw4@1522",
+          "eSRhpYLerw4@1524",
+          "eSRhpYLerw4@1526",
+          "eSRhpYLerw4@1528",
+          "eSRhpYLerw4@1530",
+          "eSRhpYLerw4@1533",
+          "eSRhpYLerw4@1535",
+          "eSRhpYLerw4@1537",
+          "eSRhpYLerw4@1540",
+          "eSRhpYLerw4@1542"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p041",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 2,
+        "text": "For the query \"journey,\" the word \"one\" has the lowest attention score because its vector is almost at a 90 degree angle to the \"journey\" vector, so they are not aligned.",
+        "line_ids": [
+          "eSRhpYLerw4@1543",
+          "eSRhpYLerw4@1545",
+          "eSRhpYLerw4@1547",
+          "eSRhpYLerw4@1549",
+          "eSRhpYLerw4@1554",
+          "eSRhpYLerw4@1556",
+          "eSRhpYLerw4@1558",
+          "eSRhpYLerw4@1560",
+          "eSRhpYLerw4@1562",
+          "eSRhpYLerw4@1564",
+          "eSRhpYLerw4@1566",
+          "eSRhpYLerw4@1568"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p042",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Normalization is needed mainly for interpretability so that attention can be expressed as percentages, which requires the attention values to sum to one.",
+        "line_ids": [
+          "eSRhpYLerw4@1581",
+          "eSRhpYLerw4@1584",
+          "eSRhpYLerw4@1587",
+          "eSRhpYLerw4@1590",
+          "eSRhpYLerw4@1593",
+          "eSRhpYLerw4@1596",
+          "eSRhpYLerw4@1598",
+          "eSRhpYLerw4@1601",
+          "eSRhpYLerw4@1604",
+          "eSRhpYLerw4@1606",
+          "eSRhpYLerw4@1608",
+          "eSRhpYLerw4@1610",
+          "eSRhpYLerw4@1615",
+          "eSRhpYLerw4@1618",
+          "eSRhpYLerw4@1620",
+          "eSRhpYLerw4@1622",
+          "eSRhpYLerw4@1624",
+          "eSRhpYLerw4@1626",
+          "eSRhpYLerw4@1628",
+          "eSRhpYLerw4@1631",
+          "eSRhpYLerw4@1633",
+          "eSRhpYLerw4@1636",
+          "eSRhpYLerw4@1638",
+          "eSRhpYLerw4@1641",
+          "eSRhpYLerw4@1643",
+          "eSRhpYLerw4@1645",
+          "eSRhpYLerw4@1647",
+          "eSRhpYLerw4@1650",
+          "eSRhpYLerw4@1653",
+          "eSRhpYLerw4@1655",
+          "eSRhpYLerw4@1657",
+          "eSRhpYLerw4@1660",
+          "eSRhpYLerw4@1662",
+          "eSRhpYLerw4@1665"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p043",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Another reason for normalization is that having values between zero and one generally helps training stability during backpropagation and gradient descent.",
+        "line_ids": [
+          "eSRhpYLerw4@1687",
+          "eSRhpYLerw4@1688",
+          "eSRhpYLerw4@1691",
+          "eSRhpYLerw4@1693",
+          "eSRhpYLerw4@1694",
+          "eSRhpYLerw4@1698",
+          "eSRhpYLerw4@1700",
+          "eSRhpYLerw4@1702",
+          "eSRhpYLerw4@1704",
+          "eSRhpYLerw4@1707",
+          "eSRhpYLerw4@1708",
+          "eSRhpYLerw4@1710",
+          "eSRhpYLerw4@1712",
+          "eSRhpYLerw4@1714"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p044",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "A simple way to normalize attention scores is to sum all the scores and divide each element by that sum, which makes the normalized values sum to one.",
+        "line_ids": [
+          "eSRhpYLerw4@1717",
+          "eSRhpYLerw4@1721",
+          "eSRhpYLerw4@1724",
+          "eSRhpYLerw4@1726",
+          "eSRhpYLerw4@1729",
+          "eSRhpYLerw4@1733",
+          "eSRhpYLerw4@1735",
+          "eSRhpYLerw4@1737",
+          "eSRhpYLerw4@1739",
+          "eSRhpYLerw4@1741",
+          "eSRhpYLerw4@1744",
+          "eSRhpYLerw4@1746",
+          "eSRhpYLerw4@1748"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p045",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "code",
+        "importance": 3,
+        "text": "The code creates another tensor called attention weights by dividing the attention scores by their total sum, producing normalized values that sum to one.",
+        "line_ids": [
+          "eSRhpYLerw4@1748",
+          "eSRhpYLerw4@1750",
+          "eSRhpYLerw4@1752",
+          "eSRhpYLerw4@1755",
+          "eSRhpYLerw4@1757",
+          "eSRhpYLerw4@1759",
+          "eSRhpYLerw4@1761",
+          "eSRhpYLerw4@1763",
+          "eSRhpYLerw4@1765",
+          "eSRhpYLerw4@1769",
+          "eSRhpYLerw4@1771",
+          "eSRhpYLerw4@1773",
+          "eSRhpYLerw4@1775",
+          "eSRhpYLerw4@1776",
+          "eSRhpYLerw4@1780"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p046",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Attention scores and attention weights mean the same thing intuitively, but attention weights are the normalized version whose elements sum to one, unlike attention scores.",
+        "line_ids": [
+          "eSRhpYLerw4@1783",
+          "eSRhpYLerw4@1785",
+          "eSRhpYLerw4@1787",
+          "eSRhpYLerw4@1790",
+          "eSRhpYLerw4@1792",
+          "eSRhpYLerw4@1794",
+          "eSRhpYLerw4@1796",
+          "eSRhpYLerw4@1798",
+          "eSRhpYLerw4@1800",
+          "eSRhpYLerw4@1803",
+          "eSRhpYLerw4@1804",
+          "eSRhpYLerw4@1806"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p047",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In machine learning, it is more common and advisable to use the softmax function for normalization than simple summation-based normalization.",
+        "line_ids": [
+          "eSRhpYLerw4@1823",
+          "eSRhpYLerw4@1826",
+          "eSRhpYLerw4@1828",
+          "eSRhpYLerw4@1830",
+          "eSRhpYLerw4@1833",
+          "eSRhpYLerw4@1839"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p048",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "With values like 1, 2, 3, and 400, simple summation-based normalization does not sufficiently suppress the small values relative to the extreme value.",
+        "line_ids": [
+          "eSRhpYLerw4@1857",
+          "eSRhpYLerw4@1860",
+          "eSRhpYLerw4@1868",
+          "eSRhpYLerw4@1873",
+          "eSRhpYLerw4@1877",
+          "eSRhpYLerw4@1884",
+          "eSRhpYLerw4@1902",
+          "eSRhpYLerw4@1912",
+          "eSRhpYLerw4@1923",
+          "eSRhpYLerw4@1931"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p049",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "When one value is extremely large, ideal normalization should make the small values close to zero and the extreme value close to one.",
+        "line_ids": [
+          "eSRhpYLerw4@1933",
+          "eSRhpYLerw4@1936",
+          "eSRhpYLerw4@1941",
+          "eSRhpYLerw4@1943",
+          "eSRhpYLerw4@1946",
+          "eSRhpYLerw4@1949",
+          "eSRhpYLerw4@1951",
+          "eSRhpYLerw4@1956",
+          "eSRhpYLerw4@1958"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p050",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Summation-based normalization does not achieve the desired behavior of pushing small values close to zero and extreme values close to one.",
+        "line_ids": [
+          "eSRhpYLerw4@1960",
+          "eSRhpYLerw4@1962",
+          "eSRhpYLerw4@1964",
+          "eSRhpYLerw4@1984",
+          "eSRhpYLerw4@1986",
+          "eSRhpYLerw4@2007",
+          "eSRhpYLerw4@2009",
+          "eSRhpYLerw4@2011",
+          "eSRhpYLerw4@2013"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p051",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Values from simple normalization that are not exactly zero can confuse the optimizer during backpropagation and gradient descent, because the optimizer may still assign weight to values that should be neglected.",
+        "line_ids": [
+          "eSRhpYLerw4@2017",
+          "eSRhpYLerw4@2019",
+          "eSRhpYLerw4@2022",
+          "eSRhpYLerw4@2023",
+          "eSRhpYLerw4@2025",
+          "eSRhpYLerw4@2027",
+          "eSRhpYLerw4@2029",
+          "eSRhpYLerw4@2031"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p052",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Softmax normalization takes the exponent of each element and divides it by the sum of the exponents of all elements.",
+        "line_ids": [
+          "eSRhpYLerw4@2056",
+          "eSRhpYLerw4@2059",
+          "eSRhpYLerw4@2065",
+          "eSRhpYLerw4@2068",
+          "eSRhpYLerw4@2070",
+          "eSRhpYLerw4@2073",
+          "eSRhpYLerw4@2084",
+          "eSRhpYLerw4@2089",
+          "eSRhpYLerw4@2092",
+          "eSRhpYLerw4@2094"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p053",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The outputs of softmax sum to one.",
+        "line_ids": [
+          "eSRhpYLerw4@2097",
+          "eSRhpYLerw4@2099",
+          "eSRhpYLerw4@2100"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p054",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Softmax handles extreme cases better because a very large value becomes dominant after exponentiation, making its normalized output very close to one and the smaller values very close to zero.",
+        "line_ids": [
+          "eSRhpYLerw4@2103",
+          "eSRhpYLerw4@2104",
+          "eSRhpYLerw4@2107",
+          "eSRhpYLerw4@2111",
+          "eSRhpYLerw4@2114",
+          "eSRhpYLerw4@2116",
+          "eSRhpYLerw4@2119",
+          "eSRhpYLerw4@2121"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p055",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Softmax is especially preferable when dealing with extreme values that may occur in large-scale models such as LLMs.",
+        "line_ids": [
+          "eSRhpYLerw4@2121",
+          "eSRhpYLerw4@2124",
+          "eSRhpYLerw4@2126",
+          "eSRhpYLerw4@2129",
+          "eSRhpYLerw4@2132",
+          "eSRhpYLerw4@2134"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p056",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "PyTorch implements softmax by subtracting the maximum input value from each value before applying the exponential and normalization.",
+        "line_ids": [
+          "eSRhpYLerw4@2145",
+          "eSRhpYLerw4@2147",
+          "eSRhpYLerw4@2150",
+          "eSRhpYLerw4@2153",
+          "eSRhpYLerw4@2156",
+          "eSRhpYLerw4@2158",
+          "eSRhpYLerw4@2161",
+          "eSRhpYLerw4@2166",
+          "eSRhpYLerw4@2168",
+          "eSRhpYLerw4@2171",
+          "eSRhpYLerw4@2174",
+          "eSRhpYLerw4@2180",
+          "eSRhpYLerw4@2183",
+          "eSRhpYLerw4@2186"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p057",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Subtracting the maximum value in the PyTorch softmax implementation does not change the mathematical result, because the common exponential factor cancels out.",
+        "line_ids": [
+          "eSRhpYLerw4@2188",
+          "eSRhpYLerw4@2191",
+          "eSRhpYLerw4@2194",
+          "eSRhpYLerw4@2196",
+          "eSRhpYLerw4@2200",
+          "eSRhpYLerw4@2202",
+          "eSRhpYLerw4@2204",
+          "eSRhpYLerw4@2207"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p058",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Subtracting the maximum value is done to avoid numerical instability such as overflow errors when inputs are very large or very small.",
+        "line_ids": [
+          "eSRhpYLerw4@2210",
+          "eSRhpYLerw4@2212",
+          "eSRhpYLerw4@2214",
+          "eSRhpYLerw4@2217",
+          "eSRhpYLerw4@2219",
+          "eSRhpYLerw4@2221",
+          "eSRhpYLerw4@2224",
+          "eSRhpYLerw4@2226",
+          "eSRhpYLerw4@2228",
+          "eSRhpYLerw4@2230"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p059",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Although the naive softmax formula is theoretically fine, in Python it is better to subtract the maximum value to prevent overflow problems.",
+        "line_ids": [
+          "eSRhpYLerw4@2233",
+          "eSRhpYLerw4@2235",
+          "eSRhpYLerw4@2237",
+          "eSRhpYLerw4@2239",
+          "eSRhpYLerw4@2241",
+          "eSRhpYLerw4@2243",
+          "eSRhpYLerw4@2245"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p060",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "code",
+        "importance": 2,
+        "text": "The lecturer says they will implement both a naive softmax and the PyTorch softmax in code.",
+        "line_ids": [
+          "eSRhpYLerw4@2252",
+          "eSRhpYLerw4@2254",
+          "eSRhpYLerw4@2256",
+          "eSRhpYLerw4@2258",
+          "eSRhpYLerw4@2261",
+          "eSRhpYLerw4@2262"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p061",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "code",
+        "importance": 3,
+        "text": "The naive softmax implementation takes the exponent of each attention score and divides by the sum of the exponents.",
+        "line_ids": [
+          "eSRhpYLerw4@2268",
+          "eSRhpYLerw4@2271",
+          "eSRhpYLerw4@2274",
+          "eSRhpYLerw4@2276",
+          "eSRhpYLerw4@2321",
+          "eSRhpYLerw4@2324",
+          "eSRhpYLerw4@2325",
+          "eSRhpYLerw4@2327"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p062",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "code",
+        "importance": 2,
+        "text": "In the naive implementation, the summation uses dimension equal to zero because the code sums all entries in a row.",
+        "line_ids": [
+          "eSRhpYLerw4@2276",
+          "eSRhpYLerw4@2278",
+          "eSRhpYLerw4@2281",
+          "eSRhpYLerw4@2284",
+          "eSRhpYLerw4@2286",
+          "eSRhpYLerw4@2288",
+          "eSRhpYLerw4@2291",
+          "eSRhpYLerw4@2293",
+          "eSRhpYLerw4@2298",
+          "eSRhpYLerw4@2302",
+          "eSRhpYLerw4@2304",
+          "eSRhpYLerw4@2307",
+          "eSRhpYLerw4@2310",
+          "eSRhpYLerw4@2312"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p063",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The naive softmax attention scores differ from simple summation-based normalization, but they still sum to one.",
+        "line_ids": [
+          "eSRhpYLerw4@2330",
+          "eSRhpYLerw4@2334",
+          "eSRhpYLerw4@2337",
+          "eSRhpYLerw4@2339",
+          "eSRhpYLerw4@2341",
+          "eSRhpYLerw4@2343",
+          "eSRhpYLerw4@2345"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p064",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Softmax attention weights are always positive because they are produced using the exponential operation.",
+        "line_ids": [
+          "eSRhpYLerw4@2351",
+          "eSRhpYLerw4@2354",
+          "eSRhpYLerw4@2356",
+          "eSRhpYLerw4@2359",
+          "eSRhpYLerw4@2361"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p065",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The positivity of softmax outputs is important for interpretability, because it lets us describe attention as positive percentages assigned to tokens.",
+        "line_ids": [
+          "eSRhpYLerw4@2364",
+          "eSRhpYLerw4@2366",
+          "eSRhpYLerw4@2368",
+          "eSRhpYLerw4@2372",
+          "eSRhpYLerw4@2375",
+          "eSRhpYLerw4@2377",
+          "eSRhpYLerw4@2379",
+          "eSRhpYLerw4@2382"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p066",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A naive softmax implementation may encounter numerical instability, including overflow for very large values and underflow for very small values, so in practice it is advisable to use the PyTorch implementation.",
+        "line_ids": [
+          "eSRhpYLerw4@2385",
+          "eSRhpYLerw4@2389",
+          "eSRhpYLerw4@2391",
+          "eSRhpYLerw4@2393",
+          "eSRhpYLerw4@2395",
+          "eSRhpYLerw4@2397",
+          "eSRhpYLerw4@2400",
+          "eSRhpYLerw4@2402",
+          "eSRhpYLerw4@2404"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p067",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "code",
+        "importance": 2,
+        "text": "The PyTorch softmax is computed with a single call to torch.softmax on the attention score tensor.",
+        "line_ids": [
+          "eSRhpYLerw4@2404",
+          "eSRhpYLerw4@2407",
+          "eSRhpYLerw4@2409"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p068",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "code",
+        "importance": 2,
+        "text": "The lecturer states that torch.softmax implements the numerically stable form that subtracts the maximum value before exponentiation.",
+        "line_ids": [
+          "eSRhpYLerw4@2412",
+          "eSRhpYLerw4@2414",
+          "eSRhpYLerw4@2416",
+          "eSRhpYLerw4@2419",
+          "eSRhpYLerw4@2421",
+          "eSRhpYLerw4@2425",
+          "eSRhpYLerw4@2429"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p069",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 2,
+        "text": "When there are no very large or very small values, the naive softmax and the PyTorch softmax produce the same attention weight tensor.",
+        "line_ids": [
+          "eSRhpYLerw4@2459",
+          "eSRhpYLerw4@2461",
+          "eSRhpYLerw4@2464",
+          "eSRhpYLerw4@2466",
+          "eSRhpYLerw4@2469",
+          "eSRhpYLerw4@2471",
+          "eSRhpYLerw4@2473",
+          "eSRhpYLerw4@2475",
+          "eSRhpYLerw4@2477"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p070",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 2,
+        "text": "PyTorch softmax is still preferred because later computations may involve very large parameters, where numerical instability matters.",
+        "line_ids": [
+          "eSRhpYLerw4@2480",
+          "eSRhpYLerw4@2483",
+          "eSRhpYLerw4@2485",
+          "eSRhpYLerw4@2488",
+          "eSRhpYLerw4@2491",
+          "eSRhpYLerw4@2493",
+          "eSRhpYLerw4@2494"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p071",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Attention weights make attention interpretable because they can be read as percentages assigned to words.",
+        "line_ids": [
+          "eSRhpYLerw4@2498",
+          "eSRhpYLerw4@2500",
+          "eSRhpYLerw4@2502",
+          "eSRhpYLerw4@2505",
+          "eSRhpYLerw4@2508",
+          "eSRhpYLerw4@2510",
+          "eSRhpYLerw4@2514",
+          "eSRhpYLerw4@2515",
+          "eSRhpYLerw4@2519",
+          "eSRhpYLerw4@2522",
+          "eSRhpYLerw4@2525",
+          "eSRhpYLerw4@2528",
+          "eSRhpYLerw4@2534",
+          "eSRhpYLerw4@2537"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p072",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "visual_ref",
+        "importance": 2,
+        "text": "In the shown example, higher attention is paid to the words \"journey\" and \"starts,\" while lower attention is paid to \"one.\"",
+        "line_ids": [
+          "eSRhpYLerw4@2537",
+          "eSRhpYLerw4@2540",
+          "eSRhpYLerw4@2541",
+          "eSRhpYLerw4@2543",
+          "eSRhpYLerw4@2545",
+          "eSRhpYLerw4@2547",
+          "eSRhpYLerw4@2548",
+          "eSRhpYLerw4@2551",
+          "eSRhpYLerw4@2553"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p073",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The difference between attention scores and attention weights is that attention weights are normalized and sum to one, which makes them easier to interpret.",
+        "line_ids": [
+          "eSRhpYLerw4@2556",
+          "eSRhpYLerw4@2558",
+          "eSRhpYLerw4@2560",
+          "eSRhpYLerw4@2563",
+          "eSRhpYLerw4@2564",
+          "eSRhpYLerw4@2567",
+          "eSRhpYLerw4@2569"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p074",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "After computing the attention weights, the next and final step is to compute the context vector.",
+        "line_ids": [
+          "eSRhpYLerw4@2573",
+          "eSRhpYLerw4@2575",
+          "eSRhpYLerw4@2578",
+          "eSRhpYLerw4@2582",
+          "eSRhpYLerw4@2584",
+          "eSRhpYLerw4@2587"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p075",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The process so far is to take an input query, compute attention scores by dot products with the embedding vectors, and normalize those scores into attention weights that sum to one.",
+        "line_ids": [
+          "eSRhpYLerw4@2602",
+          "eSRhpYLerw4@2604",
+          "eSRhpYLerw4@2606",
+          "eSRhpYLerw4@2609",
+          "eSRhpYLerw4@2612",
+          "eSRhpYLerw4@2614",
+          "eSRhpYLerw4@2616",
+          "eSRhpYLerw4@2618",
+          "eSRhpYLerw4@2620",
+          "eSRhpYLerw4@2622",
+          "eSRhpYLerw4@2625"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p076",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "visual_ref",
+        "importance": 2,
+        "text": "The lecturer visually shows embedding vectors for different words together with their relative importance values.",
+        "line_ids": [
+          "eSRhpYLerw4@2630",
+          "eSRhpYLerw4@2633",
+          "eSRhpYLerw4@2635",
+          "eSRhpYLerw4@2637",
+          "eSRhpYLerw4@2639",
+          "eSRhpYLerw4@2641",
+          "eSRhpYLerw4@2643",
+          "eSRhpYLerw4@2646",
+          "eSRhpYLerw4@2648"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p077",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "visual_ref",
+        "importance": 2,
+        "text": "In the illustrated example, the word \"journey\" has the highest importance because it is the query, while \"starts\" and \"step\" have lower importance and \"one,\" \"with,\" and \"your\" have less importance.",
+        "line_ids": [
+          "eSRhpYLerw4@2648",
+          "eSRhpYLerw4@2651",
+          "eSRhpYLerw4@2654",
+          "eSRhpYLerw4@2655",
+          "eSRhpYLerw4@2659",
+          "eSRhpYLerw4@2660",
+          "eSRhpYLerw4@2665",
+          "eSRhpYLerw4@2668"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p078",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To compute the context vector, each embedding vector is multiplied by its corresponding attention weight so that more important vectors are scaled less and less important vectors are scaled down more.",
+        "line_ids": [
+          "eSRhpYLerw4@2668",
+          "eSRhpYLerw4@2670",
+          "eSRhpYLerw4@2674",
+          "eSRhpYLerw4@2676",
+          "eSRhpYLerw4@2680",
+          "eSRhpYLerw4@2684",
+          "eSRhpYLerw4@2686",
+          "eSRhpYLerw4@2689",
+          "eSRhpYLerw4@2692",
+          "eSRhpYLerw4@2695",
+          "eSRhpYLerw4@2698",
+          "eSRhpYLerw4@2701",
+          "eSRhpYLerw4@2703",
+          "eSRhpYLerw4@2705",
+          "eSRhpYLerw4@2707",
+          "eSRhpYLerw4@2711",
+          "eSRhpYLerw4@2714",
+          "eSRhpYLerw4@2716",
+          "eSRhpYLerw4@2718",
+          "eSRhpYLerw4@2720",
+          "eSRhpYLerw4@2722",
+          "eSRhpYLerw4@2725",
+          "eSRhpYLerw4@2728",
+          "eSRhpYLerw4@2731"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p079",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "A context vector is computed by multiplying each input embedding vector by its corresponding attention weight and then summing the resulting vectors.",
+        "line_ids": [
+          "eSRhpYLerw4@2739",
+          "eSRhpYLerw4@2741",
+          "eSRhpYLerw4@2742",
+          "eSRhpYLerw4@2748",
+          "eSRhpYLerw4@2749",
+          "eSRhpYLerw4@2752"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p080",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The resulting summed vector is the context vector for the token being considered, here the token \"journey.\"",
+        "line_ids": [
+          "eSRhpYLerw4@2753",
+          "eSRhpYLerw4@2756",
+          "eSRhpYLerw4@2760",
+          "eSRhpYLerw4@2790",
+          "eSRhpYLerw4@2793",
+          "eSRhpYLerw4@2797"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p081",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A context vector has contributions from all the input vectors, so it is an enriched embedding vector.",
+        "line_ids": [
+          "eSRhpYLerw4@2800",
+          "eSRhpYLerw4@2802",
+          "eSRhpYLerw4@2804",
+          "eSRhpYLerw4@2807"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p082",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The contribution of each other token to the context vector is determined by its attention weight, which indicates how much importance is given to that token.",
+        "line_ids": [
+          "eSRhpYLerw4@2812",
+          "eSRhpYLerw4@2814",
+          "eSRhpYLerw4@2816",
+          "eSRhpYLerw4@2819",
+          "eSRhpYLerw4@2820"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p083",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "For example, a token with attention weight 0.2 contributes about 20% to the context vector, while a token with attention weight 0.1 contributes only about 10%.",
+        "line_ids": [
+          "eSRhpYLerw4@2823",
+          "eSRhpYLerw4@2826",
+          "eSRhpYLerw4@2829",
+          "eSRhpYLerw4@2831",
+          "eSRhpYLerw4@2834"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p084",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In modern large language models such as GPT, context vectors have the same meaning: they are enriched embedding vectors.",
+        "line_ids": [
+          "eSRhpYLerw4@2837",
+          "eSRhpYLerw4@2839",
+          "eSRhpYLerw4@2841",
+          "eSRhpYLerw4@2844",
+          "eSRhpYLerw4@2847",
+          "eSRhpYLerw4@2849"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p085",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "visual_ref",
+        "importance": 2,
+        "text": "The lecturer shows the embedding vector for \"journey\" in green and the corresponding context vector in red in three-dimensional space.",
+        "line_ids": [
+          "eSRhpYLerw4@2863",
+          "eSRhpYLerw4@2865",
+          "eSRhpYLerw4@2868",
+          "eSRhpYLerw4@2870",
+          "eSRhpYLerw4@2873",
+          "eSRhpYLerw4@2878"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p086",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The attention mechanism is what makes it possible to obtain context vectors rather than being limited to the original embedding vectors.",
+        "line_ids": [
+          "eSRhpYLerw4@2880",
+          "eSRhpYLerw4@2883",
+          "eSRhpYLerw4@2885",
+          "eSRhpYLerw4@2887",
+          "eSRhpYLerw4@2889",
+          "eSRhpYLerw4@2895"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p087",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "definition",
+        "importance": 2,
+        "text": "The context vector for \"journey\" is denoted as z2.",
+        "line_ids": [
+          "eSRhpYLerw4@2928",
+          "eSRhpYLerw4@2930",
+          "eSRhpYLerw4@2931"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p088",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To compute the context vector for \"journey,\" multiply every input token embedding by the corresponding attention weight and sum all the resulting vectors.",
+        "line_ids": [
+          "eSRhpYLerw4@2934",
+          "eSRhpYLerw4@2937",
+          "eSRhpYLerw4@2939",
+          "eSRhpYLerw4@2943",
+          "eSRhpYLerw4@2945",
+          "eSRhpYLerw4@2951"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p089",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "Multiplying each embedding by its attention weight can be understood as scaling down the vectors in the vector representation.",
+        "line_ids": [
+          "eSRhpYLerw4@2992",
+          "eSRhpYLerw4@2993",
+          "eSRhpYLerw4@2995",
+          "eSRhpYLerw4@2997"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p090",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "code",
+        "importance": 3,
+        "text": "The lecturer says the Python implementation for the context vector is simple, using a query for \"journey,\" initializing the context vector tensor for token two, looping through all inputs, scaling each input by its corresponding attention weight, and adding the scaled vectors together.",
+        "line_ids": [
+          "eSRhpYLerw4@3018",
+          "eSRhpYLerw4@3020",
+          "eSRhpYLerw4@3022",
+          "eSRhpYLerw4@3024",
+          "eSRhpYLerw4@3026",
+          "eSRhpYLerw4@3058"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p091",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "visual_ref",
+        "importance": 1,
+        "text": "The lecturer says the computed context vector is also shown on the screen as a red arrow and contrasted with the other vectors.",
+        "line_ids": [
+          "eSRhpYLerw4@3080",
+          "eSRhpYLerw4@3082",
+          "eSRhpYLerw4@3084",
+          "eSRhpYLerw4@3086",
+          "eSRhpYLerw4@3089"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p092",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The task is not complete after computing the context vector for \"journey\" because a similar context vector must be computed for every token in the sequence.",
+        "line_ids": [
+          "eSRhpYLerw4@3091",
+          "eSRhpYLerw4@3094",
+          "eSRhpYLerw4@3095",
+          "eSRhpYLerw4@3098",
+          "eSRhpYLerw4@3101",
+          "eSRhpYLerw4@3103"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p093",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The same computation used for \"journey\" can be extended to compute the attention weights and context vector for all the other input tokens.",
+        "line_ids": [
+          "eSRhpYLerw4@3113",
+          "eSRhpYLerw4@3116",
+          "eSRhpYLerw4@3117",
+          "eSRhpYLerw4@3120",
+          "eSRhpYLerw4@3122",
+          "eSRhpYLerw4@3124"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p094",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The matrix shown on the screen is called the attention weight matrix.",
+        "line_ids": [
+          "eSRhpYLerw4@3127",
+          "eSRhpYLerw4@3129",
+          "eSRhpYLerw4@3131",
+          "eSRhpYLerw4@3134",
+          "eSRhpYLerw4@3136",
+          "eSRhpYLerw4@3137"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p095",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "definition",
+        "importance": 3,
+        "text": "In the attention weight matrix, each row represents the attention weights for one particular query word.",
+        "line_ids": [
+          "eSRhpYLerw4@3142",
+          "eSRhpYLerw4@3146",
+          "eSRhpYLerw4@3149"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p096",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "For the query \"journey,\" the row in the attention weight matrix contains the attention weights between \"journey\" and each word in the sequence: \"your,\" \"journey,\" \"starts,\" \"with,\" \"one,\" and \"step.\"",
+        "line_ids": [
+          "eSRhpYLerw4@3151",
+          "eSRhpYLerw4@3153",
+          "eSRhpYLerw4@3154",
+          "eSRhpYLerw4@3161",
+          "eSRhpYLerw4@3167",
+          "eSRhpYLerw4@3204"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p097",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The displayed attention weights have been rounded, so they may not be exactly identical to previously computed values.",
+        "line_ids": [
+          "eSRhpYLerw4@3206",
+          "eSRhpYLerw4@3209",
+          "eSRhpYLerw4@3211",
+          "eSRhpYLerw4@3212",
+          "eSRhpYLerw4@3214",
+          "eSRhpYLerw4@3219"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p098",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "For every query token, six attention weights must be computed in this example, one for each word in the six-word input.",
+        "line_ids": [
+          "eSRhpYLerw4@3229",
+          "eSRhpYLerw4@3232",
+          "eSRhpYLerw4@3234",
+          "eSRhpYLerw4@3236",
+          "eSRhpYLerw4@3243",
+          "eSRhpYLerw4@3256"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p099",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To handle all queries, replicate the same computation for each token: if a token is the query, compute its attention weights with all other words and then compute its context vector by the same summation operation used for \"journey.\"",
+        "line_ids": [
+          "eSRhpYLerw4@3260",
+          "eSRhpYLerw4@3262",
+          "eSRhpYLerw4@3265",
+          "eSRhpYLerw4@3272",
+          "eSRhpYLerw4@3274",
+          "eSRhpYLerw4@3283"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p100",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "For every token, the overall process is to compute attention scores, then attention weights, and then the context vector.",
+        "line_ids": [
+          "eSRhpYLerw4@3286",
+          "eSRhpYLerw4@3288",
+          "eSRhpYLerw4@3291",
+          "eSRhpYLerw4@3294",
+          "eSRhpYLerw4@3298",
+          "eSRhpYLerw4@3305"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p101",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To compute attention scores for a given query, take the dot product of that query with all the input vectors.",
+        "line_ids": [
+          "eSRhpYLerw4@3332",
+          "eSRhpYLerw4@3334",
+          "eSRhpYLerw4@3337",
+          "eSRhpYLerw4@3339",
+          "eSRhpYLerw4@3341",
+          "eSRhpYLerw4@3344"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p102",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "code",
+        "importance": 2,
+        "text": "One way to compute all attention scores is to loop through the inputs twice and compute dot products.",
+        "line_ids": [
+          "eSRhpYLerw4@3352",
+          "eSRhpYLerw4@3355",
+          "eSRhpYLerw4@3357",
+          "eSRhpYLerw4@3359"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p103",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "With nested loops, fix one input as the query in the outer loop, run through all inputs in the inner loop to compute six dot products, and then repeat this for each query token.",
+        "line_ids": [
+          "eSRhpYLerw4@3373",
+          "eSRhpYLerw4@3376",
+          "eSRhpYLerw4@3379",
+          "eSRhpYLerw4@3381",
+          "eSRhpYLerw4@3395",
+          "eSRhpYLerw4@3427"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p104",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The output attention score tensor is a 6 by 6 matrix, and each element represents an attention score between a pair of input tokens.",
+        "line_ids": [
+          "eSRhpYLerw4@3430",
+          "eSRhpYLerw4@3432",
+          "eSRhpYLerw4@3435",
+          "eSRhpYLerw4@3438",
+          "eSRhpYLerw4@3441",
+          "eSRhpYLerw4@3445"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p105",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In the attention score matrix, each row contains the dot products between one query and all the input vectors.",
+        "line_ids": [
+          "eSRhpYLerw4@3455",
+          "eSRhpYLerw4@3458",
+          "eSRhpYLerw4@3460",
+          "eSRhpYLerw4@3462",
+          "eSRhpYLerw4@3464",
+          "eSRhpYLerw4@3468"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p106",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The second row of the 6 by 6 attention score matrix matches the attention scores previously computed for the second query because it represents the dot products between the second query and all input vectors.",
+        "line_ids": [
+          "eSRhpYLerw4@3473",
+          "eSRhpYLerw4@3476",
+          "eSRhpYLerw4@3479",
+          "eSRhpYLerw4@3481",
+          "eSRhpYLerw4@3492",
+          "eSRhpYLerw4@3497"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p107",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Using two for-loops to compute all attention scores is not computationally efficient because for-loops are generally slow.",
+        "line_ids": [
+          "eSRhpYLerw4@3507",
+          "eSRhpYLerw4@3510",
+          "eSRhpYLerw4@3511",
+          "eSRhpYLerw4@3513",
+          "eSRhpYLerw4@3515"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p108",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Understanding matrix multiplication is important because linear algebra is a core foundation of machine learning concepts.",
+        "line_ids": [
+          "eSRhpYLerw4@3515",
+          "eSRhpYLerw4@3518",
+          "eSRhpYLerw4@3520",
+          "eSRhpYLerw4@3522",
+          "eSRhpYLerw4@3524",
+          "eSRhpYLerw4@3527"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p109",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Instead of using nested loops, multiplying the input matrix by its transpose produces the same attention score matrix.",
+        "line_ids": [
+          "eSRhpYLerw4@3533",
+          "eSRhpYLerw4@3535",
+          "eSRhpYLerw4@3538",
+          "eSRhpYLerw4@3539",
+          "eSRhpYLerw4@3542",
+          "eSRhpYLerw4@3546"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p110",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The input matrix is formed from the input embeddings, and multiplying it by the transpose of the input matrix gives the same result as computing all pairwise dot products with for-loops.",
+        "line_ids": [
+          "eSRhpYLerw4@3548",
+          "eSRhpYLerw4@3552",
+          "eSRhpYLerw4@3555",
+          "eSRhpYLerw4@3556",
+          "eSRhpYLerw4@3558",
+          "eSRhpYLerw4@3568"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p111",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Matrix multiplication gives the same result because it computes dot products between the rows of the first matrix and the columns of the second matrix.",
+        "line_ids": [
+          "eSRhpYLerw4@3580",
+          "eSRhpYLerw4@3583",
+          "eSRhpYLerw4@3585",
+          "eSRhpYLerw4@3587",
+          "eSRhpYLerw4@3589",
+          "eSRhpYLerw4@3593"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p112",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Matrix multiplication is much more efficient than using two for-loops for these dot products.",
+        "line_ids": [
+          "eSRhpYLerw4@3595",
+          "eSRhpYLerw4@3597",
+          "eSRhpYLerw4@3599"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p113",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The 6 by 6 attention score matrix has one row per query, and each row represents the dot products between that query and all the input embedding vectors.",
+        "line_ids": [
+          "eSRhpYLerw4@3604",
+          "eSRhpYLerw4@3605",
+          "eSRhpYLerw4@3607",
+          "eSRhpYLerw4@3610",
+          "eSRhpYLerw4@3612",
+          "eSRhpYLerw4@3618"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p114",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "After computing the attention score matrix, normalize it by applying softmax to the attention scores matrix.",
+        "line_ids": [
+          "eSRhpYLerw4@3622",
+          "eSRhpYLerw4@3624",
+          "eSRhpYLerw4@3626",
+          "eSRhpYLerw4@3628",
+          "eSRhpYLerw4@3632",
+          "eSRhpYLerw4@3636"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p115",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Applying softmax to each row of the attention scores produces attention weights whose entries in each row sum to one.",
+        "line_ids": [
+          "eSRhpYLerw4@3641",
+          "eSRhpYLerw4@3644",
+          "eSRhpYLerw4@3646",
+          "eSRhpYLerw4@3648",
+          "eSRhpYLerw4@3651",
+          "eSRhpYLerw4@3657"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p116",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "definition",
+        "importance": 3,
+        "text": "In functions like torch.softmax, the dim parameter specifies the dimension of the input tensor along which the function is computed.",
+        "line_ids": [
+          "eSRhpYLerw4@3672",
+          "eSRhpYLerw4@3675",
+          "eSRhpYLerw4@3684",
+          "eSRhpYLerw4@3686",
+          "eSRhpYLerw4@3688",
+          "eSRhpYLerw4@3691"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p117",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Setting dim = -1 in softmax applies the normalization along the last dimension of the attention score tensor.",
+        "line_ids": [
+          "eSRhpYLerw4@3694",
+          "eSRhpYLerw4@3696",
+          "eSRhpYLerw4@3700",
+          "eSRhpYLerw4@3702"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p118",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "For a two-dimensional attention score tensor, the last dimension is the columns, so dim = -1 applies softmax across the columns.",
+        "line_ids": [
+          "eSRhpYLerw4@3704",
+          "eSRhpYLerw4@3707",
+          "eSRhpYLerw4@3711",
+          "eSRhpYLerw4@3713",
+          "eSRhpYLerw4@3716",
+          "eSRhpYLerw4@3723"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p119",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "code",
+        "importance": 2,
+        "text": "The lecturer checks that the rows of the attention weight matrix sum to one by summing the entries of the second row and printing the sums of all rows.",
+        "line_ids": [
+          "eSRhpYLerw4@3799",
+          "eSRhpYLerw4@3801",
+          "eSRhpYLerw4@3803",
+          "eSRhpYLerw4@3805",
+          "eSRhpYLerw4@3810",
+          "eSRhpYLerw4@3819"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p120",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 2,
+        "text": "If all rows of the attention weights sum to one, that indicates the softmax operation has been applied correctly.",
+        "line_ids": [
+          "eSRhpYLerw4@3821",
+          "eSRhpYLerw4@3824",
+          "eSRhpYLerw4@3828",
+          "eSRhpYLerw4@3830",
+          "eSRhpYLerw4@3833"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p121",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To compute a context vector, multiply each input vector by its corresponding attention weight and then sum the results.",
+        "line_ids": [
+          "eSRhpYLerw4@3881",
+          "eSRhpYLerw4@3882",
+          "eSRhpYLerw4@3885",
+          "eSRhpYLerw4@3892",
+          "eSRhpYLerw4@3893",
+          "eSRhpYLerw4@3903"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p122",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Instead of looping over tokens, all context vectors can be computed at once with a single matrix multiplication.",
+        "line_ids": [
+          "eSRhpYLerw4@3930",
+          "eSRhpYLerw4@3933",
+          "eSRhpYLerw4@3935",
+          "eSRhpYLerw4@3940",
+          "eSRhpYLerw4@3942",
+          "eSRhpYLerw4@3943"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p123",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The simplified matrix operation for the final step is to multiply the attention weight matrix by the input matrix.",
+        "line_ids": [
+          "eSRhpYLerw4@3947",
+          "eSRhpYLerw4@3951",
+          "eSRhpYLerw4@3956",
+          "eSRhpYLerw4@3958",
+          "eSRhpYLerw4@3961",
+          "eSRhpYLerw4@3976"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p124",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Multiplying the attention weight matrix by the input matrix gives the context vectors for all tokens.",
+        "line_ids": [
+          "eSRhpYLerw4@3977",
+          "eSRhpYLerw4@3981",
+          "eSRhpYLerw4@3983",
+          "eSRhpYLerw4@3985",
+          "eSRhpYLerw4@3987",
+          "eSRhpYLerw4@3991"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p125",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "If the attention weights are a 6x6 matrix and the inputs are a 6x3 matrix, their product is valid and produces a 6x3 context vector matrix.",
+        "line_ids": [
+          "eSRhpYLerw4@4021",
+          "eSRhpYLerw4@4024",
+          "eSRhpYLerw4@4027",
+          "eSRhpYLerw4@4029",
+          "eSRhpYLerw4@4082",
+          "eSRhpYLerw4@4093"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p126",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Each row of the final 6x3 context matrix is the context vector for the corresponding token.",
+        "line_ids": [
+          "eSRhpYLerw4@4050",
+          "eSRhpYLerw4@4053",
+          "eSRhpYLerw4@4055",
+          "eSRhpYLerw4@4058",
+          "eSRhpYLerw4@4061",
+          "eSRhpYLerw4@4065"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p127",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In the matrix product, a row of the output can be viewed as a weighted sum of the rows of the input matrix using the attention weights from the corresponding row.",
+        "line_ids": [
+          "eSRhpYLerw4@4182",
+          "eSRhpYLerw4@4185",
+          "eSRhpYLerw4@4189",
+          "eSRhpYLerw4@4192",
+          "eSRhpYLerw4@4201",
+          "eSRhpYLerw4@4209"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p128",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "This matrix multiplication is the same scaling-and-summing operation used earlier to compute a context vector manually.",
+        "line_ids": [
+          "eSRhpYLerw4@4211",
+          "eSRhpYLerw4@4213",
+          "eSRhpYLerw4@4218",
+          "eSRhpYLerw4@4220",
+          "eSRhpYLerw4@4223",
+          "eSRhpYLerw4@4254"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p129",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The first row of the product gives the context vector for the first token, the second row gives the context vector for the second token, and so on through the sixth row.",
+        "line_ids": [
+          "eSRhpYLerw4@4283",
+          "eSRhpYLerw4@4285",
+          "eSRhpYLerw4@4287",
+          "eSRhpYLerw4@4289",
+          "eSRhpYLerw4@4295",
+          "eSRhpYLerw4@4308"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p130",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "code",
+        "importance": 3,
+        "text": "The lecturer creates an all_context_vectors tensor by multiplying the attention weight matrix with the input matrix.",
+        "line_ids": [
+          "eSRhpYLerw4@4331",
+          "eSRhpYLerw4@4333",
+          "eSRhpYLerw4@4336",
+          "eSRhpYLerw4@4338",
+          "eSRhpYLerw4@4340",
+          "eSRhpYLerw4@4342"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p131",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The second row of the all_context_vectors tensor matches the previously computed context vector for the token journey, confirming the matrix multiplication result is correct.",
+        "line_ids": [
+          "eSRhpYLerw4@4345",
+          "eSRhpYLerw4@4348",
+          "eSRhpYLerw4@4353",
+          "eSRhpYLerw4@4356",
+          "eSRhpYLerw4@4361",
+          "eSRhpYLerw4@4378"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p132",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The same underlying mechanism extends to key, query, and value attention, except that in that formulation the inputs in the final multiplication are replaced by values.",
+        "line_ids": [
+          "eSRhpYLerw4@4401",
+          "eSRhpYLerw4@4404",
+          "eSRhpYLerw4@4406",
+          "eSRhpYLerw4@4408",
+          "eSRhpYLerw4@4423",
+          "eSRhpYLerw4@4433"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p133",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Understanding this simplified mechanism makes key, query, and value easier to understand because the underlying intuition remains the same.",
+        "line_ids": [
+          "eSRhpYLerw4@4436",
+          "eSRhpYLerw4@4439",
+          "eSRhpYLerw4@4440",
+          "eSRhpYLerw4@4443",
+          "eSRhpYLerw4@4444",
+          "eSRhpYLerw4@4446"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p134",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The main limitation of the current approach is that attention weights are derived only from dot products, so attention is based only on semantic alignment.",
+        "line_ids": [
+          "eSRhpYLerw4@4465",
+          "eSRhpYLerw4@4467",
+          "eSRhpYLerw4@4471",
+          "eSRhpYLerw4@4474",
+          "eSRhpYLerw4@4477",
+          "eSRhpYLerw4@4501"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p135",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A word that is not semantically aligned with the query may still be important in the sentence context, so semantic similarity alone is not enough.",
+        "line_ids": [
+          "eSRhpYLerw4@4504",
+          "eSRhpYLerw4@4507",
+          "eSRhpYLerw4@4509",
+          "eSRhpYLerw4@4512",
+          "eSRhpYLerw4@4514",
+          "eSRhpYLerw4@4523"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p136",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Trainable weights are needed to capture sentence context effectively, because without them the model mainly attends to words that are similar in meaning to the query.",
+        "line_ids": [
+          "eSRhpYLerw4@4525",
+          "eSRhpYLerw4@4528",
+          "eSRhpYLerw4@4530",
+          "eSRhpYLerw4@4533",
+          "eSRhpYLerw4@4535",
+          "eSRhpYLerw4@4546"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p137",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "analogy",
+        "importance": 3,
+        "text": "In the sentence \"the cat sat on the mat because it is warm,\" if the query is \"warm,\" the word \"mat\" can deserve attention even though it is not semantically similar to \"warm.\"",
+        "line_ids": [
+          "eSRhpYLerw4@4555",
+          "eSRhpYLerw4@4558",
+          "eSRhpYLerw4@4561",
+          "eSRhpYLerw4@4564"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p138",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Without trainable weights, simplified attention only uses the dot product between the query embedding and each word embedding, so it mainly attends to words that are semantically similar to the query.",
+        "line_ids": [
+          "eSRhpYLerw4@4567",
+          "eSRhpYLerw4@4569",
+          "eSRhpYLerw4@4570",
+          "eSRhpYLerw4@4573",
+          "eSRhpYLerw4@4575",
+          "eSRhpYLerw4@4577"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p139",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Without trainable weights, \"warm\" is most similar to itself, may be somewhat related to \"mat,\" and words like \"the,\" \"cat,\" and \"sat\" can have low similarity scores because they are not semantically related to \"warm.\"",
+        "line_ids": [
+          "eSRhpYLerw4@4577",
+          "eSRhpYLerw4@4580",
+          "eSRhpYLerw4@4582",
+          "eSRhpYLerw4@4585",
+          "eSRhpYLerw4@4587",
+          "eSRhpYLerw4@4589"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p140",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Trainable weights let the model learn that \"warm\" should pay more attention to \"mat\" even if \"mat\" is not semantically related to \"warm\" in the embedding space.",
+        "line_ids": [
+          "eSRhpYLerw4@4597",
+          "eSRhpYLerw4@4600",
+          "eSRhpYLerw4@4602",
+          "eSRhpYLerw4@4604",
+          "eSRhpYLerw4@4632",
+          "eSRhpYLerw4@4635"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p141",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "Without trainable weights, the vectors for \"mat\" and \"warm\" might be at a 90-degree angle, illustrating that they may not be semantically related even though \"mat\" is important in this context.",
+        "line_ids": [
+          "eSRhpYLerw4@4607",
+          "eSRhpYLerw4@4609",
+          "eSRhpYLerw4@4611",
+          "eSRhpYLerw4@4613",
+          "eSRhpYLerw4@4616",
+          "eSRhpYLerw4@4618"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p142",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In this context, \"mat\" is probably the most important word for the query \"warm\" because the mat is warm, even though the meanings of \"mat\" and \"warm\" are not closely related.",
+        "line_ids": [
+          "eSRhpYLerw4@4620",
+          "eSRhpYLerw4@4622",
+          "eSRhpYLerw4@4624",
+          "eSRhpYLerw4@4626",
+          "eSRhpYLerw4@4629"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p143",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Trainable weights are needed because they allow the model to capture contextual relationships and long-range dependencies that would be lost if attention relied only on semantic similarity to the query.",
+        "line_ids": [
+          "eSRhpYLerw4@4641",
+          "eSRhpYLerw4@4644",
+          "eSRhpYLerw4@4646",
+          "eSRhpYLerw4@4649",
+          "eSRhpYLerw4@4651",
+          "eSRhpYLerw4@4653"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p144",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Without trainable weights, the model would miss this meaning and only look at words that are similar to the query, whereas trainable weights help identify words that are important in the current context even if their meanings are not similar.",
+        "line_ids": [
+          "eSRhpYLerw4@4656",
+          "eSRhpYLerw4@4658",
+          "eSRhpYLerw4@4660",
+          "eSRhpYLerw4@4662",
+          "eSRhpYLerw4@4665",
+          "eSRhpYLerw4@4667"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p145",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Trainable weights allow attention to capture context by recognizing that \"mat\" may not be related in meaning to \"warm\" but is the more important word in this sentence because the mat is warm.",
+        "line_ids": [
+          "eSRhpYLerw4@4667",
+          "eSRhpYLerw4@4670",
+          "eSRhpYLerw4@4672",
+          "eSRhpYLerw4@4674",
+          "eSRhpYLerw4@4677"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p146",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The next lecture will cover a simplified self-attention mechanism with trainable weights and will introduce the concepts of key, query, value, causal attention, and multi-head attention.",
+        "line_ids": [
+          "eSRhpYLerw4@4682",
+          "eSRhpYLerw4@4684",
+          "eSRhpYLerw4@4687",
+          "eSRhpYLerw4@4689",
+          "eSRhpYLerw4@4692",
+          "eSRhpYLerw4@4698"
+        ]
+      },
+      {
+        "id": "eSRhpYLerw4:p147",
+        "video_id": "eSRhpYLerw4",
+        "lecture": 14,
+        "kind": "claim",
+        "importance": 1,
+        "text": "This lecture has covered simplified self-attention in detail to build intuition before moving on to key, query, and value.",
+        "line_ids": [
+          "eSRhpYLerw4@4707",
+          "eSRhpYLerw4@4710",
+          "eSRhpYLerw4@4712",
+          "eSRhpYLerw4@4726",
+          "eSRhpYLerw4@4728",
+          "eSRhpYLerw4@4730"
+        ]
+      }
+    ],
+    "inventory": [
+      {
+        "chunk": "eSRhpYLerw4@0-911",
+        "start": 0,
+        "end": 911,
+        "points": 25,
+        "core_points": 12,
+        "flag": null
+      },
+      {
+        "chunk": "eSRhpYLerw4@908-1817",
+        "start": 908,
+        "end": 1817,
+        "points": 21,
+        "core_points": 13,
+        "flag": null
+      },
+      {
+        "chunk": "eSRhpYLerw4@1814-2734",
+        "start": 1814,
+        "end": 2734,
+        "points": 32,
+        "core_points": 16,
+        "flag": null
+      },
+      {
+        "chunk": "eSRhpYLerw4@2733-3644",
+        "start": 2733,
+        "end": 3644,
+        "points": 36,
+        "core_points": 24,
+        "flag": null
+      },
+      {
+        "chunk": "eSRhpYLerw4@3641-4552",
+        "start": 3641,
+        "end": 4552,
+        "points": 22,
+        "core_points": 17,
+        "flag": null
+      },
+      {
+        "chunk": "eSRhpYLerw4@4549-4758",
+        "start": 4549,
+        "end": 4758,
+        "points": 11,
+        "core_points": 7,
+        "flag": null
+      }
+    ]
+  }
+}

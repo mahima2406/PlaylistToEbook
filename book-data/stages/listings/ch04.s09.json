@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch04.s09",
+  "inputs_hash": "2a5cbd9e86fe1ca0005f7214097c065c214dff3fe75b8555b18b2a1a1f1e0c2e",
+  "output_hash": "ac301d6106842c75299db9cc71095d89626aece103c565b79b3c841ad98579c4",
+  "output": {
+    "section_id": "ch04.s09",
+    "listings": [],
+    "rejected": [
+      {
+        "id": "ch04.s09.code1",
+        "ref": "ref:ch02/01_main-chapter-code/dataloader.ipynb#cell5",
+        "path": "ch02/01_main-chapter-code/dataloader.ipynb",
+        "caption": "This code tokenizes the text, builds input and right-shifted target token sequences with a sliding window over the token IDs, and wraps them in a PyTorch dataset and dataloader.",
+        "code": "import tiktoken\nimport torch\nfrom torch.utils.data import Dataset, DataLoader\n\n\nclass GPTDatasetV1(Dataset):\n    def __init__(self, txt, tokenizer, max_length, stride):\n        self.input_ids = []\n        self.target_ids = []\n\n        # Tokenize the entire text\n        token_ids = tokenizer.encode(txt, allowed_special={\"<|endoftext|>\"})\n\n        # Use a sliding window to chunk the book into overlapping sequences of max_length\n        for i in range(0, len(token_ids) - max_length, stride):\n            input_chunk = token_ids[i:i + max_length]\n            target_chunk = token_ids[i + 1: i + max_length + 1]\n            self.input_ids.append(torch.tensor(input_chunk))\n            self.target_ids.append(torch.tensor(target_chunk))\n\n    def __len__(self):\n        return len(self.input_ids)\n\n    def __getitem__(self, idx):\n        return self.input_ids[idx], self.target_ids[idx]\n\n\ndef create_dataloader_v1(txt, batch_size, max_length, stride,\n                         shuffle=True, drop_last=True, num_workers=0):\n    # Initialize the tokenizer",
+        "truncated": true,
+        "check": "partial",
+        "reason": "The code correctly tokenizes text and constructs input spans of length max_length with right-shifted targets using a sliding window and stride, then wraps them in a PyTorch Dataset (and begins a DataLoader helper). This matches the section’s points about creating inputs/targets with context size and stride. However, it does not implement the 90/10 train/validation split, does not pass batches through an LLM, does not flatten logits to shape (8, 50257), and does not extract probabilities for the correct target token. The caption is mostly accurate for what’s shown, but it mentions a DataLoader wrapper while the function is incomplete in the excerpt."
+      },
+      {
+        "id": "ch04.s09.code2",
+        "ref": "ref:ch05/01_main-chapter-code/ch05.ipynb#cell69",
+        "path": "ch05/01_main-chapter-code/ch05.ipynb",
+        "caption": "This code runs each input batch through the model, flattens the batch and sequence dimensions of the logits and targets, and computes cross-entropy loss over the resulting tensors.",
+        "code": "def calc_loss_batch(input_batch, target_batch, model, device):\n    input_batch, target_batch = input_batch.to(device), target_batch.to(device)\n    logits = model(input_batch)\n    loss = torch.nn.functional.cross_entropy(logits.flatten(0, 1), target_batch.flatten())\n    return loss\n\n\ndef calc_loss_loader(data_loader, model, device, num_batches=None):\n    total_loss = 0.\n    if len(data_loader) == 0:\n        return float(\"nan\")\n    elif num_batches is None:\n        num_batches = len(data_loader)\n    else:\n        # Reduce the number of batches to match the total number of batches in the data loader\n        # if num_batches exceeds the number of batches in the data loader\n        num_batches = min(num_batches, len(data_loader))\n    for i, (input_batch, target_batch) in enumerate(data_loader):\n        if i < num_batches:\n            loss = calc_loss_batch(input_batch, target_batch, model, device)\n            total_loss += loss.item()\n        else:\n            break\n    return total_loss / num_batches",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The code does run each input batch through the model and flattens the batch and sequence dimensions of both logits and targets before computing cross-entropy, which aligns with the caption and part of the section. However, the section also teaches dataset splitting, creating inputs/targets via context/stride shifting, and extracting per-token probabilities for the correct target IDs; none of those are shown here. Also, the section’s specific flattening example (e.g., producing an 8×50257 tensor) is not explicitly demonstrated—this function is generic and depends on batch/sequence sizes."
+      }
+    ]
+  }
+}

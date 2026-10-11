@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch04.s06",
+  "inputs_hash": "9f89efb5f7fce451611e4bb8dbb885ed7e847c48e186c4e28e107ae7d7c2d690",
+  "output_hash": "a1bd21470ded5fbbd3edeebb5bcf2f790e7417ac7cf5eccffe8bc79db4522cab",
+  "output": {
+    "section_id": "ch04.s06",
+    "listings": [
+      {
+        "id": "ch04.s06.code1",
+        "ref": "ref:ch04/01_main-chapter-code/ch04.ipynb#cell74",
+        "path": "ch04/01_main-chapter-code/ch04.ipynb",
+        "caption": "This code sums the number of elements in all model parameter tensors and prints the total parameter count.",
+        "code": "total_params = sum(p.numel() for p in model.parameters())\nprint(f\"Total number of parameters: {total_params:,}\")",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The section explicitly teaches computing total model parameters by summing p.numel() over model.parameters(). The code does exactly that and prints the total count, and the caption accurately describes the behavior."
+      },
+      {
+        "id": "ch04.s06.code2",
+        "ref": "ref:ch04/01_main-chapter-code/ch04.ipynb#cell80",
+        "path": "ch04/01_main-chapter-code/ch04.ipynb",
+        "caption": "This code multiplies the total parameter count by 4 bytes per parameter, converts the result to megabytes, and prints the model size.",
+        "code": "# Calculate the total size in bytes (assuming float32, 4 bytes per parameter)\ntotal_size_bytes = total_params * 4\n\n# Convert to megabytes\ntotal_size_mb = total_size_bytes / (1024 * 1024)\n\nprint(f\"Total size of the model: {total_size_mb:.2f} MB\")",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The section explicitly teaches computing model size by assuming 32-bit (4-byte) parameters and multiplying total_params by 4, then converting to MB. The code does exactly that and prints the result, and the caption accurately describes these steps."
+      }
+    ],
+    "rejected": []
+  }
+}

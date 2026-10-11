@@ -1,0 +1,384 @@
+{
+  "stage": "crosscheck",
+  "item": "ch04.s09",
+  "inputs_hash": "daac015c3d9a9c7c59a8e88dc4a861221199b489fae5391ab8c7a961fca16bda",
+  "output_hash": "1cb3277af1a9f494c622ae4de0ad7abc9b4b8e789ef5ea59d8b4d8935c01b1ba",
+  "output": {
+    "section_id": "ch04.s09",
+    "checked": 29,
+    "counts": {
+      "agrees": 14,
+      "contradicts": 2,
+      "not_covered": 13
+    },
+    "results": [
+      {
+        "sentence_id": "ch04.s09.p01.r02",
+        "text": "At this stage, pre-training means training the large language model by minimizing the loss function through backpropagation.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell92",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell76",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell99"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References discuss training by minimizing loss over epochs (loss curves), which is consistent with standard backprop-based training during pre-training."
+      },
+      {
+        "sentence_id": "ch04.s09.p01.r03",
+        "text": "The loss calculation has already been established by comparing the LLM output with the target values to obtain training and validation losses.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell51",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs explicitly describe computing training/validation losses using targets (inputs shifted by 1) and loss functions, i.e., comparing model outputs to targets."
+      },
+      {
+        "sentence_id": "ch04.s09.p01.r04",
+        "text": "The dataset used here is the book called the verdict, described as open source, with around 20,000 characters and around 5,000 tokens.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell96"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Ref only shows reading from the-verdict.txt; it does not state it is open source or give character/token counts (~20k chars/~5k tokens)."
+      },
+      {
+        "sentence_id": "ch04.s09.p01.r05",
+        "text": "The first preprocessing step is to split this dataset into training and validation data with a training ratio of 0.9, using the initial 90% for training and the remaining 10% for validation.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell51",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell88",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell85"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs mention splitting into training/validation sets but do not specify a 0.9/0.1 split or 'initial 90% for training' in the provided passages."
+      },
+      {
+        "sentence_id": "ch04.s09.p02.02",
+        "text": "Since LLMs are autoregressive models, they do not have labels, so the training and validation data must be divided internally into input-target pairs.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell20"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided ref is about converting ham/spam labels to integers, not about autoregressive LLMs lacking labels or forming input-target pairs."
+      },
+      {
+        "sentence_id": "ch04.s09.p02.03",
+        "text": "A data loader is the component that looks at the dataset and creates these input-target pairs.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell27",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell88",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell69"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs describe data loaders preparing batches for LLM training and show loss functions consuming (input_batch, target_batch), consistent with the loader yielding input-target pairs."
+      },
+      {
+        "sentence_id": "ch04.s09.p02.04",
+        "text": "The target is the true value, the actual value the LLM is supposed to approximate.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs describe target values as needed for training and as shifted inputs representing the actual next tokens, aligning with 'true/actual values' the model should predict."
+      },
+      {
+        "sentence_id": "ch04.s09.p02.05",
+        "text": "Input-target pairs are formed by shifting each input row one position to the right to create the corresponding target row.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell53",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell52"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Refs state targets are inputs shifted by 1 position to the right; forming targets by shifting each input row to the right implies a right-shift of inputs, but next-token targets correspond to a left shift relative to inputs (targets[t]=inputs[t+1])."
+      },
+      {
+        "sentence_id": "ch04.s09.p02.06",
+        "text": "To build the inputs, take spans whose length equals the context size, move through the dataset with a stride that is usually equal to the context size, and create the targets by shifting each input to the right.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell82",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs cover using context-length chunks and targets shifted by one token, but do not state the stride is usually equal to the context size."
+      },
+      {
+        "sentence_id": "ch04.s09.p02.07",
+        "text": "The one-token-per-word example is only for illustration, because the actual tokenizer is a byte pair encoder.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell125",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs explicitly introduce Byte Pair Encoding and show use of the GPT-2 BPE tokenizer, supporting that the word-level example is illustrative."
+      },
+      {
+        "sentence_id": "ch04.s09.p02.08",
+        "text": "After this split, there are many input batches and target batches.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell87",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell8"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs show iterating over a data_loader yielding many (input_batch, target_batch) batches, consistent with having many such batches after splitting/preparing loaders."
+      },
+      {
+        "sentence_id": "ch04.s09.p02.09",
+        "text": "In the example batch, the input has two samples, the target has two samples, and each sample contains four tokens.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell120",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell63",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Ref example shows a batch shape of 2 inputs with 6 tokens each (not 4), and other provided refs do not establish a 2x4 token example for both input and target."
+      },
+      {
+        "sentence_id": "ch04.s09.p03.r02",
+        "text": "To get the LLM output, pass the input batches through the LLM architecture batch by batch.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell38",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell69"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The refs iterate over batches from a data loader and pass each input_batch through the model (e.g., logits = model(input_batch)), which is consistent with getting LLM outputs batch-by-batch."
+      },
+      {
+        "sentence_id": "ch04.s09.p03.r03",
+        "text": "This architecture includes tokenization, embedding, positional embedding, a dropout layer, transformer blocks, another normalization layer, and an output head that produces a logit tensor.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell114",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell132",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell111"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided refs show token embedding and positional embedding layers, but do not cover the full architecture list (tokenization, dropout, transformer blocks, final normalization, output head producing logits)."
+      },
+      {
+        "sentence_id": "ch04.s09.p03.r04",
+        "text": "In the example, the logit tensor has shape 2 by 4 by 50257 because there are two batches, four tokens in each batch, and 50257 columns.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell120",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell127"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The refs mention example batch shapes (e.g., 2x6x3 in ch03 and an example 8x4x256 embedding tensor in ch02) and vocab size 50,257, but do not show a logits tensor of shape 2x4x50257 or explain that specific shape."
+      },
+      {
+        "sentence_id": "ch04.s09.p03.r05",
+        "text": "That tensor is then flattened by merging the first and second samples in the batch into a single tensor of shape 8 by 50257.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell140",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell98",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The refs do show flattening logits/targets across batch and sequence for cross-entropy in ch05, but they do not describe merging ‘the first and second samples’ to obtain a tensor of shape 8x50257, nor do they establish the preceding 2x4x50257 setup."
+      },
+      {
+        "sentence_id": "ch04.s09.p03.r06",
+        "text": "The raw logits are not probabilities, because the values associated with one token do not add up to one, so a softmax is needed to convert them into probability vectors.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell75",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell85"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The refs state that logits are converted into probability scores via softmax, implying logits are not probabilities and need softmax to become probability vectors."
+      },
+      {
+        "sentence_id": "ch04.s09.p03.r07",
+        "text": "After softmax, each value in a row is the probability that the corresponding token is the next token.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell89",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The refs describe softmax producing a 50,257-dimensional probability vector and using argmax/multinomial to select the next token based on those probabilities, consistent with interpreting each row as a next-token distribution."
+      },
+      {
+        "sentence_id": "ch04.s09.p04.02",
+        "text": "For an input like \"I\", a trained model should assign the highest probability to the token for \"had\".",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell85",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell89",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The refs discuss greedy decoding and selecting the highest-probability token, but do not state that for input \"I\" the highest-probability next token should be \"had\"."
+      },
+      {
+        "sentence_id": "ch04.s09.p04.03",
+        "text": "For the input \"I had\", a trained model should assign the highest probability to the token for \"always\".",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell89",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell85"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The refs do not specify that given \"I had\" the highest-probability next token is \"always\"; they only describe the general decoding mechanism."
+      },
+      {
+        "sentence_id": "ch04.s09.p04.04",
+        "text": "For the input \"I had always thought\", a trained model should assign the highest probability to the token for \"Jack\".",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell89",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell85"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The refs do not specify that given \"I had always thought\" the highest-probability next token is \"Jack\"; they only describe general next-token selection."
+      },
+      {
+        "sentence_id": "ch04.s09.p04.05",
+        "text": "To evaluate the output against the target, collect the target token IDs and, for each probability row, extract the probability assigned to the correct target token.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell89",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell31"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The refs discuss extracting token probabilities corresponding to target indices (\"token probabilities corresponding to the target indices\") as part of evaluation/loss computation, matching the described procedure."
+      },
+      {
+        "sentence_id": "ch04.s09.p04.06",
+        "text": "The goal of training is to make these probabilities as close to one as possible so that the predicted next tokens match the target tokens.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell37",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell27",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The refs state the goal is to make the average log probability as large as possible (toward 0), which corresponds to making target-token probabilities high (close to 1) so predictions match targets."
+      },
+      {
+        "sentence_id": "ch04.s09.p04.07",
+        "text": "When the model is not yet trained, those target-token probabilities are not close to one, so training uses cross-entropy loss through the negative log-likelihood.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell31",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell34",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell46"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The refs show computing log probabilities for target indices and explain PyTorch cross_entropy applies softmax and log-prob computation internally to maximize those target-index logits, i.e., negative log-likelihood/cross-entropy for initially low target probabilities."
+      },
+      {
+        "sentence_id": "ch04.s09.p04.08",
+        "text": "The optimization objective is for the loss to decrease and get as close to zero as possible.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell37",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell86",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell33"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References describe maximizing average log probability (log-likelihood); since log-probabilities are ≤ 0 with maximum 0, this corresponds to pushing the (negative) loss toward 0."
+      },
+      {
+        "sentence_id": "ch04.s09.p05.r02",
+        "text": "Pre-training means optimizing all parameters in the GPT architecture so that, for the given inputs, the loss function is minimized.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell29",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell84",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided references discuss dataset prep, defining a loss for finetuning, and GPT architecture structure, but do not explicitly define pre-training as optimizing all GPT parameters to minimize a loss."
+      },
+      {
+        "sentence_id": "ch04.s09.p05.r03",
+        "text": "It tries to make the LLM outputs as close as possible to the target tensor by doing backpropagation.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell37",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell81"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References indicate training optimizes model weights to improve (log) probability of targets, with targets being input shifted by 1 token; this is done via standard training (implying backprop) to match outputs to targets."
+      },
+      {
+        "sentence_id": "ch04.s09.p05.r04",
+        "text": "Once the loss function has been written down, the pre-training loop is conceptually simple because it mainly requires doing the backward pass.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passage is about moving data to device via a custom collate function for efficiency, not about the conceptual simplicity of the pre-training loop or it mainly requiring the backward pass."
+      },
+      {
+        "sentence_id": "ch04.s09.p05.r05",
+        "text": "Running that backward pass depends on first understanding how to calculate the loss, which in turn depends on understanding logits, LLM outputs, the GPT architecture, tokenization, positional embeddings, multi-head attention, dropout, and feed-forward networks.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell6",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell7",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell8"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References only show section headings about embeddings and do not connect backward pass/loss calculation dependencies to logits, GPT components, tokenization, attention, etc."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch04.s09.p02.05",
+        "text": "Input-target pairs are formed by shifting each input row one position to the right to create the corresponding target row.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell53",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell52"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Refs state targets are inputs shifted by 1 position to the right; forming targets by shifting each input row to the right implies a right-shift of inputs, but next-token targets correspond to a left shift relative to inputs (targets[t]=inputs[t+1])."
+      },
+      {
+        "sentence_id": "ch04.s09.p02.09",
+        "text": "In the example batch, the input has two samples, the target has two samples, and each sample contains four tokens.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell120",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell63",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Ref example shows a batch shape of 2 inputs with 6 tokens each (not 4), and other provided refs do not establish a 2x4 token example for both input and target."
+      }
+    ]
+  }
+}

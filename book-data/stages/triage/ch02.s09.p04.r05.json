@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch02.s09.p04.r05",
+  "inputs_hash": "c2837351ae814105bd9a352a7990ce3d42c39d0899556669039c3aaf043b3e7e",
+  "output_hash": "d77a59f8bfbf1b6f3c2a34ada4827554f2dec33dcdbaabb74a2a609906518c08",
+  "output": {
+    "decision": "edit",
+    "text": "The tokenizer created with \"get_encoding\" can then be tested with both \"encode\" and \"decode\".",
+    "reason": "The captions support creating a tokenizer with get_encoding and then testing encode and decode, but not the specific argument \"gpt2\".",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "cd84a2bc51785e47488f2e29d805c82ec1238a27af8f3b8e9a71e98f938bec7c"
+  }
+}

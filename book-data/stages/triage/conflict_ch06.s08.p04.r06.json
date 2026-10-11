@@ -1,0 +1,14 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch06.s08.p04.r06",
+  "inputs_hash": "5d5c51fc1b8282b7e0fb45a6aeb26716b977cfd11eaedc66e77241ff2d1050c3",
+  "output_hash": "f1a8d7fa307c61207675b3e0888a4193f85839ee9f10dddbc76aaf17a93a661c",
+  "output": {
+    "decision": "note",
+    "note": "The lecture uses GPT-2-style settings here (dropout 0, qkv bias true); the reference code switches to 0.1 dropout and disables qkv bias for the book’s implementation.",
+    "reason": "The cited captions support the sentence, and the reference explicitly describes a different implementation choice rather than an error.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "ab011ed73ba06daa3a0b6113b6b44f683c740e9052e753b57b5e32f881a88c47"
+  }
+}

@@ -1,0 +1,417 @@
+{
+  "stage": "write",
+  "item": "ch02.s05",
+  "inputs_hash": "dce953e4797aeb068d615c6597773d758f92847ec35a228881a533d65e38aa95",
+  "output_hash": "052d3affa47fe701d306cb96defab68539616f7bd6c3a348cd367526009a811f",
+  "output": {
+    "section_id": "ch02.s05",
+    "paragraphs": [
+      {
+        "id": "ch02.s05.p01",
+        "sentences": [
+          {
+            "id": "ch02.s05.p01.01",
+            "text": "How does a word tokenizer turn text into something a computer and a language model can actually use, especially when the text contains words the vocabulary has never seen?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s05.p01.02",
+            "text": "After text has been converted into tokens, those tokens still need numerical representations.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@801",
+              "mk-6cFebjis@803",
+              "mk-6cFebjis@806",
+              "mk-6cFebjis@809",
+              "mk-6cFebjis@812"
+            ]
+          },
+          {
+            "id": "ch02.s05.p01.03",
+            "text": "Computers do not understand words directly, so the tokens must be converted into token IDs.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@806",
+              "mk-6cFebjis@808",
+              "mk-6cFebjis@809",
+              "mk-6cFebjis@812",
+              "mk-6cFebjis@814",
+              "mk-6cFebjis@818"
+            ]
+          },
+          {
+            "id": "ch02.s05.p01.04",
+            "text": "A vocabulary is a dictionary in which every unique token is mapped to a unique integer, called the token ID.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@859",
+              "mk-6cFebjis@862",
+              "mk-6cFebjis@866",
+              "mk-6cFebjis@869",
+              "mk-6cFebjis@871"
+            ]
+          },
+          {
+            "id": "ch02.s05.p01.05",
+            "text": "For practical purposes, the LLM cares about token IDs rather than the original tokens, because token IDs have a numerical representation.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@871",
+              "mk-6cFebjis@874",
+              "mk-6cFebjis@877",
+              "mk-6cFebjis@879",
+              "mk-6cFebjis@882"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s05.p02",
+        "sentences": [
+          {
+            "id": "ch02.s05.p02.01",
+            "text": "The difficulty appears as soon as the input contains a word that is not present in the vocabulary.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1344",
+              "mk-6cFebjis@1346",
+              "mk-6cFebjis@1349"
+            ]
+          },
+          {
+            "id": "ch02.s05.p02.02",
+            "text": "A simple way to handle this is to augment the existing vocabulary with two special tokens: an unknown token and an end-of-text token.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1361",
+              "mk-6cFebjis@1364",
+              "mk-6cFebjis@1367",
+              "mk-6cFebjis@1369",
+              "mk-6cFebjis@1371",
+              "mk-6cFebjis@1383",
+              "mk-6cFebjis@1386"
+            ]
+          },
+          {
+            "id": "ch02.s05.p02.03",
+            "text": "The unknown token represents a word in the input text that the vocabulary does not know, and that word is mapped to the unknown token’s ID.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1371",
+              "mk-6cFebjis@1374",
+              "mk-6cFebjis@1376",
+              "mk-6cFebjis@1378",
+              "mk-6cFebjis@1381"
+            ]
+          },
+          {
+            "id": "ch02.s05.p02.04",
+            "text": "The end-of-text token is used when working with different input documents to specify where one document ends and another starts.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1383",
+              "mk-6cFebjis@1394",
+              "mk-6cFebjis@1397",
+              "mk-6cFebjis@1399",
+              "mk-6cFebjis@1401",
+              "mk-6cFebjis@1404",
+              "mk-6cFebjis@1405"
+            ]
+          },
+          {
+            "id": "ch02.s05.p02.05",
+            "text": "When multiple text sources are combined, such as news articles, Reddit posts, blogs, and newspaper clippings, an end-of-text token is inserted between them to mark the boundary from one source to the next.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1410",
+              "mk-6cFebjis@1412",
+              "mk-6cFebjis@1414",
+              "mk-6cFebjis@1416",
+              "mk-6cFebjis@1418",
+              "mk-6cFebjis@1420",
+              "mk-6cFebjis@1422",
+              "mk-6cFebjis@1424",
+              "mk-6cFebjis@1426",
+              "mk-6cFebjis@1428",
+              "mk-6cFebjis@1431",
+              "mk-6cFebjis@1433",
+              "mk-6cFebjis@1435",
+              "mk-6cFebjis@1437",
+              "mk-6cFebjis@1439",
+              "mk-6cFebjis@1441"
+            ]
+          },
+          {
+            "id": "ch02.s05.p02.06",
+            "text": "These end-of-text tokens act as markers for segment boundaries, and this leads to more effective processing and understanding by the language model.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1445",
+              "mk-6cFebjis@1447",
+              "mk-6cFebjis@1450",
+              "mk-6cFebjis@1452",
+              "mk-6cFebjis@1456",
+              "mk-6cFebjis@1458",
+              "mk-6cFebjis@1460"
+            ]
+          },
+          {
+            "id": "ch02.s05.p02.07",
+            "text": "During preprocessing for ChatGPT, end-of-text tokens are also added to text resources.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1460",
+              "mk-6cFebjis@1463",
+              "mk-6cFebjis@1466",
+              "mk-6cFebjis@1468"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s05.p03",
+        "sentences": [
+          {
+            "id": "ch02.s05.p03.01",
+            "text": "With these two special tokens in place, the tokenizer can treat unseen words and document boundaries explicitly.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s05.p03.02",
+            "text": "The modified tokenizer uses the unknown token whenever it encounters a word that is not part of the vocabulary, and it inserts an end-of-text token between unrelated texts.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1474",
+              "mk-6cFebjis@1478",
+              "mk-6cFebjis@1480",
+              "mk-6cFebjis@1482",
+              "mk-6cFebjis@1484",
+              "mk-6cFebjis@1486"
+            ]
+          },
+          {
+            "id": "ch02.s05.p03.03",
+            "text": "After adding the end-of-text token and the unknown token to the token list, the token-to-integer vocabulary mapping is created again with these two additional entries.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1489",
+              "mk-6cFebjis@1491",
+              "mk-6cFebjis@1494",
+              "mk-6cFebjis@1496",
+              "mk-6cFebjis@1498",
+              "mk-6cFebjis@1500",
+              "mk-6cFebjis@1503",
+              "mk-6cFebjis@1506"
+            ]
+          },
+          {
+            "id": "ch02.s05.p03.04",
+            "text": "The vocabulary length then becomes 1132 instead of 1130.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1506",
+              "mk-6cFebjis@1508",
+              "mk-6cFebjis@1511",
+              "mk-6cFebjis@1517",
+              "mk-6cFebjis@1519"
+            ]
+          },
+          {
+            "id": "ch02.s05.p03.05",
+            "text": "In this augmented vocabulary, the end-of-text token has token ID 1130 and the unknown token has token ID 1131.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1521",
+              "mk-6cFebjis@1523",
+              "mk-6cFebjis@1525",
+              "mk-6cFebjis@1528",
+              "mk-6cFebjis@1531"
+            ]
+          },
+          {
+            "id": "ch02.s05.p03.06",
+            "text": "To modify the tokenizer, the decode method stays the same, but the encode method is changed so that any item not found in the string-to-integer dictionary is replaced with the unknown token before being mapped to an ID.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1542",
+              "mk-6cFebjis@1545",
+              "mk-6cFebjis@1547",
+              "mk-6cFebjis@1549",
+              "mk-6cFebjis@1550",
+              "mk-6cFebjis@1553",
+              "mk-6cFebjis@1555",
+              "mk-6cFebjis@1557",
+              "mk-6cFebjis@1560",
+              "mk-6cFebjis@1564",
+              "mk-6cFebjis@1566",
+              "mk-6cFebjis@1568",
+              "mk-6cFebjis@1572",
+              "mk-6cFebjis@1574",
+              "mk-6cFebjis@1576",
+              "mk-6cFebjis@1579",
+              "mk-6cFebjis@1582",
+              "mk-6cFebjis@1584",
+              "mk-6cFebjis@1587",
+              "mk-6cFebjis@1589",
+              "mk-6cFebjis@1590",
+              "mk-6cFebjis@1592"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s05.p04",
+        "sentences": [
+          {
+            "id": "ch02.s05.p04.01",
+            "text": "A concrete example shows how the revised tokenizer behaves.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s05.p04.02",
+            "text": "Take the two texts \"hello do you like t\" and \"in the sunlight Terraces of the palace\" and merge them with an end-of-text token between them before passing the result to \"encode\".",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1595",
+              "mk-6cFebjis@1598",
+              "mk-6cFebjis@1600",
+              "mk-6cFebjis@1602",
+              "mk-6cFebjis@1605",
+              "mk-6cFebjis@1608",
+              "mk-6cFebjis@1610",
+              "mk-6cFebjis@1612",
+              "mk-6cFebjis@1615",
+              "mk-6cFebjis@1616",
+              "mk-6cFebjis@1619"
+            ]
+          },
+          {
+            "id": "ch02.s05.p04.03",
+            "text": "This placement of the end-of-text token indicates when the first text ends and the second text starts, and it is described as how this is done in GPT.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1615",
+              "mk-6cFebjis@1616",
+              "mk-6cFebjis@1619",
+              "mk-6cFebjis@1621",
+              "mk-6cFebjis@1623",
+              "mk-6cFebjis@1625"
+            ]
+          },
+          {
+            "id": "ch02.s05.p04.04",
+            "text": "With the modified tokenizer, encoding no longer raises an error when \"hello\" is not in the vocabulary, because \"hello\" is replaced with the unknown token.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1627",
+              "mk-6cFebjis@1629",
+              "mk-6cFebjis@1631",
+              "mk-6cFebjis@1633",
+              "mk-6cFebjis@1635",
+              "mk-6cFebjis@1638",
+              "mk-6cFebjis@1640",
+              "mk-6cFebjis@1643",
+              "mk-6cFebjis@1645"
+            ]
+          },
+          {
+            "id": "ch02.s05.p04.05",
+            "text": "In that encoded result, the unknown token receives ID 1131, while the end-of-text token receives ID 1130.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1650",
+              "mk-6cFebjis@1654",
+              "mk-6cFebjis@1657",
+              "mk-6cFebjis@1659"
+            ]
+          },
+          {
+            "id": "ch02.s05.p04.06",
+            "text": "Decoding produces text in which unseen words appear as unknown tokens, as in \"unknown do you like t end of text in the sunlight Terraces of the unknown\".",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1662",
+              "mk-6cFebjis@1664",
+              "mk-6cFebjis@1666",
+              "mk-6cFebjis@1668"
+            ]
+          },
+          {
+            "id": "ch02.s05.p04.07",
+            "text": "Here, both \"hello\" and \"palace\" are treated as unknown words because they are not in the data set, and the augmented vocabulary therefore allows both encoding and decoding to succeed even with unknown words.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1670",
+              "mk-6cFebjis@1672",
+              "mk-6cFebjis@1674",
+              "mk-6cFebjis@1677",
+              "mk-6cFebjis@1679",
+              "mk-6cFebjis@1681",
+              "mk-6cFebjis@1684"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s05.p05",
+        "sentences": [
+          {
+            "id": "ch02.s05.p05.01",
+            "text": "Special tokens are not limited to these two.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s05.p05.02",
+            "text": "Depending on the language model, researchers may also use special tokens such as beginning-of-sequence, end-of-sequence, and padding tokens.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1695",
+              "mk-6cFebjis@1698",
+              "mk-6cFebjis@1700",
+              "mk-6cFebjis@1702",
+              "mk-6cFebjis@1704",
+              "mk-6cFebjis@1707",
+              "mk-6cFebjis@1708",
+              "mk-6cFebjis@1711",
+              "mk-6cFebjis@1713",
+              "mk-6cFebjis@1715"
+            ]
+          },
+          {
+            "id": "ch02.s05.p05.03",
+            "text": "For GPT, however, the tokenizer does not use an unknown token, but it does use an end-of-text token.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1717",
+              "mk-6cFebjis@1721",
+              "mk-6cFebjis@1723",
+              "mk-6cFebjis@1726"
+            ]
+          },
+          {
+            "id": "ch02.s05.p05.04",
+            "text": "The end-of-text token marks that one text has ended and another has started, and it is part of the GPT-2 vocabulary.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2635",
+              "fKd8s29e-l4@2637",
+              "fKd8s29e-l4@2639",
+              "fKd8s29e-l4@2640",
+              "fKd8s29e-l4@2645",
+              "fKd8s29e-l4@2648",
+              "fKd8s29e-l4@2664",
+              "fKd8s29e-l4@2666",
+              "fKd8s29e-l4@2669",
+              "fKd8s29e-l4@2670",
+              "fKd8s29e-l4@2673"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

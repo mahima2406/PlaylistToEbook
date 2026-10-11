@@ -1,0 +1,216 @@
+{
+  "stage": "write",
+  "item": "ch04.s01",
+  "inputs_hash": "5602f783ee38d92f64a18b28be967380700f41bd476011cf7c3dcd0299bbce8e",
+  "output_hash": "81b48dac4321b0aeaa4361933c74f0ab2b08fa902de340c9663b579a777a4e20",
+  "output": {
+    "section_id": "ch04.s01",
+    "paragraphs": [
+      {
+        "id": "ch04.s01.p01",
+        "sentences": [
+          {
+            "id": "ch04.s01.p01.01",
+            "text": "How does a collection of separate language-model components become a complete GPT model that can take text as input and produce next-token predictions?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s01.p01.02",
+            "text": "The goal here is to assemble a fully working version of the original 124 million parameter GPT-2 model.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@380",
+              "G3-JgHckzjw@384",
+              "G3-JgHckzjw@388"
+            ]
+          },
+          {
+            "id": "ch04.s01.p01.03",
+            "text": "The full architecture is built by bringing together components that were implemented separately and coding the entire GPT model as one system.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@16",
+              "G3-JgHckzjw@21",
+              "G3-JgHckzjw@87",
+              "G3-JgHckzjw@97"
+            ]
+          },
+          {
+            "id": "ch04.s01.p01.04",
+            "text": "In this assembled model, text is tokenized, the input embeddings pass through dropout, those embeddings are sent into transformer blocks, and the result is postprocessed by another layer normalization and another linear output layer to produce the GPT model output.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@115",
+              "G3-JgHckzjw@119",
+              "G3-JgHckzjw@123",
+              "G3-JgHckzjw@127",
+              "G3-JgHckzjw@148",
+              "G3-JgHckzjw@150",
+              "G3-JgHckzjw@153",
+              "G3-JgHckzjw@158",
+              "G3-JgHckzjw@160",
+              "G3-JgHckzjw@163"
+            ]
+          },
+          {
+            "id": "ch04.s01.p01.05",
+            "text": "Masked multi-head attention is the key component inside a transformer block, and the transformer block is the key component of the entire GPT model.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@169",
+              "G3-JgHckzjw@174",
+              "G3-JgHckzjw@177",
+              "G3-JgHckzjw@179"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s01.p02",
+        "sentences": [
+          {
+            "id": "ch04.s01.p02.01",
+            "text": "This overall flow can also be described directly in terms of the model stack.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s01.p02.02",
+            "text": "The implementation stacks token embeddings, positional embeddings, a dropout layer, transformer blocks, another layer normalization, and an output head, and then produces logits.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@3540",
+              "G3-JgHckzjw@3542",
+              "G3-JgHckzjw@3544",
+              "G3-JgHckzjw@3545",
+              "G3-JgHckzjw@3548"
+            ]
+          },
+          {
+            "id": "ch04.s01.p02.03",
+            "text": "The forward method takes a batch of input tokens, computes their embeddings, applies positional embeddings, passes the sequence through the transformer block, normalizes the final output, and computes logits representing unnormalized probabilities for the next tokens.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@3586",
+              "G3-JgHckzjw@3588",
+              "G3-JgHckzjw@3590",
+              "G3-JgHckzjw@3592",
+              "G3-JgHckzjw@3594",
+              "G3-JgHckzjw@3596",
+              "G3-JgHckzjw@3598",
+              "G3-JgHckzjw@3600",
+              "G3-JgHckzjw@3604"
+            ]
+          },
+          {
+            "id": "ch04.s01.p02.04",
+            "text": "The model itself is an instance of the GPT model class.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@1315",
+              "7TKCrt--bWI@1318",
+              "7TKCrt--bWI@1320"
+            ]
+          },
+          {
+            "id": "ch04.s01.p02.05",
+            "text": "This GPT model class takes the input and converts it into a logits tensor.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@1327",
+              "7TKCrt--bWI@1329",
+              "7TKCrt--bWI@1331"
+            ]
+          },
+          {
+            "id": "ch04.s01.p02.06",
+            "text": "It performs the operations in the GPT architecture schematic and gives the LLM output at the end.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1825",
+              "Zxf-34voZss@1826",
+              "Zxf-34voZss@1830",
+              "Zxf-34voZss@1833",
+              "Zxf-34voZss@1835",
+              "Zxf-34voZss@1838",
+              "Zxf-34voZss@1843",
+              "Zxf-34voZss@1845"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s01.p03",
+        "sentences": [
+          {
+            "id": "ch04.s01.p03.01",
+            "text": "What is this model trying to learn once the pipeline is assembled?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s01.p03.02",
+            "text": "The GPT model is trained for next-word prediction.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@234",
+              "G3-JgHckzjw@239",
+              "G3-JgHckzjw@241"
+            ]
+          },
+          {
+            "id": "ch04.s01.p03.03",
+            "text": "For example, given the input text \"every effort moves you\", the model is trained to predict the next word.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@234",
+              "G3-JgHckzjw@236",
+              "G3-JgHckzjw@239",
+              "G3-JgHckzjw@241"
+            ]
+          },
+          {
+            "id": "ch04.s01.p03.04",
+            "text": "At this stage, the GPT architecture that has been built takes input text and can predict next tokens or next words.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@102",
+              "7TKCrt--bWI@107",
+              "7TKCrt--bWI@109",
+              "7TKCrt--bWI@123",
+              "7TKCrt--bWI@127",
+              "7TKCrt--bWI@129"
+            ]
+          },
+          {
+            "id": "ch04.s01.p03.05",
+            "text": "Without training, those predictions do not yet look good and can be random.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@145",
+              "7TKCrt--bWI@148",
+              "7TKCrt--bWI@150",
+              "7TKCrt--bWI@151"
+            ]
+          },
+          {
+            "id": "ch04.s01.p03.06",
+            "text": "Training is the second stage of building the large language model, and it is needed so that the next token it predicts makes sense.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@156",
+              "7TKCrt--bWI@158",
+              "7TKCrt--bWI@160",
+              "7TKCrt--bWI@165",
+              "7TKCrt--bWI@169",
+              "7TKCrt--bWI@172",
+              "7TKCrt--bWI@174",
+              "7TKCrt--bWI@176"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,14 +1,114 @@
-# Coursebook: YouTube playlist to book
+# Course-to-Book Engine
 
-Turns a lecture playlist into a book that carries its own evidence: every factual
-sentence cites the caption lines it came from, a second model checks each sentence
-against those lines, and the book reports how well that checker catches planted
-false claims. First target: "Building LLMs from scratch"
-(`PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu`). Nothing in the code is specific to that
-playlist; `config.json` holds the playlist, reader, models and budget.
+Turn a playlist of recorded lectures into a real book: organised by idea, every fact traceable to the second of video it was said, and rebuildable exactly.
 
-Design: `docs/designs/proof-carrying-coursebook.md`. Plan and decisions: `docs/PLAN.md`.
-Progress: `docs/STATUS.md`.
+**[Live app](https://coursebook-swart.vercel.app)** · **[Design doc (PDF)](docs/thinking/course-to-book-engine.pdf)** · **[The book (PDF)](docs/books/building-llms-from-scratch-public-lectures-edition.pdf)** · **[Second course, pipeline demo (PDF)](docs/books/build-claude-code-from-scratch-pipeline-demo.pdf)**
+
+## In thirty seconds
+
+- Built from the 22 public lectures of a 43-lecture course: **a 164-page book, 6 chapters, 52,000 words**, plus a web edition where every paragraph links to the second of video it came from.
+- **An independent AI evaluator backs 96.5%** of a fresh random sample of its factual sentences (target 95%), finds 1.5 misleading errors per 100 (target at most 2), and misses 4.3% of core ideas (target at most 10%).
+- Every flagged sentence was decided by a human reviewer. Running the course's own code caught two numbers the lecture got wrong.
+- Nothing course-specific is built in: a second course went through the same commands with a new settings card.
+- Anyone can rebuild the identical book from this repository without an API key (see [Rebuild the book](#rebuild-the-book-no-api-key)).
+
+## Results
+
+| | Building LLMs from Scratch | Build Claude Code from Scratch |
+|---|---|---|
+| Edition | Public Lectures Edition, **reviewed release** | Pipeline demonstration, **draft, unreviewed** |
+| Lectures used | 22 of 43 (21 are members-only on YouTube) | 4 of 4 |
+| Book | 164 pages · 6 chapters · 52,243 words | 2 chapters · 8,311 words |
+| Facts backed, independent evaluator | **96.5%** (200 sentences × 3 judgements) | 93.0% |
+| Misleading errors per 100 | 1.5 | 1.0 |
+| Core ideas missed | 4.3% | 16.7% |
+| Planted false facts caught | 106 / 120 | 32 / 40 |
+| Code listings run / numbers confirmed | 37 of 46 / 69 | none (no companion code) |
+| Human review | all 372 flagged items decided | 15 items open |
+| AI cost | ~$50 | ~$4 |
+
+## The problem
+
+![43 lectures and 31 hours of video versus a book where the answer is on page 87](docs/thinking/figures/problem.svg)
+
+Courses are good for learning in order and bad for looking things up. A book fixes that, but writing one takes weeks, and a book written quickly by an AI model can't be trusted: nothing shows which sentences the lecturer actually said.
+
+## What it builds
+
+![A playlist goes into the engine and a book comes out: organised by idea, every fact traced, same every time](docs/thinking/figures/what.svg)
+
+The engine reads a lecture playlist and writes a book with chapters, an introduction, short summaries and diagrams. Three promises hold for every book it makes: it is organised by idea, not by video; every fact can be traced to the second of video it came from; and running it again gives the same book.
+
+## Five trade-offs
+
+![Five sliders: simple vs elaborate, quality vs quantity, vision vs execution, individual vs comparison, change vs status quo](docs/thinking/figures/sqvid.svg)
+
+The design stays as simple as the checks allow, measures both numbers and reading quality, proves one real chapter before scaling, judges the book on its own before comparing it with alternatives, and changes how the course is used while keeping how it was taught.
+
+## How it works
+
+![Five steps: collect, break down, write, check, publish; the reviewer approves the plan and settles flags; a memory shelf underneath](docs/thinking/figures/big.svg)
+
+Five steps in a row, the reviewer stepping in at two points, and a memory underneath everything.
+
+![A caption line at a second of video, an idea, a chapter spot, a sentence, and a check that reads the same line](docs/thinking/figures/thread.svg)
+
+Every caption line gets a label made from its video and the second it starts. Ideas, chapter plans and sentences all point back to those labels. Pick any sentence and you can play the exact moment it came from.
+
+![A sentence goes to the checker; if backed it goes in; if not it is rewritten once and checked again; if still unsure the reviewer decides](docs/thinking/figures/loop.svg)
+
+Nothing gets in on the writer's word alone. A sentence is either backed by the lines it points to, fixed until it is, or decided by the reviewer, who can see the evidence. If a later run changes that sentence, the decision is reopened.
+
+## Who decides what
+
+![Three layers: the machine checks what is certain, two independent AIs are measured, the reviewer decides and signs off](docs/thinking/figures/trust.svg)
+
+The machine does what it can do with certainty. The AI checker does the reading, and its accuracy is measured with planted false sentences. An independent evaluator agent, a different model that never sees the checker's verdicts, audits samples of the finished book. The reviewer makes the judgement calls. The book states its measured numbers instead of promising perfection.
+
+![The evaluator agent spot-checks facts, hunts for missed ideas in random clips, and scores each chapter; the book is released only when all pass and the reviewer signs off](docs/thinking/figures/reviewer.svg)
+
+## Diagrams explained on screen
+
+![Lecturer points, one frame grabbed at that second, redrawn clean, checked against the image and the speech](docs/thinking/figures/video-images.svg)
+
+Captions only carry what was said. When a lecture explains a diagram or an equation on the screen, the engine finds the moment the lecturer points at it, grabs one still frame at that second, has an AI with vision redraw it, and checks the redraw against the frame and against what is said. In the first book, 16 moments were read and 6 figures kept. Only a few moments per chapter are sampled, and the step is opt-in because it downloads video.
+
+## Rebuild without paying twice
+
+![Each AI question goes to the memory shelf first; found answers are reused for free; offline rebuilds never ask](docs/thinking/figures/rebuild.svg)
+
+Every AI answer is stored with a fingerprint of what went in. Change one thing and only what depends on it is redone. To share the book without sharing the captions, everything except the raw captions is in [`book-data/`](book-data), with a fingerprint for every file.
+
+### Rebuild the book (no API key)
+
+```sh
+uv sync --locked
+uv run --locked coursebook verify-package --package book-data            # checks 620 fingerprints, rebuilds the book sources
+uv run --locked coursebook verify-package --package book-data --pdf --out rebuilt   # also typesets the PDF (needs Quarto)
+```
+
+## Any course, by settings
+
+![A settings card: playlist and reader, writer and checker AIs, spending limit, chapters, diagrams on or off](docs/thinking/figures/anycourse.svg)
+
+A new playlist needs a new settings card, not new code. The second course above was built with the same commands.
+
+## What went wrong, and what I did
+
+| What happened | What I did |
+|---|---|
+| **Half the course is behind a paywall.** Every odd-numbered lecture is members-only. | Declared, not hidden: a "Public Lectures Edition, 22 of 43", with each missing lecture listed and its reason. |
+| **The lecture said 610 and 107.** Running the course's code gives 6100 and 1107. | The disagreement went to the reviewer with the executed values; the text was corrected, with the code run recorded as the reason. |
+| **The evaluator disagreed with itself** on about 10% of sentences between identical runs. | Measured better, never lowered the bar: each sampled sentence is judged three times over 200 sentences. The 95% target never moved. |
+| **The coverage check punished a book that teaches each idea once.** | Missing ideas are searched across the whole book before they count. Both numbers are reported: 4.3% from the book, 12.8% near the clip. |
+| **Rewrites copied caption mistakes**, e.g. "a Jou activation" for GELU. | Rewordings must use the correct technical term and are re-checked by the strict evaluator before the reviewer sees them. |
+| **YouTube rate-limits and blocks cloud servers.** | Each missing lecture records why; capture resumes where it stopped; the live server reaches captions through a signed-in session. |
+
+## Live app
+
+[coursebook-swart.vercel.app](https://coursebook-swart.vercel.app) shows both books with their PDF, web edition and evidence explorer. Pasting a playlist starts a real build on an Azure server; it needs an access code from the owner, takes about 35 minutes for a short course, and comes out as a draft until it is reviewed.
+
+---
 
 ## Setup
 
@@ -78,10 +178,11 @@ on a cache miss.
   sample by an independent evaluator agent (a third model, blind to the judge). The book states its measured rates instead of promising zero errors.
 - The book is marked DRAFT, with reasons, until the outline is approved, the
   review queue and reference conflicts are settled, the evaluator agent passes,
-  stated numbers agree with the executed code, and every lecture is covered.
+  stated numbers agree with the executed code, and every lecture is covered or
+  declared out of scope by the edition settings (`edition` in `config.json`).
 - 21 of the 43 lectures (the odd-numbered ones from 3 to 43) are members-only on
-  YouTube; their captions are not publicly retrievable. They are listed as not
-  covered.
+  YouTube; their captions are not publicly retrievable. The book is a declared
+  Public Lectures Edition and lists them, with their reason, as not covered.
 - Captions are automatic and can be misheard. Raw captions and the model cache stay
   in `data/` (git-ignored) because reuse rights are not established.
 

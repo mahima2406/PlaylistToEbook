@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch02.s03.p02.06",
+  "inputs_hash": "a8ea9d27d6e3f8d9ed9148a9b0d17ebbeb9f71f66bb49a6dc030b0a1fee85a46",
+  "output_hash": "2d0b68f7cb1b4e7f7935eba21222175ed6b62848c568998952bb646960c99dde",
+  "output": {
+    "decision": "edit",
+    "text": "The regular expression is updated to split on characters such as commas, full stops, colons, semicolons, question marks, underscores, exclamation marks, quotation marks, brackets, slashes, and whitespace, and the resulting list is filtered so that only non-whitespace items remain.",
+    "reason": "The captions explicitly mention splitting on those punctuation marks and then filtering out whitespace-only tokens, while the broader wording avoids contradicting the reference's simpler examples.",
+    "risk": "high",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "225c06acb4e0c17d0fa036bd486044906e289a38381bc0a7f92f0bd12c6e28c9"
+  }
+}

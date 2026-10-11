@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch03.s10.p10.r08",
+  "inputs_hash": "7789c2b7fc32110bbc34bda11938e82ac175b1a2988ee30e44b4c3d8e84c124a",
+  "output_hash": "8dd88995c4859190b0c7e956295be1b1ccc842d59dfe803ed8e23f7ced8d61d1",
+  "output": {
+    "decision": "edit",
+    "text": "When resources or hardware capabilities force small batch sizes, or when batch-size-independent normalization is desired, layer normalization offers much greater flexibility.",
+    "reason": "The captions support layer normalization being much better in terms of flexibility under those conditions, but not the broader claim 'better choice than batch normalization.'",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "964f792ab9f928a319cb745b1fa13db51764175e597061bbc637341e67a2e752"
+  }
+}

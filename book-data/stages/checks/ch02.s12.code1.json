@@ -1,0 +1,64 @@
+{
+  "stage": "checks",
+  "item": "ch02.s12.code1",
+  "inputs_hash": "d9d47874540c8bf13d8a2370bb57a065ff6f48e6815508c7b1cbfa9262b1decd",
+  "output_hash": "cb9a21304db67b7d54b2617a1fb01929fabdc4a39beeeaf1526e86e50be02c02",
+  "output": [
+    {
+      "sentence_id": "ch02.s12.p02.r02",
+      "expected": 50257,
+      "expression": "vocab_size",
+      "tolerance": 0,
+      "check_id": "ch02.s12.code1.chk1",
+      "sentence_text": "For GPT-2, the vocabulary size is stated as 50,257 and the embedding dimension as 768 for the smallest model."
+    },
+    {
+      "sentence_id": "ch02.s12.p02.r03",
+      "expected": 50257,
+      "expression": "vocab_size",
+      "tolerance": 0,
+      "check_id": "ch02.s12.code1.chk2",
+      "sentence_text": "Its vocabulary consists of 50,257 subword tokens made through byte pair encoding, with corresponding token IDs."
+    },
+    {
+      "sentence_id": "ch02.s12.p02.r05",
+      "expected": 50257,
+      "expression": "token_embedding_layer.weight.shape[0]",
+      "tolerance": 0,
+      "check_id": "ch02.s12.code1.chk3",
+      "sentence_text": "That means the embedding layer weight matrix has 50,257 rows and 768 columns."
+    },
+    {
+      "sentence_id": "ch02.s12.p03.r01",
+      "expected": 50257,
+      "expression": "token_embedding_layer.weight.shape[0]",
+      "tolerance": 0,
+      "check_id": "ch02.s12.code1.chk4",
+      "sentence_text": "When training GPT-2, you know that the embedding layer weight matrix must have 50,257 rows and 768 columns, but you do not know the actual weight values in advance."
+    },
+    {
+      "sentence_id": "ch02.s12.p07.r02",
+      "expected": 50257,
+      "expression": "token_embedding_layer.weight.shape[0]",
+      "tolerance": 0,
+      "check_id": "ch02.s12.code1.chk5",
+      "sentence_text": "A practical embedding layer is created using the same embedding function with GPT-2’s vocabulary size of 50,257 and a vector dimension of 256, giving an embedding matrix with 50,257 rows and 256 columns."
+    },
+    {
+      "sentence_id": "ch02.s12.p07.r02",
+      "expected": 256,
+      "expression": "token_embedding_layer.weight.shape[1]",
+      "tolerance": 0,
+      "check_id": "ch02.s12.code1.chk6",
+      "sentence_text": "A practical embedding layer is created using the same embedding function with GPT-2’s vocabulary size of 50,257 and a vector dimension of 256, giving an embedding matrix with 50,257 rows and 256 columns."
+    },
+    {
+      "sentence_id": "ch02.s12.p07.r03",
+      "expected": 256,
+      "expression": "output_dim",
+      "tolerance": 0,
+      "check_id": "ch02.s12.code1.chk7",
+      "sentence_text": "Here each token ID is associated with a vector containing 256 values."
+    }
+  ]
+}

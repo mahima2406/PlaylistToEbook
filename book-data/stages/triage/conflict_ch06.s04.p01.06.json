@@ -1,0 +1,13 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch06.s04.p01.06",
+  "inputs_hash": "e0be26b7e52a78362a28246a030bc7b434648f775e791665330b3f8e21e7aecb",
+  "output_hash": "069e6f4bcdbce568821e5b52ff4e772230b2d2b0cca4328b4e27fd63333e7888",
+  "output": {
+    "decision": "keep",
+    "reason": "The cited captions explicitly describe finding the longest sequence within each batch and padding the others to match it, so the lecture statement is correct in its context.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "85eacb0f35f92f6e9733107c648fc638f82598576eb4783c102be6765dedbfcc"
+  }
+}

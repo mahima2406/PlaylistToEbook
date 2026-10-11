@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch03.s05",
+  "inputs_hash": "dbecf1cac007b1ca3b022435b454de4e230f54cf9a39169ff2fc92eb26d9705c",
+  "output_hash": "3991e1a86259d912bcb52620d04a6756ee1807b2ffb893194a478a602d49e63c",
+  "output": {
+    "section_id": "ch03.s05",
+    "listings": [
+      {
+        "id": "ch03.s05.code1",
+        "ref": "ref:ch03/01_main-chapter-code/ch03.ipynb#cell47",
+        "path": "ch03/01_main-chapter-code/ch03.ipynb",
+        "caption": "This code fills a 6×6 attention score matrix by looping over all input pairs and storing the dot product for each query-token and token pair.",
+        "code": "attn_scores = torch.empty(6, 6)\n\nfor i, x_i in enumerate(inputs):\n    for j, x_j in enumerate(inputs):\n        attn_scores[i, j] = torch.dot(x_i, x_j)\n\nprint(attn_scores)",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The section describes computing attention scores by taking dot products between a fixed query token and all input tokens, and notes that one way is using nested loops over inputs to fill the full attention score matrix. The code creates a 6×6 tensor and fills each entry with torch.dot(x_i, x_j) for every (i,j) pair, which directly implements that step. The caption accurately states what the code does."
+      },
+      {
+        "id": "ch03.s05.code2",
+        "ref": "ref:ch03/01_main-chapter-code/ch03.ipynb#cell55",
+        "path": "ch03/01_main-chapter-code/ch03.ipynb",
+        "caption": "This code computes all context vectors at once by multiplying the attention weight matrix with the input matrix and printing the result.",
+        "code": "all_context_vecs = attn_weights @ inputs\nprint(all_context_vecs)",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The section explicitly teaches the final simplified step: compute all context vectors at once by multiplying the attention weight matrix by the input matrix, producing an all_context_vectors tensor. The code does exactly that with `attn_weights @ inputs` and prints the result, matching the caption."
+      }
+    ],
+    "rejected": []
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "stage": "crosscheck",
+  "item": "ch01.s08",
+  "inputs_hash": "8c10e07f7340ff9441c461e0c726eb0f5dd1237866c3a0533d63e9ad446bf3b7",
+  "output_hash": "a923c55ba063f4047e6753d9312d801a6883654a13c292e39a8c212c84737dd4",
+  "output": {
+    "section_id": "ch01.s08",
+    "checked": 19,
+    "counts": {
+      "agrees": 11,
+      "contradicts": 0,
+      "not_covered": 8
+    },
+    "results": [
+      {
+        "sentence_id": "ch01.s08.p01.02",
+        "text": "In this setting, attention is a technical term.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell126",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references discuss attention/self-attention as a specific defined mechanism in transformers (single-head, multi-head, scaled dot-product), consistent with it being used as a technical term."
+      },
+      {
+        "sentence_id": "ch01.s08.p01.03",
+        "text": "A key part of the transformer architecture is the self-attention mechanism.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell18",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly says it implements the self-attention mechanism used in the original transformer architecture (and GPT), supporting that self-attention is a key part of transformer architectures."
+      },
+      {
+        "sentence_id": "ch01.s08.p01.04",
+        "text": "Attention mechanisms have become an integral part of sequence modeling because they allow modeling dependencies without regard to distance in the input or output sequences.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell7",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell12",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell15"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference describes self-attention as enabling each position to engage with every other position in the same sequence, consistent with modeling dependencies regardless of distance."
+      },
+      {
+        "sentence_id": "ch01.s08.p01.05",
+        "text": "Put more concretely, attention lets the model relate different words even when those words are close together or far apart.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell91",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell36",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "If each position can attend to every other position, the model can relate words that are near or far apart; this is consistent with the reference description of self-attention."
+      },
+      {
+        "sentence_id": "ch01.s08.p01.06",
+        "text": "Self-attention is an attention mechanism that relates different positions of a single sequence in order to compute a representation of that sequence.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell126",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell27",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell90"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference’s self-attention computation forms context vectors for positions by taking weighted combinations over (other) input positions/tokens, matching the definition of relating positions within a single sequence to compute representations."
+      },
+      {
+        "sentence_id": "ch01.s08.p01.07",
+        "text": "One useful intuition is that attention allows the model to weigh the importance of different words or tokens relative to each other.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell52",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell126"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference describes attention weights used to compute context vectors as weighted sums over input vectors, which corresponds to weighing token importance relative to each other."
+      },
+      {
+        "sentence_id": "ch01.s08.p02.r01",
+        "text": "For example, suppose earlier sentences mention that Harry Potter is on a station or platform number something and that Harry Potter wants to board the train.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell80",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages discuss attention mechanisms and generic example sentences but do not mention Harry Potter, stations/platform numbers, or that specific illustrative scenario."
+      },
+      {
+        "sentence_id": "ch01.s08.p02.r02",
+        "text": "When predicting the next word in a fourth sentence, the context from sentences one, two, and three is important for understanding that fourth sentence and predicting its next word.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell6",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell7",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the references note next-word prediction training setup, they do not specifically address multi-sentence context (sentences one–three) being important for predicting a word in a fourth sentence."
+      },
+      {
+        "sentence_id": "ch01.s08.p02.r03",
+        "text": "That is the meaning of long-range dependencies: when predicting the next word, the model needs to know the importance of previous words.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell79"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The excerpts do not define 'long-range dependencies' or explicitly connect it to needing to know the importance of previous words; they mainly discuss perplexity/logits or other topics."
+      },
+      {
+        "sentence_id": "ch01.s08.p02.r04",
+        "text": "It needs to know how much attention to give to previous words and which earlier words should receive more attention, perhaps \"Harry,\" perhaps \"platform,\" or perhaps \"train.\"",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell47"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference snippet about prompting for spam classification is unrelated, and no provided passage discusses choosing higher attention for particular earlier words like 'Harry', 'platform', or 'train'."
+      },
+      {
+        "sentence_id": "ch01.s08.p02.r05",
+        "text": "Self-attention captures these long-range dependencies so the model can look far behind, including sentences closer to the current one, to identify the next word.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell119",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states causal self-attention makes each position depend only on preceding tokens (not future ones), consistent with using prior context (potentially far back) for next-word prediction."
+      },
+      {
+        "sentence_id": "ch01.s08.p03.02",
+        "text": "For next-word prediction, self-attention maintains an attention score that tells the model which word should receive more attention.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell95",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell21",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell90"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference defines attention scores (unnormalized) and attention weights (normalized) and explains causal self-attention for next-word prediction, consistent with maintaining attention scores/weights indicating which prior tokens receive more attention."
+      },
+      {
+        "sentence_id": "ch01.s08.p03.03",
+        "text": "That attention score is a matrix that tells the model which words should be given more importance in relation to other words.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell95",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell92"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references discuss causal masking, attention weights masking, and perplexity, but do not define the attention score as a matrix indicating which words get more importance relative to other words."
+      },
+      {
+        "sentence_id": "ch01.s08.p03.04",
+        "text": "In the transformer architecture, attention appears in attention blocks such as multi-head attention and masked multi-head attention.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell8",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell124",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell130"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references explicitly cover multi-head attention and causal (masked) self-attention mechanisms, consistent with attention appearing in blocks such as multi-head and masked multi-head attention."
+      },
+      {
+        "sentence_id": "ch01.s08.p03.05",
+        "text": "These attention blocks help capture long-range dependencies in sentences, which is why the paper is called \"attention is all you need.\"",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell12"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the references mention capturing data dependencies with attention mechanisms and implementing self-attention, they do not state that attention blocks capture long-range dependencies nor connect this as the reason for the paper title \"Attention Is All You Need.\""
+      },
+      {
+        "sentence_id": "ch01.s08.p04.03",
+        "text": "Self-attention gives a model a way to capture that long-range context, and this helps make next-word prediction accurate.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell95"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references explain causal self-attention for next-token prediction, where each prediction depends on preceding tokens, consistent with self-attention helping incorporate context to improve next-word prediction."
+      },
+      {
+        "sentence_id": "ch01.s08.p04.04",
+        "text": "In ChatGPT, the model gives attention to every sentence in the input when predicting the next word.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell85",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell90"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss input sequences, greedy decoding, and causal masking, but do not make a claim about ChatGPT attending to every sentence in the input when predicting the next word."
+      },
+      {
+        "sentence_id": "ch01.s08.p04.05",
+        "text": "It does not just look at the sentence immediately before the current one, because previous words may be more important.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell137",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell112"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages do not address comparing only the immediately previous sentence versus earlier words, nor do they state that earlier words may be more important; they mostly cover perplexity and an attention score computation detail."
+      },
+      {
+        "sentence_id": "ch01.s08.p04.06",
+        "text": "Another way to think about self-attention is as parallel attention to different parts of a paragraph or to different sentences.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell17",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell126",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell90"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references describe attending to different parts of the input and explain multi-head attention as running attention in parallel to attend to different positions/representation subspaces, which aligns with thinking of self-attention as parallel attention to different parts of a paragraph/sentences."
+      }
+    ],
+    "conflicts": []
+  }
+}

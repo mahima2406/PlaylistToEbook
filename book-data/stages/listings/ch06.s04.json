@@ -1,0 +1,33 @@
+{
+  "stage": "listings",
+  "item": "ch06.s04",
+  "inputs_hash": "7f156f2289733f2fbb134c56030f8f61a785d5fe733c990891521e60a61ef32f",
+  "output_hash": "c238b695f84f49f1dd1e0479293cbfa28c67b592a8b62cdebdc0a4566ec6794e",
+  "output": {
+    "section_id": "ch06.s04",
+    "listings": [
+      {
+        "id": "ch06.s04.code1",
+        "ref": "ref:ch07/01_main-chapter-code/ch07.ipynb#cell35",
+        "path": "ch07/01_main-chapter-code/ch07.ipynb",
+        "caption": "This function finds the longest sequence length in a batch, adds one end-of-text token with ID 50256 to each item, pads shorter items with 50256, removes the extra final token, stacks the results into a tensor, and moves it to the target device.",
+        "code": "def custom_collate_draft_1(\n    batch,\n    pad_token_id=50256,\n    device=\"cpu\"\n):\n    # Find the longest sequence in the batch\n    # and increase the max length by +1, which will add one extra\n    # padding token below\n    batch_max_length = max(len(item)+1 for item in batch)\n\n    # Pad and prepare inputs\n    inputs_lst = []\n\n    for item in batch:\n        new_item = item.copy()\n        # Add an <|endoftext|> token\n        new_item += [pad_token_id]\n        # Pad sequences to batch_max_length\n        padded = (\n            new_item + [pad_token_id] *\n            (batch_max_length - len(new_item))\n        )\n        # Via padded[:-1], we remove the extra padded token\n        # that has been added via the +1 setting in batch_max_length\n        # (the extra padding token will be relevant in later codes)\n        inputs = torch.tensor(padded[:-1])\n        inputs_lst.append(inputs)\n\n    # Convert list of inputs to tensor and transfer to target device\n    inputs_tensor = torch.stack(inputs_lst).to(device)",
+        "truncated": true,
+        "check": "matches",
+        "reason": "The code implements the described custom collate function behavior: it computes the per-batch maximum length as max(len(item)+1), appends one 50256 token to each sequence, pads with additional 50256 tokens to the batch maximum length, then removes the extra final token via padded[:-1]. It converts each padded sequence to a tensor, stacks them into a batch tensor, and moves it to the specified device. The caption accurately summarizes these steps."
+      }
+    ],
+    "rejected": [
+      {
+        "id": "ch06.s04.code2",
+        "ref": "ref:ch07/01_main-chapter-code/ch07.ipynb#cell40",
+        "path": "ch07/01_main-chapter-code/ch07.ipynb",
+        "caption": "This function pads each batch item with the end-of-text token ID 50256 up to the batch maximum length plus one, then builds input tensors from all but the last token and target tensors from all but the first token.",
+        "code": "def custom_collate_draft_2(\n    batch,\n    pad_token_id=50256,\n    device=\"cpu\"\n):\n    # Find the longest sequence in the batch\n    batch_max_length = max(len(item)+1 for item in batch)\n\n    # Pad and prepare inputs\n    inputs_lst, targets_lst = [], []\n\n    for item in batch:\n        new_item = item.copy()\n        # Add an <|endoftext|> token\n        new_item += [pad_token_id]\n        # Pad sequences to max_length\n        padded = (\n            new_item + [pad_token_id] *\n            (batch_max_length - len(new_item))\n        )\n        inputs = torch.tensor(padded[:-1])  # Truncate the last token for inputs\n        targets = torch.tensor(padded[1:])  # Shift +1 to the right for targets\n        inputs_lst.append(inputs)\n        targets_lst.append(targets)\n\n    # Convert list of inputs to tensor and transfer to target device\n    inputs_tensor = torch.stack(inputs_lst).to(device)\n    targets_tensor = torch.stack(targets_lst).to(device)\n    return inputs_tensor, targets_tensor\n",
+        "truncated": true,
+        "check": "partial",
+        "reason": "The code implements the described per-batch padding strategy: it computes the batch maximum length as max(len(item)+1), appends one pad/eot token (50256) to each sequence, pads with additional 50256 tokens up to that length, and moves the stacked tensors to the specified device. However, the section description says the function (or process) removes the extra added token after padding and that the draft-one collate returns only an input tensor, whereas this code keeps the +1 token implicitly by producing shifted inputs/targets (dropping last/first rather than explicitly removing the extra token) and returns both inputs and targets. Thus it’s closely related but goes beyond/doesn’t exactly match all taught points."
+      }
+    ]
+  }
+}

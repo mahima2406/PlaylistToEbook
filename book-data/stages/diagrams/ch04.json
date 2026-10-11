@@ -1,0 +1,1167 @@
+{
+  "stage": "diagrams",
+  "item": "ch04",
+  "inputs_hash": "2c8f2ef9254ebd48d1a603adeafcb8584b0cb009e19dd0b2662c84158b742966",
+  "output_hash": "a35d7fbccf91eb9f97df841c8d3e5b3abdc6496652ad6a4db58842fc8f8106c9",
+  "output": {
+    "chapter": "ch04",
+    "diagrams": [
+      {
+        "id": "ch04.fig1",
+        "after_paragraph": "ch04.s01.p01",
+        "title": "Overall GPT model data flow",
+        "caption": "The assembled GPT model maps tokenized input through embeddings, transformer blocks, final normalization, and an output head to produce logits.",
+        "mermaid": "flowchart LR\n  A[\"Text\"] -->|\"tokenize\"| B[\"Input tokens\"]\n  B -->|\"embed\"| C[\"Input embeddings\"]\n  C -->|\"sent into\"| D[\"Transformer blocks\"]\n  D -->|\"postprocessed by\"| E[\"Final layer normalization\"]\n  E -->|\"compute\"| F[\"Logits\"]",
+        "claims": [
+          {
+            "id": "ch04.fig1.c1",
+            "type": "F",
+            "text": "Text is tokenized into input tokens.",
+            "sentences": [
+              "ch04.s01.p01.04"
+            ],
+            "cites": [
+              "G3-JgHckzjw@115",
+              "G3-JgHckzjw@119",
+              "G3-JgHckzjw@123",
+              "G3-JgHckzjw@127",
+              "G3-JgHckzjw@148",
+              "G3-JgHckzjw@150",
+              "G3-JgHckzjw@153",
+              "G3-JgHckzjw@158",
+              "G3-JgHckzjw@160",
+              "G3-JgHckzjw@163"
+            ],
+            "verdict": "supported",
+            "confidence": 0.9,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig1.c2",
+            "type": "F",
+            "text": "Input tokens are converted into input embeddings.",
+            "sentences": [
+              "ch04.s01.p01.04",
+              "ch04.s01.p02.03"
+            ],
+            "cites": [
+              "G3-JgHckzjw@115",
+              "G3-JgHckzjw@119",
+              "G3-JgHckzjw@123",
+              "G3-JgHckzjw@127",
+              "G3-JgHckzjw@148",
+              "G3-JgHckzjw@150",
+              "G3-JgHckzjw@153",
+              "G3-JgHckzjw@158",
+              "G3-JgHckzjw@160",
+              "G3-JgHckzjw@163",
+              "G3-JgHckzjw@3586",
+              "G3-JgHckzjw@3588",
+              "G3-JgHckzjw@3590",
+              "G3-JgHckzjw@3592",
+              "G3-JgHckzjw@3594",
+              "G3-JgHckzjw@3596",
+              "G3-JgHckzjw@3598",
+              "G3-JgHckzjw@3600",
+              "G3-JgHckzjw@3604"
+            ],
+            "verdict": "supported",
+            "confidence": 0.9,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig1.c3",
+            "type": "F",
+            "text": "Input embeddings are sent into transformer blocks.",
+            "sentences": [
+              "ch04.s01.p01.04"
+            ],
+            "cites": [
+              "G3-JgHckzjw@115",
+              "G3-JgHckzjw@119",
+              "G3-JgHckzjw@123",
+              "G3-JgHckzjw@127",
+              "G3-JgHckzjw@148",
+              "G3-JgHckzjw@150",
+              "G3-JgHckzjw@153",
+              "G3-JgHckzjw@158",
+              "G3-JgHckzjw@160",
+              "G3-JgHckzjw@163"
+            ],
+            "verdict": "supported",
+            "confidence": 0.85,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig1.c4",
+            "type": "F",
+            "text": "The transformer block output is postprocessed by another layer normalization.",
+            "sentences": [
+              "ch04.s01.p01.04",
+              "ch04.s01.p02.03"
+            ],
+            "cites": [
+              "G3-JgHckzjw@115",
+              "G3-JgHckzjw@119",
+              "G3-JgHckzjw@123",
+              "G3-JgHckzjw@127",
+              "G3-JgHckzjw@148",
+              "G3-JgHckzjw@150",
+              "G3-JgHckzjw@153",
+              "G3-JgHckzjw@158",
+              "G3-JgHckzjw@160",
+              "G3-JgHckzjw@163",
+              "G3-JgHckzjw@3586",
+              "G3-JgHckzjw@3588",
+              "G3-JgHckzjw@3590",
+              "G3-JgHckzjw@3592",
+              "G3-JgHckzjw@3594",
+              "G3-JgHckzjw@3596",
+              "G3-JgHckzjw@3598",
+              "G3-JgHckzjw@3600",
+              "G3-JgHckzjw@3604"
+            ],
+            "verdict": "supported",
+            "confidence": 0.9,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig1.c5",
+            "type": "F",
+            "text": "After final normalization, the model computes logits.",
+            "sentences": [
+              "ch04.s01.p02.03"
+            ],
+            "cites": [
+              "G3-JgHckzjw@3586",
+              "G3-JgHckzjw@3588",
+              "G3-JgHckzjw@3590",
+              "G3-JgHckzjw@3592",
+              "G3-JgHckzjw@3594",
+              "G3-JgHckzjw@3596",
+              "G3-JgHckzjw@3598",
+              "G3-JgHckzjw@3600",
+              "G3-JgHckzjw@3604"
+            ],
+            "verdict": "supported",
+            "confidence": 0.95,
+            "reason": ""
+          }
+        ],
+        "passed": true,
+        "repaired": true,
+        "first_attempt": [
+          {
+            "id": "ch04.fig1.c1",
+            "type": "F",
+            "text": "Text is tokenized into input tokens.",
+            "sentences": [
+              "ch04.s01.p01.04"
+            ],
+            "cites": [
+              "G3-JgHckzjw@115",
+              "G3-JgHckzjw@119",
+              "G3-JgHckzjw@123",
+              "G3-JgHckzjw@127",
+              "G3-JgHckzjw@148",
+              "G3-JgHckzjw@150",
+              "G3-JgHckzjw@153",
+              "G3-JgHckzjw@158",
+              "G3-JgHckzjw@160",
+              "G3-JgHckzjw@163"
+            ],
+            "verdict": "supported",
+            "confidence": 0.9,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig1.c2",
+            "type": "F",
+            "text": "Input tokens are converted into input embeddings.",
+            "sentences": [
+              "ch04.s01.p01.04",
+              "ch04.s01.p02.03"
+            ],
+            "cites": [
+              "G3-JgHckzjw@115",
+              "G3-JgHckzjw@119",
+              "G3-JgHckzjw@123",
+              "G3-JgHckzjw@127",
+              "G3-JgHckzjw@148",
+              "G3-JgHckzjw@150",
+              "G3-JgHckzjw@153",
+              "G3-JgHckzjw@158",
+              "G3-JgHckzjw@160",
+              "G3-JgHckzjw@163",
+              "G3-JgHckzjw@3586",
+              "G3-JgHckzjw@3588",
+              "G3-JgHckzjw@3590",
+              "G3-JgHckzjw@3592",
+              "G3-JgHckzjw@3594",
+              "G3-JgHckzjw@3596",
+              "G3-JgHckzjw@3598",
+              "G3-JgHckzjw@3600",
+              "G3-JgHckzjw@3604"
+            ],
+            "verdict": "supported",
+            "confidence": 0.95,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig1.c3",
+            "type": "F",
+            "text": "The input embeddings pass through dropout.",
+            "sentences": [
+              "ch04.s01.p01.04"
+            ],
+            "cites": [
+              "G3-JgHckzjw@115",
+              "G3-JgHckzjw@119",
+              "G3-JgHckzjw@123",
+              "G3-JgHckzjw@127",
+              "G3-JgHckzjw@148",
+              "G3-JgHckzjw@150",
+              "G3-JgHckzjw@153",
+              "G3-JgHckzjw@158",
+              "G3-JgHckzjw@160",
+              "G3-JgHckzjw@163"
+            ],
+            "verdict": "partial",
+            "confidence": 0.7,
+            "reason": "the cited lines mention a dropout layer and that input embeddings are passed onward, but they do not explicitly state that the input embeddings pass through dropout (the ordering/connection is not clearly stated in the cited snippet)."
+          },
+          {
+            "id": "ch04.fig1.c4",
+            "type": "F",
+            "text": "The dropout output is sent into transformer blocks.",
+            "sentences": [
+              "ch04.s01.p01.04",
+              "ch04.s01.p02.02"
+            ],
+            "cites": [
+              "G3-JgHckzjw@115",
+              "G3-JgHckzjw@119",
+              "G3-JgHckzjw@123",
+              "G3-JgHckzjw@127",
+              "G3-JgHckzjw@148",
+              "G3-JgHckzjw@150",
+              "G3-JgHckzjw@153",
+              "G3-JgHckzjw@158",
+              "G3-JgHckzjw@160",
+              "G3-JgHckzjw@163",
+              "G3-JgHckzjw@3540",
+              "G3-JgHckzjw@3542",
+              "G3-JgHckzjw@3544",
+              "G3-JgHckzjw@3545",
+              "G3-JgHckzjw@3548"
+            ],
+            "verdict": "supported",
+            "confidence": 0.95,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig1.c5",
+            "type": "F",
+            "text": "The transformer block output is postprocessed by another layer normalization.",
+            "sentences": [
+              "ch04.s01.p01.04",
+              "ch04.s01.p02.03"
+            ],
+            "cites": [
+              "G3-JgHckzjw@115",
+              "G3-JgHckzjw@119",
+              "G3-JgHckzjw@123",
+              "G3-JgHckzjw@127",
+              "G3-JgHckzjw@148",
+              "G3-JgHckzjw@150",
+              "G3-JgHckzjw@153",
+              "G3-JgHckzjw@158",
+              "G3-JgHckzjw@160",
+              "G3-JgHckzjw@163",
+              "G3-JgHckzjw@3586",
+              "G3-JgHckzjw@3588",
+              "G3-JgHckzjw@3590",
+              "G3-JgHckzjw@3592",
+              "G3-JgHckzjw@3594",
+              "G3-JgHckzjw@3596",
+              "G3-JgHckzjw@3598",
+              "G3-JgHckzjw@3600",
+              "G3-JgHckzjw@3604"
+            ],
+            "verdict": "supported",
+            "confidence": 0.95,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig1.c6",
+            "type": "F",
+            "text": "The normalized output goes through another linear output layer to produce GPT model output logits.",
+            "sentences": [
+              "ch04.s01.p01.04",
+              "ch04.s01.p02.02",
+              "ch04.s01.p02.03"
+            ],
+            "cites": [
+              "G3-JgHckzjw@115",
+              "G3-JgHckzjw@119",
+              "G3-JgHckzjw@123",
+              "G3-JgHckzjw@127",
+              "G3-JgHckzjw@148",
+              "G3-JgHckzjw@150",
+              "G3-JgHckzjw@153",
+              "G3-JgHckzjw@158",
+              "G3-JgHckzjw@160",
+              "G3-JgHckzjw@163",
+              "G3-JgHckzjw@3540",
+              "G3-JgHckzjw@3542",
+              "G3-JgHckzjw@3544",
+              "G3-JgHckzjw@3545",
+              "G3-JgHckzjw@3548",
+              "G3-JgHckzjw@3586",
+              "G3-JgHckzjw@3588",
+              "G3-JgHckzjw@3590",
+              "G3-JgHckzjw@3592",
+              "G3-JgHckzjw@3594",
+              "G3-JgHckzjw@3596",
+              "G3-JgHckzjw@3598",
+              "G3-JgHckzjw@3600",
+              "G3-JgHckzjw@3604"
+            ],
+            "verdict": "partial",
+            "confidence": 0.75,
+            "reason": "the captions support that after normalization the model computes logits, and they mention an output head/linear output layer, but they do not explicitly connect the normalized output going through 'another linear output layer' as the step that produces the logits."
+          }
+        ]
+      },
+      {
+        "id": "ch04.fig2",
+        "after_paragraph": "ch04.s04.p04",
+        "title": "Transformer block internal workflow",
+        "caption": "A Transformer block applies normalization, masked multi head attention, dropout, a shortcut connection, another normalization, a feed forward network, dropout, and a final shortcut while preserving embedding size.",
+        "mermaid": "flowchart TD\n  B[\"Layer normalization\"] --> C[\"Masked multi head attention\"]\n  C --> D[\"Dropout\"]\n  D --> E[\"Shortcut connection\"]\n  E --> F[\"Layer normalization\"]\n  F --> G[\"Feed forward neural network\"]\n  G --> H[\"Dropout\"]\n  H --> I[\"Final shortcut connection\"]\n  I --> J[\"Transformer block output\"]",
+        "claims": [
+          {
+            "id": "ch04.fig2.c1",
+            "type": "F",
+            "text": "Layer normalization is followed by masked multi head attention.",
+            "sentences": [
+              "ch04.s04.p04.r07"
+            ],
+            "cites": [
+              "G3-JgHckzjw@1852",
+              "G3-JgHckzjw@1855",
+              "G3-JgHckzjw@1859",
+              "G3-JgHckzjw@1861",
+              "G3-JgHckzjw@1864",
+              "G3-JgHckzjw@1867",
+              "G3-JgHckzjw@1869",
+              "G3-JgHckzjw@1884",
+              "G3-JgHckzjw@1886",
+              "G3-JgHckzjw@1888",
+              "G3-JgHckzjw@1890",
+              "G3-JgHckzjw@1892",
+              "G3-JgHckzjw@1894"
+            ],
+            "verdict": "supported",
+            "confidence": 0.95,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig2.c2",
+            "type": "F",
+            "text": "Masked multi head attention is followed by dropout.",
+            "sentences": [
+              "ch04.s04.p04.r07"
+            ],
+            "cites": [
+              "G3-JgHckzjw@1852",
+              "G3-JgHckzjw@1855",
+              "G3-JgHckzjw@1859",
+              "G3-JgHckzjw@1861",
+              "G3-JgHckzjw@1864",
+              "G3-JgHckzjw@1867",
+              "G3-JgHckzjw@1869",
+              "G3-JgHckzjw@1884",
+              "G3-JgHckzjw@1886",
+              "G3-JgHckzjw@1888",
+              "G3-JgHckzjw@1890",
+              "G3-JgHckzjw@1892",
+              "G3-JgHckzjw@1894"
+            ],
+            "verdict": "supported",
+            "confidence": 0.95,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig2.c3",
+            "type": "F",
+            "text": "That dropout is followed by a shortcut connection.",
+            "sentences": [
+              "ch04.s04.p04.r07"
+            ],
+            "cites": [
+              "G3-JgHckzjw@1852",
+              "G3-JgHckzjw@1855",
+              "G3-JgHckzjw@1859",
+              "G3-JgHckzjw@1861",
+              "G3-JgHckzjw@1864",
+              "G3-JgHckzjw@1867",
+              "G3-JgHckzjw@1869",
+              "G3-JgHckzjw@1884",
+              "G3-JgHckzjw@1886",
+              "G3-JgHckzjw@1888",
+              "G3-JgHckzjw@1890",
+              "G3-JgHckzjw@1892",
+              "G3-JgHckzjw@1894"
+            ],
+            "verdict": "supported",
+            "confidence": 0.95,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig2.c4",
+            "type": "F",
+            "text": "The shortcut connection is followed by another layer normalization.",
+            "sentences": [
+              "ch04.s04.p04.r07"
+            ],
+            "cites": [
+              "G3-JgHckzjw@1852",
+              "G3-JgHckzjw@1855",
+              "G3-JgHckzjw@1859",
+              "G3-JgHckzjw@1861",
+              "G3-JgHckzjw@1864",
+              "G3-JgHckzjw@1867",
+              "G3-JgHckzjw@1869",
+              "G3-JgHckzjw@1884",
+              "G3-JgHckzjw@1886",
+              "G3-JgHckzjw@1888",
+              "G3-JgHckzjw@1890",
+              "G3-JgHckzjw@1892",
+              "G3-JgHckzjw@1894"
+            ],
+            "verdict": "supported",
+            "confidence": 0.93,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig2.c5",
+            "type": "F",
+            "text": "The second layer normalization is followed by a feed forward neural network.",
+            "sentences": [
+              "ch04.s04.p04.r07"
+            ],
+            "cites": [
+              "G3-JgHckzjw@1852",
+              "G3-JgHckzjw@1855",
+              "G3-JgHckzjw@1859",
+              "G3-JgHckzjw@1861",
+              "G3-JgHckzjw@1864",
+              "G3-JgHckzjw@1867",
+              "G3-JgHckzjw@1869",
+              "G3-JgHckzjw@1884",
+              "G3-JgHckzjw@1886",
+              "G3-JgHckzjw@1888",
+              "G3-JgHckzjw@1890",
+              "G3-JgHckzjw@1892",
+              "G3-JgHckzjw@1894"
+            ],
+            "verdict": "supported",
+            "confidence": 0.94,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig2.c6",
+            "type": "F",
+            "text": "The feed forward neural network is followed by dropout.",
+            "sentences": [
+              "ch04.s04.p04.r07",
+              "ch04.s04.p03.r13"
+            ],
+            "cites": [
+              "G3-JgHckzjw@1743",
+              "G3-JgHckzjw@1745",
+              "G3-JgHckzjw@1747",
+              "G3-JgHckzjw@1749",
+              "G3-JgHckzjw@1755",
+              "G3-JgHckzjw@1758",
+              "G3-JgHckzjw@1760",
+              "G3-JgHckzjw@1762",
+              "G3-JgHckzjw@1763",
+              "G3-JgHckzjw@1852",
+              "G3-JgHckzjw@1855",
+              "G3-JgHckzjw@1859",
+              "G3-JgHckzjw@1861",
+              "G3-JgHckzjw@1864",
+              "G3-JgHckzjw@1867",
+              "G3-JgHckzjw@1869",
+              "G3-JgHckzjw@1884",
+              "G3-JgHckzjw@1886",
+              "G3-JgHckzjw@1888",
+              "G3-JgHckzjw@1890",
+              "G3-JgHckzjw@1892",
+              "G3-JgHckzjw@1894"
+            ],
+            "verdict": "supported",
+            "confidence": 0.96,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig2.c7",
+            "type": "F",
+            "text": "That dropout is followed by a final shortcut connection.",
+            "sentences": [
+              "ch04.s04.p04.r07",
+              "ch04.s04.p04.r02"
+            ],
+            "cites": [
+              "G3-JgHckzjw@1765",
+              "G3-JgHckzjw@1768",
+              "G3-JgHckzjw@1771",
+              "G3-JgHckzjw@1775",
+              "G3-JgHckzjw@1778",
+              "G3-JgHckzjw@1784",
+              "G3-JgHckzjw@1786",
+              "G3-JgHckzjw@1788",
+              "G3-JgHckzjw@1852",
+              "G3-JgHckzjw@1855",
+              "G3-JgHckzjw@1859",
+              "G3-JgHckzjw@1861",
+              "G3-JgHckzjw@1864",
+              "G3-JgHckzjw@1867",
+              "G3-JgHckzjw@1869",
+              "G3-JgHckzjw@1884",
+              "G3-JgHckzjw@1886",
+              "G3-JgHckzjw@1888",
+              "G3-JgHckzjw@1890",
+              "G3-JgHckzjw@1892",
+              "G3-JgHckzjw@1894"
+            ],
+            "verdict": "supported",
+            "confidence": 0.96,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig2.c8",
+            "type": "F",
+            "text": "The final shortcut connection produces the Transformer block output.",
+            "sentences": [
+              "ch04.s04.p04.r03",
+              "ch04.s04.p04.r07"
+            ],
+            "cites": [
+              "G3-JgHckzjw@1791",
+              "G3-JgHckzjw@1793",
+              "G3-JgHckzjw@1795",
+              "G3-JgHckzjw@1852",
+              "G3-JgHckzjw@1855",
+              "G3-JgHckzjw@1859",
+              "G3-JgHckzjw@1861",
+              "G3-JgHckzjw@1864",
+              "G3-JgHckzjw@1867",
+              "G3-JgHckzjw@1869",
+              "G3-JgHckzjw@1884",
+              "G3-JgHckzjw@1886",
+              "G3-JgHckzjw@1888",
+              "G3-JgHckzjw@1890",
+              "G3-JgHckzjw@1892",
+              "G3-JgHckzjw@1894"
+            ],
+            "verdict": "supported",
+            "confidence": 0.95,
+            "reason": ""
+          }
+        ],
+        "passed": true,
+        "repaired": true,
+        "first_attempt": [
+          {
+            "id": "ch04.fig2.c1",
+            "type": "F",
+            "text": "Input embeddings go through layer normalization.",
+            "sentences": [
+              "ch04.s04.p04.r07"
+            ],
+            "cites": [
+              "G3-JgHckzjw@1852",
+              "G3-JgHckzjw@1855",
+              "G3-JgHckzjw@1859",
+              "G3-JgHckzjw@1861",
+              "G3-JgHckzjw@1864",
+              "G3-JgHckzjw@1867",
+              "G3-JgHckzjw@1869",
+              "G3-JgHckzjw@1884",
+              "G3-JgHckzjw@1886",
+              "G3-JgHckzjw@1888",
+              "G3-JgHckzjw@1890",
+              "G3-JgHckzjw@1892",
+              "G3-JgHckzjw@1894"
+            ],
+            "verdict": "partial",
+            "confidence": 0.72,
+            "reason": "the cited lines say the workflow starts with layer normalization, but they do not explicitly state that the thing being normalized is the input embeddings"
+          },
+          {
+            "id": "ch04.fig2.c2",
+            "type": "F",
+            "text": "Layer normalization is followed by masked multi head attention.",
+            "sentences": [
+              "ch04.s04.p04.r07"
+            ],
+            "cites": [
+              "G3-JgHckzjw@1852",
+              "G3-JgHckzjw@1855",
+              "G3-JgHckzjw@1859",
+              "G3-JgHckzjw@1861",
+              "G3-JgHckzjw@1864",
+              "G3-JgHckzjw@1867",
+              "G3-JgHckzjw@1869",
+              "G3-JgHckzjw@1884",
+              "G3-JgHckzjw@1886",
+              "G3-JgHckzjw@1888",
+              "G3-JgHckzjw@1890",
+              "G3-JgHckzjw@1892",
+              "G3-JgHckzjw@1894"
+            ],
+            "verdict": "supported",
+            "confidence": 0.95,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig2.c3",
+            "type": "F",
+            "text": "Masked multi head attention is followed by dropout.",
+            "sentences": [
+              "ch04.s04.p04.r07"
+            ],
+            "cites": [
+              "G3-JgHckzjw@1852",
+              "G3-JgHckzjw@1855",
+              "G3-JgHckzjw@1859",
+              "G3-JgHckzjw@1861",
+              "G3-JgHckzjw@1864",
+              "G3-JgHckzjw@1867",
+              "G3-JgHckzjw@1869",
+              "G3-JgHckzjw@1884",
+              "G3-JgHckzjw@1886",
+              "G3-JgHckzjw@1888",
+              "G3-JgHckzjw@1890",
+              "G3-JgHckzjw@1892",
+              "G3-JgHckzjw@1894"
+            ],
+            "verdict": "supported",
+            "confidence": 0.95,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig2.c4",
+            "type": "F",
+            "text": "That dropout is followed by a shortcut connection.",
+            "sentences": [
+              "ch04.s04.p04.r07"
+            ],
+            "cites": [
+              "G3-JgHckzjw@1852",
+              "G3-JgHckzjw@1855",
+              "G3-JgHckzjw@1859",
+              "G3-JgHckzjw@1861",
+              "G3-JgHckzjw@1864",
+              "G3-JgHckzjw@1867",
+              "G3-JgHckzjw@1869",
+              "G3-JgHckzjw@1884",
+              "G3-JgHckzjw@1886",
+              "G3-JgHckzjw@1888",
+              "G3-JgHckzjw@1890",
+              "G3-JgHckzjw@1892",
+              "G3-JgHckzjw@1894"
+            ],
+            "verdict": "supported",
+            "confidence": 0.95,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig2.c5",
+            "type": "F",
+            "text": "The shortcut connection is followed by another layer normalization.",
+            "sentences": [
+              "ch04.s04.p04.r07"
+            ],
+            "cites": [
+              "G3-JgHckzjw@1852",
+              "G3-JgHckzjw@1855",
+              "G3-JgHckzjw@1859",
+              "G3-JgHckzjw@1861",
+              "G3-JgHckzjw@1864",
+              "G3-JgHckzjw@1867",
+              "G3-JgHckzjw@1869",
+              "G3-JgHckzjw@1884",
+              "G3-JgHckzjw@1886",
+              "G3-JgHckzjw@1888",
+              "G3-JgHckzjw@1890",
+              "G3-JgHckzjw@1892",
+              "G3-JgHckzjw@1894"
+            ],
+            "verdict": "supported",
+            "confidence": 0.93,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig2.c6",
+            "type": "F",
+            "text": "The second layer normalization is followed by a feed forward neural network.",
+            "sentences": [
+              "ch04.s04.p04.r07"
+            ],
+            "cites": [
+              "G3-JgHckzjw@1852",
+              "G3-JgHckzjw@1855",
+              "G3-JgHckzjw@1859",
+              "G3-JgHckzjw@1861",
+              "G3-JgHckzjw@1864",
+              "G3-JgHckzjw@1867",
+              "G3-JgHckzjw@1869",
+              "G3-JgHckzjw@1884",
+              "G3-JgHckzjw@1886",
+              "G3-JgHckzjw@1888",
+              "G3-JgHckzjw@1890",
+              "G3-JgHckzjw@1892",
+              "G3-JgHckzjw@1894"
+            ],
+            "verdict": "supported",
+            "confidence": 0.93,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig2.c7",
+            "type": "F",
+            "text": "The feed forward neural network is followed by dropout.",
+            "sentences": [
+              "ch04.s04.p04.r07",
+              "ch04.s04.p03.r13"
+            ],
+            "cites": [
+              "G3-JgHckzjw@1743",
+              "G3-JgHckzjw@1745",
+              "G3-JgHckzjw@1747",
+              "G3-JgHckzjw@1749",
+              "G3-JgHckzjw@1755",
+              "G3-JgHckzjw@1758",
+              "G3-JgHckzjw@1760",
+              "G3-JgHckzjw@1762",
+              "G3-JgHckzjw@1763",
+              "G3-JgHckzjw@1852",
+              "G3-JgHckzjw@1855",
+              "G3-JgHckzjw@1859",
+              "G3-JgHckzjw@1861",
+              "G3-JgHckzjw@1864",
+              "G3-JgHckzjw@1867",
+              "G3-JgHckzjw@1869",
+              "G3-JgHckzjw@1884",
+              "G3-JgHckzjw@1886",
+              "G3-JgHckzjw@1888",
+              "G3-JgHckzjw@1890",
+              "G3-JgHckzjw@1892",
+              "G3-JgHckzjw@1894"
+            ],
+            "verdict": "supported",
+            "confidence": 0.97,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig2.c8",
+            "type": "F",
+            "text": "That dropout is followed by a final shortcut connection.",
+            "sentences": [
+              "ch04.s04.p04.r07",
+              "ch04.s04.p04.r02"
+            ],
+            "cites": [
+              "G3-JgHckzjw@1765",
+              "G3-JgHckzjw@1768",
+              "G3-JgHckzjw@1771",
+              "G3-JgHckzjw@1775",
+              "G3-JgHckzjw@1778",
+              "G3-JgHckzjw@1784",
+              "G3-JgHckzjw@1786",
+              "G3-JgHckzjw@1788",
+              "G3-JgHckzjw@1852",
+              "G3-JgHckzjw@1855",
+              "G3-JgHckzjw@1859",
+              "G3-JgHckzjw@1861",
+              "G3-JgHckzjw@1864",
+              "G3-JgHckzjw@1867",
+              "G3-JgHckzjw@1869",
+              "G3-JgHckzjw@1884",
+              "G3-JgHckzjw@1886",
+              "G3-JgHckzjw@1888",
+              "G3-JgHckzjw@1890",
+              "G3-JgHckzjw@1892",
+              "G3-JgHckzjw@1894"
+            ],
+            "verdict": "supported",
+            "confidence": 0.95,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig2.c9",
+            "type": "F",
+            "text": "The final shortcut connection produces the Transformer block output.",
+            "sentences": [
+              "ch04.s04.p04.r03",
+              "ch04.s04.p04.r07"
+            ],
+            "cites": [
+              "G3-JgHckzjw@1791",
+              "G3-JgHckzjw@1793",
+              "G3-JgHckzjw@1795",
+              "G3-JgHckzjw@1852",
+              "G3-JgHckzjw@1855",
+              "G3-JgHckzjw@1859",
+              "G3-JgHckzjw@1861",
+              "G3-JgHckzjw@1864",
+              "G3-JgHckzjw@1867",
+              "G3-JgHckzjw@1869",
+              "G3-JgHckzjw@1884",
+              "G3-JgHckzjw@1886",
+              "G3-JgHckzjw@1888",
+              "G3-JgHckzjw@1890",
+              "G3-JgHckzjw@1892",
+              "G3-JgHckzjw@1894"
+            ],
+            "verdict": "supported",
+            "confidence": 0.95,
+            "reason": ""
+          }
+        ]
+      },
+      {
+        "id": "ch04.fig3",
+        "after_paragraph": "ch04.s10.p05",
+        "title": "Pre training loop for one batch",
+        "caption": "In each training iteration, a batch is split into inputs and targets, the model computes loss, backpropagation computes gradients, parameters are updated, and gradients are reset before the next batch.",
+        "mermaid": "flowchart LR\n  A[\"Training batch\"] -->|\"split\"| B[\"Input batch\"]\n  A -->|\"split\"| C[\"Target batch\"]\n  B -->|\"GPT model\"| D[\"Model output\"]\n  D -->|\"with target batch\"| E[\"Cross entropy loss\"]\n  C -->|\"used for loss\"| E\n  E -->|\"loss.backward()\"| F[\"Loss gradients\"]\n  F -->|\"optimizer.step()\"| G[\"Updated parameters\"]\n  G -->|\"before next batch\"| H[\"Gradients reset to zero\"]",
+        "claims": [
+          {
+            "id": "ch04.fig3.c1",
+            "type": "F",
+            "text": "A training batch is divided into an input batch and a target batch.",
+            "sentences": [
+              "ch04.s10.p02.r01"
+            ],
+            "cites": [
+              "Zxf-34voZss@1308",
+              "Zxf-34voZss@1310",
+              "Zxf-34voZss@1312",
+              "Zxf-34voZss@1316",
+              "Zxf-34voZss@1318",
+              "Zxf-34voZss@1320"
+            ],
+            "verdict": "supported",
+            "confidence": 0.94,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig3.c2",
+            "type": "F",
+            "text": "The input batch is passed through the GPT model to get model output.",
+            "sentences": [
+              "ch04.s10.p02.r03"
+            ],
+            "cites": [
+              "Zxf-34voZss@1342",
+              "Zxf-34voZss@1344",
+              "Zxf-34voZss@1346",
+              "Zxf-34voZss@1349",
+              "Zxf-34voZss@923",
+              "Zxf-34voZss@925",
+              "Zxf-34voZss@927",
+              "Zxf-34voZss@930",
+              "Zxf-34voZss@931"
+            ],
+            "verdict": "supported",
+            "confidence": 0.9,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig3.c3",
+            "type": "F",
+            "text": "Cross entropy loss is computed from the model output and the target batch.",
+            "sentences": [
+              "ch04.s10.p02.r03",
+              "ch04.s10.p02.r04"
+            ],
+            "cites": [
+              "Zxf-34voZss@1342",
+              "Zxf-34voZss@1344",
+              "Zxf-34voZss@1346",
+              "Zxf-34voZss@1349",
+              "Zxf-34voZss@1352",
+              "Zxf-34voZss@1355",
+              "Zxf-34voZss@1357",
+              "Zxf-34voZss@1361",
+              "Zxf-34voZss@706",
+              "Zxf-34voZss@708",
+              "Zxf-34voZss@710",
+              "Zxf-34voZss@712",
+              "Zxf-34voZss@923",
+              "Zxf-34voZss@925",
+              "Zxf-34voZss@927",
+              "Zxf-34voZss@930",
+              "Zxf-34voZss@931"
+            ],
+            "verdict": "supported",
+            "confidence": 0.9,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig3.c4",
+            "type": "F",
+            "text": "The backward pass computes loss gradients from the loss.",
+            "sentences": [
+              "ch04.s10.p02.r04",
+              "ch04.s10.p02.r05",
+              "ch04.s10.p03.r01"
+            ],
+            "cites": [
+              "Zxf-34voZss@1352",
+              "Zxf-34voZss@1355",
+              "Zxf-34voZss@1357",
+              "Zxf-34voZss@1361",
+              "Zxf-34voZss@706",
+              "Zxf-34voZss@708",
+              "Zxf-34voZss@710",
+              "Zxf-34voZss@712",
+              "Zxf-34voZss@715",
+              "Zxf-34voZss@717",
+              "Zxf-34voZss@719",
+              "Zxf-34voZss@721",
+              "Zxf-34voZss@892",
+              "Zxf-34voZss@894",
+              "Zxf-34voZss@896",
+              "Zxf-34voZss@898"
+            ],
+            "verdict": "supported",
+            "confidence": 0.9,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig3.c5",
+            "type": "F",
+            "text": "The optimizer step updates parameter values according to the gradient values that were obtained.",
+            "sentences": [
+              "ch04.s10.p05.04",
+              "ch04.s10.p04.03",
+              "ch04.s10.p04.05"
+            ],
+            "cites": [
+              "Zxf-34voZss@1233",
+              "Zxf-34voZss@1235",
+              "Zxf-34voZss@1237",
+              "Zxf-34voZss@1240",
+              "Zxf-34voZss@1242",
+              "Zxf-34voZss@1244",
+              "Zxf-34voZss@1246",
+              "Zxf-34voZss@1256",
+              "Zxf-34voZss@1257",
+              "Zxf-34voZss@1260",
+              "Zxf-34voZss@1262",
+              "Zxf-34voZss@1264",
+              "Zxf-34voZss@1265",
+              "Zxf-34voZss@1267",
+              "Zxf-34voZss@1269",
+              "Zxf-34voZss@1371",
+              "Zxf-34voZss@1374",
+              "Zxf-34voZss@1375",
+              "Zxf-34voZss@1378",
+              "Zxf-34voZss@1383",
+              "Zxf-34voZss@1385",
+              "Zxf-34voZss@1387"
+            ],
+            "verdict": "supported",
+            "confidence": 0.93,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig3.c6",
+            "type": "F",
+            "text": "The code resets the loss gradients from the previous batch to zero before repeating the process on the next batch.",
+            "sentences": [
+              "ch04.s10.p05.05"
+            ],
+            "cites": [
+              "Zxf-34voZss@777",
+              "Zxf-34voZss@779",
+              "Zxf-34voZss@780",
+              "Zxf-34voZss@782"
+            ],
+            "verdict": "supported",
+            "confidence": 0.96,
+            "reason": ""
+          }
+        ],
+        "passed": true,
+        "repaired": true,
+        "first_attempt": [
+          {
+            "id": "ch04.fig3.c1",
+            "type": "F",
+            "text": "A training batch is divided into an input batch and a target batch.",
+            "sentences": [
+              "ch04.s10.p02.r01"
+            ],
+            "cites": [
+              "Zxf-34voZss@1308",
+              "Zxf-34voZss@1310",
+              "Zxf-34voZss@1312",
+              "Zxf-34voZss@1316",
+              "Zxf-34voZss@1318",
+              "Zxf-34voZss@1320"
+            ],
+            "verdict": "supported",
+            "confidence": 0.95,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig3.c2",
+            "type": "F",
+            "text": "The input batch is passed through the GPT model to get logits.",
+            "sentences": [
+              "ch04.s10.p02.r03"
+            ],
+            "cites": [
+              "Zxf-34voZss@1342",
+              "Zxf-34voZss@1344",
+              "Zxf-34voZss@1346",
+              "Zxf-34voZss@1349",
+              "Zxf-34voZss@923",
+              "Zxf-34voZss@925",
+              "Zxf-34voZss@927",
+              "Zxf-34voZss@930",
+              "Zxf-34voZss@931"
+            ],
+            "verdict": "supported",
+            "confidence": 0.93,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig3.c3",
+            "type": "F",
+            "text": "Cross entropy loss is computed from the logits and the target batch.",
+            "sentences": [
+              "ch04.s10.p02.r03",
+              "ch04.s10.p02.r04"
+            ],
+            "cites": [
+              "Zxf-34voZss@1342",
+              "Zxf-34voZss@1344",
+              "Zxf-34voZss@1346",
+              "Zxf-34voZss@1349",
+              "Zxf-34voZss@1352",
+              "Zxf-34voZss@1355",
+              "Zxf-34voZss@1357",
+              "Zxf-34voZss@1361",
+              "Zxf-34voZss@706",
+              "Zxf-34voZss@708",
+              "Zxf-34voZss@710",
+              "Zxf-34voZss@712",
+              "Zxf-34voZss@923",
+              "Zxf-34voZss@925",
+              "Zxf-34voZss@927",
+              "Zxf-34voZss@930",
+              "Zxf-34voZss@931"
+            ],
+            "verdict": "partial",
+            "confidence": 0.72,
+            "reason": "The cited lines support computing cross-entropy loss between the model output (after softmax) and the target, but they do not explicitly state it is computed directly from the logits (the sentence omits the softmax/output step mentioned in the captions)."
+          },
+          {
+            "id": "ch04.fig3.c4",
+            "type": "F",
+            "text": "The backward pass computes loss gradients from the loss.",
+            "sentences": [
+              "ch04.s10.p02.r04",
+              "ch04.s10.p02.r05",
+              "ch04.s10.p03.r01"
+            ],
+            "cites": [
+              "Zxf-34voZss@1352",
+              "Zxf-34voZss@1355",
+              "Zxf-34voZss@1357",
+              "Zxf-34voZss@1361",
+              "Zxf-34voZss@706",
+              "Zxf-34voZss@708",
+              "Zxf-34voZss@710",
+              "Zxf-34voZss@712",
+              "Zxf-34voZss@715",
+              "Zxf-34voZss@717",
+              "Zxf-34voZss@719",
+              "Zxf-34voZss@721",
+              "Zxf-34voZss@892",
+              "Zxf-34voZss@894",
+              "Zxf-34voZss@896",
+              "Zxf-34voZss@898"
+            ],
+            "verdict": "supported",
+            "confidence": 0.92,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig3.c5",
+            "type": "F",
+            "text": "The optimizer step updates parameter values according to the gradient values that were obtained.",
+            "sentences": [
+              "ch04.s10.p05.04",
+              "ch04.s10.p04.03",
+              "ch04.s10.p04.05"
+            ],
+            "cites": [
+              "Zxf-34voZss@1233",
+              "Zxf-34voZss@1235",
+              "Zxf-34voZss@1237",
+              "Zxf-34voZss@1240",
+              "Zxf-34voZss@1242",
+              "Zxf-34voZss@1244",
+              "Zxf-34voZss@1246",
+              "Zxf-34voZss@1256",
+              "Zxf-34voZss@1257",
+              "Zxf-34voZss@1260",
+              "Zxf-34voZss@1262",
+              "Zxf-34voZss@1264",
+              "Zxf-34voZss@1265",
+              "Zxf-34voZss@1267",
+              "Zxf-34voZss@1269",
+              "Zxf-34voZss@1371",
+              "Zxf-34voZss@1374",
+              "Zxf-34voZss@1375",
+              "Zxf-34voZss@1378",
+              "Zxf-34voZss@1383",
+              "Zxf-34voZss@1385",
+              "Zxf-34voZss@1387"
+            ],
+            "verdict": "supported",
+            "confidence": 0.93,
+            "reason": ""
+          },
+          {
+            "id": "ch04.fig3.c6",
+            "type": "F",
+            "text": "The code resets the loss gradients from the previous batch to zero before repeating the process on the next batch.",
+            "sentences": [
+              "ch04.s10.p05.05"
+            ],
+            "cites": [
+              "Zxf-34voZss@777",
+              "Zxf-34voZss@779",
+              "Zxf-34voZss@780",
+              "Zxf-34voZss@782"
+            ],
+            "verdict": "supported",
+            "confidence": 0.95,
+            "reason": ""
+          }
+        ]
+      }
+    ],
+    "dropped": []
+  }
+}

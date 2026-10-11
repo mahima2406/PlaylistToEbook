@@ -1,0 +1,881 @@
+{
+  "stage": "verify",
+  "item": "ch04.s06",
+  "inputs_hash": "bdba746494493a48abe88ea04988734a785024aa05ba161649c23916b555e814",
+  "output_hash": "cf550a078e96f4d58e8478dbe9e850c66fd373b78e2872fbdc87c6659b4c60a3",
+  "output": {
+    "section_id": "ch04.s06",
+    "paragraphs": [
+      {
+        "id": "ch04.s06.p01",
+        "sentences": [
+          {
+            "id": "ch04.s06.p01.r01",
+            "text": "How does a GPT model turn integer token IDs into the logits that will later drive prediction, and why does that simple-looking code already involve more than 100 million parameters?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s06.p01.r02",
+            "text": "The model workflow starts with input IDs, converts them into token embeddings, adds positional embeddings, applies dropout, passes the result through the Transformer block, applies another layer normalization layer, applies an output head layer, and returns the logits.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@324",
+              "G3-JgHckzjw@327",
+              "G3-JgHckzjw@329",
+              "G3-JgHckzjw@331",
+              "G3-JgHckzjw@333",
+              "G3-JgHckzjw@334",
+              "G3-JgHckzjw@337",
+              "G3-JgHckzjw@339",
+              "G3-JgHckzjw@340",
+              "G3-JgHckzjw@342",
+              "G3-JgHckzjw@345"
+            ]
+          },
+          {
+            "id": "ch04.s06.p01.r03",
+            "text": "After the input embeddings are formed by combining token embeddings and positional embeddings, the remaining stages are dropout, the Transformer blocks, another layer of normalization, and the output head.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@2931",
+              "G3-JgHckzjw@2933",
+              "G3-JgHckzjw@2948",
+              "G3-JgHckzjw@2955",
+              "G3-JgHckzjw@2958",
+              "G3-JgHckzjw@2962",
+              "G3-JgHckzjw@2964",
+              "G3-JgHckzjw@2966",
+              "G3-JgHckzjw@2972",
+              "G3-JgHckzjw@2973",
+              "G3-JgHckzjw@2977",
+              "G3-JgHckzjw@2979",
+              "G3-JgHckzjw@2981",
+              "G3-JgHckzjw@2984",
+              "G3-JgHckzjw@2986",
+              "G3-JgHckzjw@2988"
+            ]
+          },
+          {
+            "id": "ch04.s06.p01.r04",
+            "text": "An earlier version of the GPTModel class already had a forward method, but its Transformer block and layer normalization were only dummy implementations.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@2543",
+              "G3-JgHckzjw@2546",
+              "G3-JgHckzjw@2549",
+              "G3-JgHckzjw@2552",
+              "G3-JgHckzjw@2554",
+              "G3-JgHckzjw@2556",
+              "G3-JgHckzjw@2559"
+            ]
+          },
+          {
+            "id": "ch04.s06.p01.r05",
+            "text": "Over the last three to four lectures, the layer normalization class, feed-forward neural network class, and Transformer class were coded.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@2562",
+              "G3-JgHckzjw@2564",
+              "G3-JgHckzjw@2565",
+              "G3-JgHckzjw@2567",
+              "G3-JgHckzjw@2570"
+            ]
+          },
+          {
+            "id": "ch04.s06.p01.r06",
+            "text": "The Transformer block class itself was coded in the last step of that sequence.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@2696",
+              "G3-JgHckzjw@2698",
+              "G3-JgHckzjw@2700"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s06.p02",
+        "sentences": [
+          {
+            "id": "ch04.s06.p02.r01",
+            "text": "The stacked Transformer portion is implemented by chaining 12 Transformer blocks with nn.Sequential.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@2998",
+              "G3-JgHckzjw@3000",
+              "G3-JgHckzjw@3002",
+              "G3-JgHckzjw@3004",
+              "G3-JgHckzjw@3005",
+              "G3-JgHckzjw@3009",
+              "G3-JgHckzjw@3011",
+              "G3-JgHckzjw@3021",
+              "G3-JgHckzjw@3023"
+            ]
+          },
+          {
+            "id": "ch04.s06.p02.r02",
+            "text": "A simple test batch passed through the model produces an output whose last dimension is the vocabulary size, 50257.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@3103",
+              "G3-JgHckzjw@3106",
+              "G3-JgHckzjw@3107",
+              "G3-JgHckzjw@3136",
+              "G3-JgHckzjw@3137",
+              "G3-JgHckzjw@3139",
+              "G3-JgHckzjw@3141",
+              "G3-JgHckzjw@3143",
+              "G3-JgHckzjw@3157",
+              "G3-JgHckzjw@3159",
+              "G3-JgHckzjw@3162",
+              "G3-JgHckzjw@3163"
+            ]
+          },
+          {
+            "id": "ch04.s06.p02.r03",
+            "text": "The full output tensor has shape 2 by 4 by 50257, corresponding to two batches, four tokens in each batch, and the vocabulary size.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@3163",
+              "G3-JgHckzjw@3166",
+              "G3-JgHckzjw@3170",
+              "G3-JgHckzjw@3173",
+              "G3-JgHckzjw@3175",
+              "G3-JgHckzjw@3177"
+            ]
+          },
+          {
+            "id": "ch04.s06.p02.r04",
+            "text": "Even this compact implementation has more than 100 million parameters because it includes 12 Transformer blocks, eight steps in each block, expansion and contraction layers inside each block, and additional token and positional embedding parameters.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@3197",
+              "G3-JgHckzjw@3199",
+              "G3-JgHckzjw@3201",
+              "G3-JgHckzjw@3203",
+              "G3-JgHckzjw@3208",
+              "G3-JgHckzjw@3210",
+              "G3-JgHckzjw@3211",
+              "G3-JgHckzjw@3216",
+              "G3-JgHckzjw@3218",
+              "G3-JgHckzjw@3221",
+              "G3-JgHckzjw@3223",
+              "G3-JgHckzjw@3225"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s06.p03",
+        "sentences": [
+          {
+            "id": "ch04.s06.p03.r01",
+            "text": "Using the numel method, short for number of elements, we can collect the total number of parameters in the model's parameter tensors.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@3236",
+              "G3-JgHckzjw@3238",
+              "G3-JgHckzjw@3241",
+              "G3-JgHckzjw@3244",
+              "G3-JgHckzjw@3246",
+              "G3-JgHckzjw@3248"
+            ]
+          },
+          {
+            "id": "ch04.s06.p03.r02",
+            "text": "If you print out the total number of parameters, you will see that the number of parameters is equal to 163 million.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@3252",
+              "G3-JgHckzjw@3253",
+              "G3-JgHckzjw@3256"
+            ]
+          },
+          {
+            "id": "ch04.s06.p03.r03",
+            "text": "The model’s parameters come from token embeddings, positional embeddings, Transformer block parameters, and the final layer before the logits.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1032",
+              "Zxf-34voZss@1035",
+              "Zxf-34voZss@1036",
+              "Zxf-34voZss@1038",
+              "Zxf-34voZss@1040",
+              "Zxf-34voZss@1042",
+              "Zxf-34voZss@1044"
+            ]
+          },
+          {
+            "id": "ch04.s06.p03.r04",
+            "text": "The token embedding parameter count is vocabulary size multiplied by embedding dimension, and the positional embedding parameter count is context size multiplied by embedding dimension.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1046",
+              "Zxf-34voZss@1048",
+              "Zxf-34voZss@1051",
+              "Zxf-34voZss@1053",
+              "Zxf-34voZss@1056",
+              "Zxf-34voZss@1058"
+            ]
+          },
+          {
+            "id": "ch04.s06.p03.r05",
+            "text": "Together, the token and positional embeddings contribute 38.4 million parameters, and those embedding parameters are also optimized during training.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1061",
+              "Zxf-34voZss@1063",
+              "Zxf-34voZss@1066",
+              "Zxf-34voZss@1068"
+            ]
+          },
+          {
+            "id": "ch04.s06.p03.r06",
+            "text": "Inside multi-head attention, the query, key, and value weights are three trainable matrices of size 768 by 768, for 1.77 million parameters.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1072",
+              "Zxf-34voZss@1074",
+              "Zxf-34voZss@1076",
+              "Zxf-34voZss@1078",
+              "Zxf-34voZss@1081",
+              "Zxf-34voZss@1083",
+              "Zxf-34voZss@1085",
+              "Zxf-34voZss@1087",
+              "Zxf-34voZss@1089"
+            ]
+          },
+          {
+            "id": "ch04.s06.p03.r07",
+            "text": "The multi-head attention block also includes an output head, and the total number of parameters in that block is 2.36 million.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1092",
+              "Zxf-34voZss@1094",
+              "Zxf-34voZss@1100",
+              "Zxf-34voZss@1101",
+              "Zxf-34voZss@1104",
+              "Zxf-34voZss@1109"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s06.p04",
+        "sentences": [
+          {
+            "id": "ch04.s06.p04.r01",
+            "text": "The feed-forward network uses an expansion-contraction pattern, projecting from the embedding dimension to a hidden layer of four times that size and then compressing back, and it contributes 4.72 million parameters.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1110",
+              "Zxf-34voZss@1112",
+              "Zxf-34voZss@1115",
+              "Zxf-34voZss@1117",
+              "Zxf-34voZss@1119",
+              "Zxf-34voZss@1121",
+              "Zxf-34voZss@1123",
+              "Zxf-34voZss@1125",
+              "Zxf-34voZss@1128",
+              "Zxf-34voZss@1130",
+              "Zxf-34voZss@1134",
+              "Zxf-34voZss@1137",
+              "Zxf-34voZss@1139",
+              "Zxf-34voZss@1141",
+              "Zxf-34voZss@1144",
+              "Zxf-34voZss@1145",
+              "Zxf-34voZss@1147"
+            ]
+          },
+          {
+            "id": "ch04.s06.p04.r02",
+            "text": "One Transformer block contributes 2.36 million plus 4.72 million parameters, and across 12 Transformer blocks that totals 85.2 million parameters.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1150",
+              "Zxf-34voZss@1152",
+              "Zxf-34voZss@1153",
+              "Zxf-34voZss@1155",
+              "Zxf-34voZss@1160",
+              "Zxf-34voZss@1161",
+              "Zxf-34voZss@1164",
+              "Zxf-34voZss@1166",
+              "Zxf-34voZss@1167"
+            ]
+          },
+          {
+            "id": "ch04.s06.p04.r03",
+            "text": "The final layer has embedding dimension multiplied by vocabulary size parameters, which is 38.4 million.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1171",
+              "Zxf-34voZss@1173",
+              "Zxf-34voZss@1174",
+              "Zxf-34voZss@1178",
+              "Zxf-34voZss@1179",
+              "Zxf-34voZss@1181",
+              "Zxf-34voZss@1183"
+            ]
+          },
+          {
+            "id": "ch04.s06.p04.r04",
+            "text": "Adding 38.4 million embedding parameters, 85.2 million Transformer parameters, and 38.4 million final-layer parameters gives about 162 million parameters in total.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1183",
+              "Zxf-34voZss@1185",
+              "Zxf-34voZss@1187",
+              "Zxf-34voZss@1190",
+              "Zxf-34voZss@1193",
+              "Zxf-34voZss@1195",
+              "Zxf-34voZss@1197"
+            ]
+          },
+          {
+            "id": "ch04.s06.p04.r05",
+            "text": "This is why the model being trained is on the order of more than 100 million parameters.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1225",
+              "Zxf-34voZss@1227",
+              "Zxf-34voZss@1229",
+              "Zxf-34voZss@1231",
+              "Zxf-34voZss@2027",
+              "Zxf-34voZss@2029",
+              "Zxf-34voZss@2031"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s06.p05",
+        "sentences": [
+          {
+            "id": "ch04.s06.p05.01",
+            "text": "The gap between 163 million parameters in this implementation and 124 million parameters in the smallest GPT-2 comes from weight tying.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@3264",
+              "G3-JgHckzjw@3267",
+              "G3-JgHckzjw@3269",
+              "G3-JgHckzjw@3271",
+              "G3-JgHckzjw@3274",
+              "G3-JgHckzjw@3277",
+              "Zxf-34voZss@1199",
+              "Zxf-34voZss@1201",
+              "Zxf-34voZss@1203"
+            ]
+          },
+          {
+            "id": "ch04.s06.p05.02",
+            "text": "In the original GPT-2 architecture, weight tying means reusing the token embedding layer weights in the output layer.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@3277",
+              "G3-JgHckzjw@3279",
+              "G3-JgHckzjw@3281",
+              "G3-JgHckzjw@3283",
+              "G3-JgHckzjw@3285",
+              "G3-JgHckzjw@3287",
+              "G3-JgHckzjw@3301",
+              "G3-JgHckzjw@3304",
+              "G3-JgHckzjw@3306",
+              "G3-JgHckzjw@3308",
+              "G3-JgHckzjw@3310",
+              "Zxf-34voZss@1205",
+              "Zxf-34voZss@1207",
+              "Zxf-34voZss@1211",
+              "Zxf-34voZss@1213"
+            ]
+          },
+          {
+            "id": "ch04.s06.p05.03",
+            "text": "The token embedding layer and the output layer have the same shape, 50257 by 768, which is why those parameters can be reused.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@3331",
+              "G3-JgHckzjw@3333",
+              "G3-JgHckzjw@3336",
+              "G3-JgHckzjw@3338",
+              "G3-JgHckzjw@3342",
+              "G3-JgHckzjw@3344",
+              "G3-JgHckzjw@3346",
+              "G3-JgHckzjw@3348"
+            ]
+          },
+          {
+            "id": "ch04.s06.p05.04",
+            "text": "If the output-layer parameters are excluded because of weight tying, the total becomes 124 million parameters, matching the GPT-2 model size.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@3354",
+              "G3-JgHckzjw@3358",
+              "G3-JgHckzjw@3359",
+              "G3-JgHckzjw@3361",
+              "G3-JgHckzjw@3364",
+              "G3-JgHckzjw@3366",
+              "G3-JgHckzjw@3368",
+              "G3-JgHckzjw@3370",
+              "G3-JgHckzjw@3372",
+              "Zxf-34voZss@1214",
+              "Zxf-34voZss@1218",
+              "Zxf-34voZss@1221",
+              "Zxf-34voZss@1223"
+            ]
+          },
+          {
+            "id": "ch04.s06.p05.05",
+            "text": "Weight tying reduces the overall memory footprint and the computational complexity of the model.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@3372",
+              "G3-JgHckzjw@3376",
+              "G3-JgHckzjw@3379",
+              "G3-JgHckzjw@3381",
+              "G3-JgHckzjw@3400",
+              "G3-JgHckzjw@3402",
+              "G3-JgHckzjw@3405"
+            ]
+          },
+          {
+            "id": "ch04.s06.p05.06",
+            "text": "This implementation keeps separate token embedding and output layers because separate layers give better training and model performance, and the same choice is described as true for modern LLMs as well.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@3383",
+              "G3-JgHckzjw@3386",
+              "G3-JgHckzjw@3388",
+              "G3-JgHckzjw@3390",
+              "G3-JgHckzjw@3392",
+              "G3-JgHckzjw@3394",
+              "G3-JgHckzjw@3397",
+              "G3-JgHckzjw@3405",
+              "G3-JgHckzjw@3408",
+              "G3-JgHckzjw@3410"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s06.p06",
+        "sentences": [
+          {
+            "id": "ch04.s06.p06.r01",
+            "text": "For this model, 163 million parameters require around 600 megabytes of space.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@3412",
+              "G3-JgHckzjw@3414",
+              "G3-JgHckzjw@3418",
+              "G3-JgHckzjw@3420",
+              "G3-JgHckzjw@3422",
+              "G3-JgHckzjw@3424",
+              "G3-JgHckzjw@3426"
+            ]
+          },
+          {
+            "id": "ch04.s06.p06.r02",
+            "text": "Assuming each parameter is a 32-bit float taking 4 bytes, the size is computed by multiplying the total number of parameters by 4, which gives about 620 MB.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@3429",
+              "G3-JgHckzjw@3431",
+              "G3-JgHckzjw@3433",
+              "G3-JgHckzjw@3437",
+              "G3-JgHckzjw@3439",
+              "G3-JgHckzjw@3441",
+              "G3-JgHckzjw@3443",
+              "G3-JgHckzjw@3445",
+              "G3-JgHckzjw@3446",
+              "G3-JgHckzjw@3449"
+            ]
+          },
+          {
+            "id": "ch04.s06.p06.r03",
+            "text": "This illustrates the relatively large storage capacity required to accommodate even relatively small LLMs, while extremely large models are described as impossible to run on local devices, which is why GPU access is needed.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@3452",
+              "G3-JgHckzjw@3454",
+              "G3-JgHckzjw@3456",
+              "G3-JgHckzjw@3467",
+              "G3-JgHckzjw@3469",
+              "G3-JgHckzjw@3472",
+              "G3-JgHckzjw@3473"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch04.s06.p05.01": {
+        "verdict": "supported",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch04.s06.p05.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s06.p05.03": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch04.s06.p05.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s06.p05.05": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch04.s06.p05.06": {
+        "verdict": "supported",
+        "confidence": 0.83,
+        "reason": ""
+      },
+      "ch04.s06.p01.r01": {
+        "verdict": "ok",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s06.p01.r02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s06.p01.r03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s06.p01.r04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s06.p01.r05": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s06.p01.r06": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s06.p02.r01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s06.p02.r02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s06.p02.r03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s06.p02.r04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s06.p03.r01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s06.p03.r02": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch04.s06.p03.r03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s06.p03.r04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s06.p03.r05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s06.p03.r06": {
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "The cited lines support three trainable matrices and a 768-by-768 dimension leading to 1.77 million parameters, but they do not explicitly state the matrices are the query/key/value *weights* (as opposed to more general trainable weights) or explicitly say '768 by 768' (they say dimension 768 for input and output embeddings)."
+      },
+      "ch04.s06.p03.r07": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s06.p04.r01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s06.p04.r02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch04.s06.p04.r03": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch04.s06.p04.r04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s06.p04.r05": {
+        "verdict": "partial",
+        "confidence": 0.68,
+        "reason": "Captions state the parameter count is of the order of 100 million / more than 100 million, but they do not explicitly link this as 'why' (a causal explanation) for the claim in the sentence."
+      },
+      "ch04.s06.p06.r01": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch04.s06.p06.r02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s06.p06.r03": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch04.s06.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s06.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s06.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s06.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch04.s06.p01.05": {
+        "verdict": "partial",
+        "confidence": 0.65,
+        "reason": "Cited lines support that they coded layer normalization, feed-forward, and Transformer classes, and that dummy components can be replaced with actual implementations, but they do not explicitly state that the placeholders were later replaced specifically after coding those classes."
+      },
+      "ch04.s06.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch04.s06.p02.01": {
+        "verdict": "partial",
+        "confidence": 0.7,
+        "reason": "The captions say they chain 12 Transformer blocks using nn sequential, but do not explicitly say the chained modules are specifically TransformerBlock modules (as opposed to generic 'Transformer blocks')."
+      },
+      "ch04.s06.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch04.s06.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s06.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch04.s06.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s06.p03.01": {
+        "verdict": "partial",
+        "confidence": 0.7,
+        "reason": "The lines describe using p.numel() to count elements and collect total parameters, but they do not explicitly state summing p.numel() over all parameter tensors (the summation step is not stated in the provided captions)."
+      },
+      "ch04.s06.p03.02": {
+        "verdict": "partial",
+        "confidence": 0.6,
+        "reason": "The captions support '163 million parameters' but do not mention that this is 'before weight tying'."
+      },
+      "ch04.s06.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch04.s06.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s06.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch04.s06.p03.06": {
+        "verdict": "supported",
+        "confidence": 0.87,
+        "reason": ""
+      },
+      "ch04.s06.p03.07": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s06.p04.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s06.p04.02": {
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "the cited lines support 2.36 + 4.72 million per block and 85.2 million across 12 blocks, but they also mention adding an output head; the sentence omits the output head while still calling it the full transformer-block parameter contribution."
+      },
+      "ch04.s06.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s06.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch04.s06.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.8,
+        "reason": ""
+      },
+      "ch04.s06.p05.01": {
+        "verdict": "supported",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch04.s06.p05.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s06.p05.03": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch04.s06.p05.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s06.p05.05": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch04.s06.p05.06": {
+        "verdict": "supported",
+        "confidence": 0.83,
+        "reason": ""
+      },
+      "ch04.s06.p06.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.8,
+        "reason": "asserts a factual relationship (parameter count translates directly into storage requirements) but is marked CONNECTIVE and provides no citations."
+      },
+      "ch04.s06.p06.02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch04.s06.p06.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s06.p06.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "ch04.s06.p01",
+      "ch04.s06.p02",
+      "ch04.s06.p03",
+      "ch04.s06.p04",
+      "ch04.s06.p06"
+    ],
+    "queue": [
+      {
+        "sentence_id": "ch04.s06.p03.r06",
+        "text": "Inside multi-head attention, the query, key, and value weights are three trainable matrices of size 768 by 768, for 1.77 million parameters.",
+        "cites": [
+          "Zxf-34voZss@1072",
+          "Zxf-34voZss@1074",
+          "Zxf-34voZss@1076",
+          "Zxf-34voZss@1078",
+          "Zxf-34voZss@1081",
+          "Zxf-34voZss@1083",
+          "Zxf-34voZss@1085",
+          "Zxf-34voZss@1087",
+          "Zxf-34voZss@1089"
+        ],
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "The cited lines support three trainable matrices and a 768-by-768 dimension leading to 1.77 million parameters, but they do not explicitly state the matrices are the query/key/value *weights* (as opposed to more general trainable weights) or explicitly say '768 by 768' (they say dimension 768 for input and output embeddings).",
+        "status": "open"
+      },
+      {
+        "sentence_id": "ch04.s06.p04.r05",
+        "text": "This is why the model being trained is on the order of more than 100 million parameters.",
+        "cites": [
+          "Zxf-34voZss@1225",
+          "Zxf-34voZss@1227",
+          "Zxf-34voZss@1229",
+          "Zxf-34voZss@1231",
+          "Zxf-34voZss@2027",
+          "Zxf-34voZss@2029",
+          "Zxf-34voZss@2031"
+        ],
+        "verdict": "partial",
+        "confidence": 0.68,
+        "reason": "Captions state the parameter count is of the order of 100 million / more than 100 million, but they do not explicitly link this as 'why' (a causal explanation) for the claim in the sentence.",
+        "status": "open"
+      }
+    ]
+  }
+}

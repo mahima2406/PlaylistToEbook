@@ -1,0 +1,22 @@
+{
+  "stage": "listings",
+  "item": "ch05.s04",
+  "inputs_hash": "ba90cd95d2c6655597cad5e63e50b60486e68c66d1a4765056d0f7a5b0ae1c66",
+  "output_hash": "f1c0ada9e06795528fd56d0884be08ce9b977547d049fe6bd8ba20016fc72d48",
+  "output": {
+    "section_id": "ch05.s04",
+    "listings": [],
+    "rejected": [
+      {
+        "id": "ch05.s04.code1",
+        "ref": "ref:ch05/01_main-chapter-code/ch05.ipynb#cell135",
+        "path": "ch05/01_main-chapter-code/ch05.ipynb",
+        "caption": "This code prints the top-level keys of the params dictionary so its structure can be inspected after loading.",
+        "code": "print(\"Parameter dictionary keys:\", params.keys())\n\nprint(params[\"wte\"])\nprint(\"Token embedding weight tensor dimensions:\", params[\"wte\"].shape)",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The section says that after loading you can inspect the params structure by printing its keys and inspecting the wte entry instead of printing everything. The excerpt does print params.keys() and inspects/prints params[\"wte\"] and its shape, so it is related. However, the caption only mentions printing the top-level keys, while the code also prints the wte tensor and its dimensions, so the caption understates what the code does."
+      }
+    ]
+  }
+}

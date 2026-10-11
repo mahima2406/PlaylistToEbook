@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch03.s09.p08.r16",
+  "inputs_hash": "b648e9a9538f16692d2bbc24846f4f659be09ebeccd69faf7cebfebf0c32d1cd",
+  "output_hash": "7e90218358128e972578a154fdfec855c2dc65553658f10cf7fc226b1cfce927",
+  "output": {
+    "decision": "edit",
+    "text": "Softmax is applied along the last dimension so that the values in each row sum to one.",
+    "reason": "The cited captions and reference support row-wise normalization, and the original wording incorrectly says columns within each row sum to one.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.9,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "6df7b4d82f621cd84532ffe1afc5a3ca0b5e25f02f6f7b9c397c885a0a497d51"
+  }
+}

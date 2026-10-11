@@ -1,0 +1,901 @@
+{
+  "stage": "extract",
+  "item": "__OiQznq4ao",
+  "inputs_hash": "871f23743daae372c746f390ed4bc2c7387ebefd049c08dab5bf8ea215f4bda9",
+  "output_hash": "5fe24f98305e28e5f9c15b1bcb6a6ce0e390c665c00f04b5a5ea5eda17439bc1",
+  "output": {
+    "video_id": "__OiQznq4ao",
+    "points": [
+      {
+        "id": "__OiQznq4ao:p001",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 1,
+        "text": "This lecture covers step four of the instruction fine-tuning hands-on project, which is loading a pre-trained large language model.",
+        "line_ids": [
+          "__OiQznq4ao@13",
+          "__OiQznq4ao@16",
+          "__OiQznq4ao@18",
+          "__OiQznq4ao@20",
+          "__OiQznq4ao@23"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p002",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The dataset used for instruction fine-tuning has 1,100 entries of instructions, inputs, and outputs from various fields, and its purpose is to teach the LLM to follow instructions correctly.",
+        "line_ids": [
+          "__OiQznq4ao@35",
+          "__OiQznq4ao@37",
+          "__OiQznq4ao@41",
+          "__OiQznq4ao@44",
+          "__OiQznq4ao@47",
+          "__OiQznq4ao@53"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p003",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Fine-tuning here means training a pre-trained LLM on a specific dataset so that it follows instructions better, because a pre-trained LLM by itself does not follow instructions very well.",
+        "line_ids": [
+          "__OiQznq4ao@58",
+          "__OiQznq4ao@60",
+          "__OiQznq4ao@63",
+          "__OiQznq4ao@66",
+          "__OiQznq4ao@68",
+          "__OiQznq4ao@70"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p004",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Before loading a pre-trained LLM, the workflow required downloading the dataset, converting it into the Alpaca prompt style, batching it, and creating data loaders.",
+        "line_ids": [
+          "__OiQznq4ao@73",
+          "__OiQznq4ao@76",
+          "__OiQznq4ao@79",
+          "__OiQznq4ao@81",
+          "__OiQznq4ao@84",
+          "__OiQznq4ao@87",
+          "__OiQznq4ao@89",
+          "__OiQznq4ao@90"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p005",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Loading a pre-trained LLM means taking the LLM architecture and filling its trainable weights with previously trained weights.",
+        "line_ids": [
+          "__OiQznq4ao@94",
+          "__OiQznq4ao@96",
+          "__OiQznq4ao@98",
+          "__OiQznq4ao@101",
+          "__OiQznq4ao@104",
+          "__OiQznq4ao@106"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p006",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The trainable parts of the model include the query, key, and value weights in multi-head attention, the weights in the feed-forward network, the scale and shift parameters in layer normalization, and the token and positional embedding layers.",
+        "line_ids": [
+          "__OiQznq4ao@106",
+          "__OiQznq4ao@111",
+          "__OiQznq4ao@116",
+          "__OiQznq4ao@120",
+          "__OiQznq4ao@124",
+          "__OiQznq4ao@129"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p007",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The model contains more than 1 million or more than 100 million trainable parameters when all of these trainable weights are added together.",
+        "line_ids": [
+          "__OiQznq4ao@130",
+          "__OiQznq4ao@133",
+          "__OiQznq4ao@134",
+          "__OiQznq4ao@136"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p008",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In pre-training, these parameters are trained on a huge amount of data.",
+        "line_ids": [
+          "__OiQznq4ao@138",
+          "__OiQznq4ao@140",
+          "__OiQznq4ao@142"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p009",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 3,
+        "text": "OpenAI pre-trained GPT-2, optimized its trainable weights, and released those weights publicly so that users can access and use them.",
+        "line_ids": [
+          "__OiQznq4ao@145",
+          "__OiQznq4ao@149",
+          "__OiQznq4ao@152",
+          "__OiQznq4ao@155",
+          "__OiQznq4ao@160",
+          "__OiQznq4ao@165",
+          "__OiQznq4ao@170",
+          "__OiQznq4ao@172"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p010",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 2,
+        "text": "OpenAI released GPT-2 weights for multiple model sizes, including 124 million, 345 million, 774 million, and 1558 million parameters, and the weights can be downloaded from folders corresponding to those parameter sizes.",
+        "line_ids": [
+          "__OiQznq4ao@174",
+          "__OiQznq4ao@176",
+          "__OiQznq4ao@178",
+          "__OiQznq4ao@183",
+          "__OiQznq4ao@192",
+          "__OiQznq4ao@196",
+          "__OiQznq4ao@198"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p011",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The reason for downloading and reusing pre-trained weights before fine-tuning is that they already capture a lot of useful information, such as semantic structure in token embeddings, and training the whole network again from scratch would take much longer and require more computation.",
+        "line_ids": [
+          "__OiQznq4ao@203",
+          "__OiQznq4ao@205",
+          "__OiQznq4ao@211",
+          "__OiQznq4ao@217",
+          "__OiQznq4ao@224",
+          "__OiQznq4ao@228",
+          "__OiQznq4ao@232",
+          "__OiQznq4ao@234"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p012",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Reusing GPT-2 weights helps because the model starts from a much more knowledgeable state instead of a random initialization.",
+        "line_ids": [
+          "__OiQznq4ao@236",
+          "__OiQznq4ao@241",
+          "__OiQznq4ao@244",
+          "__OiQznq4ao@247",
+          "__OiQznq4ao@251",
+          "__OiQznq4ao@253",
+          "__OiQznq4ao@257",
+          "__OiQznq4ao@261",
+          "__OiQznq4ao@273",
+          "__OiQznq4ao@283"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p013",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The process is to load the pre-trained weights first and then train on the curated dataset using the training, testing, and validation data loaders.",
+        "line_ids": [
+          "__OiQznq4ao@283",
+          "__OiQznq4ao@285",
+          "__OiQznq4ao@287",
+          "__OiQznq4ao@289",
+          "__OiQznq4ao@291",
+          "__OiQznq4ao@293",
+          "__OiQznq4ao@296"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p014",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 3,
+        "text": "During fine-tuning, the weights loaded from GPT-2 will still change, but starting from a knowledgeable state makes training on the specific dataset much more efficient and lower in computational time.",
+        "line_ids": [
+          "__OiQznq4ao@298",
+          "__OiQznq4ao@300",
+          "__OiQznq4ao@302",
+          "__OiQznq4ao@306",
+          "__OiQznq4ao@308",
+          "__OiQznq4ao@311",
+          "__OiQznq4ao@313",
+          "__OiQznq4ao@316",
+          "__OiQznq4ao@318",
+          "__OiQznq4ao@320"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p015",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Fine-tuning happens after pre-training because pre-training first brings the model to a knowledgeable state, after which training on a specific dataset further improves its weights and parameters.",
+        "line_ids": [
+          "__OiQznq4ao@320",
+          "__OiQznq4ao@324",
+          "__OiQznq4ao@327",
+          "__OiQznq4ao@330",
+          "__OiQznq4ao@332",
+          "__OiQznq4ao@335"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p016",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 3,
+        "text": "For this instruction fine-tuning task, the lecturer uses GPT-2 medium with 355 million parameters because the smaller 124 million parameter model did not perform very well.",
+        "line_ids": [
+          "__OiQznq4ao@343",
+          "__OiQznq4ao@346",
+          "__OiQznq4ao@350",
+          "__OiQznq4ao@355",
+          "__OiQznq4ao@358",
+          "__OiQznq4ao@361",
+          "__OiQznq4ao@366",
+          "__OiQznq4ao@371",
+          "__OiQznq4ao@375",
+          "__OiQznq4ao@378"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p017",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Using GPT-2 medium with 355 million parameters requires about 1.42 GB of storage space on the local machine.",
+        "line_ids": [
+          "__OiQznq4ao@390",
+          "__OiQznq4ao@392",
+          "__OiQznq4ao@395",
+          "__OiQznq4ao@398",
+          "__OiQznq4ao@402",
+          "__OiQznq4ao@406"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p018",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The GPT-2 medium configuration has context size 1024, 24 transformer blocks, and 16 attention heads in each transformer block.",
+        "line_ids": [
+          "__OiQznq4ao@419",
+          "__OiQznq4ao@423",
+          "__OiQznq4ao@425",
+          "__OiQznq4ao@428",
+          "__OiQznq4ao@431",
+          "__OiQznq4ao@435",
+          "__OiQznq4ao@437"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p019",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In the base configuration, the vocabulary size is 50,257, the context length is 1024, the dropout rate is zero, and the query-key-value bias is set to true so that the bias terms are also initialized.",
+        "line_ids": [
+          "__OiQznq4ao@443",
+          "__OiQznq4ao@445",
+          "__OiQznq4ao@448",
+          "__OiQznq4ao@452",
+          "__OiQznq4ao@455",
+          "__OiQznq4ao@457",
+          "__OiQznq4ao@459",
+          "__OiQznq4ao@463"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p020",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The value 50,257 is the vocabulary size on which GPT-2 was trained.",
+        "line_ids": [
+          "__OiQznq4ao@463",
+          "__OiQznq4ao@467",
+          "__OiQznq4ao@469"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p021",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The download_and_load_gpt2 function downloads seven files from a URL to the local machine and then preprocesses them.",
+        "line_ids": [
+          "__OiQznq4ao@472",
+          "__OiQznq4ao@474",
+          "__OiQznq4ao@476",
+          "__OiQznq4ao@481",
+          "__OiQznq4ao@484",
+          "__OiQznq4ao@487",
+          "__OiQznq4ao@490",
+          "__OiQznq4ao@503",
+          "__OiQznq4ao@505"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p022",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Simply downloading the seven files is not enough, because they must be converted from the TensorFlow checkpoint into a specific dictionary format so the parameters can be handled more easily.",
+        "line_ids": [
+          "__OiQznq4ao@501",
+          "__OiQznq4ao@503",
+          "__OiQznq4ao@505",
+          "__OiQznq4ao@507",
+          "__OiQznq4ao@510",
+          "__OiQznq4ao@513",
+          "__OiQznq4ao@518",
+          "__OiQznq4ao@520",
+          "__OiQznq4ao@524",
+          "__OiQznq4ao@526"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p023",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Running the code creates a folder called 355M, downloads the seven files, and returns a params dictionary containing transformer block parameters, token embeddings, positional embeddings, and final normalization layer parameters in an accessible form.",
+        "line_ids": [
+          "__OiQznq4ao@538",
+          "__OiQznq4ao@540",
+          "__OiQznq4ao@542",
+          "__OiQznq4ao@545",
+          "__OiQznq4ao@548",
+          "__OiQznq4ao@550",
+          "__OiQznq4ao@554",
+          "__OiQznq4ao@556",
+          "__OiQznq4ao@557",
+          "__OiQznq4ao@560",
+          "__OiQznq4ao@562"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p024",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Creating the params dictionary is essential because directly using the seven downloaded files makes it difficult to integrate the parameters with the previously written GPT code.",
+        "line_ids": [
+          "__OiQznq4ao@562",
+          "__OiQznq4ao@564",
+          "__OiQznq4ao@567",
+          "__OiQznq4ao@568",
+          "__OiQznq4ao@570",
+          "__OiQznq4ao@573",
+          "__OiQznq4ao@576"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p025",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "code",
+        "importance": 3,
+        "text": "The code imports the download_and_load_gpt2 function from the GPT_download3.py file and stores its results in settings and params.",
+        "line_ids": [
+          "__OiQznq4ao@586",
+          "__OiQznq4ao@588",
+          "__OiQznq4ao@595",
+          "__OiQznq4ao@598",
+          "__OiQznq4ao@602",
+          "__OiQznq4ao@606",
+          "__OiQznq4ao@608"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p026",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Downloading the 1.42 GB model can take a long time, so it helps to have strong internet and enough memory on the device.",
+        "line_ids": [
+          "__OiQznq4ao@611",
+          "__OiQznq4ao@614",
+          "__OiQznq4ao@617",
+          "__OiQznq4ao@620",
+          "__OiQznq4ao@623",
+          "__OiQznq4ao@628",
+          "__OiQznq4ao@630",
+          "__OiQznq4ao@632",
+          "__OiQznq4ao@635",
+          "__OiQznq4ao@640"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p027",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The load_weights_into_gpt function maps the downloaded parameters from the params dictionary into the corresponding trainable parts of the GPT architecture.",
+        "line_ids": [
+          "__OiQznq4ao@643",
+          "__OiQznq4ao@645",
+          "__OiQznq4ao@646",
+          "__OiQznq4ao@649",
+          "__OiQznq4ao@652",
+          "__OiQznq4ao@656",
+          "__OiQznq4ao@658",
+          "__OiQznq4ao@661",
+          "__OiQznq4ao@673",
+          "__OiQznq4ao@678",
+          "__OiQznq4ao@680"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p028",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "The whole code block for loading weights can be thought of as an assignment step that assigns the downloaded parameters to the model.",
+        "line_ids": [
+          "__OiQznq4ao@700",
+          "__OiQznq4ao@703",
+          "__OiQznq4ao@705",
+          "__OiQznq4ao@707",
+          "__OiQznq4ao@709",
+          "__OiQznq4ao@711",
+          "__OiQznq4ao@713",
+          "__OiQznq4ao@715"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p029",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "After running settings, params = download_and_load_gpt2, the next step is to run load_weights_into_gpt to load the downloaded 355 million parameter weights into the GPT architecture and then set the model to evaluation mode.",
+        "line_ids": [
+          "__OiQznq4ao@725",
+          "__OiQznq4ao@727",
+          "__OiQznq4ao@728",
+          "__OiQznq4ao@731",
+          "__OiQznq4ao@733",
+          "__OiQznq4ao@736",
+          "__OiQznq4ao@738"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p030",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 2,
+        "text": "If a laptop has limited memory or processing speed, GPT-2 small with 124 million parameters can be used instead, and it should take about one-third to one-half as much time to load as GPT-2 medium.",
+        "line_ids": [
+          "__OiQznq4ao@738",
+          "__OiQznq4ao@741",
+          "__OiQznq4ao@745",
+          "__OiQznq4ao@747",
+          "__OiQznq4ao@750",
+          "__OiQznq4ao@751",
+          "__OiQznq4ao@754",
+          "__OiQznq4ao@756"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p031",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 2,
+        "text": "If a laptop has high processing speed and GPU access, GPT-2 large or GPT-2 XL can be used, and they should give much better results than smaller models.",
+        "line_ids": [
+          "__OiQznq4ao@759",
+          "__OiQznq4ao@761",
+          "__OiQznq4ao@763",
+          "__OiQznq4ao@766",
+          "__OiQznq4ao@768",
+          "__OiQznq4ao@771",
+          "__OiQznq4ao@772",
+          "__OiQznq4ao@776"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p032",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 1,
+        "text": "If the GPT-2 parameters have already been downloaded, the output will indicate that the files already exist.",
+        "line_ids": [
+          "__OiQznq4ao@778",
+          "__OiQznq4ao@781",
+          "__OiQznq4ao@783",
+          "__OiQznq4ao@786",
+          "__OiQznq4ao@788"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p033",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "Before fine-tuning, you can evaluate the pre-trained LLM on a validation example by comparing its output to the expected response, even though the model has not yet been trained on the instruction dataset.",
+        "line_ids": [
+          "__OiQznq4ao@790",
+          "__OiQznq4ao@792",
+          "__OiQznq4ao@795",
+          "__OiQznq4ao@797",
+          "__OiQznq4ao@799",
+          "__OiQznq4ao@802",
+          "__OiQznq4ao@804",
+          "__OiQznq4ao@806",
+          "__OiQznq4ao@809"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p034",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "visual_ref",
+        "importance": 2,
+        "text": "The lecturer selects a validation example whose instruction is to convert the active sentence \"The chef cooks the meal every day\" into the passive voice.",
+        "line_ids": [
+          "__OiQznq4ao@816",
+          "__OiQznq4ao@818",
+          "__OiQznq4ao@820",
+          "__OiQznq4ao@822",
+          "__OiQznq4ao@824",
+          "__OiQznq4ao@827",
+          "__OiQznq4ao@829",
+          "__OiQznq4ao@831",
+          "__OiQznq4ao@834",
+          "__OiQznq4ao@838"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p035",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 2,
+        "text": "For that validation example, the correct output is \"The meal is cooked by the chef every day.\"",
+        "line_ids": [
+          "__OiQznq4ao@868",
+          "__OiQznq4ao@869",
+          "__OiQznq4ao@871",
+          "__OiQznq4ao@873",
+          "__OiQznq4ao@875"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p036",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Because the LLM has not yet been trained on this instruction dataset, the lecturer does not expect a correct answer and only wants to see how far the pre-trained model is from the desired response.",
+        "line_ids": [
+          "__OiQznq4ao@877",
+          "__OiQznq4ao@879",
+          "__OiQznq4ao@881",
+          "__OiQznq4ao@889",
+          "__OiQznq4ao@891",
+          "__OiQznq4ao@893",
+          "__OiQznq4ao@895",
+          "__OiQznq4ao@897"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p037",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "definition",
+        "importance": 2,
+        "text": "The previously defined generate function takes the maximum number of new tokens to generate and then produces output based on the model.",
+        "line_ids": [
+          "__OiQznq4ao@899",
+          "__OiQznq4ao@903",
+          "__OiQznq4ao@904",
+          "__OiQznq4ao@907"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p038",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "code",
+        "importance": 3,
+        "text": "The generation setup uses GPT-2 Medium pre-trained weights, sets the maximum number of new tokens to 35, uses a context length of 1024, passes in the input text and the model, and then converts the generated token IDs back into text.",
+        "line_ids": [
+          "__OiQznq4ao@909",
+          "__OiQznq4ao@911",
+          "__OiQznq4ao@913",
+          "__OiQznq4ao@916",
+          "__OiQznq4ao@918",
+          "__OiQznq4ao@920",
+          "__OiQznq4ao@922",
+          "__OiQznq4ao@924",
+          "__OiQznq4ao@926",
+          "__OiQznq4ao@929",
+          "__OiQznq4ao@932",
+          "__OiQznq4ao@936",
+          "__OiQznq4ao@938",
+          "__OiQznq4ao@940",
+          "__OiQznq4ao@942",
+          "__OiQznq4ao@945",
+          "__OiQznq4ao@946"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p039",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The generated text returned by a pre-trained LLM includes both the input text and the model's output.",
+        "line_ids": [
+          "__OiQznq4ao@954",
+          "__OiQznq4ao@957",
+          "__OiQznq4ao@958",
+          "__OiQznq4ao@961",
+          "__OiQznq4ao@964",
+          "__OiQznq4ao@965",
+          "__OiQznq4ao@968",
+          "__OiQznq4ao@970",
+          "__OiQznq4ao@972",
+          "__OiQznq4ao@974",
+          "__OiQznq4ao@976"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p040",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 2,
+        "text": "For instruction-following use, you should focus only on the model-generated response rather than printing the input instruction again.",
+        "line_ids": [
+          "__OiQznq4ao@976",
+          "__OiQznq4ao@978",
+          "__OiQznq4ao@980",
+          "__OiQznq4ao@982",
+          "__OiQznq4ao@984",
+          "__OiQznq4ao@986",
+          "__OiQznq4ao@988"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p041",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To print only the response, subtract the length of the input instruction from the start of the generated text and print the remaining text.",
+        "line_ids": [
+          "__OiQznq4ao@989",
+          "__OiQznq4ao@991",
+          "__OiQznq4ao@993",
+          "__OiQznq4ao@994",
+          "__OiQznq4ao@996",
+          "__OiQznq4ao@999",
+          "__OiQznq4ao@1001",
+          "__OiQznq4ao@1003"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p042",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In the example, the model's response is \"the chef cooks the meal every day,\" which repeats the original sentence instead of following the instruction.",
+        "line_ids": [
+          "__OiQznq4ao@1005",
+          "__OiQznq4ao@1007",
+          "__OiQznq4ao@1009",
+          "__OiQznq4ao@1011",
+          "__OiQznq4ao@1013"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p043",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The pre-trained model is not capable of correctly following the given instruction, because it repeats the input sentence and part of the instruction instead of converting the active sentence to passive voice.",
+        "line_ids": [
+          "__OiQznq4ao@1016",
+          "__OiQznq4ao@1018",
+          "__OiQznq4ao@1020",
+          "__OiQznq4ao@1021",
+          "__OiQznq4ao@1024",
+          "__OiQznq4ao@1027",
+          "__OiQznq4ao@1030",
+          "__OiQznq4ao@1032",
+          "__OiQznq4ao@1033",
+          "__OiQznq4ao@1035",
+          "__OiQznq4ao@1038",
+          "__OiQznq4ao@1040",
+          "__OiQznq4ao@1042",
+          "__OiQznq4ao@1044",
+          "__OiQznq4ao@1046",
+          "__OiQznq4ao@1049"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p044",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Without fine-tuning, simply using pre-trained weights does a poor job on this instruction-following task and can even reproduce formatting like \"### instruction\" in the response.",
+        "line_ids": [
+          "__OiQznq4ao@1051",
+          "__OiQznq4ao@1053",
+          "__OiQznq4ao@1056",
+          "__OiQznq4ao@1059",
+          "__OiQznq4ao@1061",
+          "__OiQznq4ao@1063",
+          "__OiQznq4ao@1065",
+          "__OiQznq4ao@1067",
+          "__OiQznq4ao@1069",
+          "__OiQznq4ao@1071"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p045",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Fine-tuning is needed to improve the model's ability to comprehend and appropriately respond to instruction requests.",
+        "line_ids": [
+          "__OiQznq4ao@1073",
+          "__OiQznq4ao@1075",
+          "__OiQznq4ao@1077",
+          "__OiQznq4ao@1080",
+          "__OiQznq4ao@1082",
+          "__OiQznq4ao@1084",
+          "__OiQznq4ao@1087"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p046",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Even larger pre-trained GPT-2 models such as 774 million parameters still do not produce coherent instruction-following responses without fine-tuning.",
+        "line_ids": [
+          "__OiQznq4ao@1087",
+          "__OiQznq4ao@1089",
+          "__OiQznq4ao@1092",
+          "__OiQznq4ao@1095",
+          "__OiQznq4ao@1097",
+          "__OiQznq4ao@1102",
+          "__OiQznq4ao@1104"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p047",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Fine-tuning on instruction data means modifying the weights and parameters of the GPT model so it can learn to understand instruction input-output pairs from a specific dataset.",
+        "line_ids": [
+          "__OiQznq4ao@1107",
+          "__OiQznq4ao@1108",
+          "__OiQznq4ao@1111",
+          "__OiQznq4ao@1113",
+          "__OiQznq4ao@1114",
+          "__OiQznq4ao@1117",
+          "__OiQznq4ao@1120",
+          "__OiQznq4ao@1122"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p048",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 1,
+        "text": "This lecture covered loading a pre-trained LLM, and the fine-tuning process will be covered in the next lecture.",
+        "line_ids": [
+          "__OiQznq4ao@1124",
+          "__OiQznq4ao@1126",
+          "__OiQznq4ao@1128",
+          "__OiQznq4ao@1131",
+          "__OiQznq4ao@1133",
+          "__OiQznq4ao@1135",
+          "__OiQznq4ao@1137"
+        ]
+      },
+      {
+        "id": "__OiQznq4ao:p049",
+        "video_id": "__OiQznq4ao",
+        "lecture": 40,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The shared code file can be used to perform a wide range of instruction fine-tuning tasks.",
+        "line_ids": [
+          "__OiQznq4ao@1144",
+          "__OiQznq4ao@1147",
+          "__OiQznq4ao@1149",
+          "__OiQznq4ao@1150",
+          "__OiQznq4ao@1153",
+          "__OiQznq4ao@1154"
+        ]
+      }
+    ],
+    "inventory": [
+      {
+        "chunk": "__OiQznq4ao@0-911",
+        "start": 0,
+        "end": 911,
+        "points": 37,
+        "core_points": 22,
+        "invalid_points": 0,
+        "flag": null
+      },
+      {
+        "chunk": "__OiQznq4ao@909-1166",
+        "start": 909,
+        "end": 1166,
+        "points": 12,
+        "core_points": 7,
+        "invalid_points": 0,
+        "flag": null
+      }
+    ]
+  }
+}

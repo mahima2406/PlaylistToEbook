@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch03.s03.p03.r07",
+  "inputs_hash": "0a79823127ac482d953cb38b96d73eae05b324fa7e1b525923584d52a3bc8130",
+  "output_hash": "3868786030fb568473b03e483f7f5bde3766a1c1335deea05a8b00406099e064",
+  "output": {
+    "decision": "edit",
+    "text": "In that implementation, the sum uses dimension 0 to sum the entries being treated as a row.",
+    "reason": "The captions support the lecturer’s row-based intent, but the original wording overexplains it in a way that conflicts with the reference’s dimension convention.",
+    "risk": "high",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "40ed67d5f63681c703309e1aae806ccb11d2fb2d16f2a2cdfb84eebd42a5124d"
+  }
+}

@@ -1,0 +1,341 @@
+{
+  "stage": "crosscheck",
+  "item": "ch05.s05",
+  "inputs_hash": "47e3b581e2da0126cc994945e619029c1b52d2fce0165db310698083b64ca1db",
+  "output_hash": "d01aa0ea0526199babba50a96bfc52c4dd05b9042c465f33481bb0fd1e60cb79",
+  "output": {
+    "section_id": "ch05.s05",
+    "checked": 27,
+    "counts": {
+      "agrees": 9,
+      "contradicts": 0,
+      "not_covered": 18
+    },
+    "results": [
+      {
+        "sentence_id": "ch05.s05.p01.02",
+        "text": "The earlier \"GPT config 124 million\" matched GPT-2 almost exactly, except that it used a context size of 256 while the actual GPT-2 context size is 1024.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell12",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell62",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states the config uses context_length=256 for resource reasons while original 124M GPT-2 used 1024."
+      },
+      {
+        "sentence_id": "ch05.s05.p01.03",
+        "text": "To match GPT-2, the configuration is updated by setting the context length to 1024 and setting the query-key-value bias to true.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell12",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell139",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell70"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference notes that to load original GPT-2 weights correctly, qkv_bias must be set to True and that GPT-2 used a 1024-token context length."
+      },
+      {
+        "sentence_id": "ch05.s05.p01.04",
+        "text": "Bias vectors are not commonly used in LLMs anymore because they do not improve modeling performance much and are not very necessary, but they are enabled here so the settings match the pretrained weights consistently.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell28",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explains modern LLMs typically avoid QKV bias, but it must be enabled (qkv_bias=True) to match/load the original GPT/GPT-2 pretrained weights."
+      },
+      {
+        "sentence_id": "ch05.s05.p01.05",
+        "text": "With that updated configuration, the next step is to create an instance of the GPT model class.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell71",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell9",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell139"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly says to first initialize a new GPTModel instance (instantiate the model) before transferring/loading weights into it."
+      },
+      {
+        "sentence_id": "ch05.s05.p02.r01",
+        "text": "At this point, the GPT model class still initializes the token embedding matrices, the positional embedding matrices, and the transformer block weights to random values.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell67",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference describes instantiating the GPT model with random initial weights; this implies embeddings and transformer-block weights start random prior to loading pretrained parameters."
+      },
+      {
+        "sentence_id": "ch05.s05.p02.r02",
+        "text": "Those random initializations need to be replaced by the downloaded GPT-2 parameters stored in the \"params\" dictionary.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell74",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell78",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell132"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages do not state that the random initializations must be replaced specifically by downloaded GPT-2 parameters stored in a \"params\" dictionary."
+      },
+      {
+        "sentence_id": "ch05.s05.p02.r04",
+        "text": "The helper function \"assign\" checks whether the shapes of its left and right values match.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell142",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell111",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell40"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The shown assign(left,right) implementation explicitly compares shapes and raises a ValueError on mismatch."
+      },
+      {
+        "sentence_id": "ch05.s05.p02.r05",
+        "text": "If the shapes match, \"assign\" returns the right value, effectively assigning the left side from the right side.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell142",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell40",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell109"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "If shapes match, assign returns torch.nn.Parameter(torch.tensor(right)), i.e., it returns a parameter created from the right value to be assigned into the model."
+      },
+      {
+        "sentence_id": "ch05.s05.p02.r06",
+        "text": "If the shapes do not match, it raises an error, which indicates that the GPT-2 weights are not being loaded or assigned correctly.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell146",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell64",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell45"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While other cells discuss checking loading correctness via coherent text generation, the supplied references do not connect assign's shape-mismatch error to indicating incorrect GPT-2 weight loading/assignment."
+      },
+      {
+        "sentence_id": "ch05.s05.p02.r07",
+        "text": "The main loading routine, \"load_weights_into_gpt\", takes a GPT model instance and the \"params\" dictionary containing the GPT-2 weights, then assigns those weights into the GPT model.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell120",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell66",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell44"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention loading weights into a GPTModel and show imports/calls, but do not provide the definition/signature/behavior of load_weights_into_gpt as described."
+      },
+      {
+        "sentence_id": "ch05.s05.p03.r02",
+        "text": "To integrate the GPT-2 weights, the downloaded attention parameters are assigned to each transformer's attention object, and the downloaded feed-forward parameters are assigned to its feed-forward object.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell38",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell45",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell21"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No provided reference passage describes how load_weights_into_gpt assigns attention parameters into each block's attention object and FFN parameters into its feed-forward object."
+      },
+      {
+        "sentence_id": "ch05.s05.p03.r03",
+        "text": "The downloaded attention weights are accessed through the \"params\" dictionary under \"blocks\", then the transformer attention subkeys.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell44",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell101",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell21"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not describe the structure/keys of the params dictionary (e.g., params['blocks'][...][attention subkeys]) for accessing downloaded attention weights."
+      },
+      {
+        "sentence_id": "ch05.s05.p03.r04",
+        "text": "Because those weights are a fusion of queries, keys, and values, they are split along the columns to obtain separate query, key, and value weight matrices.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell70",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell98",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references introduce separate W_q, W_k, W_v matrices and show computing q/k/v via x @ W_query/W_key/W_value, but they do not describe starting from a fused QKV weight and splitting it along columns to obtain separate matrices."
+      },
+      {
+        "sentence_id": "ch05.s05.p03.r05",
+        "text": "After that split, the separate query, key, and value matrices are assigned to the attention object's query, key, and value weights.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell70",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell69",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show using separate W_query/W_key/W_value and computing q/k/v, but they do not discuss splitting a fused matrix and assigning the split parts into an attention object's parameters."
+      },
+      {
+        "sentence_id": "ch05.s05.p03.r06",
+        "text": "The attention bias terms are updated in the same way, except that the bias entries are used instead of the weight entries.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell38",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the provided passages explain how attention bias terms are updated/loaded or how bias entries are treated relative to weight entries."
+      },
+      {
+        "sentence_id": "ch05.s05.p03.r07",
+        "text": "The attention output projection weights and biases are accessed from the GPT-2 parameters and assigned to the attention object's output projection layer.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell134",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell21",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell77"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention an output projection layer (out_proj) as a convention, but do not show accessing GPT-2 parameters for that layer or assigning downloaded weights/biases into an attention object."
+      },
+      {
+        "sentence_id": "ch05.s05.p04.r01",
+        "text": "The feed-forward network has two layers: a fully connected layer and a projection layer.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell38",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell45",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell53"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided refs do not state that the transformer feed-forward network has exactly two layers (FC + projection); the shown ExampleDeepNeuralNetwork has multiple Linear+GELU layers and is not explicitly the GPT FFN specification."
+      },
+      {
+        "sentence_id": "ch05.s05.p04.r02",
+        "text": "For the fully connected layer, the weights and biases are taken from the downloaded GPT-2 values and assigned to the feed-forward object.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell90"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references provided do not describe taking GPT-2 downloaded FFN weights/biases and assigning them into a feed-forward module."
+      },
+      {
+        "sentence_id": "ch05.s05.p04.r03",
+        "text": "The same is done for the second feed-forward layer, the projection or output layer of the multilayer perceptron.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell53",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell31",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell56"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No provided passage discusses loading/assigning GPT-2 weights for the second FFN (projection/output) layer."
+      },
+      {
+        "sentence_id": "ch05.s05.p04.r05",
+        "text": "Each transformer block also contains two layer normalizations, and each one has both scale and shift parameters.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell59",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell63"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references say transformer blocks use layer normalization and explain that LayerNorm has trainable scale and shift parameters, but they do not state that each transformer block contains two LayerNorms."
+      },
+      {
+        "sentence_id": "ch05.s05.p04.r06",
+        "text": "For both layer normalizations in the transformer block, the downloaded scale and shift parameters are assigned to the corresponding parts of the GPT model.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While scale/shift parameters are explained conceptually, the provided passages do not cover assigning downloaded LayerNorm scale/shift parameters to both LayerNorms inside each transformer block."
+      },
+      {
+        "sentence_id": "ch05.s05.p04.r07",
+        "text": "Outside the transformer block, the final normalization layer is loaded from the \"g\" and \"b\" entries, which are assigned to the model's final normalization scale and shift values.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell58"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention a final LayerNorm before the output layer and that LayerNorm has scale/shift parameters, but do not mention loading them specifically from 'g' and 'b' entries or assigning them to the final norm."
+      },
+      {
+        "sentence_id": "ch05.s05.p05.02",
+        "text": "GPT-2 uses weight tying, meaning that the token embedding weights are reused for the final output head instead of defining new weights for that layer.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell77",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell111"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly defines GPT-2 weight tying as reusing the token embedding matrix for the output head (self.out_head.weight = self.tok_emb.weight) instead of new weights."
+      },
+      {
+        "sentence_id": "ch05.s05.p05.03",
+        "text": "Weight tying is not used too much these days, but it was used in the GPT-2 architecture.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell139",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell79"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references confirm weight tying was used in GPT-2 and discuss implementation choices, but do not state whether weight tying is or is not used much \"these days.\""
+      },
+      {
+        "sentence_id": "ch05.s05.p05.04",
+        "text": "Using weight tying brings the total parameter count from about 162 million to 124 million; without weight tying, it would be about 164 million.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell9",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell79"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention a 124M GPT-2 model and discuss not implementing weight tying in ch04, but they do not state the specific parameter-count changes (162M to 124M with tying; 164M without tying)."
+      },
+      {
+        "sentence_id": "ch05.s05.p05.05",
+        "text": "Once the GPT model instance and the \"params\" dictionary have been created, calling \"load_weights_into_gpt\" loads the downloaded GPT-2 parameters into the model instance.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell120",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell139",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell66"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The ch05 passages describe initializing a GPTModel instance and then transferring/loading the downloaded GPT-2 parameters into that instance via the weight-loading routine (load_weights_into_gpt / load_weights_into_gpt)."
+      },
+      {
+        "sentence_id": "ch05.s05.p05.06",
+        "text": "After that call, the GPT model built from scratch is fully ready and functional for testing.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell1",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell44",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell132"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited references do not explicitly claim that after calling the weight-loading function the from-scratch GPT model is 'fully ready and functional for testing'; they only indicate components are functional and show downloading/loading steps."
+      }
+    ],
+    "conflicts": []
+  }
+}

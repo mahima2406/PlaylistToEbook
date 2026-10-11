@@ -1,0 +1,16 @@
+{
+  "stage": "checks",
+  "item": "ch03.s02.code1",
+  "inputs_hash": "9a1a4ef451dc23525e8eeb48006d5b2fdb27a13f29ede47c5bc784439df12b75",
+  "output_hash": "cfff34d02a065afd2b2d261d54fe9ad77259b57b80514fb9b66eab651f13097c",
+  "output": [
+    {
+      "sentence_id": "ch03.s02.p05.02",
+      "expected": 1,
+      "expression": "1",
+      "tolerance": 0,
+      "check_id": "ch03.s02.code1.chk1",
+      "sentence_text": "The query is set to \"inputs[1]\" because Python uses zero-based indexing, and the second token, \"journey\", is therefore at index 1."
+    }
+  ]
+}

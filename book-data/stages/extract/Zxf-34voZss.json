@@ -1,0 +1,2136 @@
+{
+  "stage": "extract",
+  "item": "Zxf-34voZss",
+  "inputs_hash": "35f66e684eec74866b135f47aaf0692fd5f762eb320ad4c6ddd67ea90e33196b",
+  "output_hash": "a848857d6aa34c233e5fa287cd3ca2558e133199754900bbb56ead5e9ae05716",
+  "output": {
+    "video_id": "Zxf-34voZss",
+    "points": [
+      {
+        "id": "Zxf-34voZss:p001",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "This lecture focuses on training the large language model in the pre-training stage by minimizing the loss function with backpropagation.",
+        "line_ids": [
+          "Zxf-34voZss@12",
+          "Zxf-34voZss@15",
+          "Zxf-34voZss@19",
+          "Zxf-34voZss@24",
+          "Zxf-34voZss@51",
+          "Zxf-34voZss@52",
+          "Zxf-34voZss@55",
+          "Zxf-34voZss@58"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p002",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In the previous lecture, the lecturer covered how to calculate training and validation losses by comparing the LLM output with the target values.",
+        "line_ids": [
+          "Zxf-34voZss@27",
+          "Zxf-34voZss@29",
+          "Zxf-34voZss@30",
+          "Zxf-34voZss@32",
+          "Zxf-34voZss@39",
+          "Zxf-34voZss@41",
+          "Zxf-34voZss@43",
+          "Zxf-34voZss@46",
+          "Zxf-34voZss@48"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p003",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The dataset used is the book The Verdict, which is open source and has about 20,000 characters and about 5,000 to 5,500 tokens.",
+        "line_ids": [
+          "Zxf-34voZss@76",
+          "Zxf-34voZss@78",
+          "Zxf-34voZss@81",
+          "Zxf-34voZss@84",
+          "Zxf-34voZss@87",
+          "Zxf-34voZss@89",
+          "Zxf-34voZss@93",
+          "Zxf-34voZss@97",
+          "Zxf-34voZss@99",
+          "Zxf-34voZss@102"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p004",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The first preprocessing step is to split the dataset into training and validation data using a 0.9 training ratio, so the first 90% is training data and the remaining 10% is validation data.",
+        "line_ids": [
+          "Zxf-34voZss@102",
+          "Zxf-34voZss@104",
+          "Zxf-34voZss@106",
+          "Zxf-34voZss@108",
+          "Zxf-34voZss@110",
+          "Zxf-34voZss@114",
+          "Zxf-34voZss@116"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p005",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Because LLMs are autoregressive models, they do not have labels, so the training and validation data must be divided internally into input-target pairs.",
+        "line_ids": [
+          "Zxf-34voZss@121",
+          "Zxf-34voZss@124",
+          "Zxf-34voZss@126",
+          "Zxf-34voZss@129",
+          "Zxf-34voZss@131",
+          "Zxf-34voZss@133",
+          "Zxf-34voZss@136",
+          "Zxf-34voZss@139"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p006",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "definition",
+        "importance": 3,
+        "text": "A data loader looks at the dataset and creates the input-target pairs.",
+        "line_ids": [
+          "Zxf-34voZss@141",
+          "Zxf-34voZss@144",
+          "Zxf-34voZss@145",
+          "Zxf-34voZss@148",
+          "Zxf-34voZss@150",
+          "Zxf-34voZss@152"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p007",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In the shown example batch, the input has two samples, the target has two samples, and each sample contains four tokens.",
+        "line_ids": [
+          "Zxf-34voZss@156",
+          "Zxf-34voZss@159",
+          "Zxf-34voZss@162",
+          "Zxf-34voZss@163",
+          "Zxf-34voZss@166",
+          "Zxf-34voZss@168",
+          "Zxf-34voZss@171",
+          "Zxf-34voZss@174"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p008",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The target is the true value that the LLM is supposed to approximate.",
+        "line_ids": [
+          "Zxf-34voZss@192",
+          "Zxf-34voZss@196",
+          "Zxf-34voZss@197",
+          "Zxf-34voZss@199",
+          "Zxf-34voZss@201"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p009",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Input-target pairs are constructed by shifting each input row one position to the right to form the corresponding target row.",
+        "line_ids": [
+          "Zxf-34voZss@203",
+          "Zxf-34voZss@206",
+          "Zxf-34voZss@207",
+          "Zxf-34voZss@209",
+          "Zxf-34voZss@211",
+          "Zxf-34voZss@213",
+          "Zxf-34voZss@215",
+          "Zxf-34voZss@218"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p010",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To create inputs from the dataset, take spans of tokens of length equal to the context size, then move through the dataset using a stride that is usually equal to the context size, and create targets by shifting each input to the right.",
+        "line_ids": [
+          "Zxf-34voZss@221",
+          "Zxf-34voZss@224",
+          "Zxf-34voZss@226",
+          "Zxf-34voZss@228",
+          "Zxf-34voZss@230",
+          "Zxf-34voZss@240",
+          "Zxf-34voZss@242",
+          "Zxf-34voZss@245",
+          "Zxf-34voZss@247",
+          "Zxf-34voZss@249",
+          "Zxf-34voZss@252",
+          "Zxf-34voZss@253",
+          "Zxf-34voZss@256",
+          "Zxf-34voZss@259",
+          "Zxf-34voZss@262",
+          "Zxf-34voZss@264",
+          "Zxf-34voZss@266",
+          "Zxf-34voZss@268",
+          "Zxf-34voZss@270"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p011",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The illustrated one-token-per-word example is only for explanation, because the actual tokenizer is a byte pair encoder.",
+        "line_ids": [
+          "Zxf-34voZss@230",
+          "Zxf-34voZss@233",
+          "Zxf-34voZss@234",
+          "Zxf-34voZss@237",
+          "Zxf-34voZss@238"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p012",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "After splitting the dataset into input-target pairs, there are many input batches and target batches.",
+        "line_ids": [
+          "Zxf-34voZss@277",
+          "Zxf-34voZss@280",
+          "Zxf-34voZss@283",
+          "Zxf-34voZss@285",
+          "Zxf-34voZss@288",
+          "Zxf-34voZss@290",
+          "Zxf-34voZss@292",
+          "Zxf-34voZss@296",
+          "Zxf-34voZss@298"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p013",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To get the LLM output, pass each input batch through the LLM architecture batch by batch.",
+        "line_ids": [
+          "Zxf-34voZss@313",
+          "Zxf-34voZss@315",
+          "Zxf-34voZss@317",
+          "Zxf-34voZss@320",
+          "Zxf-34voZss@322",
+          "Zxf-34voZss@324",
+          "Zxf-34voZss@327"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p014",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The LLM architecture consists of tokenization, embedding, positional embedding, a dropout layer, transformer blocks, another normalization layer, and an output head that produces a logit tensor.",
+        "line_ids": [
+          "Zxf-34voZss@330",
+          "Zxf-34voZss@333",
+          "Zxf-34voZss@335",
+          "Zxf-34voZss@337",
+          "Zxf-34voZss@339",
+          "Zxf-34voZss@340",
+          "Zxf-34voZss@343",
+          "Zxf-34voZss@345",
+          "Zxf-34voZss@349",
+          "Zxf-34voZss@351",
+          "Zxf-34voZss@353",
+          "Zxf-34voZss@355",
+          "Zxf-34voZss@358",
+          "Zxf-34voZss@359",
+          "Zxf-34voZss@361",
+          "Zxf-34voZss@364",
+          "Zxf-34voZss@367",
+          "Zxf-34voZss@369"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p015",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In the example, the logit tensor has shape 2 by 4 by 50257 because there are two samples, four tokens per sample, and a vocabulary size of 50257.",
+        "line_ids": [
+          "Zxf-34voZss@371",
+          "Zxf-34voZss@373",
+          "Zxf-34voZss@375",
+          "Zxf-34voZss@377",
+          "Zxf-34voZss@380",
+          "Zxf-34voZss@390",
+          "Zxf-34voZss@393",
+          "Zxf-34voZss@395",
+          "Zxf-34voZss@397",
+          "Zxf-34voZss@399",
+          "Zxf-34voZss@403",
+          "Zxf-34voZss@405",
+          "Zxf-34voZss@409"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p016",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "The logit tensor is flattened by merging the first and second samples in the batch into a single tensor with shape 8 by 50257.",
+        "line_ids": [
+          "Zxf-34voZss@409",
+          "Zxf-34voZss@410",
+          "Zxf-34voZss@414",
+          "Zxf-34voZss@415",
+          "Zxf-34voZss@418",
+          "Zxf-34voZss@421"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p017",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The raw logits are not probabilities, because the values for a token do not sum to one, so a softmax must be applied to convert them into probability vectors.",
+        "line_ids": [
+          "Zxf-34voZss@424",
+          "Zxf-34voZss@427",
+          "Zxf-34voZss@429",
+          "Zxf-34voZss@430",
+          "Zxf-34voZss@432",
+          "Zxf-34voZss@435",
+          "Zxf-34voZss@436"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p018",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "definition",
+        "importance": 3,
+        "text": "After softmax, each value in a row represents the probability that the corresponding token is the next token.",
+        "line_ids": [
+          "Zxf-34voZss@439",
+          "Zxf-34voZss@441",
+          "Zxf-34voZss@443",
+          "Zxf-34voZss@445"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p019",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "If the model is trained, then for an input like \"I\" the token with the highest probability should correspond to \"had,\" and for \"I had\" it should correspond to \"always.\"",
+        "line_ids": [
+          "Zxf-34voZss@448",
+          "Zxf-34voZss@450",
+          "Zxf-34voZss@452",
+          "Zxf-34voZss@454",
+          "Zxf-34voZss@458",
+          "Zxf-34voZss@459",
+          "Zxf-34voZss@461",
+          "Zxf-34voZss@463",
+          "Zxf-34voZss@465",
+          "Zxf-34voZss@468",
+          "Zxf-34voZss@470",
+          "Zxf-34voZss@472",
+          "Zxf-34voZss@474"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p020",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "If the model is trained, then for the input \"I had always thought\" the token with the highest probability should correspond to \"Jack.\"",
+        "line_ids": [
+          "Zxf-34voZss@477",
+          "Zxf-34voZss@481",
+          "Zxf-34voZss@484",
+          "Zxf-34voZss@485",
+          "Zxf-34voZss@488",
+          "Zxf-34voZss@490",
+          "Zxf-34voZss@494",
+          "Zxf-34voZss@498",
+          "Zxf-34voZss@503",
+          "Zxf-34voZss@506",
+          "Zxf-34voZss@508"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p021",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To evaluate the output against the target, collect the target token IDs and extract, from each probability row, the probability assigned to the correct target token.",
+        "line_ids": [
+          "Zxf-34voZss@514",
+          "Zxf-34voZss@516",
+          "Zxf-34voZss@519",
+          "Zxf-34voZss@521",
+          "Zxf-34voZss@523",
+          "Zxf-34voZss@525",
+          "Zxf-34voZss@528",
+          "Zxf-34voZss@530",
+          "Zxf-34voZss@532",
+          "Zxf-34voZss@535",
+          "Zxf-34voZss@537",
+          "Zxf-34voZss@543",
+          "Zxf-34voZss@545",
+          "Zxf-34voZss@548",
+          "Zxf-34voZss@550",
+          "Zxf-34voZss@552"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p022",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The goal of training is to make the probabilities assigned to the correct target tokens as close to one as possible, so that the predicted next tokens match the target tokens.",
+        "line_ids": [
+          "Zxf-34voZss@555",
+          "Zxf-34voZss@559",
+          "Zxf-34voZss@560",
+          "Zxf-34voZss@562",
+          "Zxf-34voZss@564",
+          "Zxf-34voZss@566",
+          "Zxf-34voZss@568",
+          "Zxf-34voZss@572",
+          "Zxf-34voZss@574"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p023",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "When the LLM is not trained, the target-token probabilities are not close to one, so cross-entropy loss is used through the negative log-likelihood.",
+        "line_ids": [
+          "Zxf-34voZss@574",
+          "Zxf-34voZss@576",
+          "Zxf-34voZss@578",
+          "Zxf-34voZss@581",
+          "Zxf-34voZss@583",
+          "Zxf-34voZss@586"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p024",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The objective of training is to make the loss function decrease and become as close to zero as possible.",
+        "line_ids": [
+          "Zxf-34voZss@586",
+          "Zxf-34voZss@589",
+          "Zxf-34voZss@591",
+          "Zxf-34voZss@593",
+          "Zxf-34voZss@594",
+          "Zxf-34voZss@598"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p025",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Pre-training means optimizing all parameters in the GPT architecture so that, for the given inputs, the loss function is minimized.",
+        "line_ids": [
+          "Zxf-34voZss@600",
+          "Zxf-34voZss@603",
+          "Zxf-34voZss@605",
+          "Zxf-34voZss@607",
+          "Zxf-34voZss@609",
+          "Zxf-34voZss@611",
+          "Zxf-34voZss@613",
+          "Zxf-34voZss@615",
+          "Zxf-34voZss@616"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p026",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Pre-training tries to make the LLM outputs as close as possible to the target tensor by doing backpropagation.",
+        "line_ids": [
+          "Zxf-34voZss@634",
+          "Zxf-34voZss@636",
+          "Zxf-34voZss@638",
+          "Zxf-34voZss@641",
+          "Zxf-34voZss@644",
+          "Zxf-34voZss@647",
+          "Zxf-34voZss@650"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p027",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Once the loss function has been written down, the pre-training loop is conceptually simple because it mainly requires doing the backward pass.",
+        "line_ids": [
+          "Zxf-34voZss@652",
+          "Zxf-34voZss@654",
+          "Zxf-34voZss@656",
+          "Zxf-34voZss@658",
+          "Zxf-34voZss@659",
+          "Zxf-34voZss@662",
+          "Zxf-34voZss@664",
+          "Zxf-34voZss@667",
+          "Zxf-34voZss@669"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p028",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "definition",
+        "importance": 3,
+        "text": "One epoch means going through the entire training set once.",
+        "line_ids": [
+          "Zxf-34voZss@674",
+          "Zxf-34voZss@676",
+          "Zxf-34voZss@678",
+          "Zxf-34voZss@680",
+          "Zxf-34voZss@682"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p029",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Each epoch contains multiple batches because the training set is divided into batches.",
+        "line_ids": [
+          "Zxf-34voZss@682",
+          "Zxf-34voZss@685",
+          "Zxf-34voZss@688",
+          "Zxf-34voZss@690"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p030",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "For each batch, compute the cross-entropy loss for the batch and then do the backward pass to calculate the loss gradients.",
+        "line_ids": [
+          "Zxf-34voZss@696",
+          "Zxf-34voZss@698",
+          "Zxf-34voZss@700",
+          "Zxf-34voZss@702",
+          "Zxf-34voZss@704",
+          "Zxf-34voZss@706",
+          "Zxf-34voZss@708",
+          "Zxf-34voZss@710",
+          "Zxf-34voZss@712",
+          "Zxf-34voZss@715"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p031",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The backward pass is the most important step because it computes loss gradients that make it possible to update the model weights and parameters.",
+        "line_ids": [
+          "Zxf-34voZss@715",
+          "Zxf-34voZss@717",
+          "Zxf-34voZss@719",
+          "Zxf-34voZss@721",
+          "Zxf-34voZss@723",
+          "Zxf-34voZss@725",
+          "Zxf-34voZss@727"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p032",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "equation",
+        "importance": 3,
+        "text": "A parameter is updated by taking its old value and subtracting the step size multiplied by the loss gradient to obtain the new value.",
+        "line_ids": [
+          "Zxf-34voZss@727",
+          "Zxf-34voZss@730",
+          "Zxf-34voZss@733",
+          "Zxf-34voZss@735",
+          "Zxf-34voZss@742",
+          "Zxf-34voZss@745",
+          "Zxf-34voZss@748",
+          "Zxf-34voZss@752",
+          "Zxf-34voZss@754"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p033",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "After updating the parameters, print the training and validation losses, inspect the LLM output, move to the next batch, reset the previous batch's gradients to zero, and repeat for all batches and then for multiple epochs.",
+        "line_ids": [
+          "Zxf-34voZss@764",
+          "Zxf-34voZss@767",
+          "Zxf-34voZss@768",
+          "Zxf-34voZss@770",
+          "Zxf-34voZss@772",
+          "Zxf-34voZss@774",
+          "Zxf-34voZss@777",
+          "Zxf-34voZss@779",
+          "Zxf-34voZss@780",
+          "Zxf-34voZss@782",
+          "Zxf-34voZss@785",
+          "Zxf-34voZss@788",
+          "Zxf-34voZss@790",
+          "Zxf-34voZss@792",
+          "Zxf-34voZss@794",
+          "Zxf-34voZss@796",
+          "Zxf-34voZss@799",
+          "Zxf-34voZss@801"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p034",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "This repeated process of finding the loss, doing the backward pass, and updating parameters is the main algorithm for pre-training a large language model.",
+        "line_ids": [
+          "Zxf-34voZss@801",
+          "Zxf-34voZss@803",
+          "Zxf-34voZss@805",
+          "Zxf-34voZss@856",
+          "Zxf-34voZss@858",
+          "Zxf-34voZss@860",
+          "Zxf-34voZss@862",
+          "Zxf-34voZss@864",
+          "Zxf-34voZss@866",
+          "Zxf-34voZss@868"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p035",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Being able to run the backward pass depends on first understanding how to calculate the loss, which in turn depends on understanding logits, LLM outputs, the GPT architecture, tokenization, positional embeddings, multi-head attention, dropout, and feed-forward networks.",
+        "line_ids": [
+          "Zxf-34voZss@807",
+          "Zxf-34voZss@809",
+          "Zxf-34voZss@811",
+          "Zxf-34voZss@814",
+          "Zxf-34voZss@816",
+          "Zxf-34voZss@818",
+          "Zxf-34voZss@820",
+          "Zxf-34voZss@822",
+          "Zxf-34voZss@824",
+          "Zxf-34voZss@826",
+          "Zxf-34voZss@829",
+          "Zxf-34voZss@831",
+          "Zxf-34voZss@833",
+          "Zxf-34voZss@835",
+          "Zxf-34voZss@836",
+          "Zxf-34voZss@838",
+          "Zxf-34voZss@840",
+          "Zxf-34voZss@843",
+          "Zxf-34voZss@845",
+          "Zxf-34voZss@846"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p036",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "The hope during optimization is that parameter updates move the model through the loss landscape toward a minimum where the loss is minimized.",
+        "line_ids": [
+          "Zxf-34voZss@870",
+          "Zxf-34voZss@872",
+          "Zxf-34voZss@873",
+          "Zxf-34voZss@875",
+          "Zxf-34voZss@877",
+          "Zxf-34voZss@879",
+          "Zxf-34voZss@881",
+          "Zxf-34voZss@884",
+          "Zxf-34voZss@886",
+          "Zxf-34voZss@887",
+          "Zxf-34voZss@889"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p037",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "code",
+        "importance": 3,
+        "text": "In Python, the loss gradients are computed using the method loss.backward().",
+        "line_ids": [
+          "Zxf-34voZss@892",
+          "Zxf-34voZss@894",
+          "Zxf-34voZss@896",
+          "Zxf-34voZss@898",
+          "Zxf-34voZss@900"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p038",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Frameworks like TensorFlow or PyTorch can compute the entire backward pass with essentially a single line of Python.",
+        "line_ids": [
+          "Zxf-34voZss@902",
+          "Zxf-34voZss@904",
+          "Zxf-34voZss@908",
+          "Zxf-34voZss@910"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p039",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In LLM training, the inputs are passed through the GPT model to get logits, softmax is applied, the cross-entropy loss with the targets is computed, and then backpropagation is used to find partial derivatives of the loss with respect to the model parameters.",
+        "line_ids": [
+          "Zxf-34voZss@923",
+          "Zxf-34voZss@925",
+          "Zxf-34voZss@927",
+          "Zxf-34voZss@930",
+          "Zxf-34voZss@931",
+          "Zxf-34voZss@936",
+          "Zxf-34voZss@938",
+          "Zxf-34voZss@940",
+          "Zxf-34voZss@942",
+          "Zxf-34voZss@944",
+          "Zxf-34voZss@946",
+          "Zxf-34voZss@950"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p040",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Backpropagation through GPT is possible because the whole workflow is differentiable at every step.",
+        "line_ids": [
+          "Zxf-34voZss@953",
+          "Zxf-34voZss@955",
+          "Zxf-34voZss@958",
+          "Zxf-34voZss@959",
+          "Zxf-34voZss@963",
+          "Zxf-34voZss@964",
+          "Zxf-34voZss@966",
+          "Zxf-34voZss@968",
+          "Zxf-34voZss@970",
+          "Zxf-34voZss@972",
+          "Zxf-34voZss@973",
+          "Zxf-34voZss@975"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p041",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The model being discussed has about 161 to 162 million parameters, and a single call to loss.backward computes gradients with respect to all of them.",
+        "line_ids": [
+          "Zxf-34voZss@978",
+          "Zxf-34voZss@980",
+          "Zxf-34voZss@982",
+          "Zxf-34voZss@989",
+          "Zxf-34voZss@990",
+          "Zxf-34voZss@992",
+          "Zxf-34voZss@994",
+          "Zxf-34voZss@996"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p042",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The scale of these operations is striking because the backward pass and optimization can now be done on a laptop in about five to six minutes.",
+        "line_ids": [
+          "Zxf-34voZss@1000",
+          "Zxf-34voZss@1002",
+          "Zxf-34voZss@1004",
+          "Zxf-34voZss@1005",
+          "Zxf-34voZss@1009",
+          "Zxf-34voZss@1012",
+          "Zxf-34voZss@1015",
+          "Zxf-34voZss@1017",
+          "Zxf-34voZss@1019"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p043",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The GPT model’s parameters include token embeddings, positional embeddings, Transformer block parameters, and the final layer before the logits.",
+        "line_ids": [
+          "Zxf-34voZss@1032",
+          "Zxf-34voZss@1035",
+          "Zxf-34voZss@1036",
+          "Zxf-34voZss@1038",
+          "Zxf-34voZss@1040",
+          "Zxf-34voZss@1042",
+          "Zxf-34voZss@1044"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p044",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "equation",
+        "importance": 3,
+        "text": "The number of token embedding parameters equals vocabulary size multiplied by embedding dimension, and the number of positional embedding parameters equals context size multiplied by embedding dimension.",
+        "line_ids": [
+          "Zxf-34voZss@1046",
+          "Zxf-34voZss@1048",
+          "Zxf-34voZss@1051",
+          "Zxf-34voZss@1053",
+          "Zxf-34voZss@1056",
+          "Zxf-34voZss@1058"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p045",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The token and positional embeddings together account for 38.4 million trainable parameters, and these embedding parameters are also optimized during training.",
+        "line_ids": [
+          "Zxf-34voZss@1061",
+          "Zxf-34voZss@1063",
+          "Zxf-34voZss@1066",
+          "Zxf-34voZss@1068",
+          "Zxf-34voZss@1070"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p046",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "equation",
+        "importance": 2,
+        "text": "In multi-head attention, the query, key, and value trainable weights are three matrices of size 768 by 768, giving 1.77 million parameters for those matrices.",
+        "line_ids": [
+          "Zxf-34voZss@1072",
+          "Zxf-34voZss@1074",
+          "Zxf-34voZss@1076",
+          "Zxf-34voZss@1078",
+          "Zxf-34voZss@1083",
+          "Zxf-34voZss@1085",
+          "Zxf-34voZss@1087",
+          "Zxf-34voZss@1089",
+          "Zxf-34voZss@1092"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p047",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The multi-head attention block also has an output head, and the total number of parameters in the multi-head attention block is 2.36 million.",
+        "line_ids": [
+          "Zxf-34voZss@1094",
+          "Zxf-34voZss@1097",
+          "Zxf-34voZss@1100",
+          "Zxf-34voZss@1101",
+          "Zxf-34voZss@1104",
+          "Zxf-34voZss@1109"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p048",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The feed-forward network in a Transformer block uses an expansion-contraction structure: it projects from the embedding dimension to a hidden layer of four times that size and then compresses back to the original dimension.",
+        "line_ids": [
+          "Zxf-34voZss@1110",
+          "Zxf-34voZss@1112",
+          "Zxf-34voZss@1115",
+          "Zxf-34voZss@1117",
+          "Zxf-34voZss@1119",
+          "Zxf-34voZss@1121",
+          "Zxf-34voZss@1123",
+          "Zxf-34voZss@1125",
+          "Zxf-34voZss@1128",
+          "Zxf-34voZss@1130"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p049",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The feed-forward network contributes 4.72 million parameters.",
+        "line_ids": [
+          "Zxf-34voZss@1134",
+          "Zxf-34voZss@1137",
+          "Zxf-34voZss@1139",
+          "Zxf-34voZss@1141",
+          "Zxf-34voZss@1144",
+          "Zxf-34voZss@1145",
+          "Zxf-34voZss@1147"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p050",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "equation",
+        "importance": 3,
+        "text": "One Transformer block has 2.36 million plus 4.72 million parameters, and with 12 Transformer blocks this totals 85.2 million parameters.",
+        "line_ids": [
+          "Zxf-34voZss@1150",
+          "Zxf-34voZss@1152",
+          "Zxf-34voZss@1153",
+          "Zxf-34voZss@1155",
+          "Zxf-34voZss@1160",
+          "Zxf-34voZss@1161",
+          "Zxf-34voZss@1164",
+          "Zxf-34voZss@1166",
+          "Zxf-34voZss@1167",
+          "Zxf-34voZss@1171"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p051",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "equation",
+        "importance": 2,
+        "text": "The final layer has embedding dimension multiplied by vocabulary size parameters, which is 38.4 million.",
+        "line_ids": [
+          "Zxf-34voZss@1171",
+          "Zxf-34voZss@1173",
+          "Zxf-34voZss@1174",
+          "Zxf-34voZss@1178",
+          "Zxf-34voZss@1179",
+          "Zxf-34voZss@1181",
+          "Zxf-34voZss@1183"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p052",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "equation",
+        "importance": 3,
+        "text": "Adding 38.4 million embedding parameters, 85.2 million Transformer parameters, and 38.4 million final-layer parameters gives about 162 million parameters in total.",
+        "line_ids": [
+          "Zxf-34voZss@1183",
+          "Zxf-34voZss@1185",
+          "Zxf-34voZss@1187",
+          "Zxf-34voZss@1190",
+          "Zxf-34voZss@1193",
+          "Zxf-34voZss@1195",
+          "Zxf-34voZss@1197"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p053",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The smallest GPT-2 model is 124 million parameters because it uses weight tying, reusing the output projection parameters from the embedding layer.",
+        "line_ids": [
+          "Zxf-34voZss@1199",
+          "Zxf-34voZss@1201",
+          "Zxf-34voZss@1203",
+          "Zxf-34voZss@1205",
+          "Zxf-34voZss@1207",
+          "Zxf-34voZss@1211",
+          "Zxf-34voZss@1213",
+          "Zxf-34voZss@1214",
+          "Zxf-34voZss@1218",
+          "Zxf-34voZss@1221",
+          "Zxf-34voZss@1223"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p054",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "During backpropagation, a gradient is computed for each parameter and then all model weights are updated using those gradients.",
+        "line_ids": [
+          "Zxf-34voZss@1233",
+          "Zxf-34voZss@1235",
+          "Zxf-34voZss@1237",
+          "Zxf-34voZss@1240",
+          "Zxf-34voZss@1242",
+          "Zxf-34voZss@1244",
+          "Zxf-34voZss@1246",
+          "Zxf-34voZss@1249"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p055",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The code uses Adam rather than simple gradient descent, but the underlying idea is still to compute gradients of the loss with respect to the weights and update the parameters based on those gradients.",
+        "line_ids": [
+          "Zxf-34voZss@1250",
+          "Zxf-34voZss@1252",
+          "Zxf-34voZss@1254",
+          "Zxf-34voZss@1256",
+          "Zxf-34voZss@1257",
+          "Zxf-34voZss@1260",
+          "Zxf-34voZss@1262",
+          "Zxf-34voZss@1264",
+          "Zxf-34voZss@1265",
+          "Zxf-34voZss@1267",
+          "Zxf-34voZss@1269"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p056",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Parameters are updated in each iteration with the goal that the loss decreases toward some minimum.",
+        "line_ids": [
+          "Zxf-34voZss@1271",
+          "Zxf-34voZss@1273",
+          "Zxf-34voZss@1276",
+          "Zxf-34voZss@1278",
+          "Zxf-34voZss@1281",
+          "Zxf-34voZss@1283",
+          "Zxf-34voZss@1285",
+          "Zxf-34voZss@1287"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p057",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The pre-training loop takes batches from the training data loader, splits each into an input batch and a target batch, computes the loss between them, runs loss.backward, and then calls optimizer.step.",
+        "line_ids": [
+          "Zxf-34voZss@1292",
+          "Zxf-34voZss@1294",
+          "Zxf-34voZss@1295",
+          "Zxf-34voZss@1297",
+          "Zxf-34voZss@1310",
+          "Zxf-34voZss@1312",
+          "Zxf-34voZss@1314",
+          "Zxf-34voZss@1316",
+          "Zxf-34voZss@1318",
+          "Zxf-34voZss@1320",
+          "Zxf-34voZss@1322",
+          "Zxf-34voZss@1332",
+          "Zxf-34voZss@1334",
+          "Zxf-34voZss@1336",
+          "Zxf-34voZss@1339",
+          "Zxf-34voZss@1340",
+          "Zxf-34voZss@1342",
+          "Zxf-34voZss@1344",
+          "Zxf-34voZss@1352",
+          "Zxf-34voZss@1355",
+          "Zxf-34voZss@1357",
+          "Zxf-34voZss@1358",
+          "Zxf-34voZss@1374",
+          "Zxf-34voZss@1375",
+          "Zxf-34voZss@1378",
+          "Zxf-34voZss@1383",
+          "Zxf-34voZss@1385",
+          "Zxf-34voZss@1387"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p058",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The input batch and target batch are processed one batch at a time, and with a context size of 256 and two samples in a batch, the model sees 512 tokens in that batch.",
+        "line_ids": [
+          "Zxf-34voZss@1325",
+          "Zxf-34voZss@1328",
+          "Zxf-34voZss@1330",
+          "Zxf-34voZss@1332",
+          "Zxf-34voZss@1334",
+          "Zxf-34voZss@1336",
+          "Zxf-34voZss@1339",
+          "Zxf-34voZss@1403",
+          "Zxf-34voZss@1404",
+          "Zxf-34voZss@1407",
+          "Zxf-34voZss@1408",
+          "Zxf-34voZss@1411",
+          "Zxf-34voZss@1413",
+          "Zxf-34voZss@1416"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p059",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "definition",
+        "importance": 2,
+        "text": "The tokens seen value tracks how many input tokens the model has processed so far and accumulates as the loop goes through batches.",
+        "line_ids": [
+          "Zxf-34voZss@1392",
+          "Zxf-34voZss@1395",
+          "Zxf-34voZss@1398",
+          "Zxf-34voZss@1400",
+          "Zxf-34voZss@1418",
+          "Zxf-34voZss@1420",
+          "Zxf-34voZss@1423",
+          "Zxf-34voZss@1425",
+          "Zxf-34voZss@1427"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p060",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The inner loop iterates over batches in the training set, and the outer loop iterates over epochs so that after all batches are processed the training repeats for the specified number of epochs.",
+        "line_ids": [
+          "Zxf-34voZss@1430",
+          "Zxf-34voZss@1432",
+          "Zxf-34voZss@1434",
+          "Zxf-34voZss@1437",
+          "Zxf-34voZss@1439",
+          "Zxf-34voZss@1442",
+          "Zxf-34voZss@1445"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p061",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "An evaluate_model function is used during training to compute and print both training loss and validation loss.",
+        "line_ids": [
+          "Zxf-34voZss@1448",
+          "Zxf-34voZss@1450",
+          "Zxf-34voZss@1451",
+          "Zxf-34voZss@1454",
+          "Zxf-34voZss@1456",
+          "Zxf-34voZss@1458",
+          "Zxf-34voZss@1460",
+          "Zxf-34voZss@1462",
+          "Zxf-34voZss@1464",
+          "Zxf-34voZss@1466"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p062",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "The evaluate_model function computes loss for the training loader and the validation loader over the entire data set using previously defined loss-calculation functions.",
+        "line_ids": [
+          "Zxf-34voZss@1468",
+          "Zxf-34voZss@1470",
+          "Zxf-34voZss@1472",
+          "Zxf-34voZss@1476",
+          "Zxf-34voZss@1478",
+          "Zxf-34voZss@1480",
+          "Zxf-34voZss@1481",
+          "Zxf-34voZss@1483",
+          "Zxf-34voZss@1485",
+          "Zxf-34voZss@1487",
+          "Zxf-34voZss@1489",
+          "Zxf-34voZss@1491",
+          "Zxf-34voZss@1492"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p063",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "Training and validation losses are printed only at a chosen evaluation frequency, such as every five batches when the global step is a multiple of five.",
+        "line_ids": [
+          "Zxf-34voZss@1500",
+          "Zxf-34voZss@1502",
+          "Zxf-34voZss@1504",
+          "Zxf-34voZss@1506",
+          "Zxf-34voZss@1509",
+          "Zxf-34voZss@1510",
+          "Zxf-34voZss@1513",
+          "Zxf-34voZss@1516",
+          "Zxf-34voZss@1519",
+          "Zxf-34voZss@1521",
+          "Zxf-34voZss@1523",
+          "Zxf-34voZss@1526",
+          "Zxf-34voZss@1528",
+          "Zxf-34voZss@1530",
+          "Zxf-34voZss@1533",
+          "Zxf-34voZss@1534",
+          "Zxf-34voZss@1536",
+          "Zxf-34voZss@1538",
+          "Zxf-34voZss@1540",
+          "Zxf-34voZss@1542",
+          "Zxf-34voZss@1544",
+          "Zxf-34voZss@1547",
+          "Zxf-34voZss@1548",
+          "Zxf-34voZss@1551",
+          "Zxf-34voZss@1554",
+          "Zxf-34voZss@1556",
+          "Zxf-34voZss@1557",
+          "Zxf-34voZss@1559",
+          "Zxf-34voZss@1561",
+          "Zxf-34voZss@1562",
+          "Zxf-34voZss@1564",
+          "Zxf-34voZss@1566"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p064",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "After each epoch, a generate-and-print-sample function is used to print sample text showing the next tokens the LLM is currently generating.",
+        "line_ids": [
+          "Zxf-34voZss@1579",
+          "Zxf-34voZss@1581",
+          "Zxf-34voZss@1584",
+          "Zxf-34voZss@1590",
+          "Zxf-34voZss@1592",
+          "Zxf-34voZss@1594",
+          "Zxf-34voZss@1596",
+          "Zxf-34voZss@1598",
+          "Zxf-34voZss@1600",
+          "Zxf-34voZss@1602",
+          "Zxf-34voZss@1604",
+          "Zxf-34voZss@1606",
+          "Zxf-34voZss@1610",
+          "Zxf-34voZss@1612"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p065",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The generate-and-print-sample function prints 50 newly predicted tokens so the model’s outputs can be inspected for whether they make sense.",
+        "line_ids": [
+          "Zxf-34voZss@1613",
+          "Zxf-34voZss@1615",
+          "Zxf-34voZss@1618",
+          "Zxf-34voZss@1619",
+          "Zxf-34voZss@1621",
+          "Zxf-34voZss@1623",
+          "Zxf-34voZss@1625",
+          "Zxf-34voZss@1627",
+          "Zxf-34voZss@1629",
+          "Zxf-34voZss@1631",
+          "Zxf-34voZss@1632",
+          "Zxf-34voZss@1634",
+          "Zxf-34voZss@1637",
+          "Zxf-34voZss@1640",
+          "Zxf-34voZss@1641",
+          "Zxf-34voZss@1643",
+          "Zxf-34voZss@1645",
+          "Zxf-34voZss@1647",
+          "Zxf-34voZss@1648",
+          "Zxf-34voZss@1650",
+          "Zxf-34voZss@1652",
+          "Zxf-34voZss@1655"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p066",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The main step in the training code is loss.backward; the other parts mainly print training and validation losses every five batches, print a text sample after each epoch, and track tokens seen.",
+        "line_ids": [
+          "Zxf-34voZss@1655",
+          "Zxf-34voZss@1658",
+          "Zxf-34voZss@1660",
+          "Zxf-34voZss@1662",
+          "Zxf-34voZss@1663",
+          "Zxf-34voZss@1666",
+          "Zxf-34voZss@1669",
+          "Zxf-34voZss@1670",
+          "Zxf-34voZss@1672",
+          "Zxf-34voZss@1674",
+          "Zxf-34voZss@1676",
+          "Zxf-34voZss@1678",
+          "Zxf-34voZss@1681",
+          "Zxf-34voZss@1685",
+          "Zxf-34voZss@1687",
+          "Zxf-34voZss@1689",
+          "Zxf-34voZss@1691"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p067",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "If the data set has around 5,000 tokens and training runs for 10 epochs, the total tokens seen should be on the order of 50,000.",
+        "line_ids": [
+          "Zxf-34voZss@1694",
+          "Zxf-34voZss@1696",
+          "Zxf-34voZss@1698",
+          "Zxf-34voZss@1701",
+          "Zxf-34voZss@1704",
+          "Zxf-34voZss@1707",
+          "Zxf-34voZss@1710",
+          "Zxf-34voZss@1711",
+          "Zxf-34voZss@1714",
+          "Zxf-34voZss@1716",
+          "Zxf-34voZss@1718"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p068",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The training loop is only about 15 to 20 lines of code because loss.backward handles the loss-gradient computation, after which optimizer.step performs the parameter update.",
+        "line_ids": [
+          "Zxf-34voZss@1722",
+          "Zxf-34voZss@1725",
+          "Zxf-34voZss@1727",
+          "Zxf-34voZss@1730",
+          "Zxf-34voZss@1732",
+          "Zxf-34voZss@1734",
+          "Zxf-34voZss@1736",
+          "Zxf-34voZss@1738",
+          "Zxf-34voZss@1739"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p069",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "When evaluating the model, it should be put in evaluation mode with gradient tracking disabled and dropout disabled, because only the loss is being computed through a forward pass.",
+        "line_ids": [
+          "Zxf-34voZss@1747",
+          "Zxf-34voZss@1749",
+          "Zxf-34voZss@1751",
+          "Zxf-34voZss@1754",
+          "Zxf-34voZss@1756",
+          "Zxf-34voZss@1758",
+          "Zxf-34voZss@1760",
+          "Zxf-34voZss@1763",
+          "Zxf-34voZss@1765",
+          "Zxf-34voZss@1767",
+          "Zxf-34voZss@1769",
+          "Zxf-34voZss@1770",
+          "Zxf-34voZss@1772",
+          "Zxf-34voZss@1775",
+          "Zxf-34voZss@1777",
+          "Zxf-34voZss@1778"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p070",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "definition",
+        "importance": 2,
+        "text": "The generate-and-print-sample function is a convenience function for tracking whether the model improves during training by showing generated text.",
+        "line_ids": [
+          "Zxf-34voZss@1781",
+          "Zxf-34voZss@1782",
+          "Zxf-34voZss@1784",
+          "Zxf-34voZss@1785",
+          "Zxf-34voZss@1787",
+          "Zxf-34voZss@1790",
+          "Zxf-34voZss@1791"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p071",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "The generate-and-print-sample function takes a starting text snippet as input, converts it into token IDs, and feeds it to the LLM to generate a text sample.",
+        "line_ids": [
+          "Zxf-34voZss@1793",
+          "Zxf-34voZss@1795",
+          "Zxf-34voZss@1798",
+          "Zxf-34voZss@1800"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p072",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "The training loop prints a generated text sample after every epoch.",
+        "line_ids": [
+          "Zxf-34voZss@1804",
+          "Zxf-34voZss@1806",
+          "Zxf-34voZss@1808"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p073",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "definition",
+        "importance": 2,
+        "text": "Training a GPT model instance means creating an instance of the previously defined GPT model class.",
+        "line_ids": [
+          "Zxf-34voZss@1820",
+          "Zxf-34voZss@1822",
+          "Zxf-34voZss@1825",
+          "Zxf-34voZss@1826",
+          "Zxf-34voZss@1828"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p074",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The GPT model class performs the operations in the GPT architecture and produces the LLM output at the end.",
+        "line_ids": [
+          "Zxf-34voZss@1830",
+          "Zxf-34voZss@1833",
+          "Zxf-34voZss@1835",
+          "Zxf-34voZss@1838",
+          "Zxf-34voZss@1841",
+          "Zxf-34voZss@1845"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p075",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The model configuration used here has vocabulary size 50257, context length 256, embedding dimension 768, 12 attention heads, 12 transformer layers, dropout 0.1, and query-key-value bias set to false.",
+        "line_ids": [
+          "Zxf-34voZss@1858",
+          "Zxf-34voZss@1859",
+          "Zxf-34voZss@1860",
+          "Zxf-34voZss@1862",
+          "Zxf-34voZss@1864",
+          "Zxf-34voZss@1865",
+          "Zxf-34voZss@1868",
+          "Zxf-34voZss@1871",
+          "Zxf-34voZss@1874",
+          "Zxf-34voZss@1885",
+          "Zxf-34voZss@1887",
+          "Zxf-34voZss@1889",
+          "Zxf-34voZss@1893",
+          "Zxf-34voZss@1895",
+          "Zxf-34voZss@1897",
+          "Zxf-34voZss@1900",
+          "Zxf-34voZss@1904",
+          "Zxf-34voZss@1906",
+          "Zxf-34voZss@1908",
+          "Zxf-34voZss@1910",
+          "Zxf-34voZss@1913"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p076",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "GPT-2 small originally used context length 1024, but 256 is used here so the code can run on a learner's machine in less time and with fewer resources.",
+        "line_ids": [
+          "Zxf-34voZss@1865",
+          "Zxf-34voZss@1868",
+          "Zxf-34voZss@1871",
+          "Zxf-34voZss@1874",
+          "Zxf-34voZss@1877",
+          "Zxf-34voZss@1879"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p077",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Changing the context length from 256 to 1024 would not significantly change the code.",
+        "line_ids": [
+          "Zxf-34voZss@1881",
+          "Zxf-34voZss@1883"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p078",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The embedding dimension is 768 because the inputs are projected into a 768-dimensional space.",
+        "line_ids": [
+          "Zxf-34voZss@1885",
+          "Zxf-34voZss@1887",
+          "Zxf-34voZss@1889",
+          "Zxf-34voZss@1891"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p079",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The query-key-value bias is set to false because the lecturer says the bias term is not needed when initializing the query, key, and value weight matrices.",
+        "line_ids": [
+          "Zxf-34voZss@1900",
+          "Zxf-34voZss@1904",
+          "Zxf-34voZss@1906",
+          "Zxf-34voZss@1908",
+          "Zxf-34voZss@1910"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p080",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "definition",
+        "importance": 3,
+        "text": "AdamW is a variation of Adam that uses weight decay.",
+        "line_ids": [
+          "Zxf-34voZss@1927",
+          "Zxf-34voZss@1930",
+          "Zxf-34voZss@1933",
+          "Zxf-34voZss@1935"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p081",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Adam has become a go-to optimizer for modern machine learning algorithms such as classification and regression because it works very well, avoids local minima, and converges faster.",
+        "line_ids": [
+          "Zxf-34voZss@1937",
+          "Zxf-34voZss@1940",
+          "Zxf-34voZss@1942",
+          "Zxf-34voZss@1944",
+          "Zxf-34voZss@1946",
+          "Zxf-34voZss@1948",
+          "Zxf-34voZss@1950",
+          "Zxf-34voZss@1953"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p082",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "With AdamW, the learning rate and the weight decay are specified, and these are hyperparameters that need to be tuned.",
+        "line_ids": [
+          "Zxf-34voZss@1956",
+          "Zxf-34voZss@1959",
+          "Zxf-34voZss@1961",
+          "Zxf-34voZss@1963",
+          "Zxf-34voZss@1964",
+          "Zxf-34voZss@1966",
+          "Zxf-34voZss@1969"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p083",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Setting the number of epochs to 10 means repeating the entire training process 10 times and printing a generated sample after each epoch.",
+        "line_ids": [
+          "Zxf-34voZss@1971",
+          "Zxf-34voZss@1973",
+          "Zxf-34voZss@1975",
+          "Zxf-34voZss@1978",
+          "Zxf-34voZss@1979",
+          "Zxf-34voZss@1984",
+          "Zxf-34voZss@1985",
+          "Zxf-34voZss@1987",
+          "Zxf-34voZss@1989",
+          "Zxf-34voZss@1991",
+          "Zxf-34voZss@1994"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p084",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "An evaluation frequency and evaluation iteration of five means the code prints training loss and validation loss after every five batches.",
+        "line_ids": [
+          "Zxf-34voZss@1999",
+          "Zxf-34voZss@2001",
+          "Zxf-34voZss@2003",
+          "Zxf-34voZss@2005"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p085",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The initial prompt used for generation is \"every effort moves you,\" and the model requires an initial text in order to print what it predicts next.",
+        "line_ids": [
+          "Zxf-34voZss@2007",
+          "Zxf-34voZss@2009",
+          "Zxf-34voZss@2011",
+          "Zxf-34voZss@2013",
+          "Zxf-34voZss@2015",
+          "Zxf-34voZss@2017"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p086",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "The code records the start time and end time of training to measure how long training takes.",
+        "line_ids": [
+          "Zxf-34voZss@2021",
+          "Zxf-34voZss@2023",
+          "Zxf-34voZss@2025",
+          "Zxf-34voZss@2032",
+          "Zxf-34voZss@2034"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p087",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The model being trained has more than 100 million parameters.",
+        "line_ids": [
+          "Zxf-34voZss@2027",
+          "Zxf-34voZss@2029",
+          "Zxf-34voZss@2031"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p088",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In the shown run, training completed in 6.6 minutes on a laptop.",
+        "line_ids": [
+          "Zxf-34voZss@2052",
+          "Zxf-34voZss@2053",
+          "Zxf-34voZss@2056",
+          "Zxf-34voZss@2057",
+          "Zxf-34voZss@2059"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p089",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The lecturer says this run optimized about 160 million parameters for 10 epochs on a laptop in 6.6 minutes.",
+        "line_ids": [
+          "Zxf-34voZss@2062",
+          "Zxf-34voZss@2066",
+          "Zxf-34voZss@2069",
+          "Zxf-34voZss@2073",
+          "Zxf-34voZss@2076",
+          "Zxf-34voZss@2078",
+          "Zxf-34voZss@2081"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p090",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The training loss decreased substantially during training, from about 9.781 to about 3.91.",
+        "line_ids": [
+          "Zxf-34voZss@2120",
+          "Zxf-34voZss@2122",
+          "Zxf-34voZss@2124",
+          "Zxf-34voZss@2127",
+          "Zxf-34voZss@2128",
+          "Zxf-34voZss@2129",
+          "Zxf-34voZss@2133",
+          "Zxf-34voZss@2143",
+          "Zxf-34voZss@2145",
+          "Zxf-34voZss@2148",
+          "Zxf-34voZss@2151",
+          "Zxf-34voZss@2155",
+          "Zxf-34voZss@2159"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p091",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The validation loss started around 9.933 and then stagnated around 6.4 to 6.2, which is presented as a classic sign of overfitting.",
+        "line_ids": [
+          "Zxf-34voZss@2165",
+          "Zxf-34voZss@2167",
+          "Zxf-34voZss@2170",
+          "Zxf-34voZss@2173",
+          "Zxf-34voZss@2177"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p092",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "After the first epoch, the generated output was mostly commas, showing that the model had not yet learned meaningful text generation.",
+        "line_ids": [
+          "Zxf-34voZss@2184",
+          "Zxf-34voZss@2187",
+          "Zxf-34voZss@2189",
+          "Zxf-34voZss@2192",
+          "Zxf-34voZss@2195",
+          "Zxf-34voZss@2196",
+          "Zxf-34voZss@2199"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p093",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "After the second epoch, the generated output was still incoherent, repeating tokens such as commas and \"and.\"",
+        "line_ids": [
+          "Zxf-34voZss@2199",
+          "Zxf-34voZss@2201",
+          "Zxf-34voZss@2203"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p094",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "As training continued, the model began to use words from the training text in its generated samples.",
+        "line_ids": [
+          "Zxf-34voZss@2205",
+          "Zxf-34voZss@2208",
+          "Zxf-34voZss@2209",
+          "Zxf-34voZss@2213",
+          "Zxf-34voZss@2215",
+          "Zxf-34voZss@2217",
+          "Zxf-34voZss@2219",
+          "Zxf-34voZss@2221"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p095",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "By later epochs, the model generated text that made sense but directly recycled text from the training data, which is another sign of overfitting.",
+        "line_ids": [
+          "Zxf-34voZss@2225",
+          "Zxf-34voZss@2227",
+          "Zxf-34voZss@2229",
+          "Zxf-34voZss@2232",
+          "Zxf-34voZss@2236",
+          "Zxf-34voZss@2238",
+          "Zxf-34voZss@2241",
+          "Zxf-34voZss@2243",
+          "Zxf-34voZss@2245",
+          "Zxf-34voZss@2247",
+          "Zxf-34voZss@2249",
+          "Zxf-34voZss@2251"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p096",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The model's language skills improved during training, progressing from repeated commas to grammatically correct text.",
+        "line_ids": [
+          "Zxf-34voZss@2272",
+          "Zxf-34voZss@2275",
+          "Zxf-34voZss@2277",
+          "Zxf-34voZss@2279",
+          "Zxf-34voZss@2281",
+          "Zxf-34voZss@2283",
+          "Zxf-34voZss@2285",
+          "Zxf-34voZss@2287",
+          "Zxf-34voZss@2289",
+          "Zxf-34voZss@2291",
+          "Zxf-34voZss@2293",
+          "Zxf-34voZss@2295"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p097",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Producing words that make sense instead of completely random output is evidence that the training process is helping the model learn.",
+        "line_ids": [
+          "Zxf-34voZss@2298",
+          "Zxf-34voZss@2300",
+          "Zxf-34voZss@2302",
+          "Zxf-34voZss@2304",
+          "Zxf-34voZss@2306",
+          "Zxf-34voZss@2308",
+          "Zxf-34voZss@2311"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p098",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The validation loss decreases during training but never becomes as small as the training loss, and after 10 epochs it stagnates around 6.37.",
+        "line_ids": [
+          "Zxf-34voZss@2313",
+          "Zxf-34voZss@2316",
+          "Zxf-34voZss@2317",
+          "Zxf-34voZss@2319",
+          "Zxf-34voZss@2322"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p099",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "visual_ref",
+        "importance": 2,
+        "text": "A plot is shown where the blue training-loss line keeps decreasing while the validation-loss line decreases and then becomes flat.",
+        "line_ids": [
+          "Zxf-34voZss@2325",
+          "Zxf-34voZss@2327",
+          "Zxf-34voZss@2328",
+          "Zxf-34voZss@2330",
+          "Zxf-34voZss@2332",
+          "Zxf-34voZss@2334",
+          "Zxf-34voZss@2336",
+          "Zxf-34voZss@2338"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p100",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The plot also tracks tokens seen, and as the number of tokens seen increases, the training loss decreases a lot while the validation loss stagnates.",
+        "line_ids": [
+          "Zxf-34voZss@2340",
+          "Zxf-34voZss@2342",
+          "Zxf-34voZss@2354",
+          "Zxf-34voZss@2356",
+          "Zxf-34voZss@2357",
+          "Zxf-34voZss@2359"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p101",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Both training and validation loss improve after the first epoch, but they begin to diverge after the second epoch.",
+        "line_ids": [
+          "Zxf-34voZss@2362",
+          "Zxf-34voZss@2364",
+          "Zxf-34voZss@2366",
+          "Zxf-34voZss@2368",
+          "Zxf-34voZss@2370"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p102",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "When the validation loss is much larger than the training loss and the two losses diverge, the model is overfitting to the training data.",
+        "line_ids": [
+          "Zxf-34voZss@2370",
+          "Zxf-34voZss@2372",
+          "Zxf-34voZss@2374",
+          "Zxf-34voZss@2376",
+          "Zxf-34voZss@2378",
+          "Zxf-34voZss@2380"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p103",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The model is memorizing the training data, as shown by generated text that exactly matches phrases in the dataset, and this memorization is a classic sign of overfitting.",
+        "line_ids": [
+          "Zxf-34voZss@2382",
+          "Zxf-34voZss@2385",
+          "Zxf-34voZss@2387",
+          "Zxf-34voZss@2390",
+          "Zxf-34voZss@2393",
+          "Zxf-34voZss@2396",
+          "Zxf-34voZss@2398",
+          "Zxf-34voZss@2400",
+          "Zxf-34voZss@2402"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p104",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "This memorization is expected here because the training dataset is very small and the model is trained for multiple epochs.",
+        "line_ids": [
+          "Zxf-34voZss@2405",
+          "Zxf-34voZss@2407",
+          "Zxf-34voZss@2409",
+          "Zxf-34voZss@2411"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p105",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In common practice, models are trained on much larger datasets for only one epoch.",
+        "line_ids": [
+          "Zxf-34voZss@2413",
+          "Zxf-34voZss@2417",
+          "Zxf-34voZss@2420",
+          "Zxf-34voZss@2422"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p106",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The small dataset used here has about 5,000 tokens and 20,000 characters, whereas real LLM training uses datasets with millions of tokens.",
+        "line_ids": [
+          "Zxf-34voZss@2426",
+          "Zxf-34voZss@2427",
+          "Zxf-34voZss@2429",
+          "Zxf-34voZss@2431",
+          "Zxf-34voZss@2433",
+          "Zxf-34voZss@2437",
+          "Zxf-34voZss@2438",
+          "Zxf-34voZss@2440",
+          "Zxf-34voZss@2442"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p107",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Large datasets reduce overfitting because they contain much more variability, whereas small datasets let the model get away with memorizing pieces of data.",
+        "line_ids": [
+          "Zxf-34voZss@2442",
+          "Zxf-34voZss@2444",
+          "Zxf-34voZss@2446",
+          "Zxf-34voZss@2448",
+          "Zxf-34voZss@2451",
+          "Zxf-34voZss@2453",
+          "Zxf-34voZss@2455"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p108",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "Learners are encouraged to vary hyperparameters such as learning rate, weight decay, and number of epochs to observe how the code and training behavior change.",
+        "line_ids": [
+          "Zxf-34voZss@2455",
+          "Zxf-34voZss@2460",
+          "Zxf-34voZss@2462",
+          "Zxf-34voZss@2464",
+          "Zxf-34voZss@2466",
+          "Zxf-34voZss@2473",
+          "Zxf-34voZss@2475",
+          "Zxf-34voZss@2477",
+          "Zxf-34voZss@2479"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p109",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Even though the model may be overfitting, the training loop successfully minimizes the loss and shows that the large language model is learning.",
+        "line_ids": [
+          "Zxf-34voZss@2482",
+          "Zxf-34voZss@2483",
+          "Zxf-34voZss@2485",
+          "Zxf-34voZss@2487",
+          "Zxf-34voZss@2489",
+          "Zxf-34voZss@2491",
+          "Zxf-34voZss@2493"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p110",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The lecturer emphasizes that this LLM training loop was built from scratch without using libraries such as LangChain.",
+        "line_ids": [
+          "Zxf-34voZss@2493",
+          "Zxf-34voZss@2495",
+          "Zxf-34voZss@2496",
+          "Zxf-34voZss@2499"
+        ]
+      },
+      {
+        "id": "Zxf-34voZss:p111",
+        "video_id": "Zxf-34voZss",
+        "lecture": 28,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The next lecture will cover decoding strategies such as temperature scaling to control randomness so the model predicts new words instead of merely memorizing text.",
+        "line_ids": [
+          "Zxf-34voZss@2502",
+          "Zxf-34voZss@2504",
+          "Zxf-34voZss@2506",
+          "Zxf-34voZss@2509",
+          "Zxf-34voZss@2510",
+          "Zxf-34voZss@2513",
+          "Zxf-34voZss@2515",
+          "Zxf-34voZss@2518",
+          "Zxf-34voZss@2520",
+          "Zxf-34voZss@2523",
+          "Zxf-34voZss@2526",
+          "Zxf-34voZss@2529"
+        ]
+      }
+    ],
+    "inventory": [
+      {
+        "chunk": "Zxf-34voZss@0-904",
+        "start": 0,
+        "end": 904,
+        "points": 37,
+        "core_points": 24,
+        "invalid_points": 0,
+        "flag": null
+      },
+      {
+        "chunk": "Zxf-34voZss@902-1806",
+        "start": 902,
+        "end": 1806,
+        "points": 34,
+        "core_points": 13,
+        "invalid_points": 0,
+        "flag": null
+      },
+      {
+        "chunk": "Zxf-34voZss@1804-2597",
+        "start": 1804,
+        "end": 2597,
+        "points": 40,
+        "core_points": 17,
+        "invalid_points": 0,
+        "flag": null
+      }
+    ]
+  }
+}

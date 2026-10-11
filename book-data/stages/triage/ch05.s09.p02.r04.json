@@ -1,0 +1,13 @@
+{
+  "stage": "triage",
+  "item": "ch05.s09.p02.r04",
+  "inputs_hash": "cf8b771a35c8f274e7678cce4d1ee95151a5fce413b5dc8b3b63027527ac5513",
+  "output_hash": "bda8d3e492cbb23117d1dca849a4933a1eac6be572d5df6a423ee4d56a9fbbe0",
+  "output": {
+    "decision": "accept",
+    "reason": "The captions state that each batch has eight rows and 120 columns, with 120 being the number of token IDs, which supports '120 token ID positions per sample.'",
+    "risk": "low",
+    "kind": "queue",
+    "sentence_hash": "078861e9cf471d9e6f910e75a9bbcfac45ed0a430cd3e6e1f5de0f054ef35c0f"
+  }
+}

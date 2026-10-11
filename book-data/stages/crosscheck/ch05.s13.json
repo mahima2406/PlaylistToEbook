@@ -1,0 +1,289 @@
+{
+  "stage": "crosscheck",
+  "item": "ch05.s13",
+  "inputs_hash": "b7b00dd5dd0c1975a17925639d706ede476b3e54e0520c29c42d4417a61f3036",
+  "output_hash": "e27d7b9ed142999903f82266483979846e860e54e860d91d2c0840ae6ec9b988",
+  "output": {
+    "section_id": "ch05.s13",
+    "checked": 23,
+    "counts": {
+      "agrees": 10,
+      "contradicts": 0,
+      "not_covered": 13
+    },
+    "results": [
+      {
+        "sentence_id": "ch05.s13.p01.02",
+        "text": "After training, the training loss reaches about 0.083, the validation loss reaches about 0.074, the training accuracy improves to around 100%, and the validation accuracy reaches 97.5%.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell70",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell105",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell90"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited cells show how losses/accuracies are computed/printed, but do not provide the specific post-training numeric values (0.083/0.074/100%/97.5%) in the provided excerpts."
+      },
+      {
+        "sentence_id": "ch05.s13.p01.03",
+        "text": "As the model sees more examples, both the training loss and the validation loss go down.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell89",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell85",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell52"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show computing initial losses and mention the goal is to minimize loss, but they do not state or demonstrate (in the provided excerpts) that both train and validation loss decrease as more examples are seen."
+      },
+      {
+        "sentence_id": "ch05.s13.p01.04",
+        "text": "Very low training loss and very low validation loss, together with no noticeable gap between them, indicate good training with little to no overfitting.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell89",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell86",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell52"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages compute/print losses but do not discuss interpreting low train/val loss with a small gap as indicating little/no overfitting."
+      },
+      {
+        "sentence_id": "ch05.s13.p01.05",
+        "text": "If the validation loss is much higher than the training loss, that is a sign of overfitting.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell52",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell89",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell85"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not state that validation loss being much higher than training loss indicates overfitting; they only cover computing losses and the objective to minimize them."
+      },
+      {
+        "sentence_id": "ch05.s13.p01.06",
+        "text": "The accuracy plot follows the same pattern: as loss decreases, training accuracy rises to 1 and validation accuracy rises to about 97%.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell105",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell70",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell90"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The excerpts include code to compute accuracies but do not include the plotted trend or the specific claim that training accuracy rises to 1 and validation accuracy to ~97% as loss decreases."
+      },
+      {
+        "sentence_id": "ch05.s13.p02.02",
+        "text": "Because the evaluation iteration was set to five, the plotted accuracy values are not representative of performance on the entire dataset.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell90",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell63",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the provided references state that the plotted accuracy values are not representative specifically because evaluation iteration was set to five; that point appears in a different cited cell (cell104), not in the provided refs for S6."
+      },
+      {
+        "sentence_id": "ch05.s13.p02.03",
+        "text": "During training, the training and validation performance shown in those plots was based on only five batches for efficiency.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell104",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell122",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell64"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Cell104 explicitly notes that eval_iter=5 means training/validation performances in the plots are only estimated (i.e., based on only five batches) for efficiency."
+      },
+      {
+        "sentence_id": "ch05.s13.p02.04",
+        "text": "To measure performance on the full training, validation, and test sets, run the \"calculate_accuracy_loader\" function with a data loader, the model, and the device.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell105",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell82",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell88"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Cell105 shows computing full-dataset training/validation/test accuracies by calling calc_accuracy_loader with the respective data loader, model, and device."
+      },
+      {
+        "sentence_id": "ch05.s13.p02.05",
+        "text": "The \"calculate_accuracy_loader\" function uses the model to make predictions, compares them with the actual values, reports accuracy, and does this over all batches in the dataset rather than only five batches.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell79",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell105",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell90"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Cell79 explains computing accuracy by applying argmax-based predictions across all examples in a dataset and computing the fraction correct, consistent with running over all batches rather than only five."
+      },
+      {
+        "sentence_id": "ch05.s13.p02.06",
+        "text": "Accuracy measured over all batches in the training, validation, and test sets is a better representative measure than the plots based on only five evaluation batches.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell104",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell40",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell105"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Cell104 contrasts the eval_iter=5 plot estimates with computing performance over the complete dataset (cell105), implying full-dataset accuracies are more representative than the 5-batch estimates."
+      },
+      {
+        "sentence_id": "ch05.s13.p03.02",
+        "text": "On the full datasets, the training accuracy is 97%, the validation accuracy is 97%, and the test accuracy is 95%.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell105",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell70",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell82"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Cell105 shows print statements but the provided excerpt does not include the actual printed numeric results (97%/97%/95%), so the specific values cannot be verified from the supplied text."
+      },
+      {
+        "sentence_id": "ch05.s13.p03.03",
+        "text": "A small gap where test accuracy is slightly lower than training accuracy suggests a small amount of overfitting.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell105",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell82",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell70"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references provide code to compute accuracies but do not discuss interpreting a slightly lower test accuracy than training accuracy as indicating a small amount of overfitting."
+      },
+      {
+        "sentence_id": "ch05.s13.p03.04",
+        "text": "Validation accuracy is often somewhat higher than test accuracy because model development often involves fine-tuning parameters on the validation set.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell105",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell82",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell104"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference notes that validation data was used for tweaking hyperparameters (e.g., learning rate) and shows separate val/test accuracy computation, consistent with validation often being a bit optimistic vs test."
+      },
+      {
+        "sentence_id": "ch05.s13.p03.05",
+        "text": "That validation-test gap could potentially be reduced by adjusting model settings such as increasing the dropout rate or the optimizer's weight decay parameter.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell106",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell114",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell112"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly says the gap could be reduced by increasing dropout rate or optimizer weight_decay."
+      },
+      {
+        "sentence_id": "ch05.s13.p03.06",
+        "text": "This setup leaves room to experiment with dropout rate, learning rate, weight decay, and which parameters are unfrozen during fine-tuning.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell106",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell114",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell112"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References mention learning rate, dropout rate, and weight decay as tunable, but do not discuss experimenting with which parameters are unfrozen during fine-tuning."
+      },
+      {
+        "sentence_id": "ch05.s13.p03.07",
+        "text": "In the current setup, the trained parameters are the output classification head, the last transformer block, and the final normalization layer.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell58",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states they make the output layer, last transformer block, and final LayerNorm trainable."
+      },
+      {
+        "sentence_id": "ch05.s13.p03.08",
+        "text": "One possible experiment is to train more transformer blocks instead of only the last one.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell85",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell119"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided references do not mention experimenting with training more transformer blocks than the last one."
+      },
+      {
+        "sentence_id": "ch05.s13.p04.r02",
+        "text": "In this project, training reduced the loss and increased the accuracy.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell70",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell90",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell86"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states they train the model to improve (reduce) loss values and consequently improve classification accuracy."
+      },
+      {
+        "sentence_id": "ch05.s13.p04.r03",
+        "text": "A disadvantage of fine-tuning is that it requires additional training time on a specific dataset.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell89",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell98",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell77"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References time training runs but do not state that fine-tuning is a disadvantage because it requires additional training time on a specific dataset."
+      },
+      {
+        "sentence_id": "ch05.s13.p04.r04",
+        "text": "An advantage is that the model becomes specialized to the target dataset, here the spam collection, and can act as a spam classifier.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell107",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell8",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell115"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference section is explicitly about using the LLM as a spam classifier and explains classification fine-tuning to output labels like spam/not spam, implying specialization to the dataset/task."
+      },
+      {
+        "sentence_id": "ch05.s13.p04.r05",
+        "text": "The same fine-tuning code can be applied to a wide range of classification tasks and datasets.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell81",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell8"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references describe classification fine-tuning generally but do not state that the same code applies to a wide range of classification tasks and datasets."
+      },
+      {
+        "sentence_id": "ch05.s13.p04.r07",
+        "text": "Instruction fine-tuning can be used to build a chatbot that answers or replies to specific instructions.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell1"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Chapter 7 is titled 'Finetuning To Follow Instructions,' consistent with instruction fine-tuning being used for instruction-following/chatbot behavior."
+      },
+      {
+        "sentence_id": "ch05.s13.p04.r08",
+        "text": "This approach opens research opportunities both in changing and testing LLM architectures and in applying them to classification projects.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell91"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided reference snippet about a sliding window approach does not address research opportunities in changing/testing LLM architectures or applying them to classification projects."
+      }
+    ],
+    "conflicts": []
+  }
+}

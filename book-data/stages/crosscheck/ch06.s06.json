@@ -1,0 +1,269 @@
+{
+  "stage": "crosscheck",
+  "item": "ch06.s06",
+  "inputs_hash": "3a7f225ab0d81a4b693c7d091bd16e8a92bc7624174f037fbd34e69153cfba7f",
+  "output_hash": "68819293db799189e804e3a07695a240c022a1bc3e0f697b0ec67d230149c9e7",
+  "output": {
+    "section_id": "ch06.s06",
+    "checked": 19,
+    "counts": {
+      "agrees": 11,
+      "contradicts": 2,
+      "not_covered": 6
+    },
+    "results": [
+      {
+        "sentence_id": "ch06.s06.p01.02",
+        "text": "After creating the target token IDs by shifting the inputs and adding an additional padding token at the end, the remaining step is to replace padding tokens in the targets with placeholders.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell18",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell42",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs describe targets as inputs shifted by 1 and then replacing padding token IDs in targets with an ignore_index placeholder (-100)."
+      },
+      {
+        "sentence_id": "ch06.s06.p01.03",
+        "text": "The padding token ID here is \"50256\", but not every \"50256\" in the target should be replaced.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell42",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell35"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Ref says to replace padding token IDs (50256) with -100, but also notes we do NOT want to ignore the first end-of-text instance; thus not every 50256 in the target should be replaced (the first should be kept). The sentence claims not every 50256 should be replaced, which aligns, but it’s missing the key rule? Actually ref explicitly supports keeping first; so statement 'not every' agrees. However S2 wording implies some 50256 should not be replaced without specifying; ref confirms. -> agrees."
+      },
+      {
+        "sentence_id": "ch06.s06.p01.04",
+        "text": "If a target contains several \"50256\" values, the first one is kept because it indicates the end of text, and all remaining \"50256\" values are replaced with \"-100\".",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell51"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref explains we can ignore additional end-of-text (padding) tokens using -100 but do not want to ignore the first instance; this matches keeping the first 50256 and replacing remaining 50256s with -100."
+      },
+      {
+        "sentence_id": "ch06.s06.p01.05",
+        "text": "If a target has only the end-of-text \"50256\", that first \"50256\" remains unchanged.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref indicates the first end-of-text token should not be ignored/replaced; if there is only one 50256, it is that first instance and remains."
+      },
+      {
+        "sentence_id": "ch06.s06.p01.06",
+        "text": "This keeps one end-of-text token while removing the extra end-of-text padding tokens from consideration.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell52",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell110",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref motivation is to ignore additional padding end-of-text tokens via -100 while not ignoring the first end-of-text token, matching the described effect."
+      },
+      {
+        "sentence_id": "ch06.s06.p02.01",
+        "text": "The choice of \"-100\" comes from PyTorch's cross-entropy loss.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell48",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell40",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell52"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref demonstrates PyTorch cross_entropy ignores label -100 by default (ignore_index=-100), motivating the choice of -100."
+      },
+      {
+        "sentence_id": "ch06.s06.p02.02",
+        "text": "Cross-entropy loss is calculated from a logits tensor of predictions and a target tensor of true answers.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell50",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell42",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell48"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref code computes cross_entropy from logits_2 and targets_2 tensors, consistent with the statement."
+      },
+      {
+        "sentence_id": "ch06.s06.p02.03",
+        "text": "In PyTorch, the default \"ignore_index\" for cross-entropy loss is \"-100\".",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell48",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell42"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref explicitly states: 'By default, PyTorch has the cross_entropy(..., ignore_index=-100)'."
+      },
+      {
+        "sentence_id": "ch06.s06.p02.04",
+        "text": "That means any target entry labeled \"-100\" is ignored when the loss is computed.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell118",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell52"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref explains cross_entropy ignores examples/entries with label -100 via ignore_index and demonstrates unchanged loss when a target is -100."
+      },
+      {
+        "sentence_id": "ch06.s06.p02.05",
+        "text": "This is why the extra padded target positions are changed to \"-100\": those added tokens do not matter and should be excluded from the training loss.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell35",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell46",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref explains padding positions are replaced with -100 so they are ignored in the loss, since these are extra padding/end-of-text tokens added for equal-length batching."
+      },
+      {
+        "sentence_id": "ch06.s06.p03.r02",
+        "text": "With two examples, cross-entropy on the logits tensor and target tensor gives a loss of \"1.11269\".",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell50",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell42",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs show code printing loss_1/loss_2 but do not provide the numeric value 1.11269 in the provided excerpts."
+      },
+      {
+        "sentence_id": "ch06.s06.p03.r03",
+        "text": "Adding a third example changes the loss to \"7936\".",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell49",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell52",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell48"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Ref indicates adding a third example influences loss, but then shows setting the third target to -100 makes loss_3 equal to loss_1 (ignored). It does not change to 7936; rather it remains the same when ignored."
+      },
+      {
+        "sentence_id": "ch06.s06.p03.r04",
+        "text": "But if that third target is changed to \"-100\" while the predictions stay the same, the loss becomes the same as the first loss, as if the third example had no effect.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell86",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly states that when a label is changed to -100 (with predictions unchanged), the resulting loss becomes the same as the loss computed from only the other examples because cross-entropy ignores the -100-labeled example via PyTorch's default ignore_index=-100."
+      },
+      {
+        "sentence_id": "ch06.s06.p03.r05",
+        "text": "The reason is that cross-entropy ignores the entry whose target value is \"-100\".",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell48",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell42",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell118"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explains that PyTorch cross_entropy uses ignore_index=-100 by default, which causes entries with target -100 to be ignored in the loss."
+      },
+      {
+        "sentence_id": "ch06.s06.p04.r01",
+        "text": "The function takes a batch, a padding token ID, and an ignore index, which is \"-100\".",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell42",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference mentions introducing an ignore_index and replacing padding token IDs (e.g., 50256) with -100, but does not specify the function signature as taking (batch, padding token ID, ignore index) nor explicitly state that the function takes all three as arguments."
+      },
+      {
+        "sentence_id": "ch06.s06.p04.r02",
+        "text": "It first produces the input tensor and the target tensor as before, and then it modifies only the target tensor.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell107",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell101"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the provided passages state that the collate function first produces input/target tensors as before and then modifies only the target tensor."
+      },
+      {
+        "sentence_id": "ch06.s06.p04.r03",
+        "text": "To do that, it creates a mask over the target positions that contain the padding token ID, skips the first such position, and replaces the remaining padded target positions with the ignore index \"-100\".",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell42",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell46"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references cover replacing padding token IDs (50256) with -100 and the motivation for not ignoring the first end-of-text token, but they do not describe the specific masking procedure of skipping the first padding position and replacing only the remaining padded target positions."
+      },
+      {
+        "sentence_id": "ch06.s06.p04.r04",
+        "text": "With this modified collate function, the inputs stay unchanged, while in the targets every \"50256\" after the first one is replaced by \"-100\".",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell82",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell46",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell41"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references show that a collate function produces inputs and targets and discuss replacing padding token IDs with -100, but they do not explicitly state that inputs remain unchanged and that in targets every 50256 after the first is replaced by -100."
+      },
+      {
+        "sentence_id": "ch06.s06.p04.r05",
+        "text": "In that sense, the collate function implements the whole batching recipe on the whiteboard: padding, creating target token IDs, and replacing padded target tokens with the placeholder value \"-100\", also called the ignore index.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell42",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell69"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references support that padding tokens are replaced with the -100 ignore index and that targets contain -100 placeholders, but they do not state that the collate function implements the entire batching recipe including padding, creating targets, and replacing padded target tokens (all three steps) as described."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch06.s06.p01.03",
+        "text": "The padding token ID here is \"50256\", but not every \"50256\" in the target should be replaced.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell42",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell35"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Ref says to replace padding token IDs (50256) with -100, but also notes we do NOT want to ignore the first end-of-text instance; thus not every 50256 in the target should be replaced (the first should be kept). The sentence claims not every 50256 should be replaced, which aligns, but it’s missing the key rule? Actually ref explicitly supports keeping first; so statement 'not every' agrees. However S2 wording implies some 50256 should not be replaced without specifying; ref confirms. -> agrees."
+      },
+      {
+        "sentence_id": "ch06.s06.p03.r03",
+        "text": "Adding a third example changes the loss to \"7936\".",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell49",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell52",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell48"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Ref indicates adding a third example influences loss, but then shows setting the third target to -100 makes loss_3 equal to loss_1 (ignored). It does not change to 7936; rather it remains the same when ignored."
+      }
+    ]
+  }
+}

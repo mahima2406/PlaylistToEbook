@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch03.s10.p05.07",
+  "inputs_hash": "de90d3ddf9889e79a4cecda6291376ff47ae46ba45d1d6a6e91d0aa07454df7e",
+  "output_hash": "b0e99b97affe8c725b47a145b95b6dc7e42672f85956f8d62d9b19ed65b8bcca",
+  "output": {
+    "decision": "edit",
+    "text": "In layer normalization, each output in an input is replaced by that output minus the mean, divided by the square root of the variance.",
+    "reason": "The captions support the normalization formula but not the phrasing about batch mean/variance, and the edit fixes the parenthesization and avoids contradicting the reference.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.96,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "4a42b11f76fc005dc00ca7d8abcbf9230d24514f3625202fff6b39bb28314e99"
+  }
+}

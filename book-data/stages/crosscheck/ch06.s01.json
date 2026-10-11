@@ -1,0 +1,182 @@
+{
+  "stage": "crosscheck",
+  "item": "ch06.s01",
+  "inputs_hash": "9d9ef3b1cb3e1dc73aa5ab9b2dacab941db626a1275b2bd43df9c1af4167aac2",
+  "output_hash": "083226265f4f75bb6c2db34017ed25e1076e930083815e19021173ee202cec23",
+  "output": {
+    "section_id": "ch06.s01",
+    "checked": 14,
+    "counts": {
+      "agrees": 6,
+      "contradicts": 0,
+      "not_covered": 8
+    },
+    "results": [
+      {
+        "sentence_id": "ch06.s01.p01.02",
+        "text": "Pre-trained LLMs are good at text completion, but they struggle with following specific instructions.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell5",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs explicitly state pretraining teaches next-word generation, making the model good at text completion but not at following instructions, and that instruction finetuning improves this."
+      },
+      {
+        "sentence_id": "ch06.s01.p01.03",
+        "text": "Examples of such instructions include fixing the grammar in a text and converting a text into passive voice.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell32",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell48",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell50"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided refs for S2 discuss tokenization/encoding-decoding, not examples of instruction tasks like grammar fixing or passive voice conversion."
+      },
+      {
+        "sentence_id": "ch06.s01.p01.04",
+        "text": "Because a pre-trained LLM does not follow instructions very well, it needs to be trained with a specific dataset.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell1",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell63",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell5"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs state pretrained models are not good at following instructions and that the chapter focuses on instruction finetuning, implying training on an instruction dataset to address this."
+      },
+      {
+        "sentence_id": "ch06.s01.p01.05",
+        "text": "Fine-tuning here means training a pre-trained LLM again so that it becomes better at responding to instructions.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell5"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref says the chapter teaches the pretrained LLM to follow instructions better, consistent with finetuning being additional training to improve instruction responses."
+      },
+      {
+        "sentence_id": "ch06.s01.p01.06",
+        "text": "More specifically, fine-tuning on instruction data means modifying the weights and parameters of the GPT model so that it can learn to understand instruction input-output pairs from a specific dataset.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell82",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell18",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell18"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs show formatting instruction/input/output and discuss finetuning on instruction data, but do not explicitly define fine-tuning as modifying weights/parameters to learn instruction input-output pairs (that mechanism is not stated in the provided excerpts)."
+      },
+      {
+        "sentence_id": "ch06.s01.p02.r02",
+        "text": "In instruction fine-tuning, the dataset consists of instructions and the desired responses.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell95",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell20",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell97"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs show dataset entries with fields like instruction, input, and output and print a 'desired response' from the output field, consistent with instruction-response pairs."
+      },
+      {
+        "sentence_id": "ch06.s01.p02.r03",
+        "text": "The dataset used here contains 1,100 entries of instructions, inputs, and outputs.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell64",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell36",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell1"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the provided refs state the dataset size is 1,100 entries; the cited cells relate to collate examples and chapter header."
+      },
+      {
+        "sentence_id": "ch06.s01.p02.r05",
+        "text": "The aim of using this dataset is to teach the LLM to correctly follow instructions.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell1",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell5",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell12"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs explicitly say the chapter's goal is to teach the LLM to follow instructions better (finetuning to follow instructions)."
+      },
+      {
+        "sentence_id": "ch06.s01.p02.r06",
+        "text": "For example, one entry uses the instruction \"translate the following sentence into French,\" the input \"where is the nearest restaurant,\" and the output as the French translation.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell81",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell18"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided refs do not include any concrete dataset example about translating 'where is the nearest restaurant' into French; only generic formatting and commentary are shown."
+      },
+      {
+        "sentence_id": "ch06.s01.p02.r07",
+        "text": "Another uses the instruction \"rewrite the following sentence so that it is in active voice,\" the input \"the cake was baked by Sarah,\" and the output \"Sarah baked the cake.\"",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell81",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell90",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell79"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Ref mentions a passive-voice conversion example (active to passive), but does not mention an active-voice rewrite example with 'the cake was baked by Sarah' -> 'Sarah baked the cake.'"
+      },
+      {
+        "sentence_id": "ch06.s01.p02.r08",
+        "text": "Some pairs have no separate input field, because the sentence or question is included directly in the instruction.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell13",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell21"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs explicitly note the 'input' field can be empty and show a formatted response without an input field, matching the explanation."
+      },
+      {
+        "sentence_id": "ch06.s01.p03.02",
+        "text": "The dataset was split into training, testing, and validation sets using 85% for training, 10% for testing, and 5% for validation.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell51",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell64",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided refs discuss splitting into training/validation in a different chapter context but do not give the 85/10/5 train/test/validation split for the instruction dataset."
+      },
+      {
+        "sentence_id": "ch06.s01.p03.03",
+        "text": "With 1,100 total pairs, this split gives 935 training examples, 55 validation examples, and 110 test examples.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell51",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell101"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided reference snippets discuss cross-entropy loss ignoring labels of -100 and general dataset splitting, but they do not state or imply any specific 1100-pair split counts (935/55/110)."
+      },
+      {
+        "sentence_id": "ch06.s01.p03.04",
+        "text": "Even though the full dataset has 1,100 instruction-input-output pairs, using 85% for training means the actual training set is only about 800 pairs.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell15",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention instruction finetuning and dividing data into training/validation, but they do not specify an 85% split nor that it yields ~800 training pairs from 1100."
+      }
+    ],
+    "conflicts": []
+  }
+}

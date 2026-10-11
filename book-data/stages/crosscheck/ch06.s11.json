@@ -1,0 +1,395 @@
+{
+  "stage": "crosscheck",
+  "item": "ch06.s11",
+  "inputs_hash": "89b6686d85ed7aaa303d2483b558f1490ae4d0d8f2c168249d8398a6ce9a2021",
+  "output_hash": "64236630653a7f87b80986b96305e29204f4685aba4207162efda502403bbc61",
+  "output": {
+    "section_id": "ch06.s11",
+    "checked": 29,
+    "counts": {
+      "agrees": 15,
+      "contradicts": 3,
+      "not_covered": 11
+    },
+    "results": [
+      {
+        "sentence_id": "ch06.s11.p01.02",
+        "text": "By this point, the instruction fine-tuning pipeline has finished preparing the dataset and fine-tuning the model, and the next stage is to evaluate the large language model.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell10",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The chapter flow shown includes dataset preparation and training/fine-tuning code, followed by sections on evaluation (e.g., Ch7 evaluation/extracting responses), consistent with moving next to evaluation after preparation/training."
+      },
+      {
+        "sentence_id": "ch06.s11.p01.03",
+        "text": "The model was initialized with publicly available GPT-2 weights so that it started from a good foundational base before instruction fine-tuning.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell45",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell44",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The code uses `download_and_load_gpt2` and `load_weights_into_gpt`, indicating initialization from publicly available GPT-2 weights before later instruction finetuning."
+      },
+      {
+        "sentence_id": "ch06.s11.p01.04",
+        "text": "In the demonstrated run, training was limited to one epoch because of memory and compute limitations on the CPU.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell92",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell63"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References mention behavior around 1 epoch and general resource-saving choices like small batch size, but they do not state that training was limited to one epoch specifically due to CPU memory/compute limitations."
+      },
+      {
+        "sentence_id": "ch06.s11.p01.06",
+        "text": "For the passive-voice test, the fine-tuned model produced \"the meal is prepared by the chef every day,\" which is better than random output but not the correct answer.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell90",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell94",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference states the model correctly converts to passive voice as \"The meal is cooked every day by the chef.\"; it does not produce \"prepared\" nor an incorrect answer in that example."
+      },
+      {
+        "sentence_id": "ch06.s11.p02.02",
+        "text": "Evaluating a large language model is hard because performance is not a simple yes-or-no classification problem.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell103",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell48"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the references introduce an evaluation section, they do not explicitly state that LLM evaluation is hard because it is not a simple yes/no classification problem."
+      },
+      {
+        "sentence_id": "ch06.s11.p02.04",
+        "text": "That makes instruction-tuned model evaluation harder than spam-versus-not-spam classification, where accuracy is easy to compute from whether the predicted label matches the correct label.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell78",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell76",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell109"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference shows classification via argmax label prediction, which enables straightforward accuracy computation, supporting the contrast with more open-ended instruction-tuned evaluation."
+      },
+      {
+        "sentence_id": "ch06.s11.p02.05",
+        "text": "Because of this, large language model evaluation is treated as an important and rapidly developing field.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell21"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No provided reference claims LLM evaluation is an important and rapidly developing field."
+      },
+      {
+        "sentence_id": "ch06.s11.p02.06",
+        "text": "The evaluation process here is organized into three stages: extracting responses, qualitative evaluation, and scoring the responses.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell93",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell100",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell95"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show stages like extracting/saving responses and then scoring/evaluating, but do not explicitly define a three-stage organization of extracting responses, qualitative evaluation, and scoring."
+      },
+      {
+        "sentence_id": "ch06.s11.p03.02",
+        "text": "To evaluate on the test set, the model's response must be generated for every test input and collected for manual analysis and later comparison with the ground-truth outputs.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell98",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell111",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell90"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The code loops over all `test_data`, generates a response for each input, extracts the response text, and stores it back into the dataset for later evaluation/scoring, consistent with collecting responses for later analysis/comparison."
+      },
+      {
+        "sentence_id": "ch06.s11.p03.03",
+        "text": "A small demonstration loops over the test data, takes the first three entries, generates outputs with the fine-tuned model, converts token IDs to text, removes the instruction and input portion from the generated text, and prints the instruction, the correct response, and the model response.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell98",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell96",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell79"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The demo code iterates over `test_data[:3]`, generates outputs, converts token IDs to text, slices off the prompt to isolate the response, and prints the input prompt plus correct and model responses."
+      },
+      {
+        "sentence_id": "ch06.s11.p03.04",
+        "text": "For the prompt asking to rewrite a sentence using a simile, the correct response is \"the car is as fast as lightning,\" while the model response \"the car is as fast as a bullet\" is very close.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell81",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell118",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell120"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not include the specific simile example with \"lightning\" vs \"bullet\"; they only show generic printing/scoring of the first three entries without those quoted strings."
+      },
+      {
+        "sentence_id": "ch06.s11.p03.05",
+        "text": "For the question asking which cloud type is associated with thunderstorms, the model response is not good because it does not provide the requested cloud type.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell16"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Although there is mention of a \"cumulus cloud\" answer in evaluation commentary, the provided references do not explicitly state that the thunderstorms cloud-type response is not good because it fails to provide the requested cloud type."
+      },
+      {
+        "sentence_id": "ch06.s11.p03.06",
+        "text": "For the question about the author of Pride and Prejudice, the correct response is Jane Austen, but the model answered \"George Bernard Shaw,\" which is clearly wrong.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell79",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The referenced cells discuss how to isolate generated responses and other training/evaluation mechanics, but do not mention Pride and Prejudice, Jane Austen, or a model answer of \"George Bernard Shaw.\""
+      },
+      {
+        "sentence_id": "ch06.s11.p03.07",
+        "text": "From these three samples, the first answer is close to correct, the second does not answer correctly, and the third is fully wrong.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell119",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell140",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell102"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference discusses evaluation prompting and shows an example qualitative assessment (correct/close/etc.) for specific test instructions, but it does not describe \"three samples\" with the stated pattern (first close, second incorrect, third fully wrong)."
+      },
+      {
+        "sentence_id": "ch06.s11.p04.r01",
+        "text": "Next, collect model responses for all instructions in the test dataset and store them in a separate file for evaluation.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell95",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell97",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell100"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Cell 95 states they save the test set responses for scoring in the next section, which implies collecting responses for the test instructions and storing them for later evaluation."
+      },
+      {
+        "sentence_id": "ch06.s11.p04.r02",
+        "text": "This preparation creates a new file called \"instruction data with response.json\" for record keeping.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell113",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell10",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell4"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The code sets `file_path = \"instruction-data-with-response.json\"` and uses it as the file to load/save for this workflow, consistent with creating/using a new file for record keeping (name matches aside from spacing)."
+      },
+      {
+        "sentence_id": "ch06.s11.p04.r03",
+        "text": "That file contains the instruction, the input, the true output, and the model response.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell113",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell20",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell79"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The workflow shows entries containing `instruction`, `input`, `output` (true output), and later adds `model_response` (e.g., used in the scoring prompt in cell 118)."
+      },
+      {
+        "sentence_id": "ch06.s11.p04.r04",
+        "text": "The original \"instruction data.json\" file is shown as containing only the instruction, input, and true output, while the new file is shown as also including the model response.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell113",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell10",
+          "ref:ch07/01_main-chapter-code/ollama_evaluate.py"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references shown include code for working with \"instruction-data-with-response.json\" and code for downloading/loading a file, but they do not explicitly contrast an original \"instruction-data.json\" schema (instruction/input/output only) versus the new file schema in the provided excerpts."
+      },
+      {
+        "sentence_id": "ch06.s11.p04.r05",
+        "text": "Keeping both the true output and the model response in one place makes later evaluation easier because each pair can be compared directly and assigned a score.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell118"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Cell 118 constructs an evaluation prompt that directly compares `entry['output']` with `entry['model_response']` and requests a score, which is enabled by having both fields stored together."
+      },
+      {
+        "sentence_id": "ch06.s11.p04.r06",
+        "text": "The code iterates over all instruction inputs in the test data, generates responses for them, and writes the results to the \"instruction data with response\" file.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell113",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell88",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell82"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The code in cell 113 only loads the existing \"instruction-data-with-response.json\"; the response-generation loop that iterates over test data and writes results is shown in cell 98, not in cell 113. So it is not correct that the code shown there iterates, generates, and writes the file."
+      },
+      {
+        "sentence_id": "ch06.s11.p04.r07",
+        "text": "When this code runs, the generate function is called on all instruction-input pairs in the test data, the responses are generated, and the response is appended to the file.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell79",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell98",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell113"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Cell 98 shows `generate` is called for each test entry and `test_data[i]['model_response']` is set, but the results are written by overwriting/writing out the full JSON via `with open(\"instruction-data-with-response.json\", ...)`, not by appending to the file."
+      },
+      {
+        "sentence_id": "ch06.s11.p04.r08",
+        "text": "The resulting file is shown as the original instruction-input-output dictionary with an added model response field for every example.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell19",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell21",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell113"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The generation loop adds a `model_response` field to each `test_data` entry (`test_data[i][\"model_response\"] = ...`) and writes the updated list/dictionaries to \"instruction-data-with-response.json\"."
+      },
+      {
+        "sentence_id": "ch06.s11.p04.r09",
+        "text": "After this process, the test data dictionary contains the instruction, input, output, and model response.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell20",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell22",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell98"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "After running the loop in cell 98, each test data entry includes the original fields (instruction/input/output) and the added `model_response` field."
+      },
+      {
+        "sentence_id": "ch06.s11.p05.r02",
+        "text": "The fine-tuned model should be saved so the session can be resumed later without fine-tuning again.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell114",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell110"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Chapter 6 explicitly notes saving the model for later reuse without retraining, and chapter 7 also mentions saving a copy of the model for future use (cell 95)."
+      },
+      {
+        "sentence_id": "ch06.s11.p05.r03",
+        "text": "The model is saved with \"torch.save\" and \"model.state_dict\", which stores the trained parameters in a file.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell119",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell118",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell123"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs show saving via torch.save(model.state_dict(), ...) and describe it as the recommended way to save model weights (trained parameters)."
+      },
+      {
+        "sentence_id": "ch06.s11.p05.r04",
+        "text": "In a future session, \"load_state_dict\" is used to load the saved parameter file.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell117",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell102",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell124"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs show loading a saved state dict via torch.load(...) followed by model.load_state_dict(...), including both direct model weights and checkpoint dictionaries."
+      },
+      {
+        "sentence_id": "ch06.s11.p05.r05",
+        "text": "At this stage, responses have been collected in \"instruction data with response.json\", three evaluation frameworks have been discussed, and the LLM-based comparison framework has been selected.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell99",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell112"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs mention checking that responses were added to a test_data dictionary, but do not mention a file named \"instruction data with response.json\", do not discuss three evaluation frameworks, and do not state that an LLM-based comparison framework was selected."
+      },
+      {
+        "sentence_id": "ch06.s11.p05.r06",
+        "text": "Earlier work has already included response extraction and qualitative evaluation by looking at outputs and responses, but numerical scoring has not yet been implemented at this point.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell95",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref indicates responses are saved for scoring in the next section and suggests briefly looking at generated responses first, supporting qualitative inspection before quantitative scoring is implemented."
+      },
+      {
+        "sentence_id": "ch06.s11.p05.r07",
+        "text": "Across the full pipeline, the work includes preparing the dataset, fine-tuning the large language model, extracting responses, doing qualitative evaluation, and quantitative scoring using AMA.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell10",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell95",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell93"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs cover dataset preparation and extracting/saving responses, and imply scoring happens later, but they do not establish the full end-to-end pipeline described nor mention quantitative scoring using \"AMA\"."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch06.s11.p01.06",
+        "text": "For the passive-voice test, the fine-tuned model produced \"the meal is prepared by the chef every day,\" which is better than random output but not the correct answer.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell90",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell94",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference states the model correctly converts to passive voice as \"The meal is cooked every day by the chef.\"; it does not produce \"prepared\" nor an incorrect answer in that example."
+      },
+      {
+        "sentence_id": "ch06.s11.p04.r06",
+        "text": "The code iterates over all instruction inputs in the test data, generates responses for them, and writes the results to the \"instruction data with response\" file.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell113",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell88",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell82"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The code in cell 113 only loads the existing \"instruction-data-with-response.json\"; the response-generation loop that iterates over test data and writes results is shown in cell 98, not in cell 113. So it is not correct that the code shown there iterates, generates, and writes the file."
+      },
+      {
+        "sentence_id": "ch06.s11.p04.r07",
+        "text": "When this code runs, the generate function is called on all instruction-input pairs in the test data, the responses are generated, and the response is appended to the file.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell79",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell98",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell113"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Cell 98 shows `generate` is called for each test entry and `test_data[i]['model_response']` is set, but the results are written by overwriting/writing out the full JSON via `with open(\"instruction-data-with-response.json\", ...)`, not by appending to the file."
+      }
+    ]
+  }
+}

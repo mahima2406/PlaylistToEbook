@@ -1,0 +1,13 @@
+{
+  "stage": "triage",
+  "item": "ch06.open.p01.r02",
+  "inputs_hash": "a191263aa40fd626a1944a60fddbba751b2940fa07ff84b7191e3c7b5f801e0a",
+  "output_hash": "b5b382760087b1f4c87e0745072b7774702bc1822be1a6f81e2409e8d38c4bc2",
+  "output": {
+    "decision": "remove",
+    "reason": "The cited captions are empty, so none of the sentence’s assumptions or chapter-organization claims can be verified from the evidence shown.",
+    "risk": "high",
+    "kind": "queue",
+    "sentence_hash": "1dbfc1bfbf20272ca5d8df827f75e3767ce5ebceafa77ce880952ab7cf20429b"
+  }
+}

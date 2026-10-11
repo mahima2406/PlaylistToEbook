@@ -1,0 +1,757 @@
+{
+  "stage": "verify",
+  "item": "ch05.s14",
+  "inputs_hash": "6fd7350ff71b4f9505735e7f3bbf85a446b73d0acf28c1cccac69c26b437c0ec",
+  "output_hash": "8c19ee9c5c51016684ac63368c8ada15b9123ccc12b07f6fa529a2c51ce5c5c6",
+  "output": {
+    "section_id": "ch05.s14",
+    "paragraphs": [
+      {
+        "id": "ch05.s14.p01",
+        "sentences": [
+          {
+            "id": "ch05.s14.p01.01",
+            "text": "How does a fine-tuned spam classifier get used on messages it has never seen before, and why is that the step that matters now?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s14.p01.02",
+            "text": "After fine-tuning on supervised data and plotting the training and validation loss, the remaining step is to use the model on new data.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@2319",
+              "0PpxZ3kNPWo@2322",
+              "0PpxZ3kNPWo@2324",
+              "0PpxZ3kNPWo@2326",
+              "0PpxZ3kNPWo@2328"
+            ]
+          },
+          {
+            "id": "ch05.s14.p01.03",
+            "text": "The real test is performance on data the model has not seen before, because the goal is to judge how well it works as a spam classifier on unseen messages.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@2351",
+              "0PpxZ3kNPWo@2353",
+              "0PpxZ3kNPWo@2355",
+              "0PpxZ3kNPWo@2357",
+              "0PpxZ3kNPWo@2360",
+              "0PpxZ3kNPWo@2367",
+              "0PpxZ3kNPWo@2368",
+              "0PpxZ3kNPWo@2371"
+            ]
+          },
+          {
+            "id": "ch05.s14.p01.04",
+            "text": "At this final stage, the fine-tuned GPT-based model is used to classify spam messages.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@2376",
+              "0PpxZ3kNPWo@2377",
+              "0PpxZ3kNPWo@2379",
+              "0PpxZ3kNPWo@2383",
+              "0PpxZ3kNPWo@2385"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s14.p02",
+        "sentences": [
+          {
+            "id": "ch05.s14.p02.01",
+            "text": "To make that possible, a function called \"classify_review\" takes any text and predicts whether it is spam or not.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@2388",
+              "0PpxZ3kNPWo@2390",
+              "0PpxZ3kNPWo@2392",
+              "0PpxZ3kNPWo@2394"
+            ]
+          },
+          {
+            "id": "ch05.s14.p02.02",
+            "text": "The first step is to convert the input text into token IDs.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@2413",
+              "0PpxZ3kNPWo@2415",
+              "0PpxZ3kNPWo@2417",
+              "0PpxZ3kNPWo@2429",
+              "0PpxZ3kNPWo@2431"
+            ]
+          },
+          {
+            "id": "ch05.s14.p02.03",
+            "text": "The tokenizer used for this is the tiktoken tokenizer, described as a byte pair encoder that takes a sentence and converts it into a bunch of tokens.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@2437",
+              "0PpxZ3kNPWo@2442",
+              "0PpxZ3kNPWo@2444",
+              "0PpxZ3kNPWo@2446",
+              "0PpxZ3kNPWo@2448"
+            ]
+          },
+          {
+            "id": "ch05.s14.p02.04",
+            "text": "The model also needs its supported context length, which in this case is 1024.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@2450",
+              "0PpxZ3kNPWo@2452",
+              "0PpxZ3kNPWo@2455"
+            ]
+          },
+          {
+            "id": "ch05.s14.p02.05",
+            "text": "That context length is read from the positional embedding weight shape: the number of rows equals the context length, and the number of columns equals the embedding dimension.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@2458",
+              "0PpxZ3kNPWo@2461",
+              "0PpxZ3kNPWo@2464",
+              "0PpxZ3kNPWo@2467",
+              "0PpxZ3kNPWo@2469",
+              "0PpxZ3kNPWo@2471",
+              "0PpxZ3kNPWo@2473",
+              "0PpxZ3kNPWo@2475",
+              "0PpxZ3kNPWo@2478",
+              "0PpxZ3kNPWo@2479",
+              "0PpxZ3kNPWo@2481"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s14.p03",
+        "sentences": [
+          {
+            "id": "ch05.s14.p03.01",
+            "text": "With token IDs and context length in hand, the next question is how long each input sequence should be.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s14.p03.02",
+            "text": "The working maximum length is chosen by comparing the maximum token-ID length found in the training set with the supported context length and taking the smaller of the two.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@2484",
+              "0PpxZ3kNPWo@2486",
+              "0PpxZ3kNPWo@2488",
+              "0PpxZ3kNPWo@2490",
+              "0PpxZ3kNPWo@2492",
+              "0PpxZ3kNPWo@2494",
+              "0PpxZ3kNPWo@2496",
+              "0PpxZ3kNPWo@2498",
+              "0PpxZ3kNPWo@2516",
+              "0PpxZ3kNPWo@2517",
+              "0PpxZ3kNPWo@2519"
+            ]
+          },
+          {
+            "id": "ch05.s14.p03.03",
+            "text": "If the training-set maximum length is greater than the context length, sequences are truncated to the context length.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@2503",
+              "0PpxZ3kNPWo@2506",
+              "0PpxZ3kNPWo@2508",
+              "0PpxZ3kNPWo@2511",
+              "0PpxZ3kNPWo@2521",
+              "0PpxZ3kNPWo@2523",
+              "0PpxZ3kNPWo@2526",
+              "0PpxZ3kNPWo@2529"
+            ]
+          },
+          {
+            "id": "ch05.s14.p03.04",
+            "text": "Otherwise, the maximum length from the training set is used.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@2531",
+              "0PpxZ3kNPWo@2533",
+              "0PpxZ3kNPWo@2535"
+            ]
+          },
+          {
+            "id": "ch05.s14.p03.05",
+            "text": "Ideally, this maximum length comes from the longest message in the training dataset, but if that exceeds the context length then the context length is used instead.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@2586",
+              "0PpxZ3kNPWo@2588",
+              "0PpxZ3kNPWo@2591",
+              "0PpxZ3kNPWo@2593",
+              "0PpxZ3kNPWo@2594",
+              "0PpxZ3kNPWo@2596",
+              "0PpxZ3kNPWo@2598"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s14.p04",
+        "sentences": [
+          {
+            "id": "ch05.s14.p04.01",
+            "text": "A new message must then be adjusted to that chosen length before it can be passed to the model.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s14.p04.02",
+            "text": "If a new message is shorter than the chosen maximum length, it is padded with end-of-text tokens until it reaches that length.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@2541",
+              "0PpxZ3kNPWo@2544",
+              "0PpxZ3kNPWo@2551",
+              "0PpxZ3kNPWo@2553",
+              "0PpxZ3kNPWo@2555",
+              "0PpxZ3kNPWo@2557",
+              "0PpxZ3kNPWo@2560",
+              "0PpxZ3kNPWo@2562",
+              "0PpxZ3kNPWo@2565",
+              "0PpxZ3kNPWo@2568",
+              "0PpxZ3kNPWo@2569",
+              "0PpxZ3kNPWo@2572"
+            ]
+          },
+          {
+            "id": "ch05.s14.p04.03",
+            "text": "The end-of-text token used for padding is 50256.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@2565",
+              "0PpxZ3kNPWo@2568",
+              "0PpxZ3kNPWo@2605",
+              "0PpxZ3kNPWo@2607"
+            ]
+          },
+          {
+            "id": "ch05.s14.p04.04",
+            "text": "Padding every input sequence to the same length is important because batching requires every sentence to have the same number of token IDs.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@2574",
+              "0PpxZ3kNPWo@2576",
+              "0PpxZ3kNPWo@2579",
+              "0PpxZ3kNPWo@2581",
+              "0PpxZ3kNPWo@2583",
+              "0PpxZ3kNPWo@2586"
+            ]
+          },
+          {
+            "id": "ch05.s14.p04.05",
+            "text": "After tokenization and padding, the input is converted into a tensor and a batch dimension is added before inference.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@2600",
+              "0PpxZ3kNPWo@2602",
+              "0PpxZ3kNPWo@2605",
+              "0PpxZ3kNPWo@2607",
+              "0PpxZ3kNPWo@2609",
+              "0PpxZ3kNPWo@2613",
+              "0PpxZ3kNPWo@2615",
+              "0PpxZ3kNPWo@2619"
+            ]
+          },
+          {
+            "id": "ch05.s14.p04.06",
+            "text": "For inference on a new text message, the trained model is used only after making sure that the token IDs match the maximum length.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@2642",
+              "0PpxZ3kNPWo@2644",
+              "0PpxZ3kNPWo@2646",
+              "0PpxZ3kNPWo@2649",
+              "0PpxZ3kNPWo@2653",
+              "0PpxZ3kNPWo@2655",
+              "0PpxZ3kNPWo@2657",
+              "0PpxZ3kNPWo@2660",
+              "0PpxZ3kNPWo@2661"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s14.p05",
+        "sentences": [
+          {
+            "id": "ch05.s14.p05.r01",
+            "text": "Next, consider how the model is used at inference time.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s14.p05.r02",
+            "text": "During inference, the model produces logits for the last output token, and applying argmax yields the prediction of spam or not spam.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@2620",
+              "0PpxZ3kNPWo@2622",
+              "0PpxZ3kNPWo@2624",
+              "0PpxZ3kNPWo@2627",
+              "0PpxZ3kNPWo@2636",
+              "0PpxZ3kNPWo@2638",
+              "0PpxZ3kNPWo@2639"
+            ]
+          },
+          {
+            "id": "ch05.s14.p05.r03",
+            "text": "For example, the message \"you are a winner you have been specially selected to receive ,000 cash or $2,000 reward\" is passed through \"classify_review\", and the model predicts spam.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@2664",
+              "0PpxZ3kNPWo@2666",
+              "0PpxZ3kNPWo@2668",
+              "0PpxZ3kNPWo@2670",
+              "0PpxZ3kNPWo@2672",
+              "0PpxZ3kNPWo@2675",
+              "0PpxZ3kNPWo@2677",
+              "0PpxZ3kNPWo@2679",
+              "0PpxZ3kNPWo@2686",
+              "0PpxZ3kNPWo@2688",
+              "0PpxZ3kNPWo@2690",
+              "0PpxZ3kNPWo@2692",
+              "0PpxZ3kNPWo@2694"
+            ]
+          },
+          {
+            "id": "ch05.s14.p05.r04",
+            "text": "A second message, \"hey just wanted to check if we are still on for dinner tonight let me know\", is also passed through the model.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@2697",
+              "0PpxZ3kNPWo@2699",
+              "0PpxZ3kNPWo@2701",
+              "0PpxZ3kNPWo@2703"
+            ]
+          },
+          {
+            "id": "ch05.s14.p05.r05",
+            "text": "The model predicts that this legitimate message is not spam, and these new text samples appear to show good performance.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@2705",
+              "0PpxZ3kNPWo@2707",
+              "0PpxZ3kNPWo@2709",
+              "0PpxZ3kNPWo@2711",
+              "0PpxZ3kNPWo@2713",
+              "0PpxZ3kNPWo@2749",
+              "0PpxZ3kNPWo@2752"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s14.p06",
+        "sentences": [
+          {
+            "id": "ch05.s14.p06.r01",
+            "text": "The model can be saved so that it does not need to be trained again.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@2789",
+              "0PpxZ3kNPWo@2792",
+              "0PpxZ3kNPWo@2794",
+              "0PpxZ3kNPWo@2796",
+              "0PpxZ3kNPWo@2798"
+            ]
+          },
+          {
+            "id": "ch05.s14.p06.r02",
+            "text": "\"torch.save\" saves the model parameters for later use.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@2801",
+              "0PpxZ3kNPWo@2803",
+              "0PpxZ3kNPWo@2808",
+              "0PpxZ3kNPWo@2811",
+              "0PpxZ3kNPWo@2813"
+            ]
+          },
+          {
+            "id": "ch05.s14.p06.r03",
+            "text": "\"torch.load\" loads previously saved model parameters from a specified path, and the loaded parameters can be used for inference or for further fine-tuning.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@2813b",
+              "0PpxZ3kNPWo@2816",
+              "0PpxZ3kNPWo@2819",
+              "0PpxZ3kNPWo@2820",
+              "0PpxZ3kNPWo@2822",
+              "0PpxZ3kNPWo@2824"
+            ]
+          },
+          {
+            "id": "ch05.s14.p06.r04",
+            "text": "This saves time and effort.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@2826",
+              "0PpxZ3kNPWo@2828"
+            ]
+          },
+          {
+            "id": "ch05.s14.p06.r05",
+            "text": "Fine-tuning is necessary here because without it the model made very bad predictions and could not correctly answer a prompt asking whether a text was spam with a yes-or-no response.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@2849",
+              "0PpxZ3kNPWo@2852",
+              "0PpxZ3kNPWo@2854",
+              "0PpxZ3kNPWo@2862",
+              "0PpxZ3kNPWo@2864",
+              "0PpxZ3kNPWo@2865",
+              "0PpxZ3kNPWo@2867",
+              "0PpxZ3kNPWo@2869"
+            ]
+          },
+          {
+            "id": "ch05.s14.p06.r06",
+            "text": "The same classification fine-tuning code can also be tried on other datasets, such as a heart disease dataset.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@2878",
+              "0PpxZ3kNPWo@2880",
+              "0PpxZ3kNPWo@2881",
+              "0PpxZ3kNPWo@2884",
+              "0PpxZ3kNPWo@2947",
+              "0PpxZ3kNPWo@2949",
+              "0PpxZ3kNPWo@2951",
+              "0PpxZ3kNPWo@2953"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch05.s14.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s14.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s14.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch05.s14.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch05.s14.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch05.s14.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s14.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch05.s14.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch05.s14.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch05.s14.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s14.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s14.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch05.s14.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch05.s14.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch05.s14.p04.01": {
+        "verdict": "ok",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch05.s14.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s14.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch05.s14.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s14.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch05.s14.p04.06": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s14.p05.r01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s14.p05.r02": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch05.s14.p05.r03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s14.p05.r04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s14.p05.r05": {
+        "verdict": "supported",
+        "confidence": 0.87,
+        "reason": ""
+      },
+      "ch05.s14.p06.r01": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s14.p06.r02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch05.s14.p06.r03": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch05.s14.p06.r04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s14.p06.r05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s14.p06.r06": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch05.s14.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s14.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s14.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch05.s14.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch05.s14.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch05.s14.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s14.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch05.s14.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch05.s14.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch05.s14.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s14.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s14.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch05.s14.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch05.s14.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch05.s14.p04.01": {
+        "verdict": "ok",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch05.s14.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s14.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch05.s14.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s14.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch05.s14.p04.06": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s14.p05.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.72,
+        "reason": "CONNECTIVE sentence still asserts a factual relationship (right shape -> model can produce a class prediction), rather than being a pure transition."
+      },
+      "ch05.s14.p05.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s14.p05.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s14.p05.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch05.s14.p05.05": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch05.s14.p06.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.74,
+        "reason": "CONNECTIVE sentence asserts a factual/causal claim about usefulness of fine-tuned models depending on parameter reuse; no citation provided."
+      },
+      "ch05.s14.p06.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch05.s14.p06.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s14.p06.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch05.s14.p06.05": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch05.s14.p06.06": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch05.s14.p06.07": {
+        "verdict": "supported",
+        "confidence": 0.91,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "ch05.s14.p05",
+      "ch05.s14.p06"
+    ],
+    "queue": []
+  }
+}

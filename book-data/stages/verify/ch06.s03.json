@@ -1,0 +1,519 @@
+{
+  "stage": "verify",
+  "item": "ch06.s03",
+  "inputs_hash": "13d5c1942127cb609271cc7bb26b626d3f1f5b6ca34def89673b45596faaeac6",
+  "output_hash": "9c4835c06f980fd76781495a47e9159b6e982ab34edbf578e5571bb14eb5ea37",
+  "output": {
+    "section_id": "ch06.s03",
+    "paragraphs": [
+      {
+        "id": "ch06.s03.p01",
+        "sentences": [
+          {
+            "id": "ch06.s03.p01.r01",
+            "text": "How do formatted instruction prompts become batchable numbers, and why is that necessary before fine-tuning can proceed?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s03.p01.r02",
+            "text": "Batching the dataset means converting each prompt into a numerical representation so that each sample forms a row in a batch.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@385",
+              "bkUkcyL_Xxc@424",
+              "bkUkcyL_Xxc@450",
+              "bkUkcyL_Xxc@452",
+              "bkUkcyL_Xxc@458",
+              "bkUkcyL_Xxc@460",
+              "bkUkcyL_Xxc@464",
+              "bkUkcyL_Xxc@468"
+            ]
+          },
+          {
+            "id": "ch06.s03.p01.r03",
+            "text": "If a batch contains three samples, the first sample becomes the first row, the second sample becomes the second row, and the third sample becomes the third row after this numerical conversion.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@433",
+              "bkUkcyL_Xxc@435",
+              "bkUkcyL_Xxc@437",
+              "bkUkcyL_Xxc@441",
+              "bkUkcyL_Xxc@445",
+              "bkUkcyL_Xxc@448",
+              "bkUkcyL_Xxc@452",
+              "bkUkcyL_Xxc@458",
+              "bkUkcyL_Xxc@460",
+              "bkUkcyL_Xxc@464",
+              "bkUkcyL_Xxc@466",
+              "bkUkcyL_Xxc@468"
+            ]
+          },
+          {
+            "id": "ch06.s03.p01.r04",
+            "text": "To place prompts together in one batch, the rows must have the same size.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@474",
+              "bkUkcyL_Xxc@476",
+              "bkUkcyL_Xxc@479",
+              "bkUkcyL_Xxc@481"
+            ]
+          },
+          {
+            "id": "ch06.s03.p01.r05",
+            "text": "Here, size means the number of columns in each row.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@483",
+              "bkUkcyL_Xxc@485"
+            ]
+          },
+          {
+            "id": "ch06.s03.p01.r06",
+            "text": "That requirement creates a problem immediately.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s03.p01.r07",
+            "text": "Different instruction-output pairs produce different prompts, and their lengths may differ as well.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@488",
+              "bkUkcyL_Xxc@491",
+              "bkUkcyL_Xxc@493",
+              "bkUkcyL_Xxc@495",
+              "bkUkcyL_Xxc@497",
+              "bkUkcyL_Xxc@499",
+              "bkUkcyL_Xxc@501",
+              "bkUkcyL_Xxc@503"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s03.p02",
+        "sentences": [
+          {
+            "id": "ch06.s03.p02.01",
+            "text": "The first step in turning formatted data into a numerical representation is tokenization.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@547",
+              "bkUkcyL_Xxc@550",
+              "bkUkcyL_Xxc@553",
+              "bkUkcyL_Xxc@554"
+            ]
+          },
+          {
+            "id": "ch06.s03.p02.02",
+            "text": "A tokenizer is used to convert each prompt into token IDs.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@554",
+              "bkUkcyL_Xxc@558",
+              "bkUkcyL_Xxc@563",
+              "bkUkcyL_Xxc@565",
+              "bkUkcyL_Xxc@567",
+              "bkUkcyL_Xxc@581",
+              "bkUkcyL_Xxc@583",
+              "bkUkcyL_Xxc@585"
+            ]
+          },
+          {
+            "id": "ch06.s03.p02.03",
+            "text": "The tokenizer used here is the byte pair encoder used by OpenAI, accessed through the tiktoken library.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@558",
+              "bkUkcyL_Xxc@560",
+              "bkUkcyL_Xxc@605",
+              "bkUkcyL_Xxc@608",
+              "bkUkcyL_Xxc@610"
+            ]
+          },
+          {
+            "id": "ch06.s03.p02.04",
+            "text": "For example, after an instruction-input-output record is formatted in Alpaca style, the entire prompt is converted into a bunch of token IDs.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@538",
+              "bkUkcyL_Xxc@540",
+              "bkUkcyL_Xxc@542",
+              "bkUkcyL_Xxc@544",
+              "bkUkcyL_Xxc@572",
+              "bkUkcyL_Xxc@574",
+              "bkUkcyL_Xxc@577",
+              "bkUkcyL_Xxc@579",
+              "bkUkcyL_Xxc@581",
+              "bkUkcyL_Xxc@583",
+              "bkUkcyL_Xxc@585",
+              "bkUkcyL_Xxc@599",
+              "bkUkcyL_Xxc@601",
+              "bkUkcyL_Xxc@603",
+              "bkUkcyL_Xxc@605",
+              "bkUkcyL_Xxc@608"
+            ]
+          },
+          {
+            "id": "ch06.s03.p02.05",
+            "text": "The same tokenization process is applied to every instruction-input-output example in the dataset.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@613",
+              "bkUkcyL_Xxc@617",
+              "bkUkcyL_Xxc@619",
+              "bkUkcyL_Xxc@623",
+              "bkUkcyL_Xxc@626",
+              "bkUkcyL_Xxc@629",
+              "bkUkcyL_Xxc@632"
+            ]
+          },
+          {
+            "id": "ch06.s03.p02.06",
+            "text": "Once prompts are tokenized, their lengths still do not automatically match.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s03.p02.07",
+            "text": "Because prompts can have different lengths, the number of token IDs differs across samples.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@634",
+              "bkUkcyL_Xxc@637",
+              "bkUkcyL_Xxc@640",
+              "bkUkcyL_Xxc@642",
+              "bkUkcyL_Xxc@644",
+              "bkUkcyL_Xxc@646",
+              "bkUkcyL_Xxc@647"
+            ]
+          },
+          {
+            "id": "ch06.s03.p02.08",
+            "text": "In the example, the first prompt looks longer than the second prompt, so the first prompt has more token IDs than the second.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@647",
+              "bkUkcyL_Xxc@651",
+              "bkUkcyL_Xxc@652",
+              "bkUkcyL_Xxc@655",
+              "bkUkcyL_Xxc@657"
+            ]
+          },
+          {
+            "id": "ch06.s03.p02.09",
+            "text": "But if two samples are placed in one batch, the number of token IDs for each sample must be the same.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@661",
+              "bkUkcyL_Xxc@664",
+              "bkUkcyL_Xxc@666",
+              "bkUkcyL_Xxc@668",
+              "bkUkcyL_Xxc@670",
+              "bkUkcyL_Xxc@672",
+              "bkUkcyL_Xxc@674",
+              "bkUkcyL_Xxc@677",
+              "bkUkcyL_Xxc@679",
+              "bkUkcyL_Xxc@683"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s03.p03",
+        "sentences": [
+          {
+            "id": "ch06.s03.p03.r01",
+            "text": "After the full text in Alpaca format is created, the formatted data is tokenized by first defining an empty list.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1534",
+              "bkUkcyL_Xxc@1536",
+              "bkUkcyL_Xxc@1539",
+              "bkUkcyL_Xxc@1541",
+              "bkUkcyL_Xxc@1543",
+              "bkUkcyL_Xxc@1547"
+            ]
+          },
+          {
+            "id": "ch06.s03.p03.r02",
+            "text": "The token IDs for each prompt are then appended to that empty list.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1547",
+              "bkUkcyL_Xxc@1550",
+              "bkUkcyL_Xxc@1553",
+              "bkUkcyL_Xxc@1555",
+              "bkUkcyL_Xxc@1557",
+              "bkUkcyL_Xxc@1560"
+            ]
+          },
+          {
+            "id": "ch06.s03.p03.r03",
+            "text": "For every prompt corresponding to an input-output pair, this produces a list of token IDs.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1560",
+              "bkUkcyL_Xxc@1562",
+              "bkUkcyL_Xxc@1564",
+              "bkUkcyL_Xxc@1567"
+            ]
+          },
+          {
+            "id": "ch06.s03.p03.r04",
+            "text": "The tokenizer passed to the instruction dataset class is the tiktoken library.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1571",
+              "bkUkcyL_Xxc@1573",
+              "bkUkcyL_Xxc@1576",
+              "bkUkcyL_Xxc@1579",
+              "bkUkcyL_Xxc@1581",
+              "bkUkcyL_Xxc@1583"
+            ]
+          },
+          {
+            "id": "ch06.s03.p03.r05",
+            "text": "For more detail on this library, see the separate discussion of the byte pair encoder.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@558",
+              "bkUkcyL_Xxc@560",
+              "bkUkcyL_Xxc@1586",
+              "bkUkcyL_Xxc@1588",
+              "bkUkcyL_Xxc@1590",
+              "bkUkcyL_Xxc@1592",
+              "bkUkcyL_Xxc@1594"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch06.s03.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s03.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch06.s03.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s03.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s03.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch06.s03.p02.06": {
+        "verdict": "ok",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch06.s03.p02.07": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch06.s03.p02.08": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s03.p02.09": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch06.s03.p01.r01": {
+        "verdict": "ok",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s03.p01.r02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s03.p01.r03": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch06.s03.p01.r04": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch06.s03.p01.r05": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch06.s03.p01.r06": {
+        "verdict": "ok",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch06.s03.p01.r07": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s03.p03.r01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s03.p03.r02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s03.p03.r03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s03.p03.r04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s03.p03.r05": {
+        "verdict": "supported",
+        "confidence": 0.85,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch06.s03.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s03.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch06.s03.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s03.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s03.p01.05": {
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "The cited lines define size as the number of columns, but they do not mention token positions."
+      },
+      "ch06.s03.p01.06": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s03.p01.07": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch06.s03.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s03.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch06.s03.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s03.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s03.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch06.s03.p02.06": {
+        "verdict": "ok",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch06.s03.p02.07": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch06.s03.p02.08": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s03.p02.09": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch06.s03.p03.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.62,
+        "reason": "Although plausible, this connective sentence asserts a factual detail about the implementation ('built sample by sample') but provides no citation."
+      },
+      "ch06.s03.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch06.s03.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s03.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s03.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s03.p03.06": {
+        "verdict": "partial",
+        "confidence": 0.75,
+        "reason": "Captions support that they identify the tokenizer as a byte pair encoder and refer viewers elsewhere for details, but they do not explicitly state that no further explanation is given 'here beyond' that identification."
+      }
+    },
+    "rewritten": [
+      "ch06.s03.p01",
+      "ch06.s03.p03"
+    ],
+    "queue": []
+  }
+}

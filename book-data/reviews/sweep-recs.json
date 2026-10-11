@@ -1,0 +1,1836 @@
+{
+  "ch01.s01.p02.r04": {
+    "decision": "edit",
+    "text": "A learner seeking to build an LLM from scratch wants detailed foundations so that the learner’s skill set improves and the learner feels confident about generative AI and LLM job interviews.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "That depth matters because it improves the learner's skill set and builds confidence for generative AI and LLM job interviews.",
+    "why": "The cited lines mention wanting detailed foundations to improve skill set and feel confident for generative AI and LLM job interviews, but they do not explicitly state that 'depth matters' as a causal claim.",
+    "attempts": [
+      {
+        "text": "A learner seeking to build an LLM from scratch wants detailed foundations so that the learner’s skill set improves and the learner feels confident about generative AI and LLM job interviews.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "907c157b74bc8143fdec7b8000dfab3aab21e0f19ef1832a8e065c099407e849"
+  },
+  "ch01.s01.p02.r05": {
+    "decision": "edit",
+    "text": "One playlist has 18 chapters, but each chapter is only 10 to 15 minutes long.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "Some YouTube playlists are too short for that goal, with many chapters but only 10 to 15 minutes per chapter.",
+    "why": "The lines support that the playlist has many chapters and each is only 10–15 minutes, but they do not explicitly state that the playlists are 'too short for that goal'; that is inferred from surrounding sentiment.",
+    "attempts": [
+      {
+        "text": "One playlist has 18 chapters, but each chapter is only 10 to 15 minutes long.",
+        "verdict": "supported",
+        "reason": "The cited lines explicitly state that the playlist has 18 chapters and that each chapter is only 10–15 minutes long."
+      }
+    ],
+    "sentence_hash": "91773d7235dd8f648fa6366e9ce53ed9b68487a9b3bd05baec0356b8b5882a30"
+  },
+  "ch01.s02.p03.r08": {
+    "decision": "edit",
+    "text": "These models are called large language models because their number of parameters is unprecedentedly huge.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "These models are called large language models because we are living in an age of unprecedentedly huge parameter counts.",
+    "why": "The cited lines say the models are called large language models because the number of parameters is unprecedentedly huge, but they do not explicitly state 'because we are living in an age of' as the causal reason; that phrasing is added interpretation.",
+    "attempts": [
+      {
+        "text": "These models are called large language models because their number of parameters is unprecedentedly huge.",
+        "verdict": "supported",
+        "reason": "The cited lines state that the number of parameters is unprecedentedly huge and explicitly say that this is why they are called large language models."
+      }
+    ],
+    "sentence_hash": "8cd964f027a8a8e747238cb1b498f29f66d947636448880d67b85f638e75ad16"
+  },
+  "ch01.s04.p06.r04": {
+    "decision": "edit",
+    "text": "Knowledge of generative AI and large language models is an extremely useful skill, and the need for this skill is only going to increase in the future.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "Knowledge of generative AI and large language models is an extremely useful skill, and the need for this skill is only going to increase in the future.",
+    "why": "The cited lines support that generative AI and large language models are extremely useful skills and that demand will increase in the future. However, the sentence says 'knowledge of' generative AI and LLMs, whereas the lecture refers to the skills themselves.",
+    "attempts": [
+      {
+        "text": "Generative AI and large language models are extremely useful skills, and the need for these skills is only going to increase in the future.",
+        "verdict": "partial",
+        "reason": "The cited lines support that generative AI and large language models are an extremely useful skill and that the need for this skill will increase in the future. However, the sentence pluralizes this as 'skills,' while the lecture refers to it in the singular as 'skill.'"
+      },
+      {
+        "text": "Knowledge of generative AI and large language models is an extremely useful skill, and the need for this skill is only going to increase in the future.",
+        "verdict": "supported",
+        "reason": "The cited lines support that knowledge of generative AI and large language models is an extremely useful skill and that demand for it will increase in the future. However, the sentence adds the word 'Knowledge of' explicitly, while the transcript fragment is truncated ('5 years generate and large language models...') and does not clearly state the full phrase."
+      }
+    ],
+    "sentence_hash": "b2d972f31bc0f080ca230fad5bc5b53db36fc0ee9b558f7cf38d36cc01878c96"
+  },
+  "ch01.s06.p03.r06": {
+    "decision": "edit",
+    "text": "For example, tokenization may assign random IDs to “dog” and “puppy,” but the information that these words are related must be encoded somewhere.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "For example, tokenization may assign random IDs to \"dog\" and \"puppy\", but embeddings aim to encode that these words are related.",
+    "why": "The cited lines state that random IDs may be assigned to 'dog' and 'puppy' and that information that they are related needs to be encoded somewhere, but they do not explicitly say that embeddings are the mechanism that encodes this relationship.",
+    "attempts": [
+      {
+        "text": "For example, tokenization may assign random IDs to “dog” and “puppy,” but the information that these words are related must be encoded somewhere.",
+        "verdict": "supported",
+        "reason": "The cited lines explicitly say that tokenization assigns random IDs to 'dog' and 'puppy' and that information that they are related needs to be encoded somewhere."
+      }
+    ],
+    "sentence_hash": "224055804f332b0cd1ca9e5109fc3dbd08ab1252f1283b5741f7a18485048d87"
+  },
+  "ch01.s09.p01.02": {
+    "decision": "edit",
+    "text": "BERT and GPT are later variations of the Transformer architecture.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "BERT and GPT are based on the Transformer architecture.",
+    "why": "The context states GPT models and BERT are later variations of the Transformer architecture, but the cited lines alone do not explicitly mention both BERT and GPT together.",
+    "attempts": [
+      {
+        "text": "BERT and GPT are later variations of the Transformer architecture.",
+        "verdict": "supported",
+        "reason": "The cited and context lines state that GPT models and BERT are later variations of the Transformer architecture."
+      }
+    ],
+    "sentence_hash": "86c229438ee27a120a518a28b9f3633920c4e691eff1682e0874d567d99c10a2"
+  },
+  "ch01.s09.p01.04": {
+    "decision": "edit",
+    "text": "GPT stands for Generative Pre-trained.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "GPT stands for Generative Pre-trained Transformers.",
+    "why": "The cited lines explicitly state 'generative pre-trained' but do not include 'Transformers' as part of the expansion, though nearby context mentions transformers separately.",
+    "attempts": [
+      {
+        "text": "GPT stands for Generative Pre-trained.",
+        "verdict": "supported",
+        "reason": "The cited lines support 'GPT' and 'generative pre-trained' but do not support the complete expansion because 'Transformers' appears separately in context and is not explicitly part of the stated full form in the cited lines."
+      }
+    ],
+    "sentence_hash": "4abe7a4740feb04a968b4c4c78f5d81e56007f09013efe715088cd99b53a8302"
+  },
+  "ch01.s09.p06.r05": {
+    "decision": "edit",
+    "text": "Both architectures can do sequence modeling and text completion tasks, so they can also be called language models.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "Recurrent neural networks and long short-term memory networks could do sequence modeling and text completion tasks, so they can also be called language models.",
+    "why": "The cited lines say 'both of them' could do sequence modeling and text completion tasks and thus can be called language models, but they do not explicitly restate that 'both of them' are recurrent neural networks and long short-term memory networks within the cited span.",
+    "attempts": [
+      {
+        "text": "Both architectures can do sequence modeling and text completion tasks, so they can also be called language models.",
+        "verdict": "supported",
+        "reason": "The cited lines state that both architectures could do sequence modeling tasks and text completion tasks, and therefore can be called language models."
+      }
+    ],
+    "sentence_hash": "9dcbf65c80c4c6b0643baa1b10893375cfba33921252295db6a375a5ae9422ca"
+  },
+  "ch01.s10.p01.07": {
+    "decision": "edit",
+    "text": "The discussion of the Transformer attention mechanism includes multi-head attention, positional encoding, input embedding, and output embedding.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "The Transformer attention mechanism is further broken into parts such as multi-head attention, positional encoding, input embedding, and output embedding.",
+    "why": "The cited lines say the lecture will explain multi-head attention, positional encoding, input embedding, and output embedding in the context of the Transformer attention mechanism, but they do not explicitly state that the attention mechanism itself is 'broken into parts' consisting of all these items.",
+    "attempts": [
+      {
+        "text": "The discussion of the Transformer attention mechanism includes multi-head attention, positional encoding, input embedding, and output embedding.",
+        "verdict": "supported",
+        "reason": "The cited lines explicitly mention the Transformer attention mechanism and state that the discussion will cover multi-head attention, positional encoding, input embedding, and output embedding."
+      }
+    ],
+    "sentence_hash": "b9605634aceacdf4355c1e2d6c3eee62c59a1ecbc852a19b58985779d1193a92"
+  },
+  "ch01.s10.p04.r01": {
+    "decision": "edit",
+    "text": "Modern large language models are trained in two main steps: first, they are pre-trained on unlabeled data, and then they are fine-tuned.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "Modern large language models are trained in two main steps: first we pre-train on unlabeled data to create a foundational model, and then we fine-tune it.",
+    "why": "The cited lines clearly state two main steps and describe pre-training on unlabeled data plus fine-tuning, but they do not explicitly say the foundational model is 'created' by the pre-training step; that is implied rather than directly stated.",
+    "attempts": [
+      {
+        "text": "Modern large language models are trained in two main steps: first, they are pre-trained on unlabeled data, and then they are fine-tuned.",
+        "verdict": "supported",
+        "reason": "The cited lines state that modern large language models are trained in two main steps: first pre-training on unlabeled data, then further training on a labeled/refined dataset called fine tuning."
+      }
+    ],
+    "sentence_hash": "8be419952eb02789f857d7fe5ca3c8aa25aaab56ca376a62390a8f954edc3458"
+  },
+  "ch01.s10.p04.r05": {
+    "decision": "edit",
+    "text": "Fine-tuning means providing the model with a specific, usually smaller labeled dataset and training it further to build a better model.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "Fine-tuning means giving the model a smaller, specific labeled dataset and training it further to build a better task-specific model.",
+    "why": "The lines support providing a specific labeled dataset and further training to build a better model, and mention a smaller labeled dataset later. However, they do not explicitly say fine-tuning means giving the model a 'task-specific' model outcome.",
+    "attempts": [
+      {
+        "text": "Fine-tuning means providing the model with a specific, usually smaller labeled dataset and training it further to build a better model.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "0ee662dfbeb6f7532752141cb525a816e2b742bce795bdb97f44f7590d2feb93"
+  },
+  "ch01.s11.p02.r03": {
+    "decision": "edit",
+    "text": "From lecture 7 onward, the material dives deeply into code and starts stage one.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "From lecture 7 onward, the material moves deeply into code and begins a new stage.",
+    "why": "The lines say 'from lecture 7 we'll be diving deep into code' and 'we'll be starting into stage one,' but they do not explicitly say 'begins a new stage' in the sense of a new phase onward.",
+    "attempts": [
+      {
+        "text": "From lecture 7 onward, the material dives deeply into code and starts stage one.",
+        "verdict": "supported",
+        "reason": "The cited lines state that from lecture 7 they will be 'diving deep into code' and 'starting into stage one.'"
+      }
+    ],
+    "sentence_hash": "b43705f164490ed4d6d9157ad653ad6170de0d3dc833dbd592e61ef3b2ce63ba"
+  },
+  "ch01.s11.p02.r07": {
+    "decision": "edit",
+    "text": "From the next lecture onward, Jupyter notebooks are shared so coding can begin in parallel.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "Jupyter notebooks are to be shared from that point onward so coding can begin in parallel with the explanations.",
+    "why": "The lines support that Jupyter notebooks will be shared from next time onward so they can 'parallel begin coding', but they do not explicitly state this is parallel with explanations.",
+    "attempts": [
+      {
+        "text": "From the next lecture onward, Jupyter notebooks are shared so coding can begin in parallel.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "b1eeed76bb20fee331659895cfa142603ebda822f6ccc67b44c53fcf36dc1a3e"
+  },
+  "ch02.s01.p03.02": {
+    "decision": "edit",
+    "text": "For an input text such as \"this is an example\", the input text is first broken down.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "For an input text such as \"this is an example\", the text is first broken down into tokens.",
+    "why": "The cited lines say the input text is broken down into tokens, but the word 'first' is not explicitly supported.",
+    "attempts": [
+      {
+        "text": "For an input text such as \"this is an example\", the text is broken down into tokens.",
+        "verdict": "partial",
+        "reason": "The cited lines support that the input text \"this is an example\" is broken down, but they do not explicitly state \"into tokens\" within the cited range. The neighboring context mentions tokens, so the omission is minor."
+      },
+      {
+        "text": "For an input text such as \"this is an example\", the input text is first broken down.",
+        "verdict": "supported",
+        "reason": "The cited lines explicitly state that for an input text such as 'this is an example', the input text is broken down."
+      }
+    ],
+    "sentence_hash": "b30a9a38c18be500f0d5324d499f34b60ee65f84c81f59d7ed272bb43ade1c44"
+  },
+  "ch02.s02.p02.01": {
+    "decision": "edit",
+    "text": "Word-based tokenization converts the entire dataset into chunks of words.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "To start with the simplest case, word-based tokenization converts the dataset into chunks of words.",
+    "why": "The cited lines define word-based tokenization as converting the dataset into chunks of words, but they do not mention 'to start with the simplest case.'",
+    "attempts": [
+      {
+        "text": "Word-based tokenization converts the entire dataset into chunks of words.",
+        "verdict": "supported",
+        "reason": "The cited lines state that 'word based tokenization is just converting the entire data set into chunks of words.'"
+      }
+    ],
+    "sentence_hash": "594bde964b91f5a218090b8c36c667ee8b72df3098757a451f488ddee395c7e7"
+  },
+  "ch02.s03.p03.03": {
+    "decision": "edit",
+    "text": "To check the tokenization, the code prints the first 30 tokens in the list.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "To check the result, the code prints the first 30 tokens of the preprocessed list.",
+    "why": "The cited lines say the code prints the first 30 tokens in the list to check tokenization, but they do not explicitly say the list is a 'preprocessed list'.",
+    "attempts": [
+      {
+        "text": "To check the tokenization, the code prints the first 30 tokens in the list.",
+        "verdict": "supported",
+        "reason": "The cited lines state they want to make sure tokenization was done correctly and will print the first 30 tokens in the list."
+      }
+    ],
+    "sentence_hash": "a12130d8dc2512fca9b710a9e87fbad1feaf55b4447b2d8700648e92ba40d44d"
+  },
+  "ch02.s03.p04.r02": {
+    "decision": "edit",
+    "text": "For example, with the text \"the quick brown fox jumps over the lazy dog,\" the unique tokens are arranged in alphabetical order before IDs are assigned.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "For example, with the text \"the quick brown fox jumps over the lazy dog\", the unique tokens are arranged alphabetically as \"brown\", \"dog\", \"fox\", \"jumps\", \"lazy\", \"quick\", and \"the\" before IDs are assigned.",
+    "why": "The lines support arranging tokens alphabetically as 'brown dog fox jumps lazy quick the' before assigning IDs, but the sentence adds 'unique tokens' and omits 'over'; the lecture excerpt does not explicitly discuss uniqueness.",
+    "attempts": [
+      {
+        "text": "For example, with the text \"the quick brown fox jumps over the lazy dog\", the tokens are arranged alphabetically as \"brown\", \"dog\", \"fox\", \"jumps\", \"lazy\", \"quick\", and \"the\" before IDs are assigned.",
+        "verdict": "partial",
+        "reason": "The cited lines support arranging tokens from the example sentence in alphabetical order and list 'brown dog fox jumps lazy or quick the'. However, the sentence adds the exact quoted sequence including 'over' and omits the uncertainty/mis-transcription around 'or quick'. The lines do not clearly support the exact final ordered list given."
+      },
+      {
+        "text": "For example, with the text \"the quick brown fox jumps over the lazy dog,\" the unique tokens are arranged in alphabetical order before IDs are assigned.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "c7315d3e1ee8a5935df1557bd091e7120070552b25971faaee9dd3627b74543d"
+  },
+  "ch02.s03.p05.r03": {
+    "decision": "edit",
+    "text": "The class keeps both a string-to-integer dictionary and a reverse integer-to-string dictionary.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "To support decoding, the class keeps both a string-to-integer dictionary and a reverse integer-to-string dictionary.",
+    "why": "The cited lines support maintaining both string-to-int and int-to-string dictionaries and explain lookup for decoding, but they do not explicitly state that this is done 'to support decoding' as the motivating purpose.",
+    "attempts": [
+      {
+        "text": "The class keeps both a string-to-integer dictionary and a reverse integer-to-string dictionary.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "74d5516894e9083a2a31fd60a39f4aa99b85108c1e35082741dfff4b17b95116"
+  },
+  "ch02.s04.p01.04": {
+    "decision": "edit",
+    "text": "A vocabulary is a dictionary with a collection of tokens arranged in ascending order.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "A vocabulary here is a dictionary with a collection of tokens arranged in ascending order, where every token corresponds to a token ID.",
+    "why": "The cited lines state that vocabulary is a dictionary with tokens arranged in ascending order and that every token corresponds to a token ID, but do not explicitly say 'every token corresponds to a token ID' in full because the final word is truncated to 'token' before context supplies 'ID'.",
+    "attempts": [
+      {
+        "text": "A vocabulary is a dictionary with a collection of tokens arranged in ascending order.",
+        "verdict": "supported",
+        "reason": "The cited lines explicitly define a vocabulary as a dictionary with a collection of tokens arranged in ascending order."
+      }
+    ],
+    "sentence_hash": "d2c4cb9a7f1d2cfaae95f9dc048d251e85e0a52b90d386f507d5e408a0927ec3"
+  },
+  "ch02.s06.p02.r04": {
+    "decision": "edit",
+    "text": "The same issue appears with word-based tokenization: \"tokenization\" and \"modernization\" both contain the common \"ization,\" whose meaning is lost, and it does not capture the common root in \"old\" and \"older\" or the common root in \"finest\" and \"lowest.\"",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "The same issue appears with shared endings: \"tokenization\" and \"modernization\" both contain the common \"isation,\" whose meaning is lost, and word-based tokenization does not capture the common root in \"old\" and \"older\" or the common \"est\" in \"finest\" and \"lowest.\"",
+    "why": "The lines support that 'tokenization' and 'modernization' share 'isation' and that this meaning is lost, and that word-based tokenization does not capture the common root between 'old' and 'older'. However, the lecture says 'EST is the common root between finest and lowest', not specifically the common 'est' suffix, and calling it a common root is awkwardly phrased in the source. The sentence adds interpretation not directly stated.",
+    "attempts": [
+      {
+        "text": "The same issue appears with word-based tokenization: \"tokenization\" and \"modernization\" both contain the common \"ization,\" whose meaning is lost, and it does not capture the common root in \"old\" and \"older\" or the common root in \"finest\" and \"lowest.\"",
+        "verdict": "supported",
+        "reason": "The cited lines support that 'tokenization' and 'modernization' share 'isation' whose meaning is lost, and that the common root between 'old' and 'older' is not captured. However, for 'finest' and 'lowest' the lecture specifically says 'EST is the common root,' while the sentence more generally says there is a common root in those words. That changes the technical detail being discussed."
+      }
+    ],
+    "sentence_hash": "f9478de1daa0ae2534c75bddd08a2108442aafe9bb00ae7c353724c6f5dfb103"
+  },
+  "ch02.s06.p02.r08": {
+    "decision": "edit",
+    "text": "Character-level tokenization has a very small vocabulary and completely solves the out-of-vocabulary problem, but it produces much longer token sequences and loses meaning completely, while the main problem with word-based tokenization is that it needs a large vocabulary.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "So character-level tokenization has a very small vocabulary and avoids out-of-vocabulary words, but it produces much longer token sequences, while the main problem with word-based tokenization is its large vocabulary.",
+    "why": "The cited lines support that character-level tokenization has a very small vocabulary, solves the out-of-vocabulary problem, and produces much longer token sequences, and that word-based tokenization needs a large vocabulary. However, the statement omits another cited issue for character-based tokenization: meaning between words is not captured / meaning is completely lost.",
+    "attempts": [
+      {
+        "text": "Character-level tokenization has a very small vocabulary and completely solves the out-of-vocabulary problem, but it produces much longer token sequences and loses meaning completely, while the main problem with word-based tokenization is that it needs a large vocabulary.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "da9bd92c1361a42851e0c3f5389888d98d1bec392e11e98af02368624e279aec"
+  },
+  "ch02.s06.p04.09": {
+    "decision": "edit",
+    "text": "A word like \"tokenization\" can therefore be broken into subword pieces that include a suffix token such as \"ization\" along with root-related tokens, so the model learns that \"ization\" is a common suffix that appears in multiple words.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "A word like \"tokenization\" can therefore be broken into subword pieces that include a suffix token such as \"isation\" along with root-related tokens, helping the model learn common patterns across words.",
+    "why": "The cited lines mention the suffix token as 'zation'/'isation' and root-related tokens, but do not explicitly state that this helps the model learn common patterns across words; they only say the model learns the suffix is common in both words.",
+    "attempts": [
+      {
+        "text": "A word like \"tokenization\" can therefore be broken into subword pieces that include a suffix token such as \"ization\" along with root-related tokens, so the model learns that \"ization\" is a common suffix that appears in multiple words.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "459a43266775dcf5a7925e80f9539db2c83fb8a184a595253a13cc52e84e94ed"
+  },
+  "ch02.s07.p02.r04": {
+    "decision": "edit",
+    "text": "\"AA\" also occurs the most, but it is not considered here because it is not a byte pair.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "\"AA\" also occurs the most, but it is not considered here because it is three characters rather than a byte pair.",
+    "why": "The cited lines say AA is not considered because it is 'three characters,' but do not support the claim as written since 'AA' itself is only two characters; the sentence introduces an unsupported and contradictory detail.",
+    "attempts": [
+      {
+        "text": "“AA” also occurs the most, but it is not considered here because it is not a byte pair.",
+        "verdict": "partial",
+        "reason": "The cited lines support that 'AA' occurs the most and is not considered because it is not a byte pair, but they state the reason as 'that three characters' rather than explicitly supporting the quoted explanation. The transcript appears inconsistent/noisy about whether 'AA' is a byte pair."
+      },
+      {
+        "text": "\"AA\" also occurs the most, but it is not considered here because it is not a byte pair.",
+        "verdict": "supported",
+        "reason": "The cited lines state that 'AA also occurs the most' but 'that's not a byte pair,' which supports the sentence's claim that it is not considered because it is not a byte pair."
+      }
+    ],
+    "sentence_hash": "6b974189fa7b85653fcfeb16fd7ac12b3c0cc78fb3dda16976dbfc27e63d95cd"
+  },
+  "ch02.s07.p02.r06": {
+    "decision": "edit",
+    "text": "The most frequent byte pair is then replaced with Z, since Z does not occur in the data.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "The pair \"AA\" is then replaced with \"Z\" because \"Z\" does not occur in the data.",
+    "why": "The cited lines say a frequently occurring byte pair is replaced with Z because Z does not occur in the data, and later mention replacing AA with Z. But they do not explicitly state that the pair identified and replaced with Z is AA at the moment of explanation.",
+    "attempts": [
+      {
+        "text": "The most frequent byte pair is then replaced with Z, since Z does not occur in the data.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "197b43490bffb8b8ae9eaaf8a7434625d52dc4812327709980e2f537f8f69a42"
+  },
+  "ch02.s08.p02.01": {
+    "decision": "edit",
+    "text": "Consider a small data corpus of words.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "To see how the algorithm builds such a vocabulary, consider a small data corpus of words.",
+    "why": "The cited lines say they will look at a vocabulary/data set of words called a data corpus, but do not mention 'how the algorithm builds such a vocabulary'.",
+    "attempts": [
+      {
+        "text": "Consider a small data corpus of words.",
+        "verdict": "supported",
+        "reason": "The cited lines state they are looking at a vocabulary or data set of words, also called a data corpus."
+      }
+    ],
+    "sentence_hash": "495bdc4056fb309cfdd65843782b2ed023157f5b1fc9f018415947be698a5fc9"
+  },
+  "ch02.s09.p02.r06": {
+    "decision": "edit",
+    "text": "When the token IDs for the example are passed to the tokenizer's decode method, it reconstructs exactly the same sentence that was originally given.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "When the token IDs are passed to the tokenizer's \"decode\" method, the text is reconstructed exactly as it was originally given.",
+    "why": "The lecture says the decode method reconstructed the example sentence exactly as given, but the claim generalizes this to token IDs passed to decode in general ('the text is reconstructed exactly as it was originally given').",
+    "attempts": [
+      {
+        "text": "When the token IDs for the example are passed to the tokenizer's decode method, it reconstructs exactly the same sentence that was originally given.",
+        "verdict": "supported",
+        "reason": "The cited lines explicitly say the token IDs are decoded back into text using the tokenizer's decode method and that 'it decodes exactly the same sentence what we gave to it.'"
+      }
+    ],
+    "sentence_hash": "4abeba5b8b9e90bfb6a6520d346a2d8e563529eab7e6b1cd1afb61713328e827"
+  },
+  "ch02.s09.p03.r05": {
+    "decision": "edit",
+    "text": "For an unknown word, the tokenizer would ideally show an error, but when encoding there is no error.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "For an unknown word, the tokenizer would ideally produce an error, but with the byte pair tokenizer no error occurs.",
+    "why": "The cited lines say the tokenizer ideally should show an error and that no error occurs when encoding, but they do not explicitly state that this is specifically because of the byte pair tokenizer; that is only implied by nearby context.",
+    "attempts": [
+      {
+        "text": "For an unknown word, the tokenizer would ideally show an error, but when encoding there is no error.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "ad26053cd558203f2fb3eb7206169c2530307a8fd9dfc922193b16f9688a394e"
+  },
+  "ch02.s09.p04.r02": {
+    "decision": "edit",
+    "text": "A final example uses the nonsense sentence \"a k w i r w i e r,\" described as completely random words that do not make sense.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "A final example uses the random nonsense string \"a k w i r w i e r\", described as completely random words that do not make sense.",
+    "why": "The cited lines describe \"a k w i r w i e r\" as a sentence of \"completely random words\" that do not make sense, but do not explicitly call it a \"string\".",
+    "attempts": [
+      {
+        "text": "A final example uses the nonsense sentence \"a k w i r w i e r,\" described as completely random words that do not make sense.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "0b473f1b3172bbd4b9d74a3c6bcf16854f494f9f7ed79edb8b1721dd83c97638"
+  },
+  "ch02.s12.p04.09": {
+    "decision": "edit",
+    "text": "At a broad level, LLM optimization includes optimizing the embedding layer weights and a second set of weights needed later to predict the next word.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "At a broad level, LLM optimization includes optimizing the embedding layer weights and also other weights used later to predict the next word.",
+    "why": "The cited lines clearly state that embedding layer weights are optimized and that there is a second set of weights needed later to predict the next word, but the transcript fragment around 'second is actually the uh' is incomplete and does not explicitly identify them as 'other weights.'",
+    "attempts": [
+      {
+        "text": "At a broad level, LLM optimization includes optimizing the embedding layer weights and a second set of weights needed later to predict the next word.",
+        "verdict": "supported",
+        "reason": "The cited lines state that there are 'two broad level things' optimized in an LLM: first 'the embedding layer weights' and second something 'needed later to also predict the next word.' The sentence accurately summarizes this."
+      }
+    ],
+    "sentence_hash": "9a52794259d452b3711cc380668ecf6af3c5687d9e1cc9e533a5e63ac2d58a81"
+  },
+  "ch02.s15.p05.05": {
+    "decision": "edit",
+    "text": "An input chunk is four token IDs at one time, and a target chunk is that same chunk shifted by one position.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "An input chunk is the group of token IDs in one context window, and a target chunk is that same chunk shifted by one position.",
+    "why": "The cited lines say the input chunk is four token IDs at one time and the target chunk is the input chunk shifted by one, but they do not explicitly mention a context window.",
+    "attempts": [
+      {
+        "text": "An input chunk is four token IDs at one time, and a target chunk is that same chunk shifted by one position.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "171365dca708e7f5ebf6c0cb5f4db5b7578d398e012bc0356f3db6fafc08cf86"
+  },
+  "ch03.s03.p01.r04": {
+    "decision": "edit",
+    "text": "A second reason for normalizing the attention weights is training stability: values between zero and one generally help during backpropagation and gradient descent.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "A second reason for normalization is training stability: values between zero and one generally help during backpropagation and gradient descent.",
+    "why": "The lines state that normalization helps because values are between zero and one and that this helps with backpropagation and gradient descent stability, but they do not explicitly say this is the 'second reason for normalization' in the broad sense; the context is specifically attention weights/training.",
+    "attempts": [
+      {
+        "text": "A second reason for normalizing the attention weights is training stability: values between zero and one generally help during backpropagation and gradient descent.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "ee3897710af53481b793a086c9e29149149beb3c137772aa7f4c93d9fbc377c6"
+  },
+  "ch03.s03.p02.03": {
+    "decision": "remove",
+    "risk": "high",
+    "was": "This becomes apparent in an extreme example with values such as 1, 2, 3, and, ultimately, 400.",
+    "why": "The cited lines mention values '1 2 3 and nine' and later '400', but do not clearly support the phrasing 'ultimately, 400' or the exact sequence implied by the sentence.",
+    "attempts": [
+      {
+        "text": "This becomes apparent in an extreme example with values such as 1, 2, 3, and 400.",
+        "verdict": "partial",
+        "reason": "The cited lines support that an extreme example is being discussed and include values 1, 2, 3, and 400. However, the lecture line appears to say '1 2 3 and nine uh or let's say 400', so the exact set of values is not clearly established as only 1, 2, 3, and 400."
+      },
+      {
+        "text": "This becomes apparent in an extreme example with values such as 1, 2, 3, and 400.",
+        "verdict": "partial",
+        "reason": "The cited lines support that an extreme example is being discussed and include values 1, 2, 3, and 400. However, the lecture line appears to say '1 2 3 and nine uh or let's say 400', so the exact set of values is not clearly established as only 1, 2, 3, and 400."
+      }
+    ],
+    "sentence_hash": "5734284bc306e61c2bc9753164fe21f05d737ab474a0f9fc5cb3ed2fd0316d0e"
+  },
+  "ch03.s03.p04.r06": {
+    "decision": "edit",
+    "text": "The code implements softmax both with PyTorch and with a manual implementation.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "Both the naive softmax and the PyTorch softmax are implemented in code.",
+    "why": "The cited lines say both implementations will be done in code, but do not explicitly state that the two implementations are the naive softmax and the PyTorch softmax. The naive softmax is only implied from earlier context not included here.",
+    "attempts": [
+      {
+        "text": "The code implements softmax both with PyTorch and with a manual implementation.",
+        "verdict": "supported",
+        "reason": "The cited lines say they will see how PyTorch implements softmax and that they will do both implementations in code, but they do not explicitly state that the second implementation is a manual implementation."
+      }
+    ],
+    "sentence_hash": "3be1e6994c8c657fbc75c5141d169c331429e753c19568d3ff2d66e83aa2c09f"
+  },
+  "ch03.s04.p01.07": {
+    "decision": "edit",
+    "text": "Each input embedding vector is scaled by its attention weight, so lower-importance vectors are scaled down more.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "More important vectors are scaled less, and less important vectors are scaled down more.",
+    "why": "The cited lines describe vectors being scaled down according to importance percentages, including that lower-importance vectors are scaled down more. They do not support the claim that more important vectors are 'scaled less'; one example says a 25% importance vector is scaled by 1/4, which does not establish the stated comparison.",
+    "attempts": [
+      {
+        "text": "Each input embedding vector is scaled by its attention weight, so lower-importance vectors are scaled down more.",
+        "verdict": "supported",
+        "reason": "The cited lines describe vectors being multiplied/scaled by percentages representing their importance (attention contribution), including examples where lower-importance vectors are scaled down more."
+      }
+    ],
+    "sentence_hash": "daa383a2397b859cc7075cce08497659080c88e58cee759c0b31089c861b1487"
+  },
+  "ch03.s05.p04.02": {
+    "decision": "edit",
+    "text": "Instead of looping over tokens to form one context vector at a time, the context vectors are computed in a matrix manner using an elegant matrix operation.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "Instead of looping over tokens to form one context vector at a time, all context vectors can be computed at once with a single matrix multiplication.",
+    "why": "The lines say all context vectors can be calculated in a matrix manner without loops and mention a matrix operation, but they do not explicitly state that it is done with a single matrix multiplication.",
+    "attempts": [
+      {
+        "text": "Instead of looping over tokens to form one context vector at a time, the context vectors are computed in a matrix manner using an elegant matrix operation.",
+        "verdict": "supported",
+        "reason": "The cited lines state that they must do it 'in a matrix manner' because they cannot keep looping with for-loops, and that an elegant matrix operation helps calculate the context vectors."
+      }
+    ],
+    "sentence_hash": "f4e946d46deb254b43d4059a818184cec676ef4a298da5337ad4e46ac5ab50b2"
+  },
+  "ch03.s06.p02.r05": {
+    "decision": "edit",
+    "text": "The model captures the context somewhat, but it gives attention only to words that are similar in meaning to the query.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "Without trainable weights, the model does capture some context, but it mainly gives attention to words that are similar in meaning to the query.",
+    "why": "The cited lines say they captured context somewhat and only gave attention to words similar in meaning to the query, but they do not explicitly mention 'without trainable weights'.",
+    "attempts": [
+      {
+        "text": "The model captures the context somewhat, but it gives attention only to words that are similar in meaning to the query.",
+        "verdict": "supported",
+        "reason": "The cited lines explicitly state that they 'did manage to capture the context somewhat' and 'only give attention to Words which are similar in meaning to the query.'"
+      }
+    ],
+    "sentence_hash": "cf0145652ee7672c86458e97c74bd48401a9a6e23f1979a01fbba87660e5bdfb"
+  },
+  "ch03.s06.p03.03": {
+    "decision": "edit",
+    "text": "If trainable weights are not used, the model takes the dot product between the query \"warm\" and each word embedding.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "If trainable weights are not used, the model takes the dot product between the query embedding for \"warm\" and each word embedding.",
+    "why": "The cited lines say the model takes the dot product between 'the query warm' and each word embedding if trainable weights are not used, but they do not explicitly state 'query embedding'.",
+    "attempts": [
+      {
+        "text": "If trainable weights are not used, the model takes the dot product between the query \"warm\" and each word embedding.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "596c05b1e8f992ec301e4f9667bd100c263a31e24ce5224b3683b31eb25437cd"
+  },
+  "ch03.s07.p03.r10": {
+    "decision": "edit",
+    "text": "Then multiply the attention weights by the values matrix to obtain the context vector matrix.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "Then multiply the renormalized attention weights by the values matrix to obtain the context vector matrix.",
+    "why": "The cited lines state to multiply with the values matrix to get the context vector matrix, but they do not mention that the attention weights were 'renormalized'.",
+    "attempts": [
+      {
+        "text": "Then multiply the attention weights by the values matrix to obtain the context vector matrix.",
+        "verdict": "supported",
+        "reason": "The cited lines state 'multiply this with the values Matrix to get the context Vector Matrix,' which supports multiplying the attention weights by the values matrix to obtain the context vector matrix."
+      }
+    ],
+    "sentence_hash": "ce9a3d98319c5c9e50b1b5108a20de74ea4ce0a9430d603b313442703de62402"
+  },
+  "ch03.s07.p04.r06": {
+    "decision": "remove",
+    "risk": "high",
+    "was": "An upper triangular matrix is appropriate here because the elements above the diagonal are the ones to be replaced.",
+    "why": "The cited lines discuss replacing elements above the diagonal with zero/negative infinity and choosing upper or lower triangular matrices, but they do not state that an upper triangular matrix is appropriate because the elements above the diagonal are the ones to be replaced.",
+    "attempts": [
+      {
+        "text": "In this method, an upper triangular matrix is used so that the elements above the diagonal are the positions replaced with negative infinity before softmax.",
+        "verdict": "partial",
+        "reason": "The cited lines support that an upper triangular matrix is made and that elements above the diagonal are replaced with zero or negative infinity. However, the sentence adds 'before softmax,' which is not stated or implied in the supplied lines."
+      },
+      {
+        "text": "An upper triangular matrix is appropriate here because the elements above the diagonal are the ones to be replaced.",
+        "verdict": "partial",
+        "reason": "The cited lines discuss replacing elements above the diagonal with zero or negative infinity and choosing between an upper or lower triangular matrix. They also state that an upper triangular matrix is used. However, the claim that an upper triangular matrix is appropriate 'because the elements above the diagonal are the ones to be replaced' is not clearly supported; the lecture does not explicitly connect the choice of upper triangular matrix to replacing the above-diagonal elements, and may even suggest ambiguity between upper and lower triangular matrices."
+      }
+    ],
+    "sentence_hash": "cf6c500b87943b65c8bd807efd8158ba02a23d13f277fcfcd4b5d0c2b3896237"
+  },
+  "ch03.s08.p04.09": {
+    "decision": "edit",
+    "text": "When queries are multiplied by the transposed keys, the batches are processed sequentially and the resulting attention score matrices are stacked together.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "When queries are multiplied by the transposed keys, each batch is processed separately and the resulting attention score matrices are stacked together.",
+    "why": "The cited lines state that batches are processed sequentially, not separately. The rest about multiplying queries with transposed keys and stacking results is supported.",
+    "attempts": [
+      {
+        "text": "When queries are multiplied by the transposed keys, the batches are processed sequentially and the resulting attention score matrices are stacked together.",
+        "verdict": "supported",
+        "reason": "The cited lines state that queries are multiplied with the transposed keys, batches are processed sequentially, each batch produces a result, and the results are stacked together into the attention scores."
+      }
+    ],
+    "sentence_hash": "777386fc98d70e6e4851e3c7b8ed535f0c855dd2c40cc87fbdc99b7bcb95cc21"
+  },
+  "ch03.s08.p06.r01": {
+    "decision": "remove",
+    "risk": "high",
+    "was": "In the worked example, the context length is taken as batch.shape[1], which the example sets to 6.",
+    "why": "The cited lines say batch.shape of one is six because the batch size is six. They do not support that the context length is taken as batch.shape[1]; they instead refer to shape index 1 being the batch size.",
+    "attempts": [
+      {
+        "text": "In the worked example, the context length is taken as batch.shape[1], which is 6 because the batch size is 6.",
+        "verdict": "unsupported",
+        "reason": "The cited lines say 'batch.shape of one' and explain it is six because the batch size is six. The sentence claims the context length is taken as batch.shape[1], but the lines do not support that this value is the context length; they only state that batch.shape[1] equals 6 due to the batch size."
+      },
+      {
+        "text": "In the worked example, batch.shape[1] is 6 because the batch size is 6.",
+        "verdict": "unsupported",
+        "reason": "The cited lines state that 'batch.shape of one will be six' because the batch size is six. The sentence claims 'batch.shape[1] is 6 because the batch size is 6,' which does not match the cited text and changes the indexed dimension being discussed."
+      }
+    ],
+    "sentence_hash": "e41a1a8ebe4ea3d8007f85cdcdb913fd3ec6c06152f3aa9ef5940b73f1431792"
+  },
+  "ch03.s08.p06.r04": {
+    "decision": "edit",
+    "text": "Printing the context vectors shows that the first matrix corresponds to the first input and the second matrix corresponds to the second input, stacked on top of each other.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "Printing the context vectors shows that the first 6 × 2 matrix corresponds to the first input and the second 6 × 2 matrix corresponds to the second input, stacked together.",
+    "why": "The lines support that the first matrix corresponds to the first input and the second to the second input, stacked together, but they do not mention the matrices being specifically 6 × 2.",
+    "attempts": [
+      {
+        "text": "Printing the context vectors shows that the first matrix corresponds to the first input and the second matrix corresponds to the second input, stacked on top of each other.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "d60c0fd975b10cbc9ee93f04b5a0149dd39ca17f35933ea8e96c13b0a38db4c5"
+  },
+  "ch03.s09.p04.r10": {
+    "decision": "edit",
+    "text": "In that shape, 1 is the batch size, 3 is the number of tokens, and D_out is the output dimension.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "In that shape, 1 is the batch size, 3 is the number of tokens, and 6 is the output dimension \"D_out\".",
+    "why": "The cited lines state that 1 is the batch size, 3 is the number of tokens, and D_out is the output dimension, but they do not explicitly state that the value 6 corresponds to D_out in that shape.",
+    "attempts": [
+      {
+        "text": "In that shape, 1 is the batch size, 3 is the number of tokens, and D_out is the output dimension.",
+        "verdict": "supported",
+        "reason": "The cited lines explicitly state that 1 is the batch size, 3 is the number of tokens, and D_out is the output dimension."
+      }
+    ],
+    "sentence_hash": "9896677405d1ea1ecd983bde71e8b475cef64f36dc0d39e0cf707c85dcd9e14d"
+  },
+  "ch03.s09.p05.08": {
+    "decision": "edit",
+    "text": "In code, this split is done with view on the keys, replacing the last dimension by number of heads and head dimension and turning three-dimensional tensors into four-dimensional tensors.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "In code, this split is done with \"view\" on the keys, queries, and values, replacing the last dimension by number of heads and head dimension and turning three-dimensional tensors into four-dimensional tensors.",
+    "why": "The cited lines explicitly mention using view on keys and converting 3D tensors to 4D by replacing D_out with number of heads and head dimension, but they do not explicitly state that the same operation is done on queries and values.",
+    "attempts": [
+      {
+        "text": "In code, this split is done with view on the keys, replacing the last dimension by number of heads and head dimension and turning three-dimensional tensors into four-dimensional tensors.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "8a2ce0aea3d044ed3b811d29fc5fa0739a96a462bb6c6b553e58c0373bd0a6ae"
+  },
+  "ch03.s10.p01.07": {
+    "decision": "edit",
+    "text": "Overall, layer normalization appears three times in the architecture being discussed: before the multi-head attention, after the multi-head attention, and once before the output.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "Overall, it appears three times in the architecture being discussed: twice around the multi-head attention module and once before the final output layer.",
+    "why": "The lecture says layer normalization appears twice before and after the multi-head attention and once before the output, but the sentence paraphrases this as 'around the multi-head attention module,' which is a looser interpretation rather than a direct statement.",
+    "attempts": [
+      {
+        "text": "Overall, layer normalization appears three times in the architecture being discussed: before the multi-head attention, after the multi-head attention, and once before the output.",
+        "verdict": "supported",
+        "reason": "The cited lines state that layer normalization appears two times before and after the multi-head attention and once before the output, for a total of three times."
+      }
+    ],
+    "sentence_hash": "c02f617e8b70c214c97c04b715d61a6b05a02817c2e5bc1eb6b761d4f523e993"
+  },
+  "ch03.s10.p05.06": {
+    "decision": "edit",
+    "text": "The ReLU activation function outputs x when x is positive and zero when x is negative.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "The ReLU activation function outputs x when x is positive and zero when x is negative.",
+    "why": "The cited lines state that ReLU outputs x when x is positive and zero when x is equal to negative, but do not explicitly cover all negative values or the exact behavior for x=0.",
+    "attempts": [
+      {
+        "text": "The ReLU activation function outputs x when x is positive and zero when x is negative.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "fbc716ca53e8448a27762a7858b8f7a60d4bb721d8227047174d78713cacc9bd"
+  },
+  "ch03.s11.p04.03": {
+    "decision": "edit",
+    "text": "If \"layer_sizes\" is \"3, 3, 3, 3, 1\", the network has five layers with three neurons and one layer with one neuron.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "If \"layer_sizes\" is \"3, 3, 3, 3, 3, 1\", the network has five layers with three neurons and a final layer with one neuron.",
+    "why": "The cited lines describe layer sizes '3 3 3 3 one' and say there are five layers with three neurons plus one layer with one neuron. The sentence changes the sequence to '3, 3, 3, 3, 3, 1', which is not what the cited lines state.",
+    "attempts": [
+      {
+        "text": "If \"layer_sizes\" is \"3, 3, 3, 3, 1\", the network has five layers with three neurons and one layer with one neuron.",
+        "verdict": "supported",
+        "reason": "The cited lines explicitly state that for layer sizes '3 3 3 3 1' there are five layers with three neurons and one layer with one neuron."
+      }
+    ],
+    "sentence_hash": "a78b39f46f8f5532544be45356aceb588fc3dc961dd1ebc815b84b3707f742b1"
+  },
+  "ch03.s11.p06.r06": {
+    "decision": "edit",
+    "text": "The code sets the target to zero, computes the model output for x, uses a squared loss, calls loss.backward(), and prints a single gradient value per layer as the mean absolute gradient of that layer’s 3×3 gradient values.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "The code sets the target to zero, computes the model output for x, uses a squared loss, calls loss.backward(), and prints a single gradient value per layer as the mean absolute gradient of that layer’s gradient matrix.",
+    "why": "The cited lines support setting target to zero, computing model(x), using squared loss, calling backward, and printing a single gradient value per layer as the mean absolute gradient. However, the sentence says the gradients are from a layer’s 'gradient matrix' generally, while the lecture specifically mentions a 9x9 matrix and later 3x3 gradient values, creating inconsistency not fully captured by the summary.",
+    "attempts": [
+      {
+        "text": "The code sets the target to zero, computes the model output for x, uses a squared loss, calls loss.backward(), and prints a single gradient value per layer as the mean absolute gradient of that layer’s 3×3 gradient values.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "7b647c00a1ad9a3555e93547f53d893e40383a71c135c689d8f04eed347e3282"
+  },
+  "ch04.s04.p02.r04": {
+    "decision": "edit",
+    "text": "Layer normalization subtracts the mean from every value and divides by the square root of the variance.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "For each token, layer normalization subtracts the mean from every value and divides by the square root of the variance.",
+    "why": "The cited lines describe subtracting the mean and dividing by the square root of the variance, but they do not explicitly say this is done 'for each token'.",
+    "attempts": [
+      {
+        "text": "Layer normalization subtracts the mean from every value and divides by the square root of the variance.",
+        "verdict": "supported",
+        "reason": "The cited lines explicitly state that values are normalized by subtracting the mean from every value and dividing by the square root of the variance."
+      }
+    ],
+    "sentence_hash": "75161e5b0e9937290b20c758901812e0f95b9d9f1a673a14ea0fbedfde343c1d"
+  },
+  "ch04.s04.p04.r03": {
+    "decision": "edit",
+    "text": "The output from the shortcut connection is the Transformer block output.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "The output after this second shortcut connection is the Transformer block output.",
+    "why": "The cited lines say 'the output from the shortcut connection is our Transformer block output', but they do not explicitly specify that this is the 'second' shortcut connection.",
+    "attempts": [
+      {
+        "text": "The output from the shortcut connection is the Transformer block output.",
+        "verdict": "supported",
+        "reason": "The cited lines state that 'the output from the shortcut connection is our Transformer block output.'"
+      }
+    ],
+    "sentence_hash": "36453a3933a5476743977c554056178de17431aa642fb1fa5e3b25bf0ee4f6bb"
+  },
+  "ch04.s05.p03.03": {
+    "decision": "edit",
+    "text": "The four tasks are predicting \"effort\" from \"every\", \"moves\" from \"every effort\", \"you\" from \"every effort moves\", and the output for \"every effort moves you\".",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "The four tasks are predicting \"effort\" from \"every\", \"moves\" from \"every effort\", \"you\" from \"every effort moves\", and the next word from \"every effort moves you\".",
+    "why": "The cited lines explicitly state the first three prediction tasks, but for the fourth they only say 'every effort moves you what's the output' without specifying 'the next word'.",
+    "attempts": [
+      {
+        "text": "The four tasks are predicting \"effort\" from \"every\", \"moves\" from \"every effort\", \"you\" from \"every effort moves\", and the output for \"every effort moves you\".",
+        "verdict": "supported",
+        "reason": "The cited lines describe four prediction tasks: predicting 'effort' from 'every', 'moves' from 'every effort', 'you' from 'every effort moves', and then asking for the output corresponding to 'every effort moves you'."
+      }
+    ],
+    "sentence_hash": "2ddaeafb59fb4d28ef69de610a1a3e57235558b8fcb122c281594002fe5c4a3d"
+  },
+  "ch04.s06.p03.r06": {
+    "decision": "edit",
+    "text": "The query, key, and value are three trainable matrices, each with input and output embedding dimension 768, for 1.77 million parameters.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "Inside multi-head attention, the query, key, and value weights are three trainable matrices with input and output embedding dimension 768, for 1.77 million parameters.",
+    "why": "The lines state there are three trainable matrices with dimension 768 for input and output embeddings and mention 1.77 million parameters, but they do not explicitly state these are weights 'inside multi-head attention' or clearly specify matrix dimensions as 768x768.",
+    "attempts": [
+      {
+        "text": "The query, key, and value are three trainable matrices, each with input and output embedding dimension 768, for 1.77 million parameters.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "defadc8a80f7ccf636e7bf1dc0f7f30d52798c507c974998f8a376f60a044c2e"
+  },
+  "ch04.s07.p01.04": {
+    "decision": "edit",
+    "text": "For an input like \"every effort\", there are three prediction tasks.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "For the input tokens \"every effort moves\", there are three prediction tasks.",
+    "why": "The cited lines state there are three prediction tasks when looking at 'the input like this', but do not explicitly tie all three tasks specifically to the exact token sequence 'every effort moves'.",
+    "attempts": [
+      {
+        "text": "For an input like \"every effort\", there are three prediction tasks.",
+        "verdict": "supported",
+        "reason": "The cited lines state that for the input tokens 'every effort' there are 'actually three prediction tasks.'"
+      }
+    ],
+    "sentence_hash": "67ce53665cc58165fb485eae449423bf4414e8ecf05170f849a86fcc80e2f44e"
+  },
+  "ch04.s07.p01.07": {
+    "decision": "edit",
+    "text": "From the prefix \"every effort moves\", the correct next token is the token represented in the captions as \"U\".",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "From the prefix \"every effort moves\", the correct next token is \"you\".",
+    "why": "The cited lines say the output should be 'U' (likely an automatic caption for 'you'), but they do not explicitly spell the token as 'you'.",
+    "attempts": [
+      {
+        "text": "From the prefix \"every effort moves\", the correct next token is the token represented in the captions as \"U\".",
+        "verdict": "supported",
+        "reason": "The cited lines state that when 'every effort moves' is the input, 'the output should be U' and 'the correct answer ... is U over here.'"
+      }
+    ],
+    "sentence_hash": "fd379c1db6fe47754ff69ffed03b91aadb92900345923a87d4a294484cdf91b2"
+  },
+  "ch04.s07.p04.r05": {
+    "decision": "edit",
+    "text": "In the cited example, the range of the output token IDs for GPT-2 is stated as 0 to 50257.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "In the cited example, the range of the output token IDs for GPT-2 is stated as 0 to 50257.",
+    "why": "The cited lines state the range is '0 to 50257', but also state the vocabulary size as '5257' (likely a caption error). The sentence presents the range as stated, but the exact correctness of the range relative to vocabulary size is not fully supported by the cited text alone.",
+    "attempts": [
+      {
+        "text": "In the cited example, the range of the output token IDs for GPT-2 is stated as 0 to 50257.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "6db2b5e649b84b741686ffbca4e7f6993f860d077e06ed19f3e866f098a5fd15"
+  },
+  "ch04.s07.p05.r01": {
+    "decision": "edit",
+    "text": "For the first batch, the target text is \"effort moves you\", but the decoded output is \"armed H\".",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "For the first batch, the target text is \"effort moves you\", but the decoded output is \"armed H Netflix\".",
+    "why": "The cited lines say the target should be 'effort moves you' and the actual output obtained is 'armed H Netflix'. However, the sentence says the decoded output is exactly 'armed H Netflix', while the transcript truncates after 'armed H' and only earlier mentions 'the output is armed H Netflix' in a potentially noisy automatic caption.",
+    "attempts": [
+      {
+        "text": "For the first batch, the target text is \"effort moves you\", but the actual output is \"armed H\".",
+        "verdict": "partial",
+        "reason": "The cited lines support that the target should be 'effort moves you' and the actual output is 'armed H'. However, earlier cited/context lines also mention 'every effort moves you' and 'armed H Netflix', making the exact strings somewhat inconsistent in the transcript."
+      },
+      {
+        "text": "For the first batch, the target text is \"effort moves you\", but the decoded output is \"armed H\".",
+        "verdict": "supported",
+        "reason": "The cited lines state that for the first batch the target should be 'effort moves you' and the actual decoded output obtained is 'armed H' (with 'Netflix' appearing as a continuation/misrecognition)."
+      }
+    ],
+    "sentence_hash": "332dedf0cf4574c0bcd7e5c7d21cafc86e656b59cb21b1619c1d5d2746a85b0a"
+  },
+  "ch04.s09.p01.r04": {
+    "decision": "remove",
+    "risk": "high",
+    "was": "The dataset used here is the open-source text of the book The Verdict, with around 20,000 characters and about 5,000 tokens.",
+    "why": "The lines support that the dataset is the book The Verdict, is open source, has around 20,000 characters, and about 5,000 tokens. They do not explicitly state 'text of the book'.",
+    "attempts": [
+      {
+        "text": "The dataset used here is the open-source book The Verdict, with around 20,000 characters and about 5,000 tokens.",
+        "verdict": "partial",
+        "reason": "The cited lines support that the dataset is the open-source book 'The Verdict' and that it has around 20,000 characters and 5,000 tokens. However, the sentence adds 'open-source book' explicitly, while the captions only clearly say 'open source data set'; the book itself being open-source is implied but not directly stated."
+      },
+      {
+        "text": "The dataset used here is the text of the book The Verdict, with around 20,000 characters and about 5,000 tokens.",
+        "verdict": "partial",
+        "reason": "The cited lines support that the dataset is the book 'The Verdict' and that it has around 20,000 characters and about 5,000 tokens. However, the sentence says 'the text of the book The Verdict,' while the lecture only states that the dataset is the book called 'The Verdict'; it does not explicitly say 'the text of' the book."
+      }
+    ],
+    "sentence_hash": "c37449d076cf78cf6038d9381a6816bbc121fcae5a4da6d6fc145b57cc197a6c"
+  },
+  "ch04.s10.p01.04": {
+    "decision": "edit",
+    "text": "One loop iterates through each batch in the training data set, and another iterates over the number of epochs.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "The outer loop runs over the number of epochs, and the inner loop goes through each batch in the training data set.",
+    "why": "The cited lines identify one loop as iterating through batches and another as iterating over epochs, but they do not specify which is the outer loop and which is the inner loop.",
+    "attempts": [
+      {
+        "text": "One loop iterates through each batch in the training data set, and another iterates over the number of epochs.",
+        "verdict": "supported",
+        "reason": "The cited lines explicitly describe one loop going through each batch in the training dataset and another loop for the number of epochs."
+      }
+    ],
+    "sentence_hash": "2af8a919519fc907e3244bdba88b3b3f8adde28eb8bf8c8d547917d530fc48e5"
+  },
+  "ch04.s11.p01.07": {
+    "decision": "edit",
+    "text": "When evaluating, the model is put in evaluation mode with dropout disabled, because evaluation only calculates loss through a forward pass.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "When evaluating, the model is put in evaluation mode with dropout disabled, because evaluation only calculates loss through a forward pass.",
+    "why": "The cited lines support evaluation mode, disabled dropout, and that only a forward pass/loss calculation is needed, but they say 'with gradient tracking' rather than explicitly saying gradients are disabled.",
+    "attempts": [
+      {
+        "text": "When evaluating, the model is put in evaluation mode with dropout disabled, because evaluation only calculates loss through a forward pass.",
+        "verdict": "supported",
+        "reason": "The cited lines state that during evaluation the model is put in evaluation mode with gradient tracking and dropout disabled, and explain this is because evaluation is only calculating loss via a forward pass."
+      }
+    ],
+    "sentence_hash": "9c533a6dc13b9f5f9965cd8d309bf90892063c1c7e32569c6ef01024472945c8"
+  },
+  "ch04.s11.p03.r02": {
+    "decision": "edit",
+    "text": "The reported training loss starts at about 9.781 and is later reported as 391.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "The reported training loss starts at about 9.781 and is later reported as 391.",
+    "why": "The cited lines say the loss started from 9.781 and reduced to 391, but nearby context also says it decreased to 39 and mentions other values, creating ambiguity about the later reported value.",
+    "attempts": [
+      {
+        "text": "The reported training loss starts at about 9.781 and is later reported as 391.",
+        "verdict": "supported",
+        "reason": "The lines clearly support that the training loss started around 9.781. However, the later value is inconsistently transcribed: nearby context says 'has decreased to 39', while cited lines say '391'. Because the automatic captions are ambiguous, the claim that it was later reported as exactly 391 is not fully supported."
+      }
+    ],
+    "sentence_hash": "b2266aa013adaebe98cdb279e50f4953ee691cfde644fef83c0a5d88d4db3b9e"
+  },
+  "ch04.s11.p04.r02": {
+    "decision": "edit",
+    "text": "A plot shows that the blue training-loss line continuously decreases, while the validation loss decreases and then remains stagnant.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "A plot is shown in which the blue training-loss line keeps decreasing, while the validation-loss line decreases and then becomes flat.",
+    "why": "The cited lines say the validation loss 'decreases and then remain stagnant,' but do not explicitly mention a plot line or that it becomes flat; 'stagnant' only indirectly implies flatness.",
+    "attempts": [
+      {
+        "text": "A plot shows that the blue training-loss line continuously decreases, while the validation loss decreases and then remains stagnant.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "ac5723ad1330a705e4ca120d8381a0dd40f30e03656e8e07b15c48b97d1a2cf6"
+  },
+  "ch04.s11.p05.04": {
+    "decision": "edit",
+    "text": "The dataset used here has only 5,000 tokens and 20,000 characters, whereas such large language models are usually trained on datasets consisting of millions of tokens.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "The dataset used here has about 5,000 tokens and 20,000 characters, whereas real training uses datasets with millions of tokens.",
+    "why": "The lines support that the dataset has 5,000 tokens and 20,000 characters and that real models use datasets consisting of millions of tokens, but they do not explicitly say 'real training uses datasets with millions of tokens' in the exact comparative framing.",
+    "attempts": [
+      {
+        "text": "The dataset used here has only 5,000 tokens and 20,000 characters, whereas such large language models are usually trained on datasets consisting of millions of tokens.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "7c706856a68804474ff16ba3587347e866c36e32ff76e9fcc42f68e0302d7398"
+  },
+  "ch04.s11.p05.06": {
+    "decision": "edit",
+    "text": "It is useful to vary hyperparameters such as learning rate, weight decay, and number of epochs to see how the code changes.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "It is useful to vary hyperparameters such as learning rate, weight decay, and number of epochs to observe how the code and training behavior change.",
+    "why": "The lines support varying hyperparameters such as learning rate, weight decay, and epochs, and mention seeing changes in code, but they do not explicitly mention observing changes in training behavior.",
+    "attempts": [
+      {
+        "text": "It is useful to vary hyperparameters such as learning rate, weight decay, and number of epochs to see how the code changes.",
+        "verdict": "supported",
+        "reason": "The cited lines support varying hyperparameters such as learning rate, weight decay, and number of epochs. However, they say the user wants to see changes in the code, not that varying the hyperparameters is useful to see how the code changes. The usefulness claim and phrasing about the code changing are not directly supported."
+      }
+    ],
+    "sentence_hash": "8d7427725d3eb9d0fbca80a7d3d0ec35d80db9c38bef4b526e9a2b827f64ef6c"
+  },
+  "ch04.s12.p05.03": {
+    "decision": "edit",
+    "text": "This function takes the model, the maximum number of new tokens, the context size, the temperature value, the top-k value, and an end-of-sample ID as inputs.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "This function takes the GPT model, the maximum number of new tokens, the context size, the temperature value, the top-k value, and an end-of-sample ID as inputs.",
+    "why": "The lines state the function takes the model, maximum new tokens, context size, temperature value, top-k value, and end-of-sample ID, but they do not explicitly say the model is specifically a GPT model; they only say 'the model which is an instance of the GPT model class.'",
+    "attempts": [
+      {
+        "text": "This function takes the model, the maximum number of new tokens, the context size, the temperature value, the top-k value, and an end-of-sample ID as inputs.",
+        "verdict": "supported",
+        "reason": "The cited lines explicitly list the inputs: the model, maximum new tokens, context size, temperature value, top-k value, and end-of-sample ID."
+      }
+    ],
+    "sentence_hash": "ae349b89c31ab58194b4b5f072358ca628d056e268d3a0059435650ab56dfc8a"
+  },
+  "ch04.s13.p02.03": {
+    "decision": "edit",
+    "text": "Under deterministic prediction, the next tokens are just taken from the available text, which is overfitting.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "The explanation is that, under deterministic prediction, the next tokens were just being taken from the text already available.",
+    "why": "The cited lines explain that deterministic prediction led to overfitting and that next tokens were taken from the available text, but they do not explicitly state this as 'the explanation' in the broader causal framing used in the sentence.",
+    "attempts": [
+      {
+        "text": "Under deterministic prediction, the next tokens are just taken from the available text, which is overfitting.",
+        "verdict": "supported",
+        "reason": "The cited and context lines state that under deterministic prediction, the next tokens selected were 'overfitting' and were 'just being taken from the text,' which supports the sentence."
+      }
+    ],
+    "sentence_hash": "7813336f2373cc5a5d7e90f3dd04e9987d9369b71b1205485d47840e870d6baf"
+  },
+  "ch05.s01.p01.r03": {
+    "decision": "edit",
+    "text": "That result is tied to the setup used there: the model is trained on one small book, which is described as a very small data set, and the later output is then examined.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "That result is tied to the setup used there: the model is trained on one small book, described as a very small data set, and then run further.",
+    "why": "The lines say the model was trained on one small book with a very small dataset and 'we had run it for 10ox later what we saw'. The statement's phrase 'and then run further' is vague and may misrepresent the unclear/misheard '10ox later' wording.",
+    "attempts": [
+      {
+        "text": "That result is tied to the setup used there: the model is trained on one small book, which is described as a very small data set, and the later output is then examined.",
+        "verdict": "supported",
+        "reason": "The cited lines state that the model was 'just trained ... on one small book,' that it was 'a very small data set,' and that 'later what we saw' was examined. This supports the sentence's description of the setup and later output examination."
+      }
+    ],
+    "sentence_hash": "8084d030621b6c4a3aa5797c4fa961f09666a14490a0cc1d548a6a59ed171b7d"
+  },
+  "ch05.s03.p01.r07": {
+    "decision": "edit",
+    "text": "BPE gives a list of merged tokens, with those of highest probability appearing at the top of the list.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "The \"vocab.bpe\" file therefore lists merged tokens, with the merges of highest probability appearing at the top of the list.",
+    "why": "The cited lines describe a list of merged tokens with highest-probability merges at the top, but they do not explicitly identify the file as \"vocab.bpe\".",
+    "attempts": [
+      {
+        "text": "The BPE file lists the merged tokens, with the highest-probability merges appearing at the top of the list.",
+        "verdict": "partial",
+        "reason": "The cited lines say BP/BPE gives a list of tokens that have been merged, with those having the highest probability at the top. However, they do not mention a 'BPE file' specifically."
+      },
+      {
+        "text": "BPE gives a list of merged tokens, with those of highest probability appearing at the top of the list.",
+        "verdict": "supported",
+        "reason": "The cited lines state that BP/BPE gives a list of merged tokens and that the tokens with the maximum/highest probability are at the top of the list."
+      }
+    ],
+    "sentence_hash": "514275bfe7b3048b43317478d6aa2a1bf2db7bcbe52090ee840828ed6cbe542f"
+  },
+  "ch05.s03.p03.r02": {
+    "decision": "edit",
+    "text": "This settings dictionary contains the information from hparams.json, including the vocabulary size, context length, embedding dimension, number of attention heads, and number of transformer blocks.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "This \"settings\" dictionary contains exactly the same information as \"hparams.json\": vocabulary size, context length, embedding dimension, number of attention heads, and number of transformer blocks.",
+    "why": "The lecture says the settings dictionary will contain the same things as the hparams.json and lists several items, but it does not explicitly establish that these are the only items, so 'exactly the same information' is stronger than the cited text.",
+    "attempts": [
+      {
+        "text": "This settings dictionary contains the information from hparams.json, including the vocabulary size, context length, embedding dimension, number of attention heads, and number of transformer blocks.",
+        "verdict": "supported",
+        "reason": "The cited lines state that the settings dictionary contains the same thing as hparams.json ('ham. Json' in captions) and explicitly list vocabulary size, context length, embedding dimension, number of attention heads, and number of transformer blocks."
+      }
+    ],
+    "sentence_hash": "af5ba6b7d5545fee1e10a4286b2ab12484dbaa94c12052df28dc4a5be9bcb36c"
+  },
+  "ch05.s04.p01.04": {
+    "decision": "edit",
+    "text": "After execution, the parameter dictionary contains five keys: \"wte\", \"WP\", \"blocks\", the final normalization scale, and the final normalization shift.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "After execution, the parameter dictionary contains five keys: \"wte\", \"wpe\", \"blocks\", final normalization scale, and final normalization shift.",
+    "why": "The cited lines say the dictionary has five keys and name them, and later say the params dictionary will have those five keys after execution. However, the exact key name is stated as \"WP\" in the captions, not \"wpe\".",
+    "attempts": [
+      {
+        "text": "After execution, the parameter dictionary contains five keys: \"wte\", \"WP\", \"blocks\", the final normalization scale, and the final normalization shift.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "0e9f519179dd6f74dea1aaa78062b9fe91a17f9aeae9ffa6cfce62b7e7dd7cf8"
+  },
+  "ch05.s04.p02.r03": {
+    "decision": "remove",
+    "risk": "high",
+    "was": "One of the first two keys is for the token embedding parameters, and the wp key is for the positional embedding parameters.",
+    "why": "The lines state that one key is for token embedding parameters and that 'wp' is for positional embedding parameters, but they do not explicitly say 'one of the first two keys'.",
+    "attempts": [
+      {
+        "text": "The first two keys are for the token and positional embedding parameters, and the wp key is for the positional embedding parameters.",
+        "verdict": "partial",
+        "reason": "The cited lines state that 'the first two keys' are for 'the token embeddings parameters' and that 'wp is for the positional embedding parameters.' They do not clearly support the claim that the first two keys are for both token and positional embedding parameters."
+      },
+      {
+        "text": "The first two keys are for the token embedding parameters, and wp is for the positional embedding parameters.",
+        "verdict": "partial",
+        "reason": "The cited lines explicitly say that one key is for token embedding parameters and that 'wp' is for positional embedding parameters, but they do not state that there are exactly 'the first two keys' for token embedding parameters."
+      }
+    ],
+    "sentence_hash": "03dcf362219838e11dd4c249bf47c27faf25c87c66e1d464072a70d2048fd4b4"
+  },
+  "ch05.s04.p04.r04": {
+    "decision": "edit",
+    "text": "To access the fused query-key-value weights for the first block, follow the nested keys \"blocks\", \"Transformer\", \"h0\", and \"ATN\", then the fused query-key-value entry and its weights.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "To access the fused query-key-value weights for the first block, follow the nested keys \"blocks\", \"transformer\", \"h0\", and \"atn\", then the fused query-key-value entry and its weights.",
+    "why": "The cited lines support navigating keys blocks -> Transformer -> h0 -> ATN -> fused query-key-value entry and then weights, but they do not explicitly state the exact fused entry name as given in the sentence, and the capitalization/naming differs ('CN'/'C attention').",
+    "attempts": [
+      {
+        "text": "To access the fused query-key-value weights for the first block, follow the nested keys \"blocks\", \"Transformer\", \"h0\", and \"ATN\", then the fused query-key-value entry and its weights.",
+        "verdict": "supported",
+        "reason": "The cited lines describe accessing nested keys in order: blocks -> Transformer(s) -> h0 -> ATN/attention -> C attention/CN (described as the fused query-key-value matrix) -> weights. The sentence paraphrases this navigation accurately."
+      }
+    ],
+    "sentence_hash": "10937338440533200ac2d45504adafa81505042be5f19f3ea550a4f9c5b225bc"
+  },
+  "ch05.s04.p04.r05": {
+    "decision": "edit",
+    "text": "The biases of the fused query, key, and value projections are handled similarly, and this is repeated for each Transformer block from h1 through h11.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "The same nested access pattern is used for the fused attention biases, and it is repeated for every block from \"h0\" to \"h11\".",
+    "why": "The lines say the process is repeated for H1 through h11 and mention biases of query/key/value, but they do not explicitly state the 'same nested access pattern' or specifically 'fused attention biases'.",
+    "attempts": [
+      {
+        "text": "The biases of the fused query, key, and value projections are handled similarly, and this is repeated for each Transformer block from h1 through h11.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "e1d5f71f6bdd1c848dd0576d87f2561b072d460624183728ace0f6d3275fdc87"
+  },
+  "ch05.s04.p04.r08": {
+    "decision": "edit",
+    "text": "To access the projection layer in the feed-forward network, use its projection-layer key and then access its weights and biases.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "To access the projection layer in the feed-forward network, use the \"c_proj\" key and then access its weights and biases.",
+    "why": "The lecture says the key is 'ccore PJ' (likely an automatic-caption rendering), not explicitly 'c_proj'. The rest about accessing weights and biases is supported.",
+    "attempts": [
+      {
+        "text": "To access the projection layer in the feed-forward network, use its projection-layer key and then access its weights and biases.",
+        "verdict": "supported",
+        "reason": "The cited lines state that to access the weights and biases of the projection layer, 'we just have the key as ccore PJ' and then 'access the weights and the biases.' The surrounding context indicates this is within the feed-forward neural network."
+      }
+    ],
+    "sentence_hash": "e0206ae8d211b33e66533447bcf7de1ead1429a5d53f14a65fc557133d32337d"
+  },
+  "ch05.s04.p04.r10": {
+    "decision": "edit",
+    "text": "To access the output projection layer weights, one goes through \"transformer\", then the block key (\"h0\" through \"h11\"), and then \"attn\" and \"c_proj\" for each of the 12 blocks.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "To access the attention output projection layer, one goes through \"transformer\", then the block key (\"h0\" through \"h11\"), and then \"attn\" and \"c_proj\" to obtain the weights for each of the 12 blocks.",
+    "why": "The lines support accessing Transformer -> hn -> attn -> c_proj and doing this for H1 through H11, but they do not explicitly mention the exact notation \"h0\" through \"h11\" or that these are keys.",
+    "attempts": [
+      {
+        "text": "To access the attention output projection layer, one goes through \"transformer\", then \"hn\", and then \"attn\" and \"c_proj\" to obtain the weights, and this is done similarly for H1 through H11 across the 12 blocks.",
+        "verdict": "partial",
+        "reason": "The cited lines support going through 'transformer', then 'hn', then 'attn' and 'c_proj' to access the output projection layer weights, and doing similarly for H1 through H11 across 12 transformer blocks. However, the sentence says 'attention output projection layer,' while the captions only explicitly say 'output projection layer' and do not clearly specify 'attention' in that phrase."
+      },
+      {
+        "text": "To access the output projection layer weights, one goes through \"transformer\", then the block key (\"h0\" through \"h11\"), and then \"attn\" and \"c_proj\" for each of the 12 blocks.",
+        "verdict": "supported",
+        "reason": "The cited lines describe accessing the output projection layer via 'Transformers', then the block key ('h0'/'hn' through 'h11'), then 'ATN c pro' (attn c_proj), and state there are 12 transformer blocks."
+      }
+    ],
+    "sentence_hash": "73ec88d65e00ff821005f691a4cca076255661e84a13c86b6766d222248a2230"
+  },
+  "ch05.s05.p05.04": {
+    "decision": "edit",
+    "text": "Using weight tying brings the total parameter count from about 162 million to 124 million; without weight tying, it is about 164 million.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "Using weight tying brings the total parameter count from about 162 million to 124 million; without weight tying, it is about 164 million.",
+    "why": "The lines state that weight tying brings parameters from 162 million to 124 million, and without weight tying the number would be 164 million. The sentence incorrectly associates the 162 million count with the no-weight-tying case, creating an inconsistency.",
+    "attempts": [
+      {
+        "text": "Using weight tying brings the total parameter count from about 162 million to 124 million; without weight tying, it is about 164 million.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "be2d0a7302a996d622368ce5c5779f212c8b420baaf061ffa5792be07c2af913"
+  },
+  "ch05.s06.p01.r06": {
+    "decision": "edit",
+    "text": "Even a tiny mistake in this process would cause the model to fail.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "Even a tiny mistake in the loading process would cause the model to fail.",
+    "why": "The lines say a tiny mistake 'would cause the model to fail,' but do not explicitly specify 'in the loading process.'",
+    "attempts": [
+      {
+        "text": "Even a tiny mistake in this process would cause the model to fail.",
+        "verdict": "supported",
+        "reason": "The cited lines explicitly state that a tiny mistake in this process would cause the model to fail."
+      }
+    ],
+    "sentence_hash": "513376d9a5d71e1139b44d0465e194543fdff2b51a0442b9fcf40f203147354f"
+  },
+  "ch05.s06.p02.02": {
+    "decision": "edit",
+    "text": "Increasing the temperature increases the entropy, and the output should be a bit random.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "Increasing the temperature makes the output more random because increasing the temperature increases the entropy.",
+    "why": "The lines state that increasing the temperature increases entropy and that the output should be a bit random, but they do not explicitly state the causal claim that the output becomes more random because entropy increases.",
+    "attempts": [
+      {
+        "text": "Increasing the temperature increases the entropy, and the output should be a bit random.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "65bb0dde9ac429ca2fc36e76a44a1af9e33ca24dad8ef4656b55de6cc2364588"
+  },
+  "ch05.s06.p02.05": {
+    "decision": "edit",
+    "text": "Having an in-house GPT implementation opens the door to experimentation with settings such as temperature, as well as to creativity, hyperparameter tuning, and research.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "Having your own GPT implementation opens the door to experimentation, creativity, hyperparameter tuning, and research that is not available in the same way through ChatGPT.",
+    "why": "The lines support experimentation, creativity, hyperparameter tuning, and research with a custom GPT, and mention 'we cannot do this using chat GPT' for the temperature example, but they do not broadly state that these capabilities are unavailable 'in the same way through ChatGPT'.",
+    "attempts": [
+      {
+        "text": "Having an in-house GPT implementation opens the door to experimentation with settings such as temperature, as well as to creativity, hyperparameter tuning, and research.",
+        "verdict": "supported",
+        "reason": "The cited lines state that with their own GPT they can do things not possible with ChatGPT, discuss higher temperature values, and say this opens the door to creativity, hyperparameter tuning, and research."
+      }
+    ],
+    "sentence_hash": "0d6a1fece361edb818e252ab968373409fdfaab69bbe35fb3f5b000d30834172"
+  },
+  "ch05.s06.p03.r04": {
+    "decision": "edit",
+    "text": "Because the implementation works on a local computer and runs fast, it allows iteration and testing.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "Because the implementation works on a local computer and runs fast, you can iterate and test many choices.",
+    "why": "The lines support that it works on a local computer, runs fast, and allows iterations and testing, but they do not explicitly say 'many choices'.",
+    "attempts": [
+      {
+        "text": "Because the implementation works on a local computer and runs fast, it allows iteration and testing.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "102a8fb42d73e6c01ed311b0764606466e1577538ac1d992f88b9100f350352f"
+  },
+  "ch05.s08.p01.r04": {
+    "decision": "edit",
+    "text": "The goal is to convert each email into tokens and produce an input tensor together with a target tensor in which each email is labeled 0 or 1.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "The goal is to convert each email into tokens and produce an input tensor together with a corresponding target tensor of labels 0 or 1.",
+    "why": "The lines support converting emails into tokens and having input and target tensors with labels zero or one, but they do not explicitly state that the target tensor is a corresponding tensor of labels 0 or 1; the wording is incomplete and partially inferred.",
+    "attempts": [
+      {
+        "text": "The goal is to convert each email into tokens and produce an input tensor together with a target tensor in which each email is labeled 0 or 1.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "d7b8f29a0758a8736d540c2fb0e79ce6a4416ba7e57ca5d92e08bddc4cfc4f47"
+  },
+  "ch05.s08.p02.01": {
+    "decision": "edit",
+    "text": "An alternative approach is to use the longest email length and pad every shorter email with additional tokens until it reaches that length.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "A better strategy is to use the longest email length and pad every shorter email until it reaches that length.",
+    "why": "The lines describe using the longest email length and padding shorter emails to that length, but they do not state this is a 'better' strategy; only that it is an alternative approach they will use.",
+    "attempts": [
+      {
+        "text": "An alternative approach is to use the longest email length and pad every shorter email with additional tokens until it reaches that length.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "d8b4b6665ee5f985cfb40f2a426769b08cb00578a29cd2310af21167680a7b59"
+  },
+  "ch05.s08.p05.r03": {
+    "decision": "edit",
+    "text": "An instance of SpamDataset is created from the train.csv file, and if no maximum length is passed, that maximum length is computed from the dataset itself.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "An instance of \"SpamDataset\" is created with the \"train.csv\" file, and if no maximum length is passed, that maximum length is computed from the training dataset itself.",
+    "why": "The lines say the maximum length is computed from 'the data set itself' when not set, but do not explicitly state it is computed specifically from the training dataset.",
+    "attempts": [
+      {
+        "text": "An instance of SpamDataset is created from the train.csv file, and if no maximum length is passed, that maximum length is computed from the dataset itself.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "1e6aa45b9c7466f46f1ef8504673377f3e98208f3d85cd526c22cbd8170792c2"
+  },
+  "ch05.s08.p05.r10": {
+    "decision": "edit",
+    "text": "There is no requirement that the specified maximum length equal the maximum length in the training dataset, and it can also be set to none.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "There is no requirement that the maximum length for validation and test must equal the maximum length from training, and it can also be set to none.",
+    "why": "The cited lines say there is no requirement that the maximum length set here equals the maximum length in the training dataset and that it can be set to none. They do not explicitly mention validation and test sets.",
+    "attempts": [
+      {
+        "text": "There is no requirement that the specified maximum length equal the maximum length in the training dataset, and it can also be set to none.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "02665bd5fa0f7487f1ec6d21805dbd18f1bc5b360c2ecdb723ac3ac236d3df18"
+  },
+  "ch05.s10.p01.r04": {
+    "decision": "edit",
+    "text": "Attaching a classification head on top of the GPT architecture is an example of using an LLM for a classification task.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "Attaching a classification head on top of the GPT architecture enables its use for a classification task.",
+    "why": "The lines state that attaching a classification head on top of the GPT architecture is an example of an LLM being used for a classification task, but they do not explicitly state that this attachment enables its use for classification.",
+    "attempts": [
+      {
+        "text": "Attaching a classification head on top of the GPT architecture is an example of using an LLM for a classification task.",
+        "verdict": "supported",
+        "reason": "The cited lines state that an LLM could be used for a classification task and mention 'attaching a classification head on top of the GPT architecture' as the example being discussed."
+      }
+    ],
+    "sentence_hash": "8e6c69dc6cd207c0eb23f3920ae1b63e916ed67d1dcae56c3c7cccae10a33db0"
+  },
+  "ch05.s10.p02.05": {
+    "decision": "edit",
+    "text": "For classification, the last output token produces two values.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "The final output used for the decision is therefore the pair of values produced by that last token.",
+    "why": "The lines say the last output token gives two values, but they do not explicitly state those two values are the final output used for the decision.",
+    "attempts": [
+      {
+        "text": "For classification, the last output token produces two values.",
+        "verdict": "supported",
+        "reason": "The cited lines explicitly say they will look at the last output token and that it will give two values, identified as value number one and value number two."
+      }
+    ],
+    "sentence_hash": "028ef0c8a78d69550f76f7c3bc7688bea78f0bdea836a7bec0863c76dc3b9be9"
+  },
+  "ch05.s10.p04.r04": {
+    "decision": "edit",
+    "text": "Argmax returns class label 1, so the model predicts that the input text is spam.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "Because 0.9995 is larger, argmax returns class label 1, so the model predicts that the input text is spam.",
+    "why": "The cited lines support that argmax returns index/class label 1 and that the model predicts the input text is spam, but they do not explicitly state that argmax returns 1 specifically because 0.9995 is larger than the other value; that causal comparison is only implied.",
+    "attempts": [
+      {
+        "text": "Argmax returns class label 1, so the model predicts that the input text is spam.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "7a0d94a25bccab75ae05d5940666c7952efd267245f6304e56e5c31efa3473ba"
+  },
+  "ch05.s12.p02.03": {
+    "decision": "edit",
+    "text": "Within each epoch, the code has a second loop that goes within each batch.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "Within each epoch, the code iterates over each batch.",
+    "why": "The lines say there is a second loop within an epoch and mention batches, but do not explicitly state that the code iterates over each batch.",
+    "attempts": [
+      {
+        "text": "Within each epoch, there is a second loop that goes through the batches.",
+        "verdict": "partial",
+        "reason": "The cited lines mention a 'second Loop' and then say 'within each batch,' not that the loop 'goes through the batches.' The sentence changes the meaning from looping within a batch to iterating over batches within an epoch."
+      },
+      {
+        "text": "Within each epoch, the code has a second loop that goes within each batch.",
+        "verdict": "supported",
+        "reason": "The cited lines state that during one epoch there is a 'second loop' that goes 'within each batch,' which supports the sentence."
+      }
+    ],
+    "sentence_hash": "9679155cc2f1c7267a5edf1e481d8a6b08e13724362a7424fd2d854e91621f21"
+  },
+  "ch05.s12.p03.08": {
+    "decision": "remove",
+    "risk": "high",
+    "was": "During training, the training loss and validation loss are printed after every 50 batches because of this evaluation step, and the training and validation accuracy are printed after every epoch.",
+    "why": "The lines explicitly say training and validation loss are printed after every 50 batches due to evaluation, and training/validation accuracy are printed after every epoch. But the final cited line says 'after every batches' for losses without repeating '50', so the exact wording 'after every 50 batches' for the whole sentence is only partially grounded.",
+    "attempts": [
+      {
+        "text": "During training, the training and validation loss are printed after every 50 batches due to the evaluation step, and the training and validation accuracy are printed after every epoch.",
+        "verdict": "partial",
+        "reason": "The cited lines support that train and validation loss are printed after every 50 batches due to the evaluation step, and that training and validation accuracy are printed after every epoch. However, the final cited line says losses are printed 'after every batches' rather than explicitly 'every 50 batches,' so the sentence combines two slightly different statements."
+      },
+      {
+        "text": "During training, the training loss and validation loss are printed after evaluation steps, and the training and validation accuracy are printed after every epoch.",
+        "verdict": "partial",
+        "reason": "The cited lines support that training and validation loss are printed after evaluation/every 50 batches, and that training and validation accuracy are printed after every epoch. However, the sentence says losses are printed 'after evaluation steps' generally, while the lecture specifically says 'after every 50 batches due to this evaluation.'"
+      }
+    ],
+    "sentence_hash": "2fa24a68a851019dba837e2d43912548b955830eef2b473c8b844950bb99f262"
+  },
+  "ch05.s13.p02.04": {
+    "decision": "edit",
+    "text": "To assess performance on the full dataset, the accuracy loader is run with the train loader, the model, and the device.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "To measure performance on the full training set, run the calculate_accuracy_loader function with the training loader, the model, and the device.",
+    "why": "The cited lines say to run the 'calculation accuracy loader' with the train loader, model, and device, but do not explicitly name the function 'calculate_accuracy_loader' or specifically say this measures performance on the 'full training set'.",
+    "attempts": [
+      {
+        "text": "To assess performance on the full dataset, the accuracy loader is run with the train loader, the model, and the device.",
+        "verdict": "supported",
+        "reason": "The cited lines state that for the full dataset, they run the calculation accuracy loader and pass in the train loader, the model, and the device."
+      }
+    ],
+    "sentence_hash": "3e0a13d336260471a138184524fcc364766a6835330fabba0db7370f80ad13c7"
+  },
+  "ch05.s13.p02.06": {
+    "decision": "edit",
+    "text": "The accuracy measure for the training, validation, and test sets is a much better representative than these plots because the plots use evaluation iterations set to five.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "The accuracy measure for the training, validation, and test sets is much more representative than these plots, because the plots use only five evaluation iterations.",
+    "why": "The lecture says the accuracy measure is a 'much better representative' than the plots because the plots use evaluation iterations set to five, but the sentence changes this to 'much more representative' and omits the exact phrasing about evaluation iterations.",
+    "attempts": [
+      {
+        "text": "The accuracy measure for the training, validation, and test sets is a much better representative than these plots because the plots use evaluation iterations set to five.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "89279a338b230f5cc5b4ce6dfcd7c5a9d49752403df6fc634a0a242c8450e325"
+  },
+  "ch05.s13.p04.r04": {
+    "decision": "edit",
+    "text": "An advantage is that the model works very well on the target dataset, here the spam collection, and can act as a spam classifier.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "An advantage is that the model becomes specialized to the target dataset, here the spam collection, and can act as a spam classifier.",
+    "why": "The cited lines say the model works very well for the spam collection dataset and can act as a spam classifier, but do not explicitly state it becomes 'specialized' to the dataset.",
+    "attempts": [
+      {
+        "text": "An advantage is that the model works very well on the target dataset, here the spam collection, and can act as a spam classifier.",
+        "verdict": "supported",
+        "reason": "The cited lines state that the dataset is the spam collection, that the model works very well for this dataset after additional tuning, and that it can act as a spam classifier."
+      }
+    ],
+    "sentence_hash": "c6eb0b1603eb4fb9a01ce43656b2910f90316a78af16ad085d99abd9c35fb44d"
+  },
+  "ch05.s14.p03.04": {
+    "decision": "edit",
+    "text": "Otherwise, the maximum length is used.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "Otherwise, the maximum length from the training set is used.",
+    "why": "The cited lines say 'our maximum length will be used' but do not specify that this maximum length comes from the training set.",
+    "attempts": [
+      {
+        "text": "Otherwise, the maximum length is used.",
+        "verdict": "supported",
+        "reason": "The cited lines state that in cases where a prior condition does not happen, 'our maximum length will be used,' which supports the sentence."
+      }
+    ],
+    "sentence_hash": "23429ef10ab40d8e77c57e3400aa1905fc105ebb3cc26efdb284c19809b349cb"
+  },
+  "ch06.s02.p02.04": {
+    "decision": "edit",
+    "text": "This function takes an entry containing instruction, input, and output fields and converts it into the Alpaca prompt.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "This function takes an entry containing the instruction, input, and output fields and converts the instruction and input into the Alpaca prompt.",
+    "why": "The cited lines say the function takes instruction/input/output pairs and converts them into the Alpaca prompt, but they do not explicitly say it converts only the instruction and input fields.",
+    "attempts": [
+      {
+        "text": "This function takes an entry containing instruction, input, and output fields and converts it into the Alpaca prompt.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "a45077176cc739840689fbc8c6754d84d35472a851663533964b7007a9eeac75"
+  },
+  "ch06.s02.p03.04": {
+    "decision": "edit",
+    "text": "This class takes the dataset in this format and first converts it into the Alpaca-style format.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "This class takes the dataset in its original instruction-input-output form and first converts each entry into the \"alpaka\" style format.",
+    "why": "The cited lines support that the class takes the dataset in a given format and converts it first into alpaka style format, but they do not explicitly state the dataset is in an 'original instruction-input-output form'.",
+    "attempts": [
+      {
+        "text": "This class takes the dataset in this format and first converts it into the Alpaca-style format.",
+        "verdict": "supported",
+        "reason": "The cited lines state that the class takes the dataset in a given format and first converts it into an Alpaca-style format."
+      }
+    ],
+    "sentence_hash": "79d5e6b9de719997a3b7714fa74a14c39b7b5e3d0d65654015b64bf9a60172a3"
+  },
+  "ch06.s03.p01.r02": {
+    "decision": "edit",
+    "text": "To create a batch, each dataset entry is converted into a numerical representation so that the first sample forms the first row, the second sample forms the second row, and the third sample forms the third row.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "Batching the dataset means converting each prompt into a numerical representation so that each sample forms a row in a batch.",
+    "why": "The lines support converting dataset entries into numerical representations that form rows in a batch, but they do not explicitly state that batching the dataset means this conversion; batching is only introduced generally.",
+    "attempts": [
+      {
+        "text": "To create a batch, each dataset entry is converted into a numerical representation so that the first sample forms the first row, the second sample forms the second row, and the third sample forms the third row.",
+        "verdict": "supported",
+        "reason": "The cited lines state converting the first, second, and third dataset entries into numerical representations so they form the first, second, and third rows of a batch."
+      }
+    ],
+    "sentence_hash": "2df031fb2390e49b8f5809467a49dfbf237e73e60cd069dcb8aa8e44a94e395e"
+  },
+  "ch06.s03.p01.r04": {
+    "decision": "edit",
+    "text": "In this numerical representation, the rows must have the same size.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "To place prompts together in one batch, the rows must have the same size.",
+    "why": "The cited lines state that the rows should have the same size, but they do not explicitly mention placing prompts together in one batch.",
+    "attempts": [
+      {
+        "text": "In this numerical representation, the rows must have the same size.",
+        "verdict": "supported",
+        "reason": "The cited lines state that the first, second, and third rows have the same size, and the context clarifies that size means the number of columns."
+      }
+    ],
+    "sentence_hash": "cc7b1027ff2c6d8d1a9325bc21c2e882de15d359e531cfb6c771b73f12f28c1c"
+  },
+  "ch06.s04.p02.05": {
+    "decision": "edit",
+    "text": "That is why the end-of-text token ID 50256 is used.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "That is why padding uses \"50256\" to mark the end of text.",
+    "why": "The lines support that token ID 50256 is used as an end-of-text token and that this is why it is used, but they do not explicitly state that padding uses 50256.",
+    "attempts": [
+      {
+        "text": "That is why the end-of-text token ID 50256 is used.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "50cfb624293ac4aea6a2121be791f5ee9619a2e5023c51c42e96cf25313359f2"
+  },
+  "ch06.s05.p01.04": {
+    "decision": "edit",
+    "text": "If the input token IDs are \"0 1 2 3 4\", the target token IDs are formed by dropping the first ID, keeping the remaining IDs, and adding the padding token 50256 so that the target has the same length as the input.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "If the input token IDs are \"0 1 2 3 4\", the target token IDs are \"1 2 3 4 50256\".",
+    "why": "The cited lines state the input is '0 1 2 3 4', that the target forgets the first entry, keeps the remaining entries, and adds padding token 50256, implying '1 2 3 4 50256'. However, the exact full target sequence is not explicitly stated verbatim.",
+    "attempts": [
+      {
+        "text": "If the input token IDs are \"0 1 2 3 4\", the target token IDs are formed by dropping the first ID, keeping the remaining IDs, and adding the padding token 50256 so that the target has the same length as the input.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "7f764f81107b22b799bcaaec301661cdbf2c42e049df56c0f816d177789bc2a8"
+  },
+  "ch06.s05.p03.04": {
+    "decision": "edit",
+    "text": "By learning to predict the next token, the LLM learns to follow the instructions, and at a certain stage the output is the response.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "By learning to predict the next token, the LLM learns to follow instructions and produce the response once enough of the prompt has been seen.",
+    "why": "The cited lines say the LLM learns to follow instructions through next-token prediction and that at some stage the output will be the response, but they do not explicitly state 'once enough of the prompt has been seen.'",
+    "attempts": [
+      {
+        "text": "By learning to predict the next token, the LLM learns to follow the instructions, and at a certain stage the output is the response.",
+        "verdict": "supported",
+        "reason": "The cited lines explicitly state that through learning to predict the next token, the LLM learns to follow instructions, and that at a certain stage the output will be the response."
+      }
+    ],
+    "sentence_hash": "638e03c4c4ea671aa7954b0bb76fa17118ff690dabc93c5311ecf5bf0081002a"
+  },
+  "ch06.s07.p01.04": {
+    "decision": "edit",
+    "text": "First, the data is formatted using a prompt template and converted to the Alpaca prompt template.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "First, the data is formatted with the prompt template, and for instruction fine-tuning that template is the Alpaca prompt template.",
+    "why": "The lines support formatting data using a prompt template and separately mention converting data to the Alpaca prompt template, but they do not explicitly state that for instruction fine-tuning the template used is the Alpaca prompt template in the same step or context.",
+    "attempts": [
+      {
+        "text": "First, the data is formatted using a prompt template and converted to the Alpaca prompt template.",
+        "verdict": "supported",
+        "reason": "The cited lines state that the first step is to format the data using the prompt template and later say to convert the data to the Alpaca prompt template."
+      }
+    ],
+    "sentence_hash": "a0da99059b3ec0a452e883339df72d6bd6fb84e32192eaa4ea3995c1957eae7f"
+  },
+  "ch06.s07.p01.08": {
+    "decision": "edit",
+    "text": "Finally, all tokens with value 50256 except the first are replaced with -100.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "Finally, all 50256 padding tokens except the first are replaced with -100.",
+    "why": "The cited lines say tokens with value 50256 are replaced with -100 except the first 50256, but they do not explicitly state that 50256 are specifically 'padding tokens' in the first occurrence of the explanation.",
+    "attempts": [
+      {
+        "text": "Finally, all tokens with value 50256 except the first are replaced with -100.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "f8cc0ea810cf4362daa47a00e2cf275c63292b0e0c7f7618e43659cd5f161dec"
+  },
+  "ch06.s08.p01.04": {
+    "decision": "edit",
+    "text": "When all of these trainable weights are added together, the total comes to more than 1 million trainable parameters.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "When all of these trainable weights are added together, the model has more than 1 million or more than 100 million trainable parameters.",
+    "why": "The cited lines say there are 'more than 1 million or more than 100 million trainable' parameters, but the phrasing is unclear/incomplete and does not cleanly support the exact claim about the model having more than 1 million or more than 100 million trainable parameters.",
+    "attempts": [
+      {
+        "text": "When all of these trainable weights are added together, the total comes to more than 1 million trainable parameters.",
+        "verdict": "supported",
+        "reason": "The cited lines state 'more than 1 million or more than 100 million trainable' but the automatic captions are unclear and inconsistent. The sentence cleanly asserts 'more than 1 million trainable parameters,' while the source may actually be referring to more than 100 million parameters. The exact quantity is not reliably supported."
+      }
+    ],
+    "sentence_hash": "c32adb8cba573baaa398e64d81bab7ee051644d737fd5014152d55638d6cd4ec"
+  },
+  "ch06.s09.p02.03": {
+    "decision": "edit",
+    "text": "This params dictionary consists of the transformer block parameters, token embeddings, positional embeddings, and final normalization layer parameters.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "This \"params\" dictionary consists of transformer block parameters, token embeddings, positional embeddings, and final normalization layer parameters in an accessible form.",
+    "why": "The lines state that the params dictionary consists of transformer blocks, token embeddings, positional embeddings, and final normalization layer parameters, and that the parameters are 'very accessible'. However, 'in an accessible form' is an interpretation not explicitly stated.",
+    "attempts": [
+      {
+        "text": "This params dictionary consists of the transformer block parameters, token embeddings, positional embeddings, and final normalization layer parameters.",
+        "verdict": "supported",
+        "reason": "The cited lines explicitly state that the params dictionary consists of the Transformer blocks, token embeddings, positional embeddings, and final normalization layer parameters."
+      }
+    ],
+    "sentence_hash": "c4acbbc367a3dced3d64e09635bea005d09b720932d4b10881a8a525654af57e"
+  },
+  "ch06.s09.p02.05": {
+    "decision": "edit",
+    "text": "For the shown model, the download is 1.42 GB, so it can take a long time if the internet connection is weak, and the device should have memory available.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "For the shown model, the download is 1.42 GB, so it can take a long time if the internet connection is weak, and it helps to have enough memory on the device.",
+    "why": "The lines support that the download is 1.42 GB, weak internet can make it take a long time, and that the user should have memory on the device. However, the statement adds that it helps to have 'enough' memory, while the lecture only generally mentions having memory and references 1.4 or 1.5 GB unclearly.",
+    "attempts": [
+      {
+        "text": "For the shown model, the download is 1.42 GB, so it can take a long time if the internet connection is weak, and the device should have memory available.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "18af5857e0cc66ade7a68fd0bcf12929f9cc1c131b283464b51364144a9fdcf7"
+  },
+  "ch06.s11.p03.05": {
+    "decision": "edit",
+    "text": "For the question asking which cloud type is typically associated with thunderstorms, the model response is not really doing what it is asked to do.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "For the question asking which cloud type is typically associated with thunderstorms, the model response is not good because it is not really doing what it is asked to do.",
+    "why": "The cited lines support that the model response is 'not really doing what it's asked to do' for the cloud/thunderstorm question, but they do not explicitly state 'the model response is not good'.",
+    "attempts": [
+      {
+        "text": "For the question asking which cloud type is typically associated with thunderstorms, the model response is not really doing what it is asked to do.",
+        "verdict": "supported",
+        "reason": "The cited and context lines state that the instruction asked for a cloud type associated with thunderstorms and that the speaker judged the model response as 'not really doing what it's asked to do.'"
+      }
+    ],
+    "sentence_hash": "b51409462ec3393880d8dc2f7951e4937bb4ea6c4c1b6032aeb80693527bea0a"
+  },
+  "ch06.s11.p04.r07": {
+    "decision": "edit",
+    "text": "When this code runs, the generate function is called on all instruction-input pairs in the test data, the responses are generated, and only the responses are collected and appended to the instruction data with response file.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "When this code runs, the generate function is called on all instruction-input pairs in the test data, the responses are generated, and the response is added to the instruction data and then written to the file.",
+    "why": "The cited lines say the response is appended to the instruction data with response file, but do not explicitly state that it is then written to the file.",
+    "attempts": [
+      {
+        "text": "When this code runs, the generate function is called on all instruction-input pairs in the test data, the responses are generated, and only the responses are collected and appended to the instruction data with response file.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "9ef395ab50030559bf5d2df92aba76fb8ef18bedbea2087f4969a443e23efa74"
+  },
+  "ch06.s11.p05.r03": {
+    "decision": "edit",
+    "text": "The model is saved with torch.save and model.state_dict, which ensures that all trained parameters are stored.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "The model is saved with \"torch.save\" and \"model.state_dict\", which stores the trained parameters in a file.",
+    "why": "The cited lines support using torch.save and model.state_dict to store trained parameters, but they do not explicitly state that the parameters are stored 'in a file' beyond mentioning a filename in context.",
+    "attempts": [
+      {
+        "text": "The model is saved with torch.save and model.state_dict, which ensures that all trained parameters are stored.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "eb72cce54310867232a46d644205f88874380e37a870e53b958918fe8a44de37"
+  },
+  "ch06.s13.p02.05": {
+    "decision": "edit",
+    "text": "During the download, instructions are printed in the terminal, and after success, right-side arrows appear to show that Llama 3 is loaded.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "During the download, instructions are printed in the terminal, and after success, right-side arrows appear to show that Llama 3 is loaded and ready.",
+    "why": "The lines say the arrows mean Llama 3 is loaded, but do not explicitly say it is 'ready'.",
+    "attempts": [
+      {
+        "text": "During the download, instructions are printed in the terminal, and after success, right-side arrows appear to show that Llama 3 is loaded.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "eb7c91663aeeeb8519979e4eaa5097aff5a70593536602180e22528270fbd720"
+  },
+  "ch06.s13.p03.r01": {
+    "decision": "edit",
+    "text": "Instead of going to the terminal each time, a Python function can interact with the Llama model through the API.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "Instead of going to the terminal each time, a Python function called query_model can interact with the Llama model through the API.",
+    "why": "The lines say a function 'called as the query model' can interact with the Llama model through the API using Python, but they do not explicitly present the exact function name formatting 'query_model' with underscore.",
+    "attempts": [
+      {
+        "text": "Instead of going to the terminal each time, a Python function can interact with the Llama model through the API.",
+        "verdict": "supported",
+        "reason": "The cited lines state that instead of going to the terminal each time, they can interact with the Llama model using the API through Python and create a function to do so."
+      }
+    ],
+    "sentence_hash": "536413436002d5b80e15c322b114730639021de216333c6effb3ee8b63fcd500"
+  },
+  "ch06.s13.p04.r03": {
+    "decision": "edit",
+    "text": "To evaluate the responses generated by the fine-tuned model, a prompt sent through query_model asks Llama 3 to rate those responses, with 100 as the best score.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "To evaluate the responses generated by the fine-tuned model, prompt Llama 3 to rate those responses on a scale of 0 to 100.",
+    "why": "The cited lines say to ask the Llama 3 model to rate responses, but one line says 'scale of 1 to 100' while another says '0 to 100'. The sentence states only 0 to 100.",
+    "attempts": [
+      {
+        "text": "To evaluate the responses generated by the fine-tuned model, a prompt sent through query_model asks Llama 3 to rate those responses, with 100 as the best score.",
+        "verdict": "supported",
+        "reason": ""
+      }
+    ],
+    "sentence_hash": "3ca6b39b569b32026170430c3267918c3b234faf58b7da09c53a84efa426b5fa"
+  },
+  "ch06.s14.p04.r03": {
+    "decision": "edit",
+    "text": "These methods lead to a large computational speedup.",
+    "risk": "low",
+    "evaluator": "supported",
+    "was": "These methods lead to a large computational speedup and may also improve accuracy.",
+    "why": "The cited lines support computational speedup and mention 'sometimes it even leads to speed up in accuracy', but the sentence changes this to 'may also improve accuracy'. The lecture wording is unclear/mis-transcribed and does not clearly state improved accuracy.",
+    "attempts": [
+      {
+        "text": "These methods lead to a large computational speedup.",
+        "verdict": "supported",
+        "reason": "The cited lines state that efficient fine tuning 'leads to computational speed up a lot,' which supports the claim that these methods lead to a large computational speedup."
+      }
+    ],
+    "sentence_hash": "7da61adc5f67133b96646cdc7693ad16b4d61b93b15ad324178556437cf0d557"
+  }
+}

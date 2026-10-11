@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch05.glance.p03.r01",
+  "inputs_hash": "9392ac07d617d59be0534867787db9b1551aef35cc32b7b7ee7c7993419b3a54",
+  "output_hash": "992ee0f1dda840c727606ab7b81054c42b9489de389904ebb319982b8326b86d",
+  "output": {
+    "decision": "edit",
+    "text": "The main loading function downloads seven GPT-2 files, locates the latest checkpoint, loads the TensorFlow checkpoint parameters into a dictionary named \"params\", and returns that along with a \"settings\" dictionary.",
+    "reason": "The captions support the function behavior and return values, but not the exact filename \"gpt_download3.py\".",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.78,
+      "reason": "Supported: load_gpt2 is described as the main function; it downloads seven files; it finds the latest checkpoint path; it loads TensorFlow checkpoint parameters into a dictionary called params; and it returns settings and params. Not supported explicitly: that the TensorFlow checkpoint parameters are loaded \"into a dictionary\" (it says a 'special dictionary' called params) and the sentence’s phrasing suggests all these steps are in the single main loading function, whereas the captions indicate it uses helper functions (so the exact responsibility split is not stated)."
+    },
+    "kind": "queue",
+    "sentence_hash": "1d57ebec749ab4a217e2e9da64432336ba474b8defec7c320c3cab9393175901"
+  }
+}

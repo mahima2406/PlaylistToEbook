@@ -1,0 +1,531 @@
+{
+  "stage": "write",
+  "item": "ch01.s10",
+  "inputs_hash": "8422bccc041180dad495c8d5b4eb9ace8f6a16d6883d060d4abb5decb2894e25",
+  "output_hash": "38f5fd684b75f5ff1a65579f88eeffbe842a2a66287a2491ca2e5990fbd75e5e",
+  "output": {
+    "section_id": "ch01.s10",
+    "paragraphs": [
+      {
+        "id": "ch01.s10.p01",
+        "sentences": [
+          {
+            "id": "ch01.s10.p01.01",
+            "text": "How does the full build pipeline of a large language model fit together, from the first data steps to task-specific applications?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s10.p01.02",
+            "text": "The roadmap is divided into three stages: stage one, stage two, and stage three.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@146",
+              "z9fgKz1Drlc@148",
+              "z9fgKz1Drlc@151",
+              "z9fgKz1Drlc@171",
+              "z9fgKz1Drlc@174",
+              "z9fgKz1Drlc@176"
+            ]
+          },
+          {
+            "id": "ch01.s10.p01.03",
+            "text": "Stage one focuses on the building blocks needed before training a large language model: data preprocessing and sampling, the attention mechanism, and the LLM architecture.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@201",
+              "z9fgKz1Drlc@209",
+              "z9fgKz1Drlc@211",
+              "z9fgKz1Drlc@214",
+              "z9fgKz1Drlc@216",
+              "z9fgKz1Drlc@220",
+              "z9fgKz1Drlc@222",
+              "z9fgKz1Drlc@224",
+              "z9fgKz1Drlc@226"
+            ]
+          },
+          {
+            "id": "ch01.s10.p01.04",
+            "text": "In this first stage, data is collected from different datasets, processed, and sampled.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@229",
+              "z9fgKz1Drlc@231",
+              "z9fgKz1Drlc@234"
+            ]
+          },
+          {
+            "id": "ch01.s10.p01.05",
+            "text": "The attention mechanism is built from scratch in Python, including key, query, value, attention scores, positional encoding, and vector embeddings.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@236",
+              "z9fgKz1Drlc@238",
+              "z9fgKz1Drlc@240",
+              "z9fgKz1Drlc@242",
+              "z9fgKz1Drlc@245",
+              "z9fgKz1Drlc@248",
+              "z9fgKz1Drlc@250"
+            ]
+          },
+          {
+            "id": "ch01.s10.p01.06",
+            "text": "Stage one also covers the LLM architecture: how to stack layers and where the attention head goes, with the goal of understanding the basic mechanism behind a large language model.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@252",
+              "z9fgKz1Drlc@254",
+              "z9fgKz1Drlc@257",
+              "z9fgKz1Drlc@259",
+              "z9fgKz1Drlc@265",
+              "z9fgKz1Drlc@268",
+              "z9fgKz1Drlc@269",
+              "z9fgKz1Drlc@272"
+            ]
+          },
+          {
+            "id": "ch01.s10.p01.07",
+            "text": "The Transformer attention mechanism is further broken into parts such as multi-head attention, positional encoding, input embedding, and output embedding.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@406",
+              "z9fgKz1Drlc@408",
+              "z9fgKz1Drlc@412",
+              "z9fgKz1Drlc@416",
+              "z9fgKz1Drlc@419",
+              "z9fgKz1Drlc@421",
+              "z9fgKz1Drlc@423"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s10.p02",
+        "sentences": [
+          {
+            "id": "ch01.s10.p02.01",
+            "text": "Before pre-training starts, the data has to be prepared in a form the model can consume efficiently.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s10.p02.02",
+            "text": "A next-word prediction task gives a bunch of words and predicts the next word.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@374",
+              "z9fgKz1Drlc@376",
+              "z9fgKz1Drlc@378"
+            ]
+          },
+          {
+            "id": "ch01.s10.p02.03",
+            "text": "Context means how many words should be taken for training to predict the next output.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@380",
+              "z9fgKz1Drlc@382",
+              "z9fgKz1Drlc@385"
+            ]
+          },
+          {
+            "id": "ch01.s10.p02.04",
+            "text": "The data preparation work includes constructing batches from a large dataset and feeding those batches to the large language model.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@355",
+              "z9fgKz1Drlc@358",
+              "z9fgKz1Drlc@361",
+              "z9fgKz1Drlc@364",
+              "z9fgKz1Drlc@366",
+              "z9fgKz1Drlc@369"
+            ]
+          },
+          {
+            "id": "ch01.s10.p02.05",
+            "text": "Batching the data into different sets makes computation much more efficient.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@387",
+              "z9fgKz1Drlc@391",
+              "z9fgKz1Drlc@393"
+            ]
+          },
+          {
+            "id": "ch01.s10.p02.06",
+            "text": "For that reason, a data batching sequence is implemented before the dataset is given to the large language model for pre-training.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@396",
+              "z9fgKz1Drlc@398",
+              "z9fgKz1Drlc@401",
+              "z9fgKz1Drlc@404"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s10.p03",
+        "sentences": [
+          {
+            "id": "ch01.s10.p03.01",
+            "text": "Once the data pipeline and architecture are in place, the process moves to pre-training.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s10.p03.02",
+            "text": "Stage two is pre-training: after assembling the data and constructing the LLM architecture, code is written to train the model on the underlying dataset.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@440",
+              "z9fgKz1Drlc@443",
+              "z9fgKz1Drlc@445",
+              "z9fgKz1Drlc@447",
+              "z9fgKz1Drlc@449",
+              "z9fgKz1Drlc@451",
+              "z9fgKz1Drlc@453",
+              "z9fgKz1Drlc@455",
+              "z9fgKz1Drlc@457"
+            ]
+          },
+          {
+            "id": "ch01.s10.p03.03",
+            "text": "Pre-training builds a foundational model on unlabeled data.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@457",
+              "z9fgKz1Drlc@460",
+              "z9fgKz1Drlc@463",
+              "z9fgKz1Drlc@465",
+              "z9fgKz1Drlc@555",
+              "z9fgKz1Drlc@557"
+            ]
+          },
+          {
+            "id": "ch01.s10.p03.04",
+            "text": "The training procedure breaks the training dataset into epochs, computes the gradient of the loss in each epoch, updates the parameters, and generates sample text for visual inspection.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@472",
+              "z9fgKz1Drlc@473",
+              "z9fgKz1Drlc@476",
+              "z9fgKz1Drlc@480",
+              "z9fgKz1Drlc@482",
+              "z9fgKz1Drlc@484",
+              "z9fgKz1Drlc@486",
+              "z9fgKz1Drlc@488",
+              "z9fgKz1Drlc@491"
+            ]
+          },
+          {
+            "id": "ch01.s10.p03.05",
+            "text": "Stage two also includes model evaluation and loading pretrained weights.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@491",
+              "z9fgKz1Drlc@493",
+              "z9fgKz1Drlc@495"
+            ]
+          },
+          {
+            "id": "ch01.s10.p03.06",
+            "text": "Functions are implemented to save and load large language model weights so the model can be reused or training can continue later.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@506",
+              "z9fgKz1Drlc@508",
+              "z9fgKz1Drlc@510",
+              "z9fgKz1Drlc@513"
+            ]
+          },
+          {
+            "id": "ch01.s10.p03.07",
+            "text": "Saving and loading weights saves a lot of computational cost and memory.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@515",
+              "z9fgKz1Drlc@519",
+              "z9fgKz1Drlc@521",
+              "z9fgKz1Drlc@524"
+            ]
+          },
+          {
+            "id": "ch01.s10.p03.08",
+            "text": "The model also loads pretrained weights from OpenAI into its own large language model.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@527",
+              "z9fgKz1Drlc@529",
+              "z9fgKz1Drlc@532",
+              "z9fgKz1Drlc@534",
+              "z9fgKz1Drlc@536",
+              "z9fgKz1Drlc@538"
+            ]
+          },
+          {
+            "id": "ch01.s10.p03.09",
+            "text": "Taken together, stage two consists of the training loop, model evaluation, and loading pretrained weights to build a foundational model.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@542",
+              "z9fgKz1Drlc@544",
+              "z9fgKz1Drlc@546",
+              "z9fgKz1Drlc@549",
+              "z9fgKz1Drlc@550",
+              "z9fgKz1Drlc@552"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s10.p04",
+        "sentences": [
+          {
+            "id": "ch01.s10.p04.01",
+            "text": "Modern large language models are described in two main steps: pre-training first, then fine-tuning.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s10.p04.02",
+            "text": "Modern large language models are trained in two main steps: pre-training on unlabeled data to create a foundational model, and then fine-tuning.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@795",
+              "z9fgKz1Drlc@798",
+              "z9fgKz1Drlc@800",
+              "z9fgKz1Drlc@803"
+            ]
+          },
+          {
+            "id": "ch01.s10.p04.03",
+            "text": "Pre-training requires very large datasets, typically billions of words, and it is expensive.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@805",
+              "z9fgKz1Drlc@808",
+              "z9fgKz1Drlc@811"
+            ]
+          },
+          {
+            "id": "ch01.s10.p04.04",
+            "text": "One stated example is that pre-training GPT-3 cost about 4.6 million dollars.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@811",
+              "z9fgKz1Drlc@813"
+            ]
+          },
+          {
+            "id": "ch01.s10.p04.05",
+            "text": "In pre-training, the dataset is unlabeled and autoregressive because the sentence structure itself creates the labels by predicting the next word.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@871",
+              "z9fgKz1Drlc@873",
+              "z9fgKz1Drlc@875",
+              "z9fgKz1Drlc@877",
+              "z9fgKz1Drlc@879"
+            ]
+          },
+          {
+            "id": "ch01.s10.p04.06",
+            "text": "Fine-tuning means giving the model a smaller, specific labeled dataset and training it further to build a better task-specific model.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@839",
+              "z9fgKz1Drlc@842",
+              "z9fgKz1Drlc@844",
+              "z9fgKz1Drlc@846",
+              "z9fgKz1Drlc@847",
+              "z9fgKz1Drlc@850",
+              "z9fgKz1Drlc@866",
+              "z9fgKz1Drlc@869"
+            ]
+          },
+          {
+            "id": "ch01.s10.p04.07",
+            "text": "In fine-tuning, a labeled dataset is used, such as labels for spam versus not spam or good versus bad answers.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@882",
+              "z9fgKz1Drlc@884",
+              "z9fgKz1Drlc@887",
+              "z9fgKz1Drlc@889",
+              "z9fgKz1Drlc@891",
+              "z9fgKz1Drlc@893"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s10.p05",
+        "sentences": [
+          {
+            "id": "ch01.s10.p05.01",
+            "text": "The third stage applies that foundation to concrete applications.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s10.p05.02",
+            "text": "Stage three focuses on fine-tuning the large language model to build specific applications.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@560",
+              "z9fgKz1Drlc@562",
+              "z9fgKz1Drlc@565",
+              "z9fgKz1Drlc@567",
+              "z9fgKz1Drlc@569",
+              "z9fgKz1Drlc@571"
+            ]
+          },
+          {
+            "id": "ch01.s10.p05.03",
+            "text": "Two fine-tuned applications are built: a classifier and a personal assistant.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@573",
+              "z9fgKz1Drlc@575",
+              "z9fgKz1Drlc@577",
+              "z9fgKz1Drlc@579",
+              "z9fgKz1Drlc@581"
+            ]
+          },
+          {
+            "id": "ch01.s10.p05.04",
+            "text": "A classifier can label emails such as \"you are a winner you have been specially selected to receive th000 cash now\" as spam and \"hey just wanted to check if we are still on for dinner tonight let me know\" as not spam.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@586",
+              "z9fgKz1Drlc@588",
+              "z9fgKz1Drlc@590",
+              "z9fgKz1Drlc@594",
+              "z9fgKz1Drlc@596",
+              "z9fgKz1Drlc@598",
+              "z9fgKz1Drlc@601",
+              "z9fgKz1Drlc@603",
+              "z9fgKz1Drlc@605"
+            ]
+          },
+          {
+            "id": "ch01.s10.p05.05",
+            "text": "A pretrained foundational model alone is not enough for spam classification, because the model must be trained with labeled data.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@612",
+              "z9fgKz1Drlc@614",
+              "z9fgKz1Drlc@616",
+              "z9fgKz1Drlc@617"
+            ]
+          },
+          {
+            "id": "ch01.s10.p05.06",
+            "text": "To build an email classification application, the foundational model is given additional labeled data that marks examples as spam or not spam.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@617",
+              "z9fgKz1Drlc@620",
+              "z9fgKz1Drlc@622",
+              "z9fgKz1Drlc@624",
+              "z9fgKz1Drlc@626",
+              "z9fgKz1Drlc@628",
+              "z9fgKz1Drlc@630",
+              "z9fgKz1Drlc@634"
+            ]
+          },
+          {
+            "id": "ch01.s10.p05.07",
+            "text": "Another fine-tuned application is a chatbot that takes an instruction and an input and produces an output.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@638",
+              "z9fgKz1Drlc@640",
+              "z9fgKz1Drlc@642",
+              "z9fgKz1Drlc@644",
+              "z9fgKz1Drlc@646",
+              "z9fgKz1Drlc@648"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s10.p06",
+        "sentences": [
+          {
+            "id": "ch01.s10.p06.01",
+            "text": "Why do all three stages matter?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s10.p06.02",
+            "text": "Understanding large language models well requires stage one, stage two, and stage three, not only application-building in stage three.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@654",
+              "z9fgKz1Drlc@656",
+              "z9fgKz1Drlc@660",
+              "z9fgKz1Drlc@662",
+              "z9fgKz1Drlc@673",
+              "z9fgKz1Drlc@675",
+              "z9fgKz1Drlc@677",
+              "z9fgKz1Drlc@681",
+              "z9fgKz1Drlc@685",
+              "z9fgKz1Drlc@687",
+              "z9fgKz1Drlc@690",
+              "z9fgKz1Drlc@693"
+            ]
+          },
+          {
+            "id": "ch01.s10.p06.03",
+            "text": "Companies typically fine-tune pretrained LLMs for production use rather than deploying the pretrained model directly.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@854",
+              "z9fgKz1Drlc@856",
+              "z9fgKz1Drlc@859",
+              "z9fgKz1Drlc@861",
+              "z9fgKz1Drlc@863"
+            ]
+          },
+          {
+            "id": "ch01.s10.p06.04",
+            "text": "Fine-tuning is generally needed for building production-ready LLM applications.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@895",
+              "z9fgKz1Drlc@897",
+              "z9fgKz1Drlc@899"
+            ]
+          },
+          {
+            "id": "ch01.s10.p06.05",
+            "text": "Fine-tuned LLMs can outperform only pretrained LLMs on specific tasks.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@901",
+              "z9fgKz1Drlc@903",
+              "z9fgKz1Drlc@906",
+              "z9fgKz1Drlc@918",
+              "z9fgKz1Drlc@920",
+              "z9fgKz1Drlc@922"
+            ]
+          },
+          {
+            "id": "ch01.s10.p06.06",
+            "text": "If the goal is to build a specific application on your own dataset and take it to production level, fine-tuning is needed.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@941",
+              "z9fgKz1Drlc@943",
+              "z9fgKz1Drlc@946",
+              "z9fgKz1Drlc@948"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

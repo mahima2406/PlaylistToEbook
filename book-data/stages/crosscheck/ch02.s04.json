@@ -1,0 +1,210 @@
+{
+  "stage": "crosscheck",
+  "item": "ch02.s04",
+  "inputs_hash": "194889493452c5c17872968412f10291484cfb4eabe8c7aedcc2c52e51931e6b",
+  "output_hash": "bbf935647d06f8ed558487f4ca56a1391cf47d1bb568e13d038569faeba6a903",
+  "output": {
+    "section_id": "ch02.s04",
+    "checked": 15,
+    "counts": {
+      "agrees": 3,
+      "contradicts": 1,
+      "not_covered": 11
+    },
+    "results": [
+      {
+        "sentence_id": "ch02.s04.p01.02",
+        "text": "A main problem with word-based tokenization is handling words that are not present in the vocabulary.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell40",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell7",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref explicitly shows a tokenization error when a word (\"Hello\") is not in the vocabulary and discusses adding an <|unk|> token to handle unknown words."
+      },
+      {
+        "sentence_id": "ch02.s04.p01.03",
+        "text": "These words are called out-of-vocabulary words.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell36",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell108",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell91"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs discuss words not contained in the vocabulary but do not label them as \"out-of-vocabulary (OOV)\" words."
+      },
+      {
+        "sentence_id": "ch02.s04.p01.04",
+        "text": "A vocabulary here is a dictionary with a collection of tokens arranged in ascending order, where every token corresponds to a token ID.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell89",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell91"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs show vocabularies as token->id dictionaries (and inverse vocab) but do not state that tokens are arranged in ascending order or define a vocabulary in exactly this way."
+      },
+      {
+        "sentence_id": "ch02.s04.p01.05",
+        "text": "If a user inputs a word that was not present in that vocabulary, a word-based tokenization scheme can run into an error.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell120",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell129",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell40"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref notes the tokenizer produces an error when a word (\"Hello\") is not contained in the vocabulary, matching the described failure mode of word-based tokenization."
+      },
+      {
+        "sentence_id": "ch02.s04.p01.06",
+        "text": "For example, if the available data contains only a small case such as \"my hobby is playing Cricket\" and a new word such as \"football\" is not present in that data set, these schemes usually run into an error.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell106",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell97"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs do not discuss the specific \"Cricket\"/\"football\" example or the general claim using that example; they only show an OOV error with \"Hello\"."
+      },
+      {
+        "sentence_id": "ch02.s04.p01.07",
+        "text": "The same issue appears when trying to encode text containing words such as \"hello\" that are not in the vocabulary: the tokenizer returns an error because it does not know how to encode them.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell29"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref explicitly states the tokenizer produces an error because the word \"Hello\" is not contained in the vocabulary and frames this as the tokenizer not knowing how to encode it."
+      },
+      {
+        "sentence_id": "ch02.s04.p01.08",
+        "text": "Out-of-vocabulary words are like preparing for an exam and then being asked a completely different question in the exam.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell10"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The exam-question analogy is not present in the references."
+      },
+      {
+        "sentence_id": "ch02.s04.p02.r01",
+        "text": "Another major problem with word-based tokenization is that similar words such as \"boy\" and \"boys\" are treated as separate words despite their similarity.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell36",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell91",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs do not discuss morphological variants (e.g., \"boy\" vs \"boys\") being treated as separate tokens or this as a problem of word-based tokenization."
+      },
+      {
+        "sentence_id": "ch02.s04.p02.r02",
+        "text": "In a word-based scheme, different forms of related words get separate token IDs, so similarity based on a shared root word is not captured.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell136",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell8",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell120"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs state that tokens are mapped to token IDs via a predefined vocabulary but do not address related word forms getting separate IDs or loss of root-word similarity."
+      },
+      {
+        "sentence_id": "ch02.s04.p02.r03",
+        "text": "The token IDs for such words may be far apart, and in either case the tokenization itself does not capture that they are very similar.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell102"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs do not discuss distances between token IDs for similar words or that tokenization fails to capture similarity."
+      },
+      {
+        "sentence_id": "ch02.s04.p03.02",
+        "text": "Word-based tokenization produces shorter tokenized sequences because each word is one token.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell120",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell6",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs do not compare sequence lengths across tokenization schemes or state that word-based tokenization yields shorter sequences because each word is one token."
+      },
+      {
+        "sentence_id": "ch02.s04.p03.03",
+        "text": "For example, \"dinosaur\" is just one token in word-based tokenization.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell112",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell40",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs do not mention the word \"dinosaur\" or state that in word-based tokenization it would be a single token."
+      },
+      {
+        "sentence_id": "ch02.s04.p03.04",
+        "text": "Its disadvantages are that it fails on out-of-vocabulary words and that the vocabulary size is pretty large.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell70",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell108",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference explains that GPT-2 uses BPE tokenization specifically to handle out-of-vocabulary words by splitting them into subword units/characters, so it does not 'fail on out-of-vocabulary words.'"
+      },
+      {
+        "sentence_id": "ch02.s04.p03.05",
+        "text": "A major reason for the large vocabulary is that a model would need tokens for a huge number of words in the language.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages discuss special tokens and interpret perplexity as an effective vocabulary size, but they do not state why vocabularies are large (e.g., needing tokens for many words in a language)."
+      },
+      {
+        "sentence_id": "ch02.s04.p03.06",
+        "text": "The number of words in English is estimated to be around 600,000 to 1 million.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell87"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the cited references provide an estimate for the number of words in English (600,000 to 1 million); they discuss model parameter counts and an example perplexity-derived effective vocabulary size."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch02.s04.p03.04",
+        "text": "Its disadvantages are that it fails on out-of-vocabulary words and that the vocabulary size is pretty large.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell70",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell108",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference explains that GPT-2 uses BPE tokenization specifically to handle out-of-vocabulary words by splitting them into subword units/characters, so it does not 'fail on out-of-vocabulary words.'"
+      }
+    ]
+  }
+}

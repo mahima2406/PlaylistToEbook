@@ -1,0 +1,1007 @@
+{
+  "stage": "verify",
+  "item": "ch05.s11",
+  "inputs_hash": "5f3270e6833b95fa3bafdcd1e2671fbd8268252c7f578ccb682471088b442f22",
+  "output_hash": "ff7fa41d587fd112897e2de78b93257aaaf36b040dd9310b450011daa394bb5f",
+  "output": {
+    "section_id": "ch05.s11",
+    "paragraphs": [
+      {
+        "id": "ch05.s11.p01",
+        "sentences": [
+          {
+            "id": "ch05.s11.p01.01",
+            "text": "How can a classifier be judged before any fine-tuning begins, and why is that worth checking now?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s11.p01.02",
+            "text": "Classification accuracy measures the percentage of correct predictions across a dataset.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@576",
+              "0PpxZ3kNPWo@579",
+              "0PpxZ3kNPWo@582"
+            ]
+          },
+          {
+            "id": "ch05.s11.p01.03",
+            "text": "The output labels are the target labels, which are the true values, and accuracy is obtained by comparing predicted labels with these correct labels.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@641",
+              "0PpxZ3kNPWo@647",
+              "0PpxZ3kNPWo@649",
+              "0PpxZ3kNPWo@651",
+              "0PpxZ3kNPWo@655",
+              "0PpxZ3kNPWo@657"
+            ]
+          },
+          {
+            "id": "ch05.s11.p01.04",
+            "text": "To determine classification accuracy, the argmax-based prediction is applied to all examples in the dataset and then compared with the actual values.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@599",
+              "0PpxZ3kNPWo@601",
+              "0PpxZ3kNPWo@603",
+              "0PpxZ3kNPWo@605",
+              "0PpxZ3kNPWo@609",
+              "0PpxZ3kNPWo@611",
+              "0PpxZ3kNPWo@614"
+            ]
+          },
+          {
+            "id": "ch05.s11.p01.05",
+            "text": "For a batch, each input is passed through the model, the two logits are taken, and argmax gives the predicted class label.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@628",
+              "0PpxZ3kNPWo@630",
+              "0PpxZ3kNPWo@633",
+              "0PpxZ3kNPWo@635",
+              "0PpxZ3kNPWo@637"
+            ]
+          },
+          {
+            "id": "ch05.s11.p01.06",
+            "text": "At the loader level, the code passes all samples in a batch through the model, takes the logits of the last output token, applies argmax for the whole batch, and compares the predicted labels with the target labels.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@730",
+              "0PpxZ3kNPWo@734",
+              "0PpxZ3kNPWo@736",
+              "0PpxZ3kNPWo@738",
+              "0PpxZ3kNPWo@740",
+              "0PpxZ3kNPWo@746",
+              "0PpxZ3kNPWo@750",
+              "0PpxZ3kNPWo@752",
+              "0PpxZ3kNPWo@754",
+              "0PpxZ3kNPWo@758",
+              "0PpxZ3kNPWo@760"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s11.p02",
+        "sentences": [
+          {
+            "id": "ch05.s11.p02.r01",
+            "text": "The bookkeeping is simple but essential.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s11.p02.r02",
+            "text": "Whenever a prediction matches the target label, the count of correct predictions is increased by one, and every processed example increases the total example count by one.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@763",
+              "0PpxZ3kNPWo@766",
+              "0PpxZ3kNPWo@768",
+              "0PpxZ3kNPWo@770",
+              "0PpxZ3kNPWo@774",
+              "0PpxZ3kNPWo@776",
+              "0PpxZ3kNPWo@778",
+              "0PpxZ3kNPWo@789",
+              "0PpxZ3kNPWo@793",
+              "0PpxZ3kNPWo@797",
+              "0PpxZ3kNPWo@800",
+              "0PpxZ3kNPWo@801",
+              "0PpxZ3kNPWo@803"
+            ]
+          },
+          {
+            "id": "ch05.s11.p02.r03",
+            "text": "Accuracy is then computed as the number of correct predictions divided by the number of examples.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@806",
+              "0PpxZ3kNPWo@807",
+              "0PpxZ3kNPWo@809",
+              "0PpxZ3kNPWo@811"
+            ]
+          },
+          {
+            "id": "ch05.s11.p02.r04",
+            "text": "The example given is 600 correct predictions, giving an accuracy of 600 divided by 1000.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@813",
+              "0PpxZ3kNPWo@815",
+              "0PpxZ3kNPWo@817"
+            ]
+          },
+          {
+            "id": "ch05.s11.p02.r05",
+            "text": "The accuracy function uses the full dataloader length as the number of batches when no batch count is specified, and otherwise uses the minimum of the requested number and the dataloader length.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@675",
+              "0PpxZ3kNPWo@677",
+              "0PpxZ3kNPWo@679",
+              "0PpxZ3kNPWo@695",
+              "0PpxZ3kNPWo@698",
+              "0PpxZ3kNPWo@700",
+              "0PpxZ3kNPWo@702",
+              "0PpxZ3kNPWo@703",
+              "0PpxZ3kNPWo@706",
+              "0PpxZ3kNPWo@708",
+              "0PpxZ3kNPWo@711"
+            ]
+          },
+          {
+            "id": "ch05.s11.p02.r06",
+            "text": "The code calls this accuracy function on the training, validation, and test loaders with the number of batches set to 10, and then prints the three accuracies.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@837",
+              "0PpxZ3kNPWo@840",
+              "0PpxZ3kNPWo@842",
+              "0PpxZ3kNPWo@844",
+              "0PpxZ3kNPWo@868",
+              "0PpxZ3kNPWo@869",
+              "0PpxZ3kNPWo@871",
+              "0PpxZ3kNPWo@878",
+              "0PpxZ3kNPWo@880",
+              "0PpxZ3kNPWo@882",
+              "0PpxZ3kNPWo@884",
+              "0PpxZ3kNPWo@886",
+              "0PpxZ3kNPWo@890",
+              "0PpxZ3kNPWo@892",
+              "0PpxZ3kNPWo@894"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s11.p03",
+        "sentences": [
+          {
+            "id": "ch05.s11.p03.01",
+            "text": "Before backpropagation is added, strong results are not expected.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s11.p03.02",
+            "text": "Because the model has not yet been optimized and backpropagation has not yet been implemented, the training, validation, and test accuracies are not expected to be good.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@857",
+              "0PpxZ3kNPWo@859",
+              "0PpxZ3kNPWo@863",
+              "0PpxZ3kNPWo@894",
+              "0PpxZ3kNPWo@895",
+              "0PpxZ3kNPWo@898"
+            ]
+          },
+          {
+            "id": "ch05.s11.p03.03",
+            "text": "The initial reported performance is poor: training accuracy is 46%, validation accuracy is 45%, and test accuracy is 48%.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@900",
+              "0PpxZ3kNPWo@902",
+              "0PpxZ3kNPWo@905",
+              "0PpxZ3kNPWo@907",
+              "0PpxZ3kNPWo@909",
+              "0PpxZ3kNPWo@912"
+            ]
+          },
+          {
+            "id": "ch05.s11.p03.04",
+            "text": "That result is described as worse than a coin toss, since a random prediction would be right 50% of the time.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@912",
+              "0PpxZ3kNPWo@915",
+              "0PpxZ3kNPWo@917",
+              "0PpxZ3kNPWo@919",
+              "0PpxZ3kNPWo@921"
+            ]
+          },
+          {
+            "id": "ch05.s11.p03.05",
+            "text": "To improve prediction accuracy, the model must be fine-tuned by defining a loss function from the true targets and predicted values, computing gradients of that loss with respect to the trainable weights, and updating those weights repeatedly until the loss is minimized.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@923",
+              "0PpxZ3kNPWo@925",
+              "0PpxZ3kNPWo@936",
+              "0PpxZ3kNPWo@939",
+              "0PpxZ3kNPWo@942",
+              "0PpxZ3kNPWo@946",
+              "0PpxZ3kNPWo@947",
+              "0PpxZ3kNPWo@949",
+              "0PpxZ3kNPWo@952",
+              "0PpxZ3kNPWo@955",
+              "0PpxZ3kNPWo@957",
+              "0PpxZ3kNPWo@958",
+              "0PpxZ3kNPWo@960",
+              "0PpxZ3kNPWo@962",
+              "0PpxZ3kNPWo@964",
+              "0PpxZ3kNPWo@966",
+              "0PpxZ3kNPWo@983",
+              "0PpxZ3kNPWo@985"
+            ]
+          },
+          {
+            "id": "ch05.s11.p03.06",
+            "text": "The update rule is weight new equals weight old minus the partial derivative of the loss with respect to that weight.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@966",
+              "0PpxZ3kNPWo@971",
+              "0PpxZ3kNPWo@974",
+              "0PpxZ3kNPWo@976"
+            ]
+          },
+          {
+            "id": "ch05.s11.p03.07",
+            "text": "A variation of simple gradient descent such as Adam or AdamW is used for optimization.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@976",
+              "0PpxZ3kNPWo@978",
+              "0PpxZ3kNPWo@980"
+            ]
+          },
+          {
+            "id": "ch05.s11.p03.08",
+            "text": "A simplified picture of optimization is moving down a loss curve from a higher-loss starting point toward a global minimum.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@987",
+              "0PpxZ3kNPWo@989",
+              "0PpxZ3kNPWo@993",
+              "0PpxZ3kNPWo@995",
+              "0PpxZ3kNPWo@998",
+              "0PpxZ3kNPWo@1001",
+              "0PpxZ3kNPWo@1003"
+            ]
+          },
+          {
+            "id": "ch05.s11.p03.09",
+            "text": "When the loss is minimized, the accuracy should also become higher automatically.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@1005",
+              "0PpxZ3kNPWo@1008",
+              "0PpxZ3kNPWo@1009"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s11.p04",
+        "sentences": [
+          {
+            "id": "ch05.s11.p04.r01",
+            "text": "That raises the next question: what loss should be used for classification?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s11.p04.r02",
+            "text": "For classification with targets Yi and predictions Pi, the loss function used here is categorical cross-entropy loss.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@1023",
+              "0PpxZ3kNPWo@1026",
+              "0PpxZ3kNPWo@1030",
+              "0PpxZ3kNPWo@1034",
+              "0PpxZ3kNPWo@1036"
+            ]
+          },
+          {
+            "id": "ch05.s11.p04.r03",
+            "text": "Categorical cross-entropy is defined as the negative sum over class labels of Yi times log of Pi.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@1038",
+              "0PpxZ3kNPWo@1040",
+              "0PpxZ3kNPWo@1042",
+              "0PpxZ3kNPWo@1047"
+            ]
+          },
+          {
+            "id": "ch05.s11.p04.r04",
+            "text": "For example, if the true label is not spam with one-hot encoding [1, 0] and the predicted values are [0.8, 0.2], the loss is computed by multiplying each true-value entry by the log of the corresponding predicted value and taking the negative sum.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@1050",
+              "0PpxZ3kNPWo@1052",
+              "0PpxZ3kNPWo@1054",
+              "0PpxZ3kNPWo@1056",
+              "0PpxZ3kNPWo@1059",
+              "0PpxZ3kNPWo@1061",
+              "0PpxZ3kNPWo@1065",
+              "0PpxZ3kNPWo@1068",
+              "0PpxZ3kNPWo@1071",
+              "0PpxZ3kNPWo@1072",
+              "0PpxZ3kNPWo@1076",
+              "0PpxZ3kNPWo@1080",
+              "0PpxZ3kNPWo@1082",
+              "0PpxZ3kNPWo@1085",
+              "0PpxZ3kNPWo@1086",
+              "0PpxZ3kNPWo@1090",
+              "0PpxZ3kNPWo@1092"
+            ]
+          },
+          {
+            "id": "ch05.s11.p04.r05",
+            "text": "If the predicted value exactly equals the true value, the cross-entropy loss is zero.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@1107",
+              "0PpxZ3kNPWo@1110",
+              "0PpxZ3kNPWo@1112",
+              "0PpxZ3kNPWo@1115",
+              "0PpxZ3kNPWo@1119",
+              "0PpxZ3kNPWo@1120",
+              "0PpxZ3kNPWo@1123",
+              "0PpxZ3kNPWo@1125"
+            ]
+          },
+          {
+            "id": "ch05.s11.p04.r06",
+            "text": "Negative Yi log Pi is presented as a good loss function for categorical predictions in classification tasks.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@1127",
+              "0PpxZ3kNPWo@1131",
+              "0PpxZ3kNPWo@1134",
+              "0PpxZ3kNPWo@1136",
+              "0PpxZ3kNPWo@1139"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s11.p05",
+        "sentences": [
+          {
+            "id": "ch05.s11.p05.01",
+            "text": "Its shape also explains what the model should learn to do.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s11.p05.02",
+            "text": "The graph of negative log of x is used to show that the probability of the correct class should be as close to one as possible, so that the loss becomes as close to zero as possible.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@1143",
+              "0PpxZ3kNPWo@1147",
+              "0PpxZ3kNPWo@1148",
+              "0PpxZ3kNPWo@1150",
+              "0PpxZ3kNPWo@1154",
+              "0PpxZ3kNPWo@1155",
+              "0PpxZ3kNPWo@1158",
+              "0PpxZ3kNPWo@1160",
+              "0PpxZ3kNPWo@1162"
+            ]
+          },
+          {
+            "id": "ch05.s11.p05.03",
+            "text": "Cross-entropy loss is differentiable, which makes it useful for backpropagation.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@1165",
+              "0PpxZ3kNPWo@1167",
+              "0PpxZ3kNPWo@1169",
+              "0PpxZ3kNPWo@1171"
+            ]
+          },
+          {
+            "id": "ch05.s11.p05.04",
+            "text": "Classification accuracy cannot be used directly as the loss, or inverted to form a loss, because accuracy is not differentiable.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@1184",
+              "0PpxZ3kNPWo@1185",
+              "0PpxZ3kNPWo@1187",
+              "0PpxZ3kNPWo@1189",
+              "0PpxZ3kNPWo@1191",
+              "0PpxZ3kNPWo@1193",
+              "0PpxZ3kNPWo@1195"
+            ]
+          },
+          {
+            "id": "ch05.s11.p05.05",
+            "text": "Cross-entropy loss is therefore used as a proxy to maximize accuracy, and it is the same loss used to pre-train the large language model.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@1195",
+              "0PpxZ3kNPWo@1197",
+              "0PpxZ3kNPWo@1199",
+              "0PpxZ3kNPWo@1201",
+              "0PpxZ3kNPWo@1203"
+            ]
+          },
+          {
+            "id": "ch05.s11.p05.06",
+            "text": "Given an input batch and a target batch, the model processes the input batch, the logits of the last output token are selected, and the categorical cross-entropy loss is computed between those logits and the target batch.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@1208",
+              "0PpxZ3kNPWo@1211",
+              "0PpxZ3kNPWo@1212",
+              "0PpxZ3kNPWo@1221",
+              "0PpxZ3kNPWo@1224",
+              "0PpxZ3kNPWo@1225",
+              "0PpxZ3kNPWo@1227",
+              "0PpxZ3kNPWo@1229",
+              "0PpxZ3kNPWo@1232",
+              "0PpxZ3kNPWo@1233",
+              "0PpxZ3kNPWo@1236",
+              "0PpxZ3kNPWo@1238"
+            ]
+          },
+          {
+            "id": "ch05.s11.p05.07",
+            "text": "The code uses \"torch.nn.functional.cross_entropy\" to compute this loss, and the resulting loss is differentiable for backpropagation.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@1253",
+              "0PpxZ3kNPWo@1256",
+              "0PpxZ3kNPWo@1259",
+              "0PpxZ3kNPWo@1260",
+              "0PpxZ3kNPWo@1263",
+              "0PpxZ3kNPWo@1266",
+              "0PpxZ3kNPWo@1267"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s11.p06",
+        "sentences": [
+          {
+            "id": "ch05.s11.p06.r01",
+            "text": "A \"calculate loss batch\" function computes the loss for one batch.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@1269",
+              "0PpxZ3kNPWo@1271",
+              "0PpxZ3kNPWo@1274"
+            ]
+          },
+          {
+            "id": "ch05.s11.p06.r02",
+            "text": "A loader-level loss function handles multiple batches by choosing the number of batches in the same way as the accuracy code: it uses the dataloader length if no number is specified, otherwise the minimum of the requested number and the dataloader length.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@1276",
+              "0PpxZ3kNPWo@1278",
+              "0PpxZ3kNPWo@1286",
+              "0PpxZ3kNPWo@1289",
+              "0PpxZ3kNPWo@1292",
+              "0PpxZ3kNPWo@1293",
+              "0PpxZ3kNPWo@1296",
+              "0PpxZ3kNPWo@1297",
+              "0PpxZ3kNPWo@1299",
+              "0PpxZ3kNPWo@1301",
+              "0PpxZ3kNPWo@1303"
+            ]
+          },
+          {
+            "id": "ch05.s11.p06.r03",
+            "text": "For each selected batch, it takes one input batch and one target batch, computes the categorical cross-entropy loss with \"calculate loss batch\", adds each batch loss into a running total, and divides by the number of batches to get the average loss per batch.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@1305",
+              "0PpxZ3kNPWo@1307",
+              "0PpxZ3kNPWo@1309",
+              "0PpxZ3kNPWo@1311",
+              "0PpxZ3kNPWo@1312",
+              "0PpxZ3kNPWo@1314",
+              "0PpxZ3kNPWo@1316",
+              "0PpxZ3kNPWo@1318",
+              "0PpxZ3kNPWo@1321",
+              "0PpxZ3kNPWo@1323",
+              "0PpxZ3kNPWo@1328",
+              "0PpxZ3kNPWo@1330",
+              "0PpxZ3kNPWo@1331",
+              "0PpxZ3kNPWo@1333"
+            ]
+          },
+          {
+            "id": "ch05.s11.p06.r04",
+            "text": "Before backpropagation is implemented, these loss values are expected to be high, matching the previously observed poor accuracy.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@1345",
+              "0PpxZ3kNPWo@1347",
+              "0PpxZ3kNPWo@1349",
+              "0PpxZ3kNPWo@1351",
+              "0PpxZ3kNPWo@1390",
+              "0PpxZ3kNPWo@1392",
+              "0PpxZ3kNPWo@1395",
+              "0PpxZ3kNPWo@1397",
+              "0PpxZ3kNPWo@1398"
+            ]
+          },
+          {
+            "id": "ch05.s11.p06.r05",
+            "text": "To inspect the initial losses, the code applies the loss-loader function to the training, validation, and test loaders with the number of batches set to five, and then prints the three losses.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@1353",
+              "0PpxZ3kNPWo@1355",
+              "0PpxZ3kNPWo@1357",
+              "0PpxZ3kNPWo@1359",
+              "0PpxZ3kNPWo@1375",
+              "0PpxZ3kNPWo@1377",
+              "0PpxZ3kNPWo@1379",
+              "0PpxZ3kNPWo@1382",
+              "0PpxZ3kNPWo@1383",
+              "0PpxZ3kNPWo@1385",
+              "0PpxZ3kNPWo@1387",
+              "0PpxZ3kNPWo@1388"
+            ]
+          },
+          {
+            "id": "ch05.s11.p06.r06",
+            "text": "At this point, the workflow has already covered downloading and preprocessing the dataset, creating data loaders, initializing the model, loading pretrained weights, modifying the model for fine-tuning, and implementing evaluation utilities for loss and accuracy.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@1416",
+              "0PpxZ3kNPWo@1418",
+              "0PpxZ3kNPWo@1420",
+              "0PpxZ3kNPWo@1423",
+              "0PpxZ3kNPWo@1424",
+              "0PpxZ3kNPWo@1427",
+              "0PpxZ3kNPWo@1429",
+              "0PpxZ3kNPWo@1432",
+              "0PpxZ3kNPWo@1434"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch05.s11.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s11.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch05.s11.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch05.s11.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch05.s11.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s11.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch05.s11.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch05.s11.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s11.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch05.s11.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s11.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s11.p03.06": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch05.s11.p03.07": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch05.s11.p03.08": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s11.p03.09": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s11.p05.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s11.p05.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s11.p05.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s11.p05.04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s11.p05.05": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch05.s11.p05.06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s11.p05.07": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s11.p02.r01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s11.p02.r02": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch05.s11.p02.r03": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch05.s11.p02.r04": {
+        "verdict": "supported",
+        "confidence": 0.72,
+        "reason": "The lines clearly state 600 correct predictions and '600 divided by ...'; the denominator appears as a miscaptured 'th000', which is plausibly '1000' but not perfectly clear from the cited lines alone."
+      },
+      "ch05.s11.p02.r05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s11.p02.r06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s11.p04.r01": {
+        "verdict": "ok",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch05.s11.p04.r02": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch05.s11.p04.r03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s11.p04.r04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s11.p04.r05": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch05.s11.p04.r06": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s11.p06.r01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s11.p06.r02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch05.s11.p06.r03": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch05.s11.p06.r04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s11.p06.r05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s11.p06.r06": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch05.s11.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s11.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch05.s11.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch05.s11.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch05.s11.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s11.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch05.s11.p02.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s11.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch05.s11.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch05.s11.p02.04": {
+        "verdict": "partial",
+        "confidence": 0.75,
+        "reason": "the cited lines support 600 correct and dividing by 1000, but the 'out of 1000 examples' part is not clearly stated (the caption at @817 is garbled as 'th000')."
+      },
+      "ch05.s11.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s11.p02.06": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s11.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch05.s11.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s11.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch05.s11.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s11.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s11.p03.06": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch05.s11.p03.07": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch05.s11.p03.08": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s11.p03.09": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s11.p04.01": {
+        "verdict": "ok",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch05.s11.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch05.s11.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch05.s11.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s11.p04.05": {
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "the caption says '2 2231' (ambiguous/misheard), not clearly '0.2231' specifically"
+      },
+      "ch05.s11.p04.06": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch05.s11.p04.07": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch05.s11.p05.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s11.p05.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s11.p05.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s11.p05.04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s11.p05.05": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch05.s11.p05.06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s11.p05.07": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s11.p06.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.72,
+        "reason": "Although it is framed as a transition, it asserts a factual comparison (loss over single vs multiple batches handled similarly to accuracy) and no citations are provided here."
+      },
+      "ch05.s11.p06.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s11.p06.03": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch05.s11.p06.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s11.p06.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s11.p06.06": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch05.s11.p06.07": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "ch05.s11.p02",
+      "ch05.s11.p04",
+      "ch05.s11.p06"
+    ],
+    "queue": []
+  }
+}

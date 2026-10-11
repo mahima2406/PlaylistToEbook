@@ -1,0 +1,33 @@
+{
+  "stage": "listings",
+  "item": "ch04.s03",
+  "inputs_hash": "d9eba944de05f7d98cdb8c57c98af5050647c0702fdcf2625071aabfa6f55b3b",
+  "output_hash": "cadc5666342eb03cad3b913f8863254636cec3c322e7dfdc80c2e50bc22dc7d7",
+  "output": {
+    "section_id": "ch04.s03",
+    "listings": [
+      {
+        "id": "ch04.s03.code2",
+        "ref": "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135",
+        "path": "ch02/01_main-chapter-code/ch02.ipynb",
+        "caption": "This code adds positional embeddings to token embeddings to form input embeddings and prints their shape.",
+        "code": "input_embeddings = token_embeddings + pos_embeddings\nprint(input_embeddings.shape)\n\n# uncomment & execute the following line to see how the embeddings look like\n# print(input_embeddings)",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The section explains that input embeddings are formed by adding token embeddings and positional embeddings. The code does exactly that (`input_embeddings = token_embeddings + pos_embeddings`) and then prints the resulting tensor shape, matching the caption."
+      }
+    ],
+    "rejected": [
+      {
+        "id": "ch04.s03.code1",
+        "ref": "ref:ch02/01_main-chapter-code/ch02.ipynb#cell130",
+        "path": "ch02/01_main-chapter-code/ch02.ipynb",
+        "caption": "This code converts a batch of input token IDs into token embeddings and prints the resulting tensor shape.",
+        "code": "token_embeddings = token_embedding_layer(inputs)\nprint(token_embeddings.shape)\n\n# uncomment & execute the following line to see how the embeddings look like\n# print(token_embeddings)",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The section teaches forming input embeddings by adding token embeddings and positional embeddings (token+position). The code only converts token IDs to token embeddings and prints the shape; it does not generate positional embeddings or add them, and the caption accurately describes only the token-embedding step."
+      }
+    ]
+  }
+}

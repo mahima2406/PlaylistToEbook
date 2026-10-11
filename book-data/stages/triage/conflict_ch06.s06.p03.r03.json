@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch06.s06.p03.r03",
+  "inputs_hash": "810a744abd526e0267a887632164657ac9f22df52faa6011fa7246500f735c99",
+  "output_hash": "99758d3b6cf949b75f085f5fc47245a145d3a8dd01dbf911c51e6653c7f82949",
+  "output": {
+    "decision": "edit",
+    "text": "Adding a third example changes the loss because one more training example is included.",
+    "reason": "The captions support only that the loss differs after adding a third example, not the specific value or a general claim that survives the ignored-target case in the reference.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "4e4e37bcaaa79d5a2b39b49acbda02398b8c4aeb2309cc9ba4bc99e20fc9dfce"
+  }
+}

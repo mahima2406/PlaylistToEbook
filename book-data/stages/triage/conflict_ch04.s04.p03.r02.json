@@ -1,0 +1,14 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch04.s04.p03.r02",
+  "inputs_hash": "b150b03d8ad3be1a25ac1397f0733dcf2004826d8ff14924a9d5b7bbc7064b3c",
+  "output_hash": "36b769cb01d0ef40c38214bbb285ed23580e32f2d7ec83fcfe2d7bf082134620",
+  "output": {
+    "decision": "note",
+    "note": "The reference applies dropout to attention weights; here the lecture describes dropout after multi-head attention on context vector values, another common placement.",
+    "reason": "Both the lecture and reference describe valid dropout placements in attention, and the captions directly support the sentence's context-vector wording.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "67d3b4cffedebfb49866c1effe886f3e2b2f5577475f7540b93827c5c084a74c"
+  }
+}

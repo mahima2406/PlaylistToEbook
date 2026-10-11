@@ -1,0 +1,22 @@
+{
+  "stage": "listings",
+  "item": "ch05.s03",
+  "inputs_hash": "c2c38306ac8ee0d6cce174bb83fee4468482e02514675a8c2d2eb029986130c0",
+  "output_hash": "36d3c01c2d186437654700e46ffdecacd1579cf7a25ecc33fe8d3ea4b90e4ebd",
+  "output": {
+    "section_id": "ch05.s03",
+    "listings": [],
+    "rejected": [
+      {
+        "id": "ch05.s03.code1",
+        "ref": "ref:ch04/01_main-chapter-code/ch04.ipynb#cell10",
+        "path": "ch04/01_main-chapter-code/ch04.ipynb",
+        "caption": "This code defines a GPT_CONFIG_124M dictionary with the vocabulary size, context length, embedding dimension, number of attention heads, number of layers, dropout rate, and query-key-value bias settings.",
+        "code": "GPT_CONFIG_124M = {\n    \"vocab_size\": 50257,    # Vocabulary size\n    \"context_length\": 1024, # Context length\n    \"emb_dim\": 768,         # Embedding dimension\n    \"n_heads\": 12,          # Number of attention heads\n    \"n_layers\": 12,         # Number of layers\n    \"drop_rate\": 0.1,       # Dropout rate\n    \"qkv_bias\": False       # Query-Key-Value bias\n}",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The code defines a settings dictionary with the key hyperparameters the section mentions (vocab_size, context_length, emb_dim, n_heads, n_layers). However, the section specifically says it contains the same values as hparams.json and emphasizes number of transformer blocks, while the code adds extra fields (drop_rate, qkv_bias) not mentioned in the section and uses n_layers rather than explicitly naming transformer blocks. The caption also includes these extra settings, making it slightly broader than what the section teaches."
+      }
+    ]
+  }
+}

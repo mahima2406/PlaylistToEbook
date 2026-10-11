@@ -1,0 +1,510 @@
+{
+  "stage": "crosscheck",
+  "item": "ch02.s12",
+  "inputs_hash": "eb51b40fea685792aed8883069760e731b21a3991868b1cf2c376509d774f57c",
+  "output_hash": "fc43fd67163b03ab06f80ccb823872a7b4e7179c5d081e76fca40e3c8c033b9b",
+  "output": {
+    "section_id": "ch02.s12",
+    "checked": 41,
+    "counts": {
+      "agrees": 31,
+      "contradicts": 0,
+      "not_covered": 10
+    },
+    "results": [
+      {
+        "sentence_id": "ch02.s12.p01.02",
+        "text": "To create token embeddings for a large language model, start with the vocabulary, assign token IDs to the tokens, and convert each token ID into an embedding vector.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell33"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs describe converting tokens to token IDs and then using an embedding layer to map IDs to embedding vectors; they also show token+positional embeddings forming input embeddings."
+      },
+      {
+        "sentence_id": "ch02.s12.p01.03",
+        "text": "A token embedding converts each token ID into an embedding vector, and the matrix that stores these vectors is also called the embedding layer weight matrix.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell111",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell132",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell115"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs explicitly call it the embedding_layer weight matrix (embedding_layer.weight) and show rows correspond to token IDs and are used to embed input_ids."
+      },
+      {
+        "sentence_id": "ch02.s12.p01.04",
+        "text": "To construct this matrix, two dimensions matter: the vocabulary size and the vector dimension.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The embedding matrix shape in the refs is determined by vocabulary size (num embeddings) and embedding/vector dimension (embedding dim), consistent with the stated two key dimensions."
+      },
+      {
+        "sentence_id": "ch02.s12.p01.05",
+        "text": "Together, these two parameters determine the size of the embedding matrix: the number of rows equals the vocabulary size, and the number of columns equals the vector dimension.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell77",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs imply the token embedding layer maps a 50,257-sized vocab to a 768-d embedding, consistent with an embedding matrix of vocab_size rows and embedding_dim columns."
+      },
+      {
+        "sentence_id": "ch02.s12.p02.r02",
+        "text": "For GPT-2, the vocabulary size is stated as 50,257 and the embedding dimension as 768 for the smallest model.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref states token embedding projects 50,257-dimensional one-hot tokens to a 768-dimensional embedding representation for GPT-2 (smallest model context in that discussion)."
+      },
+      {
+        "sentence_id": "ch02.s12.p02.r03",
+        "text": "Its vocabulary consists of 50,257 subword tokens made through byte pair encoding, with corresponding token IDs.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell125",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs discuss Byte Pair Encoding and explicitly state the BytePair encoder vocabulary size is 50,257; tokenization implies corresponding token IDs."
+      },
+      {
+        "sentence_id": "ch02.s12.p02.r04",
+        "text": "For each token ID, there is a corresponding vector of 768 values.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell65"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref indicates GPT-2 token embedding produces a 768-dimensional embedding representation (even though other cells use smaller dims for illustration)."
+      },
+      {
+        "sentence_id": "ch02.s12.p02.r05",
+        "text": "That means the embedding layer weight matrix has 50,257 rows and 768 columns.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell111",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell63"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Given the ref’s 50,257 vocab and 768 embedding dimension for GPT-2 token embeddings, the implied weight matrix shape is 50,257×768."
+      },
+      {
+        "sentence_id": "ch02.s12.p02.r06",
+        "text": "This matrix is called the embedding layer weight matrix and is extremely important.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell115",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell110",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell77"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs repeatedly refer to the \"embedding_layer weight matrix\" / token embedding matrix and highlight its reuse via weight tying, supporting its importance even if \"extremely\" is subjective."
+      },
+      {
+        "sentence_id": "ch02.s12.p03.r01",
+        "text": "When training GPT-2, you know that the embedding layer weight matrix must have 50,257 rows and 768 columns, but you do not know the actual weight values in advance.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell115",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell111"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs establish the fixed mapping dimensions (50,257→768) for GPT-2 token embeddings; actual weight values are parameters (embedding_layer.weight) learned during training and not known a priori."
+      },
+      {
+        "sentence_id": "ch02.s12.p03.r02",
+        "text": "The first step is to initialize all embedding layer weights randomly.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell61",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell132",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell66"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs show creation/inspection of embedding layers but do not state that the first training step is random initialization of all embedding weights."
+      },
+      {
+        "sentence_id": "ch02.s12.p03.r03",
+        "text": "This random initialization is the starting point for learning, and the embedding layer weights are then optimized during LLM training.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell104",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell112",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell132"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref states embedding layers are part of the LLM and are updated (trained) during model training, and can be optimized via backpropagation, matching the claim."
+      },
+      {
+        "sentence_id": "ch02.s12.p03.r04",
+        "text": "This optimization process is how token embeddings are created.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell130",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell103"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The referenced cells show how token embeddings are obtained by applying an embedding layer and then adding positional embeddings, but they do not state that an optimization process is how token embeddings are created."
+      },
+      {
+        "sentence_id": "ch02.s12.p03.r05",
+        "text": "Training data provides information about which words are closer to each other and which are farther apart, and that information is used to modify the embedding parameters.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell67",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The passages discuss attention, causal masking, and perplexity/loss alignment with the data distribution, but they do not explain embeddings being modified specifically using word closeness/farness information."
+      },
+      {
+        "sentence_id": "ch02.s12.p03.r06",
+        "text": "Backpropagation is used to optimize the weights of the embedding layer weight matrix.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell112",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell111",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell132"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly says the embedding layer can be seen as a neural network layer that can be optimized via backpropagation, implying its weight matrix is optimized that way."
+      },
+      {
+        "sentence_id": "ch02.s12.p03.r07",
+        "text": "A large language model is a giant neural network, and training the embedding layer weight matrix is one part of that network’s training.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell112",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell21",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell111"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference characterizes the embedding layer as a neural-network layer optimized via backpropagation and shows it as part of the model with trainable weights, consistent with it being one part of LLM training."
+      },
+      {
+        "sentence_id": "ch02.s12.p03.r08",
+        "text": "During GPT training, the model learns the embeddings while also training to predict the next word.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references describe next-token prediction training with targets shifted by one position, and note embedding layers are part of the LLM and updated during training, consistent with learning embeddings while training next-token prediction."
+      },
+      {
+        "sentence_id": "ch02.s12.p04.02",
+        "text": "In a simplified example, the vocabulary size is 6 and the embedding dimension is 3, so each token is converted into a three-dimensional vector.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages mention other dimensions (e.g., vocab size 50,257 for logits; an embedding dimension example of 4 in attention), but do not cover the specific simplified example of vocab size 6 and embedding dimension 3."
+      },
+      {
+        "sentence_id": "ch02.s12.p04.03",
+        "text": "In PyTorch, an embedding layer is created with \"torch.nn.Embedding\" by specifying the vocabulary size and the vector dimension.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell109",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell132"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference code creates an embedding layer via torch.nn.Embedding(vocab_size, output_dim), matching the statement that you specify vocabulary size and vector dimension."
+      },
+      {
+        "sentence_id": "ch02.s12.p04.04",
+        "text": "PyTorch describes the embedding as a simple lookup table that stores embeddings of a fixed dictionary and size.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell109",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell114",
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell6"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show using torch.nn.Embedding and retrieving embeddings, but do not include PyTorch’s descriptive phrasing that it is a simple lookup table storing embeddings of a fixed dictionary and size."
+      },
+      {
+        "sentence_id": "ch02.s12.p04.05",
+        "text": "Using \"torch.nn.Embedding\" initializes the embedding matrix with random values.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell132",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell109",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell126"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show embeddings being instantiated (with a manual seed) but do not explicitly state that torch.nn.Embedding initializes the weight matrix with random values."
+      },
+      {
+        "sentence_id": "ch02.s12.p04.06",
+        "text": "With six token IDs and three-dimensional vectors, the embedding layer weight matrix has six rows and three columns, and each row corresponds to one token ID’s vector.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell115"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference discusses converting token id 3 into a 3-dimensional vector and notes it corresponds to the 4th row of the embedding_layer weight matrix; combined with vocab_size=6 and output_dim=3, this is consistent with a 6x3 weight matrix where each row maps to a token id."
+      },
+      {
+        "sentence_id": "ch02.s12.p04.07",
+        "text": "Accessing \"embedding_layer.weight\" returns all the weights of the embedding layer, and printing them shows a randomly initialized matrix with the expected shape.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell132",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell111",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell76"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show printing embedding_layer.weight and inspecting shapes elsewhere, but they do not explicitly state that the printed matrix is randomly initialized nor explicitly confirm the expected shape in the cited lines."
+      },
+      {
+        "sentence_id": "ch02.s12.p04.08",
+        "text": "These initial weights are small random values that are later optimized during LLM training, partly so the embeddings can capture meaning.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell104",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell71",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references state embedding layers are part of the LLM and are updated during training, and that a GPT model can be instantiated with random initial weights, but do not specifically say the initial weights are small random values or that optimization is partly to capture meaning."
+      },
+      {
+        "sentence_id": "ch02.s12.p04.09",
+        "text": "At a broad level, LLM optimization includes optimizing the embedding layer weights and also other weights used later to predict the next word.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell132"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss next-token targets and show an embedding layer having weights, but they do not state that optimization broadly includes optimizing embedding weights as well as later weights."
+      },
+      {
+        "sentence_id": "ch02.s12.p05.02",
+        "text": "Each row of the embedding weight matrix is the vector embedding for one token or token ID.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell111",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell115",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference prints the embedding_layer.weight matrix and notes a specific row corresponds to an embedding, consistent with each row being the vector for a token ID."
+      },
+      {
+        "sentence_id": "ch02.s12.p05.03",
+        "text": "To get the vector for a specific token ID, look up the corresponding row in the embedding weight matrix using zero indexing.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell115",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell117",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell77"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference describes the embedding layer as a lookup operation and points out that a particular embedded vector corresponds to a specific row in the weight matrix, implying token IDs index rows (standard 0-based indexing in PyTorch embeddings)."
+      },
+      {
+        "sentence_id": "ch02.s12.p05.04",
+        "text": "For example, the vector returned for token ID 3 is identical to the fourth row of the matrix because the IDs are zero-indexed.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell115"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly notes that the shown vector corresponds to the 4th row of the embedding weight matrix in an example involving token id 3, matching the 0-indexed mapping (id 3 -> 4th row)."
+      },
+      {
+        "sentence_id": "ch02.s12.p05.05",
+        "text": "An embedding layer is essentially a lookup operation that retrieves rows from the embedding layer’s weight matrix using a token ID.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell117",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell111",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell132"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states verbatim that an embedding layer is essentially a look-up operation, consistent with retrieving rows from the embedding weight matrix using token IDs."
+      },
+      {
+        "sentence_id": "ch02.s12.p05.06",
+        "text": "A useful way to think about it is as a lookup table: go to the row number associated with the token ID and retrieve that vector.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference demonstrates converting a token id into a vector via the embedding layer, consistent with the lookup-table interpretation (row number = token ID)."
+      },
+      {
+        "sentence_id": "ch02.s12.p05.07",
+        "text": "The same matrix is therefore both a matrix of embedding weights and a lookup table for the exact vector representation of a token ID.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell77",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference characterizes the embedding layer as a lookup operation over its weight matrix, so the same matrix functions as both trainable embedding weights and a lookup table; nothing conflicts with this."
+      },
+      {
+        "sentence_id": "ch02.s12.p05.08",
+        "text": "If someone asks what an embedding layer is, a precise answer is that it is a simple lookup operation that retrieves the vector for a particular token ID.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell117",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell112"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly says an embedding layer is essentially a look-up operation, matching the statement."
+      },
+      {
+        "sentence_id": "ch02.s12.p06.02",
+        "text": "When input IDs are passed into the embedding layer, it goes through each ID, looks up the corresponding row in the embedding matrix, and returns those rows as the output embeddings.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell116",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell115",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell77"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference shows calling embedding_layer(input_ids) for multiple IDs and discusses corresponding rows in the weight matrix, consistent with returning the looked-up rows as output embeddings."
+      },
+      {
+        "sentence_id": "ch02.s12.p06.03",
+        "text": "You can pass either a single token ID or multiple token IDs to the embedding layer and get the corresponding vectors in one operation.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell117",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell116",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference shows embedding_layer used with a tensor of multiple input_ids and also describes embeddings as a lookup operation, consistent with handling single or multiple IDs in one call."
+      },
+      {
+        "sentence_id": "ch02.s12.p06.04",
+        "text": "In another small example, if the vocabulary size is 4 and the embedding dimension is 5, the embedding matrix has 4 rows and 5 columns, and each token ID gets a five-dimensional vector.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell25",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference does not provide this specific numeric example (vocab size 4, embedding dim 5) or explicitly state the resulting matrix shape; it only discusses the general row/column convention."
+      },
+      {
+        "sentence_id": "ch02.s12.p06.05",
+        "text": "If only certain IDs are needed, passing those IDs to the embedding layer extracts only the corresponding rows from the embedding matrix.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell116",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell132",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell18"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "By defining the embedding layer as a lookup and showing embedding_layer(input_ids) returns embeddings for the provided IDs, the references support that supplying a subset of IDs extracts only the corresponding rows."
+      },
+      {
+        "sentence_id": "ch02.s12.p07.r02",
+        "text": "A practical embedding layer is created using the same embedding function with GPT-2’s vocabulary size of 50,257 and a vector dimension of 256, giving an embedding matrix with 50,257 rows and 256 columns.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell125",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell126"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references specify GPT-2 BPE vocab_size=50257, output_dim=256, and show creating torch.nn.Embedding(vocab_size, output_dim), which implies an embedding matrix of shape (50257, 256)."
+      },
+      {
+        "sentence_id": "ch02.s12.p07.r03",
+        "text": "Here each token ID is associated with a vector containing 256 values.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell127",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references describe embedding tokens into a 256-dimensional vector (e.g., batches embedded to ... x 256), consistent with each token ID mapping to a length-256 vector."
+      },
+      {
+        "sentence_id": "ch02.s12.p07.r04",
+        "text": "The input token IDs from the data loader are passed into this token embedding layer to obtain the corresponding embedding vectors.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell116",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell111",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell33"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references show passing input_ids into an embedding layer (embedding_layer(input_ids)) and discuss converting tokens to token IDs to be processed via embedding layers."
+      },
+      {
+        "sentence_id": "ch02.s12.p07.r05",
+        "text": "If the input ID matrix has shape 8 by 4 and each token ID is converted into a 256-dimensional vector, the embedding output has shape 8 by 4 by 256.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell127",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell125"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly states that with batch size 8 and 4 tokens each, embedding into 256 dimensions yields an 8 x 4 x 256 tensor."
+      },
+      {
+        "sentence_id": "ch02.s12.p07.r06",
+        "text": "The token vocabulary is described as subwords made through byte pair encoding.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell76"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference section on BytePair encoding states BPE tokenizers break unknown words into subwords/characters, matching the description of the token vocabulary as subwords made via BPE."
+      }
+    ],
+    "conflicts": []
+  }
+}

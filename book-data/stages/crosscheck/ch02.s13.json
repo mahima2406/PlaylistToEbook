@@ -1,0 +1,158 @@
+{
+  "stage": "crosscheck",
+  "item": "ch02.s13",
+  "inputs_hash": "36d3056fb172538adc617f818c435607e172be03b00410d0ef8f3d7c9cd9d291",
+  "output_hash": "30da22eb8998751c138527319af5c1e6d7d9a7e9b56d329e786ae29a8ea96674",
+  "output": {
+    "section_id": "ch02.s13",
+    "checked": 12,
+    "counts": {
+      "agrees": 7,
+      "contradicts": 0,
+      "not_covered": 5
+    },
+    "results": [
+      {
+        "sentence_id": "ch02.s13.p01.02",
+        "text": "An embedding layer is mathematically the same as a neural network linear layer.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell21",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell53",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell132"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explains an embedding layer is equivalent to one-hot encoding followed by matrix multiplication in a fully-connected (linear) layer, i.e., the same underlying linear operation implemented more efficiently."
+      },
+      {
+        "sentence_id": "ch02.s13.p01.03",
+        "text": "To reproduce an embedding lookup with a linear layer, start from token IDs such as 2, 3, and 1, convert them into one-hot representations, and feed those vectors into a neural network.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell112",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell33",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell121"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly states embedding is equivalent to one-hot encoding followed by matrix multiplication in a fully-connected layer, which matches converting token IDs to one-hot and feeding them into a neural network layer."
+      },
+      {
+        "sentence_id": "ch02.s13.p01.04",
+        "text": "The network uses as many neurons as the embedding dimension, so in the example with five-dimensional embeddings it has five neurons.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell8"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The passages mention specific embedding dimensions (e.g., 4, 768) but do not establish a rule that the number of neurons equals embedding dimension in the stated example (five-dimensional embeddings implies five neurons)."
+      },
+      {
+        "sentence_id": "ch02.s13.p01.05",
+        "text": "For this linear layer, the output is given by X multiplied by W transpose.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell53",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell76",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell63"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references show use of nn.Linear and give examples of matrix multiplication for attention projections as xW, but they do not state that the linear layer output is X multiplied by W transpose."
+      },
+      {
+        "sentence_id": "ch02.s13.p02.r02",
+        "text": "When there are three input tokens and five embedding dimensions, X multiplied by W transpose produces a matrix with three rows and five columns.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss that projections are computed via xW and that input/output embedding dimensions can vary, but they do not specify the concrete shape outcome for the particular case of 3 tokens and 5 embedding dimensions using X·W^T."
+      },
+      {
+        "sentence_id": "ch02.s13.p02.r03",
+        "text": "There are three rows because there are three inputs, and each row corresponds to the vector embedding for one particular input.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell65",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states there is one output vector per input token and describes per-token vectors x^(i), consistent with interpreting rows as corresponding to individual input-token vectors."
+      },
+      {
+        "sentence_id": "ch02.s13.p02.r04",
+        "text": "There are five columns because each input is mapped to a vector embedding with five dimensions.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell65",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference discusses that embeddings have a certain dimensionality (embedding dimension) for each token vector; thus, having five columns corresponds to mapping each input token to a 5-dimensional vector embedding."
+      },
+      {
+        "sentence_id": "ch02.s13.p02.r05",
+        "text": "This linear-layer construction produces the same output as the embedding layer.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell132",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell53",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states the embedding layer is equivalent to the one-hot encoding plus matrix-multiplication (linear-layer) approach, implying the construction yields the same outputs given the same weights."
+      },
+      {
+        "sentence_id": "ch02.s13.p03.02",
+        "text": "The embedding layer is preferred because it is much more computationally efficient than using a linear layer on one-hot inputs.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell112",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell132",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly says the embedding approach is a more efficient way of implementing one-hot encoding followed by matrix multiplication in a fully-connected layer."
+      },
+      {
+        "sentence_id": "ch02.s13.p03.03",
+        "text": "A linear layer is less efficient here because one-hot encoding introduces many zeros, which leads to many unnecessary multiplications with zero and other unnecessary computations.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell112"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the reference says the embedding approach is more efficient than one-hot plus matmul, it does not explicitly attribute inefficiency to multiplying many zeros or unnecessary multiplications."
+      },
+      {
+        "sentence_id": "ch02.s13.p03.04",
+        "text": "Those unnecessary computations scale up when the vocabulary is very large, such as GPT-2's vocabulary size.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell90"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The supplied passages mention GPT-2 training tokens and discuss small vocab examples, but they do not state that the inefficiency of one-hot/linear scales with large vocabulary size such as GPT-2's."
+      },
+      {
+        "sentence_id": "ch02.s13.p03.05",
+        "text": "So although a linear layer can be used to create the embedding matrix, the embedding layer is the preferred implementation.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell132",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell112",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell111"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states embeddings are equivalent to one-hot plus linear matmul but are more efficient, supporting that although a linear-layer construction exists, the embedding layer is the preferred implementation."
+      }
+    ],
+    "conflicts": []
+  }
+}

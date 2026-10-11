@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch03.s09.p03.r06",
+  "inputs_hash": "46126f165f690943eca91b1d7bdbc3a9ea75916165e16528d2695bf2fe1d5303",
+  "output_hash": "4c46e6ce2ca96a4512922f470c9ae7a9be4f7324e8c5104e44a3bc831ebb3fc7",
+  "output": {
+    "decision": "edit",
+    "text": "Two example tokens are \"cat\" and \"sleeps.\"",
+    "reason": "The cited captions support those two tokens being examples, but not that they are the complete set of example tokens.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "d41187c5b4435a0a9b063d011220a6d2779e902a97c9b2dc8df8523332b4e59f"
+  }
+}

@@ -1,0 +1,635 @@
+{
+  "stage": "extract",
+  "item": "Xpr8D6LeAtw",
+  "inputs_hash": "bc344c0f631cb9f0b1631542c37bfdb67f12cef462beab4de6bd809dd46557c2",
+  "output_hash": "b5316d3d6258412161f9f61fb6d431c4b112d187f186ab2466b75d8d244ae78e",
+  "output": {
+    "video_id": "Xpr8D6LeAtw",
+    "points": [
+      {
+        "id": "Xpr8D6LeAtw:p001",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The series is designed to teach large language models from the basics without assuming prior knowledge, focusing on the nuts and bolts of every concept.",
+        "line_ids": [
+          "Xpr8D6LeAtw@54",
+          "Xpr8D6LeAtw@57",
+          "Xpr8D6LeAtw@59",
+          "Xpr8D6LeAtw@61",
+          "Xpr8D6LeAtw@64"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p002",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Many people learning about large language models make the mistake of jumping directly to applications and running notebooks or code without understanding how the models actually work.",
+        "line_ids": [
+          "Xpr8D6LeAtw@88",
+          "Xpr8D6LeAtw@89",
+          "Xpr8D6LeAtw@91",
+          "Xpr8D6LeAtw@94",
+          "Xpr8D6LeAtw@96",
+          "Xpr8D6LeAtw@101"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p003",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Building a large language model completely from scratch would make a learner feel much more confident about the subject.",
+        "line_ids": [
+          "Xpr8D6LeAtw@119",
+          "Xpr8D6LeAtw@122",
+          "Xpr8D6LeAtw@127",
+          "Xpr8D6LeAtw@130"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p004",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The playlist aims to comprehensively show how to build a large language model from scratch, and by the end the learner will have built one successfully by themselves.",
+        "line_ids": [
+          "Xpr8D6LeAtw@135",
+          "Xpr8D6LeAtw@137",
+          "Xpr8D6LeAtw@139",
+          "Xpr8D6LeAtw@142",
+          "Xpr8D6LeAtw@148",
+          "Xpr8D6LeAtw@155",
+          "Xpr8D6LeAtw@157"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p005",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "claim",
+        "importance": 2,
+        "text": "After understanding how to build a large language model from scratch, later application-focused parts will seem much easier.",
+        "line_ids": [
+          "Xpr8D6LeAtw@161",
+          "Xpr8D6LeAtw@163",
+          "Xpr8D6LeAtw@164",
+          "Xpr8D6LeAtw@166",
+          "Xpr8D6LeAtw@169"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p006",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "claim",
+        "importance": 1,
+        "text": "All videos in the series and the detailed lecture notes will be available for free.",
+        "line_ids": [
+          "Xpr8D6LeAtw@181",
+          "Xpr8D6LeAtw@183",
+          "Xpr8D6LeAtw@186",
+          "Xpr8D6LeAtw@188",
+          "Xpr8D6LeAtw@190",
+          "Xpr8D6LeAtw@192"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p007",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "The ELIZA chatbot is used as an example of how primitive conversational systems were 50 to 60 years ago, because its conversation quickly goes nowhere.",
+        "line_ids": [
+          "Xpr8D6LeAtw@232",
+          "Xpr8D6LeAtw@235",
+          "Xpr8D6LeAtw@237",
+          "Xpr8D6LeAtw@240",
+          "Xpr8D6LeAtw@282",
+          "Xpr8D6LeAtw@285",
+          "Xpr8D6LeAtw@287",
+          "Xpr8D6LeAtw@298",
+          "Xpr8D6LeAtw@300",
+          "Xpr8D6LeAtw@303",
+          "Xpr8D6LeAtw@305",
+          "Xpr8D6LeAtw@309"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p008",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "ChatGPT is contrasted with ELIZA as an example of a modern large language model that gives useful, to-the-point answers and relevant resources.",
+        "line_ids": [
+          "Xpr8D6LeAtw@311",
+          "Xpr8D6LeAtw@314",
+          "Xpr8D6LeAtw@317",
+          "Xpr8D6LeAtw@319",
+          "Xpr8D6LeAtw@331",
+          "Xpr8D6LeAtw@334",
+          "Xpr8D6LeAtw@336",
+          "Xpr8D6LeAtw@340",
+          "Xpr8D6LeAtw@343",
+          "Xpr8D6LeAtw@346"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p009",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "claim",
+        "importance": 2,
+        "text": "We are living at a stage where research in natural language processing has made large language models such as GPT very powerful and sophisticated.",
+        "line_ids": [
+          "Xpr8D6LeAtw@349",
+          "Xpr8D6LeAtw@351",
+          "Xpr8D6LeAtw@354",
+          "Xpr8D6LeAtw@356",
+          "Xpr8D6LeAtw@359",
+          "Xpr8D6LeAtw@363",
+          "Xpr8D6LeAtw@367",
+          "Xpr8D6LeAtw@370"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p010",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "claim",
+        "importance": 1,
+        "text": "If a learner is not familiar with ChatGPT, that is fine because the playlist will build its own GPT and explain it along the way.",
+        "line_ids": [
+          "Xpr8D6LeAtw@370",
+          "Xpr8D6LeAtw@372",
+          "Xpr8D6LeAtw@373",
+          "Xpr8D6LeAtw@376",
+          "Xpr8D6LeAtw@379"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p011",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "definition",
+        "importance": 3,
+        "text": "An open-source model is one whose architecture is available to the public so that anyone can see it.",
+        "line_ids": [
+          "Xpr8D6LeAtw@405",
+          "Xpr8D6LeAtw@407",
+          "Xpr8D6LeAtw@409",
+          "Xpr8D6LeAtw@412",
+          "Xpr8D6LeAtw@414"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p012",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "definition",
+        "importance": 3,
+        "text": "A closed-source model is one for which the weights, architecture, and other details are not released publicly.",
+        "line_ids": [
+          "Xpr8D6LeAtw@417",
+          "Xpr8D6LeAtw@420",
+          "Xpr8D6LeAtw@422",
+          "Xpr8D6LeAtw@425",
+          "Xpr8D6LeAtw@428"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p013",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The gap between open-source and closed-source large language models is decreasing, and Llama 3.1 performs at the same level as GPT-4 in the lecturer's shown comparison.",
+        "line_ids": [
+          "Xpr8D6LeAtw@451",
+          "Xpr8D6LeAtw@454",
+          "Xpr8D6LeAtw@456",
+          "Xpr8D6LeAtw@459",
+          "Xpr8D6LeAtw@461",
+          "Xpr8D6LeAtw@465"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p014",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The information needed to learn is available now through open-source models.",
+        "line_ids": [
+          "Xpr8D6LeAtw@465",
+          "Xpr8D6LeAtw@467",
+          "Xpr8D6LeAtw@469",
+          "Xpr8D6LeAtw@472",
+          "Xpr8D6LeAtw@474"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p015",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Generative AI is broader than large language models and includes language, video, audio, and 3D models.",
+        "line_ids": [
+          "Xpr8D6LeAtw@493",
+          "Xpr8D6LeAtw@495",
+          "Xpr8D6LeAtw@497",
+          "Xpr8D6LeAtw@500",
+          "Xpr8D6LeAtw@503",
+          "Xpr8D6LeAtw@506"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p016",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Some highly realistic videos can be generated entirely by artificial intelligence rather than being shot on a camera.",
+        "line_ids": [
+          "Xpr8D6LeAtw@511",
+          "Xpr8D6LeAtw@514",
+          "Xpr8D6LeAtw@516",
+          "Xpr8D6LeAtw@519",
+          "Xpr8D6LeAtw@522",
+          "Xpr8D6LeAtw@524",
+          "Xpr8D6LeAtw@527",
+          "Xpr8D6LeAtw@530"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p017",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "code",
+        "importance": 2,
+        "text": "The lecturer shows an application in which selecting an MCQ generator, entering a topic such as gravity, and clicking generate causes a large language model to produce multiple-choice questions within seconds.",
+        "line_ids": [
+          "Xpr8D6LeAtw@539",
+          "Xpr8D6LeAtw@542",
+          "Xpr8D6LeAtw@546",
+          "Xpr8D6LeAtw@549",
+          "Xpr8D6LeAtw@552",
+          "Xpr8D6LeAtw@555",
+          "Xpr8D6LeAtw@558",
+          "Xpr8D6LeAtw@560",
+          "Xpr8D6LeAtw@562",
+          "Xpr8D6LeAtw@564",
+          "Xpr8D6LeAtw@566"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p018",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Large language models and generative AI are changing many things around us, including education applications for teachers.",
+        "line_ids": [
+          "Xpr8D6LeAtw@568",
+          "Xpr8D6LeAtw@571",
+          "Xpr8D6LeAtw@573",
+          "Xpr8D6LeAtw@576",
+          "Xpr8D6LeAtw@578",
+          "Xpr8D6LeAtw@580"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p019",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The global generative AI job market is projected to grow about five to six times in the next five years.",
+        "line_ids": [
+          "Xpr8D6LeAtw@585",
+          "Xpr8D6LeAtw@587",
+          "Xpr8D6LeAtw@590",
+          "Xpr8D6LeAtw@593",
+          "Xpr8D6LeAtw@595",
+          "Xpr8D6LeAtw@597"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p020",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Large language models and generative AI are extremely useful skills whose demand will continue to increase in the future.",
+        "line_ids": [
+          "Xpr8D6LeAtw@597",
+          "Xpr8D6LeAtw@600",
+          "Xpr8D6LeAtw@603",
+          "Xpr8D6LeAtw@606"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p021",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Many existing courses focus on building LLM applications or giving quick overviews rather than teaching how to build a large language model from scratch.",
+        "line_ids": [
+          "Xpr8D6LeAtw@624",
+          "Xpr8D6LeAtw@626",
+          "Xpr8D6LeAtw@628",
+          "Xpr8D6LeAtw@629",
+          "Xpr8D6LeAtw@632",
+          "Xpr8D6LeAtw@633",
+          "Xpr8D6LeAtw@638",
+          "Xpr8D6LeAtw@640",
+          "Xpr8D6LeAtw@642",
+          "Xpr8D6LeAtw@644",
+          "Xpr8D6LeAtw@646",
+          "Xpr8D6LeAtw@647"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p022",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A learner who wants real understanding should look for a deep course on foundations, not a quick crash course, because that depth builds confidence and improves interview readiness.",
+        "line_ids": [
+          "Xpr8D6LeAtw@652",
+          "Xpr8D6LeAtw@654",
+          "Xpr8D6LeAtw@656",
+          "Xpr8D6LeAtw@659",
+          "Xpr8D6LeAtw@660",
+          "Xpr8D6LeAtw@664",
+          "Xpr8D6LeAtw@667",
+          "Xpr8D6LeAtw@670",
+          "Xpr8D6LeAtw@672",
+          "Xpr8D6LeAtw@674",
+          "Xpr8D6LeAtw@676"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p023",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Some available YouTube courses are too short, too complex for beginners, or not explained clearly from scratch, so they do not meet the need for a deep beginner-friendly course.",
+        "line_ids": [
+          "Xpr8D6LeAtw@685",
+          "Xpr8D6LeAtw@688",
+          "Xpr8D6LeAtw@689",
+          "Xpr8D6LeAtw@692",
+          "Xpr8D6LeAtw@694",
+          "Xpr8D6LeAtw@697",
+          "Xpr8D6LeAtw@699",
+          "Xpr8D6LeAtw@701",
+          "Xpr8D6LeAtw@704",
+          "Xpr8D6LeAtw@706",
+          "Xpr8D6LeAtw@708",
+          "Xpr8D6LeAtw@710",
+          "Xpr8D6LeAtw@714",
+          "Xpr8D6LeAtw@716",
+          "Xpr8D6LeAtw@718",
+          "Xpr8D6LeAtw@720",
+          "Xpr8D6LeAtw@722",
+          "Xpr8D6LeAtw@724",
+          "Xpr8D6LeAtw@726",
+          "Xpr8D6LeAtw@728",
+          "Xpr8D6LeAtw@731"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p024",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Sebastian Raschka's book is presented as a strong reference for learning large language models and as the reference material for this course.",
+        "line_ids": [
+          "Xpr8D6LeAtw@741",
+          "Xpr8D6LeAtw@743",
+          "Xpr8D6LeAtw@746",
+          "Xpr8D6LeAtw@747",
+          "Xpr8D6LeAtw@750",
+          "Xpr8D6LeAtw@752"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p025",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "The lecturer plans to convert every aspect of the reference book into a video-based playlist with many lectures.",
+        "line_ids": [
+          "Xpr8D6LeAtw@755",
+          "Xpr8D6LeAtw@757",
+          "Xpr8D6LeAtw@759",
+          "Xpr8D6LeAtw@762",
+          "Xpr8D6LeAtw@765",
+          "Xpr8D6LeAtw@768",
+          "Xpr8D6LeAtw@770",
+          "Xpr8D6LeAtw@773",
+          "Xpr8D6LeAtw@776"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p026",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The lecturer is creating detailed whiteboard notes from the book to transfer understanding in an interesting, fundamental, and highly detailed way.",
+        "line_ids": [
+          "Xpr8D6LeAtw@788",
+          "Xpr8D6LeAtw@790",
+          "Xpr8D6LeAtw@792",
+          "Xpr8D6LeAtw@796",
+          "Xpr8D6LeAtw@798",
+          "Xpr8D6LeAtw@799",
+          "Xpr8D6LeAtw@802",
+          "Xpr8D6LeAtw@804",
+          "Xpr8D6LeAtw@806"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p027",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The completed course is intended to include extensive notes and many videos that spell out everything from the very basics for serious learners transitioning to large language models.",
+        "line_ids": [
+          "Xpr8D6LeAtw@827",
+          "Xpr8D6LeAtw@829",
+          "Xpr8D6LeAtw@832",
+          "Xpr8D6LeAtw@836",
+          "Xpr8D6LeAtw@838",
+          "Xpr8D6LeAtw@839",
+          "Xpr8D6LeAtw@842",
+          "Xpr8D6LeAtw@844",
+          "Xpr8D6LeAtw@846",
+          "Xpr8D6LeAtw@848",
+          "Xpr8D6LeAtw@850"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p028",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "definition",
+        "importance": 2,
+        "text": "LangChain is a tool that helps build LLM applications.",
+        "line_ids": [
+          "Xpr8D6LeAtw@858",
+          "Xpr8D6LeAtw@860",
+          "Xpr8D6LeAtw@862"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p029",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Building LLM applications with tools like LangChain is not sufficient if you do not understand how to build a large language model yourself.",
+        "line_ids": [
+          "Xpr8D6LeAtw@862",
+          "Xpr8D6LeAtw@865",
+          "Xpr8D6LeAtw@867"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p030",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The lecturer believes the right way to learn about LLMs is to know how to build an entire large language model from scratch, rather than starting by deploying applications.",
+        "line_ids": [
+          "Xpr8D6LeAtw@869",
+          "Xpr8D6LeAtw@871",
+          "Xpr8D6LeAtw@873",
+          "Xpr8D6LeAtw@875",
+          "Xpr8D6LeAtw@877",
+          "Xpr8D6LeAtw@879",
+          "Xpr8D6LeAtw@882"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p031",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A key goal of learning to build an LLM from scratch is to be confident in interviews and able to answer detailed questions about topics like key, query, value, positional embedding, and positional encoding.",
+        "line_ids": [
+          "Xpr8D6LeAtw@882",
+          "Xpr8D6LeAtw@885",
+          "Xpr8D6LeAtw@887",
+          "Xpr8D6LeAtw@889",
+          "Xpr8D6LeAtw@891",
+          "Xpr8D6LeAtw@893",
+          "Xpr8D6LeAtw@895",
+          "Xpr8D6LeAtw@897",
+          "Xpr8D6LeAtw@899",
+          "Xpr8D6LeAtw@901",
+          "Xpr8D6LeAtw@903"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p032",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The main objective of the course is to put learners in a different position than other people by understanding this material better than anyone else.",
+        "line_ids": [
+          "Xpr8D6LeAtw@905",
+          "Xpr8D6LeAtw@906",
+          "Xpr8D6LeAtw@910",
+          "Xpr8D6LeAtw@912",
+          "Xpr8D6LeAtw@915"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p033",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The course will follow the table of contents shown and convert it into a detailed video lecture series.",
+        "line_ids": [
+          "Xpr8D6LeAtw@916",
+          "Xpr8D6LeAtw@918",
+          "Xpr8D6LeAtw@922",
+          "Xpr8D6LeAtw@924",
+          "Xpr8D6LeAtw@926",
+          "Xpr8D6LeAtw@928",
+          "Xpr8D6LeAtw@929"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p034",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The instructor plans to release all of the course content completely for free.",
+        "line_ids": [
+          "Xpr8D6LeAtw@937",
+          "Xpr8D6LeAtw@939",
+          "Xpr8D6LeAtw@941",
+          "Xpr8D6LeAtw@943",
+          "Xpr8D6LeAtw@945"
+        ]
+      },
+      {
+        "id": "Xpr8D6LeAtw:p035",
+        "video_id": "Xpr8D6LeAtw",
+        "lecture": 1,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The next lecture will cover an introduction to large language models and the things shown on the board.",
+        "line_ids": [
+          "Xpr8D6LeAtw@950",
+          "Xpr8D6LeAtw@951",
+          "Xpr8D6LeAtw@953",
+          "Xpr8D6LeAtw@955",
+          "Xpr8D6LeAtw@958",
+          "Xpr8D6LeAtw@960"
+        ]
+      }
+    ],
+    "inventory": [
+      {
+        "chunk": "Xpr8D6LeAtw@0-906",
+        "start": 0,
+        "end": 906,
+        "points": 31,
+        "core_points": 12,
+        "flag": null
+      },
+      {
+        "chunk": "Xpr8D6LeAtw@905-964",
+        "start": 905,
+        "end": 964,
+        "points": 4,
+        "core_points": 0,
+        "flag": null
+      }
+    ]
+  }
+}

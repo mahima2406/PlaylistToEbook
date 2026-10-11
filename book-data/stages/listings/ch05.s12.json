@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch05.s12",
+  "inputs_hash": "2ed30e80491bbe0379d40f5fb284b0b30cf6b57c907276577d520bff792ec787",
+  "output_hash": "bb1fc01ef025e566c1160abded8a664268f37e2aaf7329800f206df2a7aadaa2",
+  "output": {
+    "section_id": "ch05.s12",
+    "listings": [],
+    "rejected": [
+      {
+        "id": "ch05.s12.code1",
+        "ref": "ref:ch06/01_main-chapter-code/ch06.ipynb#cell94",
+        "path": "ch06/01_main-chapter-code/ch06.ipynb",
+        "caption": "This function fine-tunes the classifier by looping over epochs and batches, zeroing gradients, computing batch loss, backpropagating, updating optimizer weights, tracking examples seen and global steps, and periodically evaluating training and validation loss.",
+        "code": "# Overall the same as `train_model_simple` in chapter 5\ndef train_classifier_simple(model, train_loader, val_loader, optimizer, device, num_epochs,\n                            eval_freq, eval_iter):\n    # Initialize lists to track losses and examples seen\n    train_losses, val_losses, train_accs, val_accs = [], [], [], []\n    examples_seen, global_step = 0, -1\n\n    # Main training loop\n    for epoch in range(num_epochs):\n        model.train()  # Set model to training mode\n\n        for input_batch, target_batch in train_loader:\n            optimizer.zero_grad() # Reset loss gradients from previous batch iteration\n            loss = calc_loss_batch(input_batch, target_batch, model, device)\n            loss.backward() # Calculate loss gradients\n            optimizer.step() # Update model weights using loss gradients\n            examples_seen += input_batch.shape[0] # New: track examples instead of tokens\n            global_step += 1\n\n            # Optional evaluation step\n            if global_step % eval_freq == 0:\n                train_loss, val_loss = evaluate_model(\n                    model, train_loader, val_loader, device, eval_iter)\n                train_losses.append(train_loss)\n                val_losses.append(val_loss)\n                print(f\"Ep {epoch+1} (Step {global_step:06d}): \"\n                      f\"Train loss {train_loss:.3f}, Val loss {val_loss:.3f}\")\n\n        # Calculate accuracy after each epoch\n        train_accuracy = calc_accuracy_loader(train_loader, model, device, num_batches=eval_iter)",
+        "truncated": true,
+        "check": "partial",
+        "reason": "The code implements the core fine-tuning training loop described: setting train mode, zeroing gradients, computing batch loss, backpropagation, optimizer step, tracking examples_seen via input_batch.shape[0], tracking global_step, and periodically evaluating/printing train and validation loss using an eval_iter limit. However, the section also states reporting test loss and that the function is called with a modified GPT classifier head, neither of which is shown here. Additionally, the caption claims it fine-tunes the classifier and tracks examples/global steps and periodically evaluates losses, which matches, but it omits that the code also initializes accuracy tracking and computes accuracy after each epoch (train_accs/val_accs), and the excerpt ends before showing full accuracy handling."
+      },
+      {
+        "id": "ch05.s12.code2",
+        "ref": "ref:ch06/01_main-chapter-code/ch06.ipynb#cell87",
+        "path": "ch06/01_main-chapter-code/ch06.ipynb",
+        "caption": "This function computes the average loss over a data loader and optionally limits the calculation to a specified number of batches.",
+        "code": "# Same as in chapter 5\ndef calc_loss_loader(data_loader, model, device, num_batches=None):\n    total_loss = 0.\n    if len(data_loader) == 0:\n        return float(\"nan\")\n    elif num_batches is None:\n        num_batches = len(data_loader)\n    else:\n        # Reduce the number of batches to match the total number of batches in the data loader\n        # if num_batches exceeds the number of batches in the data loader\n        num_batches = min(num_batches, len(data_loader))\n    for i, (input_batch, target_batch) in enumerate(data_loader):\n        if i < num_batches:\n            loss = calc_loss_batch(input_batch, target_batch, model, device)\n            total_loss += loss.item()\n        else:\n            break\n    return total_loss / num_batches",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The excerpt defines an evaluation utility that averages loss over a data loader and can limit the computation to a fixed number of batches, which aligns with the section’s point about using an evaluation step on only a specified number of batches to save time. However, it does not implement the training loop/backpropagation/optimizer steps, training mode setting, gradient resets, global-step tracking, or reporting of train/val/test loss that the section primarily teaches. The caption accurately describes what the function does."
+      }
+    ]
+  }
+}

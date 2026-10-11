@@ -1,0 +1,684 @@
+{
+  "stage": "write",
+  "item": "ch05.s04",
+  "inputs_hash": "3e1fdda5d59620958f29c6b7722c9eea708dea724535c259725e1bfacf811a34",
+  "output_hash": "e65faf982594578586dc14cff71efc4e5a2811ab07509744f318dcb6244014d1",
+  "output": {
+    "section_id": "ch05.s04",
+    "paragraphs": [
+      {
+        "id": "ch05.s04.p01",
+        "sentences": [
+          {
+            "id": "ch05.s04.p01.01",
+            "text": "How do the released GPT-2 weights become a parameter dictionary that matches the model architecture, and why does that mapping matter before assigning weights into a scratch implementation?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s04.p01.02",
+            "text": "The loading code takes the TensorFlow checkpoint path together with the settings dictionary and uses them to load parameters into a special dictionary called \"params\".",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@827",
+              "yXrGeDNuymY@835",
+              "yXrGeDNuymY@838",
+              "yXrGeDNuymY@841",
+              "yXrGeDNuymY@845",
+              "yXrGeDNuymY@850",
+              "yXrGeDNuymY@852",
+              "yXrGeDNuymY@854"
+            ]
+          },
+          {
+            "id": "ch05.s04.p01.03",
+            "text": "When this function finishes, it returns two things: the settings dictionary and the \"params\" dictionary.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1657",
+              "yXrGeDNuymY@1659",
+              "yXrGeDNuymY@1668",
+              "yXrGeDNuymY@1670"
+            ]
+          },
+          {
+            "id": "ch05.s04.p01.04",
+            "text": "After execution, the parameter dictionary contains five keys: \"wte\", \"wpe\", \"blocks\", final normalization scale, and final normalization shift.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@867",
+              "yXrGeDNuymY@875",
+              "yXrGeDNuymY@878",
+              "yXrGeDNuymY@882",
+              "yXrGeDNuymY@884",
+              "yXrGeDNuymY@887",
+              "yXrGeDNuymY@1644",
+              "yXrGeDNuymY@1649",
+              "yXrGeDNuymY@1651"
+            ]
+          },
+          {
+            "id": "ch05.s04.p01.05",
+            "text": "The printed keys are described as \"blocks\", \"b\", \"g\", \"wpe\", and \"wte\", which are the same five components in dictionary form.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1850",
+              "yXrGeDNuymY@1851",
+              "yXrGeDNuymY@1854",
+              "yXrGeDNuymY@1860",
+              "yXrGeDNuymY@1861"
+            ]
+          },
+          {
+            "id": "ch05.s04.p01.06",
+            "text": "This correspondence is important because wherever the model has trainable parameters, the parameter dictionary includes matching keys.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1063",
+              "yXrGeDNuymY@1065",
+              "yXrGeDNuymY@1068"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s04.p02",
+        "sentences": [
+          {
+            "id": "ch05.s04.p02.01",
+            "text": "The first two keys mirror the way inputs enter GPT-2.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s04.p02.02",
+            "text": "Input token IDs are first converted into token embeddings using trainable parameters, then positional embeddings, which are also trainable parameters, are added to form the input embeddings passed to the Transformer block.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@906",
+              "yXrGeDNuymY@908",
+              "yXrGeDNuymY@910",
+              "yXrGeDNuymY@913",
+              "yXrGeDNuymY@914",
+              "yXrGeDNuymY@917",
+              "yXrGeDNuymY@919",
+              "yXrGeDNuymY@921",
+              "yXrGeDNuymY@922",
+              "yXrGeDNuymY@924",
+              "yXrGeDNuymY@926"
+            ]
+          },
+          {
+            "id": "ch05.s04.p02.03",
+            "text": "In the dictionary, \"wte\" corresponds to token embedding parameters and \"wpe\" corresponds to positional embedding parameters.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@929",
+              "yXrGeDNuymY@931",
+              "yXrGeDNuymY@932",
+              "yXrGeDNuymY@935"
+            ]
+          },
+          {
+            "id": "ch05.s04.p02.04",
+            "text": "The token embedding matrix has shape 50257 by 768 because the vocabulary size is 50257 and each token has a 768-dimensional vector.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1094",
+              "yXrGeDNuymY@1097",
+              "yXrGeDNuymY@1101",
+              "yXrGeDNuymY@1104",
+              "yXrGeDNuymY@1107"
+            ]
+          },
+          {
+            "id": "ch05.s04.p02.05",
+            "text": "For the smallest GPT-2 model considered here, the positional embedding matrix has one embedding for each of 1024 positions, and each embedding also has dimension 768.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1112",
+              "yXrGeDNuymY@1115",
+              "yXrGeDNuymY@1118",
+              "yXrGeDNuymY@1122",
+              "yXrGeDNuymY@1130",
+              "yXrGeDNuymY@1132",
+              "yXrGeDNuymY@1136",
+              "yXrGeDNuymY@1138",
+              "yXrGeDNuymY@1141"
+            ]
+          },
+          {
+            "id": "ch05.s04.p02.06",
+            "text": "Token embeddings and positional embeddings must have the same vector dimension so they can be added, which is why both use 768 here.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1141",
+              "yXrGeDNuymY@1143",
+              "yXrGeDNuymY@1145",
+              "yXrGeDNuymY@1146",
+              "yXrGeDNuymY@1149"
+            ]
+          },
+          {
+            "id": "ch05.s04.p02.07",
+            "text": "The \"wte\" key stores the token embedding matrix values, and the \"wpe\" key stores the positional embedding matrix values.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1152",
+              "yXrGeDNuymY@1156",
+              "yXrGeDNuymY@1158",
+              "yXrGeDNuymY@1161",
+              "yXrGeDNuymY@1163"
+            ]
+          },
+          {
+            "id": "ch05.s04.p02.08",
+            "text": "The dropout layer has no trainable weights, so it has no corresponding parameter-dictionary keys.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@938",
+              "yXrGeDNuymY@940",
+              "yXrGeDNuymY@942",
+              "yXrGeDNuymY@944"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s04.p03",
+        "sentences": [
+          {
+            "id": "ch05.s04.p03.01",
+            "text": "Most of the remaining parameters live inside the Transformer blocks.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s04.p03.02",
+            "text": "Within a Transformer block, trainable weights appear in the multi-head attention layer, the feed-forward neural network, the layer normalizations, and the output projection layer.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@947",
+              "yXrGeDNuymY@949",
+              "yXrGeDNuymY@951",
+              "yXrGeDNuymY@953",
+              "yXrGeDNuymY@967",
+              "yXrGeDNuymY@969",
+              "yXrGeDNuymY@1056",
+              "yXrGeDNuymY@1058",
+              "yXrGeDNuymY@1060"
+            ]
+          },
+          {
+            "id": "ch05.s04.p03.03",
+            "text": "The multi-head attention layer contains trainable query, key, and value weight matrices.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@953",
+              "yXrGeDNuymY@955",
+              "yXrGeDNuymY@957",
+              "yXrGeDNuymY@959",
+              "yXrGeDNuymY@962"
+            ]
+          },
+          {
+            "id": "ch05.s04.p03.04",
+            "text": "The feed-forward neural network has an input, a hidden layer with four times the input dimension, and a final output layer that projects back to the original size.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@969",
+              "yXrGeDNuymY@971",
+              "yXrGeDNuymY@974",
+              "yXrGeDNuymY@976",
+              "yXrGeDNuymY@978",
+              "yXrGeDNuymY@980",
+              "yXrGeDNuymY@982",
+              "yXrGeDNuymY@984"
+            ]
+          },
+          {
+            "id": "ch05.s04.p03.05",
+            "text": "In that feed-forward network, the first layer is a fully connected layer called \"fc\" and the second is an output projection layer called \"p\", and both have trainable weights.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@987",
+              "yXrGeDNuymY@991",
+              "yXrGeDNuymY@994",
+              "yXrGeDNuymY@997",
+              "yXrGeDNuymY@999",
+              "yXrGeDNuymY@1001"
+            ]
+          },
+          {
+            "id": "ch05.s04.p03.06",
+            "text": "Layer normalization here includes a trainable scale parameter and a trainable shift parameter in addition to subtracting the mean and dividing by the square root of the variance.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1018",
+              "yXrGeDNuymY@1021",
+              "yXrGeDNuymY@1023",
+              "yXrGeDNuymY@1025",
+              "yXrGeDNuymY@1027",
+              "yXrGeDNuymY@1029",
+              "yXrGeDNuymY@1031",
+              "yXrGeDNuymY@1033",
+              "yXrGeDNuymY@1036",
+              "yXrGeDNuymY@1039",
+              "yXrGeDNuymY@1041"
+            ]
+          },
+          {
+            "id": "ch05.s04.p03.07",
+            "text": "These trainable scale and shift parameters are said to make a big difference.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1044",
+              "yXrGeDNuymY@1046"
+            ]
+          },
+          {
+            "id": "ch05.s04.p03.08",
+            "text": "Layer normalization 1, layer normalization 2, and the final normalization layer all belong to the trainable-parameter category.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1049",
+              "yXrGeDNuymY@1051",
+              "yXrGeDNuymY@1053",
+              "yXrGeDNuymY@1056",
+              "yXrGeDNuymY@1058",
+              "yXrGeDNuymY@1060"
+            ]
+          },
+          {
+            "id": "ch05.s04.p03.09",
+            "text": "The top-level \"blocks\" key corresponds to all trainable weights and parameters inside the Transformer block, while top-level \"g\" and \"b\" correspond to the trainable parameters in the final layer normalization.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1072",
+              "yXrGeDNuymY@1075",
+              "yXrGeDNuymY@1077",
+              "yXrGeDNuymY@1079",
+              "yXrGeDNuymY@1082",
+              "yXrGeDNuymY@1084",
+              "yXrGeDNuymY@1086"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s04.p04",
+        "sentences": [
+          {
+            "id": "ch05.s04.p04.01",
+            "text": "Inside \"blocks\", the released GPT-2 checkpoint uses a repeated nested structure.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s04.p04.02",
+            "text": "GPT-2 has 12 Transformer blocks, so the same parameter structure is repeated from \"h0\" through \"h11\".",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1216",
+              "yXrGeDNuymY@1218",
+              "yXrGeDNuymY@1221",
+              "yXrGeDNuymY@1224",
+              "yXrGeDNuymY@1229",
+              "yXrGeDNuymY@1231",
+              "yXrGeDNuymY@1292",
+              "yXrGeDNuymY@1295",
+              "yXrGeDNuymY@1297"
+            ]
+          },
+          {
+            "id": "ch05.s04.p04.03",
+            "text": "For attention, GPT-2 releases the query, key, and value matrices fused into one large matrix, which must later be split into separate query, key, and value trainable matrices.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1178",
+              "yXrGeDNuymY@1180",
+              "yXrGeDNuymY@1183",
+              "yXrGeDNuymY@1186",
+              "yXrGeDNuymY@1189",
+              "yXrGeDNuymY@1192",
+              "yXrGeDNuymY@1195",
+              "yXrGeDNuymY@1197",
+              "yXrGeDNuymY@1198"
+            ]
+          },
+          {
+            "id": "ch05.s04.p04.04",
+            "text": "To access the fused attention weights for the first block, follow the nested keys \"blocks\", \"transformer\", \"h0\", \"atn\", \"c_atn\", and then the weights.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1209",
+              "yXrGeDNuymY@1211",
+              "yXrGeDNuymY@1213",
+              "yXrGeDNuymY@1216",
+              "yXrGeDNuymY@1233",
+              "yXrGeDNuymY@1249",
+              "yXrGeDNuymY@1251",
+              "yXrGeDNuymY@1254",
+              "yXrGeDNuymY@1258",
+              "yXrGeDNuymY@1261",
+              "yXrGeDNuymY@1263",
+              "yXrGeDNuymY@1268",
+              "yXrGeDNuymY@1272",
+              "yXrGeDNuymY@1276",
+              "yXrGeDNuymY@1278",
+              "yXrGeDNuymY@1280",
+              "yXrGeDNuymY@1282"
+            ]
+          },
+          {
+            "id": "ch05.s04.p04.05",
+            "text": "The same nested access pattern is used for the fused attention biases, and it is repeated for every block from \"h0\" to \"h11\".",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1283",
+              "yXrGeDNuymY@1286",
+              "yXrGeDNuymY@1290",
+              "yXrGeDNuymY@1292",
+              "yXrGeDNuymY@1295",
+              "yXrGeDNuymY@1297"
+            ]
+          },
+          {
+            "id": "ch05.s04.p04.06",
+            "text": "The feed-forward network inside each block has two layers, a fully connected layer and a projection layer, and both layers have weights and biases.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1321",
+              "yXrGeDNuymY@1325",
+              "yXrGeDNuymY@1326",
+              "yXrGeDNuymY@1328",
+              "yXrGeDNuymY@1330",
+              "yXrGeDNuymY@1332"
+            ]
+          },
+          {
+            "id": "ch05.s04.p04.07",
+            "text": "To access the fully connected layer for the first block, use the nested keys \"transformer\", \"h0\", \"mlp\", and then that layer's weights and biases.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1337",
+              "yXrGeDNuymY@1340",
+              "yXrGeDNuymY@1343",
+              "yXrGeDNuymY@1345",
+              "yXrGeDNuymY@1350",
+              "yXrGeDNuymY@1352",
+              "yXrGeDNuymY@1354",
+              "yXrGeDNuymY@1356"
+            ]
+          },
+          {
+            "id": "ch05.s04.p04.08",
+            "text": "To access the projection layer in the feed-forward network, use the \"c_proj\" key and then access its weights and biases.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1364",
+              "yXrGeDNuymY@1366",
+              "yXrGeDNuymY@1368",
+              "yXrGeDNuymY@1372",
+              "yXrGeDNuymY@1373"
+            ]
+          },
+          {
+            "id": "ch05.s04.p04.09",
+            "text": "The attention mechanism also has an output projection layer with associated weights.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1239",
+              "yXrGeDNuymY@1241",
+              "yXrGeDNuymY@1386",
+              "yXrGeDNuymY@1389",
+              "yXrGeDNuymY@1393",
+              "yXrGeDNuymY@1395"
+            ]
+          },
+          {
+            "id": "ch05.s04.p04.10",
+            "text": "To access that attention output projection layer, go through \"transformer\", \"hn\", and then \"atn\" \"c_proj\" to obtain the weights, and repeat this across all 12 blocks.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1397",
+              "yXrGeDNuymY@1401",
+              "yXrGeDNuymY@1403",
+              "yXrGeDNuymY@1406",
+              "yXrGeDNuymY@1409",
+              "yXrGeDNuymY@1410",
+              "yXrGeDNuymY@1413",
+              "yXrGeDNuymY@1415"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s04.p05",
+        "sentences": [
+          {
+            "id": "ch05.s04.p05.01",
+            "text": "The block structure also includes both layer normalizations.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s04.p05.02",
+            "text": "Each Transformer block has layer normalization 1 and layer normalization 2, and both have trainable scale and shift parameters.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1425",
+              "yXrGeDNuymY@1427",
+              "yXrGeDNuymY@1429",
+              "yXrGeDNuymY@1430",
+              "yXrGeDNuymY@1434",
+              "yXrGeDNuymY@1436"
+            ]
+          },
+          {
+            "id": "ch05.s04.p05.03",
+            "text": "To access the parameters of layer normalization 1 or layer normalization 2 inside a block, use that block's keys and then \"g\" for scale and \"b\" for shift.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1438",
+              "yXrGeDNuymY@1440",
+              "yXrGeDNuymY@1442",
+              "yXrGeDNuymY@1444",
+              "yXrGeDNuymY@1448",
+              "yXrGeDNuymY@1450",
+              "yXrGeDNuymY@1452",
+              "yXrGeDNuymY@1455",
+              "yXrGeDNuymY@1457",
+              "yXrGeDNuymY@1459",
+              "yXrGeDNuymY@1463",
+              "yXrGeDNuymY@1465"
+            ]
+          },
+          {
+            "id": "ch05.s04.p05.04",
+            "text": "Within the \"blocks\" dictionary, the stored parameters cover attention weights, feed-forward network weights, output projection weights, and layer normalization weights, which together account for all trainable parameters inside a Transformer block.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1476",
+              "yXrGeDNuymY@1479",
+              "yXrGeDNuymY@1481",
+              "yXrGeDNuymY@1483",
+              "yXrGeDNuymY@1485",
+              "yXrGeDNuymY@1487",
+              "yXrGeDNuymY@1489",
+              "yXrGeDNuymY@1491",
+              "yXrGeDNuymY@1492",
+              "yXrGeDNuymY@1494",
+              "yXrGeDNuymY@1496"
+            ]
+          },
+          {
+            "id": "ch05.s04.p05.05",
+            "text": "Outside the blocks, the final layer normalization has separate top-level keys, with \"g\" for scale and \"b\" for shift.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1503",
+              "yXrGeDNuymY@1505",
+              "yXrGeDNuymY@1511",
+              "yXrGeDNuymY@1513",
+              "yXrGeDNuymY@1515",
+              "yXrGeDNuymY@1520",
+              "yXrGeDNuymY@1521",
+              "yXrGeDNuymY@1523",
+              "yXrGeDNuymY@1525",
+              "yXrGeDNuymY@1527"
+            ]
+          },
+          {
+            "id": "ch05.s04.p05.06",
+            "text": "Using \"params\" with key \"b\" returns the final normalization shift parameters, and using \"params\" with key \"g\" returns the final normalization scale parameters.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1529",
+              "yXrGeDNuymY@1532",
+              "yXrGeDNuymY@1535",
+              "yXrGeDNuymY@1539",
+              "yXrGeDNuymY@1543"
+            ]
+          },
+          {
+            "id": "ch05.s04.p05.07",
+            "text": "To access attention weights from the parameter dictionary in code, use \"params\", then \"blocks\", then the block number, then \"atn\", then \"c_atn\", and then \"w\".",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1543",
+              "yXrGeDNuymY@1546",
+              "yXrGeDNuymY@1547",
+              "yXrGeDNuymY@1549",
+              "yXrGeDNuymY@1554",
+              "yXrGeDNuymY@1556",
+              "yXrGeDNuymY@1559",
+              "yXrGeDNuymY@1562",
+              "yXrGeDNuymY@1563",
+              "yXrGeDNuymY@1567",
+              "yXrGeDNuymY@1570",
+              "yXrGeDNuymY@1572"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s04.p06",
+        "sentences": [
+          {
+            "id": "ch05.s04.p06.01",
+            "text": "The loading function builds this structure explicitly.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s04.p06.02",
+            "text": "It begins by defining an empty \"params\" dictionary, creating the \"blocks\" key, and filling it with the attention layers, feed-forward network, and output projection parameters taken from the checkpoint and placed into the appropriate dictionary locations.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1598",
+              "yXrGeDNuymY@1600",
+              "yXrGeDNuymY@1602",
+              "yXrGeDNuymY@1604",
+              "yXrGeDNuymY@1606",
+              "yXrGeDNuymY@1608",
+              "yXrGeDNuymY@1610",
+              "yXrGeDNuymY@1613",
+              "yXrGeDNuymY@1614",
+              "yXrGeDNuymY@1616"
+            ]
+          },
+          {
+            "id": "ch05.s04.p06.03",
+            "text": "The code then augments \"params\" with the other keys \"wte\", \"wpe\", \"g\", and \"b\" from the checkpoint data.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1628",
+              "yXrGeDNuymY@1631",
+              "yXrGeDNuymY@1634",
+              "yXrGeDNuymY@1638",
+              "yXrGeDNuymY@1640"
+            ]
+          },
+          {
+            "id": "ch05.s04.p06.04",
+            "text": "After the loading code runs, you can inspect the settings dictionary and the parameter dictionary keys instead of printing all parameter values.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1825",
+              "yXrGeDNuymY@1827",
+              "yXrGeDNuymY@1829",
+              "yXrGeDNuymY@1831",
+              "yXrGeDNuymY@1886",
+              "yXrGeDNuymY@1888",
+              "yXrGeDNuymY@1891",
+              "yXrGeDNuymY@1892",
+              "yXrGeDNuymY@1894"
+            ]
+          },
+          {
+            "id": "ch05.s04.p06.05",
+            "text": "The \"wte\" entry can then be inspected directly, and it is the token embedding matrix with shape 50257 by 768, matching the expected dimensions.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1897",
+              "yXrGeDNuymY@1899",
+              "yXrGeDNuymY@1903",
+              "yXrGeDNuymY@1905",
+              "yXrGeDNuymY@1907",
+              "yXrGeDNuymY@1913",
+              "yXrGeDNuymY@1915",
+              "yXrGeDNuymY@1918",
+              "yXrGeDNuymY@1921",
+              "yXrGeDNuymY@1923"
+            ]
+          },
+          {
+            "id": "ch05.s04.p06.06",
+            "text": "Those token embedding values are optimized values, so each embedding dimension encodes some semantic meaning.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1923",
+              "yXrGeDNuymY@1927",
+              "yXrGeDNuymY@1929",
+              "yXrGeDNuymY@1931",
+              "yXrGeDNuymY@1934"
+            ]
+          },
+          {
+            "id": "ch05.s04.p06.07",
+            "text": "Understanding the released weight format and how to convert it into the parameter dictionary matters for research work with large language models.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1681",
+              "yXrGeDNuymY@1683",
+              "yXrGeDNuymY@1685",
+              "yXrGeDNuymY@1686",
+              "yXrGeDNuymY@1692",
+              "yXrGeDNuymY@1694",
+              "yXrGeDNuymY@1696",
+              "yXrGeDNuymY@1698",
+              "yXrGeDNuymY@1700",
+              "yXrGeDNuymY@1703",
+              "yXrGeDNuymY@1705"
+            ]
+          },
+          {
+            "id": "ch05.s04.p06.08",
+            "text": "At this point, the GPT-2 architecture and its parameters have been loaded onto the laptop, and the parameters appear to be loaded correctly.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1869",
+              "yXrGeDNuymY@1871",
+              "yXrGeDNuymY@1875",
+              "yXrGeDNuymY@1879",
+              "yXrGeDNuymY@1881",
+              "yXrGeDNuymY@1883"
+            ]
+          }
+        ]
+      }
+    ],
+    "invalid_citation_sentences": 0
+  }
+}

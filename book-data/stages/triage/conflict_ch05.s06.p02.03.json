@@ -1,0 +1,13 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch05.s06.p02.03",
+  "inputs_hash": "bc6888b52d76f49059e5f02c63e580550fcc7d41ebdd1fdfc322637e90891c2a",
+  "output_hash": "c286b7e47eabc0080aab301bd8c8b994c9db937a2ab057a029d4d0663ddc43cf",
+  "output": {
+    "decision": "keep",
+    "reason": "The sentence reports a lecture-specific exploratory setting (temperature 10) and does not materially conflict with the reference, which uses different example values.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "a50961ac0eead763f3110b6fe60b74897825c86d564007003e6bda1c7d04ef01"
+  }
+}

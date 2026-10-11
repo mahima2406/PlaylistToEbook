@@ -1,0 +1,13 @@
+{
+  "stage": "triage",
+  "item": "ch05.s12.p04.r01",
+  "inputs_hash": "7a35ee9554f6d16801034e241df1dac844adc042c512cd1c98b4b292beedec01",
+  "output_hash": "a0e05d24055fbde1a4b3e3708621f7451703372e20eea303a2e25c36e919f28f",
+  "output": {
+    "decision": "remove",
+    "reason": "No cited captions are provided to support this summary sentence, and the paragraph remains coherent without it.",
+    "risk": "high",
+    "kind": "queue",
+    "sentence_hash": "47645925cfc7955e7cb427a6868a1f71ef50d072f126a8c657e28ce1541549fe"
+  }
+}

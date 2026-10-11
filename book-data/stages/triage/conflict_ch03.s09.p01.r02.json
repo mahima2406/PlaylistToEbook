@@ -1,0 +1,14 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch03.s09.p01.r02",
+  "inputs_hash": "ab1da757e466ba78536c0e8885e813d4c0e4f44fd5a8a9e85d12cf00421c54d7",
+  "output_hash": "f5277c9a20b2dd7faa1fbe6490840f0c3ce6f0bdb72fac1555d667208b025681",
+  "output": {
+    "decision": "note",
+    "note": "Earlier, this uses the intuitive per-head implementation; the stand-alone MultiHeadAttention later uses one query, key, and value matrix and then splits into heads.",
+    "reason": "The cited captions support the sentence for the earlier intuitive implementation, while the reference describes a different, more efficient variant.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "5515d66e8c386be5169a939a76cd240e7e3b2a8eb5213d6f4acc4d0f2642577f"
+  }
+}

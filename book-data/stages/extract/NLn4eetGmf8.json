@@ -1,0 +1,1883 @@
+{
+  "stage": "extract",
+  "item": "NLn4eetGmf8",
+  "inputs_hash": "b0fc40fbf19f126e3f84e411cc827715cd21fecd8be29d9d0c955abfcc0fa767",
+  "output_hash": "2772df1791ba2cb8ef8ac60757e15689af06706d814bac0369360cb4458e9d26",
+  "output": {
+    "video_id": "NLn4eetGmf8",
+    "points": [
+      {
+        "id": "NLn4eetGmf8:p001",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 1,
+        "text": "This lecture gives a basic introduction to transformers without going into their mathematical or coding details.",
+        "line_ids": [
+          "NLn4eetGmf8@66",
+          "NLn4eetGmf8@69",
+          "NLn4eetGmf8@71",
+          "NLn4eetGmf8@73",
+          "NLn4eetGmf8@76",
+          "NLn4eetGmf8@79"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p002",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 2,
+        "text": "People often use the terms large language models and transformers interchangeably, and the lecture examines when that is appropriate.",
+        "line_ids": [
+          "NLn4eetGmf8@96",
+          "NLn4eetGmf8@99",
+          "NLn4eetGmf8@101",
+          "NLn4eetGmf8@102",
+          "NLn4eetGmf8@104",
+          "NLn4eetGmf8@106",
+          "NLn4eetGmf8@108"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p003",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Most modern large language models rely on the transformer architecture.",
+        "line_ids": [
+          "NLn4eetGmf8@127",
+          "NLn4eetGmf8@130",
+          "NLn4eetGmf8@133",
+          "NLn4eetGmf8@136",
+          "NLn4eetGmf8@139",
+          "NLn4eetGmf8@141",
+          "NLn4eetGmf8@144",
+          "NLn4eetGmf8@146"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p004",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "definition",
+        "importance": 3,
+        "text": "A transformer architecture is a deep neural network architecture introduced in the 2017 paper \"Attention Is All You Need.\"",
+        "line_ids": [
+          "NLn4eetGmf8@147",
+          "NLn4eetGmf8@149",
+          "NLn4eetGmf8@152",
+          "NLn4eetGmf8@154",
+          "NLn4eetGmf8@157",
+          "NLn4eetGmf8@159",
+          "NLn4eetGmf8@161"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p005",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The paper \"Attention Is All You Need\" has more than 100,000 citations in six to seven years because it led to many later breakthroughs.",
+        "line_ids": [
+          "NLn4eetGmf8@164",
+          "NLn4eetGmf8@166",
+          "NLn4eetGmf8@169",
+          "NLn4eetGmf8@171",
+          "NLn4eetGmf8@174",
+          "NLn4eetGmf8@175",
+          "NLn4eetGmf8@178",
+          "NLn4eetGmf8@181",
+          "NLn4eetGmf8@185",
+          "NLn4eetGmf8@187"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p006",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The GPT architecture that underlies ChatGPT originated from the ideas in \"Attention Is All You Need,\" although GPT is not exactly the same as the original transformer architecture.",
+        "line_ids": [
+          "NLn4eetGmf8@187",
+          "NLn4eetGmf8@189",
+          "NLn4eetGmf8@191",
+          "NLn4eetGmf8@194",
+          "NLn4eetGmf8@197",
+          "NLn4eetGmf8@199",
+          "NLn4eetGmf8@201",
+          "NLn4eetGmf8@204"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p007",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "definition",
+        "importance": 2,
+        "text": "Attention is a technical term in this context.",
+        "line_ids": [
+          "NLn4eetGmf8@217",
+          "NLn4eetGmf8@219",
+          "NLn4eetGmf8@222"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p008",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The original transformer paper proposed a neural network architecture whose full details are substantial enough that each aspect would need separate lectures.",
+        "line_ids": [
+          "NLn4eetGmf8@237",
+          "NLn4eetGmf8@238",
+          "NLn4eetGmf8@241",
+          "NLn4eetGmf8@243",
+          "NLn4eetGmf8@245",
+          "NLn4eetGmf8@247",
+          "NLn4eetGmf8@249",
+          "NLn4eetGmf8@251",
+          "NLn4eetGmf8@252",
+          "NLn4eetGmf8@255",
+          "NLn4eetGmf8@256",
+          "NLn4eetGmf8@260",
+          "NLn4eetGmf8@261",
+          "NLn4eetGmf8@263",
+          "NLn4eetGmf8@266"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p009",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The original transformer was proposed for machine translation rather than text completion.",
+        "line_ids": [
+          "NLn4eetGmf8@274",
+          "NLn4eetGmf8@276",
+          "NLn4eetGmf8@278",
+          "NLn4eetGmf8@281",
+          "NLn4eetGmf8@284",
+          "NLn4eetGmf8@286",
+          "NLn4eetGmf8@289",
+          "NLn4eetGmf8@292"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p010",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The original transformer was developed especially to translate English text into German and French.",
+        "line_ids": [
+          "NLn4eetGmf8@318",
+          "NLn4eetGmf8@321",
+          "NLn4eetGmf8@324",
+          "NLn4eetGmf8@326",
+          "NLn4eetGmf8@328",
+          "NLn4eetGmf8@332"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p011",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "visual_ref",
+        "importance": 2,
+        "text": "A simplified transformer schematic is shown as eight steps, and understanding these eight steps gives the intuition of the transformer architecture.",
+        "line_ids": [
+          "NLn4eetGmf8@362",
+          "NLn4eetGmf8@364",
+          "NLn4eetGmf8@367",
+          "NLn4eetGmf8@368",
+          "NLn4eetGmf8@370",
+          "NLn4eetGmf8@372",
+          "NLn4eetGmf8@376",
+          "NLn4eetGmf8@378",
+          "NLn4eetGmf8@380",
+          "NLn4eetGmf8@382"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p012",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "visual_ref",
+        "importance": 2,
+        "text": "In the example shown, the transformer takes English input text and after eight steps converts it into German.",
+        "line_ids": [
+          "NLn4eetGmf8@386",
+          "NLn4eetGmf8@389",
+          "NLn4eetGmf8@391",
+          "NLn4eetGmf8@394",
+          "NLn4eetGmf8@396",
+          "NLn4eetGmf8@400",
+          "NLn4eetGmf8@402",
+          "NLn4eetGmf8@405",
+          "NLn4eetGmf8@407",
+          "NLn4eetGmf8@410",
+          "NLn4eetGmf8@413",
+          "NLn4eetGmf8@414",
+          "NLn4eetGmf8@417"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p013",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Tokenization is a preprocessing step in which a sentence is broken down into simpler words or tokens because the entire sentence cannot be fed into the model directly.",
+        "line_ids": [
+          "NLn4eetGmf8@421",
+          "NLn4eetGmf8@423",
+          "NLn4eetGmf8@425",
+          "NLn4eetGmf8@428",
+          "NLn4eetGmf8@430",
+          "NLn4eetGmf8@432",
+          "NLn4eetGmf8@435",
+          "NLn4eetGmf8@438",
+          "NLn4eetGmf8@440",
+          "NLn4eetGmf8@443",
+          "NLn4eetGmf8@446",
+          "NLn4eetGmf8@448",
+          "NLn4eetGmf8@450",
+          "NLn4eetGmf8@452",
+          "NLn4eetGmf8@454",
+          "NLn4eetGmf8@456",
+          "NLn4eetGmf8@458",
+          "NLn4eetGmf8@461",
+          "NLn4eetGmf8@463",
+          "NLn4eetGmf8@467",
+          "NLn4eetGmf8@468"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p014",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 2,
+        "text": "For simplicity, one can think of tokenization as breaking a sentence into individual words, although one word is generally not equal to one token.",
+        "line_ids": [
+          "NLn4eetGmf8@470",
+          "NLn4eetGmf8@474",
+          "NLn4eetGmf8@477",
+          "NLn4eetGmf8@480",
+          "NLn4eetGmf8@482",
+          "NLn4eetGmf8@484",
+          "NLn4eetGmf8@487"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p015",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "Tokenization can be understood as breaking a sentence into individual words and assigning a unique numerical ID to each token.",
+        "line_ids": [
+          "NLn4eetGmf8@489",
+          "NLn4eetGmf8@491",
+          "NLn4eetGmf8@493",
+          "NLn4eetGmf8@496",
+          "NLn4eetGmf8@499",
+          "NLn4eetGmf8@503",
+          "NLn4eetGmf8@506",
+          "NLn4eetGmf8@508",
+          "NLn4eetGmf8@511",
+          "NLn4eetGmf8@513",
+          "NLn4eetGmf8@517",
+          "NLn4eetGmf8@519"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p016",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In preprocessing, data such as Reddit posts or Wikipedia text is typically broken into words or subwords collected from each sentence in the dataset.",
+        "line_ids": [
+          "NLn4eetGmf8@521",
+          "NLn4eetGmf8@524",
+          "NLn4eetGmf8@526",
+          "NLn4eetGmf8@530",
+          "NLn4eetGmf8@533",
+          "NLn4eetGmf8@536"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p017",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The encoder is one of the most important building blocks of the transformer architecture.",
+        "line_ids": [
+          "NLn4eetGmf8@540",
+          "NLn4eetGmf8@543",
+          "NLn4eetGmf8@545"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p018",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The encoder takes preprocessed tokens and performs vector embedding.",
+        "line_ids": [
+          "NLn4eetGmf8@547",
+          "NLn4eetGmf8@551",
+          "NLn4eetGmf8@552",
+          "NLn4eetGmf8@556",
+          "NLn4eetGmf8@558",
+          "NLn4eetGmf8@567",
+          "NLn4eetGmf8@570",
+          "NLn4eetGmf8@573",
+          "NLn4eetGmf8@576"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p019",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Numerical token IDs alone do not capture semantic relationships between words.",
+        "line_ids": [
+          "NLn4eetGmf8@576",
+          "NLn4eetGmf8@578",
+          "NLn4eetGmf8@580",
+          "NLn4eetGmf8@583",
+          "NLn4eetGmf8@586",
+          "NLn4eetGmf8@589",
+          "NLn4eetGmf8@592"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p020",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "If tokenization assigns random IDs to words like \"dog\" and \"puppy,\" those IDs do not express that the words are related.",
+        "line_ids": [
+          "NLn4eetGmf8@594",
+          "NLn4eetGmf8@596",
+          "NLn4eetGmf8@599",
+          "NLn4eetGmf8@601",
+          "NLn4eetGmf8@603",
+          "NLn4eetGmf8@606",
+          "NLn4eetGmf8@609"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p021",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Vector embedding is a way of representing tokens so that semantic meaning between words is captured.",
+        "line_ids": [
+          "NLn4eetGmf8@612",
+          "NLn4eetGmf8@615",
+          "NLn4eetGmf8@617",
+          "NLn4eetGmf8@620",
+          "NLn4eetGmf8@623",
+          "NLn4eetGmf8@625"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p022",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "definition",
+        "importance": 3,
+        "text": "In vector embedding, words are converted into vectorized representations.",
+        "line_ids": [
+          "NLn4eetGmf8@625",
+          "NLn4eetGmf8@627",
+          "NLn4eetGmf8@629",
+          "NLn4eetGmf8@631"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p023",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "In an embedding space, related words such as \"king,\" \"man,\" and \"woman,\" fruits like \"apple,\" \"banana,\" and \"orange,\" and sports like \"football,\" \"golf,\" and \"tennis\" are placed closer together.",
+        "line_ids": [
+          "NLn4eetGmf8@637",
+          "NLn4eetGmf8@640",
+          "NLn4eetGmf8@643",
+          "NLn4eetGmf8@646",
+          "NLn4eetGmf8@648",
+          "NLn4eetGmf8@650",
+          "NLn4eetGmf8@652",
+          "NLn4eetGmf8@655",
+          "NLn4eetGmf8@657",
+          "NLn4eetGmf8@660",
+          "NLn4eetGmf8@662",
+          "NLn4eetGmf8@664",
+          "NLn4eetGmf8@667",
+          "NLn4eetGmf8@669",
+          "NLn4eetGmf8@672",
+          "NLn4eetGmf8@674",
+          "NLn4eetGmf8@676",
+          "NLn4eetGmf8@679",
+          "NLn4eetGmf8@682",
+          "NLn4eetGmf8@685",
+          "NLn4eetGmf8@687",
+          "NLn4eetGmf8@689",
+          "NLn4eetGmf8@691",
+          "NLn4eetGmf8@693",
+          "NLn4eetGmf8@696",
+          "NLn4eetGmf8@697"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p024",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Creating useful vector embeddings is difficult, and neural networks are trained for this embedding step so that semantically related words are closer than unrelated ones.",
+        "line_ids": [
+          "NLn4eetGmf8@701",
+          "NLn4eetGmf8@702",
+          "NLn4eetGmf8@705",
+          "NLn4eetGmf8@708",
+          "NLn4eetGmf8@710",
+          "NLn4eetGmf8@712",
+          "NLn4eetGmf8@715",
+          "NLn4eetGmf8@717",
+          "NLn4eetGmf8@719",
+          "NLn4eetGmf8@722"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p025",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The main purpose of the encoder is to take input tokens and convert them into vector embeddings.",
+        "line_ids": [
+          "NLn4eetGmf8@725",
+          "NLn4eetGmf8@727",
+          "NLn4eetGmf8@730",
+          "NLn4eetGmf8@733",
+          "NLn4eetGmf8@736"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p026",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "On the left side of the transformer architecture, the goal is to convert text data into vector embeddings in a high-dimensional space so that semantic meaning is captured between words.",
+        "line_ids": [
+          "NLn4eetGmf8@736",
+          "NLn4eetGmf8@738",
+          "NLn4eetGmf8@741",
+          "NLn4eetGmf8@744",
+          "NLn4eetGmf8@746",
+          "NLn4eetGmf8@749",
+          "NLn4eetGmf8@751",
+          "NLn4eetGmf8@753",
+          "NLn4eetGmf8@755",
+          "NLn4eetGmf8@757",
+          "NLn4eetGmf8@760",
+          "NLn4eetGmf8@762",
+          "NLn4eetGmf8@765",
+          "NLn4eetGmf8@768",
+          "NLn4eetGmf8@770",
+          "NLn4eetGmf8@773",
+          "NLn4eetGmf8@775"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p027",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "visual_ref",
+        "importance": 2,
+        "text": "The lecture shows examples in which text is converted to token IDs and then to three-dimensional vector representations by an embedding model.",
+        "line_ids": [
+          "NLn4eetGmf8@780",
+          "NLn4eetGmf8@782",
+          "NLn4eetGmf8@784",
+          "NLn4eetGmf8@786",
+          "NLn4eetGmf8@789",
+          "NLn4eetGmf8@791",
+          "NLn4eetGmf8@792",
+          "NLn4eetGmf8@794",
+          "NLn4eetGmf8@797",
+          "NLn4eetGmf8@799",
+          "NLn4eetGmf8@802",
+          "NLn4eetGmf8@805",
+          "NLn4eetGmf8@808"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p028",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The first four steps on the left side of the transformer architecture take input sentences and convert them into vector embeddings that capture semantic meaning.",
+        "line_ids": [
+          "NLn4eetGmf8@811",
+          "NLn4eetGmf8@813",
+          "NLn4eetGmf8@815",
+          "NLn4eetGmf8@818",
+          "NLn4eetGmf8@821",
+          "NLn4eetGmf8@823",
+          "NLn4eetGmf8@826",
+          "NLn4eetGmf8@828"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p029",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "These embeddings are then fed into the decoder on the right-hand side of the transformer architecture.",
+        "line_ids": [
+          "NLn4eetGmf8@831",
+          "NLn4eetGmf8@833",
+          "NLn4eetGmf8@836",
+          "NLn4eetGmf8@838"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p030",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The model generates its output one word at a time.",
+        "line_ids": [
+          "NLn4eetGmf8@850",
+          "NLn4eetGmf8@852",
+          "NLn4eetGmf8@856",
+          "NLn4eetGmf8@875",
+          "NLn4eetGmf8@878",
+          "NLn4eetGmf8@881",
+          "NLn4eetGmf8@893",
+          "NLn4eetGmf8@895",
+          "NLn4eetGmf8@898",
+          "NLn4eetGmf8@900"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p031",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "During decoding, the model has access to the partial output text that it has already generated.",
+        "line_ids": [
+          "NLn4eetGmf8@862",
+          "NLn4eetGmf8@865",
+          "NLn4eetGmf8@868",
+          "NLn4eetGmf8@870",
+          "NLn4eetGmf8@872",
+          "NLn4eetGmf8@875",
+          "NLn4eetGmf8@878",
+          "NLn4eetGmf8@881",
+          "NLn4eetGmf8@883",
+          "NLn4eetGmf8@885",
+          "NLn4eetGmf8@888",
+          "NLn4eetGmf8@891",
+          "NLn4eetGmf8@900",
+          "NLn4eetGmf8@903",
+          "NLn4eetGmf8@906"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p032",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The decoder receives the vector embeddings and the partial output text, and it predicts the next word based on this information.",
+        "line_ids": [
+          "NLn4eetGmf8@928",
+          "NLn4eetGmf8@931",
+          "NLn4eetGmf8@933",
+          "NLn4eetGmf8@938",
+          "NLn4eetGmf8@942",
+          "NLn4eetGmf8@945",
+          "NLn4eetGmf8@948"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p033",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The decoder generates the translated text one word at a time until the final output is produced.",
+        "line_ids": [
+          "NLn4eetGmf8@982",
+          "NLn4eetGmf8@985",
+          "NLn4eetGmf8@988",
+          "NLn4eetGmf8@989",
+          "NLn4eetGmf8@991",
+          "NLn4eetGmf8@993",
+          "NLn4eetGmf8@996",
+          "NLn4eetGmf8@999"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p034",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 2,
+        "text": "A transformer can be thought of as a neural network that is trained with a loss function and optimized parameters, including feed-forward layers with weights and parameters.",
+        "line_ids": [
+          "NLn4eetGmf8@1003",
+          "NLn4eetGmf8@1006",
+          "NLn4eetGmf8@1008",
+          "NLn4eetGmf8@1010",
+          "NLn4eetGmf8@1011",
+          "NLn4eetGmf8@1013",
+          "NLn4eetGmf8@1015",
+          "NLn4eetGmf8@1017",
+          "NLn4eetGmf8@1019",
+          "NLn4eetGmf8@1022",
+          "NLn4eetGmf8@1025",
+          "NLn4eetGmf8@1029",
+          "NLn4eetGmf8@1031",
+          "NLn4eetGmf8@1033",
+          "NLn4eetGmf8@1035",
+          "NLn4eetGmf8@1037"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p035",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In the simplified transformer workflow, the input text is first taken, then pre-processed into tokens with token IDs, and those token IDs are passed into the encoder to be converted into embeddings.",
+        "line_ids": [
+          "NLn4eetGmf8@1058",
+          "NLn4eetGmf8@1061",
+          "NLn4eetGmf8@1063",
+          "NLn4eetGmf8@1066",
+          "NLn4eetGmf8@1069",
+          "NLn4eetGmf8@1072",
+          "NLn4eetGmf8@1075",
+          "NLn4eetGmf8@1077",
+          "NLn4eetGmf8@1080",
+          "NLn4eetGmf8@1082"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p036",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Embeddings project words into a high-dimensional vector space in a way that captures semantic relationships between words.",
+        "line_ids": [
+          "NLn4eetGmf8@1082",
+          "NLn4eetGmf8@1085",
+          "NLn4eetGmf8@1087",
+          "NLn4eetGmf8@1089",
+          "NLn4eetGmf8@1092",
+          "NLn4eetGmf8@1094",
+          "NLn4eetGmf8@1096"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p037",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "For decoding, the decoder receives both the vector embedding and the partial output text, and it is trained to predict the next output word.",
+        "line_ids": [
+          "NLn4eetGmf8@1099",
+          "NLn4eetGmf8@1102",
+          "NLn4eetGmf8@1104",
+          "NLn4eetGmf8@1107",
+          "NLn4eetGmf8@1111",
+          "NLn4eetGmf8@1114",
+          "NLn4eetGmf8@1117",
+          "NLn4eetGmf8@1119",
+          "NLn4eetGmf8@1122",
+          "NLn4eetGmf8@1125",
+          "NLn4eetGmf8@1127",
+          "NLn4eetGmf8@1129",
+          "NLn4eetGmf8@1131"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p038",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The simplified explanation is meant only as an introductory view, because attention has not yet been covered and the full transformer architecture is more complicated.",
+        "line_ids": [
+          "NLn4eetGmf8@1140",
+          "NLn4eetGmf8@1144",
+          "NLn4eetGmf8@1145",
+          "NLn4eetGmf8@1147",
+          "NLn4eetGmf8@1150",
+          "NLn4eetGmf8@1151",
+          "NLn4eetGmf8@1153",
+          "NLn4eetGmf8@1156",
+          "NLn4eetGmf8@1158",
+          "NLn4eetGmf8@1160",
+          "NLn4eetGmf8@1172",
+          "NLn4eetGmf8@1174",
+          "NLn4eetGmf8@1177",
+          "NLn4eetGmf8@1179"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p039",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "definition",
+        "importance": 3,
+        "text": "A transformer architecture predominantly consists of two main blocks: an encoder block and a decoder block.",
+        "line_ids": [
+          "NLn4eetGmf8@1199",
+          "NLn4eetGmf8@1202",
+          "NLn4eetGmf8@1205",
+          "NLn4eetGmf8@1208",
+          "NLn4eetGmf8@1210"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p040",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The main purpose of the encoder is to convert input text into embedding vectors, and the main purpose of the decoder is to generate output text from the embedding vectors and the partial output it has received.",
+        "line_ids": [
+          "NLn4eetGmf8@1218",
+          "NLn4eetGmf8@1221",
+          "NLn4eetGmf8@1223",
+          "NLn4eetGmf8@1225",
+          "NLn4eetGmf8@1228",
+          "NLn4eetGmf8@1231"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p041",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The original transformer has both an encoder and a decoder, whereas GPT uses only the decoder and not the encoder.",
+        "line_ids": [
+          "NLn4eetGmf8@1234",
+          "NLn4eetGmf8@1237",
+          "NLn4eetGmf8@1239",
+          "NLn4eetGmf8@1241",
+          "NLn4eetGmf8@1243",
+          "NLn4eetGmf8@1245",
+          "NLn4eetGmf8@1247",
+          "NLn4eetGmf8@1250",
+          "NLn4eetGmf8@1252",
+          "NLn4eetGmf8@1253"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p042",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Self-attention is a key part of the transformer architecture.",
+        "line_ids": [
+          "NLn4eetGmf8@1256",
+          "NLn4eetGmf8@1259",
+          "NLn4eetGmf8@1261",
+          "NLn4eetGmf8@1264"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p043",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Attention mechanisms allow modeling dependencies in sequences without regard to how far apart the related words are.",
+        "line_ids": [
+          "NLn4eetGmf8@1276",
+          "NLn4eetGmf8@1280",
+          "NLn4eetGmf8@1282",
+          "NLn4eetGmf8@1284",
+          "NLn4eetGmf8@1286",
+          "NLn4eetGmf8@1288",
+          "NLn4eetGmf8@1293",
+          "NLn4eetGmf8@1295",
+          "NLn4eetGmf8@1297",
+          "NLn4eetGmf8@1299",
+          "NLn4eetGmf8@1302"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p044",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Self-attention relates different positions within a single sequence in order to compute a representation of that sequence.",
+        "line_ids": [
+          "NLn4eetGmf8@1305",
+          "NLn4eetGmf8@1309",
+          "NLn4eetGmf8@1311",
+          "NLn4eetGmf8@1314",
+          "NLn4eetGmf8@1316"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p045",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Attention allows the model to weigh the importance of different words or tokens relative to each other.",
+        "line_ids": [
+          "NLn4eetGmf8@1324",
+          "NLn4eetGmf8@1326",
+          "NLn4eetGmf8@1329",
+          "NLn4eetGmf8@1332",
+          "NLn4eetGmf8@1334"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p046",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "To predict the next word in a later sentence, the model may need context from earlier sentences, such as whether words like Harry, platform, or train deserve more attention.",
+        "line_ids": [
+          "NLn4eetGmf8@1337",
+          "NLn4eetGmf8@1340",
+          "NLn4eetGmf8@1342",
+          "NLn4eetGmf8@1344",
+          "NLn4eetGmf8@1346",
+          "NLn4eetGmf8@1348",
+          "NLn4eetGmf8@1350",
+          "NLn4eetGmf8@1353",
+          "NLn4eetGmf8@1355",
+          "NLn4eetGmf8@1358",
+          "NLn4eetGmf8@1360",
+          "NLn4eetGmf8@1362",
+          "NLn4eetGmf8@1365",
+          "NLn4eetGmf8@1367",
+          "NLn4eetGmf8@1370",
+          "NLn4eetGmf8@1373",
+          "NLn4eetGmf8@1376",
+          "NLn4eetGmf8@1377",
+          "NLn4eetGmf8@1380",
+          "NLn4eetGmf8@1382",
+          "NLn4eetGmf8@1385",
+          "NLn4eetGmf8@1387",
+          "NLn4eetGmf8@1388",
+          "NLn4eetGmf8@1391",
+          "NLn4eetGmf8@1393"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p047",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Long-range dependencies mean that when predicting the next word, the model needs to use important words from much earlier in the sequence.",
+        "line_ids": [
+          "NLn4eetGmf8@1370",
+          "NLn4eetGmf8@1373",
+          "NLn4eetGmf8@1376",
+          "NLn4eetGmf8@1377",
+          "NLn4eetGmf8@1380",
+          "NLn4eetGmf8@1382",
+          "NLn4eetGmf8@1397",
+          "NLn4eetGmf8@1399",
+          "NLn4eetGmf8@1401",
+          "NLn4eetGmf8@1404",
+          "NLn4eetGmf8@1406"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p048",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Self-attention maintains an attention score that indicates which words should receive more attention when predicting the next word.",
+        "line_ids": [
+          "NLn4eetGmf8@1418",
+          "NLn4eetGmf8@1421",
+          "NLn4eetGmf8@1423",
+          "NLn4eetGmf8@1425",
+          "NLn4eetGmf8@1428",
+          "NLn4eetGmf8@1429"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p049",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "visual_ref",
+        "importance": 2,
+        "text": "The transformer schematic includes attention blocks such as masked multi-head attention and multi-head attention.",
+        "line_ids": [
+          "NLn4eetGmf8@1438",
+          "NLn4eetGmf8@1441",
+          "NLn4eetGmf8@1443",
+          "NLn4eetGmf8@1445",
+          "NLn4eetGmf8@1447"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p050",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Attention blocks help capture long-range dependencies in sentences, which is why the paper is called \"Attention Is All You Need.\"",
+        "line_ids": [
+          "NLn4eetGmf8@1447",
+          "NLn4eetGmf8@1450",
+          "NLn4eetGmf8@1452",
+          "NLn4eetGmf8@1455",
+          "NLn4eetGmf8@1456",
+          "NLn4eetGmf8@1458",
+          "NLn4eetGmf8@1461",
+          "NLn4eetGmf8@1464"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p051",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The attention score is a matrix that tells the model which words should be given more importance relative to other words.",
+        "line_ids": [
+          "NLn4eetGmf8@1466",
+          "NLn4eetGmf8@1469",
+          "NLn4eetGmf8@1471",
+          "NLn4eetGmf8@1472",
+          "NLn4eetGmf8@1475"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p052",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "Humans naturally keep previous context in mind while reading, and self-attention gives a model a way to capture that long-range context for accurate next-word prediction.",
+        "line_ids": [
+          "NLn4eetGmf8@1486",
+          "NLn4eetGmf8@1489",
+          "NLn4eetGmf8@1493",
+          "NLn4eetGmf8@1495",
+          "NLn4eetGmf8@1497",
+          "NLn4eetGmf8@1498",
+          "NLn4eetGmf8@1501",
+          "NLn4eetGmf8@1504",
+          "NLn4eetGmf8@1506",
+          "NLn4eetGmf8@1508",
+          "NLn4eetGmf8@1511",
+          "NLn4eetGmf8@1513"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p053",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In ChatGPT, the model gives attention to all the sentences in the input rather than only the immediately previous sentence, because earlier words may be more important.",
+        "line_ids": [
+          "NLn4eetGmf8@1513",
+          "NLn4eetGmf8@1516",
+          "NLn4eetGmf8@1519",
+          "NLn4eetGmf8@1521",
+          "NLn4eetGmf8@1523",
+          "NLn4eetGmf8@1526",
+          "NLn4eetGmf8@1528",
+          "NLn4eetGmf8@1530",
+          "NLn4eetGmf8@1531",
+          "NLn4eetGmf8@1533",
+          "NLn4eetGmf8@1534"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p054",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 2,
+        "text": "BERT and GPT are later variations of the transformer architecture.",
+        "line_ids": [
+          "NLn4eetGmf8@1541",
+          "NLn4eetGmf8@1543",
+          "NLn4eetGmf8@1545",
+          "NLn4eetGmf8@1547",
+          "NLn4eetGmf8@1548",
+          "NLn4eetGmf8@1552",
+          "NLn4eetGmf8@1554",
+          "NLn4eetGmf8@1557",
+          "NLn4eetGmf8@1560",
+          "NLn4eetGmf8@1562",
+          "NLn4eetGmf8@1564"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p055",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "definition",
+        "importance": 2,
+        "text": "BERT stands for Bidirectional Encoder Representations from Transformers.",
+        "line_ids": [
+          "NLn4eetGmf8@1564",
+          "NLn4eetGmf8@1568",
+          "NLn4eetGmf8@1570",
+          "NLn4eetGmf8@1573",
+          "NLn4eetGmf8@1575",
+          "NLn4eetGmf8@1577",
+          "NLn4eetGmf8@1578",
+          "NLn4eetGmf8@1581",
+          "NLn4eetGmf8@1583",
+          "NLn4eetGmf8@1585"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p056",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "definition",
+        "importance": 2,
+        "text": "GPT stands for Generative Pre-trained Transformers.",
+        "line_ids": [
+          "NLn4eetGmf8@1585",
+          "NLn4eetGmf8@1587",
+          "NLn4eetGmf8@1589",
+          "NLn4eetGmf8@1593",
+          "NLn4eetGmf8@1597"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p057",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 2,
+        "text": "GPT is described as pre-trained because it is a pre-trained or foundational model.",
+        "line_ids": [
+          "NLn4eetGmf8@1597",
+          "NLn4eetGmf8@1599",
+          "NLn4eetGmf8@1601",
+          "NLn4eetGmf8@1603"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p058",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "BERT predicts hidden or masked words in a sentence, whereas GPT generates a new next word.",
+        "line_ids": [
+          "NLn4eetGmf8@1608",
+          "NLn4eetGmf8@1610",
+          "NLn4eetGmf8@1612",
+          "NLn4eetGmf8@1615",
+          "NLn4eetGmf8@1617",
+          "NLn4eetGmf8@1619",
+          "NLn4eetGmf8@1621",
+          "NLn4eetGmf8@1623",
+          "NLn4eetGmf8@1626",
+          "NLn4eetGmf8@1629",
+          "NLn4eetGmf8@1631",
+          "NLn4eetGmf8@1633"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p059",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In BERT, words are randomly masked during training, the text is pre-processed into token IDs, passed to the encoder for embeddings, and the model outputs the missing words.",
+        "line_ids": [
+          "NLn4eetGmf8@1648",
+          "NLn4eetGmf8@1650",
+          "NLn4eetGmf8@1653",
+          "NLn4eetGmf8@1655",
+          "NLn4eetGmf8@1657",
+          "NLn4eetGmf8@1659",
+          "NLn4eetGmf8@1661",
+          "NLn4eetGmf8@1663",
+          "NLn4eetGmf8@1666",
+          "NLn4eetGmf8@1668",
+          "NLn4eetGmf8@1670",
+          "NLn4eetGmf8@1673",
+          "NLn4eetGmf8@1676",
+          "NLn4eetGmf8@1678",
+          "NLn4eetGmf8@1681",
+          "NLn4eetGmf8@1683"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p060",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In GPT, the input is incomplete text where the next word is unknown, the text is pre-processed into token IDs, and a decoder-only model predicts the next word.",
+        "line_ids": [
+          "NLn4eetGmf8@1688",
+          "NLn4eetGmf8@1690",
+          "NLn4eetGmf8@1692",
+          "NLn4eetGmf8@1694",
+          "NLn4eetGmf8@1697",
+          "NLn4eetGmf8@1700",
+          "NLn4eetGmf8@1702",
+          "NLn4eetGmf8@1704",
+          "NLn4eetGmf8@1707",
+          "NLn4eetGmf8@1709",
+          "NLn4eetGmf8@1711",
+          "NLn4eetGmf8@1714",
+          "NLn4eetGmf8@1716",
+          "NLn4eetGmf8@1719",
+          "NLn4eetGmf8@1722"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p061",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "GPT models learn to generate one word at a time.",
+        "line_ids": [
+          "NLn4eetGmf8@1725",
+          "NLn4eetGmf8@1728"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p062",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "GPT works left to right by predicting the rightmost unknown token from the left context, whereas BERT can have random words masked and therefore must attend to different parts of the sentence.",
+        "line_ids": [
+          "NLn4eetGmf8@1731",
+          "NLn4eetGmf8@1733",
+          "NLn4eetGmf8@1736",
+          "NLn4eetGmf8@1738",
+          "NLn4eetGmf8@1740",
+          "NLn4eetGmf8@1743",
+          "NLn4eetGmf8@1745"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p063",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 2,
+        "text": "BERT does very well in sentiment analysis.",
+        "line_ids": [
+          "NLn4eetGmf8@1748",
+          "NLn4eetGmf8@1750"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p064",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "BERT is called bidirectional because it looks at the sentence from both directions, unlike GPT which looks left to right.",
+        "line_ids": [
+          "NLn4eetGmf8@1764",
+          "NLn4eetGmf8@1766",
+          "NLn4eetGmf8@1768",
+          "NLn4eetGmf8@1771",
+          "NLn4eetGmf8@1772",
+          "NLn4eetGmf8@1775",
+          "NLn4eetGmf8@1777",
+          "NLn4eetGmf8@1779"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p065",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "By looking at the entire sentence from both directions, BERT can capture nuances and relationships between words that are important for understanding meaning and context.",
+        "line_ids": [
+          "NLn4eetGmf8@1781",
+          "NLn4eetGmf8@1783",
+          "NLn4eetGmf8@1786",
+          "NLn4eetGmf8@1788",
+          "NLn4eetGmf8@1790",
+          "NLn4eetGmf8@1793",
+          "NLn4eetGmf8@1795"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p066",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "BERT can distinguish between \"bank\" as a financial institution and \"bank\" as a river bank by looking at the surrounding words.",
+        "line_ids": [
+          "NLn4eetGmf8@1798",
+          "NLn4eetGmf8@1800",
+          "NLn4eetGmf8@1802",
+          "NLn4eetGmf8@1804",
+          "NLn4eetGmf8@1808"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p067",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "BERT looks at a sentence from both sides, which is why it is very commonly used in sentiment analysis.",
+        "line_ids": [
+          "NLn4eetGmf8@1816",
+          "NLn4eetGmf8@1818",
+          "NLn4eetGmf8@1820",
+          "NLn4eetGmf8@1823",
+          "NLn4eetGmf8@1826",
+          "NLn4eetGmf8@1829"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p068",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 2,
+        "text": "GPT can also be used for sentiment analysis, but BERT is especially suited to sentiment analysis.",
+        "line_ids": [
+          "NLn4eetGmf8@1820",
+          "NLn4eetGmf8@1823",
+          "NLn4eetGmf8@1826",
+          "NLn4eetGmf8@1829"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p069",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "GPT produces one word at a time, so it can complete missing text.",
+        "line_ids": [
+          "NLn4eetGmf8@1836",
+          "NLn4eetGmf8@1839",
+          "NLn4eetGmf8@1841"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p070",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Both BERT and GPT are based on the Transformer architecture.",
+        "line_ids": [
+          "NLn4eetGmf8@1852",
+          "NLn4eetGmf8@1855",
+          "NLn4eetGmf8@1857",
+          "NLn4eetGmf8@1859",
+          "NLn4eetGmf8@1861"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p071",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "GPT models do not have an encoder and only have a decoder, whereas BERT models only have the encoder.",
+        "line_ids": [
+          "NLn4eetGmf8@1864",
+          "NLn4eetGmf8@1867",
+          "NLn4eetGmf8@1869",
+          "NLn4eetGmf8@1871",
+          "NLn4eetGmf8@1874",
+          "NLn4eetGmf8@1877"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p072",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Not all Transformers are LLMs.",
+        "line_ids": [
+          "NLn4eetGmf8@1885",
+          "NLn4eetGmf8@1887",
+          "NLn4eetGmf8@1890",
+          "NLn4eetGmf8@1892",
+          "NLn4eetGmf8@1894",
+          "NLn4eetGmf8@1897"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p073",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Transformers can be used for tasks other than language, including computer vision.",
+        "line_ids": [
+          "NLn4eetGmf8@1897",
+          "NLn4eetGmf8@1901",
+          "NLn4eetGmf8@1903",
+          "NLn4eetGmf8@1909",
+          "NLn4eetGmf8@1912",
+          "NLn4eetGmf8@1914"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p074",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Vision Transformers can be used for applications such as image recognition, image classification, detecting potholes on roads, and classifying tumors from images.",
+        "line_ids": [
+          "NLn4eetGmf8@1914",
+          "NLn4eetGmf8@1916",
+          "NLn4eetGmf8@1919",
+          "NLn4eetGmf8@1921",
+          "NLn4eetGmf8@1922",
+          "NLn4eetGmf8@1925",
+          "NLn4eetGmf8@1927",
+          "NLn4eetGmf8@1929",
+          "NLn4eetGmf8@1932",
+          "NLn4eetGmf8@1934",
+          "NLn4eetGmf8@1936",
+          "NLn4eetGmf8@1938"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p075",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Vision Transformers achieve remarkable results compared to convolutional neural networks while using substantially fewer computational resources for pre-training, and they show a generally weaker bias.",
+        "line_ids": [
+          "NLn4eetGmf8@1941",
+          "NLn4eetGmf8@1943",
+          "NLn4eetGmf8@1944",
+          "NLn4eetGmf8@1948",
+          "NLn4eetGmf8@1950",
+          "NLn4eetGmf8@1953",
+          "NLn4eetGmf8@1955",
+          "NLn4eetGmf8@1959",
+          "NLn4eetGmf8@1961"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p076",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "When thinking about image classification, people often think only of convolutional neural networks, but Vision Transformers are a newer method that is also gaining popularity for image classification tasks.",
+        "line_ids": [
+          "NLn4eetGmf8@1964",
+          "NLn4eetGmf8@1966",
+          "NLn4eetGmf8@1968",
+          "NLn4eetGmf8@1971",
+          "NLn4eetGmf8@1973",
+          "NLn4eetGmf8@1975"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p077",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Transformers should not be thought of only in the context of large language models or text generation, because they can also be used for computer vision.",
+        "line_ids": [
+          "NLn4eetGmf8@1979",
+          "NLn4eetGmf8@1981",
+          "NLn4eetGmf8@1983",
+          "NLn4eetGmf8@1985",
+          "NLn4eetGmf8@1988",
+          "NLn4eetGmf8@1991"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p078",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Not all LLMs are Transformers.",
+        "line_ids": [
+          "NLn4eetGmf8@1994",
+          "NLn4eetGmf8@1997",
+          "NLn4eetGmf8@1999",
+          "NLn4eetGmf8@2003",
+          "NLn4eetGmf8@2004"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p079",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "LLMs can be based on recurrent or convolutional architectures as well.",
+        "line_ids": [
+          "NLn4eetGmf8@1999",
+          "NLn4eetGmf8@2003",
+          "NLn4eetGmf8@2004",
+          "NLn4eetGmf8@2007"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p080",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "visual_ref",
+        "importance": 2,
+        "text": "Before Transformers, recurrent neural networks were introduced in 1980 and long short-term memory networks were introduced in 1997.",
+        "line_ids": [
+          "NLn4eetGmf8@2012",
+          "NLn4eetGmf8@2015",
+          "NLn4eetGmf8@2018",
+          "NLn4eetGmf8@2020",
+          "NLn4eetGmf8@2022",
+          "NLn4eetGmf8@2025",
+          "NLn4eetGmf8@2027"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p081",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Recurrent neural networks and long short-term memory networks could do sequence modeling and text completion tasks, so they can also be called language models.",
+        "line_ids": [
+          "NLn4eetGmf8@2027",
+          "NLn4eetGmf8@2029",
+          "NLn4eetGmf8@2032",
+          "NLn4eetGmf8@2034"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p082",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "definition",
+        "importance": 2,
+        "text": "RNNs maintain a feedback loop, which is why they can incorporate memory.",
+        "line_ids": [
+          "NLn4eetGmf8@2049",
+          "NLn4eetGmf8@2052",
+          "NLn4eetGmf8@2054",
+          "NLn4eetGmf8@2058",
+          "NLn4eetGmf8@2060"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p083",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "definition",
+        "importance": 2,
+        "text": "LSTMs incorporate two separate paths, one for short-term memories and one for long-term memories.",
+        "line_ids": [
+          "NLn4eetGmf8@2060",
+          "NLn4eetGmf8@2062",
+          "NLn4eetGmf8@2066",
+          "NLn4eetGmf8@2068",
+          "NLn4eetGmf8@2070",
+          "NLn4eetGmf8@2071",
+          "NLn4eetGmf8@2075",
+          "NLn4eetGmf8@2077"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p084",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Using both the long-term and short-term memory paths, LSTMs can make predictions of what comes next.",
+        "line_ids": [
+          "NLn4eetGmf8@2080",
+          "NLn4eetGmf8@2082",
+          "NLn4eetGmf8@2084",
+          "NLn4eetGmf8@2086",
+          "NLn4eetGmf8@2089",
+          "NLn4eetGmf8@2091"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p085",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Recurrent neural networks, long short-term memory networks, and some convolutional architectures can also be large language models.",
+        "line_ids": [
+          "NLn4eetGmf8@2091",
+          "NLn4eetGmf8@2094",
+          "NLn4eetGmf8@2096",
+          "NLn4eetGmf8@2099",
+          "NLn4eetGmf8@2102"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p086",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Transformers and LLMs should not be used interchangeably because they are different things.",
+        "line_ids": [
+          "NLn4eetGmf8@2105",
+          "NLn4eetGmf8@2107",
+          "NLn4eetGmf8@2109",
+          "NLn4eetGmf8@2112",
+          "NLn4eetGmf8@2115",
+          "NLn4eetGmf8@2118"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p087",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Most modern LLMs rely on the Transformer architecture, which was proposed in the 2017 paper \"Attention Is All You Need.\"",
+        "line_ids": [
+          "NLn4eetGmf8@2158",
+          "NLn4eetGmf8@2160",
+          "NLn4eetGmf8@2163",
+          "NLn4eetGmf8@2166",
+          "NLn4eetGmf8@2168",
+          "NLn4eetGmf8@2170",
+          "NLn4eetGmf8@2172"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p088",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "definition",
+        "importance": 2,
+        "text": "The Transformer is a deep neural network architecture.",
+        "line_ids": [
+          "NLn4eetGmf8@2163",
+          "NLn4eetGmf8@2166",
+          "NLn4eetGmf8@2168"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p089",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The original Transformer was developed for machine translation, such as translating English text into German and French.",
+        "line_ids": [
+          "NLn4eetGmf8@2174",
+          "NLn4eetGmf8@2177",
+          "NLn4eetGmf8@2179",
+          "NLn4eetGmf8@2181"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p090",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In the simplified Transformer architecture, an input example is pre-processed by converting words or sentences into words and token IDs, passed into the encoder to produce vector embeddings, and then those embeddings are fed to the decoder along with partial output text so that it generates the translated sentence one word at a time.",
+        "line_ids": [
+          "NLn4eetGmf8@2184",
+          "NLn4eetGmf8@2186",
+          "NLn4eetGmf8@2188",
+          "NLn4eetGmf8@2191",
+          "NLn4eetGmf8@2194",
+          "NLn4eetGmf8@2196",
+          "NLn4eetGmf8@2198",
+          "NLn4eetGmf8@2201",
+          "NLn4eetGmf8@2203",
+          "NLn4eetGmf8@2205",
+          "NLn4eetGmf8@2208"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p091",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The Transformer architecture consists of an encoder and a decoder.",
+        "line_ids": [
+          "NLn4eetGmf8@2212",
+          "NLn4eetGmf8@2214",
+          "NLn4eetGmf8@2216",
+          "NLn4eetGmf8@2218",
+          "NLn4eetGmf8@2220"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p092",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Self-attention is the heart of why Transformers work so well, which is why the paper is called \"Attention Is All You Need.\"",
+        "line_ids": [
+          "NLn4eetGmf8@2228",
+          "NLn4eetGmf8@2231",
+          "NLn4eetGmf8@2232",
+          "NLn4eetGmf8@2235",
+          "NLn4eetGmf8@2236",
+          "NLn4eetGmf8@2238"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p093",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Self-attention allows the model to weigh the importance of different words relative to each other and capture long-range dependencies.",
+        "line_ids": [
+          "NLn4eetGmf8@2238",
+          "NLn4eetGmf8@2241",
+          "NLn4eetGmf8@2243",
+          "NLn4eetGmf8@2245"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p094",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "When predicting the next word in a sentence, self-attention lets the model look at all past context and weigh which words matter more for the prediction.",
+        "line_ids": [
+          "NLn4eetGmf8@2247",
+          "NLn4eetGmf8@2250",
+          "NLn4eetGmf8@2252",
+          "NLn4eetGmf8@2255",
+          "NLn4eetGmf8@2257"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p095",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "Self-attention can be thought of as parallel attention to different parts of a paragraph or different sentences.",
+        "line_ids": [
+          "NLn4eetGmf8@2259",
+          "NLn4eetGmf8@2261",
+          "NLn4eetGmf8@2263",
+          "NLn4eetGmf8@2265"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p096",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "definition",
+        "importance": 2,
+        "text": "BERT stands for Bidirectional Encoder Representations.",
+        "line_ids": [
+          "NLn4eetGmf8@2278",
+          "NLn4eetGmf8@2280",
+          "NLn4eetGmf8@2282",
+          "NLn4eetGmf8@2284",
+          "NLn4eetGmf8@2286"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p097",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "definition",
+        "importance": 3,
+        "text": "BERT predicts hidden or missing words in a sentence, which are also called masked words.",
+        "line_ids": [
+          "NLn4eetGmf8@2289",
+          "NLn4eetGmf8@2292",
+          "NLn4eetGmf8@2295",
+          "NLn4eetGmf8@2296",
+          "NLn4eetGmf8@2298"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p098",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "definition",
+        "importance": 3,
+        "text": "BERT is called bidirectional because it pays attention to a sentence from both the left and the right, and it has only the encoder architecture.",
+        "line_ids": [
+          "NLn4eetGmf8@2301",
+          "NLn4eetGmf8@2303",
+          "NLn4eetGmf8@2304",
+          "NLn4eetGmf8@2306",
+          "NLn4eetGmf8@2308",
+          "NLn4eetGmf8@2311",
+          "NLn4eetGmf8@2313"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p099",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Because BERT looks at a sentence in both directions, it can capture the meanings of different words and how they relate to each other very well.",
+        "line_ids": [
+          "NLn4eetGmf8@2313",
+          "NLn4eetGmf8@2315",
+          "NLn4eetGmf8@2318",
+          "NLn4eetGmf8@2320",
+          "NLn4eetGmf8@2321"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p100",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "definition",
+        "importance": 3,
+        "text": "GPT is a left-to-right model that receives incomplete text and learns to generate the next word one word at a time.",
+        "line_ids": [
+          "NLn4eetGmf8@2327",
+          "NLn4eetGmf8@2332",
+          "NLn4eetGmf8@2335",
+          "NLn4eetGmf8@2337",
+          "NLn4eetGmf8@2339",
+          "NLn4eetGmf8@2341",
+          "NLn4eetGmf8@2342",
+          "NLn4eetGmf8@2345",
+          "NLn4eetGmf8@2348"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p101",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "GPT does not have an encoder and only has a decoder.",
+        "line_ids": [
+          "NLn4eetGmf8@2348",
+          "NLn4eetGmf8@2350",
+          "NLn4eetGmf8@2353",
+          "NLn4eetGmf8@2354"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p102",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Transformers can also be used for computer vision tasks such as image classification and image segmentation.",
+        "line_ids": [
+          "NLn4eetGmf8@2357",
+          "NLn4eetGmf8@2358",
+          "NLn4eetGmf8@2361",
+          "NLn4eetGmf8@2363",
+          "NLn4eetGmf8@2365",
+          "NLn4eetGmf8@2367"
+        ]
+      },
+      {
+        "id": "NLn4eetGmf8:p103",
+        "video_id": "NLn4eetGmf8",
+        "lecture": 4,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Before Transformers, recurrent neural networks, long short-term memory networks, and convolutional architectures were used for text completion, so LLMs can be based on recurrent or convolutional architectures as well.",
+        "line_ids": [
+          "NLn4eetGmf8@2370",
+          "NLn4eetGmf8@2373",
+          "NLn4eetGmf8@2375",
+          "NLn4eetGmf8@2377",
+          "NLn4eetGmf8@2379",
+          "NLn4eetGmf8@2382",
+          "NLn4eetGmf8@2385",
+          "NLn4eetGmf8@2386"
+        ]
+      }
+    ],
+    "inventory": [
+      {
+        "chunk": "NLn4eetGmf8@0-912",
+        "start": 0,
+        "end": 912,
+        "points": 31,
+        "core_points": 18,
+        "flag": null
+      },
+      {
+        "chunk": "NLn4eetGmf8@910-1818",
+        "start": 910,
+        "end": 1818,
+        "points": 35,
+        "core_points": 23,
+        "flag": null
+      },
+      {
+        "chunk": "NLn4eetGmf8@1816-2435",
+        "start": 1816,
+        "end": 2435,
+        "points": 37,
+        "core_points": 25,
+        "flag": null
+      }
+    ]
+  }
+}

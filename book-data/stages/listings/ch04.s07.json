@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch04.s07",
+  "inputs_hash": "0190379477748589a6506ff18df9751206ac46db449d01b445d762809f8165ce",
+  "output_hash": "3a8f234b2dd9a158290306a8fa409d55e46ff6261b84c18332b6d5704c22b494",
+  "output": {
+    "section_id": "ch04.s07",
+    "listings": [],
+    "rejected": [
+      {
+        "id": "ch04.s07.code1",
+        "ref": "ref:ch05/01_main-chapter-code/ch05.ipynb#cell91",
+        "path": "ch05/01_main-chapter-code/ch05.ipynb",
+        "caption": "This code defines a small vocabulary, applies softmax to a next-token logit vector, uses argmax to pick the highest-probability token ID, and prints the corresponding token from the inverse vocabulary.",
+        "code": "vocab = { \n    \"closer\": 0,\n    \"every\": 1, \n    \"effort\": 2, \n    \"forward\": 3,\n    \"inches\": 4,\n    \"moves\": 5, \n    \"pizza\": 6,\n    \"toward\": 7,\n    \"you\": 8,\n} \n\ninverse_vocab = {v: k for k, v in vocab.items()}\n\n# Suppose input is \"every effort moves you\", and the LLM\n# returns the following logits for the next token:\nnext_token_logits = torch.tensor(\n    [4.51, 0.89, -1.90, 6.75, 1.63, -1.62, -1.89, 6.28, 1.79]\n)\n\nprobas = torch.softmax(next_token_logits, dim=0)\nnext_token_id = torch.argmax(probas).item()\n\n# The next generated token is then as follows:\nprint(inverse_vocab[next_token_id])\n\ntorch.manual_seed(123)\nnext_token_id = torch.multinomial(probas, num_samples=1).item()\nprint(inverse_vocab[next_token_id])",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The excerpt does define a vocabulary, applies softmax to a next-token logit vector, uses argmax to select the highest-probability token, and decodes via an inverse vocabulary—this aligns with the section’s description of softmax + argmax decoding. However, the section also discusses passing an input tensor through a GPT model to produce a logits tensor (often per-position, i.e., multiple rows) and extracting argmax along the vocabulary dimension (dim=-1), whereas this code assumes logits are already given for a single next-token prediction (1D) and uses dim=0. Additionally, it includes multinomial sampling, which is not part of the stated section bullets or caption."
+      },
+      {
+        "id": "ch04.s07.code2",
+        "ref": "ref:ch05/01_main-chapter-code/ch05.ipynb#cell15",
+        "path": "ch05/01_main-chapter-code/ch05.ipynb",
+        "caption": "This code provides helper functions to encode text into token IDs and decode token IDs back into text, then passes encoded input through a text generation function and prints the decoded output.",
+        "code": "import tiktoken\nfrom previous_chapters import generate_text_simple\n\n# Alternatively:\n# from llms_from_scratch.ch04 import generate_text_simple\n\ndef text_to_token_ids(text, tokenizer):\n    encoded = tokenizer.encode(text, allowed_special={'<|endoftext|>'})\n    encoded_tensor = torch.tensor(encoded).unsqueeze(0) # add batch dimension\n    return encoded_tensor\n\ndef token_ids_to_text(token_ids, tokenizer):\n    flat = token_ids.squeeze(0) # remove batch dimension\n    return tokenizer.decode(flat.tolist())\n\nstart_context = \"Every effort moves you\"\ntokenizer = tiktoken.get_encoding(\"gpt2\")\n\ntoken_ids = generate_text_simple(\n    model=model,\n    idx=text_to_token_ids(start_context, tokenizer),\n    max_new_tokens=10,\n    context_size=GPT_CONFIG_124M[\"context_length\"]\n)\n\nprint(\"Output text:\\n\", token_ids_to_text(token_ids, tokenizer))",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The code does match the section’s general workflow of encoding text to token IDs, generating via a GPT-based function, and decoding token IDs back to text, which aligns with the caption. However, it does not directly demonstrate several specific taught points: logits output from the GPT model, applying softmax to logits, using torch.argmax over the vocabulary dimension to pick next-token IDs, or the concrete example mapping (\"every effort moves\" -> 2,1,4) and per-position prediction tasks. The generation details are hidden inside generate_text_simple, and the excerpt is incomplete as shown (torch/model/GPT_CONFIG_124M not defined/imported)."
+      }
+    ]
+  }
+}

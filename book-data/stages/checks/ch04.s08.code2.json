@@ -1,0 +1,24 @@
+{
+  "stage": "checks",
+  "item": "ch04.s08.code2",
+  "inputs_hash": "e4672f1bb75d050828b59b47d08dabd6a2595ff2526123301f8be49105606b97",
+  "output_hash": "08356d7f45700d4763e9d633194275827a505d1001cd7cb2695300bc6b5f4c59",
+  "output": [
+    {
+      "sentence_id": "ch04.s08.p06.06",
+      "expected": 10.79,
+      "expression": "loss.item()",
+      "tolerance": 0.005,
+      "check_id": "ch04.s08.code2.chk1",
+      "sentence_text": "In the example, the loss is 10.79 and the perplexity is 48725."
+    },
+    {
+      "sentence_id": "ch04.s08.p06.11",
+      "expected": 10,
+      "expression": "round(loss.item())",
+      "tolerance": 0,
+      "check_id": "ch04.s08.code2.chk2",
+      "sentence_text": "Perplexity is usually more interpretable than a raw categorical cross-entropy value such as 10, because it can be related directly to the vocabulary size."
+    }
+  ]
+}

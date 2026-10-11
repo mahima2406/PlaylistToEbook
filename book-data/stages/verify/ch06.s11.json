@@ -1,0 +1,923 @@
+{
+  "stage": "verify",
+  "item": "ch06.s11",
+  "inputs_hash": "620a1a945743842b5c9be8fbdacd02f20eb42decafdb9a5f2a1ddbc31ca1c8cc",
+  "output_hash": "8f81bdf6a6f31ba5105c8ddc8a9ce5e564bcf97ab20972183ba18f3f210b2015",
+  "output": {
+    "section_id": "ch06.s11",
+    "paragraphs": [
+      {
+        "id": "ch06.s11.p01",
+        "sentences": [
+          {
+            "id": "ch06.s11.p01.01",
+            "text": "How can a fine-tuned model be judged once dataset preparation and fine-tuning are complete, and why is this step necessary?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s11.p01.02",
+            "text": "By this point, the instruction fine-tuning pipeline has finished preparing the dataset and fine-tuning the model, and the next stage is to evaluate the large language model.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@52",
+              "7m2jV7BOFkA@58",
+              "7m2jV7BOFkA@60",
+              "7m2jV7BOFkA@137",
+              "7m2jV7BOFkA@148",
+              "7m2jV7BOFkA@279",
+              "7m2jV7BOFkA@280"
+            ]
+          },
+          {
+            "id": "ch06.s11.p01.03",
+            "text": "The model was initialized with publicly available GPT-2 weights so that it started from a good foundational base before instruction fine-tuning.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@137",
+              "7m2jV7BOFkA@139",
+              "7m2jV7BOFkA@141",
+              "7m2jV7BOFkA@143",
+              "7m2jV7BOFkA@145"
+            ]
+          },
+          {
+            "id": "ch06.s11.p01.04",
+            "text": "In the demonstrated run, training was limited to one epoch because of memory and compute limitations on the CPU.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@170",
+              "7m2jV7BOFkA@172",
+              "7m2jV7BOFkA@175"
+            ]
+          },
+          {
+            "id": "ch06.s11.p01.05",
+            "text": "Running for more epochs can improve response quality, and two epochs instead of one is given as a concrete example.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@184",
+              "7m2jV7BOFkA@186",
+              "7m2jV7BOFkA@261",
+              "7m2jV7BOFkA@262",
+              "7m2jV7BOFkA@667",
+              "7m2jV7BOFkA@669",
+              "7m2jV7BOFkA@712",
+              "7m2jV7BOFkA@714",
+              "7m2jV7BOFkA@716"
+            ]
+          },
+          {
+            "id": "ch06.s11.p01.06",
+            "text": "For the passive-voice test, the fine-tuned model produced \"the meal is prepared by the chef every day,\" which is better than random output but not the correct answer.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@238",
+              "7m2jV7BOFkA@241",
+              "7m2jV7BOFkA@242",
+              "7m2jV7BOFkA@244",
+              "7m2jV7BOFkA@247",
+              "7m2jV7BOFkA@249",
+              "7m2jV7BOFkA@267",
+              "7m2jV7BOFkA@269",
+              "7m2jV7BOFkA@271"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s11.p02",
+        "sentences": [
+          {
+            "id": "ch06.s11.p02.01",
+            "text": "The difficulty is not generating a sentence, but deciding how good that sentence is.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s11.p02.02",
+            "text": "Evaluating a large language model is hard because performance is not a simple yes-or-no classification problem.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@342",
+              "7m2jV7BOFkA@345",
+              "7m2jV7BOFkA@352",
+              "7m2jV7BOFkA@356",
+              "7m2jV7BOFkA@358"
+            ]
+          },
+          {
+            "id": "ch06.s11.p02.03",
+            "text": "Instead, evaluation requires comparing a generated sentence with a target sentence and deciding how close they are.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@359",
+              "7m2jV7BOFkA@362",
+              "7m2jV7BOFkA@367",
+              "7m2jV7BOFkA@369",
+              "7m2jV7BOFkA@371",
+              "7m2jV7BOFkA@376",
+              "7m2jV7BOFkA@379",
+              "7m2jV7BOFkA@380"
+            ]
+          },
+          {
+            "id": "ch06.s11.p02.04",
+            "text": "That makes instruction-tuned model evaluation harder than spam-versus-not-spam classification, where accuracy is easy to compute from whether the predicted label matches the correct label.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@718",
+              "7m2jV7BOFkA@721",
+              "7m2jV7BOFkA@723",
+              "7m2jV7BOFkA@727",
+              "7m2jV7BOFkA@729",
+              "7m2jV7BOFkA@733",
+              "7m2jV7BOFkA@734",
+              "7m2jV7BOFkA@736",
+              "7m2jV7BOFkA@738",
+              "7m2jV7BOFkA@742"
+            ]
+          },
+          {
+            "id": "ch06.s11.p02.05",
+            "text": "Because of this, large language model evaluation is treated as an important and rapidly developing field.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@744",
+              "7m2jV7BOFkA@779"
+            ]
+          },
+          {
+            "id": "ch06.s11.p02.06",
+            "text": "The evaluation process here is organized into three stages: extracting responses, qualitative evaluation, and scoring the responses.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@389",
+              "7m2jV7BOFkA@391",
+              "7m2jV7BOFkA@393",
+              "7m2jV7BOFkA@395",
+              "7m2jV7BOFkA@398"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s11.p03",
+        "sentences": [
+          {
+            "id": "ch06.s11.p03.01",
+            "text": "The first practical step is to gather the model's answers from the test set before trying to score them.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s11.p03.02",
+            "text": "To evaluate on the test set, the model's response must be generated for every test input and collected for manual analysis and later comparison with the ground-truth outputs.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@418",
+              "7m2jV7BOFkA@420",
+              "7m2jV7BOFkA@422",
+              "7m2jV7BOFkA@424",
+              "7m2jV7BOFkA@426",
+              "7m2jV7BOFkA@429",
+              "7m2jV7BOFkA@432",
+              "7m2jV7BOFkA@434",
+              "7m2jV7BOFkA@455",
+              "7m2jV7BOFkA@457",
+              "7m2jV7BOFkA@459",
+              "7m2jV7BOFkA@468",
+              "7m2jV7BOFkA@470",
+              "7m2jV7BOFkA@474"
+            ]
+          },
+          {
+            "id": "ch06.s11.p03.03",
+            "text": "A small demonstration loops over the test data, takes the first three entries, generates outputs with the fine-tuned model, converts token IDs to text, removes the instruction and input portion from the generated text, and prints the instruction, the correct response, and the model response.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@497",
+              "7m2jV7BOFkA@500",
+              "7m2jV7BOFkA@502",
+              "7m2jV7BOFkA@507",
+              "7m2jV7BOFkA@509",
+              "7m2jV7BOFkA@515",
+              "7m2jV7BOFkA@517",
+              "7m2jV7BOFkA@519",
+              "7m2jV7BOFkA@523",
+              "7m2jV7BOFkA@525",
+              "7m2jV7BOFkA@527",
+              "7m2jV7BOFkA@529",
+              "7m2jV7BOFkA@534",
+              "7m2jV7BOFkA@537",
+              "7m2jV7BOFkA@539",
+              "7m2jV7BOFkA@541"
+            ]
+          },
+          {
+            "id": "ch06.s11.p03.04",
+            "text": "For the prompt asking to rewrite a sentence using a simile, the correct response is \"the car is as fast as lightning,\" while the model response \"the car is as fast as a bullet\" is very close.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@553",
+              "7m2jV7BOFkA@555",
+              "7m2jV7BOFkA@565",
+              "7m2jV7BOFkA@567",
+              "7m2jV7BOFkA@570",
+              "7m2jV7BOFkA@572",
+              "7m2jV7BOFkA@576",
+              "7m2jV7BOFkA@579",
+              "7m2jV7BOFkA@580"
+            ]
+          },
+          {
+            "id": "ch06.s11.p03.05",
+            "text": "For the question asking which cloud type is associated with thunderstorms, the model response is not good because it does not provide the requested cloud type.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@584",
+              "7m2jV7BOFkA@587",
+              "7m2jV7BOFkA@620",
+              "7m2jV7BOFkA@622",
+              "7m2jV7BOFkA@624",
+              "7m2jV7BOFkA@625"
+            ]
+          },
+          {
+            "id": "ch06.s11.p03.06",
+            "text": "For the question about the author of Pride and Prejudice, the correct response is Jane Austen, but the model answered \"George Bernard Shaw,\" which is clearly wrong.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@630",
+              "7m2jV7BOFkA@632",
+              "7m2jV7BOFkA@634",
+              "7m2jV7BOFkA@636",
+              "7m2jV7BOFkA@638",
+              "7m2jV7BOFkA@640"
+            ]
+          },
+          {
+            "id": "ch06.s11.p03.07",
+            "text": "From these three samples, the first answer is close to correct, the second does not answer correctly, and the third is fully wrong.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@643",
+              "7m2jV7BOFkA@645",
+              "7m2jV7BOFkA@647",
+              "7m2jV7BOFkA@649",
+              "7m2jV7BOFkA@652",
+              "7m2jV7BOFkA@653",
+              "7m2jV7BOFkA@656",
+              "7m2jV7BOFkA@658"
+            ]
+          },
+          {
+            "id": "ch06.s11.p03.08",
+            "text": "Qualitative inspection can reveal whether outputs seem correct or incorrect, but it does not by itself provide a numerical evaluation score.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@678",
+              "7m2jV7BOFkA@680",
+              "7m2jV7BOFkA@682",
+              "7m2jV7BOFkA@685",
+              "7m2jV7BOFkA@687",
+              "7m2jV7BOFkA@689",
+              "7m2jV7BOFkA@691",
+              "7m2jV7BOFkA@1410",
+              "7m2jV7BOFkA@1412",
+              "7m2jV7BOFkA@1416",
+              "7m2jV7BOFkA@1419",
+              "7m2jV7BOFkA@1421",
+              "7m2jV7BOFkA@1423",
+              "7m2jV7BOFkA@1425",
+              "7m2jV7BOFkA@1427"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s11.p04",
+        "sentences": [
+          {
+            "id": "ch06.s11.p04.r01",
+            "text": "Next, collect model responses for all instructions in the test dataset and store them in a separate file for evaluation.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1100",
+              "7m2jV7BOFkA@1103",
+              "7m2jV7BOFkA@1113",
+              "7m2jV7BOFkA@1114",
+              "7m2jV7BOFkA@1117",
+              "7m2jV7BOFkA@1120",
+              "7m2jV7BOFkA@1122"
+            ]
+          },
+          {
+            "id": "ch06.s11.p04.r02",
+            "text": "This preparation creates a new file called \"instruction data with response.json\" for record keeping.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1125",
+              "7m2jV7BOFkA@1127",
+              "7m2jV7BOFkA@1132",
+              "7m2jV7BOFkA@1134",
+              "7m2jV7BOFkA@1136"
+            ]
+          },
+          {
+            "id": "ch06.s11.p04.r03",
+            "text": "That file contains the instruction, the input, the true output, and the model response.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1139",
+              "7m2jV7BOFkA@1141",
+              "7m2jV7BOFkA@1143",
+              "7m2jV7BOFkA@1169",
+              "7m2jV7BOFkA@1171",
+              "7m2jV7BOFkA@1173"
+            ]
+          },
+          {
+            "id": "ch06.s11.p04.r04",
+            "text": "The original \"instruction data.json\" file is shown as containing only the instruction, input, and true output, while the new file is shown as also including the model response.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1147",
+              "7m2jV7BOFkA@1150",
+              "7m2jV7BOFkA@1151",
+              "7m2jV7BOFkA@1153",
+              "7m2jV7BOFkA@1156",
+              "7m2jV7BOFkA@1158",
+              "7m2jV7BOFkA@1160",
+              "7m2jV7BOFkA@1163",
+              "7m2jV7BOFkA@1165",
+              "7m2jV7BOFkA@1166",
+              "7m2jV7BOFkA@1169",
+              "7m2jV7BOFkA@1171",
+              "7m2jV7BOFkA@1173"
+            ]
+          },
+          {
+            "id": "ch06.s11.p04.r05",
+            "text": "Keeping both the true output and the model response in one place makes later evaluation easier because each pair can be compared directly and assigned a score.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1173",
+              "7m2jV7BOFkA@1175",
+              "7m2jV7BOFkA@1178",
+              "7m2jV7BOFkA@1180",
+              "7m2jV7BOFkA@1182",
+              "7m2jV7BOFkA@1184",
+              "7m2jV7BOFkA@1185"
+            ]
+          },
+          {
+            "id": "ch06.s11.p04.r06",
+            "text": "The code iterates over all instruction inputs in the test data, generates responses for them, and writes the results to the \"instruction data with response\" file.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1191",
+              "7m2jV7BOFkA@1193",
+              "7m2jV7BOFkA@1195",
+              "7m2jV7BOFkA@1198",
+              "7m2jV7BOFkA@1200",
+              "7m2jV7BOFkA@1202",
+              "7m2jV7BOFkA@1204"
+            ]
+          },
+          {
+            "id": "ch06.s11.p04.r07",
+            "text": "When this code runs, the generate function is called on all instruction-input pairs in the test data, the responses are generated, and the response is appended to the file.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1206",
+              "7m2jV7BOFkA@1208",
+              "7m2jV7BOFkA@1210",
+              "7m2jV7BOFkA@1213",
+              "7m2jV7BOFkA@1216",
+              "7m2jV7BOFkA@1217",
+              "7m2jV7BOFkA@1220"
+            ]
+          },
+          {
+            "id": "ch06.s11.p04.r08",
+            "text": "The resulting file is shown as the original instruction-input-output dictionary with an added model response field for every example.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1220",
+              "7m2jV7BOFkA@1222",
+              "7m2jV7BOFkA@1224",
+              "7m2jV7BOFkA@1226",
+              "7m2jV7BOFkA@1228",
+              "7m2jV7BOFkA@1230",
+              "7m2jV7BOFkA@1232",
+              "7m2jV7BOFkA@1236"
+            ]
+          },
+          {
+            "id": "ch06.s11.p04.r09",
+            "text": "After this process, the test data dictionary contains the instruction, input, output, and model response.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1248",
+              "7m2jV7BOFkA@1252",
+              "7m2jV7BOFkA@1256",
+              "7m2jV7BOFkA@1258",
+              "7m2jV7BOFkA@1265",
+              "7m2jV7BOFkA@1266",
+              "7m2jV7BOFkA@1268",
+              "7m2jV7BOFkA@1270",
+              "7m2jV7BOFkA@1275",
+              "7m2jV7BOFkA@1278",
+              "7m2jV7BOFkA@1281",
+              "7m2jV7BOFkA@1283",
+              "7m2jV7BOFkA@1286"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s11.p05",
+        "sentences": [
+          {
+            "id": "ch06.s11.p05.r01",
+            "text": "After the evaluation file is prepared, preserving the trained model avoids repeating the expensive fine-tuning run.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s11.p05.r02",
+            "text": "The fine-tuned model should be saved so the session can be resumed later without fine-tuning again.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1286",
+              "7m2jV7BOFkA@1288",
+              "7m2jV7BOFkA@1291",
+              "7m2jV7BOFkA@1295",
+              "7m2jV7BOFkA@1297",
+              "7m2jV7BOFkA@1300",
+              "7m2jV7BOFkA@1301",
+              "7m2jV7BOFkA@1304",
+              "7m2jV7BOFkA@1306",
+              "7m2jV7BOFkA@1311",
+              "7m2jV7BOFkA@1312"
+            ]
+          },
+          {
+            "id": "ch06.s11.p05.r03",
+            "text": "The model is saved with \"torch.save\" and \"model.state_dict\", which stores the trained parameters in a file.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1316",
+              "7m2jV7BOFkA@1318",
+              "7m2jV7BOFkA@1321",
+              "7m2jV7BOFkA@1323"
+            ]
+          },
+          {
+            "id": "ch06.s11.p05.r04",
+            "text": "In a future session, \"load_state_dict\" is used to load the saved parameter file.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1333",
+              "7m2jV7BOFkA@1335",
+              "7m2jV7BOFkA@1337",
+              "7m2jV7BOFkA@1342",
+              "7m2jV7BOFkA@1346",
+              "7m2jV7BOFkA@1348",
+              "7m2jV7BOFkA@1351",
+              "7m2jV7BOFkA@1353",
+              "7m2jV7BOFkA@1356"
+            ]
+          },
+          {
+            "id": "ch06.s11.p05.r05",
+            "text": "At this stage, responses have been collected in \"instruction data with response.json\", three evaluation frameworks have been discussed, and the LLM-based comparison framework has been selected.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1363",
+              "7m2jV7BOFkA@1365",
+              "7m2jV7BOFkA@1368",
+              "7m2jV7BOFkA@1371",
+              "7m2jV7BOFkA@1376",
+              "7m2jV7BOFkA@1378",
+              "7m2jV7BOFkA@1382",
+              "7m2jV7BOFkA@1384",
+              "7m2jV7BOFkA@1386",
+              "7m2jV7BOFkA@1388",
+              "7m2jV7BOFkA@1391"
+            ]
+          },
+          {
+            "id": "ch06.s11.p05.r06",
+            "text": "Earlier work has already included response extraction and qualitative evaluation by looking at outputs and responses, but numerical scoring has not yet been implemented at this point.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1410",
+              "7m2jV7BOFkA@1412",
+              "7m2jV7BOFkA@1416",
+              "7m2jV7BOFkA@1419",
+              "7m2jV7BOFkA@1421",
+              "7m2jV7BOFkA@1423",
+              "7m2jV7BOFkA@1425",
+              "7m2jV7BOFkA@1427",
+              "7m2jV7BOFkA@1430"
+            ]
+          },
+          {
+            "id": "ch06.s11.p05.r07",
+            "text": "Across the full pipeline, the work includes preparing the dataset, fine-tuning the large language model, extracting responses, doing qualitative evaluation, and quantitative scoring using AMA.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@3101",
+              "7m2jV7BOFkA@3103",
+              "7m2jV7BOFkA@3106",
+              "7m2jV7BOFkA@3108",
+              "7m2jV7BOFkA@3111",
+              "7m2jV7BOFkA@3113",
+              "7m2jV7BOFkA@3115",
+              "7m2jV7BOFkA@3117",
+              "7m2jV7BOFkA@3119",
+              "7m2jV7BOFkA@3121",
+              "7m2jV7BOFkA@3124"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch06.s11.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s11.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.83,
+        "reason": ""
+      },
+      "ch06.s11.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s11.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s11.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch06.s11.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch06.s11.p02.01": {
+        "verdict": "ok",
+        "confidence": 0.85,
+        "reason": ""
+      },
+      "ch06.s11.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s11.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.87,
+        "reason": ""
+      },
+      "ch06.s11.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch06.s11.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.77,
+        "reason": ""
+      },
+      "ch06.s11.p02.06": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s11.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.75,
+        "reason": ""
+      },
+      "ch06.s11.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.87,
+        "reason": ""
+      },
+      "ch06.s11.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch06.s11.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s11.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.77,
+        "reason": ""
+      },
+      "ch06.s11.p03.06": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch06.s11.p03.07": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch06.s11.p03.08": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s11.p04.r01": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s11.p04.r02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s11.p04.r03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s11.p04.r04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s11.p04.r05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s11.p04.r06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s11.p04.r07": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s11.p04.r08": {
+        "verdict": "supported",
+        "confidence": 0.85,
+        "reason": ""
+      },
+      "ch06.s11.p04.r09": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s11.p05.r01": {
+        "verdict": "ok",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s11.p05.r02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s11.p05.r03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s11.p05.r04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s11.p05.r05": {
+        "verdict": "supported",
+        "confidence": 0.74,
+        "reason": ""
+      },
+      "ch06.s11.p05.r06": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch06.s11.p05.r07": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch06.s11.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s11.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.83,
+        "reason": ""
+      },
+      "ch06.s11.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s11.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s11.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch06.s11.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch06.s11.p02.01": {
+        "verdict": "ok",
+        "confidence": 0.85,
+        "reason": ""
+      },
+      "ch06.s11.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s11.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.87,
+        "reason": ""
+      },
+      "ch06.s11.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch06.s11.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.77,
+        "reason": ""
+      },
+      "ch06.s11.p02.06": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s11.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.75,
+        "reason": ""
+      },
+      "ch06.s11.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.87,
+        "reason": ""
+      },
+      "ch06.s11.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch06.s11.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s11.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.77,
+        "reason": ""
+      },
+      "ch06.s11.p03.06": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch06.s11.p03.07": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch06.s11.p03.08": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s11.p04.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.66,
+        "reason": "connective sentence asserts a factual workflow step (applying the same extraction process to the whole test set) rather than being a pure transition, and it has no citation."
+      },
+      "ch06.s11.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch06.s11.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s11.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s11.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch06.s11.p04.06": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s11.p04.07": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s11.p04.08": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s11.p04.09": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s11.p04.10": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s11.p05.01": {
+        "verdict": "ok",
+        "confidence": 0.74,
+        "reason": ""
+      },
+      "ch06.s11.p05.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s11.p05.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s11.p05.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s11.p05.05": {
+        "verdict": "supported",
+        "confidence": 0.82,
+        "reason": ""
+      },
+      "ch06.s11.p05.06": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s11.p05.07": {
+        "verdict": "partial",
+        "confidence": 0.78,
+        "reason": "The cited lines support dataset prep, fine-tuning, response extraction, qualitative evaluation, and quantitative scoring using 'AMA', but they do not specifically state 'Ollama' (could be misheard as 'AMA' without explicit confirmation)."
+      }
+    },
+    "rewritten": [
+      "ch06.s11.p04",
+      "ch06.s11.p05"
+    ],
+    "queue": []
+  }
+}

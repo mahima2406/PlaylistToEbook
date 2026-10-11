@@ -1,0 +1,431 @@
+{
+  "stage": "takeaways",
+  "item": "ch06",
+  "inputs_hash": "a5861775c333c32723cf39cf17c90f59c6ff088ac9b45fe8669c419add97f789",
+  "output_hash": "fdb49ca5ea15e825c5116aa4e59405ed8771fd2a7418a179ef4b8f9429133216",
+  "output": {
+    "section_id": "ch06.take",
+    "paragraphs": [
+      {
+        "id": "ch06.take.p01",
+        "sentences": [
+          {
+            "id": "ch06.take.p01.01",
+            "text": "Pre-trained LLMs are good at text completion, but they do not follow specific instructions very well, so they need fine-tuning on a dataset of instructions and desired responses.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@32",
+              "bkUkcyL_Xxc@34",
+              "bkUkcyL_Xxc@36",
+              "bkUkcyL_Xxc@46",
+              "bkUkcyL_Xxc@49",
+              "__OiQznq4ao@63",
+              "__OiQznq4ao@66",
+              "__OiQznq4ao@68",
+              "__OiQznq4ao@70",
+              "7m2jV7BOFkA@79",
+              "7m2jV7BOFkA@81",
+              "7m2jV7BOFkA@84",
+              "7m2jV7BOFkA@85",
+              "7m2jV7BOFkA@148",
+              "7m2jV7BOFkA@150",
+              "7m2jV7BOFkA@152",
+              "7m2jV7BOFkA@156",
+              "bkUkcyL_Xxc@50",
+              "bkUkcyL_Xxc@52",
+              "bkUkcyL_Xxc@55",
+              "bkUkcyL_Xxc@57",
+              "bkUkcyL_Xxc@59",
+              "bkUkcyL_Xxc@61"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.take.p02",
+        "sentences": [
+          {
+            "id": "ch06.take.p02.r01",
+            "text": "The instruction dataset used here has 1,100 instruction input/output pairs from various fields, and it was split into training, testing, and validation sets.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@35",
+              "__OiQznq4ao@37",
+              "__OiQznq4ao@41",
+              "__OiQznq4ao@44",
+              "__OiQznq4ao@47",
+              "__OiQznq4ao@49",
+              "bkUkcyL_Xxc@225",
+              "bkUkcyL_Xxc@226",
+              "bkUkcyL_Xxc@229",
+              "bkUkcyL_Xxc@232"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.take.p03",
+        "sentences": [
+          {
+            "id": "ch06.take.p03.01",
+            "text": "Before training, each instruction-input-output entry is converted into the Alpaca prompt format and then tokenized into token IDs.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@133",
+              "bkUkcyL_Xxc@136",
+              "bkUkcyL_Xxc@138",
+              "bkUkcyL_Xxc@146",
+              "bkUkcyL_Xxc@149",
+              "bkUkcyL_Xxc@154",
+              "bkUkcyL_Xxc@157",
+              "bkUkcyL_Xxc@159",
+              "bkUkcyL_Xxc@162",
+              "bkUkcyL_Xxc@184",
+              "bkUkcyL_Xxc@186",
+              "bkUkcyL_Xxc@188",
+              "bkUkcyL_Xxc@191",
+              "bkUkcyL_Xxc@193",
+              "bkUkcyL_Xxc@195",
+              "bkUkcyL_Xxc@198",
+              "bkUkcyL_Xxc@200",
+              "bkUkcyL_Xxc@202",
+              "bkUkcyL_Xxc@204",
+              "bkUkcyL_Xxc@206",
+              "bkUkcyL_Xxc@207",
+              "bkUkcyL_Xxc@209",
+              "bkUkcyL_Xxc@599",
+              "bkUkcyL_Xxc@601",
+              "bkUkcyL_Xxc@603",
+              "bkUkcyL_Xxc@605",
+              "bkUkcyL_Xxc@605",
+              "bkUkcyL_Xxc@608",
+              "bkUkcyL_Xxc@610",
+              "bkUkcyL_Xxc@613",
+              "bkUkcyL_Xxc@617",
+              "bkUkcyL_Xxc@619",
+              "bkUkcyL_Xxc@621",
+              "bkUkcyL_Xxc@623",
+              "bkUkcyL_Xxc@626",
+              "bkUkcyL_Xxc@629",
+              "bkUkcyL_Xxc@632"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.take.p04",
+        "sentences": [
+          {
+            "id": "ch06.take.p04.01",
+            "text": "To make batches, token ID sequences are padded with 50256 so every sample in a batch has the same length, and the targets are created by shifting the inputs one position to the right.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@693",
+              "bkUkcyL_Xxc@695",
+              "bkUkcyL_Xxc@701",
+              "bkUkcyL_Xxc@704",
+              "bkUkcyL_Xxc@707",
+              "bkUkcyL_Xxc@736",
+              "bkUkcyL_Xxc@738",
+              "bkUkcyL_Xxc@740",
+              "bkUkcyL_Xxc@745",
+              "bkUkcyL_Xxc@747",
+              "bkUkcyL_Xxc@749",
+              "bkUkcyL_Xxc@753",
+              "bkUkcyL_Xxc@786",
+              "bkUkcyL_Xxc@809",
+              "bkUkcyL_Xxc@812",
+              "bkUkcyL_Xxc@1637",
+              "bkUkcyL_Xxc@1946",
+              "bkUkcyL_Xxc@1948",
+              "bkUkcyL_Xxc@1950",
+              "bkUkcyL_Xxc@1952",
+              "bkUkcyL_Xxc@1955",
+              "bkUkcyL_Xxc@1956",
+              "bkUkcyL_Xxc@1959",
+              "bkUkcyL_Xxc@1961",
+              "bkUkcyL_Xxc@930",
+              "bkUkcyL_Xxc@931",
+              "bkUkcyL_Xxc@934",
+              "bkUkcyL_Xxc@936",
+              "bkUkcyL_Xxc@948",
+              "bkUkcyL_Xxc@950",
+              "bkUkcyL_Xxc@952",
+              "bkUkcyL_Xxc@955",
+              "bkUkcyL_Xxc@957",
+              "bkUkcyL_Xxc@1198",
+              "bkUkcyL_Xxc@1200",
+              "bkUkcyL_Xxc@1202",
+              "bkUkcyL_Xxc@1204",
+              "bkUkcyL_Xxc@1206"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.take.p05",
+        "sentences": [
+          {
+            "id": "ch06.take.p05.01",
+            "text": "In the targets, the first 50256 end-of-text token is kept, but later padding 50256 tokens are replaced with -100 so PyTorch cross-entropy ignores them in the loss.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1241",
+              "bkUkcyL_Xxc@1244",
+              "bkUkcyL_Xxc@1247",
+              "bkUkcyL_Xxc@1249",
+              "bkUkcyL_Xxc@1251",
+              "bkUkcyL_Xxc@1257",
+              "bkUkcyL_Xxc@1260",
+              "bkUkcyL_Xxc@1262",
+              "bkUkcyL_Xxc@1264",
+              "bkUkcyL_Xxc@1282",
+              "bkUkcyL_Xxc@1284",
+              "bkUkcyL_Xxc@1324",
+              "bkUkcyL_Xxc@1327",
+              "bkUkcyL_Xxc@1330",
+              "bkUkcyL_Xxc@1333",
+              "bkUkcyL_Xxc@1335",
+              "bkUkcyL_Xxc@1338",
+              "bkUkcyL_Xxc@1339",
+              "bkUkcyL_Xxc@1296",
+              "bkUkcyL_Xxc@1298",
+              "bkUkcyL_Xxc@1301",
+              "bkUkcyL_Xxc@1304",
+              "bkUkcyL_Xxc@1416",
+              "bkUkcyL_Xxc@1418",
+              "bkUkcyL_Xxc@1420",
+              "bkUkcyL_Xxc@1423",
+              "bkUkcyL_Xxc@2617",
+              "bkUkcyL_Xxc@2619",
+              "bkUkcyL_Xxc@2623",
+              "bkUkcyL_Xxc@2626",
+              "bkUkcyL_Xxc@2628",
+              "bkUkcyL_Xxc@1306",
+              "bkUkcyL_Xxc@1309",
+              "bkUkcyL_Xxc@1311",
+              "bkUkcyL_Xxc@1315",
+              "bkUkcyL_Xxc@1317",
+              "bkUkcyL_Xxc@1412",
+              "bkUkcyL_Xxc@1414",
+              "bkUkcyL_Xxc@1416",
+              "bkUkcyL_Xxc@2222",
+              "bkUkcyL_Xxc@2224",
+              "bkUkcyL_Xxc@2226",
+              "bkUkcyL_Xxc@2678",
+              "bkUkcyL_Xxc@2681",
+              "bkUkcyL_Xxc@2682",
+              "bkUkcyL_Xxc@2684"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.take.p06",
+        "sentences": [
+          {
+            "id": "ch06.take.p06.01",
+            "text": "Starting from pre-trained GPT-2 weights makes fine-tuning more efficient than training from scratch, but a pre-trained model alone still does a poor job on instruction-following tasks, so it needs fine-tuning.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@198",
+              "__OiQznq4ao@201",
+              "__OiQznq4ao@203",
+              "__OiQznq4ao@205",
+              "__OiQznq4ao@208",
+              "__OiQznq4ao@211",
+              "__OiQznq4ao@214",
+              "__OiQznq4ao@217",
+              "__OiQznq4ao@219",
+              "__OiQznq4ao@222",
+              "__OiQznq4ao@224",
+              "__OiQznq4ao@225",
+              "__OiQznq4ao@228",
+              "__OiQznq4ao@230",
+              "__OiQznq4ao@232",
+              "__OiQznq4ao@234",
+              "__OiQznq4ao@236",
+              "__OiQznq4ao@241",
+              "__OiQznq4ao@244",
+              "__OiQznq4ao@247",
+              "__OiQznq4ao@248",
+              "__OiQznq4ao@251",
+              "__OiQznq4ao@253",
+              "__OiQznq4ao@257",
+              "__OiQznq4ao@259",
+              "__OiQznq4ao@261",
+              "__OiQznq4ao@269",
+              "__OiQznq4ao@273",
+              "__OiQznq4ao@283",
+              "__OiQznq4ao@298",
+              "__OiQznq4ao@300",
+              "__OiQznq4ao@302",
+              "__OiQznq4ao@303",
+              "__OiQznq4ao@306",
+              "__OiQznq4ao@308",
+              "__OiQznq4ao@310",
+              "__OiQznq4ao@311",
+              "__OiQznq4ao@313",
+              "__OiQznq4ao@316",
+              "__OiQznq4ao@318",
+              "__OiQznq4ao@320",
+              "__OiQznq4ao@1005",
+              "__OiQznq4ao@1007",
+              "__OiQznq4ao@1009",
+              "__OiQznq4ao@1011",
+              "__OiQznq4ao@1013",
+              "__OiQznq4ao@1016",
+              "__OiQznq4ao@1018",
+              "__OiQznq4ao@1020",
+              "__OiQznq4ao@1021",
+              "__OiQznq4ao@1024",
+              "__OiQznq4ao@1030",
+              "__OiQznq4ao@1032",
+              "__OiQznq4ao@1033",
+              "__OiQznq4ao@1035",
+              "__OiQznq4ao@1038",
+              "__OiQznq4ao@1042",
+              "__OiQznq4ao@1044",
+              "__OiQznq4ao@1046",
+              "__OiQznq4ao@1049",
+              "__OiQznq4ao@1075",
+              "__OiQznq4ao@1077",
+              "__OiQznq4ao@1080",
+              "__OiQznq4ao@1082",
+              "__OiQznq4ao@1084",
+              "__OiQznq4ao@1087"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.take.p07",
+        "sentences": [
+          {
+            "id": "ch06.take.p07.01",
+            "text": "Evaluating an instruction-tuned model is hard because responses must be compared with target answers, and common approaches include MMLU, human judgment, and using another LLM to score responses automatically.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@342",
+              "7m2jV7BOFkA@345",
+              "7m2jV7BOFkA@352",
+              "7m2jV7BOFkA@356",
+              "7m2jV7BOFkA@358",
+              "7m2jV7BOFkA@359",
+              "7m2jV7BOFkA@362",
+              "7m2jV7BOFkA@367",
+              "7m2jV7BOFkA@369",
+              "7m2jV7BOFkA@371",
+              "7m2jV7BOFkA@376",
+              "7m2jV7BOFkA@379",
+              "7m2jV7BOFkA@380",
+              "7m2jV7BOFkA@782",
+              "7m2jV7BOFkA@783",
+              "7m2jV7BOFkA@941",
+              "7m2jV7BOFkA@961",
+              "7m2jV7BOFkA@964",
+              "7m2jV7BOFkA@3010",
+              "7m2jV7BOFkA@3013",
+              "7m2jV7BOFkA@3018",
+              "7m2jV7BOFkA@3027",
+              "7m2jV7BOFkA@3033",
+              "7m2jV7BOFkA@3037",
+              "7m2jV7BOFkA@944",
+              "7m2jV7BOFkA@946",
+              "7m2jV7BOFkA@948",
+              "7m2jV7BOFkA@950",
+              "7m2jV7BOFkA@964",
+              "7m2jV7BOFkA@967",
+              "7m2jV7BOFkA@970",
+              "7m2jV7BOFkA@973",
+              "7m2jV7BOFkA@983",
+              "7m2jV7BOFkA@985",
+              "7m2jV7BOFkA@988",
+              "7m2jV7BOFkA@989",
+              "7m2jV7BOFkA@991",
+              "7m2jV7BOFkA@993"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch06.take.p01.01": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch06.take.p03.01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.take.p04.01": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch06.take.p05.01": {
+        "verdict": "supported",
+        "confidence": 0.91,
+        "reason": ""
+      },
+      "ch06.take.p06.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.take.p07.01": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch06.take.p02.r01": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch06.take.p01.01": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch06.take.p02.01": {
+        "verdict": "partial",
+        "confidence": 0.78,
+        "reason": "The lines support 1,100 instruction input/output pairs, that they span various fields, and that the dataset is split into train/test/validation. They also mention 'only training on 800' in a sense. However, the cited lines elsewhere state a concrete training length of 935 out of 1100 (85%), which conflicts with 'only about 800 training pairs in practice' as a definitive result."
+      },
+      "ch06.take.p03.01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.take.p04.01": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch06.take.p05.01": {
+        "verdict": "supported",
+        "confidence": 0.91,
+        "reason": ""
+      },
+      "ch06.take.p06.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.take.p07.01": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "ch06.take.p02"
+    ],
+    "queue": []
+  }
+}

@@ -1,0 +1,984 @@
+{
+  "stage": "verify",
+  "item": "ch02.s03",
+  "inputs_hash": "2db2d114a51f20560d8f565c34b848a5d98158e024fa6c4967ad8523b4948753",
+  "output_hash": "e7d036d39e3028903fa74c90a4a40d6e149efad77ced31a79134ad42a8652c5b",
+  "output": {
+    "section_id": "ch02.s03",
+    "paragraphs": [
+      {
+        "id": "ch02.s03.p01",
+        "sentences": [
+          {
+            "id": "ch02.s03.p01.01",
+            "text": "How does a raw document become a list of word tokens and then integer IDs that Python can work with?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s03.p01.02",
+            "text": "To build intuition, it helps to construct a word-based tokenizer from scratch before moving to the subword-based tokenizer used in GPT models.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@208",
+              "mk-6cFebjis@210",
+              "mk-6cFebjis@212",
+              "mk-6cFebjis@217",
+              "mk-6cFebjis@219",
+              "mk-6cFebjis@221",
+              "mk-6cFebjis@223",
+              "mk-6cFebjis@226",
+              "mk-6cFebjis@229",
+              "mk-6cFebjis@231",
+              "mk-6cFebjis@235"
+            ]
+          },
+          {
+            "id": "ch02.s03.p01.03",
+            "text": "For this demonstration, a single book is enough to show the preprocessing steps, even though real large language models process millions of articles and hundreds of thousands of books.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@383",
+              "mk-6cFebjis@384",
+              "mk-6cFebjis@387",
+              "mk-6cFebjis@389",
+              "mk-6cFebjis@391",
+              "mk-6cFebjis@393",
+              "mk-6cFebjis@395",
+              "mk-6cFebjis@397"
+            ]
+          },
+          {
+            "id": "ch02.s03.p01.04",
+            "text": "The code begins by opening the document, reading the full contents into a variable called \"raw text\", and then checking that the read succeeded by printing the total number of characters and a sample of the text.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@306",
+              "mk-6cFebjis@309",
+              "mk-6cFebjis@311",
+              "mk-6cFebjis@313",
+              "mk-6cFebjis@316",
+              "mk-6cFebjis@318",
+              "mk-6cFebjis@338",
+              "mk-6cFebjis@340",
+              "mk-6cFebjis@342",
+              "mk-6cFebjis@344"
+            ]
+          },
+          {
+            "id": "ch02.s03.p01.05",
+            "text": "In the example shown here, the file has 20479 characters, and the first 100 characters are printed to verify that they match the book text.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@346",
+              "mk-6cFebjis@348",
+              "mk-6cFebjis@350",
+              "mk-6cFebjis@354",
+              "mk-6cFebjis@361",
+              "mk-6cFebjis@363",
+              "mk-6cFebjis@366",
+              "mk-6cFebjis@368",
+              "mk-6cFebjis@371"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s03.p02",
+        "sentences": [
+          {
+            "id": "ch02.s03.p02.01",
+            "text": "The next problem is deciding where to split the text into tokens.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s03.p02.02",
+            "text": "Using Python's regular expression library, text can be split wherever whitespace characters occur.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@422",
+              "mk-6cFebjis@424",
+              "mk-6cFebjis@444",
+              "mk-6cFebjis@446",
+              "mk-6cFebjis@449",
+              "mk-6cFebjis@451",
+              "mk-6cFebjis@454",
+              "mk-6cFebjis@456",
+              "mk-6cFebjis@458"
+            ]
+          },
+          {
+            "id": "ch02.s03.p02.03",
+            "text": "But splitting only on whitespace is not enough, because punctuation stays attached to words and whitespace tokens may remain in the result.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@498",
+              "mk-6cFebjis@502",
+              "mk-6cFebjis@507",
+              "mk-6cFebjis@509",
+              "mk-6cFebjis@511",
+              "mk-6cFebjis@513",
+              "mk-6cFebjis@518",
+              "mk-6cFebjis@520",
+              "mk-6cFebjis@537",
+              "mk-6cFebjis@539"
+            ]
+          },
+          {
+            "id": "ch02.s03.p02.04",
+            "text": "Whether whitespace should be kept as a token is debatable, since it can matter in cases such as Python indentation, but for this demonstration whitespace tokens are omitted.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@542",
+              "mk-6cFebjis@545",
+              "mk-6cFebjis@547",
+              "mk-6cFebjis@549",
+              "mk-6cFebjis@552",
+              "mk-6cFebjis@554",
+              "mk-6cFebjis@555",
+              "mk-6cFebjis@557",
+              "mk-6cFebjis@559"
+            ]
+          },
+          {
+            "id": "ch02.s03.p02.05",
+            "text": "A better approach is to split not only on whitespace but also on punctuation and other special characters, and then remove the whitespace tokens afterward.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@561",
+              "mk-6cFebjis@564",
+              "mk-6cFebjis@567",
+              "mk-6cFebjis@569",
+              "mk-6cFebjis@571",
+              "mk-6cFebjis@573",
+              "mk-6cFebjis@575",
+              "mk-6cFebjis@578"
+            ]
+          },
+          {
+            "id": "ch02.s03.p02.06",
+            "text": "The regular expression is updated to split on characters such as commas, full stops, colons, semicolons, question marks, underscores, exclamation marks, quotation marks, brackets, and slashes, and the resulting list is filtered so that only non-whitespace items remain.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@586",
+              "mk-6cFebjis@588",
+              "mk-6cFebjis@595",
+              "mk-6cFebjis@597",
+              "mk-6cFebjis@600",
+              "mk-6cFebjis@602",
+              "mk-6cFebjis@606",
+              "mk-6cFebjis@613",
+              "mk-6cFebjis@616",
+              "mk-6cFebjis@617",
+              "mk-6cFebjis@619",
+              "mk-6cFebjis@622",
+              "mk-6cFebjis@625",
+              "mk-6cFebjis@627",
+              "mk-6cFebjis@629",
+              "mk-6cFebjis@632",
+              "mk-6cFebjis@635",
+              "mk-6cFebjis@640",
+              "mk-6cFebjis@643",
+              "mk-6cFebjis@645"
+            ]
+          },
+          {
+            "id": "ch02.s03.p02.07",
+            "text": "After this processing, words and punctuation become separate tokens and whitespace is no longer kept as a token.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@651",
+              "mk-6cFebjis@654",
+              "mk-6cFebjis@656",
+              "mk-6cFebjis@670",
+              "mk-6cFebjis@673",
+              "mk-6cFebjis@675",
+              "mk-6cFebjis@676",
+              "mk-6cFebjis@678"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s03.p03",
+        "sentences": [
+          {
+            "id": "ch02.s03.p03.01",
+            "text": "Once the splitting rule works on a small example, the same idea can be applied to the full text.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s03.p03.02",
+            "text": "The same splitting and whitespace-removal steps are applied to the entire dataset to create a preprocessed list containing all tokens from the essay.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@683",
+              "mk-6cFebjis@685",
+              "mk-6cFebjis@688",
+              "mk-6cFebjis@694",
+              "mk-6cFebjis@696",
+              "mk-6cFebjis@698",
+              "mk-6cFebjis@700",
+              "mk-6cFebjis@702",
+              "mk-6cFebjis@705",
+              "mk-6cFebjis@706",
+              "mk-6cFebjis@709",
+              "mk-6cFebjis@710",
+              "mk-6cFebjis@714",
+              "mk-6cFebjis@716",
+              "mk-6cFebjis@717",
+              "mk-6cFebjis@720",
+              "mk-6cFebjis@722",
+              "mk-6cFebjis@728",
+              "mk-6cFebjis@730",
+              "mk-6cFebjis@733"
+            ]
+          },
+          {
+            "id": "ch02.s03.p03.03",
+            "text": "To check the result, the code prints the first 30 tokens of the preprocessed list.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@736",
+              "mk-6cFebjis@738",
+              "mk-6cFebjis@740",
+              "mk-6cFebjis@743"
+            ]
+          },
+          {
+            "id": "ch02.s03.p03.04",
+            "text": "Those tokens show that the essay has been broken into individual words, while special symbols such as the dash also appear as separate tokens.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@745",
+              "mk-6cFebjis@749",
+              "mk-6cFebjis@752",
+              "mk-6cFebjis@754",
+              "mk-6cFebjis@756",
+              "mk-6cFebjis@758",
+              "mk-6cFebjis@761",
+              "mk-6cFebjis@765",
+              "mk-6cFebjis@767",
+              "mk-6cFebjis@769",
+              "mk-6cFebjis@771",
+              "mk-6cFebjis@774",
+              "mk-6cFebjis@777"
+            ]
+          },
+          {
+            "id": "ch02.s03.p03.05",
+            "text": "The preprocessed list contains 4690 tokens in total, including duplicates.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@780",
+              "mk-6cFebjis@782",
+              "mk-6cFebjis@784",
+              "mk-6cFebjis@786",
+              "mk-6cFebjis@790",
+              "mk-6cFebjis@791",
+              "mk-6cFebjis@793",
+              "mk-6cFebjis@795"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s03.p04",
+        "sentences": [
+          {
+            "id": "ch02.s03.p04.r01",
+            "text": "To create token IDs, you take all tokens, remove duplicates, sort the unique tokens in ascending or alphabetical order, and then assign IDs starting from zero in that order.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@814",
+              "mk-6cFebjis@816",
+              "mk-6cFebjis@818",
+              "mk-6cFebjis@821",
+              "mk-6cFebjis@823",
+              "mk-6cFebjis@826",
+              "mk-6cFebjis@828",
+              "mk-6cFebjis@845",
+              "mk-6cFebjis@849",
+              "mk-6cFebjis@850",
+              "mk-6cFebjis@853"
+            ]
+          },
+          {
+            "id": "ch02.s03.p04.r02",
+            "text": "For example, with the text \"the quick brown fox jumps over the lazy dog\", the tokens are arranged alphabetically as \"brown\", \"dog\", \"fox\", \"jumps\", \"lazy\", \"over\", \"quick\", and \"the\" before IDs are assigned.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@830",
+              "mk-6cFebjis@832",
+              "mk-6cFebjis@835",
+              "mk-6cFebjis@837",
+              "mk-6cFebjis@839",
+              "mk-6cFebjis@842"
+            ]
+          },
+          {
+            "id": "ch02.s03.p04.r03",
+            "text": "This mapping is the vocabulary: a dictionary in which every unique token is paired with a unique integer token ID.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@859",
+              "mk-6cFebjis@862",
+              "mk-6cFebjis@866",
+              "mk-6cFebjis@869",
+              "mk-6cFebjis@871",
+              "mk-6cFebjis@886",
+              "mk-6cFebjis@888",
+              "mk-6cFebjis@890"
+            ]
+          },
+          {
+            "id": "ch02.s03.p04.r04",
+            "text": "In code, constructing the vocabulary means taking the preprocessed token list, converting it into a set to remove duplicates, and then sorting it in ascending order.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@895",
+              "mk-6cFebjis@897",
+              "mk-6cFebjis@899",
+              "mk-6cFebjis@902",
+              "mk-6cFebjis@905",
+              "mk-6cFebjis@908"
+            ]
+          },
+          {
+            "id": "ch02.s03.p04.r05",
+            "text": "The vocabulary size shown here is 1130.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@913",
+              "mk-6cFebjis@915",
+              "mk-6cFebjis@916"
+            ]
+          },
+          {
+            "id": "ch02.s03.p04.r06",
+            "text": "After sorting, Python's \"enumerate\" function is used to assign each token an integer token ID.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@920",
+              "mk-6cFebjis@922",
+              "mk-6cFebjis@924",
+              "mk-6cFebjis@927",
+              "mk-6cFebjis@929",
+              "mk-6cFebjis@931",
+              "mk-6cFebjis@933",
+              "mk-6cFebjis@936"
+            ]
+          },
+          {
+            "id": "ch02.s03.p04.r07",
+            "text": "Because the tokens are enumerated in ascending order, the first token gets ID 0, the second gets ID 1, and so on.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@943",
+              "mk-6cFebjis@945",
+              "mk-6cFebjis@948",
+              "mk-6cFebjis@950",
+              "mk-6cFebjis@952",
+              "mk-6cFebjis@954"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s03.p05",
+        "sentences": [
+          {
+            "id": "ch02.s03.p05.r01",
+            "text": "A tokenizer class in Python takes the vocabulary and provides an \"encode\" method and a \"decode\" method.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1002",
+              "mk-6cFebjis@1005",
+              "mk-6cFebjis@1008",
+              "mk-6cFebjis@1010",
+              "mk-6cFebjis@1013",
+              "mk-6cFebjis@1070",
+              "mk-6cFebjis@1073",
+              "mk-6cFebjis@1075",
+              "mk-6cFebjis@1077"
+            ]
+          },
+          {
+            "id": "ch02.s03.p05.r02",
+            "text": "The \"encode\" method converts words or input text into token IDs, and the \"decode\" method converts token IDs back into tokens or text.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1016",
+              "mk-6cFebjis@1018",
+              "mk-6cFebjis@1020",
+              "mk-6cFebjis@1022",
+              "mk-6cFebjis@1024",
+              "mk-6cFebjis@1026",
+              "mk-6cFebjis@1041",
+              "mk-6cFebjis@1044",
+              "mk-6cFebjis@1047",
+              "mk-6cFebjis@1049",
+              "mk-6cFebjis@1051",
+              "mk-6cFebjis@1053",
+              "mk-6cFebjis@1056",
+              "mk-6cFebjis@1058",
+              "mk-6cFebjis@1060",
+              "mk-6cFebjis@1062",
+              "fKd8s29e-l4@2596",
+              "fKd8s29e-l4@2599",
+              "fKd8s29e-l4@2601",
+              "fKd8s29e-l4@2603",
+              "fKd8s29e-l4@2606",
+              "fKd8s29e-l4@2609",
+              "fKd8s29e-l4@2611"
+            ]
+          },
+          {
+            "id": "ch02.s03.p05.r03",
+            "text": "To support decoding, the class keeps both a string-to-integer dictionary and a reverse integer-to-string dictionary.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1079",
+              "mk-6cFebjis@1081",
+              "mk-6cFebjis@1083",
+              "mk-6cFebjis@1084",
+              "mk-6cFebjis@1085",
+              "mk-6cFebjis@1088",
+              "mk-6cFebjis@1089",
+              "mk-6cFebjis@1092",
+              "mk-6cFebjis@1097",
+              "mk-6cFebjis@1098",
+              "mk-6cFebjis@1100",
+              "mk-6cFebjis@1103",
+              "mk-6cFebjis@1104"
+            ]
+          },
+          {
+            "id": "ch02.s03.p05.r04",
+            "text": "In \"encode\", the input text is split on the chosen characters, whitespace is removed, and the remaining strings are looked up in the vocabulary to return a list of token IDs.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1110",
+              "mk-6cFebjis@1112",
+              "mk-6cFebjis@1114",
+              "mk-6cFebjis@1117",
+              "mk-6cFebjis@1119",
+              "mk-6cFebjis@1120",
+              "mk-6cFebjis@1122",
+              "mk-6cFebjis@1124",
+              "mk-6cFebjis@1126",
+              "mk-6cFebjis@1128",
+              "mk-6cFebjis@1131",
+              "mk-6cFebjis@1132",
+              "mk-6cFebjis@1135",
+              "mk-6cFebjis@1136",
+              "mk-6cFebjis@1139",
+              "mk-6cFebjis@1141",
+              "mk-6cFebjis@1143",
+              "mk-6cFebjis@1146"
+            ]
+          },
+          {
+            "id": "ch02.s03.p05.r05",
+            "text": "In \"decode\", a list of token IDs is mapped back to strings with the integer-to-string dictionary, and those strings are joined to reconstruct the text.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1149",
+              "mk-6cFebjis@1151",
+              "mk-6cFebjis@1154",
+              "mk-6cFebjis@1157",
+              "mk-6cFebjis@1158",
+              "mk-6cFebjis@1160",
+              "mk-6cFebjis@1162",
+              "mk-6cFebjis@1164",
+              "mk-6cFebjis@1166",
+              "mk-6cFebjis@1179"
+            ]
+          },
+          {
+            "id": "ch02.s03.p05.r06",
+            "text": "When decoding, an extra space usually appears before punctuation after joining, so that space has to be removed.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1168",
+              "mk-6cFebjis@1171",
+              "mk-6cFebjis@1173",
+              "mk-6cFebjis@1175",
+              "mk-6cFebjis@1177"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s03.p06",
+        "sentences": [
+          {
+            "id": "ch02.s03.p06.r01",
+            "text": "With the class defined, you can instantiate it and test both directions of the mapping.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s03.p06.r02",
+            "text": "The tokenizer instance is created by passing in the previously defined vocabulary.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1182",
+              "mk-6cFebjis@1184",
+              "mk-6cFebjis@1186",
+              "mk-6cFebjis@1188",
+              "mk-6cFebjis@1190",
+              "mk-6cFebjis@1191",
+              "mk-6cFebjis@1193",
+              "mk-6cFebjis@1204",
+              "mk-6cFebjis@1206",
+              "mk-6cFebjis@1208"
+            ]
+          },
+          {
+            "id": "ch02.s03.p06.r03",
+            "text": "After that, the instance can call the \"encode\" and \"decode\" methods.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1211",
+              "mk-6cFebjis@1213"
+            ]
+          },
+          {
+            "id": "ch02.s03.p06.r04",
+            "text": "A sample input text is given to the tokenizer.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1218",
+              "mk-6cFebjis@1220",
+              "mk-6cFebjis@1222",
+              "mk-6cFebjis@1229",
+              "mk-6cFebjis@1231"
+            ]
+          },
+          {
+            "id": "ch02.s03.p06.r05",
+            "text": "Encoding that sentence splits it, removes whitespace, converts each token to a token ID, and produces a list of token IDs for the sentence.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1241",
+              "mk-6cFebjis@1244",
+              "mk-6cFebjis@1245",
+              "mk-6cFebjis@1247",
+              "mk-6cFebjis@1250",
+              "mk-6cFebjis@1252",
+              "mk-6cFebjis@1255",
+              "mk-6cFebjis@1257",
+              "mk-6cFebjis@1259",
+              "mk-6cFebjis@1262",
+              "mk-6cFebjis@1264",
+              "mk-6cFebjis@1266"
+            ]
+          },
+          {
+            "id": "ch02.s03.p06.r06",
+            "text": "Decoding those token IDs returns the same sentence.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1269",
+              "mk-6cFebjis@1271",
+              "mk-6cFebjis@1273",
+              "mk-6cFebjis@1275",
+              "mk-6cFebjis@1277",
+              "fKd8s29e-l4@2820",
+              "fKd8s29e-l4@2822",
+              "fKd8s29e-l4@2824",
+              "fKd8s29e-l4@2826",
+              "fKd8s29e-l4@2828",
+              "fKd8s29e-l4@2831",
+              "fKd8s29e-l4@2834",
+              "fKd8s29e-l4@2836"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch02.s03.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch02.s03.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s03.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch02.s03.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s03.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s03.p02.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s03.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch02.s03.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch02.s03.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s03.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s03.p02.06": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch02.s03.p02.07": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch02.s03.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch02.s03.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.91,
+        "reason": ""
+      },
+      "ch02.s03.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch02.s03.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch02.s03.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch02.s03.p04.r01": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch02.s03.p04.r02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s03.p04.r03": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch02.s03.p04.r04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch02.s03.p04.r05": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch02.s03.p04.r06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s03.p04.r07": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch02.s03.p05.r01": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch02.s03.p05.r02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch02.s03.p05.r03": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch02.s03.p05.r04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch02.s03.p05.r05": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch02.s03.p05.r06": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch02.s03.p06.r01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s03.p06.r02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch02.s03.p06.r03": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch02.s03.p06.r04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s03.p06.r05": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch02.s03.p06.r06": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch02.s03.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch02.s03.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s03.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch02.s03.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s03.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s03.p02.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s03.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch02.s03.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch02.s03.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s03.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s03.p02.06": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch02.s03.p02.07": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch02.s03.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch02.s03.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.91,
+        "reason": ""
+      },
+      "ch02.s03.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch02.s03.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch02.s03.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch02.s03.p04.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.72,
+        "reason": "Although it’s a transition, it asserts facts: tokens are strings and the next step is assigning each unique token an integer ID; no citations are provided."
+      },
+      "ch02.s03.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch02.s03.p04.03": {
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "The cited lines support alphabetical ordering of the unique tokens, but do not explicitly state that duplicates are removed to form unique tokens in this example."
+      },
+      "ch02.s03.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch02.s03.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch02.s03.p04.06": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch02.s03.p04.07": {
+        "verdict": "supported",
+        "confidence": 0.91,
+        "reason": ""
+      },
+      "ch02.s03.p04.08": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch02.s03.p05.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.74,
+        "reason": "It asserts a fact about what a tokenizer does (packages the vocabulary for bidirectional conversion) but provides no citations."
+      },
+      "ch02.s03.p05.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch02.s03.p05.03": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch02.s03.p05.04": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch02.s03.p05.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch02.s03.p05.06": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch02.s03.p05.07": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch02.s03.p06.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s03.p06.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch02.s03.p06.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s03.p06.04": {
+        "verdict": "partial",
+        "confidence": 0.74,
+        "reason": "the cited lines support the sentence text but do not include the leading phrase \"it's\"; they begin with \"it's the last...\" as part of the example, but the exact full sample input as quoted is not fully stated verbatim in one place, and the name is inconsistent/misheard (\"gisburn\" vs \"gban\")."
+      },
+      "ch02.s03.p06.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch02.s03.p06.06": {
+        "verdict": "partial",
+        "confidence": 0.78,
+        "reason": "the lines support that decoding recovers the same sentence, but they do not state or imply the added explanation that this demonstrates correctness specifically \"when the words are already in the vocabulary.\""
+      }
+    },
+    "rewritten": [
+      "ch02.s03.p04",
+      "ch02.s03.p05",
+      "ch02.s03.p06"
+    ],
+    "queue": []
+  }
+}

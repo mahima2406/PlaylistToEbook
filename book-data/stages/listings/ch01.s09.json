@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch01.s09",
+  "inputs_hash": "e4d16481177e5e3ea5f2c7ccb5e20a5dc920651df06b29e634ad0b43108ef713",
+  "output_hash": "1d5ce5991e1f1696f60281a7ecf881988d0d2c5ec95e8f0b546f620b774b2b37",
+  "output": {
+    "section_id": "ch01.s09",
+    "listings": [],
+    "rejected": [
+      {
+        "id": "ch01.s09.code1",
+        "ref": "ref:ch05/01_main-chapter-code/ch05.ipynb#cell15",
+        "path": "ch05/01_main-chapter-code/ch05.ipynb",
+        "caption": "This code encodes a text prompt into token IDs, feeds them to a GPT-style text generation function, and decodes the generated token IDs back into text.",
+        "code": "import tiktoken\nfrom previous_chapters import generate_text_simple\n\n# Alternatively:\n# from llms_from_scratch.ch04 import generate_text_simple\n\ndef text_to_token_ids(text, tokenizer):\n    encoded = tokenizer.encode(text, allowed_special={'<|endoftext|>'})\n    encoded_tensor = torch.tensor(encoded).unsqueeze(0) # add batch dimension\n    return encoded_tensor\n\ndef token_ids_to_text(token_ids, tokenizer):\n    flat = token_ids.squeeze(0) # remove batch dimension\n    return tokenizer.decode(flat.tolist())\n\nstart_context = \"Every effort moves you\"\ntokenizer = tiktoken.get_encoding(\"gpt2\")\n\ntoken_ids = generate_text_simple(\n    model=model,\n    idx=text_to_token_ids(start_context, tokenizer),\n    max_new_tokens=10,\n    context_size=GPT_CONFIG_124M[\"context_length\"]\n)\n\nprint(\"Output text:\\n\", token_ids_to_text(token_ids, tokenizer))",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The excerpt demonstrates the GPT side of the section: it tokenizes a prompt into token IDs, calls a GPT-style generation routine to predict additional tokens, and decodes back to text, which aligns with the caption. However, it does not show anything about BERT’s masked-word training/objective, and it omits key details implied by the caption/section such as the decoder-only model definition (the `model` variable is not shown) and required imports (`torch`, `GPT_CONFIG_124M`), so it’s not a complete demonstration of the full section content."
+      },
+      {
+        "id": "ch01.s09.code2",
+        "ref": "ref:ch05/01_main-chapter-code/ch05.ipynb#cell26",
+        "path": "ch05/01_main-chapter-code/ch05.ipynb",
+        "caption": "This code selects the most probable next token IDs by taking the argmax over model output probabilities and prints the resulting token IDs.",
+        "code": "token_ids = torch.argmax(probas, dim=-1, keepdim=True)\nprint(\"Token IDs:\\n\", token_ids)",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The code does select the most probable token IDs via argmax over probabilities and prints them, matching the caption. However, it does not specifically demonstrate BERT masking/encoder prediction of masked tokens or GPT decoder-only next-token prediction with preprocessing into token IDs; it only shows a generic postprocessing step (argmax over probabilities)."
+      }
+    ]
+  }
+}

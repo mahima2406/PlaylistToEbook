@@ -1,0 +1,72 @@
+{
+  "stage": "checks",
+  "item": "ch03.s11.code2",
+  "inputs_hash": "ce3a66440e42ef721474ff8e7c58025adc640a6e64532333697af46362e76581",
+  "output_hash": "062542038d8eae0fc2f4fed81423659ec6939892681d9c89539a5b7bedf41512",
+  "output": [
+    {
+      "sentence_id": "ch03.s11.p04.03",
+      "expected": 1,
+      "expression": "layer_sizes[-1]",
+      "tolerance": 0,
+      "check_id": "ch03.s11.code2.chk1",
+      "sentence_text": "If \"layer_sizes\" is \"3, 3, 3, 3, 1\", the network has five layers with three neurons and a final layer with one neuron."
+    },
+    {
+      "sentence_id": "ch03.s11.p06.r01",
+      "expected": 3,
+      "expression": "sample_input.shape[1]",
+      "tolerance": 0,
+      "check_id": "ch03.s11.code2.chk2",
+      "sentence_text": "To inspect gradient flow, the example initializes a neural network without shortcut connections, uses layer sizes 3 3 3 3 3 1, takes a three-dimensional sample input with values 1, 0, and minus 1, and sets use shortcut to false."
+    },
+    {
+      "sentence_id": "ch03.s11.p06.r01",
+      "expected": 1,
+      "expression": "sample_input[0,0].item()",
+      "tolerance": 0,
+      "check_id": "ch03.s11.code2.chk3",
+      "sentence_text": "To inspect gradient flow, the example initializes a neural network without shortcut connections, uses layer sizes 3 3 3 3 3 1, takes a three-dimensional sample input with values 1, 0, and minus 1, and sets use shortcut to false."
+    },
+    {
+      "sentence_id": "ch03.s11.p06.r01",
+      "expected": 0,
+      "expression": "sample_input[0,1].item()",
+      "tolerance": 0,
+      "check_id": "ch03.s11.code2.chk4",
+      "sentence_text": "To inspect gradient flow, the example initializes a neural network without shortcut connections, uses layer sizes 3 3 3 3 3 1, takes a three-dimensional sample input with values 1, 0, and minus 1, and sets use shortcut to false."
+    },
+    {
+      "sentence_id": "ch03.s11.p06.r02",
+      "expected": 3,
+      "expression": "model_without_shortcut.layers[0][0].in_features",
+      "tolerance": 0,
+      "check_id": "ch03.s11.code2.chk5",
+      "sentence_text": "In layers with input dimension 3 and output dimension 3, each neuron has three weights, so the weight matrix is 3 by 3, while the final layer has a 3 by 1 weight matrix."
+    },
+    {
+      "sentence_id": "ch03.s11.p06.r02",
+      "expected": 3,
+      "expression": "model_without_shortcut.layers[0][0].out_features",
+      "tolerance": 0,
+      "check_id": "ch03.s11.code2.chk6",
+      "sentence_text": "In layers with input dimension 3 and output dimension 3, each neuron has three weights, so the weight matrix is 3 by 3, while the final layer has a 3 by 1 weight matrix."
+    },
+    {
+      "sentence_id": "ch03.s11.p06.r02",
+      "expected": 3,
+      "expression": "model_without_shortcut.layers[-1][0].in_features",
+      "tolerance": 0,
+      "check_id": "ch03.s11.code2.chk7",
+      "sentence_text": "In layers with input dimension 3 and output dimension 3, each neuron has three weights, so the weight matrix is 3 by 3, while the final layer has a 3 by 1 weight matrix."
+    },
+    {
+      "sentence_id": "ch03.s11.p06.r02",
+      "expected": 1,
+      "expression": "model_without_shortcut.layers[-1][0].out_features",
+      "tolerance": 0,
+      "check_id": "ch03.s11.code2.chk8",
+      "sentence_text": "In layers with input dimension 3 and output dimension 3, each neuron has three weights, so the weight matrix is 3 by 3, while the final layer has a 3 by 1 weight matrix."
+    }
+  ]
+}

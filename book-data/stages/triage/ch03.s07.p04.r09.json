@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch03.s07.p04.r09",
+  "inputs_hash": "af470119c04fa47e2b96e9f206297748270be41f4a004f12e5d130f43c3d3532",
+  "output_hash": "ba80ba621e604e7edcc7a95e217239162536b502329eea96683998157239afdb",
+  "output": {
+    "decision": "edit",
+    "text": "After masking, the masked matrix is divided by the square root of the key dimension and then softmax is applied.",
+    "reason": "The cited captions support division of the masked matrix before softmax, but do not clearly say the attention scores themselves are divided after masking.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.96,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "b0aab58caf41b2a775727acbad01d9758b9c5fb38400fe0fece8244d67460df0"
+  }
+}

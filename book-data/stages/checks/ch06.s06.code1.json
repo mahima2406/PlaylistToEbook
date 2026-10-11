@@ -1,0 +1,40 @@
+{
+  "stage": "checks",
+  "item": "ch06.s06.code1",
+  "inputs_hash": "cb4e8e152f23cb1b6093df11cab091c8a97b51c89007359dbe62cbaaed480451",
+  "output_hash": "c50d1adf6d2b07bf5fc84e9cbb821f1950abb6a6032115463ec6e5d9392c146e",
+  "output": [
+    {
+      "sentence_id": "ch06.s06.p01.03",
+      "expected": 50256,
+      "expression": "50256",
+      "tolerance": 0,
+      "check_id": "ch06.s06.code1.chk1",
+      "sentence_text": "The padding token ID here is \"50256\", but not every \"50256\" in the target should be replaced."
+    },
+    {
+      "sentence_id": "ch06.s06.p01.04",
+      "expected": 50256,
+      "expression": "50256",
+      "tolerance": 0,
+      "check_id": "ch06.s06.code1.chk2",
+      "sentence_text": "If a target contains several \"50256\" values, the first one is kept because it indicates the end of text, and all remaining \"50256\" values are replaced with \"-100\"."
+    },
+    {
+      "sentence_id": "ch06.s06.p01.05",
+      "expected": 50256,
+      "expression": "50256",
+      "tolerance": 0,
+      "check_id": "ch06.s06.code1.chk3",
+      "sentence_text": "If a target has only the end-of-text \"50256\", that first \"50256\" remains unchanged."
+    },
+    {
+      "sentence_id": "ch06.s06.p04.r04",
+      "expected": 50256,
+      "expression": "pad_token_id",
+      "tolerance": 0,
+      "check_id": "ch06.s06.code1.chk4",
+      "sentence_text": "With this modified collate function, the inputs stay unchanged, while in the targets every \"50256\" after the first one is replaced by \"-100\"."
+    }
+  ]
+}

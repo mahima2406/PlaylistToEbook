@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch03.s11.p04.03",
+  "inputs_hash": "924c6695aac3630109956a199d0d08c3f6930e3828126ac5b5e0b94fb2ac2249",
+  "output_hash": "66fb03c8ee6966b46c6c4aa131149497f17428891e5671a55b64888b0e5885e6",
+  "output": {
+    "decision": "edit",
+    "text": "If \"layer_sizes\" is \"3, 3, 3, 3, 3, 1\", the network has five layers with three neurons and a final layer with one neuron.",
+    "reason": "The captions support the teaching point, but the example must use six entries to match the implementation and avoid the contradiction.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "752f4af2b25b2510eff468d9489d35cc9f4053e0c53e5bc9e54a48ae11225473"
+  }
+}

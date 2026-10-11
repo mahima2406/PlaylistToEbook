@@ -1,0 +1,274 @@
+{
+  "stage": "write",
+  "item": "ch05.s03",
+  "inputs_hash": "8a5fd82f7846e8fe4de83ff314ed7fb2a8a923b170ffbe0d815d9fac8cfdad49",
+  "output_hash": "44193ada025c0f86c6f3f116390610c94ae069628aa1269e3e5d842eb5224a50",
+  "output": {
+    "section_id": "ch05.s03",
+    "paragraphs": [
+      {
+        "id": "ch05.s03.p01",
+        "sentences": [
+          {
+            "id": "ch05.s03.p01.01",
+            "text": "How do the released GPT-2 files tell you what tokens the model knows and what settings the model expects?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s03.p01.02",
+            "text": "The file \"encoder.json\" is the vocabulary: it maps tokens to token IDs.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@531",
+              "yXrGeDNuymY@537",
+              "yXrGeDNuymY@539",
+              "yXrGeDNuymY@541",
+              "yXrGeDNuymY@547",
+              "yXrGeDNuymY@549",
+              "yXrGeDNuymY@551"
+            ]
+          },
+          {
+            "id": "ch05.s03.p01.03",
+            "text": "That vocabulary has 50,257 tokens.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@553",
+              "yXrGeDNuymY@555",
+              "yXrGeDNuymY@558",
+              "yXrGeDNuymY@560"
+            ]
+          },
+          {
+            "id": "ch05.s03.p01.04",
+            "text": "Its token IDs start at 0, and the end-of-text token is 50,256.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@555",
+              "yXrGeDNuymY@558"
+            ]
+          },
+          {
+            "id": "ch05.s03.p01.05",
+            "text": "The file \"vocab.bpe\" defines byte pair encoding, a subword tokenization scheme.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@562",
+              "yXrGeDNuymY@568",
+              "yXrGeDNuymY@570",
+              "yXrGeDNuymY@573"
+            ]
+          },
+          {
+            "id": "ch05.s03.p01.06",
+            "text": "In this scheme, the encoder looks for pairs of tokens that occur most frequently, merges a pair, and then treats that merged pair as a token.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@573",
+              "yXrGeDNuymY@575",
+              "yXrGeDNuymY@577",
+              "yXrGeDNuymY@579",
+              "yXrGeDNuymY@581"
+            ]
+          },
+          {
+            "id": "ch05.s03.p01.07",
+            "text": "The \"vocab.bpe\" file therefore lists merged tokens, with the merges of highest probability appearing at the top of the list.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@586",
+              "yXrGeDNuymY@589",
+              "yXrGeDNuymY@591",
+              "yXrGeDNuymY@593",
+              "yXrGeDNuymY@595",
+              "yXrGeDNuymY@597",
+              "yXrGeDNuymY@599"
+            ]
+          },
+          {
+            "id": "ch05.s03.p01.08",
+            "text": "A special marker shown as \"g-dot\" is an OpenAI convention that indicates one token has ended and a new token has begun.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@601",
+              "yXrGeDNuymY@603",
+              "yXrGeDNuymY@606",
+              "yXrGeDNuymY@608",
+              "yXrGeDNuymY@610",
+              "yXrGeDNuymY@615",
+              "yXrGeDNuymY@617",
+              "yXrGeDNuymY@620",
+              "yXrGeDNuymY@622"
+            ]
+          },
+          {
+            "id": "ch05.s03.p01.09",
+            "text": "You can think of that marker as a space that marks the beginning of a new token.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@610",
+              "yXrGeDNuymY@612",
+              "yXrGeDNuymY@615"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s03.p02",
+        "sentences": [
+          {
+            "id": "ch05.s03.p02.01",
+            "text": "The release files also record the architectural settings needed to interpret the weights.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s03.p02.02",
+            "text": "The file \"hparams.json\" contains the model settings, including vocabulary size, context length, embedding dimension, number of attention heads, and number of transformer blocks.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@622",
+              "yXrGeDNuymY@624",
+              "yXrGeDNuymY@627",
+              "yXrGeDNuymY@629",
+              "yXrGeDNuymY@633",
+              "yXrGeDNuymY@636",
+              "yXrGeDNuymY@662",
+              "yXrGeDNuymY@665",
+              "yXrGeDNuymY@669",
+              "yXrGeDNuymY@671",
+              "yXrGeDNuymY@674"
+            ]
+          },
+          {
+            "id": "ch05.s03.p02.03",
+            "text": "For the settings shown here, the vocabulary size is 50,257, the context length is 1,024, and the embedding dimension is 768.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@629",
+              "yXrGeDNuymY@631",
+              "yXrGeDNuymY@633",
+              "yXrGeDNuymY@636"
+            ]
+          },
+          {
+            "id": "ch05.s03.p02.04",
+            "text": "The embedding dimension means that each token ID is converted into a vector in a 768-dimensional space.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@640",
+              "yXrGeDNuymY@641",
+              "yXrGeDNuymY@643",
+              "yXrGeDNuymY@647",
+              "yXrGeDNuymY@649",
+              "yXrGeDNuymY@651",
+              "yXrGeDNuymY@654"
+            ]
+          },
+          {
+            "id": "ch05.s03.p02.05",
+            "text": "The parameter \"n_heads\" is the number of attention heads in each transformer block, and \"n_layer\" is the number of transformer blocks.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@659",
+              "yXrGeDNuymY@662",
+              "yXrGeDNuymY@665",
+              "yXrGeDNuymY@669",
+              "yXrGeDNuymY@671",
+              "yXrGeDNuymY@674"
+            ]
+          },
+          {
+            "id": "ch05.s03.p02.06",
+            "text": "The values being shown are for the smallest GPT-2 model.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@677",
+              "yXrGeDNuymY@680",
+              "yXrGeDNuymY@682"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s03.p03",
+        "sentences": [
+          {
+            "id": "ch05.s03.p03.01",
+            "text": "When these files are loaded in code, the same setting information is kept in a Python dictionary.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s03.p03.02",
+            "text": "The code maintains a dictionary called \"settings\".",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@788",
+              "yXrGeDNuymY@790",
+              "yXrGeDNuymY@792"
+            ]
+          },
+          {
+            "id": "ch05.s03.p03.03",
+            "text": "This \"settings\" dictionary contains exactly the same information as \"hparams.json\": vocabulary size, context length, embedding dimension, number of attention heads, and number of transformer blocks.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@794",
+              "yXrGeDNuymY@796",
+              "yXrGeDNuymY@797",
+              "yXrGeDNuymY@800",
+              "yXrGeDNuymY@802",
+              "yXrGeDNuymY@804",
+              "yXrGeDNuymY@806",
+              "yXrGeDNuymY@1658",
+              "yXrGeDNuymY@1659",
+              "yXrGeDNuymY@1662",
+              "yXrGeDNuymY@1664",
+              "yXrGeDNuymY@1666"
+            ]
+          },
+          {
+            "id": "ch05.s03.p03.04",
+            "text": "If you inspect that dictionary, you see keys such as \"n_vocab\", \"n_ctx\", \"n_embed\", \"n_head\", and \"n_layer\".",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1827",
+              "yXrGeDNuymY@1829",
+              "yXrGeDNuymY@1831",
+              "yXrGeDNuymY@1833",
+              "yXrGeDNuymY@1835",
+              "yXrGeDNuymY@1838"
+            ]
+          },
+          {
+            "id": "ch05.s03.p03.05",
+            "text": "Those keys are the \"hparams.json\" information converted into a dictionary.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1841",
+              "yXrGeDNuymY@1844",
+              "yXrGeDNuymY@1847"
+            ]
+          },
+          {
+            "id": "ch05.s03.p03.06",
+            "text": "Downloading the files alone is not enough, because you also need to understand the format in which the returned \"params\" dictionary is stored.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@442",
+              "yXrGeDNuymY@444",
+              "yXrGeDNuymY@447",
+              "yXrGeDNuymY@451",
+              "yXrGeDNuymY@453",
+              "yXrGeDNuymY@455",
+              "yXrGeDNuymY@457"
+            ]
+          }
+        ]
+      }
+    ],
+    "invalid_citation_sentences": 0
+  }
+}

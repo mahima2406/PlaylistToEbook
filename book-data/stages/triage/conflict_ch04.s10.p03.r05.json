@@ -1,0 +1,14 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch04.s10.p03.r05",
+  "inputs_hash": "fe1ff5e8cafff0091c58a3716f0df8f916b30447e652d0162ae2b358b6f9508f",
+  "output_hash": "a5edd92b9d6cdc48940dfea017469f7a1be8499f6877d5b1e310e8d708b201f4",
+  "output": {
+    "decision": "note",
+    "note": "Here the lecture discusses a ~161M-parameter setup; the reference later loads the 355M medium model instead of the smaller 124M version.",
+    "reason": "The captions clearly support the lecture’s parameter count for that context, while the reference is describing a different model choice.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "88a7454defe5ae541f9056be0f84ede57277d78ec54b9fe11b9dcd865f5227be"
+  }
+}

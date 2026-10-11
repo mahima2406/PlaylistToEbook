@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch01.s04",
+  "inputs_hash": "9ec1a7288d47e0fdc4fedf3b04f26b91bb863e51f00d437055678231757d810c",
+  "output_hash": "8ccb468db1a9220655c13089392ca0a249683f35e533bef7964d0160e53fbf77",
+  "output": {
+    "section_id": "ch01.s04",
+    "listings": [],
+    "rejected": [
+      {
+        "id": "ch01.s04.code1",
+        "ref": "ref:ch07/01_main-chapter-code/ch07.ipynb#cell115",
+        "path": "ch07/01_main-chapter-code/ch07.ipynb",
+        "caption": "This code defines a function that sends a user prompt as a chat message to a local LLM API with fixed generation settings.",
+        "code": "import requests  # noqa: F811\n# import urllib.request\n\ndef query_model(\n    prompt,\n    model=\"llama3\",\n    # If you used OLLAMA_HOST=127.0.0.1:11435 ollama serve\n    # update the address from 11434 to 11435\n    url=\"http://localhost:11434/api/chat\"\n):\n    # Create the data payload as a dictionary\n    data = {\n        \"model\": model,\n        \"messages\": [\n            {\"role\": \"user\", \"content\": prompt}\n        ],\n        \"options\": {     # Settings below are required for deterministic responses\n            \"seed\": 123,\n            \"temperature\": 0,\n            \"num_ctx\": 2048\n        }\n    }\n\n    \n    \"\"\"\n    # Convert the dictionary to a JSON formatted string and encode it to bytes\n    payload = json.dumps(data).encode(\"utf-8\")\n\n    # Create a request object, setting the method to POST and adding necessary headers\n    request = urllib.request.Request(",
+        "truncated": true,
+        "check": "partial",
+        "reason": "The section is about LLM applications generating MCQs and lesson plans via a UI/ChatGPT-style interaction. The code only shows a low-level helper function that posts a single user prompt to a local chat API (Ollama) with deterministic options; it does not implement MCQ/lesson-plan generation, difficulty levels, answers/explanations, or any app workflow (selection of an MCQ generator, topic input, generate button). The caption accurately describes what the code does, but the code does not directly demonstrate the specific educational-generation features taught in the section."
+      },
+      {
+        "id": "ch01.s04.code2",
+        "ref": "ref:ch07/01_main-chapter-code/ollama_evaluate.py",
+        "path": "ch07/01_main-chapter-code/ollama_evaluate.py",
+        "caption": "This code defines a function that posts a user prompt to a local chat model endpoint and streams the response line by line.",
+        "code": "# Copyright (c) Sebastian Raschka under Apache License 2.0 (see LICENSE.txt).\n# Source for \"Build a Large Language Model From Scratch\"\n#   - https://www.manning.com/books/build-a-large-language-model-from-scratch\n# Code: https://github.com/rasbt/LLMs-from-scratch\n#\n# A minimal instruction finetuning file based on the code in chapter 7\n\nimport json\nimport psutil\nfrom tqdm import tqdm\nimport requests\n\n\ndef query_model(prompt, model=\"llama3\", url=\"http://localhost:11434/api/chat\"):\n    # Create the data payload as a dictionary\n    data = {\n        \"model\": model,\n        \"messages\": [\n            {\"role\": \"user\", \"content\": prompt}\n        ],\n        \"options\": {     # Settings below are required for deterministic responses\n            \"seed\": 123,\n            \"temperature\": 0,\n            \"num_ctx\": 2048\n        }\n    }\n\n    # Send the POST request\n    with requests.post(url, json=data, stream=True, timeout=30) as r:\n        r.raise_for_status()",
+        "truncated": true,
+        "check": "partial",
+        "reason": "The code does implement posting a user prompt to a local chat model endpoint (and starts a streaming request), which is generally related to using an LLM application. However, the section is about specific end-user applications (MCQ generator, lesson plan generation, ChatGPT planning a relaxing day with follow-up questions, difficulty levels with answers/explanations). This excerpt does not implement MCQ/lesson-plan logic, UI selection/click flow, difficulty levels, or conversational follow-ups; it only shows a low-level API call setup, and it doesn’t actually show streaming the response line-by-line in the provided snippet."
+      }
+    ]
+  }
+}

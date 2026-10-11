@@ -1,0 +1,40 @@
+{
+  "stage": "checks",
+  "item": "ch02.s09.code1",
+  "inputs_hash": "9fc7bfdfeb9b214d8326e33dcd4276893939aba9907e6e643d98b4ed416bc0e0",
+  "output_hash": "2b1458fbe4b9b7858f742f6c3dc257d8f4b6d726419c0a93528d26d353e6e3e3",
+  "output": [
+    {
+      "sentence_id": "ch02.s09.p02.r02",
+      "expected": 50256,
+      "expression": "integers[7]",
+      "tolerance": 0,
+      "check_id": "ch02.s09.code1.chk1",
+      "sentence_text": "An example text is encoded with the tokenizer while allowing the special end-of-text token, and the resulting output includes token IDs such as \"50256\"."
+    },
+    {
+      "sentence_id": "ch02.s09.p02.r03",
+      "expected": 50256,
+      "expression": "tokenizer.encode('<|endoftext|>', allowed_special={'<|endoftext|>'})[0]",
+      "tolerance": 0,
+      "check_id": "ch02.s09.code1.chk2",
+      "sentence_text": "In the GPT-2 and GPT-3 tokenization scheme, token ID \"50256\" is the end-of-text token."
+    },
+    {
+      "sentence_id": "ch02.s09.p03.r02",
+      "expected": 50256,
+      "expression": "tokenizer.n_vocab - 1",
+      "tolerance": 0,
+      "check_id": "ch02.s09.code1.chk3",
+      "sentence_text": "In the GPT-2 byte pair tokenizer, the end-of-text token is the last token in the vocabulary, so it has the largest token ID, \"50256\"."
+    },
+    {
+      "sentence_id": "ch02.s09.p03.r03",
+      "expected": 50257,
+      "expression": "tokenizer.n_vocab",
+      "tolerance": 0,
+      "check_id": "ch02.s09.code1.chk4",
+      "sentence_text": "The byte pair tokenizer used for GPT-2, GPT-3, and the original model used in ChatGPT has a total vocabulary size of \"50257\"."
+    }
+  ]
+}

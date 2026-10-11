@@ -1,0 +1,550 @@
+{
+  "stage": "frame",
+  "item": "ch01",
+  "inputs_hash": "d385f2581edfd3ec848dcabda494a40fce6807273feb9c434a9de2ec646d7c82",
+  "output_hash": "4d1ab91b48f161bacb4b693cfa68c5f0c4dafca4c0778e9611cc1c6e8a8e1bf1",
+  "output": {
+    "section_id": "ch01.open",
+    "paragraphs": [
+      {
+        "id": "ch01.open.p01",
+        "sentences": [
+          {
+            "id": "ch01.open.p01.r01",
+            "text": "This chapter begins by setting the standard for the rest of the book: the goal is not merely to use large language model applications, but to understand how large language models work at the nuts-and-bolts level and to build one from scratch with confidence.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@57",
+              "Xpr8D6LeAtw@59",
+              "Xpr8D6LeAtw@61",
+              "Xpr8D6LeAtw@64",
+              "Xpr8D6LeAtw@88",
+              "Xpr8D6LeAtw@91",
+              "Xpr8D6LeAtw@105",
+              "Xpr8D6LeAtw@109",
+              "Xpr8D6LeAtw@119",
+              "Xpr8D6LeAtw@122",
+              "Xpr8D6LeAtw@127",
+              "Xpr8D6LeAtw@130"
+            ]
+          },
+          {
+            "id": "ch01.open.p01.r02",
+            "text": "That emphasis matters because many learners jump straight to applications, Colab notebooks, copied code, or LLM app tools, even though real depth is what builds confidence, helps you answer detailed interview questions, and keeps knowledge from remaining superficial.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@94",
+              "Xpr8D6LeAtw@96",
+              "Xpr8D6LeAtw@99",
+              "Xpr8D6LeAtw@624",
+              "Xpr8D6LeAtw@628",
+              "Xpr8D6LeAtw@629",
+              "Xpr8D6LeAtw@632",
+              "Xpr8D6LeAtw@652",
+              "Xpr8D6LeAtw@654",
+              "Xpr8D6LeAtw@656",
+              "Xpr8D6LeAtw@664",
+              "Xpr8D6LeAtw@667",
+              "Xpr8D6LeAtw@860",
+              "Xpr8D6LeAtw@862",
+              "Xpr8D6LeAtw@865",
+              "Xpr8D6LeAtw@885",
+              "Xpr8D6LeAtw@893",
+              "Xpr8D6LeAtw@895",
+              "Xpr8D6LeAtw@897",
+              "Xpr8D6LeAtw@899",
+              "Xpr8D6LeAtw@901",
+              "Xpr8D6LeAtw@903",
+              "3dWzNZXA8DY@1900",
+              "3dWzNZXA8DY@1904",
+              "3dWzNZXA8DY@1910",
+              "3dWzNZXA8DY@1913",
+              "3dWzNZXA8DY@1915",
+              "3dWzNZXA8DY@1918",
+              "3dWzNZXA8DY@1960",
+              "3dWzNZXA8DY@1962",
+              "3dWzNZXA8DY@1964",
+              "3dWzNZXA8DY@1965",
+              "3dWzNZXA8DY@1968",
+              "3dWzNZXA8DY@1970",
+              "3dWzNZXA8DY@1974",
+              "3dWzNZXA8DY@1976"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.open.p02",
+        "sentences": [
+          {
+            "id": "ch01.open.p02.01",
+            "text": "As the opening chapter, this one establishes the conceptual map before the implementation work begins.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch01.open.p02.02",
+            "text": "It starts with why learning from scratch matters, then defines large language models, generative AI, and their place in the broader AI stack, before turning to what modern LLMs do, why they are useful, and how application excitement can obscure foundational understanding.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch01.open.p02.03",
+            "text": "From there, it introduces transformers and the key representation ideas that later chapters will unpack in detail, surveys major model families, lays out the stage-by-stage build pipeline, and closes by making the prerequisite picture explicit, including the current gap that neural networks and basic deep learning are only partially introduced here.",
+            "type": "R",
+            "cites": []
+          }
+        ]
+      },
+      {
+        "id": "ch01.glance.p01",
+        "sentences": [
+          {
+            "id": "ch01.glance.p01.01",
+            "text": "A large language model is a neural network designed to understand, generate, and respond to human-like text.[3dWzNZXA8DY@153][3dWzNZXA8DY@157][3dWzNZXA8DY@160][3dWzNZXA8DY@164][3dWzNZXA8DY@170][3dWzNZXA8DY@172][3dWzNZXA8DY@174]",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@153",
+              "3dWzNZXA8DY@157",
+              "3dWzNZXA8DY@160",
+              "3dWzNZXA8DY@164",
+              "3dWzNZXA8DY@170",
+              "3dWzNZXA8DY@172",
+              "3dWzNZXA8DY@174"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.glance.p02",
+        "sentences": [
+          {
+            "id": "ch01.glance.p02.01",
+            "text": "The word large refers to parameter count, and these models typically have billions of parameters, with some reaching trillions.[3dWzNZXA8DY@421][3dWzNZXA8DY@426][3dWzNZXA8DY@428][3dWzNZXA8DY@435][3dWzNZXA8DY@439][3dWzNZXA8DY@445][3dWzNZXA8DY@447]",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@421",
+              "3dWzNZXA8DY@426",
+              "3dWzNZXA8DY@428",
+              "3dWzNZXA8DY@435",
+              "3dWzNZXA8DY@439",
+              "3dWzNZXA8DY@445",
+              "3dWzNZXA8DY@447"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.glance.p03",
+        "sentences": [
+          {
+            "id": "ch01.glance.p03.01",
+            "text": "Generative AI is broader than large language models because it includes language, video, audio, and 3D models.[Xpr8D6LeAtw@489][Xpr8D6LeAtw@490][Xpr8D6LeAtw@495][Xpr8D6LeAtw@497][Xpr8D6LeAtw@500][Xpr8D6LeAtw@503]",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@489",
+              "Xpr8D6LeAtw@490",
+              "Xpr8D6LeAtw@495",
+              "Xpr8D6LeAtw@497",
+              "Xpr8D6LeAtw@500",
+              "Xpr8D6LeAtw@503"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.glance.p04",
+        "sentences": [
+          {
+            "id": "ch01.glance.p04.01",
+            "text": "In the AI stack, artificial intelligence is the broadest umbrella, machine learning is inside it, deep learning is inside machine learning, and large language models sit inside deep learning.[3dWzNZXA8DY@1109][3dWzNZXA8DY@1111][3dWzNZXA8DY@1115][3dWzNZXA8DY@1118][3dWzNZXA8DY@1120][3dWzNZXA8DY@1122][3dWzNZXA8DY@1125][3dWzNZXA8DY@1127][3dWzNZXA8DY@1130]",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1109",
+              "3dWzNZXA8DY@1111",
+              "3dWzNZXA8DY@1115",
+              "3dWzNZXA8DY@1118",
+              "3dWzNZXA8DY@1120",
+              "3dWzNZXA8DY@1122",
+              "3dWzNZXA8DY@1125",
+              "3dWzNZXA8DY@1127",
+              "3dWzNZXA8DY@1130"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.glance.p05",
+        "sentences": [
+          {
+            "id": "ch01.glance.p05.01",
+            "text": "A rule-based chatbot can count as AI, but it is not machine learning if it does not learn from user responses and behaves the same way for different users.[3dWzNZXA8DY@1179][3dWzNZXA8DY@1181][3dWzNZXA8DY@1193][3dWzNZXA8DY@1200][3dWzNZXA8DY@1203][3dWzNZXA8DY@1205][3dWzNZXA8DY@1210][3dWzNZXA8DY@1212][3dWzNZXA8DY@1218][3dWzNZXA8DY@1220][3dWzNZXA8DY@1222]",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1179",
+              "3dWzNZXA8DY@1181",
+              "3dWzNZXA8DY@1193",
+              "3dWzNZXA8DY@1200",
+              "3dWzNZXA8DY@1203",
+              "3dWzNZXA8DY@1205",
+              "3dWzNZXA8DY@1210",
+              "3dWzNZXA8DY@1212",
+              "3dWzNZXA8DY@1218",
+              "3dWzNZXA8DY@1220",
+              "3dWzNZXA8DY@1222"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch01.open.p02.01": {
+        "verdict": "ok",
+        "confidence": 0.83,
+        "reason": ""
+      },
+      "ch01.open.p02.02": {
+        "verdict": "ok",
+        "confidence": 0.74,
+        "reason": ""
+      },
+      "ch01.open.p02.03": {
+        "verdict": "ok",
+        "confidence": 0.76,
+        "reason": ""
+      },
+      "ch01.glance.p01.01": {
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch01.glance.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch01.glance.p03.01": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch01.glance.p04.01": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch01.glance.p05.01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.open.p01.r01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.open.p01.r02": {
+        "verdict": "partial",
+        "confidence": 0.7,
+        "reason": "The cited lines support that many learners jump straight to applications/Colab/copied code/LLM app tools and that depth/foundations build confidence and help answer detailed interview questions, and that otherwise knowledge is superficial. They do not explicitly state the causal claim that this emphasis 'keeps knowledge from remaining superficial' (they state superficiality results from not understanding concepts, but not that the emphasis itself prevents it)."
+      }
+    },
+    "first_pass": {
+      "ch01.open.p01.01": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch01.open.p01.02": {
+        "verdict": "partial",
+        "confidence": 0.62,
+        "reason": "Cited lines support that learners jump straight to Colab/notebooks/copied code and that deep foundational understanding avoids superficial knowledge and builds confidence and helps with interview questions, but they do not explicitly mention 'app frameworks' generally nor 'improves interview readiness' as such (only being able to answer detailed interview questions)."
+      },
+      "ch01.open.p02.01": {
+        "verdict": "ok",
+        "confidence": 0.83,
+        "reason": ""
+      },
+      "ch01.open.p02.02": {
+        "verdict": "ok",
+        "confidence": 0.74,
+        "reason": ""
+      },
+      "ch01.open.p02.03": {
+        "verdict": "ok",
+        "confidence": 0.76,
+        "reason": ""
+      },
+      "ch01.glance.p01.01": {
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch01.glance.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch01.glance.p03.01": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch01.glance.p04.01": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch01.glance.p05.01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "ch01.open.p01"
+    ],
+    "queue": [
+      {
+        "sentence_id": "ch01.open.p01.r02",
+        "text": "That emphasis matters because many learners jump straight to applications, Colab notebooks, copied code, or LLM app tools, even though real depth is what builds confidence, helps you answer detailed interview questions, and keeps knowledge from remaining superficial.",
+        "cites": [
+          "Xpr8D6LeAtw@94",
+          "Xpr8D6LeAtw@96",
+          "Xpr8D6LeAtw@99",
+          "Xpr8D6LeAtw@624",
+          "Xpr8D6LeAtw@628",
+          "Xpr8D6LeAtw@629",
+          "Xpr8D6LeAtw@632",
+          "Xpr8D6LeAtw@652",
+          "Xpr8D6LeAtw@654",
+          "Xpr8D6LeAtw@656",
+          "Xpr8D6LeAtw@664",
+          "Xpr8D6LeAtw@667",
+          "Xpr8D6LeAtw@860",
+          "Xpr8D6LeAtw@862",
+          "Xpr8D6LeAtw@865",
+          "Xpr8D6LeAtw@885",
+          "Xpr8D6LeAtw@893",
+          "Xpr8D6LeAtw@895",
+          "Xpr8D6LeAtw@897",
+          "Xpr8D6LeAtw@899",
+          "Xpr8D6LeAtw@901",
+          "Xpr8D6LeAtw@903",
+          "3dWzNZXA8DY@1900",
+          "3dWzNZXA8DY@1904",
+          "3dWzNZXA8DY@1910",
+          "3dWzNZXA8DY@1913",
+          "3dWzNZXA8DY@1915",
+          "3dWzNZXA8DY@1918",
+          "3dWzNZXA8DY@1960",
+          "3dWzNZXA8DY@1962",
+          "3dWzNZXA8DY@1964",
+          "3dWzNZXA8DY@1965",
+          "3dWzNZXA8DY@1968",
+          "3dWzNZXA8DY@1970",
+          "3dWzNZXA8DY@1974",
+          "3dWzNZXA8DY@1976"
+        ],
+        "verdict": "partial",
+        "confidence": 0.7,
+        "reason": "The cited lines support that many learners jump straight to applications/Colab/copied code/LLM app tools and that depth/foundations build confidence and help answer detailed interview questions, and that otherwise knowledge is superficial. They do not explicitly state the causal claim that this emphasis 'keeps knowledge from remaining superficial' (they state superficiality results from not understanding concepts, but not that the emphasis itself prevents it).",
+        "status": "open"
+      }
+    ],
+    "opener": [
+      {
+        "id": "ch01.open.p01",
+        "sentences": [
+          {
+            "id": "ch01.open.p01.r01",
+            "text": "This chapter begins by setting the standard for the rest of the book: the goal is not merely to use large language model applications, but to understand how large language models work at the nuts-and-bolts level and to build one from scratch with confidence.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@57",
+              "Xpr8D6LeAtw@59",
+              "Xpr8D6LeAtw@61",
+              "Xpr8D6LeAtw@64",
+              "Xpr8D6LeAtw@88",
+              "Xpr8D6LeAtw@91",
+              "Xpr8D6LeAtw@105",
+              "Xpr8D6LeAtw@109",
+              "Xpr8D6LeAtw@119",
+              "Xpr8D6LeAtw@122",
+              "Xpr8D6LeAtw@127",
+              "Xpr8D6LeAtw@130"
+            ]
+          },
+          {
+            "id": "ch01.open.p01.r02",
+            "text": "That emphasis matters because many learners jump straight to applications, Colab notebooks, copied code, or LLM app tools, even though real depth is what builds confidence, helps you answer detailed interview questions, and keeps knowledge from remaining superficial.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@94",
+              "Xpr8D6LeAtw@96",
+              "Xpr8D6LeAtw@99",
+              "Xpr8D6LeAtw@624",
+              "Xpr8D6LeAtw@628",
+              "Xpr8D6LeAtw@629",
+              "Xpr8D6LeAtw@632",
+              "Xpr8D6LeAtw@652",
+              "Xpr8D6LeAtw@654",
+              "Xpr8D6LeAtw@656",
+              "Xpr8D6LeAtw@664",
+              "Xpr8D6LeAtw@667",
+              "Xpr8D6LeAtw@860",
+              "Xpr8D6LeAtw@862",
+              "Xpr8D6LeAtw@865",
+              "Xpr8D6LeAtw@885",
+              "Xpr8D6LeAtw@893",
+              "Xpr8D6LeAtw@895",
+              "Xpr8D6LeAtw@897",
+              "Xpr8D6LeAtw@899",
+              "Xpr8D6LeAtw@901",
+              "Xpr8D6LeAtw@903",
+              "3dWzNZXA8DY@1900",
+              "3dWzNZXA8DY@1904",
+              "3dWzNZXA8DY@1910",
+              "3dWzNZXA8DY@1913",
+              "3dWzNZXA8DY@1915",
+              "3dWzNZXA8DY@1918",
+              "3dWzNZXA8DY@1960",
+              "3dWzNZXA8DY@1962",
+              "3dWzNZXA8DY@1964",
+              "3dWzNZXA8DY@1965",
+              "3dWzNZXA8DY@1968",
+              "3dWzNZXA8DY@1970",
+              "3dWzNZXA8DY@1974",
+              "3dWzNZXA8DY@1976"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.open.p02",
+        "sentences": [
+          {
+            "id": "ch01.open.p02.01",
+            "text": "As the opening chapter, this one establishes the conceptual map before the implementation work begins.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch01.open.p02.02",
+            "text": "It starts with why learning from scratch matters, then defines large language models, generative AI, and their place in the broader AI stack, before turning to what modern LLMs do, why they are useful, and how application excitement can obscure foundational understanding.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch01.open.p02.03",
+            "text": "From there, it introduces transformers and the key representation ideas that later chapters will unpack in detail, surveys major model families, lays out the stage-by-stage build pipeline, and closes by making the prerequisite picture explicit, including the current gap that neural networks and basic deep learning are only partially introduced here.",
+            "type": "R",
+            "cites": []
+          }
+        ]
+      }
+    ],
+    "at_a_glance": [
+      {
+        "id": "ch01.glance.p01",
+        "sentences": [
+          {
+            "id": "ch01.glance.p01.01",
+            "text": "A large language model is a neural network designed to understand, generate, and respond to human-like text.[3dWzNZXA8DY@153][3dWzNZXA8DY@157][3dWzNZXA8DY@160][3dWzNZXA8DY@164][3dWzNZXA8DY@170][3dWzNZXA8DY@172][3dWzNZXA8DY@174]",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@153",
+              "3dWzNZXA8DY@157",
+              "3dWzNZXA8DY@160",
+              "3dWzNZXA8DY@164",
+              "3dWzNZXA8DY@170",
+              "3dWzNZXA8DY@172",
+              "3dWzNZXA8DY@174"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.glance.p02",
+        "sentences": [
+          {
+            "id": "ch01.glance.p02.01",
+            "text": "The word large refers to parameter count, and these models typically have billions of parameters, with some reaching trillions.[3dWzNZXA8DY@421][3dWzNZXA8DY@426][3dWzNZXA8DY@428][3dWzNZXA8DY@435][3dWzNZXA8DY@439][3dWzNZXA8DY@445][3dWzNZXA8DY@447]",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@421",
+              "3dWzNZXA8DY@426",
+              "3dWzNZXA8DY@428",
+              "3dWzNZXA8DY@435",
+              "3dWzNZXA8DY@439",
+              "3dWzNZXA8DY@445",
+              "3dWzNZXA8DY@447"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.glance.p03",
+        "sentences": [
+          {
+            "id": "ch01.glance.p03.01",
+            "text": "Generative AI is broader than large language models because it includes language, video, audio, and 3D models.[Xpr8D6LeAtw@489][Xpr8D6LeAtw@490][Xpr8D6LeAtw@495][Xpr8D6LeAtw@497][Xpr8D6LeAtw@500][Xpr8D6LeAtw@503]",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@489",
+              "Xpr8D6LeAtw@490",
+              "Xpr8D6LeAtw@495",
+              "Xpr8D6LeAtw@497",
+              "Xpr8D6LeAtw@500",
+              "Xpr8D6LeAtw@503"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.glance.p04",
+        "sentences": [
+          {
+            "id": "ch01.glance.p04.01",
+            "text": "In the AI stack, artificial intelligence is the broadest umbrella, machine learning is inside it, deep learning is inside machine learning, and large language models sit inside deep learning.[3dWzNZXA8DY@1109][3dWzNZXA8DY@1111][3dWzNZXA8DY@1115][3dWzNZXA8DY@1118][3dWzNZXA8DY@1120][3dWzNZXA8DY@1122][3dWzNZXA8DY@1125][3dWzNZXA8DY@1127][3dWzNZXA8DY@1130]",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1109",
+              "3dWzNZXA8DY@1111",
+              "3dWzNZXA8DY@1115",
+              "3dWzNZXA8DY@1118",
+              "3dWzNZXA8DY@1120",
+              "3dWzNZXA8DY@1122",
+              "3dWzNZXA8DY@1125",
+              "3dWzNZXA8DY@1127",
+              "3dWzNZXA8DY@1130"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.glance.p05",
+        "sentences": [
+          {
+            "id": "ch01.glance.p05.01",
+            "text": "A rule-based chatbot can count as AI, but it is not machine learning if it does not learn from user responses and behaves the same way for different users.[3dWzNZXA8DY@1179][3dWzNZXA8DY@1181][3dWzNZXA8DY@1193][3dWzNZXA8DY@1200][3dWzNZXA8DY@1203][3dWzNZXA8DY@1205][3dWzNZXA8DY@1210][3dWzNZXA8DY@1212][3dWzNZXA8DY@1218][3dWzNZXA8DY@1220][3dWzNZXA8DY@1222]",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1179",
+              "3dWzNZXA8DY@1181",
+              "3dWzNZXA8DY@1193",
+              "3dWzNZXA8DY@1200",
+              "3dWzNZXA8DY@1203",
+              "3dWzNZXA8DY@1205",
+              "3dWzNZXA8DY@1210",
+              "3dWzNZXA8DY@1212",
+              "3dWzNZXA8DY@1218",
+              "3dWzNZXA8DY@1220",
+              "3dWzNZXA8DY@1222"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

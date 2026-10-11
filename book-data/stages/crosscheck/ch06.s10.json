@@ -1,0 +1,204 @@
+{
+  "stage": "crosscheck",
+  "item": "ch06.s10",
+  "inputs_hash": "017da2a8b447ce11d447855737194ae4066f1faa292c10600be2186395b33ba6",
+  "output_hash": "4fd4c0b1abdac1ac5a5ada4fcfba601dc472f502a0fd8cb1681482c15951d1c7",
+  "output": {
+    "section_id": "ch06.s10",
+    "checked": 14,
+    "counts": {
+      "agrees": 10,
+      "contradicts": 2,
+      "not_covered": 2
+    },
+    "results": [
+      {
+        "sentence_id": "ch06.s10.p01.02",
+        "text": "Before fine-tuning, it is useful to check a pre-trained LLM on one validation task by comparing its output with the expected response, even though the model has not been trained or fine-tuned on this dataset yet.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell16",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell76"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs explicitly check model performance on a validation task before finetuning and note poor instruction following is expected for a pretrained (not instruction-finetuned) model."
+      },
+      {
+        "sentence_id": "ch06.s10.p01.03",
+        "text": "A concrete validation example uses the instruction to convert the active sentence \"The chef cooks the meal every day\" into the passive voice.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell90",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref describes the instruction to convert 'The chef cooks the meal every day.' into passive voice as part of the validation/example."
+      },
+      {
+        "sentence_id": "ch06.s10.p01.04",
+        "text": "For this example, the correct output is \"The meal is cooked by the chef every day.\"",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell90"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Ref gives the passive-voice target as 'The meal is cooked every day by the chef.', not 'The meal is cooked by the chef every day.'"
+      },
+      {
+        "sentence_id": "ch06.s10.p01.05",
+        "text": "Because the model has not been trained on this data at all, the goal is not to get the right answer yet, but to see how far its response is from the desired one.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell29",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell16"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs motivate measuring how far outputs are from targets before training and discuss the model not being trained yet and needing a measure of distance/loss."
+      },
+      {
+        "sentence_id": "ch06.s10.p02.01",
+        "text": "To do that, generation uses the previously defined \"generate\" function.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell76",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell112",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell113"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs show generation performed using the previously defined `generate` function (introduced earlier as a modification of `generate_text_simple`)."
+      },
+      {
+        "sentence_id": "ch06.s10.p02.02",
+        "text": "That function takes the maximum number of new tokens to generate and then produces new tokens based on the model and its weights.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell120",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell144"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs show `generate` is called with `max_new_tokens` and generates tokens based on the model (and its loaded weights)."
+      },
+      {
+        "sentence_id": "ch06.s10.p02.03",
+        "text": "In this setup, the model uses GPT-2 Medium pre-trained weights, the maximum number of new tokens is set to 35, the context length is 1024, the input text and model are passed in, and the generated token IDs are converted back into text.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell96",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell12"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs show `max_new_tokens=35`, `context_size=BASE_CONFIG['context_length']`, and converting token IDs back to text, but do not state the model uses GPT-2 Medium specifically nor that context length is 1024 (and another ref notes training used 256)."
+      },
+      {
+        "sentence_id": "ch06.s10.p02.04",
+        "text": "One detail matters for instruction-following: the generated text includes the original input together with the model's continuation.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell79",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell18",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell81"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref explicitly notes `generate` returns combined input and output text (input plus continuation)."
+      },
+      {
+        "sentence_id": "ch06.s10.p02.05",
+        "text": "For instruction-following use, the part that matters is only the model-generated response, not a reprint of the input instruction.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell18",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell113",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs emphasize isolating the response portion (excluding the instruction/input) for instruction-following evaluation."
+      },
+      {
+        "sentence_id": "ch06.s10.p02.06",
+        "text": "To print only that response, subtract the length of the input instruction from the start of the generated text and print what remains.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell79",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell80",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell96"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref describes and shows code subtracting `len(input_text)` from `generated_text` to isolate/print only the response."
+      },
+      {
+        "sentence_id": "ch06.s10.p03.r01",
+        "text": "In this example, the model's response is \"the chef cooks the meal every day,\" which repeats the original sentence instead of carrying out the instruction.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell90",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell81",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While refs say the model repeats the original input sentence and instruction when not yet capable, they do not provide the exact quoted response text 'the chef cooks the meal every day' as the model response."
+      },
+      {
+        "sentence_id": "ch06.s10.p03.r02",
+        "text": "The pre-trained model is not able to correctly follow the instruction, because it repeats the original input sentence, repeats part of the instruction, and fails to convert the active sentence to passive voice.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell81",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell90",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell59"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref states the pretrained model is not capable of following instructions and repeats the original input sentence and instruction; this implies failure to perform the requested active-to-passive conversion (before finetuning), consistent with the sentence."
+      },
+      {
+        "sentence_id": "ch06.s10.p03.r03",
+        "text": "Without fine-tuning, simply loading pre-trained weights does a poor job on this instruction-following task and can even reproduce formatting such as \"### instruction\" in the response itself.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell81",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell82",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell18"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference notes the pretrained (not yet finetuned) model is not capable of following instructions and repeats the original input/instruction. The input formatting shown includes section headers like \"### Instruction\"/\"### Input\", consistent with the claim that the model can reproduce such formatting in its response."
+      },
+      {
+        "sentence_id": "ch06.s10.p03.r05",
+        "text": "A 774 million parameter GPT-2 model still does not produce a coherent response without fine-tuning.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell9",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The references discuss 124M and 355M GPT-2 variants, not a 774M-parameter GPT-2, and they do not state that a 774M model fails to produce coherent responses without fine-tuning. Thus the specific parameter count and claim are unsupported and conflict with the documented model sizes used."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch06.s10.p01.04",
+        "text": "For this example, the correct output is \"The meal is cooked by the chef every day.\"",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell90"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Ref gives the passive-voice target as 'The meal is cooked every day by the chef.', not 'The meal is cooked by the chef every day.'"
+      },
+      {
+        "sentence_id": "ch06.s10.p03.r05",
+        "text": "A 774 million parameter GPT-2 model still does not produce a coherent response without fine-tuning.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell9",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The references discuss 124M and 355M GPT-2 variants, not a 774M-parameter GPT-2, and they do not state that a 774M model fails to produce coherent responses without fine-tuning. Thus the specific parameter count and claim are unsupported and conflict with the documented model sizes used."
+      }
+    ]
+  }
+}

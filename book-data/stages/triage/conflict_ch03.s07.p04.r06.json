@@ -1,0 +1,14 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch03.s07.p04.r06",
+  "inputs_hash": "514935dd92766b382e279b47d92b60a47a953eedad40d5a5cbb7519f858c8a9b",
+  "output_hash": "ccd8ac4b8b80817ef3c5e293dc44928140f2c8b318c615644904d3bf2bd04fcd",
+  "output": {
+    "decision": "note",
+    "note": "Here the lecture uses an upper-triangular replace-mask; the reference uses a lower-triangular keep-mask. Both encode masking positions above the diagonal.",
+    "reason": "The captions support the lecture’s framing, and the difference from the reference is the mask convention rather than the masking goal.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "cf6c500b87943b65c8bd807efd8158ba02a23d13f277fcfcd4b5d0c2b3896237"
+  }
+}

@@ -1,0 +1,250 @@
+{
+  "stage": "write",
+  "item": "ch06.s01",
+  "inputs_hash": "c3d6873b14208c09bdda9d7c2d7312a8517962c45a6a07738e8a6361d5b2b026",
+  "output_hash": "9009aae56405077448de6ef26c0e38755ebf3df126edb559cd0f6738c3462dd2",
+  "output": {
+    "section_id": "ch06.s01",
+    "paragraphs": [
+      {
+        "id": "ch06.s01.p01",
+        "sentences": [
+          {
+            "id": "ch06.s01.p01.01",
+            "text": "Why is instruction fine-tuning needed when a model is already pre-trained?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s01.p01.02",
+            "text": "Pre-trained LLMs are good at text completion, but they struggle with following specific instructions.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@32",
+              "bkUkcyL_Xxc@34",
+              "bkUkcyL_Xxc@36"
+            ]
+          },
+          {
+            "id": "ch06.s01.p01.03",
+            "text": "Examples of such instructions include fixing the grammar in a text and converting a text into passive voice.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@39",
+              "bkUkcyL_Xxc@41",
+              "bkUkcyL_Xxc@43"
+            ]
+          },
+          {
+            "id": "ch06.s01.p01.04",
+            "text": "Because a pre-trained LLM does not follow instructions very well, it needs to be trained with a specific dataset.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@46",
+              "bkUkcyL_Xxc@49",
+              "__OiQznq4ao@63",
+              "__OiQznq4ao@66",
+              "__OiQznq4ao@68",
+              "__OiQznq4ao@70"
+            ]
+          },
+          {
+            "id": "ch06.s01.p01.05",
+            "text": "Fine-tuning here means training a pre-trained LLM again so that it becomes better at responding to instructions.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@79",
+              "7m2jV7BOFkA@81",
+              "7m2jV7BOFkA@84",
+              "7m2jV7BOFkA@85",
+              "7m2jV7BOFkA@148",
+              "7m2jV7BOFkA@150",
+              "7m2jV7BOFkA@152",
+              "7m2jV7BOFkA@156"
+            ]
+          },
+          {
+            "id": "ch06.s01.p01.06",
+            "text": "More specifically, fine-tuning on instruction data means modifying the weights and parameters of the GPT model so that it can learn to understand instruction input-output pairs from a specific dataset.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@1108",
+              "__OiQznq4ao@1111",
+              "__OiQznq4ao@1113",
+              "__OiQznq4ao@1114",
+              "__OiQznq4ao@1117",
+              "__OiQznq4ao@1120",
+              "__OiQznq4ao@1122"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s01.p02",
+        "sentences": [
+          {
+            "id": "ch06.s01.p02.01",
+            "text": "That raises the next question: what does the instruction-tuning dataset look like?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s01.p02.02",
+            "text": "In instruction fine-tuning, the dataset consists of instructions and the desired responses.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@50",
+              "bkUkcyL_Xxc@52",
+              "bkUkcyL_Xxc@55",
+              "bkUkcyL_Xxc@57",
+              "bkUkcyL_Xxc@59",
+              "bkUkcyL_Xxc@61"
+            ]
+          },
+          {
+            "id": "ch06.s01.p02.03",
+            "text": "Some entries also include an additional input field.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@76",
+              "bkUkcyL_Xxc@79",
+              "bkUkcyL_Xxc@97",
+              "bkUkcyL_Xxc@99",
+              "bkUkcyL_Xxc@103",
+              "bkUkcyL_Xxc@105"
+            ]
+          },
+          {
+            "id": "ch06.s01.p02.04",
+            "text": "The dataset used here contains 1,100 entries of instructions, inputs, and outputs.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@35",
+              "__OiQznq4ao@37",
+              "__OiQznq4ao@41",
+              "bkUkcyL_Xxc@246",
+              "bkUkcyL_Xxc@248",
+              "7m2jV7BOFkA@67",
+              "7m2jV7BOFkA@69",
+              "7m2jV7BOFkA@72"
+            ]
+          },
+          {
+            "id": "ch06.s01.p02.05",
+            "text": "These entries come from various fields, including English, geography, and general knowledge.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@44",
+              "__OiQznq4ao@47",
+              "__OiQznq4ao@49"
+            ]
+          },
+          {
+            "id": "ch06.s01.p02.06",
+            "text": "The aim of using this dataset is to teach the LLM to correctly follow instructions.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@49",
+              "__OiQznq4ao@51",
+              "__OiQznq4ao@53"
+            ]
+          },
+          {
+            "id": "ch06.s01.p02.07",
+            "text": "For example, one entry uses the instruction \"translate the following sentence into French,\" the input \"where is the nearest restaurant,\" and the output as the French translation.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@73",
+              "bkUkcyL_Xxc@74",
+              "bkUkcyL_Xxc@76",
+              "bkUkcyL_Xxc@79",
+              "bkUkcyL_Xxc@81"
+            ]
+          },
+          {
+            "id": "ch06.s01.p02.08",
+            "text": "Another uses the instruction \"rewrite the following sentence so that it is in active voice,\" the input \"the cake was baked by Sarah,\" and the output \"Sarah baked the cake.\"",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@83",
+              "bkUkcyL_Xxc@85",
+              "bkUkcyL_Xxc@88",
+              "bkUkcyL_Xxc@91",
+              "bkUkcyL_Xxc@94"
+            ]
+          },
+          {
+            "id": "ch06.s01.p02.09",
+            "text": "Some pairs have no separate input field, because the sentence or question is included directly in the instruction.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@97",
+              "bkUkcyL_Xxc@99",
+              "bkUkcyL_Xxc@101",
+              "bkUkcyL_Xxc@103",
+              "bkUkcyL_Xxc@105",
+              "bkUkcyL_Xxc@109",
+              "bkUkcyL_Xxc@111",
+              "bkUkcyL_Xxc@114"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s01.p03",
+        "sentences": [
+          {
+            "id": "ch06.s01.p03.01",
+            "text": "Once the data is collected, it must be divided for training and evaluation.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s01.p03.02",
+            "text": "The dataset was split into training, testing, and validation sets using 85% for training, 10% for testing, and 5% for validation.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@225",
+              "bkUkcyL_Xxc@226",
+              "bkUkcyL_Xxc@229",
+              "bkUkcyL_Xxc@232",
+              "bkUkcyL_Xxc@328",
+              "bkUkcyL_Xxc@330",
+              "bkUkcyL_Xxc@332",
+              "bkUkcyL_Xxc@335",
+              "bkUkcyL_Xxc@338",
+              "7m2jV7BOFkA@117",
+              "7m2jV7BOFkA@121",
+              "7m2jV7BOFkA@124",
+              "7m2jV7BOFkA@127"
+            ]
+          },
+          {
+            "id": "ch06.s01.p03.03",
+            "text": "With 1,100 total pairs, this split gives 935 training examples, 55 validation examples, and 110 test examples.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@340",
+              "bkUkcyL_Xxc@342",
+              "bkUkcyL_Xxc@345",
+              "bkUkcyL_Xxc@348"
+            ]
+          },
+          {
+            "id": "ch06.s01.p03.04",
+            "text": "Even though the full dataset has 1,100 instruction-input-output pairs, using 85% for training means the actual training set is only about 800 pairs.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2797",
+              "7m2jV7BOFkA@2799",
+              "7m2jV7BOFkA@2802",
+              "7m2jV7BOFkA@2805",
+              "7m2jV7BOFkA@2807"
+            ]
+          }
+        ]
+      }
+    ],
+    "invalid_citation_sentences": 0
+  }
+}

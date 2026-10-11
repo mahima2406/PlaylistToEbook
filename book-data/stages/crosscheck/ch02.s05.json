@@ -1,0 +1,314 @@
+{
+  "stage": "crosscheck",
+  "item": "ch02.s05",
+  "inputs_hash": "ea11dc7251a0353a8b35fdc38d292a6c04fe6cfc5d7afd6494563e7bc632cf29",
+  "output_hash": "7b5fe1dbb839e02bc155b54d246249327f44f2fc9fbadb7df7fbeb0bac537e87",
+  "output": {
+    "section_id": "ch02.s05",
+    "checked": 25,
+    "counts": {
+      "agrees": 16,
+      "contradicts": 0,
+      "not_covered": 9
+    },
+    "results": [
+      {
+        "sentence_id": "ch02.s05.p01.02",
+        "text": "After text has been converted into tokens, those tokens still need numerical representations.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell67"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference workflow counts tokens and elsewhere converts tokens to IDs/embeddings, consistent with the idea that tokens must be represented numerically for modeling."
+      },
+      {
+        "sentence_id": "ch02.s05.p01.03",
+        "text": "Computers do not understand words directly, so the tokens must be converted into token IDs.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell32",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell49",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell37"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Section 2.3 explicitly covers converting tokens into token IDs and shows vocabulary construction and decoding from IDs."
+      },
+      {
+        "sentence_id": "ch02.s05.p01.04",
+        "text": "A vocabulary is a dictionary in which every unique token is mapped to a unique integer, called the token ID.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell35",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell37",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell91"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references build a vocab mapping unique tokens to unique integers (enumerate) and use an inverse mapping, matching the definition of token IDs."
+      },
+      {
+        "sentence_id": "ch02.s05.p01.05",
+        "text": "For practical purposes, the LLM cares about token IDs rather than the original tokens, because token IDs have a numerical representation.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell49",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell26"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Generation code operates on token IDs (idx) and produces token IDs via argmax; text conversion happens via helper functions, consistent with the model using numeric IDs rather than raw tokens."
+      },
+      {
+        "sentence_id": "ch02.s05.p02.01",
+        "text": "The difficulty appears as soon as the input contains a word that is not present in the vocabulary.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell81",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states an error occurs when a word is not in the vocabulary (e.g., \"Hello\"), showing the difficulty with out-of-vocabulary inputs."
+      },
+      {
+        "sentence_id": "ch02.s05.p02.02",
+        "text": "A simple way to handle this is to augment the existing vocabulary with two special tokens: an unknown token and an end-of-text token.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell52",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference recommends adding special tokens for unknown words and end-of-text and specifically adds <|unk|> and <|endoftext|>."
+      },
+      {
+        "sentence_id": "ch02.s05.p02.03",
+        "text": "The unknown token represents a word in the input text that the vocabulary does not know, and that word is mapped to the unknown token’s ID.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell52"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explains adding <|unk|> to represent unknown words, implying unknown words are mapped to that token/ID."
+      },
+      {
+        "sentence_id": "ch02.s05.p02.04",
+        "text": "The end-of-text token is used when working with different input documents to specify where one document ends and another starts.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell1",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell2",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explains <|endoftext|> is used between concatenated texts from multiple articles/books to mark boundaries."
+      },
+      {
+        "sentence_id": "ch02.s05.p02.05",
+        "text": "When multiple text sources are combined, such as news articles, Reddit posts, blogs, and newspaper clippings, an end-of-text token is inserted between them to mark the boundary from one source to the next.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell55",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell13"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly says <|endoftext|> is used between two independent sources of text, matching insertion between combined sources to mark boundaries."
+      },
+      {
+        "sentence_id": "ch02.s05.p02.06",
+        "text": "These end-of-text tokens act as markers for segment boundaries, and this leads to more effective processing and understanding by the language model.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell136",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell6",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell27"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the references describe end-of-text tokens as boundary markers, they do not state that this \"leads to more effective processing and understanding\" by the model."
+      },
+      {
+        "sentence_id": "ch02.s05.p02.07",
+        "text": "During preprocessing for ChatGPT, end-of-text tokens are also added to text resources.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell9",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell52"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention adding end-of-text tokens in general/GPT-2-style training, but do not specifically mention ChatGPT preprocessing."
+      },
+      {
+        "sentence_id": "ch02.s05.p03.02",
+        "text": "The modified tokenizer uses the unknown token whenever it encounters a word that is not part of the vocabulary, and it inserts an end-of-text token between unrelated texts.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell52"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references describe using an unknown token for out-of-vocabulary words and using an end-of-text token between unrelated/concatenated texts."
+      },
+      {
+        "sentence_id": "ch02.s05.p03.03",
+        "text": "After adding the end-of-text token and the unknown token to the token list, the token-to-integer vocabulary mapping is created again with these two additional entries.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell37",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "ch02 shows creating the vocab mapping via enumerate(all_words), and the surrounding notes describe extending the vocabulary with <|unk|> and <|endoftext|>, which implies rebuilding/creating the mapping after adding them."
+      },
+      {
+        "sentence_id": "ch02.s05.p03.04",
+        "text": "The vocabulary length then becomes 1132 instead of 1130.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell110",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the provided references state that the vocabulary length changes from 1130 to 1132."
+      },
+      {
+        "sentence_id": "ch02.s05.p03.05",
+        "text": "In this augmented vocabulary, the end-of-text token has token ID 1130 and the unknown token has token ID 1131.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell92",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention adding <|unk|> and <|endoftext|>, but do not provide the specific assigned IDs 1130 and 1131."
+      },
+      {
+        "sentence_id": "ch02.s05.p03.06",
+        "text": "To modify the tokenizer, the decode method stays the same, but the encode method is changed so that any item not found in the string-to-integer dictionary is replaced with the unknown token before being mapped to an ID.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell118",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No referenced passage shows the tokenizer encode/decode implementation changes (keeping decode the same and modifying encode to map missing tokens to <|unk|>)."
+      },
+      {
+        "sentence_id": "ch02.s05.p04.r02",
+        "text": "Take the two texts \"hello do you like t\" and \"in the sunlight Terraces of the palace\" and merge them with an end-of-text token between them.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell66",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell74",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "ch02 cell66 explicitly defines text1/text2 and joins them with \" <|endoftext|> \" between them."
+      },
+      {
+        "sentence_id": "ch02.s05.p04.r03",
+        "text": "This placement of the end-of-text token indicates when the first text ends and the second text starts, and it is described as how this is done in GPT.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell13",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell25"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "ch02 cell59 explains <|endoftext|> is used in GPT-2 training to denote end of a text and is used between concatenated texts, matching the described placement/meaning."
+      },
+      {
+        "sentence_id": "ch02.s05.p04.r04",
+        "text": "With the modified tokenizer, encoding no longer raises an error when \"hello\" is not in the vocabulary, because \"hello\" is replaced with the unknown token.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell65",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell58"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "ch02 cell59 explains encoding errors for out-of-vocab words and that adding <|unk|> handles such cases; cell65 indicates trying tokenization with the modified tokenizer, consistent with replacing unknown words so encoding no longer errors."
+      },
+      {
+        "sentence_id": "ch02.s05.p04.r05",
+        "text": "In that encoded result, the unknown token receives ID 1131, while the end-of-text token receives ID 1130.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell92",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not state the numeric IDs for <|unk|> and <|endoftext|> in the encoded result."
+      },
+      {
+        "sentence_id": "ch02.s05.p04.r06",
+        "text": "Decoding produces text in which unseen words appear as unknown tokens, as in \"unknown do you like t end of text in the sunlight Terraces of the unknown\".",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell52",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell76"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss unknown and end-of-text tokens conceptually but do not show a decode example producing the quoted kind of output."
+      },
+      {
+        "sentence_id": "ch02.s05.p04.r07",
+        "text": "Here, both \"hello\" and \"palace\" are treated as unknown words because they are not in the data set, and the augmented vocabulary therefore allows both encoding and decoding to succeed even with unknown words.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell52",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell76",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the references motivate adding <|unk|> for missing words, they do not specifically state that both \"Hello\" and \"palace\" are unknown in the dataset nor show both encoding and decoding succeeding with those exact words."
+      },
+      {
+        "sentence_id": "ch02.s05.p05.02",
+        "text": "Depending on the language model, researchers may also use special tokens such as beginning-of-sequence, end-of-sequence, and padding tokens.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell52",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell51"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "ch02 cell54 explicitly lists BOS, EOS, and PAD as special tokens used by some tokenizers depending on training/setup."
+      },
+      {
+        "sentence_id": "ch02.s05.p05.03",
+        "text": "For GPT, however, the tokenizer does not use an unknown token, but it does use an end-of-text token.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell52",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell13"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention GPT-2 using <|endoftext|> and discuss adding <|unk|> in the toy tokenizer, but they do not state that GPT tokenizers do not use an unknown token."
+      },
+      {
+        "sentence_id": "ch02.s05.p05.04",
+        "text": "The end-of-text token marks that one text has ended and another has started, and it is part of the GPT-2 vocabulary.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell22"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references state that the special token \"<|endoftext|>\" is used in GPT-2 training to denote the end of a text and is also used between concatenated texts (i.e., between multiple articles/books). They also indicate it is a special token added/used as part of the tokenizer vocabulary (GPT-2 vocabulary includes this token)."
+      }
+    ],
+    "conflicts": []
+  }
+}

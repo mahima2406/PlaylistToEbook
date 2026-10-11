@@ -1,0 +1,564 @@
+{
+  "stage": "write",
+  "item": "ch02.s06",
+  "inputs_hash": "8fd1b809b3bea78a278ce45b48e28f5056244817e15501370c95845bdf743427",
+  "output_hash": "44c9b893854063fe87b124f7fe52c724349de2efba09263358e566be0bf92d19",
+  "output": {
+    "section_id": "ch02.s06",
+    "paragraphs": [
+      {
+        "id": "ch02.s06.p01",
+        "sentences": [
+          {
+            "id": "ch02.s06.p01.01",
+            "text": "How can tokenization avoid huge word vocabularies without throwing away everything useful about words?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s06.p01.02",
+            "text": "At one end of the spectrum is character-based tokenization, where characters rather than words are used as tokens.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@389",
+              "fKd8s29e-l4@405",
+              "fKd8s29e-l4@407",
+              "mk-6cFebjis@1894",
+              "mk-6cFebjis@1903",
+              "mk-6cFebjis@1905"
+            ]
+          },
+          {
+            "id": "ch02.s06.p01.03",
+            "text": "For the sentence \"my hobby is playing cricket,\" this means tokens are individual characters such as \"m\", \"y\", \"h\", \"o\", and \"b\" instead of whole words.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@396",
+              "fKd8s29e-l4@401",
+              "fKd8s29e-l4@405",
+              "fKd8s29e-l4@412",
+              "fKd8s29e-l4@414",
+              "fKd8s29e-l4@417",
+              "fKd8s29e-l4@420",
+              "fKd8s29e-l4@426",
+              "mk-6cFebjis@1908",
+              "mk-6cFebjis@1910",
+              "mk-6cFebjis@1915"
+            ]
+          },
+          {
+            "id": "ch02.s06.p01.04",
+            "text": "This leads to a very small vocabulary because every language has a fixed number of characters.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@446",
+              "fKd8s29e-l4@449",
+              "fKd8s29e-l4@452",
+              "mk-6cFebjis@1929",
+              "mk-6cFebjis@1931",
+              "mk-6cFebjis@1941",
+              "mk-6cFebjis@1944"
+            ]
+          },
+          {
+            "id": "ch02.s06.p01.05",
+            "text": "For English, the character count is stated as around 256, while the number of words is about 170,000 to 200,000.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@453",
+              "fKd8s29e-l4@455",
+              "fKd8s29e-l4@458",
+              "fKd8s29e-l4@460",
+              "fKd8s29e-l4@461",
+              "mk-6cFebjis@1937",
+              "mk-6cFebjis@1939"
+            ]
+          },
+          {
+            "id": "ch02.s06.p01.06",
+            "text": "Because any new sentence can always be broken into characters already in the vocabulary, character-based tokenization avoids the out-of-vocabulary problem.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@477",
+              "fKd8s29e-l4@481",
+              "fKd8s29e-l4@482",
+              "fKd8s29e-l4@484",
+              "fKd8s29e-l4@486",
+              "fKd8s29e-l4@489",
+              "fKd8s29e-l4@493",
+              "fKd8s29e-l4@495",
+              "fKd8s29e-l4@499",
+              "fKd8s29e-l4@502",
+              "mk-6cFebjis@1953",
+              "mk-6cFebjis@1955",
+              "mk-6cFebjis@1957"
+            ]
+          },
+          {
+            "id": "ch02.s06.p01.07",
+            "text": "It also removes the large-vocabulary problem of word-based tokenization, and the small vocabulary makes it computationally and memory efficient.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@507",
+              "fKd8s29e-l4@520",
+              "fKd8s29e-l4@522",
+              "fKd8s29e-l4@525",
+              "fKd8s29e-l4@527",
+              "fKd8s29e-l4@531",
+              "fKd8s29e-l4@540",
+              "fKd8s29e-l4@542",
+              "fKd8s29e-l4@544",
+              "mk-6cFebjis@1883",
+              "mk-6cFebjis@1885",
+              "mk-6cFebjis@1929",
+              "mk-6cFebjis@1946",
+              "mk-6cFebjis@1949"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s06.p02",
+        "sentences": [
+          {
+            "id": "ch02.s06.p02.01",
+            "text": "The tradeoff is severe.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s06.p02.02",
+            "text": "When text is broken into individual characters, the meaning associated with words is completely lost.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@553",
+              "fKd8s29e-l4@555",
+              "fKd8s29e-l4@557",
+              "mk-6cFebjis@1964",
+              "mk-6cFebjis@1976",
+              "mk-6cFebjis@1978",
+              "mk-6cFebjis@1988",
+              "mk-6cFebjis@1991"
+            ]
+          },
+          {
+            "id": "ch02.s06.p02.03",
+            "text": "Shared roots are lost as well: \"boy\" and \"boys\" no longer reveal their common root, and word-based tokenization also fails to capture such similarities.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@567",
+              "fKd8s29e-l4@569",
+              "fKd8s29e-l4@680",
+              "fKd8s29e-l4@682",
+              "fKd8s29e-l4@684",
+              "fKd8s29e-l4@687",
+              "mk-6cFebjis@1966",
+              "mk-6cFebjis@1969",
+              "mk-6cFebjis@1972",
+              "mk-6cFebjis@1974"
+            ]
+          },
+          {
+            "id": "ch02.s06.p02.04",
+            "text": "The same issue appears with shared endings: word-based and character-based tokenization do not capture the common \"isation\" in related words, and they also miss relations such as the common root in \"old\" and \"older\" and the shared \"est\" in \"finest\" and \"lowest.\"",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@689",
+              "fKd8s29e-l4@692",
+              "fKd8s29e-l4@694",
+              "fKd8s29e-l4@1501",
+              "fKd8s29e-l4@1504",
+              "fKd8s29e-l4@1506",
+              "fKd8s29e-l4@1509",
+              "fKd8s29e-l4@1511",
+              "fKd8s29e-l4@1515",
+              "fKd8s29e-l4@1516",
+              "fKd8s29e-l4@1518",
+              "fKd8s29e-l4@1519"
+            ]
+          },
+          {
+            "id": "ch02.s06.p02.05",
+            "text": "Another major problem is that the tokenized sequence becomes much longer than the initial raw text.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@579",
+              "fKd8s29e-l4@581",
+              "fKd8s29e-l4@584",
+              "fKd8s29e-l4@620",
+              "fKd8s29e-l4@622",
+              "mk-6cFebjis@1994",
+              "mk-6cFebjis@1996",
+              "mk-6cFebjis@2022",
+              "mk-6cFebjis@2025"
+            ]
+          },
+          {
+            "id": "ch02.s06.p02.06",
+            "text": "For example, \"dinosaur\" is one token with word-based tokenization but becomes eight separate character tokens with character-based tokenization.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@595",
+              "fKd8s29e-l4@598",
+              "fKd8s29e-l4@600",
+              "fKd8s29e-l4@603",
+              "fKd8s29e-l4@607",
+              "fKd8s29e-l4@610",
+              "fKd8s29e-l4@612",
+              "fKd8s29e-l4@614",
+              "fKd8s29e-l4@617"
+            ]
+          },
+          {
+            "id": "ch02.s06.p02.07",
+            "text": "The same pattern appears with \"hobby,\" which becomes five character tokens: \"h\", \"o\", \"b\", \"b\", and \"y.\"",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@2001",
+              "mk-6cFebjis@2003",
+              "mk-6cFebjis@2005",
+              "mk-6cFebjis@2007",
+              "mk-6cFebjis@2015",
+              "mk-6cFebjis@2017"
+            ]
+          },
+          {
+            "id": "ch02.s06.p02.08",
+            "text": "So character-level tokenization has a small fixed vocabulary and avoids out-of-vocabulary words, but it produces much longer token sequences, while the main problem with word-based tokenization is its large vocabulary.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@667",
+              "fKd8s29e-l4@669",
+              "fKd8s29e-l4@671",
+              "fKd8s29e-l4@676",
+              "fKd8s29e-l4@677",
+              "fKd8s29e-l4@659",
+              "fKd8s29e-l4@661",
+              "fKd8s29e-l4@663",
+              "mk-6cFebjis@2030",
+              "mk-6cFebjis@2033",
+              "mk-6cFebjis@2034",
+              "mk-6cFebjis@2037",
+              "mk-6cFebjis@2038",
+              "mk-6cFebjis@2040"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s06.p03",
+        "sentences": [
+          {
+            "id": "ch02.s06.p03.01",
+            "text": "A middle ground is subword-based tokenization.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s06.p03.02",
+            "text": "Subword-based tokenization is another tokenization algorithm, and byte pair encoding is an example of a subword-based tokenization algorithm.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@699",
+              "fKd8s29e-l4@702",
+              "fKd8s29e-l4@704",
+              "fKd8s29e-l4@707",
+              "fKd8s29e-l4@708",
+              "mk-6cFebjis@2050",
+              "mk-6cFebjis@2051",
+              "mk-6cFebjis@2054",
+              "mk-6cFebjis@2057"
+            ]
+          },
+          {
+            "id": "ch02.s06.p03.03",
+            "text": "It is presented as a best-of-both-worlds approach between word tokenization and character tokenization.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@711",
+              "fKd8s29e-l4@713",
+              "fKd8s29e-l4@716",
+              "fKd8s29e-l4@785",
+              "fKd8s29e-l4@787",
+              "mk-6cFebjis@2040",
+              "mk-6cFebjis@2042",
+              "mk-6cFebjis@2045",
+              "mk-6cFebjis@2047"
+            ]
+          },
+          {
+            "id": "ch02.s06.p03.04",
+            "text": "The first rule is that frequently used words in the dataset should not be split into smaller subwords.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@734",
+              "fKd8s29e-l4@736",
+              "fKd8s29e-l4@738",
+              "fKd8s29e-l4@741",
+              "fKd8s29e-l4@743",
+              "fKd8s29e-l4@747",
+              "fKd8s29e-l4@750",
+              "fKd8s29e-l4@752",
+              "fKd8s29e-l4@754"
+            ]
+          },
+          {
+            "id": "ch02.s06.p03.05",
+            "text": "The second rule is that rare words should be split into smaller meaningful subwords, and this splitting can go down to the character level if needed.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@761",
+              "fKd8s29e-l4@763",
+              "fKd8s29e-l4@766",
+              "fKd8s29e-l4@768",
+              "fKd8s29e-l4@770",
+              "fKd8s29e-l4@775",
+              "fKd8s29e-l4@777",
+              "fKd8s29e-l4@781",
+              "fKd8s29e-l4@783",
+              "fKd8s29e-l4@798",
+              "fKd8s29e-l4@800",
+              "fKd8s29e-l4@803",
+              "fKd8s29e-l4@805"
+            ]
+          },
+          {
+            "id": "ch02.s06.p03.06",
+            "text": "That is why subword tokenization combines features of word tokenization and character tokenization: frequent words are kept whole, while rare words can be broken down further.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@785",
+              "fKd8s29e-l4@789",
+              "fKd8s29e-l4@792",
+              "fKd8s29e-l4@793",
+              "fKd8s29e-l4@796",
+              "fKd8s29e-l4@798",
+              "fKd8s29e-l4@800",
+              "fKd8s29e-l4@803",
+              "fKd8s29e-l4@807",
+              "fKd8s29e-l4@809",
+              "fKd8s29e-l4@811",
+              "fKd8s29e-l4@813"
+            ]
+          },
+          {
+            "id": "ch02.s06.p03.07",
+            "text": "It captures some root words that occur in many other words, such as treating \"boy\" as the common root in related forms.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@722",
+              "fKd8s29e-l4@723",
+              "fKd8s29e-l4@726",
+              "fKd8s29e-l4@728",
+              "fKd8s29e-l4@731"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s06.p04",
+        "sentences": [
+          {
+            "id": "ch02.s06.p04.01",
+            "text": "The core idea becomes clear in simple examples.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s06.p04.02",
+            "text": "If \"boy\" appears multiple times in the dataset, it is kept as a token and is not split further.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@818",
+              "fKd8s29e-l4@820",
+              "fKd8s29e-l4@822",
+              "fKd8s29e-l4@824"
+            ]
+          },
+          {
+            "id": "ch02.s06.p04.03",
+            "text": "But \"boys\" can be split into the meaningful subwords \"boy\" and \"s.\"",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@827",
+              "fKd8s29e-l4@831",
+              "fKd8s29e-l4@834",
+              "fKd8s29e-l4@837",
+              "fKd8s29e-l4@840",
+              "fKd8s29e-l4@842",
+              "fKd8s29e-l4@845",
+              "fKd8s29e-l4@848",
+              "fKd8s29e-l4@850"
+            ]
+          },
+          {
+            "id": "ch02.s06.p04.04",
+            "text": "The main essence of subword tokenization is that words are sometimes broken into smaller elements because those smaller elements appear very frequently.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@854",
+              "fKd8s29e-l4@857",
+              "fKd8s29e-l4@860",
+              "fKd8s29e-l4@862",
+              "fKd8s29e-l4@864"
+            ]
+          },
+          {
+            "id": "ch02.s06.p04.05",
+            "text": "In this example, \"boys\" is broken into \"boy\" and \"s\" because \"boy\" appears more frequently and \"s\" is also a token that appears very frequently.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@866",
+              "fKd8s29e-l4@869",
+              "fKd8s29e-l4@871",
+              "fKd8s29e-l4@874"
+            ]
+          },
+          {
+            "id": "ch02.s06.p04.06",
+            "text": "Breaking one word into subwords has important advantages, and that is what is mainly done in subword tokenization.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@954",
+              "fKd8s29e-l4@956",
+              "fKd8s29e-l4@959",
+              "fKd8s29e-l4@962"
+            ]
+          },
+          {
+            "id": "ch02.s06.p04.07",
+            "text": "Subword splitting helps the model learn that words such as \"token\", \"tokens\", and \"tokenizing\" share the same root and are similar in meaning.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@885",
+              "fKd8s29e-l4@888",
+              "fKd8s29e-l4@890",
+              "fKd8s29e-l4@894",
+              "fKd8s29e-l4@895",
+              "fKd8s29e-l4@897",
+              "fKd8s29e-l4@898",
+              "fKd8s29e-l4@901",
+              "fKd8s29e-l4@903",
+              "fKd8s29e-l4@905",
+              "fKd8s29e-l4@907"
+            ]
+          },
+          {
+            "id": "ch02.s06.p04.08",
+            "text": "It also helps the model learn that \"tokenization\" and \"modernization\" have different roots but share the suffix \"isation,\" which appears in the same syntactic situations.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@918",
+              "fKd8s29e-l4@921",
+              "fKd8s29e-l4@923",
+              "fKd8s29e-l4@925",
+              "fKd8s29e-l4@928",
+              "fKd8s29e-l4@929",
+              "fKd8s29e-l4@932",
+              "fKd8s29e-l4@935"
+            ]
+          },
+          {
+            "id": "ch02.s06.p04.09",
+            "text": "A word like \"tokenization\" can therefore be broken into subword pieces that include a suffix token such as \"isation\" along with root-related tokens, helping the model learn common patterns across words.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@938",
+              "fKd8s29e-l4@940",
+              "fKd8s29e-l4@943",
+              "fKd8s29e-l4@946",
+              "fKd8s29e-l4@948",
+              "fKd8s29e-l4@950",
+              "fKd8s29e-l4@952"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s06.p05",
+        "sentences": [
+          {
+            "id": "ch02.s06.p05.01",
+            "text": "Byte pair encoding makes this subword view concrete.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s06.p05.02",
+            "text": "The tokens produced by byte pair encoding are subwords rather than full words or single characters, and they can encode root representations.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2084",
+              "fKd8s29e-l4@2087",
+              "fKd8s29e-l4@2088",
+              "fKd8s29e-l4@2090"
+            ]
+          },
+          {
+            "id": "ch02.s06.p05.03",
+            "text": "For example, the process can construct tokens such as \"old\" and \"est\", showing that repeated parts can become their own tokens.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2077",
+              "fKd8s29e-l4@2079",
+              "fKd8s29e-l4@2082",
+              "fKd8s29e-l4@1525",
+              "fKd8s29e-l4@1527",
+              "fKd8s29e-l4@1529"
+            ]
+          },
+          {
+            "id": "ch02.s06.p05.04",
+            "text": "A repeated part can be kept as its own token, while a less reusable word is split into reusable subwords and characters.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2158",
+              "fKd8s29e-l4@2162",
+              "fKd8s29e-l4@2165",
+              "fKd8s29e-l4@2168",
+              "fKd8s29e-l4@2170",
+              "fKd8s29e-l4@2173",
+              "fKd8s29e-l4@2176",
+              "fKd8s29e-l4@2179",
+              "fKd8s29e-l4@2181",
+              "fKd8s29e-l4@2183",
+              "fKd8s29e-l4@2188",
+              "fKd8s29e-l4@2192"
+            ]
+          },
+          {
+            "id": "ch02.s06.p05.05",
+            "text": "That is why subword encoding keeps the out-of-vocabulary advantage of character-level tokenization while also capturing root meanings and avoiding the very large vocabulary of word-level encoding.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2375",
+              "fKd8s29e-l4@2380",
+              "fKd8s29e-l4@2382",
+              "fKd8s29e-l4@2384",
+              "fKd8s29e-l4@2386",
+              "fKd8s29e-l4@2388",
+              "fKd8s29e-l4@2391",
+              "fKd8s29e-l4@2393",
+              "fKd8s29e-l4@2395",
+              "fKd8s29e-l4@2404",
+              "fKd8s29e-l4@2406",
+              "fKd8s29e-l4@2408",
+              "fKd8s29e-l4@2410",
+              "fKd8s29e-l4@2413",
+              "fKd8s29e-l4@2418",
+              "fKd8s29e-l4@2419",
+              "fKd8s29e-l4@2422",
+              "fKd8s29e-l4@2424",
+              "fKd8s29e-l4@2427",
+              "fKd8s29e-l4@2430",
+              "fKd8s29e-l4@2432",
+              "fKd8s29e-l4@2435",
+              "fKd8s29e-l4@2437",
+              "fKd8s29e-l4@2440"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

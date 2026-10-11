@@ -1,0 +1,405 @@
+{
+  "stage": "crosscheck",
+  "item": "ch01.s09",
+  "inputs_hash": "6c486dccd3cf15d4d3643e49aef2a9b79b6dac3f8c058968cd0fbe6be92e45bc",
+  "output_hash": "f4449a51d61cb391ff6898b07ad89b4387619fb15b912c572c27e1ddfc4be406",
+  "output": {
+    "section_id": "ch01.s09",
+    "checked": 34,
+    "counts": {
+      "agrees": 7,
+      "contradicts": 0,
+      "not_covered": 27
+    },
+    "results": [
+      {
+        "sentence_id": "ch01.s09.p01.02",
+        "text": "BERT and GPT are later variations of the Transformer architecture.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell6",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell5"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs describe GPT as based on the decoder part of the original Transformer and show plugging a transformer block into a GPT architecture, consistent with GPT being a Transformer-based variation; nothing contradicts BERT being a Transformer variation."
+      },
+      {
+        "sentence_id": "ch01.s09.p01.03",
+        "text": "BERT stands for Bidirectional Encoder Representations from Transformers.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell15",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell121"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided refs discuss self-attention and embeddings but do not state what the BERT acronym stands for."
+      },
+      {
+        "sentence_id": "ch01.s09.p01.04",
+        "text": "GPT stands for Generative Pre-trained Transformers.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell7"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The referenced section header about evaluating generative text models does not define the GPT acronym."
+      },
+      {
+        "sentence_id": "ch01.s09.p01.05",
+        "text": "GPT is described as pre-trained because it is a pre-trained or foundational model.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell29"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The ref only notes the model wasn't trained yet and discusses training; it does not explain the meaning of 'pre-trained' or describe GPT as foundational."
+      },
+      {
+        "sentence_id": "ch01.s09.p01.06",
+        "text": "Both BERT and GPT are based on the Transformer architecture.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell6",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell5"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs explicitly state GPT is based on the decoder part of the original Transformer architecture and use transformer blocks to build GPT; nothing contradicts BERT being Transformer-based, so the statement is consistent with the provided material."
+      },
+      {
+        "sentence_id": "ch01.s09.p02.r01",
+        "text": "BERT predicts hidden or missing words in a sentence, which are also called masked words, whereas GPT generates a new next word.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell36",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell91"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs cover causal attention (hiding future words) but do not describe BERT’s masked-word prediction objective nor explicitly contrast it with GPT next-word generation."
+      },
+      {
+        "sentence_id": "ch01.s09.p02.r02",
+        "text": "In BERT, words are randomly masked during training.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell122",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell105",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell108"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs discuss dropout during training and causal masking of attention scores, not random masking of input words as in BERT training."
+      },
+      {
+        "sentence_id": "ch01.s09.p02.r03",
+        "text": "The text is pre-processed by converting it into token IDs, then passed to the encoder for embeddings, and the output fills in the missing words.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell32",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell49",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell44"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs cover encoding/decoding token IDs but do not describe an encoder model producing outputs to fill missing (masked) words."
+      },
+      {
+        "sentence_id": "ch01.s09.p02.r04",
+        "text": "For example, from the incomplete text \"this is an Dash or question mark of how llm Dash perform\", BERT outputs the missing words \"example\" and \"can\", giving \"this is an example of how llm can perform\".",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell89",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell8",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell73"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference passage provides this specific BERT masking example or outputs."
+      },
+      {
+        "sentence_id": "ch01.s09.p03.02",
+        "text": "GPT receives incomplete text where the next word is unknown, pre-processes it into token IDs, and uses a decoder-only model to predict that next word.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell33",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell82"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs state training targets are next-word prediction (shifted by one), and that text is converted into token IDs for processing; they also characterize GPT-like models as decoder-based, consistent with the description."
+      },
+      {
+        "sentence_id": "ch01.s09.p03.03",
+        "text": "For example, given \"this is an example of how llm can Dash\", the decoder predicts the unknown word \"perform\" to produce \"this is an example of how llm can perform\".",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell8",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell89",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell73"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference passage provides this specific example of predicting 'perform' to complete the sentence."
+      },
+      {
+        "sentence_id": "ch01.s09.p03.04",
+        "text": "GPT models learn to generate one word at a time.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell83",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell9"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs explicitly state LLMs like GPT are used/trained to generate one word at a time."
+      },
+      {
+        "sentence_id": "ch01.s09.p03.05",
+        "text": "GPT is a left-to-right model: it uses the information on the left and predicts the rightmost unknown token or next word.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell142",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell40",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell82"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states training targets are inputs shifted right by one to predict the next word, consistent with left-to-right next-token prediction."
+      },
+      {
+        "sentence_id": "ch01.s09.p03.06",
+        "text": "Because GPT produces one word at a time, it can complete missing text.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell83",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell88",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly says GPT-like LLMs generate one word/token at a time via an iterative process."
+      },
+      {
+        "sentence_id": "ch01.s09.p03.07",
+        "text": "GPT does not have an encoder and only has a decoder.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell6",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell10"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference describes GPT/Llama as based on the decoder part of the original transformer architecture (\"decoder-like\"), consistent with having no encoder and only a decoder."
+      },
+      {
+        "sentence_id": "ch01.s09.p03.08",
+        "text": "BERT, by contrast, only has the encoder.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell125",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell10",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell70"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the provided reference passages state that BERT has only an encoder."
+      },
+      {
+        "sentence_id": "ch01.s09.p04.r01",
+        "text": "In BERT, random words can be masked, so the model has to pay attention to different parts of the sentence.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell17",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell71"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages do not mention BERT’s masked-word training or random masking."
+      },
+      {
+        "sentence_id": "ch01.s09.p04.r02",
+        "text": "BERT is called bidirectional because it looks at the sentence from both directions, paying attention from the left and the right, unlike GPT which looks left to right.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell142",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell52",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell40"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages do not describe BERT as bidirectional or contrast it with GPT’s left-to-right attention."
+      },
+      {
+        "sentence_id": "ch01.s09.p04.r03",
+        "text": "By looking at the entire sentence from both directions, BERT can capture nuances and relationships between words that are important for understanding meaning and context.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell6"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not discuss BERT’s ability to use both directions to capture nuances/relationships for understanding context."
+      },
+      {
+        "sentence_id": "ch01.s09.p04.r04",
+        "text": "It can also capture the meanings of different words and how they relate to each other very well.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell8",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell80"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references discuss perplexity, finetuning, and generation behavior, but do not address (BERT’s) capability to capture word meanings/relations particularly well."
+      },
+      {
+        "sentence_id": "ch01.s09.p04.r05",
+        "text": "For example, BERT can distinguish \"bank\" as a financial institution from \"bank\" as a river bank by looking at the surrounding words.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell92"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No provided reference passage discusses word-sense disambiguation examples like \"bank\" using surrounding context."
+      },
+      {
+        "sentence_id": "ch01.s09.p04.r06",
+        "text": "That is why BERT does very well in sentiment analysis and is very commonly used for it.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell102",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell58",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show loss/accuracy discussion for a finetuning setup but do not state that BERT is commonly used for sentiment analysis or explain that as a consequence of bidirectionality."
+      },
+      {
+        "sentence_id": "ch01.s09.p04.r07",
+        "text": "GPT can also be used for sentiment analysis, but BERT is especially suited to it.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell12",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell58",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages do not compare GPT vs BERT for sentiment analysis or claim BERT is especially suited."
+      },
+      {
+        "sentence_id": "ch01.s09.p05.r01",
+        "text": "Not all Transformers are LLMs.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell55",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell6",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell54"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the references discuss transformer attention computations and decoder-like LLMs, they do not explicitly state that not all Transformers are LLMs."
+      },
+      {
+        "sentence_id": "ch01.s09.p05.r03",
+        "text": "Vision Transformers can be used for image recognition and image classification.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell1",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell70"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited Chapter 6 references are about finetuning for text classification and calculating classification loss/accuracy; they do not mention Vision Transformers or image recognition/classification."
+      },
+      {
+        "sentence_id": "ch01.s09.p05.r04",
+        "text": "They can also be used to detect potholes on roads and to classify tumors from images.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell105",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell12"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided Chapter 5 snippets discuss token sampling (top-k), dropout, qkv bias, and context length for LLM training; they do not cover using Vision Transformers for pothole detection or tumor classification."
+      },
+      {
+        "sentence_id": "ch01.s09.p05.r06",
+        "text": "When thinking about image classification, many people think first of convolutional neural networks, but Vision Transformers are a newer method that is also gaining popularity.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell8"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference mentions convolutional networks as an analogy for classification finetuning but does not discuss Vision Transformers as a newer/popular method or compare them directly to CNNs for image classification."
+      },
+      {
+        "sentence_id": "ch01.s09.p06.r02",
+        "text": "Not all LLMs are Transformers.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell55",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell6",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell54"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss GPT/Llama being based on the decoder part of the transformer architecture and show attention computations, but they do not state that some LLMs are not Transformers."
+      },
+      {
+        "sentence_id": "ch01.s09.p06.r03",
+        "text": "LLMs can be based on recurrent or convolutional architectures as well.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell90",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell106"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages are about training behavior/overfitting and loss curves; they do not address LLMs being based on recurrent or convolutional architectures."
+      },
+      {
+        "sentence_id": "ch01.s09.p06.r04",
+        "text": "Before Transformers, recurrent neural networks were introduced in 1980 and long short-term memory networks were introduced in 1997.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell51"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference discusses residual/skip connections and their motivation; it does not mention historical dates for RNNs (1980) or LSTMs (1997)."
+      },
+      {
+        "sentence_id": "ch01.s09.p06.r05",
+        "text": "Recurrent neural networks and long short-term memory networks could do sequence modeling and text completion tasks, so they can also be called language models.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell7",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell10"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference notes that prior to transformers, encoder-decoder RNNs were commonly used for machine translation, but it does not claim RNNs/LSTMs can be called language models due to sequence modeling/text completion."
+      },
+      {
+        "sentence_id": "ch01.s09.p06.r06",
+        "text": "An RNN maintains a feedback loop, which is why it can incorporate memory.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell79"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited reference is about weight tying and memory requirements of a model; it does not describe an RNN feedback loop or memory mechanism."
+      },
+      {
+        "sentence_id": "ch01.s09.p06.r07",
+        "text": "An LSTM incorporates two separate paths, one for short-term memories and one for long-term memories.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell85"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited reference shows a step-by-step prediction example but does not describe LSTM architecture or separate short-term vs long-term memory paths."
+      },
+      {
+        "sentence_id": "ch01.s09.p06.r10",
+        "text": "For that reason, Transformers and LLMs should not be used interchangeably, because they are different things.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell90",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell78"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss variability in outputs/loss due to different initial weights or hardware/software differences; they do not discuss whether 'Transformers' and 'LLMs' should or should not be used interchangeably."
+      }
+    ],
+    "conflicts": []
+  }
+}

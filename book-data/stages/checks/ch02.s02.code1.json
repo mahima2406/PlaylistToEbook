@@ -1,0 +1,24 @@
+{
+  "stage": "checks",
+  "item": "ch02.s02.code1",
+  "inputs_hash": "3f71642789e57bde009cdcd5fa2add6f7f8b3bc4e65e231896848447e0bc4c3e",
+  "output_hash": "6f6c88a7465822ff72e1b1568505de4a23b80dd4e222b3b08c665b68020d07aa",
+  "output": [
+    {
+      "sentence_id": "ch02.s02.p03.06",
+      "expected": 0,
+      "expression": "vocab[list(vocab.keys())[0]]",
+      "tolerance": 0,
+      "check_id": "ch02.s02.code1.chk1",
+      "sentence_text": "In the example shown, the first token receives token ID 0, the second receives token ID 1, and this continues through the vocabulary."
+    },
+    {
+      "sentence_id": "ch02.s02.p03.06",
+      "expected": 1,
+      "expression": "vocab[list(vocab.keys())[1]]",
+      "tolerance": 0,
+      "check_id": "ch02.s02.code1.chk2",
+      "sentence_text": "In the example shown, the first token receives token ID 0, the second receives token ID 1, and this continues through the vocabulary."
+    }
+  ]
+}

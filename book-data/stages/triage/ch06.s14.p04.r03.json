@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch06.s14.p04.r03",
+  "inputs_hash": "beba51ce7abda29c99bda1ce243cb6fe2c97a75d1d385bb77b9568bd90f162b6",
+  "output_hash": "7f48df271be0bc697582d188dab16d4b37b46edcafdaba3e8e0cecbb27c927ad",
+  "output": {
+    "decision": "edit",
+    "text": "These methods can provide substantial computational speedup and can sometimes also speed up gains in accuracy.",
+    "reason": "The captions clearly support computational speedup and mention a possible speedup related to accuracy, but not a clear improvement in accuracy itself.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "7da61adc5f67133b96646cdc7693ad16b4d61b93b15ad324178556437cf0d557"
+  }
+}

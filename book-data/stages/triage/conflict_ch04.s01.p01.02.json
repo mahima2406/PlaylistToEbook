@@ -1,0 +1,14 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch04.s01.p01.02",
+  "inputs_hash": "2ba77a241520fad3e6827e8aaabf8646e8bb2929ab73015ab018b3d4e1392675",
+  "output_hash": "6ba703c942c611ab991152cfef51b1d481140d552f03b50f11797c20a6aa0987",
+  "output": {
+    "decision": "note",
+    "note": "For instruction finetuning, the reference uses GPT-2 Medium (355M) instead of 124M because the smallest model is too limited for good qualitative results.",
+    "reason": "The cited captions support the sentence for the assembly step, while the reference describes a later choice for instruction finetuning.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "f09a59d26973ce0d8699437381585b0e9feac34aedd76f7442302ecbe5646789"
+  }
+}

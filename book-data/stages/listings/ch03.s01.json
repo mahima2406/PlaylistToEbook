@@ -1,0 +1,33 @@
+{
+  "stage": "listings",
+  "item": "ch03.s01",
+  "inputs_hash": "8ff41e82b0f200b684062c0e7b7839a1559cf128fa7b53889180f5e38b537c2b",
+  "output_hash": "6c4eed7ecb0fdd24e3da3bf4fd73ee6e0e084a790ca1cea9508e3cb3bf7e2482",
+  "output": {
+    "section_id": "ch03.s01",
+    "listings": [
+      {
+        "id": "ch03.s01.code2",
+        "ref": "ref:ch02/01_main-chapter-code/ch02.ipynb#cell116",
+        "path": "ch02/01_main-chapter-code/ch02.ipynb",
+        "caption": "Passes the token ID tensor through the embedding layer and prints the resulting token embedding vectors.",
+        "code": "print(embedding_layer(input_ids))",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The code sends a tensor of token IDs (input_ids) through an embedding layer (embedding_layer) to produce token embedding vectors, then prints them. This directly demonstrates converting token IDs into vector embeddings, aligning with the section and the caption."
+      }
+    ],
+    "rejected": [
+      {
+        "id": "ch03.s01.code1",
+        "ref": "ref:ch02/01_main-chapter-code/ch02.ipynb#cell107",
+        "path": "ch02/01_main-chapter-code/ch02.ipynb",
+        "caption": "Creates a PyTorch tensor of token IDs that will be used as input to an embedding layer.",
+        "code": "input_ids = torch.tensor([2, 3, 5, 1])",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The section describes a full pipeline from tokens to token IDs to vector embeddings and mentions using six 3D embedding vectors. The code only creates a 1D tensor of four token IDs and does not show tokenization, conversion to embeddings, or the six 3D embedding vectors. The caption is accurate for the code, but the excerpt only covers a small related part of what the section teaches."
+      }
+    ]
+  }
+}

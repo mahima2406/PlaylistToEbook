@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch04.s08.p05.r09",
+  "inputs_hash": "99571c108642752ed46bdac0b0c1ed596056bccdd506c7de504065c7c4f48d49",
+  "output_hash": "f58a45b1a259a453175f1c0f5ac37bf6cc0540d21a9009374049838154e2e8ac",
+  "output": {
+    "decision": "edit",
+    "text": "In an ideal model, the probabilities at the target indices would be close to one, but in an unoptimized LLM they are typically small, so the goal is to bring them as close to one as possible by taking the negative log of these probabilities and averaging them as the cross-entropy loss.",
+    "reason": "The captions support the goal and the cross-entropy computation, but not the explicit framing that training aims to increase them by minimizing cross-entropy.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.97,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "734195213adf975f06978a458db3a87b65c45bf120c811b5cb734568fab2fa97"
+  }
+}

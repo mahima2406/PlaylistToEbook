@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch06.s14",
+  "inputs_hash": "d7d741cf5111863103b58364278de036a56f2ea5d735d68be50f981c23c6b870",
+  "output_hash": "c8f70edd87e704e5ace71d7b2e6e489901726329752a177fa3a2bb7b1700a226",
+  "output": {
+    "section_id": "ch06.s14",
+    "listings": [],
+    "rejected": [
+      {
+        "id": "ch06.s14.code1",
+        "ref": "ref:ch07/01_main-chapter-code/gpt_instruction_finetuning.py",
+        "path": "ch07/01_main-chapter-code/gpt_instruction_finetuning.py",
+        "caption": "This script sets up instruction fine-tuning by importing training utilities, downloading GPT-2 weights, and defining an InstructionDataset that formats and tokenizes instruction-response examples.",
+        "code": "# Copyright (c) Sebastian Raschka under Apache License 2.0 (see LICENSE.txt).\n# Source for \"Build a Large Language Model From Scratch\"\n#   - https://www.manning.com/books/build-a-large-language-model-from-scratch\n# Code: https://github.com/rasbt/LLMs-from-scratch\n#\n# A minimal instruction finetuning file based on the code in chapter 7\n\nfrom functools import partial\nfrom importlib.metadata import version\nimport json\nimport os\nimport re\nimport time\n\nimport matplotlib.pyplot as plt\nimport requests\nimport tiktoken\nimport torch\nfrom torch.utils.data import Dataset, DataLoader\nfrom tqdm import tqdm\n\n# Import from local files in this folder\nfrom gpt_download import download_and_load_gpt2\nfrom previous_chapters import (\n    calc_loss_loader,\n    generate,\n    GPTModel,\n    load_weights_into_gpt,\n    text_to_token_ids,\n    train_model_simple,",
+        "truncated": true,
+        "check": "partial",
+        "reason": "The excerpt is related to instruction fine-tuning (imports training utilities, dataset/data loader tooling, GPT-2 download/weight-loading), which loosely connects to improving performance via training setup. However, the section explicitly teaches hyperparameter tuning (learning rate/batch size/epochs), increasing dataset size, and prompt/instruction-format experimentation; this snippet does not show any hyperparameter adjustment, dataset scaling, or prompt-format experiments. Also, the caption claims it defines an InstructionDataset that formats/tokenizes examples, but the provided excerpt only shows imports and does not define that dataset yet."
+      },
+      {
+        "id": "ch06.s14.code2",
+        "ref": "ref:ch05/01_main-chapter-code/tests.py",
+        "path": "ch05/01_main-chapter-code/tests.py",
+        "caption": "These test fixtures define training hyperparameters such as learning rate, number of epochs, and batch size and pass them into the training entry point.",
+        "code": "# Copyright (c) Sebastian Raschka under Apache License 2.0 (see LICENSE.txt).\n# Source for \"Build a Large Language Model From Scratch\"\n#   - https://www.manning.com/books/build-a-large-language-model-from-scratch\n# Code: https://github.com/rasbt/LLMs-from-scratch\n\n# File for internal use (unit tests)\n\nimport pytest\nfrom gpt_train import main\nimport requests\n\n@pytest.fixture\ndef gpt_config():\n    return {\n        \"vocab_size\": 50257,\n        \"context_length\": 12,  # small for testing efficiency\n        \"emb_dim\": 32,         # small for testing efficiency\n        \"n_heads\": 4,          # small for testing efficiency\n        \"n_layers\": 2,         # small for testing efficiency\n        \"drop_rate\": 0.1,\n        \"qkv_bias\": False\n    }\n\n\n@pytest.fixture\ndef other_settings():\n    return {\n        \"learning_rate\": 5e-4,\n        \"num_epochs\": 1,    # small for testing efficiency\n        \"batch_size\": 2,",
+        "truncated": true,
+        "check": "partial",
+        "reason": "The fixtures do define training hyperparameters like learning rate, num_epochs, and batch_size (aligning with the section’s hyperparameter-tuning topic) and are presumably passed to the training entry point, as the caption claims. However, the excerpt is a unit-test fixture rather than an example of improving performance, and it does not address increasing dataset size or prompt/instruction experimentation taught by the section. The snippet is also incomplete (no actual call showing the settings being passed into main), so the caption slightly overreaches based on what’s shown."
+      }
+    ]
+  }
+}

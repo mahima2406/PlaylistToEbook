@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch04.s08.p02.r02",
+  "inputs_hash": "02bf85a1b0be00a27692babcc66a6887c84d05ae180f71eaa3fb18fab86a8855",
+  "output_hash": "70fe1858cd6a27b495e3bda9545984d9f784bdad2ea08c680f724ffec488f16d",
+  "output": {
+    "decision": "edit",
+    "text": "The probability tensor is indexed at the target positions, and those probabilities are collected together.",
+    "reason": "The captions support indexing at target indices and collecting those probabilities, but not the added purpose phrase or the fuller batching detail as written.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "49da3d5bdfdc168507dac66cbd9e2c8a27c7f020461239f6862208e03e36f9db"
+  }
+}

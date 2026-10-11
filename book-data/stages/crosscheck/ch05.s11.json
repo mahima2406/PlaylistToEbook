@@ -1,0 +1,449 @@
+{
+  "stage": "crosscheck",
+  "item": "ch05.s11",
+  "inputs_hash": "fcd6e345859a86e2cc9c3da47b5452290399d93e731fa669a70bfe72d27922d3",
+  "output_hash": "da54669d33b747cc244eec75475bda7f1156f5e518e61701756ba53b5d2818fd",
+  "output": {
+    "section_id": "ch05.s11",
+    "checked": 35,
+    "counts": {
+      "agrees": 17,
+      "contradicts": 1,
+      "not_covered": 17
+    },
+    "results": [
+      {
+        "sentence_id": "ch05.s11.p01.02",
+        "text": "Classification accuracy measures the percentage of correct predictions across a dataset.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell79",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell70",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell90"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly defines classification accuracy as the percentage of correct predictions in a dataset."
+      },
+      {
+        "sentence_id": "ch05.s11.p01.03",
+        "text": "The output labels are the target labels, which are the true values, and accuracy is obtained by comparing predicted labels with these correct labels.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell20",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell80",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell72"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The code uses target labels (target_batch) and computes accuracy by comparing predicted labels against these targets; the text also discusses turning outputs into class labels."
+      },
+      {
+        "sentence_id": "ch05.s11.p01.04",
+        "text": "To determine classification accuracy, the argmax-based prediction is applied to all examples in the dataset and then compared with the actual values.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell79",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell90",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell70"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states accuracy is computed by applying the preceding argmax-based prediction to all examples and taking the fraction correct versus actual labels."
+      },
+      {
+        "sentence_id": "ch05.s11.p01.05",
+        "text": "For a batch, each input is passed through the model, the two logits are taken, and argmax gives the predicted class label.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell78",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell76"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference shows taking logits for the last token (outputs[:, -1, :]) and using argmax (on logits or softmax probas) to obtain the predicted class label."
+      },
+      {
+        "sentence_id": "ch05.s11.p01.06",
+        "text": "At the loader level, the code passes all samples in a batch through the model, takes the logits of the last output token, applies argmax for the whole batch, and compares the predicted labels with the target labels.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell80",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "In calc_accuracy_loader the model is applied to each batch, logits of the last output token are taken, and (implied by the variable name and context) argmax-based predicted labels are compared to target_batch to accumulate correct predictions."
+      },
+      {
+        "sentence_id": "ch05.s11.p02.r02",
+        "text": "Whenever a prediction matches the target label, the count of correct predictions is increased by one, and every processed example increases the total example count by one.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell85",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell79",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell88"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided excerpts show initialization of correct_predictions and num_examples but do not include the code lines that increment them when predictions match targets and for each processed example."
+      },
+      {
+        "sentence_id": "ch05.s11.p02.r03",
+        "text": "Accuracy is then computed as the number of correct predictions divided by the number of examples.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell79",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell80"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The excerpts state accuracy is a fraction of correct predictions, but the provided code snippet is truncated before showing the final division correct_predictions/num_examples."
+      },
+      {
+        "sentence_id": "ch05.s11.p02.r04",
+        "text": "The example given is 600 correct predictions, giving an accuracy of 600 divided by 1000.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell79",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell105",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell80"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference passage provides the specific numerical example of 600 correct out of 1000."
+      },
+      {
+        "sentence_id": "ch05.s11.p02.r05",
+        "text": "The accuracy function uses the full dataloader length as the number of batches when no batch count is specified, and otherwise uses the minimum of the requested number and the dataloader length.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell128",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The shown code sets num_batches=len(data_loader) when None, otherwise num_batches=min(num_batches, len(data_loader))."
+      },
+      {
+        "sentence_id": "ch05.s11.p02.r06",
+        "text": "The code calls this accuracy function on the training, validation, and test loaders with the number of batches set to 10, and then prints the three accuracies.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell81",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell104",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell32"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The shown call computes accuracies via calc_accuracy_loader(train_loader/val_loader/test_loader, model, device) without passing num_batches=10; thus it does not set the number of batches to 10."
+      },
+      {
+        "sentence_id": "ch05.s11.p03.02",
+        "text": "Because the model has not yet been optimized and backpropagation has not yet been implemented, the training, validation, and test accuracies are not expected to be good.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell83",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell16"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference notes accuracies are not very good because the model has not been finetuned yet, matching the expectation of poor initial performance before optimization."
+      },
+      {
+        "sentence_id": "ch05.s11.p03.03",
+        "text": "The initial reported performance is poor: training accuracy is 46%, validation accuracy is 45%, and test accuracy is 48%.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell105",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell82",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell70"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The excerpt shows printing the accuracies but does not include the actual printed values (46%, 45%, 48%) in the provided reference text."
+      },
+      {
+        "sentence_id": "ch05.s11.p03.04",
+        "text": "That result is described as worse than a coin toss, since a random prediction would be right 50% of the time.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell85",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell110",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell98"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not mention a coin-toss baseline or the 50% random-guess accuracy claim."
+      },
+      {
+        "sentence_id": "ch05.s11.p03.05",
+        "text": "To improve prediction accuracy, the model must be fine-tuned by defining a loss function from the true targets and predicted values, computing gradients of that loss with respect to the trainable weights, and updating those weights repeatedly until the loss is minimized.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell90",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell52",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell70"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References discuss training to improve loss and accuracy and show use of cross-entropy loss in PyTorch training, which implies computing gradients and updating weights via an optimizer."
+      },
+      {
+        "sentence_id": "ch05.s11.p03.06",
+        "text": "The update rule is weight new equals weight old minus the partial derivative of the loss with respect to that weight.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell129",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell111"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references shown do not state the explicit SGD update rule w_new = w_old - ∂L/∂w (nor include code showing that exact rule)."
+      },
+      {
+        "sentence_id": "ch05.s11.p03.07",
+        "text": "A variation of simple gradient descent such as Adam or AdamW is used for optimization.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell122"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references explicitly state it is common to train with adaptive optimizers like Adam/AdamW and show AdamW being instantiated."
+      },
+      {
+        "sentence_id": "ch05.s11.p03.08",
+        "text": "A simplified picture of optimization is moving down a loss curve from a higher-loss starting point toward a global minimum.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell52",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell89",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell86"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While losses are computed and training is discussed, the specific conceptual description of moving along a loss curve toward a global minimum is not addressed in the provided snippets."
+      },
+      {
+        "sentence_id": "ch05.s11.p03.09",
+        "text": "When the loss is minimized, the accuracy should also become higher automatically.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell70",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell90",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell86"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference text states training improves loss values and consequently classification accuracy, aligning with the idea that lowering loss is associated with higher accuracy."
+      },
+      {
+        "sentence_id": "ch05.s11.p04.r02",
+        "text": "For classification with targets Yi and predictions Pi, the loss function used here is categorical cross-entropy loss.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell52",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell47",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell42"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references use torch.nn.functional.cross_entropy for classification/token prediction, which is categorical cross-entropy."
+      },
+      {
+        "sentence_id": "ch05.s11.p04.r03",
+        "text": "Categorical cross-entropy is defined as the negative sum over class labels of Yi times log of Pi.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell48",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell35",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell34"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided snippets do not give the formal definition as −∑_classes Yi log Pi (they discuss log probabilities and cross-entropy/perplexity but not that explicit formula)."
+      },
+      {
+        "sentence_id": "ch05.s11.p04.r04",
+        "text": "For example, if the true label is not spam with one-hot encoding [1, 0] and the predicted values are [0.8, 0.2], the loss is computed by multiplying each true-value entry by the log of the corresponding predicted value and taking the negative sum.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell109",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell37"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference snippet provides this specific binary one-hot example ([1,0] with prediction [0.8,0.2]) or explicitly demonstrates the multiply-and-sum computation for that case."
+      },
+      {
+        "sentence_id": "ch05.s11.p04.r05",
+        "text": "If the predicted value exactly equals the true value, the cross-entropy loss is zero.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell86",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell48",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell42"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not state that cross-entropy becomes exactly zero when prediction equals the true one-hot target (probability 1 on the correct class)."
+      },
+      {
+        "sentence_id": "ch05.s11.p04.r06",
+        "text": "Negative Yi log Pi is presented as a good loss function for categorical predictions in classification tasks.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell36",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell86",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell34"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The snippets show computing log probabilities and using cross-entropy in code, but do not explicitly present −Yi log Pi as a recommended loss function in explanatory text."
+      },
+      {
+        "sentence_id": "ch05.s11.p05.02",
+        "text": "The graph of negative log of x is used to show that the probability of the correct class should be as close to one as possible, so that the loss becomes as close to zero as possible.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell37",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell33",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell97"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references state the goal is to bring probabilities close to 1 and that the log’s maximum is 0, consistent with using −log(x) to make loss approach 0 as the correct-class probability approaches 1."
+      },
+      {
+        "sentence_id": "ch05.s11.p05.03",
+        "text": "Cross-entropy loss is differentiable, which makes it useful for backpropagation.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell48",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell47",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell17"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show cross-entropy being computed and relate it to perplexity, but they do not state that cross-entropy is differentiable or explicitly connect that property to backpropagation."
+      },
+      {
+        "sentence_id": "ch05.s11.p05.04",
+        "text": "Classification accuracy cannot be used directly as the loss, or inverted to form a loss, because accuracy is not differentiable.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell70",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell90",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell86"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly says the goal is to maximize accuracy but accuracy is not differentiable, hence cross-entropy is minimized as a proxy."
+      },
+      {
+        "sentence_id": "ch05.s11.p05.05",
+        "text": "Cross-entropy loss is therefore used as a proxy to maximize accuracy, and it is the same loss used to pre-train the large language model.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell86",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell84"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "ch06 states cross-entropy is used as a proxy for maximizing classification accuracy, and also notes the loss/loader utilities are the same as chapter 5 (pretraining), supporting that it is the same loss used there."
+      },
+      {
+        "sentence_id": "ch05.s11.p05.06",
+        "text": "Given an input batch and a target batch, the model processes the input batch, the logits of the last output token are selected, and the categorical cross-entropy loss is computed between those logits and the target batch.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell38",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell69"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The referenced calc_loss_batch in ch06 feeds the input batch through the model, selects logits for the last token ([:, -1, :]), and computes cross-entropy against the target batch."
+      },
+      {
+        "sentence_id": "ch05.s11.p05.07",
+        "text": "The code uses \"torch.nn.functional.cross_entropy\" to compute this loss, and the resulting loss is differentiable for backpropagation.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell47",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell52",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell48"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show the code uses torch.nn.functional.cross_entropy, but they do not state or demonstrate that the resulting loss is differentiable for backpropagation."
+      },
+      {
+        "sentence_id": "ch05.s11.p06.r01",
+        "text": "A \"calculate loss batch\" function computes the loss for one batch.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell69",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell52"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Both ch05 and ch06 define a calc_loss_batch function that computes the loss for a single batch."
+      },
+      {
+        "sentence_id": "ch05.s11.p06.r02",
+        "text": "A loader-level loss function handles multiple batches by choosing the number of batches in the same way as the accuracy code: it uses the dataloader length if no number is specified, otherwise the minimum of the requested number and the dataloader length.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell87",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell86"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The shown calc_loss_loader sets num_batches to len(data_loader) if None, otherwise num_batches = min(num_batches, len(data_loader)), matching the described behavior."
+      },
+      {
+        "sentence_id": "ch05.s11.p06.r03",
+        "text": "For each selected batch, it takes one input batch and one target batch, computes the categorical cross-entropy loss with \"calculate loss batch\", adds each batch loss into a running total, and divides by the number of batches to get the average loss per batch.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell69",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell38"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references include calc_loss_batch and a partial calc_loss_loader, but the provided excerpts do not show the full accumulation and final division by num_batches to form an average loss."
+      },
+      {
+        "sentence_id": "ch05.s11.p06.r04",
+        "text": "Before backpropagation is implemented, these loss values are expected to be high, matching the previously observed poor accuracy.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell90",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell70",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell86"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference says training will improve loss and consequently accuracy, but it does not state that initial losses are expected to be high or explicitly tie that to previously observed poor accuracy."
+      },
+      {
+        "sentence_id": "ch05.s11.p06.r05",
+        "text": "To inspect the initial losses, the code applies the loss-loader function to the training, validation, and test loaders with the number of batches set to five, and then prints the three losses.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell51",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell88",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference mentions computing initial train/val/test losses before training, but the provided excerpts do not specify using num_batches=5 nor show printing the three losses."
+      },
+      {
+        "sentence_id": "ch05.s11.p06.r06",
+        "text": "At this point, the workflow has already covered downloading and preprocessing the dataset, creating data loaders, initializing the model, loading pretrained weights, modifying the model for fine-tuning, and implementing evaluation utilities for loss and accuracy.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell41",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell90"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references touch on initializing pretrained weights and training to improve loss/accuracy, but do not collectively confirm the full listed workflow steps (downloading/preprocessing, loaders, model modification for fine-tuning, evaluation utilities for both loss and accuracy) in the provided excerpts."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch05.s11.p02.r06",
+        "text": "The code calls this accuracy function on the training, validation, and test loaders with the number of batches set to 10, and then prints the three accuracies.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell81",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell104",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell32"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The shown call computes accuracies via calc_accuracy_loader(train_loader/val_loader/test_loader, model, device) without passing num_batches=10; thus it does not set the number of batches to 10."
+      }
+    ]
+  }
+}

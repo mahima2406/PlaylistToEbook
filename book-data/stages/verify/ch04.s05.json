@@ -1,0 +1,699 @@
+{
+  "stage": "verify",
+  "item": "ch04.s05",
+  "inputs_hash": "12192e4ee0ddbd379522e09184af625cd200c5116484169680e0078584c94e43",
+  "output_hash": "afbd1f4a2291a537eecd8f45994495085e9d7985b217f1066c8c6be02ddff9b5",
+  "output": {
+    "section_id": "ch04.s05",
+    "paragraphs": [
+      {
+        "id": "ch04.s05.p01",
+        "sentences": [
+          {
+            "id": "ch04.s05.p01.01",
+            "text": "How does the model turn the transformer’s token representations into the final tensor used for next-word prediction?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s05.p01.02",
+            "text": "The GPT model takes input tokens, converts them into token embeddings, adds positional embeddings, applies dropout, passes the result through transformer blocks, applies a final normalization layer, and returns logits.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@448",
+              "7TKCrt--bWI@450",
+              "7TKCrt--bWI@452",
+              "7TKCrt--bWI@454",
+              "7TKCrt--bWI@457",
+              "7TKCrt--bWI@460",
+              "7TKCrt--bWI@462",
+              "7TKCrt--bWI@463",
+              "7TKCrt--bWI@465"
+            ]
+          },
+          {
+            "id": "ch04.s05.p01.03",
+            "text": "After the transformer block, there is another layer normalization step even though the transformer block itself already contains two normalization layers.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1968",
+              "G3-JgHckzjw@1971",
+              "G3-JgHckzjw@1973",
+              "G3-JgHckzjw@1976",
+              "G3-JgHckzjw@1977"
+            ]
+          },
+          {
+            "id": "ch04.s05.p01.04",
+            "text": "In this layer normalization, the embedding values within each token are normalized so that the resulting values have mean zero and variance one.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1992",
+              "G3-JgHckzjw@1994",
+              "G3-JgHckzjw@1996",
+              "G3-JgHckzjw@1998",
+              "G3-JgHckzjw@2002",
+              "G3-JgHckzjw@2005",
+              "G3-JgHckzjw@2007"
+            ]
+          },
+          {
+            "id": "ch04.s05.p01.05",
+            "text": "This normalization is applied for all four tokens, and it does not change the tensor dimensions.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@2009",
+              "G3-JgHckzjw@2012",
+              "G3-JgHckzjw@2014"
+            ]
+          },
+          {
+            "id": "ch04.s05.p01.06",
+            "text": "Each token still has an embedding size of 768 after this step.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@1983",
+              "G3-JgHckzjw@1986",
+              "G3-JgHckzjw@1990"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s05.p02",
+        "sentences": [
+          {
+            "id": "ch04.s05.p02.r01",
+            "text": "The output head is the final neural network stage of the GPT model.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@2016",
+              "G3-JgHckzjw@2018",
+              "G3-JgHckzjw@2020",
+              "G3-JgHckzjw@2023"
+            ]
+          },
+          {
+            "id": "ch04.s05.p02.r02",
+            "text": "Its input can be a representation with four tokens, where each token has 768 dimensions.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@2023",
+              "G3-JgHckzjw@2026",
+              "G3-JgHckzjw@2029"
+            ]
+          },
+          {
+            "id": "ch04.s05.p02.r03",
+            "text": "The output head maps each 768-dimensional token representation to an output of size 50257.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@2043",
+              "G3-JgHckzjw@2046",
+              "G3-JgHckzjw@2049",
+              "G3-JgHckzjw@2051",
+              "G3-JgHckzjw@2053"
+            ]
+          },
+          {
+            "id": "ch04.s05.p02.r04",
+            "text": "The output of this final neural network is called the logits matrix.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@2053",
+              "G3-JgHckzjw@2058"
+            ]
+          },
+          {
+            "id": "ch04.s05.p02.r05",
+            "text": "With four input tokens, that logits matrix has four rows and a number of columns equal to the vocabulary size, not 768.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@2060",
+              "G3-JgHckzjw@2063",
+              "G3-JgHckzjw@2069",
+              "G3-JgHckzjw@2071",
+              "G3-JgHckzjw@2073"
+            ]
+          },
+          {
+            "id": "ch04.s05.p02.r06",
+            "text": "For every token position, the model therefore produces a 50257-dimensional logits vector because it is predicting over the full vocabulary.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@2078",
+              "G3-JgHckzjw@2081",
+              "G3-JgHckzjw@2084",
+              "G3-JgHckzjw@2086",
+              "G3-JgHckzjw@2101",
+              "G3-JgHckzjw@2103"
+            ]
+          },
+          {
+            "id": "ch04.s05.p02.r07",
+            "text": "This output head is the only step in this flow where the dimensions change, from four tokens by 768 to four tokens by 50257.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@2171",
+              "G3-JgHckzjw@2173",
+              "G3-JgHckzjw@2175",
+              "G3-JgHckzjw@2177",
+              "G3-JgHckzjw@2179",
+              "G3-JgHckzjw@2181",
+              "G3-JgHckzjw@2184",
+              "G3-JgHckzjw@2186",
+              "G3-JgHckzjw@2188",
+              "G3-JgHckzjw@2191"
+            ]
+          },
+          {
+            "id": "ch04.s05.p02.r08",
+            "text": "For one batch with four tokens, the final output tensor has shape 4 by 50257.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@2247",
+              "G3-JgHckzjw@2249",
+              "G3-JgHckzjw@2252",
+              "G3-JgHckzjw@2254",
+              "G3-JgHckzjw@2260",
+              "G3-JgHckzjw@2274"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s05.p03",
+        "sentences": [
+          {
+            "id": "ch04.s05.p03.01",
+            "text": "The rows of that tensor correspond to prediction tasks, not to a single prediction for the whole input sequence.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s05.p03.02",
+            "text": "For the four-token context \"every effort moves you\", there are four prediction tasks, one for each token position, not just one prediction for the full input sequence.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@2195",
+              "G3-JgHckzjw@2198",
+              "G3-JgHckzjw@2200",
+              "G3-JgHckzjw@2203",
+              "G3-JgHckzjw@2205",
+              "G3-JgHckzjw@2207",
+              "G3-JgHckzjw@2208",
+              "G3-JgHckzjw@2211",
+              "G3-JgHckzjw@2212",
+              "G3-JgHckzjw@2214",
+              "G3-JgHckzjw@2216"
+            ]
+          },
+          {
+            "id": "ch04.s05.p03.03",
+            "text": "The four tasks are predicting \"effort\" from \"every\", \"moves\" from \"every effort\", \"you\" from \"every effort moves\", and the next word from \"every effort moves you\".",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@2216",
+              "G3-JgHckzjw@2218",
+              "G3-JgHckzjw@2220",
+              "G3-JgHckzjw@2222",
+              "G3-JgHckzjw@2225",
+              "G3-JgHckzjw@2226",
+              "G3-JgHckzjw@2228",
+              "G3-JgHckzjw@2230"
+            ]
+          },
+          {
+            "id": "ch04.s05.p03.04",
+            "text": "In the example sequence \"every effort moves you forward\", the model should predict \"effort\" after \"every\", \"moves\" after \"every effort\", \"you\" after \"every effort moves\", and \"forward\" after \"every effort moves you\".",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@2106",
+              "G3-JgHckzjw@2108",
+              "G3-JgHckzjw@2110",
+              "G3-JgHckzjw@2121",
+              "G3-JgHckzjw@2123",
+              "G3-JgHckzjw@2126",
+              "G3-JgHckzjw@2130",
+              "G3-JgHckzjw@2132",
+              "G3-JgHckzjw@2134",
+              "G3-JgHckzjw@2139",
+              "G3-JgHckzjw@2140",
+              "G3-JgHckzjw@2143",
+              "G3-JgHckzjw@2146",
+              "G3-JgHckzjw@2148",
+              "G3-JgHckzjw@2151",
+              "G3-JgHckzjw@2153",
+              "G3-JgHckzjw@2156",
+              "G3-JgHckzjw@2158",
+              "G3-JgHckzjw@2162",
+              "G3-JgHckzjw@2164"
+            ]
+          },
+          {
+            "id": "ch04.s05.p03.05",
+            "text": "That is why the returned logits have one row per input token position and a number of columns equal to the vocabulary size.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@469",
+              "7TKCrt--bWI@472",
+              "7TKCrt--bWI@476",
+              "7TKCrt--bWI@479",
+              "7TKCrt--bWI@480",
+              "G3-JgHckzjw@2230",
+              "G3-JgHckzjw@2233"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s05.p04",
+        "sentences": [
+          {
+            "id": "ch04.s05.p04.01",
+            "text": "Batching adds one more dimension in front of the token and vocabulary dimensions.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s05.p04.02",
+            "text": "When there are multiple batches, the output tensor includes the batch size as the first dimension.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@2280",
+              "G3-JgHckzjw@2283",
+              "G3-JgHckzjw@2299",
+              "G3-JgHckzjw@2300",
+              "G3-JgHckzjw@2310"
+            ]
+          },
+          {
+            "id": "ch04.s05.p04.03",
+            "text": "For batch size 2 and context size 4, the output tensor shape is 2 by 4 by 50257.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@2300",
+              "G3-JgHckzjw@2303",
+              "G3-JgHckzjw@2323"
+            ]
+          },
+          {
+            "id": "ch04.s05.p04.04",
+            "text": "The output tensor dimensions are ordered as batch size, then number of tokens or context size, then vocabulary size 50257.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@2310",
+              "G3-JgHckzjw@2313",
+              "G3-JgHckzjw@2315",
+              "G3-JgHckzjw@2317",
+              "G3-JgHckzjw@2320",
+              "G3-JgHckzjw@2323",
+              "G3-JgHckzjw@2326"
+            ]
+          },
+          {
+            "id": "ch04.s05.p04.05",
+            "text": "More generally, the GPT model outputs logits with shape batch size by number of tokens by vocabulary size.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@3063",
+              "G3-JgHckzjw@3066",
+              "G3-JgHckzjw@3068",
+              "G3-JgHckzjw@3083",
+              "G3-JgHckzjw@3085",
+              "G3-JgHckzjw@3088",
+              "G3-JgHckzjw@3090",
+              "G3-JgHckzjw@3092",
+              "G3-JgHckzjw@3094",
+              "G3-JgHckzjw@3097",
+              "G3-JgHckzjw@3098"
+            ]
+          },
+          {
+            "id": "ch04.s05.p04.06",
+            "text": "The logits or probability tensor is also described with shape batch size by number of tokens by vocabulary size.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@1635",
+              "7TKCrt--bWI@1638",
+              "7TKCrt--bWI@1641",
+              "7TKCrt--bWI@1643",
+              "7TKCrt--bWI@1645"
+            ]
+          },
+          {
+            "id": "ch04.s05.p04.07",
+            "text": "In one concrete example, the logits tensor has shape 2 by 3 by 50257, and the target tensor has shape 2 by 3.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@2386",
+              "7TKCrt--bWI@2389",
+              "7TKCrt--bWI@2391",
+              "7TKCrt--bWI@2393",
+              "7TKCrt--bWI@2421",
+              "7TKCrt--bWI@2424",
+              "7TKCrt--bWI@2427"
+            ]
+          },
+          {
+            "id": "ch04.s05.p04.08",
+            "text": "The probability tensor shape 2 by 3 by 50257 corresponds to two batches, three token positions, and 50257 vocabulary probabilities.",
+            "type": "F",
+            "cites": [
+              "7TKCrt--bWI@2832",
+              "7TKCrt--bWI@2835",
+              "7TKCrt--bWI@2837",
+              "7TKCrt--bWI@2839",
+              "7TKCrt--bWI@2842"
+            ]
+          },
+          {
+            "id": "ch04.s05.p04.09",
+            "text": "The model’s immediate output is this final tensor, and the next step is to decode it to get the next word.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@227",
+              "G3-JgHckzjw@229",
+              "G3-JgHckzjw@248",
+              "G3-JgHckzjw@251",
+              "G3-JgHckzjw@253",
+              "G3-JgHckzjw@255",
+              "G3-JgHckzjw@258",
+              "G3-JgHckzjw@260"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch04.s05.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch04.s05.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s05.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s05.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch04.s05.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s05.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch04.s05.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch04.s05.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s05.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s05.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch04.s05.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s05.p04.01": {
+        "verdict": "ok",
+        "confidence": 0.75,
+        "reason": ""
+      },
+      "ch04.s05.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s05.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch04.s05.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s05.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s05.p04.06": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch04.s05.p04.07": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s05.p04.08": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s05.p04.09": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s05.p02.r01": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s05.p02.r02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s05.p02.r03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s05.p02.r04": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch04.s05.p02.r05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s05.p02.r06": {
+        "verdict": "partial",
+        "confidence": 0.78,
+        "reason": "Supported that the final output size is 50257 and that for every token there is a 50257-dimensional logits vector; not supported that this is specifically because it is predicting over the full vocabulary (the cited lines mention predicting the next word but do not explicitly tie 50257 to 'full vocabulary' in these lines)."
+      },
+      "ch04.s05.p02.r07": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch04.s05.p02.r08": {
+        "verdict": "supported",
+        "confidence": 0.8,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch04.s05.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch04.s05.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s05.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s05.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch04.s05.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s05.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch04.s05.p02.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.75,
+        "reason": "asserts a factual point (that the final transformation happens in the output head) but is marked CONNECTIVE and provides no citation."
+      },
+      "ch04.s05.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch04.s05.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s05.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s05.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s05.p02.06": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch04.s05.p02.07": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s05.p02.08": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s05.p02.09": {
+        "verdict": "supported",
+        "confidence": 0.72,
+        "reason": ""
+      },
+      "ch04.s05.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch04.s05.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s05.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s05.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch04.s05.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s05.p04.01": {
+        "verdict": "ok",
+        "confidence": 0.75,
+        "reason": ""
+      },
+      "ch04.s05.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s05.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch04.s05.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s05.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s05.p04.06": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch04.s05.p04.07": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s05.p04.08": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s05.p04.09": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "ch04.s05.p02"
+    ],
+    "queue": [
+      {
+        "sentence_id": "ch04.s05.p02.r06",
+        "text": "For every token position, the model therefore produces a 50257-dimensional logits vector because it is predicting over the full vocabulary.",
+        "cites": [
+          "G3-JgHckzjw@2078",
+          "G3-JgHckzjw@2081",
+          "G3-JgHckzjw@2084",
+          "G3-JgHckzjw@2086",
+          "G3-JgHckzjw@2101",
+          "G3-JgHckzjw@2103"
+        ],
+        "verdict": "partial",
+        "confidence": 0.78,
+        "reason": "Supported that the final output size is 50257 and that for every token there is a 50257-dimensional logits vector; not supported that this is specifically because it is predicting over the full vocabulary (the cited lines mention predicting the next word but do not explicitly tie 50257 to 'full vocabulary' in these lines).",
+        "status": "open"
+      }
+    ]
+  }
+}

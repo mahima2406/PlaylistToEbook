@@ -1,0 +1,33 @@
+{
+  "stage": "listings",
+  "item": "ch03.s02",
+  "inputs_hash": "20cc1ee6fa53539ec9a9eda3b85d9a0ec813e9268b8389c9371f2e96e55f0224",
+  "output_hash": "c3281d4ea4d8b8a94dd3e0af16dcb9419651163e731d675f293608aedc9f5f11",
+  "output": {
+    "section_id": "ch03.s02",
+    "listings": [
+      {
+        "id": "ch03.s02.code1",
+        "ref": "ref:ch03/01_main-chapter-code/ch03.ipynb#cell28",
+        "path": "ch03/01_main-chapter-code/ch03.ipynb",
+        "caption": "Selects the second input vector as the query, creates an empty tensor for attention scores, fills it with dot products between each input vector and the query, and prints the resulting scores.",
+        "code": "query = inputs[1]  # 2nd input token is the query\n\nattn_scores_2 = torch.empty(inputs.shape[0])\nfor i, x_i in enumerate(inputs):\n    attn_scores_2[i] = torch.dot(x_i, query) # dot product (transpose not necessary here since they are 1-dim vectors)\n\nprint(attn_scores_2)",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The section explains computing attention scores as intermediate values toward a context vector by selecting the second token (inputs[1]) as the query, initializing an empty tensor, looping over input vectors, and filling it with dot products. The code does exactly that and the caption accurately describes those steps and the printed attention scores."
+      }
+    ],
+    "rejected": [
+      {
+        "id": "ch03.s02.code2",
+        "ref": "ref:ch03/01_main-chapter-code/ch03.ipynb#cell47",
+        "path": "ch03/01_main-chapter-code/ch03.ipynb",
+        "caption": "Computes a full matrix of pairwise dot-product attention scores for all input tokens by looping over every input vector against every other input vector.",
+        "code": "attn_scores = torch.empty(6, 6)\n\nfor i, x_i in enumerate(inputs):\n    for j, x_j in enumerate(inputs):\n        attn_scores[i, j] = torch.dot(x_i, x_j)\n\nprint(attn_scores)",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The section describes computing attention scores for a single query token (“journey” at inputs[1]) by dotting that query with each input vector and storing results in a 1D attention-scores tensor. The provided code instead computes a full 6×6 matrix of pairwise dot products between all token vectors (no query selection, no 1D scores), so it is related to dot-product scoring but does not directly implement the described first step. The caption accurately describes the code."
+      }
+    ]
+  }
+}

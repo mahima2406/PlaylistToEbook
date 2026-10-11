@@ -1,0 +1,472 @@
+{
+  "stage": "crosscheck",
+  "item": "ch04.s12",
+  "inputs_hash": "533487b7afd860ffe74095e7ffce01b9c326e40182c41782f6ade7b1814560b4",
+  "output_hash": "888c5dfec9cb8b93822fbe97849d1cec0bef9c288e8240d0ba6142c2dd90054a",
+  "output": {
+    "section_id": "ch04.s12",
+    "checked": 37,
+    "counts": {
+      "agrees": 25,
+      "contradicts": 1,
+      "not_covered": 11
+    },
+    "results": [
+      {
+        "sentence_id": "ch04.s12.p01.02",
+        "text": "A simple decoding strategy selects the generated token with the largest probability score among all tokens in the vocabulary.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell85",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell77",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell85"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs explicitly define simple/greedy decoding as selecting the token with the largest probability score among the vocabulary."
+      },
+      {
+        "sentence_id": "ch04.s12.p01.03",
+        "text": "To predict the next token in this strategy, the model output is examined for the index with the maximum probability score, and that token is chosen as the next token.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell89",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell85"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs describe using argmax on the probability vector (from softmax) to get the index of the maximum probability and choosing that token as next token."
+      },
+      {
+        "sentence_id": "ch04.s12.p01.04",
+        "text": "Choosing the next token this way is deterministic.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell91",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell114",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell92"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Greedy/argmax selection is deterministic (same logits/probabilities yield the same next token); refs contrast this with multinomial sampling which is stochastic."
+      },
+      {
+        "sentence_id": "ch04.s12.p01.06",
+        "text": "Instead of choosing the maximum-probability token, the logit tensor can be passed through softmax to obtain probabilities, and then the next token can be sampled with a multinomial distribution.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell89",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell93",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell75"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs describe converting logits to probabilities via softmax and then sampling the next token with torch.multinomial instead of argmax."
+      },
+      {
+        "sentence_id": "ch04.s12.p01.07",
+        "text": "Multinomial sampling selects the next token proportionally to its probability score.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell89",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell92",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref states each index’s chance of being picked corresponds to its probability when using multinomial sampling."
+      },
+      {
+        "sentence_id": "ch04.s12.p01.08",
+        "text": "As a result, the token with the largest probability is still favored, but other tokens can also sometimes be selected according to their probabilities.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell77",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell75",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell89"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs motivate multinomial sampling as adding variety by sampling according to the probability distribution, implying high-probability tokens are favored but others can be chosen."
+      },
+      {
+        "sentence_id": "ch04.s12.p01.09",
+        "text": "This probabilistic choice enables more creativity in the model output and helps control randomness.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell84",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell87"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Section heading and text explicitly frame decoding strategies (e.g., temperature, top-k) as mechanisms to control randomness/diversity (creativity)."
+      },
+      {
+        "sentence_id": "ch04.s12.p02.02",
+        "text": "Temperature scaling divides the logits by a temperature value and then applies softmax.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell88",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell97",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell101"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference implementation shows scaled_logits = logits / temperature followed by softmax."
+      },
+      {
+        "sentence_id": "ch04.s12.p02.03",
+        "text": "When the temperature is increased, the next-token probabilities become more uniform, whereas a very low temperature produces a sharper distribution that favors one token more selectively.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell101",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell95",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell99"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs state T>1 makes probabilities more uniform; T<1 makes distributions sharper/peakier, approaching argmax at very low T."
+      },
+      {
+        "sentence_id": "ch04.s12.p02.04",
+        "text": "An animation is used to show this change from a sharp distribution at low temperature to a more uniform distribution at high temperature.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell88",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell99",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell101"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs discuss sharper vs more uniform distributions at different temperatures but do not mention an animation being used to show the change."
+      },
+      {
+        "sentence_id": "ch04.s12.p02.05",
+        "text": "Higher temperature values therefore lead to more uniformly distributed next-token probabilities and more diverse outputs.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell101",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell95",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell97"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs explicitly connect higher temperatures with more uniformly distributed probabilities; this is the basis for more diverse outputs in the described decoding strategy."
+      },
+      {
+        "sentence_id": "ch04.s12.p02.06",
+        "text": "This can explore less likely but potentially more interesting and creative paths, but it can also lead to grammatically incorrect or completely nonsensical output.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell105"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Ref mentions reducing nonsensical sentences via top-k when using higher temperatures, but does not explicitly state higher-temperature exploration can cause grammatically incorrect or completely nonsensical output."
+      },
+      {
+        "sentence_id": "ch04.s12.p02.07",
+        "text": "A temperature that is too low gives a sharper distribution, while a temperature that is too high can produce nonsensical output.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell99",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell88",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell97"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference states temperature 0.1 yields a sharper distribution (approaching argmax), and discusses using higher temperatures to increase diversity while reducing nonsensical sentences, consistent with the claim about too high producing nonsensical output."
+      },
+      {
+        "sentence_id": "ch04.s12.p02.08",
+        "text": "The weakness of temperature scaling by itself is that all tokens remain possible next tokens, including completely random ones.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell88",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell100",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell102"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references show printing sampled tokens for different temperatures but do not explicitly state that temperature scaling alone leaves all tokens possible, including random ones."
+      },
+      {
+        "sentence_id": "ch04.s12.p03.r01",
+        "text": "Top-k sampling keeps only the top k most likely tokens and excludes all other tokens from consideration.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell104",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell108",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell105"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Top-k section describes restricting sampled tokens to the top-k most likely tokens, and the code uses torch.topk to identify them, consistent with excluding others from consideration."
+      },
+      {
+        "sentence_id": "ch04.s12.p03.r02",
+        "text": "The filtering is done before softmax by keeping only the top k logits and replacing all other logits with negative infinity.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell114",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell109",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell108"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Code demonstrates filtering before softmax by using torch.where to set logits below the kth threshold to -inf (i.e., keeping only top-k logits)."
+      },
+      {
+        "sentence_id": "ch04.s12.p03.r03",
+        "text": "When the non-top-k logits are replaced with negative infinity, softmax makes their probabilities effectively zero, so only the surviving top-k tokens can be selected.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell108",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell104",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell114"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "After replacing non-top-k logits with -inf, the reference applies softmax to the filtered logits (topk_probas), implying excluded logits receive ~0 probability so only top-k tokens can be sampled."
+      },
+      {
+        "sentence_id": "ch04.s12.p03.r04",
+        "text": "This removes tokens that do not make sense from the next-token candidates.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell33",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell35"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited references for S6 are about tokenization/embeddings and do not discuss top-k removing nonsensical tokens from candidates."
+      },
+      {
+        "sentence_id": "ch04.s12.p03.r05",
+        "text": "In PyTorch, \"torch.topk\" applied to the next-token logits returns both the top k values and the indices where they occur.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell109",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell108",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell111"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference code shows `top_logits, top_pos = torch.topk(next_token_logits, top_k)`, demonstrating torch.topk returns both values and indices."
+      },
+      {
+        "sentence_id": "ch04.s12.p03.r06",
+        "text": "The code then uses \"torch.where\" to replace logits below the smallest top-k logit with negative infinity, and after softmax only the top-k tokens retain nonzero probabilities that sum to one.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell108",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell114",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell104"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference uses torch.where with condition `next_token_logits < top_logits[-1]` to set those logits to -inf, then applies softmax; resulting distribution assigns zero probability to filtered tokens and remaining probabilities sum to 1."
+      },
+      {
+        "sentence_id": "ch04.s12.p04.r02",
+        "text": "The combined procedure is to obtain the logits from the model, keep only the top-k logits, replace the others with negative infinity, divide by temperature, apply softmax, and sample from the multinomial distribution.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell114",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell109"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The generate() snippet is truncated and does not show the full combined sequence (top-k filter, divide by temperature, softmax, multinomial sampling) in the provided passages."
+      },
+      {
+        "sentence_id": "ch04.s12.p04.r03",
+        "text": "After top-k filtering and temperature scaling, multinomial sampling still favors the highest-probability surviving token most often, but the other surviving tokens can also be sampled according to their probabilities.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell105",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell89",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell100"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference explains multinomial sampling selects indices according to probabilities (so higher-prob tokens are favored but others can be picked) and separately discusses temperature/top-k for diversity/restriction, consistent with the statement."
+      },
+      {
+        "sentence_id": "ch04.s12.p04.r04",
+        "text": "This combination preserves some creativity through temperature scaling, blocks random tokens through top-k filtering, and makes token selection probabilistic rather than deterministic through multinomial sampling.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell88",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell104",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell95"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References describe temperature scaling controlling distribution shape, top-k restricting to most likely tokens to reduce nonsensical outputs, and multinomial sampling making selection probabilistic instead of argmax/deterministic."
+      },
+      {
+        "sentence_id": "ch04.s12.p04.r05",
+        "text": "Top-k sampling is used specifically because it addresses the temperature-scaling problem in which random low-probability tokens can still become the next token.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell88",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell104",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell89"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the reference says top-k can be used with higher temperatures to reduce nonsensical sentences, it does not explicitly frame it as addressing a specific temperature-scaling problem where random low-probability tokens can still be selected."
+      },
+      {
+        "sentence_id": "ch04.s12.p04.r06",
+        "text": "Restricting sampling to only the top k most likely tokens improves the meaning of generated tokens and helps avoid nonsensical or random output.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell105",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell104",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell93"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states that restricting sampling to the top-k most likely tokens can reduce nonsensical sentences and enables using higher temperatures for diversity."
+      },
+      {
+        "sentence_id": "ch04.s12.p05.02",
+        "text": "A final function is written to generate the next token by combining temperature scaling and top-k sampling.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell88",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell104",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell113"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly says it will combine temperature sampling and top-k sampling to modify the prior generation function into a new generate function."
+      },
+      {
+        "sentence_id": "ch04.s12.p05.03",
+        "text": "This function takes the GPT model, the maximum number of new tokens, the context size, the temperature value, the top-k value, and an end-of-sample ID as inputs.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not list the full signature/inputs of the generate function (model, max_new_tokens, context_size, temperature, top_k, eos_id) in the cited passages."
+      },
+      {
+        "sentence_id": "ch04.s12.p05.04",
+        "text": "Inside the function, logits are obtained from the GPT output and then top-k filtering is applied, keeping only the top-k values in the logit tensor and replacing the rest with negative infinity.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell108",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell110",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell104"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference demonstrates top-k selection via torch.topk and provides an implementation that keeps only top-k logits and sets the rest to -inf using torch.full_like(..., -torch.inf)."
+      },
+      {
+        "sentence_id": "ch04.s12.p05.05",
+        "text": "If the temperature is greater than zero, the logits are scaled by temperature, passed through softmax, and the next token ID is sampled from the resulting multinomial distribution.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell97",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell95",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell100"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Temperature scaling is defined as dividing logits by a value >0 and then applying softmax; the chapter also describes sampling via torch.multinomial from the probability distribution when sampling is used."
+      },
+      {
+        "sentence_id": "ch04.s12.p05.06",
+        "text": "If the temperature is not specified, the next token is chosen by taking the token ID with the maximum probability instead of sampling.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell89",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell92"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference contrasts argmax (previous approach) with multinomial sampling, but it does not state the specific conditional behavior \"if temperature is not specified\" then use argmax."
+      },
+      {
+        "sentence_id": "ch04.s12.p05.07",
+        "text": "\"EOS\" stands for end of sequence.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell110",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell52"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly defines [EOS] as \"end of sequence.\""
+      },
+      {
+        "sentence_id": "ch04.s12.p05.08",
+        "text": "If an end-of-sequence token is encountered, generation can stop early; otherwise each new token ID is appended to the current IDs until the maximum number of new tokens is reached.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell145",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell115"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While calls to generate include eos_id, the provided excerpts do not show or describe the early-stopping logic on encountering eos versus continuing until max_new_tokens."
+      },
+      {
+        "sentence_id": "ch04.s12.p05.09",
+        "text": "The flow that is shown is: start from the logit tensor, apply top-k sampling, scale with temperature, sample the next token from a multinomial distribution, or use argmax if temperature is not specified, and keep appending tokens until the new-token limit is reached.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell89",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell93",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell114"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "In the reference generate code, top-k filtering is applied to logits first, and then temperature scaling/sampling behavior (not shown fully in the excerpt) follows; however, the sentence’s fallback \"use argmax if temperature is not specified\" is incompatible with the shown signature default temperature=0.0 (temperature is always specified via default) and the typical logic used is based on temperature==0.0 rather than unspecified. Also the stated flow order \"apply top-k sampling, scale with temperature\" doesn’t match the usual implementation described (top-k filtering, then temperature-based softmax)."
+      },
+      {
+        "sentence_id": "ch04.s12.p05.10",
+        "text": "The \"generate\" function now in use implements this token-generation process.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell88",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell112",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell113"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states a new generate function is created by modifying the prior generation function using temperature sampling and top-k sampling, i.e., it implements the described process."
+      },
+      {
+        "sentence_id": "ch04.s12.p06.r02",
+        "text": "The new \"generate\" function is called with the GPT model, the input token IDs for \"every effort moves you\", a maximum of 15 new tokens, top-k set to 25, and temperature set to 1.4.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell115",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell145",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell46"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The referenced code cell shows generate called with input \"Every effort moves you\", max_new_tokens=15, top_k=25, temperature=1.4 (and the model/context_size as shown)."
+      },
+      {
+        "sentence_id": "ch04.s12.p06.r03",
+        "text": "A temperature of 1.4 is presented as a good trade-off.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell88",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell97",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell101"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references show examples of temperatures (1, 0.1, 5) and discuss effects, but do not characterize temperature 1.4 as a good trade-off."
+      },
+      {
+        "sentence_id": "ch04.s12.p06.r04",
+        "text": "The output produced by this new generation function differs from the earlier output produced by greedy decoding.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell85",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references describe that `generate_text_simple` uses greedy decoding (argmax of logits/probabilities) and mention a more advanced `generate_text` will be implemented later, but they do not state that the new generation function’s output differs from greedy decoding output, nor compare concrete outputs."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch04.s12.p05.09",
+        "text": "The flow that is shown is: start from the logit tensor, apply top-k sampling, scale with temperature, sample the next token from a multinomial distribution, or use argmax if temperature is not specified, and keep appending tokens until the new-token limit is reached.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell89",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell93",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell114"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "In the reference generate code, top-k filtering is applied to logits first, and then temperature scaling/sampling behavior (not shown fully in the excerpt) follows; however, the sentence’s fallback \"use argmax if temperature is not specified\" is incompatible with the shown signature default temperature=0.0 (temperature is always specified via default) and the typical logic used is based on temperature==0.0 rather than unspecified. Also the stated flow order \"apply top-k sampling, scale with temperature\" doesn’t match the usual implementation described (top-k filtering, then temperature-based softmax)."
+      }
+    ]
+  }
+}

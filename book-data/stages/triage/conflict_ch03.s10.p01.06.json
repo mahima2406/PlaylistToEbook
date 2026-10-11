@@ -1,0 +1,13 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch03.s10.p01.06",
+  "inputs_hash": "2a356d987687103f32919a7b6e8d1ac9ce10b172a8f5bb962db60fbd9024a49e",
+  "output_hash": "f4af590589148c5a51ffc8837f311b686c3d3c14b3d52ef039c8acaab8096b9e",
+  "output": {
+    "decision": "keep",
+    "reason": "The cited captions explicitly describe LayerNorm before attention, again after attention/before the neural network module, and once more before the final output layer, so this does not materially conflict with the reference.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "fa1477929478da556d471e10209e73998e235b9d0e82c3b79af22b6a9945124d"
+  }
+}

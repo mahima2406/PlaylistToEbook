@@ -1,0 +1,1822 @@
+{
+  "stage": "write",
+  "item": "ch03.s09",
+  "inputs_hash": "6a5fcfaedfb327622959d979b6f93827102606df857277da7e1e4bea46aaf23c",
+  "output_hash": "84cf423aec800640db659ff6e8b56b34c5cdb8b91ce3ce9b886a078476f9cc2a",
+  "output": {
+    "section_id": "ch03.s09",
+    "paragraphs": [
+      {
+        "id": "ch03.s09.p01",
+        "sentences": [
+          {
+            "id": "ch03.s09.p01.01",
+            "text": "How can multi-head attention be implemented without paying for a separate set of initial matrix multiplications for every head?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s09.p01.02",
+            "text": "A straightforward implementation creates multiple weight matrices for the query, key, and value, one set per attention head, multiplies the input with those matrices, and obtains separate queries, keys, and values for each head.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@51",
+              "K5u9eEaoxFg@53",
+              "K5u9eEaoxFg@55",
+              "K5u9eEaoxFg@59",
+              "K5u9eEaoxFg@61",
+              "K5u9eEaoxFg@64",
+              "K5u9eEaoxFg@67",
+              "K5u9eEaoxFg@70",
+              "K5u9eEaoxFg@72",
+              "K5u9eEaoxFg@76"
+            ]
+          },
+          {
+            "id": "ch03.s09.p01.03",
+            "text": "In that earlier approach, each attention head produced its own context vector, and the context vectors from different heads were concatenated into a larger matrix.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@180",
+              "K5u9eEaoxFg@182",
+              "K5u9eEaoxFg@183",
+              "K5u9eEaoxFg@186",
+              "K5u9eEaoxFg@187",
+              "K5u9eEaoxFg@190",
+              "K5u9eEaoxFg@193",
+              "K5u9eEaoxFg@196"
+            ]
+          },
+          {
+            "id": "ch03.s09.p01.04",
+            "text": "The difficulty is efficiency: the number of initial multiplications grows with the number of heads.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@78",
+              "K5u9eEaoxFg@81",
+              "K5u9eEaoxFg@83",
+              "K5u9eEaoxFg@85",
+              "K5u9eEaoxFg@88",
+              "K5u9eEaoxFg@91",
+              "K5u9eEaoxFg@93",
+              "K5u9eEaoxFg@96",
+              "K5u9eEaoxFg@99",
+              "K5u9eEaoxFg@101",
+              "K5u9eEaoxFg@104"
+            ]
+          },
+          {
+            "id": "ch03.s09.p01.05",
+            "text": "With 96 attention heads, this means 96 multiplications to get the queries, 96 to get the keys, and 96 to get the values.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@88",
+              "K5u9eEaoxFg@91",
+              "K5u9eEaoxFg@93",
+              "K5u9eEaoxFg@96",
+              "K5u9eEaoxFg@99",
+              "K5u9eEaoxFg@101"
+            ]
+          },
+          {
+            "id": "ch03.s09.p01.06",
+            "text": "That is why the implementation is reorganized around larger shared projections.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s09.p01.07",
+            "text": "A more efficient method performs one multiplication for queries, one for keys, and one for values, then splits the resulting query, key, and value tensors into multiple heads.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@112",
+              "K5u9eEaoxFg@114",
+              "K5u9eEaoxFg@117",
+              "K5u9eEaoxFg@119",
+              "K5u9eEaoxFg@121",
+              "K5u9eEaoxFg@124",
+              "K5u9eEaoxFg@125",
+              "K5u9eEaoxFg@128",
+              "K5u9eEaoxFg@130",
+              "K5u9eEaoxFg@132"
+            ]
+          },
+          {
+            "id": "ch03.s09.p01.08",
+            "text": "After that split, the rest of the attention procedure stays the same: multiply queries by transposed keys to get attention scores, turn those into attention weights, and multiply the weights by the values to get context vectors.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@135",
+              "K5u9eEaoxFg@137",
+              "K5u9eEaoxFg@140",
+              "K5u9eEaoxFg@142",
+              "K5u9eEaoxFg@144",
+              "K5u9eEaoxFg@146",
+              "K5u9eEaoxFg@148",
+              "K5u9eEaoxFg@151",
+              "K5u9eEaoxFg@154"
+            ]
+          },
+          {
+            "id": "ch03.s09.p01.09",
+            "text": "This implementation is called multi-head attention with weight splits.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@163",
+              "K5u9eEaoxFg@165",
+              "K5u9eEaoxFg@167"
+            ]
+          },
+          {
+            "id": "ch03.s09.p01.10",
+            "text": "It is described as more computationally efficient than the earlier multi-head attention implementation.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@167",
+              "K5u9eEaoxFg@169",
+              "K5u9eEaoxFg@171",
+              "K5u9eEaoxFg@202",
+              "K5u9eEaoxFg@204",
+              "K5u9eEaoxFg@206"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s09.p02",
+        "sentences": [
+          {
+            "id": "ch03.s09.p02.01",
+            "text": "The code structure changes along with the math.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s09.p02.02",
+            "text": "Earlier code used separate classes for a multi-head attention wrapper and for causal attention, while the newer implementation combines both into a single multi-head attention class.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@209",
+              "K5u9eEaoxFg@211",
+              "K5u9eEaoxFg@213",
+              "K5u9eEaoxFg@214",
+              "K5u9eEaoxFg@217",
+              "K5u9eEaoxFg@219",
+              "K5u9eEaoxFg@222",
+              "K5u9eEaoxFg@436",
+              "K5u9eEaoxFg@438",
+              "K5u9eEaoxFg@440",
+              "K5u9eEaoxFg@442",
+              "K5u9eEaoxFg@443"
+            ]
+          },
+          {
+            "id": "ch03.s09.p02.03",
+            "text": "In the old picture, the input \"x\" was multiplied by separate matrices such as \"wq1\" and \"wq2\" to obtain separate query matrices such as \"q1\" and \"q2\".",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@227",
+              "K5u9eEaoxFg@229",
+              "K5u9eEaoxFg@232",
+              "K5u9eEaoxFg@235",
+              "K5u9eEaoxFg@256",
+              "K5u9eEaoxFg@258",
+              "K5u9eEaoxFg@260",
+              "K5u9eEaoxFg@262"
+            ]
+          },
+          {
+            "id": "ch03.s09.p02.04",
+            "text": "In the weight-splitting version, the input is multiplied by one larger query matrix \"WQ\", and the resulting queries are then split into components for different heads.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@237",
+              "K5u9eEaoxFg@239",
+              "K5u9eEaoxFg@242",
+              "K5u9eEaoxFg@243",
+              "K5u9eEaoxFg@247",
+              "K5u9eEaoxFg@249",
+              "K5u9eEaoxFg@252",
+              "K5u9eEaoxFg@262",
+              "K5u9eEaoxFg@265"
+            ]
+          },
+          {
+            "id": "ch03.s09.p02.05",
+            "text": "The larger query, key, and value matrices are chosen so that their output dimension already includes the number of heads.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@267",
+              "K5u9eEaoxFg@270",
+              "K5u9eEaoxFg@272",
+              "K5u9eEaoxFg@276",
+              "K5u9eEaoxFg@287",
+              "K5u9eEaoxFg@288",
+              "K5u9eEaoxFg@291",
+              "K5u9eEaoxFg@293"
+            ]
+          },
+          {
+            "id": "ch03.s09.p02.06",
+            "text": "The relation is \"D_out\" equals head dimension multiplied by number of heads.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@278",
+              "K5u9eEaoxFg@281",
+              "K5u9eEaoxFg@318",
+              "K5u9eEaoxFg@321",
+              "K5u9eEaoxFg@325",
+              "K5u9eEaoxFg@1178",
+              "K5u9eEaoxFg@1184",
+              "K5u9eEaoxFg@1186",
+              "K5u9eEaoxFg@1188"
+            ]
+          },
+          {
+            "id": "ch03.s09.p02.07",
+            "text": "In the illustrated small example, each head has dimension 2 and there are 2 heads, so the larger query matrix has \"D_out\" equal to 4.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@278",
+              "K5u9eEaoxFg@281",
+              "K5u9eEaoxFg@321",
+              "K5u9eEaoxFg@325",
+              "K5u9eEaoxFg@326",
+              "K5u9eEaoxFg@329",
+              "K5u9eEaoxFg@330",
+              "K5u9eEaoxFg@343",
+              "K5u9eEaoxFg@345",
+              "K5u9eEaoxFg@348"
+            ]
+          },
+          {
+            "id": "ch03.s09.p02.08",
+            "text": "In the combined class, multiple heads are implemented by reshaping the query, key, and value tensors to split them into heads.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@446",
+              "K5u9eEaoxFg@449",
+              "K5u9eEaoxFg@452"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s09.p03",
+        "sentences": [
+          {
+            "id": "ch03.s09.p03.01",
+            "text": "To follow the implementation, start with the input to the forward method.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s09.p03.02",
+            "text": "The forward method takes an input tensor \"X\" and ultimately computes a context vector for every input token embedding.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@582",
+              "K5u9eEaoxFg@584",
+              "K5u9eEaoxFg@586",
+              "K5u9eEaoxFg@589",
+              "K5u9eEaoxFg@723",
+              "K5u9eEaoxFg@726"
+            ]
+          },
+          {
+            "id": "ch03.s09.p03.03",
+            "text": "This input tensor has three dimensions: batch size, number of tokens, and input dimension.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@604",
+              "K5u9eEaoxFg@607",
+              "K5u9eEaoxFg@609",
+              "K5u9eEaoxFg@611",
+              "K5u9eEaoxFg@613"
+            ]
+          },
+          {
+            "id": "ch03.s09.p03.04",
+            "text": "The input dimension \"D_in\" is the dimension of the embedding vector that represents each token.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@616",
+              "K5u9eEaoxFg@619",
+              "K5u9eEaoxFg@622",
+              "K5u9eEaoxFg@625"
+            ]
+          },
+          {
+            "id": "ch03.s09.p03.05",
+            "text": "For the example input shape \"1 × 3 × 6\", the batch size is 1, there are 3 tokens, and each token is represented by a 6-dimensional vector.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@625",
+              "K5u9eEaoxFg@628",
+              "K5u9eEaoxFg@631",
+              "K5u9eEaoxFg@635",
+              "K5u9eEaoxFg@640",
+              "K5u9eEaoxFg@642",
+              "K5u9eEaoxFg@651",
+              "K5u9eEaoxFg@655",
+              "K5u9eEaoxFg@665",
+              "K5u9eEaoxFg@669",
+              "K5u9eEaoxFg@671",
+              "K5u9eEaoxFg@674",
+              "K5u9eEaoxFg@677",
+              "K5u9eEaoxFg@679"
+            ]
+          },
+          {
+            "id": "ch03.s09.p03.06",
+            "text": "The example tokens are \"the\", \"cat\", and \"sleeps\".",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@635",
+              "K5u9eEaoxFg@640",
+              "K5u9eEaoxFg@642"
+            ]
+          },
+          {
+            "id": "ch03.s09.p03.07",
+            "text": "The output is one context vector per token, so its shape is number of tokens by \"D_out\".",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@721",
+              "K5u9eEaoxFg@723",
+              "K5u9eEaoxFg@726",
+              "K5u9eEaoxFg@728",
+              "K5u9eEaoxFg@731",
+              "K5u9eEaoxFg@733",
+              "K5u9eEaoxFg@735",
+              "K5u9eEaoxFg@741"
+            ]
+          },
+          {
+            "id": "ch03.s09.p03.08",
+            "text": "In the example, \"D_out\" is chosen to be 6, the same as \"D_in\", which is described as typical in GPT-based models.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@749",
+              "K5u9eEaoxFg@751",
+              "K5u9eEaoxFg@754",
+              "K5u9eEaoxFg@756",
+              "K5u9eEaoxFg@758",
+              "K5u9eEaoxFg@760"
+            ]
+          },
+          {
+            "id": "ch03.s09.p03.09",
+            "text": "The number of attention heads in the example is 2.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@763",
+              "K5u9eEaoxFg@765",
+              "K5u9eEaoxFg@768",
+              "K5u9eEaoxFg@770",
+              "K5u9eEaoxFg@805",
+              "K5u9eEaoxFg@808"
+            ]
+          },
+          {
+            "id": "ch03.s09.p03.10",
+            "text": "The head dimension is \"D_out\" divided by the number of heads, so here it is \"6 / 2 = 3\".",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@785",
+              "K5u9eEaoxFg@787",
+              "K5u9eEaoxFg@790",
+              "K5u9eEaoxFg@802",
+              "K5u9eEaoxFg@805",
+              "K5u9eEaoxFg@808",
+              "K5u9eEaoxFg@813"
+            ]
+          },
+          {
+            "id": "ch03.s09.p03.11",
+            "text": "Since each head has dimension 3 and there are 2 heads, the total \"D_out\" is 6.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@813",
+              "K5u9eEaoxFg@816",
+              "K5u9eEaoxFg@818",
+              "K5u9eEaoxFg@820"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s09.p04",
+        "sentences": [
+          {
+            "id": "ch03.s09.p04.01",
+            "text": "The next step is to create the trainable projections that produce keys, queries, and values.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s09.p04.02",
+            "text": "The model initializes trainable weight matrices \"W_k\", \"W_q\", and \"W_v\".",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@831",
+              "K5u9eEaoxFg@833",
+              "K5u9eEaoxFg@835",
+              "K5u9eEaoxFg@838",
+              "K5u9eEaoxFg@841"
+            ]
+          },
+          {
+            "id": "ch03.s09.p04.03",
+            "text": "Their first dimension must equal \"D_in\" so that they are compatible with the input in matrix multiplication.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@856",
+              "K5u9eEaoxFg@858",
+              "K5u9eEaoxFg@860",
+              "K5u9eEaoxFg@862",
+              "K5u9eEaoxFg@865",
+              "K5u9eEaoxFg@868",
+              "K5u9eEaoxFg@871",
+              "K5u9eEaoxFg@873",
+              "K5u9eEaoxFg@877",
+              "K5u9eEaoxFg@879",
+              "K5u9eEaoxFg@881"
+            ]
+          },
+          {
+            "id": "ch03.s09.p04.04",
+            "text": "Therefore the key, query, and value matrices have shape \"D_in × D_out\".",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@881",
+              "K5u9eEaoxFg@884",
+              "K5u9eEaoxFg@888"
+            ]
+          },
+          {
+            "id": "ch03.s09.p04.05",
+            "text": "In the worked example, \"D_in = 6\" and \"D_out = 6\", so \"W_q\", \"W_k\", and \"W_v\" are \"6 × 6\" matrices.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@888",
+              "K5u9eEaoxFg@890",
+              "K5u9eEaoxFg@892",
+              "K5u9eEaoxFg@901",
+              "K5u9eEaoxFg@905",
+              "K5u9eEaoxFg@910"
+            ]
+          },
+          {
+            "id": "ch03.s09.p04.06",
+            "text": "In code, these trainable matrices are initialized in the constructor as neural network linear layers with dimensions \"D_in\" by \"D_out\" and bias set to zero.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@915",
+              "K5u9eEaoxFg@917",
+              "K5u9eEaoxFg@919",
+              "K5u9eEaoxFg@924",
+              "K5u9eEaoxFg@926",
+              "K5u9eEaoxFg@928",
+              "K5u9eEaoxFg@931",
+              "K5u9eEaoxFg@934"
+            ]
+          },
+          {
+            "id": "ch03.s09.p04.07",
+            "text": "A linear layer is used because it is optimized for initializing weights and is better for backpropagation later.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@937",
+              "K5u9eEaoxFg@939",
+              "K5u9eEaoxFg@941",
+              "K5u9eEaoxFg@943",
+              "K5u9eEaoxFg@946"
+            ]
+          },
+          {
+            "id": "ch03.s09.p04.08",
+            "text": "After initialization, the input is multiplied by these three weight matrices to produce keys, queries, and values.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@964",
+              "K5u9eEaoxFg@966",
+              "K5u9eEaoxFg@968",
+              "K5u9eEaoxFg@977",
+              "K5u9eEaoxFg@979",
+              "K5u9eEaoxFg@983",
+              "K5u9eEaoxFg@985",
+              "K5u9eEaoxFg@988",
+              "K5u9eEaoxFg@989",
+              "K5u9eEaoxFg@992",
+              "K5u9eEaoxFg@995"
+            ]
+          },
+          {
+            "id": "ch03.s09.p04.09",
+            "text": "With input shape \"1 × 3 × 6\" and weight matrices of shape \"6 × 6\", the resulting keys, queries, and values each have shape \"1 × 3 × 6\".",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@997",
+              "K5u9eEaoxFg@999",
+              "K5u9eEaoxFg@1008",
+              "K5u9eEaoxFg@1011",
+              "K5u9eEaoxFg@1013",
+              "K5u9eEaoxFg@1020",
+              "K5u9eEaoxFg@1023",
+              "K5u9eEaoxFg@1026",
+              "K5u9eEaoxFg@1029",
+              "K5u9eEaoxFg@1032",
+              "K5u9eEaoxFg@1034",
+              "K5u9eEaoxFg@1038",
+              "K5u9eEaoxFg@1040",
+              "K5u9eEaoxFg@1043",
+              "K5u9eEaoxFg@1046",
+              "K5u9eEaoxFg@1048"
+            ]
+          },
+          {
+            "id": "ch03.s09.p04.10",
+            "text": "In that shape, 1 is the batch size, 3 is the number of tokens, and 6 is the output dimension \"D_out\".",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@1048",
+              "K5u9eEaoxFg@1051",
+              "K5u9eEaoxFg@1054",
+              "K5u9eEaoxFg@1057",
+              "K5u9eEaoxFg@1060",
+              "K5u9eEaoxFg@1063",
+              "K5u9eEaoxFg@1066"
+            ]
+          },
+          {
+            "id": "ch03.s09.p04.11",
+            "text": "Each row corresponds to one token, and each token is represented by a 6-dimensional vector.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@1066",
+              "K5u9eEaoxFg@1067",
+              "K5u9eEaoxFg@1071",
+              "K5u9eEaoxFg@1073",
+              "K5u9eEaoxFg@1075",
+              "K5u9eEaoxFg@1077",
+              "K5u9eEaoxFg@1079",
+              "K5u9eEaoxFg@1081",
+              "K5u9eEaoxFg@1084",
+              "K5u9eEaoxFg@1087",
+              "K5u9eEaoxFg@1089"
+            ]
+          },
+          {
+            "id": "ch03.s09.p04.12",
+            "text": "In code, passing the input through the linear layers applies the trainable query, key, and value matrices and returns tensors of shape batch size by number of tokens by \"D_out\".",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@1093",
+              "K5u9eEaoxFg@1096",
+              "K5u9eEaoxFg@1098",
+              "K5u9eEaoxFg@1100",
+              "K5u9eEaoxFg@1103",
+              "K5u9eEaoxFg@1105",
+              "K5u9eEaoxFg@1107",
+              "K5u9eEaoxFg@1109",
+              "K5u9eEaoxFg@1111",
+              "K5u9eEaoxFg@1114",
+              "K5u9eEaoxFg@1115",
+              "K5u9eEaoxFg@1118",
+              "K5u9eEaoxFg@1119",
+              "K5u9eEaoxFg@1122",
+              "K5u9eEaoxFg@1123"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s09.p05",
+        "sentences": [
+          {
+            "id": "ch03.s09.p05.01",
+            "text": "At this point, the tensors still do not explicitly represent individual heads.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s09.p05.02",
+            "text": "A fourth dimension is introduced because the existing three dimensions represent batch size, number of tokens, and \"D_out\", but not the number of heads or the head dimension.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@1127",
+              "K5u9eEaoxFg@1129",
+              "K5u9eEaoxFg@1131",
+              "K5u9eEaoxFg@1133",
+              "K5u9eEaoxFg@1135",
+              "K5u9eEaoxFg@1137",
+              "K5u9eEaoxFg@1140",
+              "K5u9eEaoxFg@1142",
+              "K5u9eEaoxFg@1144",
+              "K5u9eEaoxFg@1146",
+              "K5u9eEaoxFg@1148"
+            ]
+          },
+          {
+            "id": "ch03.s09.p05.03",
+            "text": "Because head dimension equals \"D_out\" divided by number of heads, \"D_out\" also equals head dimension multiplied by number of heads.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@1171",
+              "K5u9eEaoxFg@1173",
+              "K5u9eEaoxFg@1178",
+              "K5u9eEaoxFg@1181",
+              "K5u9eEaoxFg@1184",
+              "K5u9eEaoxFg@1186",
+              "K5u9eEaoxFg@1188"
+            ]
+          },
+          {
+            "id": "ch03.s09.p05.04",
+            "text": "The last dimension of the keys, queries, and values is reshaped so that \"D_out\" is split into number of heads and head dimension.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@1155",
+              "K5u9eEaoxFg@1156",
+              "K5u9eEaoxFg@1160",
+              "K5u9eEaoxFg@1162",
+              "K5u9eEaoxFg@1192",
+              "K5u9eEaoxFg@1194",
+              "K5u9eEaoxFg@1196",
+              "K5u9eEaoxFg@1198"
+            ]
+          },
+          {
+            "id": "ch03.s09.p05.05",
+            "text": "With \"D_out = 6\" and 2 heads, the head dimension is 3, so each \"1 × 3 × 6\" tensor is reshaped to \"1 × 3 × 2 × 3\".",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@1201",
+              "K5u9eEaoxFg@1204",
+              "K5u9eEaoxFg@1206",
+              "K5u9eEaoxFg@1210",
+              "K5u9eEaoxFg@1211",
+              "K5u9eEaoxFg@1214",
+              "K5u9eEaoxFg@1217",
+              "K5u9eEaoxFg@1219",
+              "K5u9eEaoxFg@1222",
+              "K5u9eEaoxFg@1224",
+              "K5u9eEaoxFg@1229",
+              "K5u9eEaoxFg@1231",
+              "K5u9eEaoxFg@1234",
+              "K5u9eEaoxFg@1240"
+            ]
+          },
+          {
+            "id": "ch03.s09.p05.06",
+            "text": "Ignoring the batch dimension, a tensor of shape \"1 × 3 × 2 × 3\" can be read as 3 tokens, with 2 heads inside each token, and a 3-dimensional vector for each head.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@1259",
+              "K5u9eEaoxFg@1263",
+              "K5u9eEaoxFg@1266",
+              "K5u9eEaoxFg@1268",
+              "K5u9eEaoxFg@1271",
+              "K5u9eEaoxFg@1273",
+              "K5u9eEaoxFg@1287",
+              "K5u9eEaoxFg@1289",
+              "K5u9eEaoxFg@1297",
+              "K5u9eEaoxFg@1299",
+              "K5u9eEaoxFg@1301",
+              "K5u9eEaoxFg@1303",
+              "K5u9eEaoxFg@1306",
+              "K5u9eEaoxFg@1308",
+              "K5u9eEaoxFg@1310",
+              "K5u9eEaoxFg@1313",
+              "K5u9eEaoxFg@1315",
+              "K5u9eEaoxFg@1320",
+              "K5u9eEaoxFg@1322",
+              "K5u9eEaoxFg@1324",
+              "K5u9eEaoxFg@1326",
+              "K5u9eEaoxFg@1328"
+            ]
+          },
+          {
+            "id": "ch03.s09.p05.07",
+            "text": "The keys and values are reshaped in the same way, so they also have shape \"1 × 3 × 2 × 3\".",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@1335",
+              "K5u9eEaoxFg@1336",
+              "K5u9eEaoxFg@1339",
+              "K5u9eEaoxFg@1344"
+            ]
+          },
+          {
+            "id": "ch03.s09.p05.08",
+            "text": "In code, this split is done with \"view\" on the keys, queries, and values, replacing the last dimension by number of heads and head dimension and turning three-dimensional tensors into four-dimensional tensors.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@1386",
+              "K5u9eEaoxFg@1389",
+              "K5u9eEaoxFg@1391",
+              "K5u9eEaoxFg@1394",
+              "K5u9eEaoxFg@1397",
+              "K5u9eEaoxFg@1398",
+              "K5u9eEaoxFg@1401",
+              "K5u9eEaoxFg@1403",
+              "K5u9eEaoxFg@1406",
+              "K5u9eEaoxFg@1411",
+              "K5u9eEaoxFg@1413",
+              "K5u9eEaoxFg@1415",
+              "K5u9eEaoxFg@1417"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s09.p06",
+        "sentences": [
+          {
+            "id": "ch03.s09.p06.01",
+            "text": "After reshaping, one more reordering is needed before attention scores can be computed cleanly for all heads.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s09.p06.02",
+            "text": "Before transposition, tensors with shape \"1 × 3 × 2 × 3\" are grouped by tokens rather than by heads.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@1428",
+              "K5u9eEaoxFg@1432",
+              "K5u9eEaoxFg@1439",
+              "K5u9eEaoxFg@1442",
+              "K5u9eEaoxFg@1443",
+              "K5u9eEaoxFg@1445"
+            ]
+          },
+          {
+            "id": "ch03.s09.p06.03",
+            "text": "To compute attention scores, they need to be grouped by heads instead.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@1459",
+              "K5u9eEaoxFg@1461",
+              "K5u9eEaoxFg@1463",
+              "K5u9eEaoxFg@1465",
+              "K5u9eEaoxFg@1467",
+              "K5u9eEaoxFg@1470",
+              "K5u9eEaoxFg@1472"
+            ]
+          },
+          {
+            "id": "ch03.s09.p06.04",
+            "text": "That regrouping swaps the number-of-tokens and number-of-heads dimensions, changing the shape from batch, tokens, heads, head dimension to batch, heads, tokens, head dimension, which here is \"1 × 2 × 3 × 3\".",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@1494",
+              "K5u9eEaoxFg@1496",
+              "K5u9eEaoxFg@1499",
+              "K5u9eEaoxFg@1500",
+              "K5u9eEaoxFg@1503",
+              "K5u9eEaoxFg@1506",
+              "K5u9eEaoxFg@1510",
+              "K5u9eEaoxFg@1529",
+              "K5u9eEaoxFg@1531",
+              "K5u9eEaoxFg@1533",
+              "K5u9eEaoxFg@1535"
+            ]
+          },
+          {
+            "id": "ch03.s09.p06.05",
+            "text": "In code, this is done with \"transpose(1, 2)\", because Python uses zero-based indexing and dimensions 1 and 2 correspond to tokens and heads.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@1540",
+              "K5u9eEaoxFg@1542",
+              "K5u9eEaoxFg@1544",
+              "K5u9eEaoxFg@1546",
+              "K5u9eEaoxFg@1548",
+              "K5u9eEaoxFg@1551",
+              "K5u9eEaoxFg@1553",
+              "K5u9eEaoxFg@1555",
+              "K5u9eEaoxFg@1557",
+              "K5u9eEaoxFg@1559",
+              "K5u9eEaoxFg@1561"
+            ]
+          },
+          {
+            "id": "ch03.s09.p06.06",
+            "text": "After transposition to \"1 × 2 × 3 × 3\", the tensors are grouped by head, and within each head the token rows each carry a 3-dimensional head vector.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@1565",
+              "K5u9eEaoxFg@1567",
+              "K5u9eEaoxFg@1571",
+              "K5u9eEaoxFg@1573",
+              "K5u9eEaoxFg@1576",
+              "K5u9eEaoxFg@1577",
+              "K5u9eEaoxFg@1600",
+              "K5u9eEaoxFg@1610",
+              "K5u9eEaoxFg@1612",
+              "K5u9eEaoxFg@1621",
+              "K5u9eEaoxFg@1623",
+              "K5u9eEaoxFg@1626",
+              "K5u9eEaoxFg@1629",
+              "K5u9eEaoxFg@1631",
+              "K5u9eEaoxFg@1633",
+              "K5u9eEaoxFg@1635",
+              "K5u9eEaoxFg@1637",
+              "K5u9eEaoxFg@1639",
+              "K5u9eEaoxFg@1641",
+              "K5u9eEaoxFg@1643",
+              "K5u9eEaoxFg@1646",
+              "K5u9eEaoxFg@1648",
+              "K5u9eEaoxFg@1650",
+              "K5u9eEaoxFg@1653",
+              "K5u9eEaoxFg@1654",
+              "K5u9eEaoxFg@1657",
+              "K5u9eEaoxFg@1659",
+              "K5u9eEaoxFg@1662",
+              "K5u9eEaoxFg@1664",
+              "K5u9eEaoxFg@1666"
+            ]
+          },
+          {
+            "id": "ch03.s09.p06.07",
+            "text": "Grouping by heads makes it possible to compute a separate attention score matrix for each head before the results are concatenated.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@1669",
+              "K5u9eEaoxFg@1671",
+              "K5u9eEaoxFg@1673",
+              "K5u9eEaoxFg@1676",
+              "K5u9eEaoxFg@1678",
+              "K5u9eEaoxFg@1680",
+              "K5u9eEaoxFg@1682",
+              "K5u9eEaoxFg@1684",
+              "K5u9eEaoxFg@1686",
+              "K5u9eEaoxFg@1688"
+            ]
+          },
+          {
+            "id": "ch03.s09.p06.08",
+            "text": "The transpose is needed because grouping by tokens is not suitable for computing attention scores for each head in parallel.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@1690",
+              "K5u9eEaoxFg@1693",
+              "K5u9eEaoxFg@1696",
+              "K5u9eEaoxFg@1700",
+              "K5u9eEaoxFg@1702",
+              "K5u9eEaoxFg@1704",
+              "K5u9eEaoxFg@1706",
+              "K5u9eEaoxFg@1710",
+              "K5u9eEaoxFg@1713",
+              "K5u9eEaoxFg@1715",
+              "K5u9eEaoxFg@1717",
+              "K5u9eEaoxFg@1719",
+              "K5u9eEaoxFg@1721",
+              "K5u9eEaoxFg@1724"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s09.p07",
+        "sentences": [
+          {
+            "id": "ch03.s09.p07.01",
+            "text": "Once the queries, keys, and values have the right shape, the attention computation itself follows the familiar pattern.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s09.p07.02",
+            "text": "Attention scores are computed by multiplying the queries by the keys transposed along the last two dimensions.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@1726",
+              "K5u9eEaoxFg@1729",
+              "K5u9eEaoxFg@1730",
+              "K5u9eEaoxFg@1734",
+              "K5u9eEaoxFg@1736",
+              "K5u9eEaoxFg@1741",
+              "K5u9eEaoxFg@1744",
+              "K5u9eEaoxFg@1809",
+              "K5u9eEaoxFg@1811",
+              "K5u9eEaoxFg@1813",
+              "K5u9eEaoxFg@1815",
+              "K5u9eEaoxFg@1817",
+              "K5u9eEaoxFg@1820",
+              "K5u9eEaoxFg@1824",
+              "K5u9eEaoxFg@1826",
+              "K5u9eEaoxFg@1847",
+              "K5u9eEaoxFg@1849",
+              "K5u9eEaoxFg@1851",
+              "K5u9eEaoxFg@2113",
+              "K5u9eEaoxFg@2116",
+              "K5u9eEaoxFg@2118",
+              "K5u9eEaoxFg@2120",
+              "K5u9eEaoxFg@2124",
+              "K5u9eEaoxFg@2126",
+              "K5u9eEaoxFg@2129",
+              "K5u9eEaoxFg@2132"
+            ]
+          },
+          {
+            "id": "ch03.s09.p07.03",
+            "text": "Transposing the key tensor turns a row in the key matrix into a column so that the multiplication is compatible.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@1824",
+              "K5u9eEaoxFg@1826",
+              "K5u9eEaoxFg@1828",
+              "K5u9eEaoxFg@1831",
+              "K5u9eEaoxFg@1847",
+              "K5u9eEaoxFg@1849",
+              "K5u9eEaoxFg@1851",
+              "K5u9eEaoxFg@1853",
+              "K5u9eEaoxFg@1856"
+            ]
+          },
+          {
+            "id": "ch03.s09.p07.04",
+            "text": "With tensors grouped by head, the multiplication automatically pairs head 1 of the queries with head 1 of the keys and head 2 with head 2.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@1768",
+              "K5u9eEaoxFg@1770",
+              "K5u9eEaoxFg@1772",
+              "K5u9eEaoxFg@1775",
+              "K5u9eEaoxFg@1777",
+              "K5u9eEaoxFg@1779",
+              "K5u9eEaoxFg@1781",
+              "K5u9eEaoxFg@1784",
+              "K5u9eEaoxFg@1786",
+              "K5u9eEaoxFg@1788",
+              "K5u9eEaoxFg@1790"
+            ]
+          },
+          {
+            "id": "ch03.s09.p07.05",
+            "text": "After the key transpose, the query and key tensors have compatible shapes, and each head is multiplied only with its corresponding head.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@1863",
+              "K5u9eEaoxFg@1866",
+              "K5u9eEaoxFg@1868",
+              "K5u9eEaoxFg@1871",
+              "K5u9eEaoxFg@1874",
+              "K5u9eEaoxFg@1875",
+              "K5u9eEaoxFg@1878",
+              "K5u9eEaoxFg@1880",
+              "K5u9eEaoxFg@1882",
+              "K5u9eEaoxFg@1884"
+            ]
+          },
+          {
+            "id": "ch03.s09.p07.06",
+            "text": "This multiplication produces the attention score matrix.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@1886",
+              "K5u9eEaoxFg@1888",
+              "K5u9eEaoxFg@1891"
+            ]
+          },
+          {
+            "id": "ch03.s09.p07.07",
+            "text": "The attention score tensor has dimensions batch size, number of heads, number of tokens, and number of tokens.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@1894",
+              "K5u9eEaoxFg@1897",
+              "K5u9eEaoxFg@1900",
+              "K5u9eEaoxFg@1942",
+              "K5u9eEaoxFg@1944",
+              "K5u9eEaoxFg@1946",
+              "K5u9eEaoxFg@1948"
+            ]
+          },
+          {
+            "id": "ch03.s09.p07.08",
+            "text": "The last two dimensions are token-by-token because a number-of-tokens-by-head-dimension matrix multiplied by a head-dimension-by-number-of-tokens matrix yields a number-of-tokens-by-number-of-tokens matrix, while the first two dimensions stay the same.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@1906",
+              "K5u9eEaoxFg@1908",
+              "K5u9eEaoxFg@1910",
+              "K5u9eEaoxFg@1913",
+              "K5u9eEaoxFg@1914",
+              "K5u9eEaoxFg@1917",
+              "K5u9eEaoxFg@1920",
+              "K5u9eEaoxFg@1922",
+              "K5u9eEaoxFg@1924",
+              "K5u9eEaoxFg@1925",
+              "K5u9eEaoxFg@1927",
+              "K5u9eEaoxFg@1930",
+              "K5u9eEaoxFg@1932",
+              "K5u9eEaoxFg@1934",
+              "K5u9eEaoxFg@1937",
+              "K5u9eEaoxFg@1938",
+              "K5u9eEaoxFg@1940"
+            ]
+          },
+          {
+            "id": "ch03.s09.p07.09",
+            "text": "Within each head, a row of the attention score matrix gives the attention scores between one query token and all tokens in the sequence.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@1976",
+              "K5u9eEaoxFg@1978",
+              "K5u9eEaoxFg@1980",
+              "K5u9eEaoxFg@1983",
+              "K5u9eEaoxFg@1985",
+              "K5u9eEaoxFg@1986"
+            ]
+          },
+          {
+            "id": "ch03.s09.p07.10",
+            "text": "An attention score exists between each token and every other token, so each head's attention matrix has a row and a column for every token.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2083",
+              "K5u9eEaoxFg@2085",
+              "K5u9eEaoxFg@2087",
+              "K5u9eEaoxFg@2090",
+              "K5u9eEaoxFg@2091",
+              "K5u9eEaoxFg@2094"
+            ]
+          },
+          {
+            "id": "ch03.s09.p07.11",
+            "text": "In code, the attention score is implemented as the scaled dot product between queries and keys.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2138",
+              "K5u9eEaoxFg@2139",
+              "K5u9eEaoxFg@2141",
+              "K5u9eEaoxFg@2144",
+              "K5u9eEaoxFg@2145"
+            ]
+          },
+          {
+            "id": "ch03.s09.p07.12",
+            "text": "Each head therefore has its own token-by-token attention score matrix.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2148",
+              "K5u9eEaoxFg@2150",
+              "K5u9eEaoxFg@2152",
+              "K5u9eEaoxFg@2154",
+              "K5u9eEaoxFg@2156",
+              "K5u9eEaoxFg@2158"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s09.p08",
+        "sentences": [
+          {
+            "id": "ch03.s09.p08.01",
+            "text": "To turn scores into usable weights in causal attention, masking and scaling are applied before softmax.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s09.p08.02",
+            "text": "In causal attention, a token should attend only to itself and earlier tokens, not to later tokens.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2171",
+              "K5u9eEaoxFg@2172",
+              "K5u9eEaoxFg@2175",
+              "K5u9eEaoxFg@2177",
+              "K5u9eEaoxFg@2179",
+              "K5u9eEaoxFg@2181",
+              "K5u9eEaoxFg@2183",
+              "K5u9eEaoxFg@2185",
+              "K5u9eEaoxFg@2188",
+              "K5u9eEaoxFg@2202",
+              "K5u9eEaoxFg@2204",
+              "K5u9eEaoxFg@2207",
+              "K5u9eEaoxFg@2209",
+              "K5u9eEaoxFg@2215",
+              "K5u9eEaoxFg@2217",
+              "K5u9eEaoxFg@2219",
+              "K5u9eEaoxFg@2221",
+              "K5u9eEaoxFg@2223",
+              "K5u9eEaoxFg@2225"
+            ]
+          },
+          {
+            "id": "ch03.s09.p08.03",
+            "text": "To enforce that rule, all elements above the diagonal are replaced with negative infinity.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2229",
+              "K5u9eEaoxFg@2232",
+              "K5u9eEaoxFg@2233",
+              "K5u9eEaoxFg@2235",
+              "K5u9eEaoxFg@2237",
+              "K5u9eEaoxFg@2239"
+            ]
+          },
+          {
+            "id": "ch03.s09.p08.04",
+            "text": "Those masked positions become zero after softmax.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2242",
+              "K5u9eEaoxFg@2244",
+              "K5u9eEaoxFg@2246",
+              "K5u9eEaoxFg@2248",
+              "K5u9eEaoxFg@2251",
+              "K5u9eEaoxFg@2252"
+            ]
+          },
+          {
+            "id": "ch03.s09.p08.05",
+            "text": "Before softmax, the scores are divided by the square root of the head dimension.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2264",
+              "K5u9eEaoxFg@2266",
+              "K5u9eEaoxFg@2268",
+              "K5u9eEaoxFg@2271"
+            ]
+          },
+          {
+            "id": "ch03.s09.p08.06",
+            "text": "This scaling prevents the query-key dot-product variance from growing with dimensionality, keeps pre-softmax values smaller, and is useful for backpropagation and stable gradients.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2276",
+              "K5u9eEaoxFg@2279",
+              "K5u9eEaoxFg@2282",
+              "K5u9eEaoxFg@2284",
+              "K5u9eEaoxFg@2286",
+              "K5u9eEaoxFg@2288",
+              "K5u9eEaoxFg@2290",
+              "K5u9eEaoxFg@2292",
+              "K5u9eEaoxFg@2295",
+              "K5u9eEaoxFg@2297",
+              "K5u9eEaoxFg@2300",
+              "K5u9eEaoxFg@2302",
+              "K5u9eEaoxFg@2304"
+            ]
+          },
+          {
+            "id": "ch03.s09.p08.07",
+            "text": "In this example, the head dimension is 3 because \"D_out\" is 6 and the number of heads is 2, so the scores are divided by the square root of 3.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2307",
+              "K5u9eEaoxFg@2309",
+              "K5u9eEaoxFg@2311",
+              "K5u9eEaoxFg@2313",
+              "K5u9eEaoxFg@2316",
+              "K5u9eEaoxFg@2318",
+              "K5u9eEaoxFg@2321",
+              "K5u9eEaoxFg@2323",
+              "K5u9eEaoxFg@2326",
+              "K5u9eEaoxFg@2328"
+            ]
+          },
+          {
+            "id": "ch03.s09.p08.08",
+            "text": "After softmax, each row sums to one.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2239",
+              "K5u9eEaoxFg@2244",
+              "K5u9eEaoxFg@2246",
+              "K5u9eEaoxFg@2248",
+              "K5u9eEaoxFg@2332",
+              "K5u9eEaoxFg@2335",
+              "K5u9eEaoxFg@2338",
+              "K5u9eEaoxFg@2340",
+              "K5u9eEaoxFg@2343",
+              "K5u9eEaoxFg@2345",
+              "K5u9eEaoxFg@2347"
+            ]
+          },
+          {
+            "id": "ch03.s09.p08.09",
+            "text": "The attention weights have the same dimensions as the attention scores: batch size, number of heads, number of tokens, and number of tokens.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2385",
+              "K5u9eEaoxFg@2387",
+              "K5u9eEaoxFg@2389",
+              "K5u9eEaoxFg@2391",
+              "K5u9eEaoxFg@2394",
+              "K5u9eEaoxFg@2397",
+              "K5u9eEaoxFg@2399",
+              "K5u9eEaoxFg@2402",
+              "K5u9eEaoxFg@2406"
+            ]
+          },
+          {
+            "id": "ch03.s09.p08.10",
+            "text": "So the full transformation from scores to weights is: apply the causal mask with negative infinity above the diagonal, divide by the square root of head dimension, and then apply softmax.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2409",
+              "K5u9eEaoxFg@2411",
+              "K5u9eEaoxFg@2414",
+              "K5u9eEaoxFg@2417",
+              "K5u9eEaoxFg@2419",
+              "K5u9eEaoxFg@2421",
+              "K5u9eEaoxFg@2423",
+              "K5u9eEaoxFg@2425",
+              "K5u9eEaoxFg@2427",
+              "K5u9eEaoxFg@2430"
+            ]
+          },
+          {
+            "id": "ch03.s09.p08.11",
+            "text": "Dropout can also be applied after obtaining attention weights, although it is omitted here for simplicity.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2434",
+              "K5u9eEaoxFg@2437",
+              "K5u9eEaoxFg@2439",
+              "K5u9eEaoxFg@2441",
+              "K5u9eEaoxFg@2444",
+              "K5u9eEaoxFg@2447",
+              "K5u9eEaoxFg@2449"
+            ]
+          },
+          {
+            "id": "ch03.s09.p08.12",
+            "text": "In code, an upper triangular mask is created and applied to the attention scores so that all elements above the diagonal become negative infinity.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2451",
+              "K5u9eEaoxFg@2453",
+              "K5u9eEaoxFg@2455",
+              "K5u9eEaoxFg@2458",
+              "K5u9eEaoxFg@2460",
+              "K5u9eEaoxFg@2462",
+              "K5u9eEaoxFg@2465",
+              "K5u9eEaoxFg@2468",
+              "K5u9eEaoxFg@2470",
+              "K5u9eEaoxFg@2472",
+              "K5u9eEaoxFg@2474",
+              "K5u9eEaoxFg@2476",
+              "K5u9eEaoxFg@2478",
+              "K5u9eEaoxFg@2480",
+              "K5u9eEaoxFg@2481",
+              "K5u9eEaoxFg@2484"
+            ]
+          },
+          {
+            "id": "ch03.s09.p08.13",
+            "text": "The mask is built only for the context length, because the model does not look at more tokens than the context length at a time.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2484",
+              "K5u9eEaoxFg@2486",
+              "K5u9eEaoxFg@2489",
+              "K5u9eEaoxFg@2491",
+              "K5u9eEaoxFg@2494",
+              "K5u9eEaoxFg@2496",
+              "K5u9eEaoxFg@2499",
+              "K5u9eEaoxFg@2501",
+              "K5u9eEaoxFg@2503",
+              "K5u9eEaoxFg@2505",
+              "K5u9eEaoxFg@2507",
+              "K5u9eEaoxFg@2510"
+            ]
+          },
+          {
+            "id": "ch03.s09.p08.14",
+            "text": "If a batch contains fewer tokens than the context size, the masking code stops the mask at the actual number of tokens.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2510",
+              "K5u9eEaoxFg@2512",
+              "K5u9eEaoxFg@2514",
+              "K5u9eEaoxFg@2516",
+              "K5u9eEaoxFg@2518",
+              "K5u9eEaoxFg@2521"
+            ]
+          },
+          {
+            "id": "ch03.s09.p08.15",
+            "text": "In code, the scores are divided by the square root of the last dimension of the keys tensor, which is the head dimension, before softmax is applied.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2533",
+              "K5u9eEaoxFg@2535",
+              "K5u9eEaoxFg@2537",
+              "K5u9eEaoxFg@2539",
+              "K5u9eEaoxFg@2541",
+              "K5u9eEaoxFg@2543",
+              "K5u9eEaoxFg@2547",
+              "K5u9eEaoxFg@2549",
+              "K5u9eEaoxFg@2552",
+              "K5u9eEaoxFg@2554",
+              "K5u9eEaoxFg@2556",
+              "K5u9eEaoxFg@2557"
+            ]
+          },
+          {
+            "id": "ch03.s09.p08.16",
+            "text": "Softmax is applied along the last dimension so that the columns within each row sum to one.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2561",
+              "K5u9eEaoxFg@2563",
+              "K5u9eEaoxFg@2565",
+              "K5u9eEaoxFg@2568"
+            ]
+          },
+          {
+            "id": "ch03.s09.p08.17",
+            "text": "Each element of the attention weight matrix is the attention weight between a particular query token and a particular key token within a head.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2591",
+              "K5u9eEaoxFg@2592",
+              "K5u9eEaoxFg@2596",
+              "K5u9eEaoxFg@2598",
+              "K5u9eEaoxFg@2600",
+              "K5u9eEaoxFg@2601",
+              "K5u9eEaoxFg@2605",
+              "K5u9eEaoxFg@2608",
+              "K5u9eEaoxFg@2610",
+              "K5u9eEaoxFg@2611",
+              "K5u9eEaoxFg@2615",
+              "K5u9eEaoxFg@2617",
+              "K5u9eEaoxFg@2618",
+              "K5u9eEaoxFg@2620",
+              "K5u9eEaoxFg@2622",
+              "K5u9eEaoxFg@2624",
+              "K5u9eEaoxFg@2625",
+              "K5u9eEaoxFg@2629",
+              "K5u9eEaoxFg@2632",
+              "K5u9eEaoxFg@2635",
+              "K5u9eEaoxFg@2637",
+              "K5u9eEaoxFg@2639"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s09.p09",
+        "sentences": [
+          {
+            "id": "ch03.s09.p09.01",
+            "text": "The attention mechanism is aiming at one final product: the context vectors.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s09.p09.02",
+            "text": "The context vector matrix is computed by multiplying the attention weights by the value matrix.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2648",
+              "K5u9eEaoxFg@2650",
+              "K5u9eEaoxFg@2652",
+              "K5u9eEaoxFg@2654",
+              "K5u9eEaoxFg@2656",
+              "K5u9eEaoxFg@2658",
+              "K5u9eEaoxFg@2660",
+              "K5u9eEaoxFg@2662",
+              "K5u9eEaoxFg@2684",
+              "K5u9eEaoxFg@2686",
+              "K5u9eEaoxFg@2688"
+            ]
+          },
+          {
+            "id": "ch03.s09.p09.03",
+            "text": "The value matrix was computed earlier and is used only in this final step.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2664",
+              "K5u9eEaoxFg@2667",
+              "K5u9eEaoxFg@2669",
+              "K5u9eEaoxFg@2671",
+              "K5u9eEaoxFg@2673",
+              "K5u9eEaoxFg@2676",
+              "K5u9eEaoxFg@2678",
+              "K5u9eEaoxFg@2680",
+              "K5u9eEaoxFg@2682"
+            ]
+          },
+          {
+            "id": "ch03.s09.p09.04",
+            "text": "For this multiplication, the attention weights have dimensions batch size, number of heads, number of tokens, number of tokens, and the values have dimensions batch size, number of heads, number of tokens, head dimension.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2692",
+              "K5u9eEaoxFg@2695",
+              "K5u9eEaoxFg@2697",
+              "K5u9eEaoxFg@2699",
+              "K5u9eEaoxFg@2703",
+              "K5u9eEaoxFg@2706",
+              "K5u9eEaoxFg@2708",
+              "K5u9eEaoxFg@2711",
+              "K5u9eEaoxFg@2712",
+              "K5u9eEaoxFg@2715"
+            ]
+          },
+          {
+            "id": "ch03.s09.p09.05",
+            "text": "The multiplication is valid because the number of columns in the attention weights matches the number of rows in the values.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2718",
+              "K5u9eEaoxFg@2720",
+              "K5u9eEaoxFg@2722",
+              "K5u9eEaoxFg@2724",
+              "K5u9eEaoxFg@2727",
+              "K5u9eEaoxFg@2729",
+              "K5u9eEaoxFg@2732",
+              "K5u9eEaoxFg@2734",
+              "K5u9eEaoxFg@2737",
+              "K5u9eEaoxFg@2739",
+              "K5u9eEaoxFg@2742"
+            ]
+          },
+          {
+            "id": "ch03.s09.p09.06",
+            "text": "Attention weights differ from attention scores because each row of the weights sums to one, while that is not true for the scores.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2750",
+              "K5u9eEaoxFg@2753",
+              "K5u9eEaoxFg@2755",
+              "K5u9eEaoxFg@2757",
+              "K5u9eEaoxFg@2758",
+              "K5u9eEaoxFg@2761",
+              "K5u9eEaoxFg@2762",
+              "K5u9eEaoxFg@2764"
+            ]
+          },
+          {
+            "id": "ch03.s09.p09.07",
+            "text": "Multiplying the attention weights by the values produces a context vector output with shape batch size, number of heads, number of tokens, head dimension.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2771",
+              "K5u9eEaoxFg@2775",
+              "K5u9eEaoxFg@2779",
+              "K5u9eEaoxFg@2782",
+              "K5u9eEaoxFg@2784",
+              "K5u9eEaoxFg@2788",
+              "K5u9eEaoxFg@2791",
+              "K5u9eEaoxFg@2794",
+              "K5u9eEaoxFg@2796",
+              "K5u9eEaoxFg@2799"
+            ]
+          },
+          {
+            "id": "ch03.s09.p09.08",
+            "text": "In that output, each head contains one row per token, and each row is the context vector for that token with dimensionality equal to the head dimension.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2802",
+              "K5u9eEaoxFg@2803",
+              "K5u9eEaoxFg@2805",
+              "K5u9eEaoxFg@2808",
+              "K5u9eEaoxFg@2810",
+              "K5u9eEaoxFg@2812",
+              "K5u9eEaoxFg@2815",
+              "K5u9eEaoxFg@2817",
+              "K5u9eEaoxFg@2819",
+              "K5u9eEaoxFg@2822",
+              "K5u9eEaoxFg@2825",
+              "K5u9eEaoxFg@2828"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s09.p10",
+        "sentences": [
+          {
+            "id": "ch03.s09.p10.01",
+            "text": "The remaining job is to merge the separate head outputs back into the full output dimension.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s09.p10.02",
+            "text": "The final context matrix is supposed to preserve the \"D_out\" dimension, so the number of heads and the head dimension must be merged back together.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2834",
+              "K5u9eEaoxFg@2835",
+              "K5u9eEaoxFg@2839",
+              "K5u9eEaoxFg@2842",
+              "K5u9eEaoxFg@2845",
+              "K5u9eEaoxFg@2856",
+              "K5u9eEaoxFg@2858",
+              "K5u9eEaoxFg@2862",
+              "K5u9eEaoxFg@2868",
+              "K5u9eEaoxFg@2871",
+              "K5u9eEaoxFg@2874",
+              "K5u9eEaoxFg@2877",
+              "K5u9eEaoxFg@2879",
+              "K5u9eEaoxFg@2881",
+              "K5u9eEaoxFg@2883"
+            ]
+          },
+          {
+            "id": "ch03.s09.p10.03",
+            "text": "To prepare for that merge, the number-of-heads and number-of-tokens dimensions are transposed so the shape changes from batch size, number of heads, number of tokens, head dimension to batch size, number of tokens, number of heads, head dimension.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2900",
+              "K5u9eEaoxFg@2902",
+              "K5u9eEaoxFg@2904",
+              "K5u9eEaoxFg@2906",
+              "K5u9eEaoxFg@2908",
+              "K5u9eEaoxFg@2910",
+              "K5u9eEaoxFg@2913",
+              "K5u9eEaoxFg@2915",
+              "K5u9eEaoxFg@2918",
+              "K5u9eEaoxFg@2920",
+              "K5u9eEaoxFg@2923",
+              "K5u9eEaoxFg@2926",
+              "K5u9eEaoxFg@2937",
+              "K5u9eEaoxFg@2939",
+              "K5u9eEaoxFg@2941",
+              "K5u9eEaoxFg@2942",
+              "K5u9eEaoxFg@2945",
+              "K5u9eEaoxFg@2947",
+              "K5u9eEaoxFg@2948",
+              "K5u9eEaoxFg@2951",
+              "K5u9eEaoxFg@2955",
+              "K5u9eEaoxFg@2960"
+            ]
+          },
+          {
+            "id": "ch03.s09.p10.04",
+            "text": "After this transpose, the grouping is by token, and within each token there is one context vector per head.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@2972",
+              "K5u9eEaoxFg@2973",
+              "K5u9eEaoxFg@2976",
+              "K5u9eEaoxFg@2977",
+              "K5u9eEaoxFg@2980",
+              "K5u9eEaoxFg@2981",
+              "K5u9eEaoxFg@2984",
+              "K5u9eEaoxFg@2986",
+              "K5u9eEaoxFg@2988",
+              "K5u9eEaoxFg@2990",
+              "K5u9eEaoxFg@2992",
+              "K5u9eEaoxFg@2994",
+              "K5u9eEaoxFg@2997",
+              "K5u9eEaoxFg@2998",
+              "K5u9eEaoxFg@3001",
+              "K5u9eEaoxFg@3003"
+            ]
+          },
+          {
+            "id": "ch03.s09.p10.05",
+            "text": "The reason for this transpose is to bring number of heads and head dimension next to each other so they can be merged into \"D_out\" more easily.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@3020",
+              "K5u9eEaoxFg@3023",
+              "K5u9eEaoxFg@3025",
+              "K5u9eEaoxFg@3027",
+              "K5u9eEaoxFg@3029",
+              "K5u9eEaoxFg@3031",
+              "K5u9eEaoxFg@3033",
+              "K5u9eEaoxFg@3037"
+            ]
+          },
+          {
+            "id": "ch03.s09.p10.06",
+            "text": "The outputs from multiple heads are then combined by flattening each token output into a single row.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@3047",
+              "K5u9eEaoxFg@3050",
+              "K5u9eEaoxFg@3052",
+              "K5u9eEaoxFg@3056",
+              "K5u9eEaoxFg@3058",
+              "K5u9eEaoxFg@3060",
+              "K5u9eEaoxFg@3070",
+              "K5u9eEaoxFg@3072",
+              "K5u9eEaoxFg@3074",
+              "K5u9eEaoxFg@3082",
+              "K5u9eEaoxFg@3085",
+              "K5u9eEaoxFg@3086",
+              "K5u9eEaoxFg@3091",
+              "K5u9eEaoxFg@3093",
+              "K5u9eEaoxFg@3095",
+              "K5u9eEaoxFg@3099",
+              "K5u9eEaoxFg@3101"
+            ]
+          },
+          {
+            "id": "ch03.s09.p10.07",
+            "text": "In the final context matrix, each row is the context vector for one token, and its length is \"D_out\" because the head outputs have been merged together.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@3103",
+              "K5u9eEaoxFg@3106",
+              "K5u9eEaoxFg@3110",
+              "K5u9eEaoxFg@3112",
+              "K5u9eEaoxFg@3114",
+              "K5u9eEaoxFg@3116",
+              "K5u9eEaoxFg@3118",
+              "K5u9eEaoxFg@3121",
+              "K5u9eEaoxFg@3129",
+              "K5u9eEaoxFg@3132",
+              "K5u9eEaoxFg@3134",
+              "K5u9eEaoxFg@3135",
+              "K5u9eEaoxFg@3139",
+              "K5u9eEaoxFg@3142",
+              "K5u9eEaoxFg@3143",
+              "K5u9eEaoxFg@3145",
+              "K5u9eEaoxFg@3148",
+              "K5u9eEaoxFg@3150",
+              "K5u9eEaoxFg@3152",
+              "K5u9eEaoxFg@3155",
+              "K5u9eEaoxFg@3157",
+              "K5u9eEaoxFg@3159",
+              "K5u9eEaoxFg@3161",
+              "K5u9eEaoxFg@3163",
+              "K5u9eEaoxFg@3165"
+            ]
+          },
+          {
+            "id": "ch03.s09.p10.08",
+            "text": "The final context vector matrix therefore has shape batch size, number of tokens, \"D_out\".",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@3167",
+              "K5u9eEaoxFg@3171",
+              "K5u9eEaoxFg@3174",
+              "K5u9eEaoxFg@3177"
+            ]
+          },
+          {
+            "id": "ch03.s09.p10.09",
+            "text": "In code, the context tensor is made contiguous in memory and reshaped into batch size, number of tokens, \"D_out\".",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@3177",
+              "K5u9eEaoxFg@3179",
+              "K5u9eEaoxFg@3182",
+              "K5u9eEaoxFg@3185"
+            ]
+          },
+          {
+            "id": "ch03.s09.p10.10",
+            "text": "Calling \"contiguous\" before reshaping ensures the tensor is in the same memory block so the reshape works properly.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@3187",
+              "K5u9eEaoxFg@3190",
+              "K5u9eEaoxFg@3191",
+              "K5u9eEaoxFg@3193",
+              "K5u9eEaoxFg@3196",
+              "K5u9eEaoxFg@3197",
+              "K5u9eEaoxFg@3199",
+              "K5u9eEaoxFg@3201",
+              "K5u9eEaoxFg@3203"
+            ]
+          },
+          {
+            "id": "ch03.s09.p10.11",
+            "text": "An optional output projection can then be applied as a learnable linear layer, although it is not strictly necessary.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@3215",
+              "K5u9eEaoxFg@3217",
+              "K5u9eEaoxFg@3219",
+              "K5u9eEaoxFg@3221",
+              "K5u9eEaoxFg@3223",
+              "K5u9eEaoxFg@3226",
+              "K5u9eEaoxFg@3228"
+            ]
+          },
+          {
+            "id": "ch03.s09.p10.12",
+            "text": "This full process produces enriched context vector representations for the tokens.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@3231",
+              "K5u9eEaoxFg@3233",
+              "K5u9eEaoxFg@3235",
+              "K5u9eEaoxFg@3262",
+              "K5u9eEaoxFg@3263",
+              "K5u9eEaoxFg@3265"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s09.p11",
+        "sentences": [
+          {
+            "id": "ch03.s09.p11.01",
+            "text": "A small run of the implementation makes the shapes concrete.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s09.p11.02",
+            "text": "In the demonstration, there are 3 tokens, embedding dimension 6, \"D_out\" equal to 6, context length equal to 6, dropout rate 0, and 2 heads.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@3362",
+              "K5u9eEaoxFg@3364",
+              "K5u9eEaoxFg@3378",
+              "K5u9eEaoxFg@3380",
+              "K5u9eEaoxFg@3382",
+              "K5u9eEaoxFg@3386",
+              "K5u9eEaoxFg@3391",
+              "K5u9eEaoxFg@3394",
+              "K5u9eEaoxFg@3398",
+              "K5u9eEaoxFg@3400",
+              "K5u9eEaoxFg@3402",
+              "K5u9eEaoxFg@3405",
+              "K5u9eEaoxFg@3408",
+              "K5u9eEaoxFg@3410",
+              "K5u9eEaoxFg@3423"
+            ]
+          },
+          {
+            "id": "ch03.s09.p11.03",
+            "text": "Dropout in this attention implementation randomly blocks out some attention weights, which is described as useful for generalization.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@3410",
+              "K5u9eEaoxFg@3413",
+              "K5u9eEaoxFg@3415",
+              "K5u9eEaoxFg@3417",
+              "K5u9eEaoxFg@3420",
+              "K5u9eEaoxFg@3421"
+            ]
+          },
+          {
+            "id": "ch03.s09.p11.04",
+            "text": "For the first batch, the resulting context vector matrix has 3 rows and 6 columns, matching the earlier example in shape even if the values differ because of different random initializations.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@3426",
+              "K5u9eEaoxFg@3428",
+              "K5u9eEaoxFg@3430",
+              "K5u9eEaoxFg@3432",
+              "K5u9eEaoxFg@3444",
+              "K5u9eEaoxFg@3446",
+              "K5u9eEaoxFg@3460",
+              "K5u9eEaoxFg@3462",
+              "K5u9eEaoxFg@3464",
+              "K5u9eEaoxFg@3466",
+              "K5u9eEaoxFg@3467",
+              "K5u9eEaoxFg@3469",
+              "K5u9eEaoxFg@3471",
+              "K5u9eEaoxFg@3473",
+              "K5u9eEaoxFg@3475",
+              "K5u9eEaoxFg@3477",
+              "K5u9eEaoxFg@3479",
+              "K5u9eEaoxFg@3481",
+              "K5u9eEaoxFg@3483"
+            ]
+          },
+          {
+            "id": "ch03.s09.p11.05",
+            "text": "For larger text, the same pipeline applies: take sentences, break them into tokens, convert them into token IDs, map them to input embeddings, and compute context vectors for each token.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@3267",
+              "K5u9eEaoxFg@3269",
+              "K5u9eEaoxFg@3272",
+              "K5u9eEaoxFg@3274",
+              "K5u9eEaoxFg@3276",
+              "K5u9eEaoxFg@3279"
+            ]
+          },
+          {
+            "id": "ch03.s09.p11.06",
+            "text": "The multi-head attention class can also handle multiple batches at once, producing one context vector matrix per batch.",
+            "type": "F",
+            "cites": [
+              "K5u9eEaoxFg@3281",
+              "K5u9eEaoxFg@3284",
+              "K5u9eEaoxFg@3286",
+              "K5u9eEaoxFg@3488",
+              "K5u9eEaoxFg@3489",
+              "K5u9eEaoxFg@3491",
+              "K5u9eEaoxFg@3493",
+              "K5u9eEaoxFg@3496",
+              "K5u9eEaoxFg@3497",
+              "K5u9eEaoxFg@3499"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

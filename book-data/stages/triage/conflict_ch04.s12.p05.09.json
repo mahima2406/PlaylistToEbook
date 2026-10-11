@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch04.s12.p05.09",
+  "inputs_hash": "0c7c7b3de25b56746b27f0db8ebd4417114e29af24e8b33855ca72831dcc33a9",
+  "output_hash": "9a2c72b2f74e0364bc8f1d66eba72df3e11a5f5d96d1426db2b9afdb8ac65883",
+  "output": {
+    "decision": "edit",
+    "text": "The flow that is shown is: start from the logit tensor, apply top-k sampling, scale the logits with temperature, sample the next token from a multinomial distribution, or use argmax otherwise, and keep appending tokens until the new-token limit is reached.",
+    "reason": "This keeps the lecture-supported sequence while removing the incorrect claim that argmax is used only when temperature is unspecified.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "436dcd9819fca87ac19b73f7c7944adcf4e9eb32b375e6a58e57df459b836b89"
+  }
+}

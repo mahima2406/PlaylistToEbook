@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch02.s05",
+  "inputs_hash": "bf06810ee979a52853433a7abb9f3261bd7211859f5b48c506ac9c24f75d62b4",
+  "output_hash": "47b6b9c30c0bfda05edf055ba267a448371279788bae036328e41f74e5202757",
+  "output": {
+    "section_id": "ch02.s05",
+    "listings": [],
+    "rejected": [
+      {
+        "id": "ch02.s05.code1",
+        "ref": "ref:ch02/01_main-chapter-code/ch02.ipynb#cell37",
+        "path": "ch02/01_main-chapter-code/ch02.ipynb",
+        "caption": "This code creates a token-to-integer vocabulary dictionary by enumerating all tokens in `all_words`.",
+        "code": "vocab = {token:integer for integer,token in enumerate(all_words)}",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The code does create a token-to-integer mapping by enumerating tokens, which relates to the section’s step of recreating the vocabulary mapping after adding <unk> and <eot>. However, it does not show adding the unknown/end-of-text tokens or the modified encode behavior, so it only covers a small subset of what the section teaches. The caption is accurate for what the code does."
+      },
+      {
+        "id": "ch02.s05.code2",
+        "ref": "ref:ch02/01_main-chapter-code/ch02.ipynb#cell50",
+        "path": "ch02/01_main-chapter-code/ch02.ipynb",
+        "caption": "This code encodes `text` with `tokenizer` and then decodes the resulting token IDs back into text.",
+        "code": "tokenizer.decode(tokenizer.encode(text))",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The line does encode followed by decode, and the caption accurately describes that. However, it does not demonstrate the section’s key teaching points about augmenting the vocabulary with <unk> and <eot>, modifying encode to replace unknown tokens, or merging two texts with an end-of-text token; those behaviors aren’t shown or implied by this snippet alone."
+      }
+    ]
+  }
+}

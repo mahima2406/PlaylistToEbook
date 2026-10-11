@@ -1,0 +1,381 @@
+{
+  "stage": "takeaways",
+  "item": "ch01",
+  "inputs_hash": "bc5d03039aeb21eaa248dc1332b0bd69e440d593f3f3a9f72756dde6bf36f301",
+  "output_hash": "af10f7d1c879c3c3489ab4622214242eaad943178694cebb842002f81525ccf7",
+  "output": {
+    "section_id": "ch01.take",
+    "paragraphs": [
+      {
+        "id": "ch01.take.p01",
+        "sentences": [
+          {
+            "id": "ch01.take.p01.r01",
+            "text": "Large language models and generative AI are transforming everything around us, startups are forming in this space, companies are switching to large language models for various tasks, and jobs in this field are rising a lot.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@71",
+              "Xpr8D6LeAtw@73",
+              "Xpr8D6LeAtw@76",
+              "Xpr8D6LeAtw@79",
+              "Xpr8D6LeAtw@81",
+              "Xpr8D6LeAtw@83",
+              "Xpr8D6LeAtw@85"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.take.p02",
+        "sentences": [
+          {
+            "id": "ch01.take.p02.01",
+            "text": "The chapter argues that the right way to learn is from the basics and the nuts and bolts, not by only running notebooks, copying code, or jumping straight to applications.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@54",
+              "Xpr8D6LeAtw@57",
+              "Xpr8D6LeAtw@59",
+              "Xpr8D6LeAtw@61",
+              "Xpr8D6LeAtw@64",
+              "Xpr8D6LeAtw@146",
+              "Xpr8D6LeAtw@148",
+              "Xpr8D6LeAtw@150",
+              "Xpr8D6LeAtw@153",
+              "Xpr8D6LeAtw@88",
+              "Xpr8D6LeAtw@89",
+              "Xpr8D6LeAtw@91",
+              "Xpr8D6LeAtw@94",
+              "Xpr8D6LeAtw@96",
+              "Xpr8D6LeAtw@99",
+              "Xpr8D6LeAtw@101",
+              "Xpr8D6LeAtw@105",
+              "Xpr8D6LeAtw@108",
+              "3dWzNZXA8DY@1900",
+              "3dWzNZXA8DY@1903",
+              "3dWzNZXA8DY@1904",
+              "3dWzNZXA8DY@1907",
+              "3dWzNZXA8DY@1908",
+              "3dWzNZXA8DY@1910",
+              "3dWzNZXA8DY@1910",
+              "3dWzNZXA8DY@1913",
+              "3dWzNZXA8DY@1915",
+              "3dWzNZXA8DY@1918",
+              "Xpr8D6LeAtw@105",
+              "Xpr8D6LeAtw@109",
+              "Xpr8D6LeAtw@112"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.take.p03",
+        "sentences": [
+          {
+            "id": "ch01.take.p03.01",
+            "text": "The roadmap is meant to teach everything from scratch so that by the end a beginner can build a large language model alone, and with that foundation later application work becomes much easier.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@119",
+              "Xpr8D6LeAtw@122",
+              "Xpr8D6LeAtw@127",
+              "Xpr8D6LeAtw@130",
+              "Xpr8D6LeAtw@135",
+              "Xpr8D6LeAtw@137",
+              "Xpr8D6LeAtw@139",
+              "Xpr8D6LeAtw@142",
+              "Xpr8D6LeAtw@144",
+              "Xpr8D6LeAtw@146",
+              "Xpr8D6LeAtw@148",
+              "Xpr8D6LeAtw@150",
+              "Xpr8D6LeAtw@153",
+              "Xpr8D6LeAtw@155",
+              "Xpr8D6LeAtw@157",
+              "Xpr8D6LeAtw@161",
+              "Xpr8D6LeAtw@163",
+              "Xpr8D6LeAtw@164",
+              "Xpr8D6LeAtw@166"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.take.p04",
+        "sentences": [
+          {
+            "id": "ch01.take.p04.01",
+            "text": "Generative AI is broader than LLMs because it covers several media types, while an LLM is a deep neural network for understanding, generating, and responding to human-like text.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@489",
+              "Xpr8D6LeAtw@490",
+              "Xpr8D6LeAtw@495",
+              "Xpr8D6LeAtw@497",
+              "Xpr8D6LeAtw@500",
+              "Xpr8D6LeAtw@503",
+              "Xpr8D6LeAtw@506",
+              "3dWzNZXA8DY@153",
+              "3dWzNZXA8DY@157",
+              "3dWzNZXA8DY@160",
+              "3dWzNZXA8DY@164",
+              "3dWzNZXA8DY@168",
+              "3dWzNZXA8DY@170",
+              "3dWzNZXA8DY@172",
+              "3dWzNZXA8DY@174",
+              "3dWzNZXA8DY@232",
+              "3dWzNZXA8DY@235",
+              "3dWzNZXA8DY@241",
+              "3dWzNZXA8DY@243",
+              "3dWzNZXA8DY@245",
+              "3dWzNZXA8DY@360",
+              "3dWzNZXA8DY@362",
+              "3dWzNZXA8DY@366",
+              "3dWzNZXA8DY@369",
+              "3dWzNZXA8DY@371",
+              "3dWzNZXA8DY@374",
+              "3dWzNZXA8DY@377",
+              "3dWzNZXA8DY@379"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.take.p05",
+        "sentences": [
+          {
+            "id": "ch01.take.p05.01",
+            "text": "LLMs are part of the hierarchy from artificial intelligence to machine learning to deep learning, and the word \"large\" refers to their very high parameter counts, often in the billions or more.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1104",
+              "3dWzNZXA8DY@1107",
+              "3dWzNZXA8DY@1109",
+              "3dWzNZXA8DY@1111",
+              "3dWzNZXA8DY@1113",
+              "3dWzNZXA8DY@1115",
+              "3dWzNZXA8DY@1118",
+              "3dWzNZXA8DY@1120",
+              "3dWzNZXA8DY@1122",
+              "3dWzNZXA8DY@1125",
+              "3dWzNZXA8DY@1127",
+              "3dWzNZXA8DY@1130",
+              "3dWzNZXA8DY@1485",
+              "3dWzNZXA8DY@1487",
+              "3dWzNZXA8DY@1490",
+              "3dWzNZXA8DY@1492",
+              "3dWzNZXA8DY@417",
+              "3dWzNZXA8DY@421",
+              "3dWzNZXA8DY@423",
+              "3dWzNZXA8DY@426",
+              "3dWzNZXA8DY@428",
+              "3dWzNZXA8DY@432",
+              "3dWzNZXA8DY@433",
+              "3dWzNZXA8DY@435",
+              "3dWzNZXA8DY@439",
+              "3dWzNZXA8DY@441",
+              "3dWzNZXA8DY@445",
+              "3dWzNZXA8DY@447",
+              "3dWzNZXA8DY@450",
+              "3dWzNZXA8DY@630",
+              "3dWzNZXA8DY@633",
+              "3dWzNZXA8DY@635",
+              "3dWzNZXA8DY@637",
+              "3dWzNZXA8DY@640",
+              "3dWzNZXA8DY@642"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.take.p06",
+        "sentences": [
+          {
+            "id": "ch01.take.p06.r01",
+            "text": "Modern LLMs differ from earlier NLP models because earlier NLP models were designed for specific tasks, whereas modern LLMs can do a wide range of NLP tasks.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@763",
+              "3dWzNZXA8DY@766",
+              "3dWzNZXA8DY@768",
+              "3dWzNZXA8DY@771",
+              "3dWzNZXA8DY@833",
+              "3dWzNZXA8DY@835",
+              "3dWzNZXA8DY@838"
+            ]
+          },
+          {
+            "id": "ch01.take.p06.r02",
+            "text": "Much of this power comes from the Transformer architecture and its attention mechanism.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@881",
+              "3dWzNZXA8DY@883",
+              "3dWzNZXA8DY@894",
+              "NLn4eetGmf8@127",
+              "NLn4eetGmf8@130",
+              "NLn4eetGmf8@136",
+              "z9fgKz1Drlc@954",
+              "z9fgKz1Drlc@955",
+              "z9fgKz1Drlc@957",
+              "z9fgKz1Drlc@959",
+              "z9fgKz1Drlc@962",
+              "NLn4eetGmf8@2228",
+              "NLn4eetGmf8@2231",
+              "NLn4eetGmf8@2232",
+              "NLn4eetGmf8@2235",
+              "NLn4eetGmf8@2236"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.take.p07",
+        "sentences": [
+          {
+            "id": "ch01.take.p07.01",
+            "text": "The course roadmap has three stages: first the building blocks such as preprocessing, attention, and architecture, then pre-training a foundational model, and finally fine-tuning it into task-specific applications that are needed for production use.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@146",
+              "z9fgKz1Drlc@148",
+              "z9fgKz1Drlc@151",
+              "z9fgKz1Drlc@171",
+              "z9fgKz1Drlc@174",
+              "z9fgKz1Drlc@176",
+              "z9fgKz1Drlc@201",
+              "z9fgKz1Drlc@209",
+              "z9fgKz1Drlc@211",
+              "z9fgKz1Drlc@214",
+              "z9fgKz1Drlc@216",
+              "z9fgKz1Drlc@220",
+              "z9fgKz1Drlc@222",
+              "z9fgKz1Drlc@224",
+              "z9fgKz1Drlc@226",
+              "z9fgKz1Drlc@440",
+              "z9fgKz1Drlc@443",
+              "z9fgKz1Drlc@445",
+              "z9fgKz1Drlc@447",
+              "z9fgKz1Drlc@449",
+              "z9fgKz1Drlc@451",
+              "z9fgKz1Drlc@453",
+              "z9fgKz1Drlc@455",
+              "z9fgKz1Drlc@457",
+              "z9fgKz1Drlc@457",
+              "z9fgKz1Drlc@460",
+              "z9fgKz1Drlc@463",
+              "z9fgKz1Drlc@465",
+              "z9fgKz1Drlc@555",
+              "z9fgKz1Drlc@557",
+              "z9fgKz1Drlc@560",
+              "z9fgKz1Drlc@562",
+              "z9fgKz1Drlc@565",
+              "z9fgKz1Drlc@567",
+              "z9fgKz1Drlc@569",
+              "z9fgKz1Drlc@571",
+              "z9fgKz1Drlc@839",
+              "z9fgKz1Drlc@842",
+              "z9fgKz1Drlc@844",
+              "z9fgKz1Drlc@846",
+              "z9fgKz1Drlc@847",
+              "z9fgKz1Drlc@850",
+              "z9fgKz1Drlc@866",
+              "z9fgKz1Drlc@869",
+              "z9fgKz1Drlc@854",
+              "z9fgKz1Drlc@856",
+              "z9fgKz1Drlc@859",
+              "z9fgKz1Drlc@861",
+              "z9fgKz1Drlc@863",
+              "z9fgKz1Drlc@895",
+              "z9fgKz1Drlc@897",
+              "z9fgKz1Drlc@899"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch01.take.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.91,
+        "reason": ""
+      },
+      "ch01.take.p03.01": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch01.take.p04.01": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch01.take.p05.01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.take.p07.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.take.p01.r01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.take.p06.r01": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch01.take.p06.r02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch01.take.p01.01": {
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "Cited lines support that LLMs/generative AI are transforming things, startups are forming, companies are switching to LLMs for tasks, and jobs are rising. They do not explicitly state the conclusion that this creates a 'strong need to learn them well' (the causal/necessity claim)."
+      },
+      "ch01.take.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.91,
+        "reason": ""
+      },
+      "ch01.take.p03.01": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch01.take.p04.01": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch01.take.p05.01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.take.p06.01": {
+        "verdict": "partial",
+        "confidence": 0.74,
+        "reason": "Lines support that modern LLMs can do a wide range of tasks and that the 'secret sauce' is the Transformer architecture with attention. But the specific explanation that this is because they are trained for next-word prediction is only supported as an additional point, not clearly tied as the reason modern LLMs differ from older NLP systems in the cited lines."
+      },
+      "ch01.take.p07.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "ch01.take.p01",
+      "ch01.take.p06"
+    ],
+    "queue": []
+  }
+}

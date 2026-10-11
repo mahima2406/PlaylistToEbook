@@ -1,0 +1,274 @@
+{
+  "stage": "write",
+  "item": "ch06.s14",
+  "inputs_hash": "7a98c92a0bff6419f9f2d6397e9b204816b19048a3ad02e0e08361d85b994e07",
+  "output_hash": "c0de9ea737b0457bb997984bf4e18ac4b416f0496d0afb6d2e12feaccdfc98ed",
+  "output": {
+    "section_id": "ch06.s14",
+    "paragraphs": [
+      {
+        "id": "ch06.s14.p01",
+        "sentences": [
+          {
+            "id": "ch06.s14.p01.01",
+            "text": "Why might an instruction-tuned model still fail even when it often gives useful answers?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s14.p01.02",
+            "text": "One failure mode appears when the model repeats the input instead of carrying out the requested rewrite.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2766",
+              "7m2jV7BOFkA@2768",
+              "7m2jV7BOFkA@2770",
+              "7m2jV7BOFkA@2772"
+            ]
+          },
+          {
+            "id": "ch06.s14.p01.03",
+            "text": "For example, with the input sentence \"the lecture was delivered in a clear manner\", the expected rewrite was \"the lecture was delivered clearly\", but the model response remained \"the lecture was delivered in a clear manner\".",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2758",
+              "7m2jV7BOFkA@2760",
+              "7m2jV7BOFkA@2762",
+              "7m2jV7BOFkA@2764",
+              "7m2jV7BOFkA@2766"
+            ]
+          },
+          {
+            "id": "ch06.s14.p01.04",
+            "text": "That behavior is a mistake, although the model is also good in many cases, which is why the evaluation accuracy was around 55%.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2772",
+              "7m2jV7BOFkA@2776",
+              "7m2jV7BOFkA@2777",
+              "7m2jV7BOFkA@2779",
+              "7m2jV7BOFkA@2781",
+              "7m2jV7BOFkA@2783"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s14.p02",
+        "sentences": [
+          {
+            "id": "ch06.s14.p02.01",
+            "text": "Several straightforward changes can improve performance.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2787",
+              "7m2jV7BOFkA@2788"
+            ]
+          },
+          {
+            "id": "ch06.s14.p02.02",
+            "text": "One option is to adjust hyperparameters such as the learning rate, batch size, or number of epochs.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2791",
+              "7m2jV7BOFkA@2792",
+              "7m2jV7BOFkA@2794"
+            ]
+          },
+          {
+            "id": "ch06.s14.p02.03",
+            "text": "Another option is to increase the size of the training dataset.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2794",
+              "7m2jV7BOFkA@2797",
+              "7m2jV7BOFkA@2810",
+              "7m2jV7BOFkA@2813"
+            ]
+          },
+          {
+            "id": "ch06.s14.p02.04",
+            "text": "The dataset used here contained 1100 instruction-input-output pairs, and with 85% used for training, the model was in effect trained on about 800 pairs.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2797",
+              "7m2jV7BOFkA@2799",
+              "7m2jV7BOFkA@2802",
+              "7m2jV7BOFkA@2805",
+              "7m2jV7BOFkA@2807"
+            ]
+          },
+          {
+            "id": "ch06.s14.p02.05",
+            "text": "Those pairs were described as not enough.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2807",
+              "7m2jV7BOFkA@2809",
+              "7m2jV7BOFkA@2810"
+            ]
+          },
+          {
+            "id": "ch06.s14.p02.06",
+            "text": "A larger available source is the Stanford Alpaca repository, which contains 52,000 instruction-output pairs.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2821",
+              "7m2jV7BOFkA@2824",
+              "7m2jV7BOFkA@2825",
+              "7m2jV7BOFkA@2828"
+            ]
+          },
+          {
+            "id": "ch06.s14.p02.07",
+            "text": "That is about 50 times larger than the dataset used here, and using such a dataset may produce better responses.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2831",
+              "7m2jV7BOFkA@2833",
+              "7m2jV7BOFkA@2835"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s14.p03",
+        "sentences": [
+          {
+            "id": "ch06.s14.p03.01",
+            "text": "Data size is not the only lever.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s14.p03.02",
+            "text": "You can also experiment with different prompts or instruction formats to guide the model responses more effectively.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2856",
+              "7m2jV7BOFkA@2858",
+              "7m2jV7BOFkA@2860",
+              "7m2jV7BOFkA@2862"
+            ]
+          },
+          {
+            "id": "ch06.s14.p03.03",
+            "text": "Another change is to use a larger pre-trained model, because a larger model may have greater capacity to capture complex patterns and generate more accurate responses.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2865",
+              "7m2jV7BOFkA@2867",
+              "7m2jV7BOFkA@2869",
+              "7m2jV7BOFkA@2871",
+              "7m2jV7BOFkA@2873",
+              "7m2jV7BOFkA@2875",
+              "7m2jV7BOFkA@2922",
+              "7m2jV7BOFkA@2924",
+              "7m2jV7BOFkA@2926",
+              "7m2jV7BOFkA@2928"
+            ]
+          },
+          {
+            "id": "ch06.s14.p03.04",
+            "text": "The model used here was \"gpt2 medium\" with 355 million parameters.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2875",
+              "7m2jV7BOFkA@2877",
+              "7m2jV7BOFkA@2883",
+              "7m2jV7BOFkA@2886"
+            ]
+          },
+          {
+            "id": "ch06.s14.p03.05",
+            "text": "Larger alternatives mentioned were \"gpt2 large\" with 774 million parameters and \"gpt2 xl\" with more than a billion parameters.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2889",
+              "7m2jV7BOFkA@2891",
+              "7m2jV7BOFkA@2894",
+              "7m2jV7BOFkA@2896",
+              "7m2jV7BOFkA@2899"
+            ]
+          },
+          {
+            "id": "ch06.s14.p03.06",
+            "text": "These larger models should be used only when sufficient compute power or GPU access is available.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2889",
+              "7m2jV7BOFkA@2891",
+              "7m2jV7BOFkA@2901",
+              "7m2jV7BOFkA@2903"
+            ]
+          },
+          {
+            "id": "ch06.s14.p03.07",
+            "text": "For example, \"gpt2 xl\" was described as having 48 transformers and 25 attention heads in each transformer.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2903",
+              "7m2jV7BOFkA@2906",
+              "7m2jV7BOFkA@2909",
+              "7m2jV7BOFkA@2911",
+              "7m2jV7BOFkA@2913"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s14.p04",
+        "sentences": [
+          {
+            "id": "ch06.s14.p04.01",
+            "text": "Model size is only one way to change how fine-tuning is done.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s14.p04.02",
+            "text": "The fine-tuning method used here was standard full fine-tuning: all parameters in the architecture were updated based on the specific dataset.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2932",
+              "7m2jV7BOFkA@2934",
+              "7m2jV7BOFkA@2936",
+              "7m2jV7BOFkA@2940",
+              "7m2jV7BOFkA@2941",
+              "7m2jV7BOFkA@2943"
+            ]
+          },
+          {
+            "id": "ch06.s14.p04.03",
+            "text": "Parameter-efficient fine-tuning refers to methods such as \"LoRA\" that are designed to make fine-tuning more efficient than normal fine-tuning.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2946",
+              "7m2jV7BOFkA@2947",
+              "7m2jV7BOFkA@2949",
+              "7m2jV7BOFkA@2950",
+              "7m2jV7BOFkA@2953",
+              "7m2jV7BOFkA@2957",
+              "7m2jV7BOFkA@2959",
+              "7m2jV7BOFkA@2962",
+              "7m2jV7BOFkA@2964"
+            ]
+          },
+          {
+            "id": "ch06.s14.p04.04",
+            "text": "These methods can provide substantial computational speedup and can sometimes also improve accuracy.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2983",
+              "7m2jV7BOFkA@2985",
+              "7m2jV7BOFkA@2986",
+              "7m2jV7BOFkA@2988",
+              "7m2jV7BOFkA@2991"
+            ]
+          }
+        ]
+      }
+    ],
+    "invalid_citation_sentences": 0
+  }
+}

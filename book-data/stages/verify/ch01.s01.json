@@ -1,0 +1,660 @@
+{
+  "stage": "verify",
+  "item": "ch01.s01",
+  "inputs_hash": "ccc308bb3c334e76232572b84d7eadfc4fd9b2f31ac9c9fc4b9b2812a506189a",
+  "output_hash": "f068e9338fe020aff642fdeace6a5c6167ec02f24f988d2874ae7dfddd99f3b7",
+  "output": {
+    "section_id": "ch01.s01",
+    "paragraphs": [
+      {
+        "id": "ch01.s01.p01",
+        "sentences": [
+          {
+            "id": "ch01.s01.p01.01",
+            "text": "Why learn large language models from scratch instead of starting with applications and ready-made notebooks?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s01.p01.02",
+            "text": "The need is pressing because large language models and generative AI are transforming everything around us, startups are forming in this space, companies are switching to large language models for various tasks, and jobs in this field are rising a lot.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@71",
+              "Xpr8D6LeAtw@73",
+              "Xpr8D6LeAtw@76",
+              "Xpr8D6LeAtw@79",
+              "Xpr8D6LeAtw@81",
+              "Xpr8D6LeAtw@83",
+              "Xpr8D6LeAtw@85"
+            ]
+          },
+          {
+            "id": "ch01.s01.p01.03",
+            "text": "A sound way to learn in this setting is to begin from the basics, assume nothing, and study the nuts and bolts of every concept.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@54",
+              "Xpr8D6LeAtw@57",
+              "Xpr8D6LeAtw@59",
+              "Xpr8D6LeAtw@61",
+              "Xpr8D6LeAtw@64",
+              "Xpr8D6LeAtw@146",
+              "Xpr8D6LeAtw@148",
+              "Xpr8D6LeAtw@150",
+              "Xpr8D6LeAtw@153"
+            ]
+          },
+          {
+            "id": "ch01.s01.p01.04",
+            "text": "Many learners make the opposite mistake: they jump directly to applications, run a Google Colab notebook, follow a video, and execute code without really understanding how large language models work.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@88",
+              "Xpr8D6LeAtw@89",
+              "Xpr8D6LeAtw@91",
+              "Xpr8D6LeAtw@94",
+              "Xpr8D6LeAtw@96",
+              "Xpr8D6LeAtw@99",
+              "Xpr8D6LeAtw@101",
+              "Xpr8D6LeAtw@105",
+              "Xpr8D6LeAtw@108"
+            ]
+          },
+          {
+            "id": "ch01.s01.p01.05",
+            "text": "When that happens, very few people know the nuts and bolts that make large language models so powerful.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@101",
+              "Xpr8D6LeAtw@105",
+              "Xpr8D6LeAtw@109",
+              "Xpr8D6LeAtw@112",
+              "Xpr8D6LeAtw@115"
+            ]
+          },
+          {
+            "id": "ch01.s01.p01.06",
+            "text": "The same wrong pattern appears when students become fascinated by applications, download code, run it, make small changes, and then write on a resume that they know about LLMs.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1900",
+              "3dWzNZXA8DY@1903",
+              "3dWzNZXA8DY@1904",
+              "3dWzNZXA8DY@1907",
+              "3dWzNZXA8DY@1908",
+              "3dWzNZXA8DY@1910"
+            ]
+          },
+          {
+            "id": "ch01.s01.p01.07",
+            "text": "The right approach is to understand the foundations, make the basics clear, and understand the nuts and bolts of how LLMs work.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1910",
+              "3dWzNZXA8DY@1913",
+              "3dWzNZXA8DY@1915",
+              "3dWzNZXA8DY@1918",
+              "Xpr8D6LeAtw@105",
+              "Xpr8D6LeAtw@109",
+              "Xpr8D6LeAtw@112"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s01.p02",
+        "sentences": [
+          {
+            "id": "ch01.s01.p02.r01",
+            "text": "Many courses focus on building LLM apps or on large language model concepts, but they do not teach how to build a large language model from scratch.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@628",
+              "Xpr8D6LeAtw@629",
+              "Xpr8D6LeAtw@632",
+              "Xpr8D6LeAtw@633",
+              "Xpr8D6LeAtw@638",
+              "Xpr8D6LeAtw@640",
+              "Xpr8D6LeAtw@642",
+              "Xpr8D6LeAtw@644"
+            ]
+          },
+          {
+            "id": "ch01.s01.p02.r02",
+            "text": "Some of these courses are pretty quick courses or quick crash courses.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@646",
+              "Xpr8D6LeAtw@647",
+              "Xpr8D6LeAtw@672",
+              "Xpr8D6LeAtw@674"
+            ]
+          },
+          {
+            "id": "ch01.s01.p02.r03",
+            "text": "A learner seeking real understanding wants one course that teaches the foundations in a lot of detail and depth.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@650",
+              "Xpr8D6LeAtw@652",
+              "Xpr8D6LeAtw@654",
+              "Xpr8D6LeAtw@656",
+              "Xpr8D6LeAtw@672",
+              "Xpr8D6LeAtw@674"
+            ]
+          },
+          {
+            "id": "ch01.s01.p02.r04",
+            "text": "That depth matters because it improves the learner's skill set and builds confidence for generative AI and LLM job interviews.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@659",
+              "Xpr8D6LeAtw@660",
+              "Xpr8D6LeAtw@664",
+              "Xpr8D6LeAtw@667",
+              "Xpr8D6LeAtw@670"
+            ]
+          },
+          {
+            "id": "ch01.s01.p02.r05",
+            "text": "Some YouTube playlists are too short for that goal, with many chapters but only 10 to 15 minutes per chapter.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@678",
+              "Xpr8D6LeAtw@681",
+              "Xpr8D6LeAtw@683",
+              "Xpr8D6LeAtw@685",
+              "Xpr8D6LeAtw@688",
+              "Xpr8D6LeAtw@689"
+            ]
+          },
+          {
+            "id": "ch01.s01.p02.r06",
+            "text": "Other material is too complex for beginners because it starts in the middle of a concept and is not meant for beginners.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@701",
+              "Xpr8D6LeAtw@704",
+              "Xpr8D6LeAtw@706",
+              "Xpr8D6LeAtw@708",
+              "Xpr8D6LeAtw@710",
+              "Xpr8D6LeAtw@714"
+            ]
+          },
+          {
+            "id": "ch01.s01.p02.r07",
+            "text": "Still other courses are not explained well from scratch, so they do not satisfy the need for a deep beginner-friendly treatment.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@720",
+              "Xpr8D6LeAtw@722",
+              "Xpr8D6LeAtw@724",
+              "Xpr8D6LeAtw@726",
+              "Xpr8D6LeAtw@728",
+              "Xpr8D6LeAtw@731",
+              "Xpr8D6LeAtw@733",
+              "Xpr8D6LeAtw@735",
+              "Xpr8D6LeAtw@738"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s01.p03",
+        "sentences": [
+          {
+            "id": "ch01.s01.p03.01",
+            "text": "A from-scratch path changes what the learner can do with the subject.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s01.p03.02",
+            "text": "Building a large language model completely from scratch would make a learner feel very confident about the subject.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@119",
+              "Xpr8D6LeAtw@122",
+              "Xpr8D6LeAtw@127",
+              "Xpr8D6LeAtw@130"
+            ]
+          },
+          {
+            "id": "ch01.s01.p03.03",
+            "text": "The aim is a very comprehensive path that shows everything about building an LLM from scratch.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@135",
+              "Xpr8D6LeAtw@137",
+              "Xpr8D6LeAtw@139",
+              "Xpr8D6LeAtw@142"
+            ]
+          },
+          {
+            "id": "ch01.s01.p03.04",
+            "text": "It is intended to teach everything from the basics as a beginner, without assuming anything, and to lead to building an LLM from scratch successfully by yourself by the end.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@144",
+              "Xpr8D6LeAtw@146",
+              "Xpr8D6LeAtw@148",
+              "Xpr8D6LeAtw@150",
+              "Xpr8D6LeAtw@153",
+              "Xpr8D6LeAtw@155",
+              "Xpr8D6LeAtw@157"
+            ]
+          },
+          {
+            "id": "ch01.s01.p03.05",
+            "text": "Once that foundation is in place, the later application parts start seeming extremely easy.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@161",
+              "Xpr8D6LeAtw@163",
+              "Xpr8D6LeAtw@164",
+              "Xpr8D6LeAtw@166"
+            ]
+          },
+          {
+            "id": "ch01.s01.p03.06",
+            "text": "The planned material is extensive: detailed lecture notes are being made and shared, with a massive set of notes of maybe 200 to 300 pages and 50 to 60 videos.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@181",
+              "Xpr8D6LeAtw@183",
+              "Xpr8D6LeAtw@186",
+              "Xpr8D6LeAtw@818",
+              "Xpr8D6LeAtw@820",
+              "Xpr8D6LeAtw@827",
+              "Xpr8D6LeAtw@829",
+              "Xpr8D6LeAtw@832"
+            ]
+          },
+          {
+            "id": "ch01.s01.p03.07",
+            "text": "Within that material, nothing will be assumed, everything will be spelled out, and it is meant for serious people who want to transition to large language models and understand LLMs the right way.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@836",
+              "Xpr8D6LeAtw@838",
+              "Xpr8D6LeAtw@839",
+              "Xpr8D6LeAtw@842",
+              "Xpr8D6LeAtw@844",
+              "Xpr8D6LeAtw@846",
+              "Xpr8D6LeAtw@848",
+              "Xpr8D6LeAtw@850"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s01.p04",
+        "sentences": [
+          {
+            "id": "ch01.s01.p04.r01",
+            "text": "Application frameworks can help build LLM apps, but they are not useful if you do not know how to build an LLM yourself.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@858",
+              "Xpr8D6LeAtw@860",
+              "Xpr8D6LeAtw@862",
+              "Xpr8D6LeAtw@865",
+              "Xpr8D6LeAtw@867"
+            ]
+          },
+          {
+            "id": "ch01.s01.p04.r02",
+            "text": "Starting by deploying apps is not the right way to learn about LLMs; the right way is to know how to build an entire large language model from scratch.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@869",
+              "Xpr8D6LeAtw@871",
+              "Xpr8D6LeAtw@873",
+              "Xpr8D6LeAtw@875",
+              "Xpr8D6LeAtw@877",
+              "Xpr8D6LeAtw@879"
+            ]
+          },
+          {
+            "id": "ch01.s01.p04.r03",
+            "text": "One reason is interview readiness: if someone asks a detailed question about key, query, and value, or about positional embedding or positional encoding, you should be able to say that you built this from scratch and know the details.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@882",
+              "Xpr8D6LeAtw@885",
+              "Xpr8D6LeAtw@887",
+              "Xpr8D6LeAtw@889",
+              "Xpr8D6LeAtw@891",
+              "Xpr8D6LeAtw@893",
+              "Xpr8D6LeAtw@895",
+              "Xpr8D6LeAtw@897",
+              "Xpr8D6LeAtw@899",
+              "Xpr8D6LeAtw@901",
+              "Xpr8D6LeAtw@903"
+            ]
+          },
+          {
+            "id": "ch01.s01.p04.r04",
+            "text": "The students who will really contribute and make an impact are the ones who know details such as how to write the Transformer code, how key-query-value works, and what positional encoding is.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1958",
+              "3dWzNZXA8DY@1960",
+              "3dWzNZXA8DY@1962",
+              "3dWzNZXA8DY@1964",
+              "3dWzNZXA8DY@1965",
+              "3dWzNZXA8DY@1968",
+              "3dWzNZXA8DY@1970"
+            ]
+          },
+          {
+            "id": "ch01.s01.p04.r05",
+            "text": "Without understanding concepts like Transformer code, key-query-value, and positional encoding, a student's knowledge remains superficial.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1968",
+              "3dWzNZXA8DY@1970",
+              "3dWzNZXA8DY@1974",
+              "3dWzNZXA8DY@1976"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch01.s01.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch01.s01.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.s01.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch01.s01.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch01.s01.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.s01.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch01.s01.p01.07": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s01.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.75,
+        "reason": ""
+      },
+      "ch01.s01.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s01.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch01.s01.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.s01.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch01.s01.p03.06": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.s01.p03.07": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch01.s01.p02.r01": {
+        "verdict": "supported",
+        "confidence": 0.87,
+        "reason": ""
+      },
+      "ch01.s01.p02.r02": {
+        "verdict": "partial",
+        "confidence": 0.6,
+        "reason": "The captions say one course is a \"pretty quick course\" and separately express \"I don't want a quick crash course,\" but they do not clearly state that multiple courses are quick crash courses."
+      },
+      "ch01.s01.p02.r03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.s01.p02.r04": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch01.s01.p02.r05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.s01.p02.r06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s01.p02.r07": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch01.s01.p04.r01": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch01.s01.p04.r02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch01.s01.p04.r03": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch01.s01.p04.r04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.s01.p04.r05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch01.s01.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch01.s01.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.s01.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch01.s01.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch01.s01.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.s01.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch01.s01.p01.07": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s01.p02.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.72,
+        "reason": "asserts as fact that many learning resources do not teach a foundation-first path, but it is labeled CONNECTIVE and provides no cited support."
+      },
+      "ch01.s01.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch01.s01.p02.03": {
+        "verdict": "partial",
+        "confidence": 0.75,
+        "reason": "captions support that a course is 'pretty quick' / 'quick crash course', but do not explicitly contrast it with being 'rather than deep treatments' of the nuts and bolts."
+      },
+      "ch01.s01.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.s01.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s01.p02.06": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch01.s01.p02.07": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch01.s01.p02.08": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s01.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.75,
+        "reason": ""
+      },
+      "ch01.s01.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s01.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch01.s01.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.s01.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch01.s01.p03.06": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.s01.p03.07": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch01.s01.p04.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.72,
+        "reason": "Asserts a factual explanation (that the foundation-first view explains why application frameworks are not enough) but provides no cited support."
+      },
+      "ch01.s01.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s01.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s01.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch01.s01.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.91,
+        "reason": ""
+      },
+      "ch01.s01.p04.06": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "ch01.s01.p02",
+      "ch01.s01.p04"
+    ],
+    "queue": [
+      {
+        "sentence_id": "ch01.s01.p02.r02",
+        "text": "Some of these courses are pretty quick courses or quick crash courses.",
+        "cites": [
+          "Xpr8D6LeAtw@646",
+          "Xpr8D6LeAtw@647",
+          "Xpr8D6LeAtw@672",
+          "Xpr8D6LeAtw@674"
+        ],
+        "verdict": "partial",
+        "confidence": 0.6,
+        "reason": "The captions say one course is a \"pretty quick course\" and separately express \"I don't want a quick crash course,\" but they do not clearly state that multiple courses are quick crash courses.",
+        "status": "open"
+      }
+    ]
+  }
+}

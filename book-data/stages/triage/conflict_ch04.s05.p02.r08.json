@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch04.s05.p02.r08",
+  "inputs_hash": "2de7d7f3d3134760d1d9c8dbfc0ef15b85ed40cace04c3f4f9f2ac393319c91e",
+  "output_hash": "65ef93c3557cba1d09c9230d85f98a6507b8573b181512cb00a99139d9333034",
+  "output": {
+    "decision": "edit",
+    "text": "For one batch with four tokens, the final logits tensor has shape 4 by 50257.",
+    "reason": "The captions support a 4 × vocabulary-size final output for a single batch, and adding 'logits' resolves the conflict with the block output shape in the reference.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.9,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "a214c9dc9e83da57a1cfcac91510ec2c4f9113f6747f6a2600949cc54c8a5dd2"
+  }
+}

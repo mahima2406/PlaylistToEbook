@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch06.s02.p02.05",
+  "inputs_hash": "a80f7aa54c55201350033337fc588fd8e2ac9c7a1c2511021356f942f43323f5",
+  "output_hash": "03005c1af757d464a15acfb97fc45391d5b7eebad079293e7a1ad008eaa92e3b",
+  "output": {
+    "decision": "edit",
+    "text": "It builds the prompt from the instruction plus the input, and the response is handled separately as the output.",
+    "reason": "The captions mention appending the response, but the referenced formatting function builds only the instruction-plus-input prompt, with the output added separately elsewhere.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.86,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "a6338eb420ed0c810197fb726d846dd2c5b8ca7b72b289d3b22de81ccd14f2f9"
+  }
+}

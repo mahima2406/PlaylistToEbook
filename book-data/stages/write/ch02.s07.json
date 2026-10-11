@@ -1,0 +1,231 @@
+{
+  "stage": "write",
+  "item": "ch02.s07",
+  "inputs_hash": "4944b3d075b984020847ba6e6c7a33d4f07c9621ca36337e00f908d77aa62f33",
+  "output_hash": "9c9febe9b6b4308b456f18a4b0fd29c9c260b4879b3a99acfe37b93532e4fdc3",
+  "output": {
+    "section_id": "ch02.s07",
+    "paragraphs": [
+      {
+        "id": "ch02.s07.p01",
+        "sentences": [
+          {
+            "id": "ch02.s07.p01.01",
+            "text": "Why is a compression method relevant when the goal is to build token vocabularies for language models?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s07.p01.02",
+            "text": "Byte pair encoding, or BPE, was introduced in 1994 as a data compression algorithm.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@996",
+              "fKd8s29e-l4@999",
+              "fKd8s29e-l4@1001",
+              "fKd8s29e-l4@1005",
+              "fKd8s29e-l4@1007"
+            ]
+          },
+          {
+            "id": "ch02.s07.p01.03",
+            "text": "The core idea is simple: scan the data, find the most common pair of consecutive bytes, replace that pair with a byte that does not occur in the data, and keep doing this iteratively.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1010",
+              "fKd8s29e-l4@1021",
+              "fKd8s29e-l4@1024",
+              "fKd8s29e-l4@1027",
+              "fKd8s29e-l4@1033",
+              "fKd8s29e-l4@1037",
+              "fKd8s29e-l4@1039",
+              "fKd8s29e-l4@1041"
+            ]
+          },
+          {
+            "id": "ch02.s07.p01.04",
+            "text": "Put another way, the algorithm scans the data from left to right, identifies the byte pairs that occur most often, replaces them with a byte not present in the data, and repeats until no byte pair occurs more than once.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1272",
+              "fKd8s29e-l4@1274",
+              "fKd8s29e-l4@1276",
+              "fKd8s29e-l4@1278",
+              "fKd8s29e-l4@1280",
+              "fKd8s29e-l4@1283",
+              "fKd8s29e-l4@1285",
+              "fKd8s29e-l4@1287",
+              "fKd8s29e-l4@1290"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s07.p02",
+        "sentences": [
+          {
+            "id": "ch02.s07.p02.01",
+            "text": "A concrete sequence makes the mechanics clear.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s07.p02.02",
+            "text": "Take the original data \"a a a b d a a a b a c\".",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1075",
+              "fKd8s29e-l4@1078",
+              "fKd8s29e-l4@1081"
+            ]
+          },
+          {
+            "id": "ch02.s07.p02.03",
+            "text": "When this sequence is scanned from left to right, the most common byte pair is \"AA\".",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1090",
+              "fKd8s29e-l4@1092",
+              "fKd8s29e-l4@1098",
+              "fKd8s29e-l4@1099"
+            ]
+          },
+          {
+            "id": "ch02.s07.p02.04",
+            "text": "\"AAA\" is not the answer, because a byte pair contains only two consecutive symbols, not three.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1102",
+              "fKd8s29e-l4@1105",
+              "fKd8s29e-l4@1107"
+            ]
+          },
+          {
+            "id": "ch02.s07.p02.05",
+            "text": "In this example, \"AA\" occurs four times.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1110",
+              "fKd8s29e-l4@1112",
+              "fKd8s29e-l4@1115",
+              "fKd8s29e-l4@1117"
+            ]
+          },
+          {
+            "id": "ch02.s07.p02.06",
+            "text": "The pair \"AA\" is then replaced with \"Z\" because \"Z\" does not occur in the data.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1121",
+              "fKd8s29e-l4@1124",
+              "fKd8s29e-l4@1127",
+              "fKd8s29e-l4@1129",
+              "fKd8s29e-l4@1133",
+              "fKd8s29e-l4@1135"
+            ]
+          },
+          {
+            "id": "ch02.s07.p02.07",
+            "text": "After replacing each occurrence of \"AA\", the new sequence becomes \"z a b d z a b a c\", which is shorter than the original data.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1137",
+              "fKd8s29e-l4@1140",
+              "fKd8s29e-l4@1143",
+              "fKd8s29e-l4@1145",
+              "fKd8s29e-l4@1148",
+              "fKd8s29e-l4@1150",
+              "fKd8s29e-l4@1162",
+              "fKd8s29e-l4@1165"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s07.p03",
+        "sentences": [
+          {
+            "id": "ch02.s07.p03.01",
+            "text": "The process then repeats on the compressed sequence.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s07.p03.02",
+            "text": "Looking again for the most frequent byte pair, the example replaces \"AB\" with \"Y\" because \"Y\" does not occur anywhere in the data.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1171",
+              "fKd8s29e-l4@1173",
+              "fKd8s29e-l4@1175",
+              "fKd8s29e-l4@1184",
+              "fKd8s29e-l4@1186",
+              "fKd8s29e-l4@1189",
+              "fKd8s29e-l4@1191",
+              "fKd8s29e-l4@1194",
+              "fKd8s29e-l4@1196"
+            ]
+          },
+          {
+            "id": "ch02.s07.p03.03",
+            "text": "After those replacements, the compressed data is \"z y d z y a\".",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1200",
+              "fKd8s29e-l4@1202",
+              "fKd8s29e-l4@1204",
+              "fKd8s29e-l4@1206"
+            ]
+          },
+          {
+            "id": "ch02.s07.p03.04",
+            "text": "Replacing common byte pairs with another symbol is called encoding, which is why the method is described as an encoder.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1230",
+              "fKd8s29e-l4@1232",
+              "fKd8s29e-l4@1234",
+              "fKd8s29e-l4@1237"
+            ]
+          },
+          {
+            "id": "ch02.s07.p03.05",
+            "text": "The process stops when no byte pair occurs more than once.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1283",
+              "fKd8s29e-l4@1285",
+              "fKd8s29e-l4@1287"
+            ]
+          },
+          {
+            "id": "ch02.s07.p03.06",
+            "text": "In the example, \"AC\" appears only once, so it is not encoded further.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1220",
+              "fKd8s29e-l4@1221",
+              "fKd8s29e-l4@1224",
+              "fKd8s29e-l4@1226",
+              "fKd8s29e-l4@1239",
+              "fKd8s29e-l4@1241"
+            ]
+          },
+          {
+            "id": "ch02.s07.p03.07",
+            "text": "The example can still be compressed one layer further by replacing \"ZY\" with another symbol such as \"W\", which yields \"w d w a\".",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1247",
+              "fKd8s29e-l4@1249",
+              "fKd8s29e-l4@1252",
+              "fKd8s29e-l4@1254",
+              "fKd8s29e-l4@1255",
+              "fKd8s29e-l4@1261"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

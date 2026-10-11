@@ -1,0 +1,606 @@
+{
+  "stage": "write",
+  "item": "ch04.s10",
+  "inputs_hash": "644d6ecc202dbc202756d63df6ffc63880e7d9e63ce38a7d6c33ba805ed18407",
+  "output_hash": "a9ad7ecfba9fc16dea77da41da7fc808a3be78888a8ac70005b44a3fc7ea0a79",
+  "output": {
+    "section_id": "ch04.s10",
+    "paragraphs": [
+      {
+        "id": "ch04.s10.p01",
+        "sentences": [
+          {
+            "id": "ch04.s10.p01.01",
+            "text": "How does pre-training turn a loss value into actual changes in a GPT model’s parameters, and how is that process organized into a runnable loop?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s10.p01.02",
+            "text": "The pre-training loop uses multiple epochs, where one epoch is one pass through the entire training set.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@674",
+              "Zxf-34voZss@678",
+              "Zxf-34voZss@680",
+              "Zxf-34voZss@682"
+            ]
+          },
+          {
+            "id": "ch04.s10.p01.03",
+            "text": "Each epoch contains multiple batches because the training set is divided into batches.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@682",
+              "Zxf-34voZss@685",
+              "Zxf-34voZss@688"
+            ]
+          },
+          {
+            "id": "ch04.s10.p01.04",
+            "text": "The outer loop runs over the number of epochs, and the inner loop goes through each batch in the training data set.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1430",
+              "Zxf-34voZss@1432",
+              "Zxf-34voZss@1434",
+              "Zxf-34voZss@1437",
+              "Zxf-34voZss@1442"
+            ]
+          },
+          {
+            "id": "ch04.s10.p01.05",
+            "text": "After all batches have been processed once, the same procedure is repeated again until the specified number of epochs is finished.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@785",
+              "Zxf-34voZss@788",
+              "Zxf-34voZss@790",
+              "Zxf-34voZss@792",
+              "Zxf-34voZss@1434",
+              "Zxf-34voZss@1437",
+              "Zxf-34voZss@1439",
+              "Zxf-34voZss@1442"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s10.p02",
+        "sentences": [
+          {
+            "id": "ch04.s10.p02.01",
+            "text": "Within each batch, the core pattern is always the same.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s10.p02.02",
+            "text": "The code takes a batch from the training loader and divides it into an input batch and a target batch.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1308",
+              "Zxf-34voZss@1310",
+              "Zxf-34voZss@1312",
+              "Zxf-34voZss@1316",
+              "Zxf-34voZss@1318",
+              "Zxf-34voZss@1320"
+            ]
+          },
+          {
+            "id": "ch04.s10.p02.03",
+            "text": "One input batch and one target batch are processed at a time.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1332",
+              "Zxf-34voZss@1334",
+              "Zxf-34voZss@1336",
+              "Zxf-34voZss@1339",
+              "Zxf-34voZss@1340"
+            ]
+          },
+          {
+            "id": "ch04.s10.p02.04",
+            "text": "The inputs are passed through the GPT model to get logits, softmax is applied, and then the cross-entropy loss between the output and the target is computed.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@923",
+              "Zxf-34voZss@925",
+              "Zxf-34voZss@927",
+              "Zxf-34voZss@930",
+              "Zxf-34voZss@931",
+              "Zxf-34voZss@1342",
+              "Zxf-34voZss@1344",
+              "Zxf-34voZss@1346",
+              "Zxf-34voZss@1349"
+            ]
+          },
+          {
+            "id": "ch04.s10.p02.05",
+            "text": "For a batch, the cross-entropy loss is computed for the entire batch and then the backward pass is run to calculate the loss gradients.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@706",
+              "Zxf-34voZss@708",
+              "Zxf-34voZss@710",
+              "Zxf-34voZss@712",
+              "Zxf-34voZss@1352",
+              "Zxf-34voZss@1355",
+              "Zxf-34voZss@1357",
+              "Zxf-34voZss@1361"
+            ]
+          },
+          {
+            "id": "ch04.s10.p02.06",
+            "text": "In Python, those gradients are computed with the method \"loss.backward()\".",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@892",
+              "Zxf-34voZss@894",
+              "Zxf-34voZss@896",
+              "Zxf-34voZss@898"
+            ]
+          },
+          {
+            "id": "ch04.s10.p02.07",
+            "text": "Frameworks such as TensorFlow or PyTorch can compute the entire backward pass in essentially one line of Python.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@902",
+              "Zxf-34voZss@904",
+              "Zxf-34voZss@908",
+              "Zxf-34voZss@910"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s10.p03",
+        "sentences": [
+          {
+            "id": "ch04.s10.p03.01",
+            "text": "The backward pass matters because it is the step that makes learning possible.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s10.p03.02",
+            "text": "The backward pass is the most important step because it calculates the gradients of the loss.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@715",
+              "Zxf-34voZss@717",
+              "Zxf-34voZss@719",
+              "Zxf-34voZss@721"
+            ]
+          },
+          {
+            "id": "ch04.s10.p03.03",
+            "text": "Those loss gradients make it possible to update the model weights and parameters.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@721",
+              "Zxf-34voZss@723",
+              "Zxf-34voZss@725"
+            ]
+          },
+          {
+            "id": "ch04.s10.p03.04",
+            "text": "Backpropagation through the GPT workflow is possible because the whole operation is differentiable, and differentiability is maintained at every step.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@931",
+              "Zxf-34voZss@934",
+              "Zxf-34voZss@938",
+              "Zxf-34voZss@953",
+              "Zxf-34voZss@955",
+              "Zxf-34voZss@963",
+              "Zxf-34voZss@964",
+              "Zxf-34voZss@966"
+            ]
+          },
+          {
+            "id": "ch04.s10.p03.05",
+            "text": "Once the loss is obtained, backpropagation finds the partial derivative of the loss with respect to all the parameters in the model.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@936",
+              "Zxf-34voZss@938",
+              "Zxf-34voZss@940",
+              "Zxf-34voZss@942",
+              "Zxf-34voZss@973",
+              "Zxf-34voZss@975"
+            ]
+          },
+          {
+            "id": "ch04.s10.p03.06",
+            "text": "The model under discussion has around 161 million parameters, and a single call to \"loss.backward()\" computes gradients with respect to all of them.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@978",
+              "Zxf-34voZss@980",
+              "Zxf-34voZss@982",
+              "Zxf-34voZss@989",
+              "Zxf-34voZss@990",
+              "Zxf-34voZss@992",
+              "Zxf-34voZss@994",
+              "Zxf-34voZss@1365",
+              "Zxf-34voZss@1367",
+              "Zxf-34voZss@1370",
+              "Zxf-34voZss@1371"
+            ]
+          },
+          {
+            "id": "ch04.s10.p03.07",
+            "text": "The scale is striking because this backward pass and optimization can now be done on a laptop in about five to six minutes.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1000",
+              "Zxf-34voZss@1002",
+              "Zxf-34voZss@1005",
+              "Zxf-34voZss@1009",
+              "Zxf-34voZss@1012",
+              "Zxf-34voZss@1015",
+              "Zxf-34voZss@1017",
+              "Zxf-34voZss@1019"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s10.p04",
+        "sentences": [
+          {
+            "id": "ch04.s10.p04.01",
+            "text": "After gradients are available, the parameters are updated from them.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s10.p04.02",
+            "text": "A parameter update follows the rule that the new value equals the old value minus the step size multiplied by the loss gradient.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@727",
+              "Zxf-34voZss@730",
+              "Zxf-34voZss@733",
+              "Zxf-34voZss@745",
+              "Zxf-34voZss@748",
+              "Zxf-34voZss@752"
+            ]
+          },
+          {
+            "id": "ch04.s10.p04.03",
+            "text": "During backpropagation, a gradient is computed for each parameter, and then all model weights are updated using those gradients.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1233",
+              "Zxf-34voZss@1235",
+              "Zxf-34voZss@1237",
+              "Zxf-34voZss@1240",
+              "Zxf-34voZss@1242",
+              "Zxf-34voZss@1244",
+              "Zxf-34voZss@1246"
+            ]
+          },
+          {
+            "id": "ch04.s10.p04.04",
+            "text": "The code illustrates simple gradient descent for the update rule, but the actual implementation uses Adam.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1249",
+              "Zxf-34voZss@1250",
+              "Zxf-34voZss@1252",
+              "Zxf-34voZss@1254",
+              "Zxf-34voZss@1256"
+            ]
+          },
+          {
+            "id": "ch04.s10.p04.05",
+            "text": "Even with Adam, the underlying idea is still to compute gradients of the loss with respect to the weights and then update parameter values based on those gradients.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1256",
+              "Zxf-34voZss@1257",
+              "Zxf-34voZss@1260",
+              "Zxf-34voZss@1262",
+              "Zxf-34voZss@1264",
+              "Zxf-34voZss@1265",
+              "Zxf-34voZss@1267",
+              "Zxf-34voZss@1269"
+            ]
+          },
+          {
+            "id": "ch04.s10.p04.06",
+            "text": "Parameters are updated in each iteration with the hope that the loss value keeps decreasing and reaches some minimum.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1273",
+              "Zxf-34voZss@1276",
+              "Zxf-34voZss@1278",
+              "Zxf-34voZss@1281",
+              "Zxf-34voZss@1283",
+              "Zxf-34voZss@1285"
+            ]
+          },
+          {
+            "id": "ch04.s10.p04.07",
+            "text": "This is often pictured as moving through a loss landscape toward a minimum where the loss is minimized.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@870",
+              "Zxf-34voZss@872",
+              "Zxf-34voZss@879",
+              "Zxf-34voZss@881",
+              "Zxf-34voZss@884",
+              "Zxf-34voZss@886",
+              "Zxf-34voZss@887"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s10.p05",
+        "sentences": [
+          {
+            "id": "ch04.s10.p05.01",
+            "text": "Putting these pieces together gives the main pre-training algorithm.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s10.p05.02",
+            "text": "In each iteration, the loop finds the loss, performs the backward pass to get loss gradients, and updates the parameters based on those gradients.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@856",
+              "Zxf-34voZss@858",
+              "Zxf-34voZss@860",
+              "Zxf-34voZss@862",
+              "Zxf-34voZss@864",
+              "Zxf-34voZss@866",
+              "Zxf-34voZss@868"
+            ]
+          },
+          {
+            "id": "ch04.s10.p05.03",
+            "text": "This repeated process is the main algorithm for pre-training a large language model.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@794",
+              "Zxf-34voZss@796",
+              "Zxf-34voZss@799",
+              "Zxf-34voZss@801",
+              "Zxf-34voZss@803"
+            ]
+          },
+          {
+            "id": "ch04.s10.p05.04",
+            "text": "In the code, after \"loss.backward()\" the next step is \"optimizer.step()\", which updates parameter values according to the gradient values that were obtained.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1371",
+              "Zxf-34voZss@1374",
+              "Zxf-34voZss@1375",
+              "Zxf-34voZss@1378",
+              "Zxf-34voZss@1383",
+              "Zxf-34voZss@1385",
+              "Zxf-34voZss@1387"
+            ]
+          },
+          {
+            "id": "ch04.s10.p05.05",
+            "text": "The code also resets the loss gradients from the previous batch to zero before repeating the same process on the next batch.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@777",
+              "Zxf-34voZss@779",
+              "Zxf-34voZss@780",
+              "Zxf-34voZss@782"
+            ]
+          },
+          {
+            "id": "ch04.s10.p05.06",
+            "text": "With a context size of 256 and two samples in a batch, the model processes 512 tokens in that input batch.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1403",
+              "Zxf-34voZss@1404",
+              "Zxf-34voZss@1407",
+              "Zxf-34voZss@1408",
+              "Zxf-34voZss@1411",
+              "Zxf-34voZss@1413",
+              "Zxf-34voZss@1416"
+            ]
+          },
+          {
+            "id": "ch04.s10.p05.07",
+            "text": "The \"tokens seen\" value tracks how many input tokens have been processed so far, and it accumulates as the loop moves through batches.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1392",
+              "Zxf-34voZss@1395",
+              "Zxf-34voZss@1398",
+              "Zxf-34voZss@1418",
+              "Zxf-34voZss@1420",
+              "Zxf-34voZss@1423",
+              "Zxf-34voZss@1425",
+              "Zxf-34voZss@1427",
+              "Zxf-34voZss@1672",
+              "Zxf-34voZss@1674",
+              "Zxf-34voZss@1676",
+              "Zxf-34voZss@1685",
+              "Zxf-34voZss@1687"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s10.p06",
+        "sentences": [
+          {
+            "id": "ch04.s10.p06.01",
+            "text": "The optimizer adds a small set of choices on top of this basic loop.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s10.p06.02",
+            "text": "The optimizer used here is \"AdamW\".",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1927",
+              "Zxf-34voZss@1930"
+            ]
+          },
+          {
+            "id": "ch04.s10.p06.03",
+            "text": "\"AdamW\" is a variation of Adam that uses weight decay.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1930",
+              "Zxf-34voZss@1933",
+              "Zxf-34voZss@1956"
+            ]
+          },
+          {
+            "id": "ch04.s10.p06.04",
+            "text": "Adam is described as a go-to optimizer for modern machine learning algorithms such as classification and regression because it works very well, avoids local minima, and leads to faster convergence.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1940",
+              "Zxf-34voZss@1942",
+              "Zxf-34voZss@1944",
+              "Zxf-34voZss@1946",
+              "Zxf-34voZss@1948",
+              "Zxf-34voZss@1950",
+              "Zxf-34voZss@1953"
+            ]
+          },
+          {
+            "id": "ch04.s10.p06.05",
+            "text": "With \"AdamW\", the learning rate and the weight decay are specified, and these are hyperparameters that need to be tuned.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1956",
+              "Zxf-34voZss@1959",
+              "Zxf-34voZss@1961",
+              "Zxf-34voZss@1963",
+              "Zxf-34voZss@1964",
+              "Zxf-34voZss@1966"
+            ]
+          },
+          {
+            "id": "ch04.s10.p06.06",
+            "text": "A fuller explanation of Adam and AdamW is not given here, beyond their role in updating parameters from gradients.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1935",
+              "Zxf-34voZss@1937",
+              "Zxf-34voZss@1256",
+              "Zxf-34voZss@1257",
+              "Zxf-34voZss@1260",
+              "Zxf-34voZss@1265",
+              "Zxf-34voZss@1267"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s10.p07",
+        "sentences": [
+          {
+            "id": "ch04.s10.p07.01",
+            "text": "Around the core training steps, the loop also measures progress and runtime.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s10.p07.02",
+            "text": "Setting the number of epochs to 10 means repeating the entire training process 10 times.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1973",
+              "Zxf-34voZss@1975",
+              "Zxf-34voZss@1978",
+              "Zxf-34voZss@1979",
+              "Zxf-34voZss@1984",
+              "Zxf-34voZss@1985",
+              "Zxf-34voZss@1987",
+              "Zxf-34voZss@1989"
+            ]
+          },
+          {
+            "id": "ch04.s10.p07.03",
+            "text": "With that setting, a generated sample is printed after each epoch.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1652",
+              "Zxf-34voZss@1655",
+              "Zxf-34voZss@1989",
+              "Zxf-34voZss@1991",
+              "Zxf-34voZss@1994"
+            ]
+          },
+          {
+            "id": "ch04.s10.p07.04",
+            "text": "An evaluation frequency and evaluation iteration of five means that training loss and validation loss are printed after every five batches.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1660",
+              "Zxf-34voZss@1662",
+              "Zxf-34voZss@1663",
+              "Zxf-34voZss@1999",
+              "Zxf-34voZss@2001",
+              "Zxf-34voZss@2003",
+              "Zxf-34voZss@2005"
+            ]
+          },
+          {
+            "id": "ch04.s10.p07.05",
+            "text": "The code records a start time and an end time to measure how long training takes.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@2021",
+              "Zxf-34voZss@2023",
+              "Zxf-34voZss@2025",
+              "Zxf-34voZss@2032",
+              "Zxf-34voZss@2034"
+            ]
+          },
+          {
+            "id": "ch04.s10.p07.06",
+            "text": "The main step in the training code is \"loss.backward()\"; the remaining parts mainly print training and validation losses every five batches, print a text sample after each epoch, and track tokens seen.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1655",
+              "Zxf-34voZss@1658",
+              "Zxf-34voZss@1660",
+              "Zxf-34voZss@1662",
+              "Zxf-34voZss@1663",
+              "Zxf-34voZss@1666",
+              "Zxf-34voZss@1669",
+              "Zxf-34voZss@1670",
+              "Zxf-34voZss@1672"
+            ]
+          },
+          {
+            "id": "ch04.s10.p07.07",
+            "text": "Because \"loss.backward()\" handles the loss-gradient computation and \"optimizer.step()\" performs the parameter update, the training loop is only about 15 to 20 lines of code.",
+            "type": "F",
+            "cites": [
+              "Zxf-34voZss@1725",
+              "Zxf-34voZss@1727",
+              "Zxf-34voZss@1730",
+              "Zxf-34voZss@1732",
+              "Zxf-34voZss@1734",
+              "Zxf-34voZss@1738",
+              "Zxf-34voZss@1739"
+            ]
+          }
+        ]
+      }
+    ],
+    "invalid_citation_sentences": 0
+  }
+}

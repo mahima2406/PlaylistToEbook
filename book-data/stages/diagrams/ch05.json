@@ -1,0 +1,962 @@
+{
+  "stage": "diagrams",
+  "item": "ch05",
+  "inputs_hash": "ed110c486342795ed4019ce4f2375f7086de1c360dcbad7d42e73b24f4628fbf",
+  "output_hash": "06d80cfffa534f2625f875b8dd730d37c232ee0a512af3886f23b24dbfd6c2ba",
+  "output": {
+    "chapter": "ch05",
+    "diagrams": [
+      {
+        "id": "ch05.fig1",
+        "after_paragraph": "ch05.s02.p03",
+        "title": "Downloading and loading GPT-2 parameters",
+        "caption": "The main loading function downloads the released GPT-2 files, finds the checkpoint, and extracts TensorFlow parameters into the params dictionary.",
+        "mermaid": "flowchart TD\n  A[\"download_and_load_gpt2\"] -->|\"downloads\"| B[\"Seven GPT-2 files on local machine\"]\n  A -->|\"calls\"| C[\"load_gpt2_params_from_tf_checkpoint\"]\n  B -->|\"includes\"| D[\"checkpoint file\"]\n  D -->|\"defines\"| E[\"Model checkpoint path\"]\n  B -->|\"searched with latest_checkpoint\"| F[\"Checkpoint entry and parameter location\"]\n  C -->|\"extracts and converts\"| G[\"params dictionary\"]",
+        "claims": [
+          {
+            "id": "ch05.fig1.c1",
+            "type": "F",
+            "text": "The function download_and_load_gpt2 downloads seven GPT-2 files to the local computer.",
+            "sentences": [
+              "ch05.s02.p03.03",
+              "ch05.s02.p03.05"
+            ],
+            "cites": [
+              "yXrGeDNuymY@405",
+              "yXrGeDNuymY@407",
+              "yXrGeDNuymY@409",
+              "yXrGeDNuymY@412",
+              "yXrGeDNuymY@416",
+              "yXrGeDNuymY@418",
+              "yXrGeDNuymY@422",
+              "yXrGeDNuymY@424",
+              "yXrGeDNuymY@426",
+              "yXrGeDNuymY@428",
+              "yXrGeDNuymY@430",
+              "yXrGeDNuymY@733",
+              "yXrGeDNuymY@736",
+              "yXrGeDNuymY@739",
+              "yXrGeDNuymY@741",
+              "yXrGeDNuymY@745",
+              "yXrGeDNuymY@751",
+              "yXrGeDNuymY@752"
+            ],
+            "verdict": "supported",
+            "confidence": 0.9,
+            "reason": ""
+          },
+          {
+            "id": "ch05.fig1.c2",
+            "type": "F",
+            "text": "The function download_and_load_gpt2 calls load_gpt2_params_from_tf_checkpoint.",
+            "sentences": [
+              "ch05.s02.p03.03"
+            ],
+            "cites": [
+              "yXrGeDNuymY@405",
+              "yXrGeDNuymY@407",
+              "yXrGeDNuymY@409",
+              "yXrGeDNuymY@412",
+              "yXrGeDNuymY@416",
+              "yXrGeDNuymY@418",
+              "yXrGeDNuymY@422",
+              "yXrGeDNuymY@424",
+              "yXrGeDNuymY@426",
+              "yXrGeDNuymY@428",
+              "yXrGeDNuymY@430"
+            ],
+            "verdict": "supported",
+            "confidence": 0.9,
+            "reason": ""
+          },
+          {
+            "id": "ch05.fig1.c3",
+            "type": "F",
+            "text": "The downloaded files include a checkpoint file.",
+            "sentences": [
+              "ch05.s02.p03.05",
+              "ch05.s02.p03.06"
+            ],
+            "cites": [
+              "yXrGeDNuymY@498",
+              "yXrGeDNuymY@501",
+              "yXrGeDNuymY@503",
+              "yXrGeDNuymY@505",
+              "yXrGeDNuymY@507",
+              "yXrGeDNuymY@510",
+              "yXrGeDNuymY@524",
+              "yXrGeDNuymY@527",
+              "yXrGeDNuymY@529",
+              "yXrGeDNuymY@733",
+              "yXrGeDNuymY@736",
+              "yXrGeDNuymY@739",
+              "yXrGeDNuymY@741",
+              "yXrGeDNuymY@745",
+              "yXrGeDNuymY@751",
+              "yXrGeDNuymY@752"
+            ],
+            "verdict": "supported",
+            "confidence": 0.85,
+            "reason": ""
+          },
+          {
+            "id": "ch05.fig1.c4",
+            "type": "F",
+            "text": "The checkpoint file defines the model checkpoint path.",
+            "sentences": [
+              "ch05.s02.p03.06"
+            ],
+            "cites": [
+              "yXrGeDNuymY@498",
+              "yXrGeDNuymY@501",
+              "yXrGeDNuymY@503",
+              "yXrGeDNuymY@505",
+              "yXrGeDNuymY@507",
+              "yXrGeDNuymY@510",
+              "yXrGeDNuymY@524",
+              "yXrGeDNuymY@527",
+              "yXrGeDNuymY@529"
+            ],
+            "verdict": "supported",
+            "confidence": 0.9,
+            "reason": ""
+          },
+          {
+            "id": "ch05.fig1.c5",
+            "type": "F",
+            "text": "After downloading, TensorFlow latest checkpoint utilities search the model directory and identify the checkpoint entry and where the model parameters are stored.",
+            "sentences": [
+              "ch05.s02.p03.07"
+            ],
+            "cites": [
+              "yXrGeDNuymY@757",
+              "yXrGeDNuymY@760",
+              "yXrGeDNuymY@762",
+              "yXrGeDNuymY@765",
+              "yXrGeDNuymY@767",
+              "yXrGeDNuymY@769",
+              "yXrGeDNuymY@772",
+              "yXrGeDNuymY@774",
+              "yXrGeDNuymY@776",
+              "yXrGeDNuymY@778",
+              "yXrGeDNuymY@779",
+              "yXrGeDNuymY@781",
+              "yXrGeDNuymY@784"
+            ],
+            "verdict": "supported",
+            "confidence": 0.86,
+            "reason": ""
+          },
+          {
+            "id": "ch05.fig1.c6",
+            "type": "F",
+            "text": "The function load_gpt2_params_from_tf_checkpoint extracts parameter values from the TensorFlow checkpoint and converts them into the params dictionary.",
+            "sentences": [
+              "ch05.s02.p03.04",
+              "ch05.s02.p03.08"
+            ],
+            "cites": [
+              "yXrGeDNuymY@1584",
+              "yXrGeDNuymY@1586",
+              "yXrGeDNuymY@1590",
+              "yXrGeDNuymY@1592",
+              "yXrGeDNuymY@1595",
+              "yXrGeDNuymY@1598",
+              "yXrGeDNuymY@1600",
+              "yXrGeDNuymY@436",
+              "yXrGeDNuymY@438",
+              "yXrGeDNuymY@442",
+              "yXrGeDNuymY@444"
+            ],
+            "verdict": "supported",
+            "confidence": 0.93,
+            "reason": ""
+          }
+        ],
+        "passed": true
+      },
+      {
+        "id": "ch05.fig2",
+        "after_paragraph": "ch05.s08.p03",
+        "title": "Preprocessing SMS texts for batching",
+        "caption": "The dataset workflow reads CSV text, tokenizes messages, determines a maximum length, and pads shorter sequences with the end-of-text token so inputs can be batched with labels.",
+        "mermaid": "flowchart TD\n  A[\"CSV text\"] -->|\"read\"| B[\"Text messages\"]\n  B -->|\"tokenize\"| C[\"Token IDs\"]\n  C -->|\"find longest or use specified maximum length\"| D[\"Maximum length\"]\n  C -->|\"pad shorter sequences with 50256\"| E[\"Equal length token sequences\"]\n  D -->|\"sets target length for\"| E\n  E -->|\"with labels\"| F[\"Input target pairs\"]\n  F -->|\"used by\"| G[\"DataLoader\"]",
+        "claims": [
+          {
+            "id": "ch05.fig2.c1",
+            "type": "F",
+            "text": "CSV text is read and text messages are processed.",
+            "sentences": [
+              "ch05.s08.p03.07"
+            ],
+            "cites": [
+              "f6zqClXOh7Y@969",
+              "f6zqClXOh7Y@972",
+              "f6zqClXOh7Y@976",
+              "f6zqClXOh7Y@979",
+              "f6zqClXOh7Y@981",
+              "f6zqClXOh7Y@983",
+              "f6zqClXOh7Y@985"
+            ],
+            "verdict": "supported",
+            "confidence": 0.88,
+            "reason": ""
+          },
+          {
+            "id": "ch05.fig2.c2",
+            "type": "F",
+            "text": "Each text message is converted into token IDs.",
+            "sentences": [
+              "ch05.s08.p03.02",
+              "ch05.s08.p03.05",
+              "ch05.s08.p03.07"
+            ],
+            "cites": [
+              "f6zqClXOh7Y@754",
+              "f6zqClXOh7Y@756",
+              "f6zqClXOh7Y@758",
+              "f6zqClXOh7Y@761",
+              "f6zqClXOh7Y@763",
+              "f6zqClXOh7Y@765",
+              "f6zqClXOh7Y@767",
+              "f6zqClXOh7Y@769",
+              "f6zqClXOh7Y@771",
+              "f6zqClXOh7Y@773",
+              "f6zqClXOh7Y@775",
+              "f6zqClXOh7Y@778",
+              "f6zqClXOh7Y@781",
+              "f6zqClXOh7Y@823",
+              "f6zqClXOh7Y@827",
+              "f6zqClXOh7Y@829",
+              "f6zqClXOh7Y@830",
+              "f6zqClXOh7Y@840",
+              "f6zqClXOh7Y@842",
+              "f6zqClXOh7Y@845",
+              "f6zqClXOh7Y@847",
+              "f6zqClXOh7Y@849",
+              "f6zqClXOh7Y@851",
+              "f6zqClXOh7Y@853",
+              "f6zqClXOh7Y@969",
+              "f6zqClXOh7Y@972",
+              "f6zqClXOh7Y@976",
+              "f6zqClXOh7Y@979",
+              "f6zqClXOh7Y@981",
+              "f6zqClXOh7Y@983",
+              "f6zqClXOh7Y@985"
+            ],
+            "verdict": "supported",
+            "confidence": 0.93,
+            "reason": ""
+          },
+          {
+            "id": "ch05.fig2.c3",
+            "type": "F",
+            "text": "The maximum length is taken from the longest encoded text if none is specified, or from a user-defined value if one is specified.",
+            "sentences": [
+              "ch05.s08.p03.08",
+              "ch05.s08.p03.09",
+              "ch05.s08.p03.10"
+            ],
+            "cites": [
+              "f6zqClXOh7Y@1000",
+              "f6zqClXOh7Y@1003",
+              "f6zqClXOh7Y@1004",
+              "f6zqClXOh7Y@1007",
+              "f6zqClXOh7Y@1009",
+              "f6zqClXOh7Y@1011",
+              "f6zqClXOh7Y@1013",
+              "f6zqClXOh7Y@1016",
+              "f6zqClXOh7Y@1018",
+              "f6zqClXOh7Y@1020",
+              "f6zqClXOh7Y@1022",
+              "f6zqClXOh7Y@1030",
+              "f6zqClXOh7Y@1032",
+              "f6zqClXOh7Y@1035",
+              "f6zqClXOh7Y@1037",
+              "f6zqClXOh7Y@1039",
+              "f6zqClXOh7Y@1041",
+              "f6zqClXOh7Y@916",
+              "f6zqClXOh7Y@918",
+              "f6zqClXOh7Y@920",
+              "f6zqClXOh7Y@922"
+            ],
+            "verdict": "supported",
+            "confidence": 0.92,
+            "reason": ""
+          },
+          {
+            "id": "ch05.fig2.c4",
+            "type": "F",
+            "text": "Shorter token sequences are padded with end-of-text token 50256 until they match the maximum length.",
+            "sentences": [
+              "ch05.s08.p03.02",
+              "ch05.s08.p03.05",
+              "ch05.s08.p04.04",
+              "ch05.s08.p04.05"
+            ],
+            "cites": [
+              "f6zqClXOh7Y@1079",
+              "f6zqClXOh7Y@1082",
+              "f6zqClXOh7Y@1085",
+              "f6zqClXOh7Y@1087",
+              "f6zqClXOh7Y@1089",
+              "f6zqClXOh7Y@1091",
+              "f6zqClXOh7Y@1094",
+              "f6zqClXOh7Y@1102",
+              "f6zqClXOh7Y@1104",
+              "f6zqClXOh7Y@1106",
+              "f6zqClXOh7Y@754",
+              "f6zqClXOh7Y@756",
+              "f6zqClXOh7Y@758",
+              "f6zqClXOh7Y@761",
+              "f6zqClXOh7Y@763",
+              "f6zqClXOh7Y@765",
+              "f6zqClXOh7Y@767",
+              "f6zqClXOh7Y@769",
+              "f6zqClXOh7Y@771",
+              "f6zqClXOh7Y@773",
+              "f6zqClXOh7Y@775",
+              "f6zqClXOh7Y@778",
+              "f6zqClXOh7Y@781",
+              "f6zqClXOh7Y@823",
+              "f6zqClXOh7Y@827",
+              "f6zqClXOh7Y@829",
+              "f6zqClXOh7Y@830",
+              "f6zqClXOh7Y@840",
+              "f6zqClXOh7Y@842",
+              "f6zqClXOh7Y@845",
+              "f6zqClXOh7Y@847",
+              "f6zqClXOh7Y@849",
+              "f6zqClXOh7Y@851",
+              "f6zqClXOh7Y@853",
+              "f6zqClXOh7Y@922",
+              "f6zqClXOh7Y@925",
+              "f6zqClXOh7Y@928",
+              "f6zqClXOh7Y@930",
+              "f6zqClXOh7Y@932",
+              "f6zqClXOh7Y@933"
+            ],
+            "verdict": "supported",
+            "confidence": 0.85,
+            "reason": ""
+          },
+          {
+            "id": "ch05.fig2.c5",
+            "type": "F",
+            "text": "The dataset defines the input-target pairs.",
+            "sentences": [
+              "ch05.s08.p03.04"
+            ],
+            "cites": [
+              "f6zqClXOh7Y@805",
+              "f6zqClXOh7Y@807",
+              "f6zqClXOh7Y@810",
+              "f6zqClXOh7Y@811",
+              "f6zqClXOh7Y@813",
+              "f6zqClXOh7Y@816",
+              "f6zqClXOh7Y@818"
+            ],
+            "verdict": "supported",
+            "confidence": 0.9,
+            "reason": ""
+          },
+          {
+            "id": "ch05.fig2.c6",
+            "type": "F",
+            "text": "After the dataset is defined, a DataLoader is instantiated from it.",
+            "sentences": [
+              "ch05.s08.p03.03",
+              "ch05.s08.p03.04"
+            ],
+            "cites": [
+              "f6zqClXOh7Y@793",
+              "f6zqClXOh7Y@795",
+              "f6zqClXOh7Y@798",
+              "f6zqClXOh7Y@801",
+              "f6zqClXOh7Y@802",
+              "f6zqClXOh7Y@805",
+              "f6zqClXOh7Y@807",
+              "f6zqClXOh7Y@810",
+              "f6zqClXOh7Y@811",
+              "f6zqClXOh7Y@813",
+              "f6zqClXOh7Y@816",
+              "f6zqClXOh7Y@818"
+            ],
+            "verdict": "supported",
+            "confidence": 0.87,
+            "reason": ""
+          }
+        ],
+        "passed": true,
+        "repaired": true,
+        "first_attempt": [
+          {
+            "id": "ch05.fig2.c1",
+            "type": "F",
+            "text": "The train, validation, and test CSV text is read and each text message is processed.",
+            "sentences": [
+              "ch05.s08.p03.02",
+              "ch05.s08.p03.07"
+            ],
+            "cites": [
+              "f6zqClXOh7Y@754",
+              "f6zqClXOh7Y@756",
+              "f6zqClXOh7Y@758",
+              "f6zqClXOh7Y@761",
+              "f6zqClXOh7Y@763",
+              "f6zqClXOh7Y@765",
+              "f6zqClXOh7Y@767",
+              "f6zqClXOh7Y@769",
+              "f6zqClXOh7Y@771",
+              "f6zqClXOh7Y@773",
+              "f6zqClXOh7Y@775",
+              "f6zqClXOh7Y@778",
+              "f6zqClXOh7Y@781",
+              "f6zqClXOh7Y@969",
+              "f6zqClXOh7Y@972",
+              "f6zqClXOh7Y@976",
+              "f6zqClXOh7Y@979",
+              "f6zqClXOh7Y@981",
+              "f6zqClXOh7Y@983",
+              "f6zqClXOh7Y@985"
+            ],
+            "verdict": "partial",
+            "confidence": 0.74,
+            "reason": "Captions support that train/validation/test input text exists and that the CSV is read (pd read csv) and each email/text message is processed into token IDs, but they do not explicitly state that all three (train, validation, and test) CSV texts are each read."
+          },
+          {
+            "id": "ch05.fig2.c2",
+            "type": "F",
+            "text": "Each text message is converted into token IDs.",
+            "sentences": [
+              "ch05.s08.p03.02",
+              "ch05.s08.p03.05",
+              "ch05.s08.p03.07"
+            ],
+            "cites": [
+              "f6zqClXOh7Y@754",
+              "f6zqClXOh7Y@756",
+              "f6zqClXOh7Y@758",
+              "f6zqClXOh7Y@761",
+              "f6zqClXOh7Y@763",
+              "f6zqClXOh7Y@765",
+              "f6zqClXOh7Y@767",
+              "f6zqClXOh7Y@769",
+              "f6zqClXOh7Y@771",
+              "f6zqClXOh7Y@773",
+              "f6zqClXOh7Y@775",
+              "f6zqClXOh7Y@778",
+              "f6zqClXOh7Y@781",
+              "f6zqClXOh7Y@823",
+              "f6zqClXOh7Y@827",
+              "f6zqClXOh7Y@829",
+              "f6zqClXOh7Y@830",
+              "f6zqClXOh7Y@840",
+              "f6zqClXOh7Y@842",
+              "f6zqClXOh7Y@845",
+              "f6zqClXOh7Y@847",
+              "f6zqClXOh7Y@849",
+              "f6zqClXOh7Y@851",
+              "f6zqClXOh7Y@853",
+              "f6zqClXOh7Y@969",
+              "f6zqClXOh7Y@972",
+              "f6zqClXOh7Y@976",
+              "f6zqClXOh7Y@979",
+              "f6zqClXOh7Y@981",
+              "f6zqClXOh7Y@983",
+              "f6zqClXOh7Y@985"
+            ],
+            "verdict": "supported",
+            "confidence": 0.95,
+            "reason": ""
+          },
+          {
+            "id": "ch05.fig2.c3",
+            "type": "F",
+            "text": "The maximum length is taken from the longest encoded text if none is specified, or from a user-defined value if one is specified.",
+            "sentences": [
+              "ch05.s08.p03.08",
+              "ch05.s08.p03.09",
+              "ch05.s08.p03.10"
+            ],
+            "cites": [
+              "f6zqClXOh7Y@1000",
+              "f6zqClXOh7Y@1003",
+              "f6zqClXOh7Y@1004",
+              "f6zqClXOh7Y@1007",
+              "f6zqClXOh7Y@1009",
+              "f6zqClXOh7Y@1011",
+              "f6zqClXOh7Y@1013",
+              "f6zqClXOh7Y@1016",
+              "f6zqClXOh7Y@1018",
+              "f6zqClXOh7Y@1020",
+              "f6zqClXOh7Y@1022",
+              "f6zqClXOh7Y@1030",
+              "f6zqClXOh7Y@1032",
+              "f6zqClXOh7Y@1035",
+              "f6zqClXOh7Y@1037",
+              "f6zqClXOh7Y@1039",
+              "f6zqClXOh7Y@1041",
+              "f6zqClXOh7Y@916",
+              "f6zqClXOh7Y@918",
+              "f6zqClXOh7Y@920",
+              "f6zqClXOh7Y@922"
+            ],
+            "verdict": "supported",
+            "confidence": 0.94,
+            "reason": ""
+          },
+          {
+            "id": "ch05.fig2.c4",
+            "type": "F",
+            "text": "Shorter token sequences are padded with end-of-text token 50256 until they match the maximum length.",
+            "sentences": [
+              "ch05.s08.p03.02",
+              "ch05.s08.p03.05",
+              "ch05.s08.p04.04",
+              "ch05.s08.p04.05"
+            ],
+            "cites": [
+              "f6zqClXOh7Y@1079",
+              "f6zqClXOh7Y@1082",
+              "f6zqClXOh7Y@1085",
+              "f6zqClXOh7Y@1087",
+              "f6zqClXOh7Y@1089",
+              "f6zqClXOh7Y@1091",
+              "f6zqClXOh7Y@1094",
+              "f6zqClXOh7Y@1102",
+              "f6zqClXOh7Y@1104",
+              "f6zqClXOh7Y@1106",
+              "f6zqClXOh7Y@754",
+              "f6zqClXOh7Y@756",
+              "f6zqClXOh7Y@758",
+              "f6zqClXOh7Y@761",
+              "f6zqClXOh7Y@763",
+              "f6zqClXOh7Y@765",
+              "f6zqClXOh7Y@767",
+              "f6zqClXOh7Y@769",
+              "f6zqClXOh7Y@771",
+              "f6zqClXOh7Y@773",
+              "f6zqClXOh7Y@775",
+              "f6zqClXOh7Y@778",
+              "f6zqClXOh7Y@781",
+              "f6zqClXOh7Y@823",
+              "f6zqClXOh7Y@827",
+              "f6zqClXOh7Y@829",
+              "f6zqClXOh7Y@830",
+              "f6zqClXOh7Y@840",
+              "f6zqClXOh7Y@842",
+              "f6zqClXOh7Y@845",
+              "f6zqClXOh7Y@847",
+              "f6zqClXOh7Y@849",
+              "f6zqClXOh7Y@851",
+              "f6zqClXOh7Y@853",
+              "f6zqClXOh7Y@922",
+              "f6zqClXOh7Y@925",
+              "f6zqClXOh7Y@928",
+              "f6zqClXOh7Y@930",
+              "f6zqClXOh7Y@932",
+              "f6zqClXOh7Y@933"
+            ],
+            "verdict": "supported",
+            "confidence": 0.9,
+            "reason": ""
+          },
+          {
+            "id": "ch05.fig2.c5",
+            "type": "F",
+            "text": "The dataset defines the input-target pairs.",
+            "sentences": [
+              "ch05.s08.p03.04"
+            ],
+            "cites": [
+              "f6zqClXOh7Y@805",
+              "f6zqClXOh7Y@807",
+              "f6zqClXOh7Y@810",
+              "f6zqClXOh7Y@811",
+              "f6zqClXOh7Y@813",
+              "f6zqClXOh7Y@816",
+              "f6zqClXOh7Y@818"
+            ],
+            "verdict": "supported",
+            "confidence": 0.9,
+            "reason": ""
+          },
+          {
+            "id": "ch05.fig2.c6",
+            "type": "F",
+            "text": "After the dataset is defined, a DataLoader is instantiated from it.",
+            "sentences": [
+              "ch05.s08.p03.03",
+              "ch05.s08.p03.04"
+            ],
+            "cites": [
+              "f6zqClXOh7Y@793",
+              "f6zqClXOh7Y@795",
+              "f6zqClXOh7Y@798",
+              "f6zqClXOh7Y@801",
+              "f6zqClXOh7Y@802",
+              "f6zqClXOh7Y@805",
+              "f6zqClXOh7Y@807",
+              "f6zqClXOh7Y@810",
+              "f6zqClXOh7Y@811",
+              "f6zqClXOh7Y@813",
+              "f6zqClXOh7Y@816",
+              "f6zqClXOh7Y@818"
+            ],
+            "verdict": "supported",
+            "confidence": 0.9,
+            "reason": ""
+          }
+        ]
+      }
+    ],
+    "dropped": [
+      {
+        "id": "ch05.fig3",
+        "after_paragraph": "ch05.s12.p02",
+        "title": "Fine-tuning loop for classification",
+        "caption": "During each epoch, the model enters training mode, clears old gradients, computes batch loss, backpropagates, updates weights, and periodically reports training and validation loss.",
+        "mermaid": "flowchart TD\n  A[\"One epoch over the dataset\"] --> B[\"Set model to training mode\"]\n  B -->|\"step 2\"| C[\"Reset previous gradients\"]\n  C -->|\"step 3\"| D[\"Compute batch loss\"]\n  D -->|\"backward pass\"| E[\"Loss gradients\"]\n  E -->|\"optimizer step\"| F[\"Updated model weights\"]\n  F -->|\"then print\"| G[\"Training loss and validation loss\"]",
+        "claims": [
+          {
+            "id": "ch05.fig3.c1",
+            "type": "F",
+            "text": "One epoch means going through the entire dataset once.",
+            "sentences": [
+              "ch05.s12.p02.02"
+            ],
+            "cites": [
+              "0PpxZ3kNPWo@1449",
+              "0PpxZ3kNPWo@1452"
+            ],
+            "verdict": "supported",
+            "confidence": 0.96,
+            "reason": ""
+          },
+          {
+            "id": "ch05.fig3.c2",
+            "type": "F",
+            "text": "The first step is to set the model to training mode.",
+            "sentences": [
+              "ch05.s12.p02.04"
+            ],
+            "cites": [
+              "0PpxZ3kNPWo@1609",
+              "0PpxZ3kNPWo@1612",
+              "0PpxZ3kNPWo@1613",
+              "0PpxZ3kNPWo@1615",
+              "0PpxZ3kNPWo@1617"
+            ],
+            "verdict": "supported",
+            "confidence": 0.96,
+            "reason": ""
+          },
+          {
+            "id": "ch05.fig3.c3",
+            "type": "F",
+            "text": "The second step is to reset the loss gradients from the previous batch.",
+            "sentences": [
+              "ch05.s12.p02.05"
+            ],
+            "cites": [
+              "0PpxZ3kNPWo@1619",
+              "0PpxZ3kNPWo@1621",
+              "0PpxZ3kNPWo@1624",
+              "0PpxZ3kNPWo@1626",
+              "0PpxZ3kNPWo@1630",
+              "0PpxZ3kNPWo@1633"
+            ],
+            "verdict": "supported",
+            "confidence": 0.96,
+            "reason": ""
+          },
+          {
+            "id": "ch05.fig3.c4",
+            "type": "F",
+            "text": "The third step computes the loss on the current batch.",
+            "sentences": [
+              "ch05.s12.p02.06"
+            ],
+            "cites": [
+              "0PpxZ3kNPWo@1469",
+              "0PpxZ3kNPWo@1472",
+              "0PpxZ3kNPWo@1475",
+              "0PpxZ3kNPWo@1478",
+              "0PpxZ3kNPWo@1480",
+              "0PpxZ3kNPWo@1636",
+              "0PpxZ3kNPWo@1637",
+              "0PpxZ3kNPWo@1639",
+              "0PpxZ3kNPWo@1642",
+              "0PpxZ3kNPWo@1644",
+              "0PpxZ3kNPWo@1646",
+              "0PpxZ3kNPWo@1647",
+              "0PpxZ3kNPWo@1650"
+            ],
+            "verdict": "partial",
+            "confidence": 0.72,
+            "reason": "the cited step-3 lines describe calculating loss gradients and updating weights; while other cited lines mention calculating loss on the current batch, they do not explicitly say that this is the third step"
+          },
+          {
+            "id": "ch05.fig3.c5",
+            "type": "F",
+            "text": "A backward pass calculates loss gradients.",
+            "sentences": [
+              "ch05.s12.p02.06",
+              "ch05.s12.p02.08"
+            ],
+            "cites": [
+              "0PpxZ3kNPWo@1469",
+              "0PpxZ3kNPWo@1472",
+              "0PpxZ3kNPWo@1475",
+              "0PpxZ3kNPWo@1478",
+              "0PpxZ3kNPWo@1480",
+              "0PpxZ3kNPWo@1510",
+              "0PpxZ3kNPWo@1512",
+              "0PpxZ3kNPWo@1514",
+              "0PpxZ3kNPWo@1516",
+              "0PpxZ3kNPWo@1518",
+              "0PpxZ3kNPWo@1521",
+              "0PpxZ3kNPWo@1522",
+              "0PpxZ3kNPWo@1636",
+              "0PpxZ3kNPWo@1637",
+              "0PpxZ3kNPWo@1639",
+              "0PpxZ3kNPWo@1642",
+              "0PpxZ3kNPWo@1644",
+              "0PpxZ3kNPWo@1646",
+              "0PpxZ3kNPWo@1647",
+              "0PpxZ3kNPWo@1650"
+            ],
+            "verdict": "supported",
+            "confidence": 0.95,
+            "reason": ""
+          },
+          {
+            "id": "ch05.fig3.c6",
+            "type": "F",
+            "text": "An optimizer step updates the model weights.",
+            "sentences": [
+              "ch05.s12.p02.06",
+              "ch05.s12.p02.09"
+            ],
+            "cites": [
+              "0PpxZ3kNPWo@1469",
+              "0PpxZ3kNPWo@1472",
+              "0PpxZ3kNPWo@1475",
+              "0PpxZ3kNPWo@1478",
+              "0PpxZ3kNPWo@1480",
+              "0PpxZ3kNPWo@1521",
+              "0PpxZ3kNPWo@1522",
+              "0PpxZ3kNPWo@1524",
+              "0PpxZ3kNPWo@1526",
+              "0PpxZ3kNPWo@1528",
+              "0PpxZ3kNPWo@1529",
+              "0PpxZ3kNPWo@1532",
+              "0PpxZ3kNPWo@1636",
+              "0PpxZ3kNPWo@1637",
+              "0PpxZ3kNPWo@1639",
+              "0PpxZ3kNPWo@1642",
+              "0PpxZ3kNPWo@1644",
+              "0PpxZ3kNPWo@1646",
+              "0PpxZ3kNPWo@1647",
+              "0PpxZ3kNPWo@1650"
+            ],
+            "verdict": "supported",
+            "confidence": 0.87,
+            "reason": ""
+          },
+          {
+            "id": "ch05.fig3.c7",
+            "type": "F",
+            "text": "After the weights are updated, the code prints the training loss and the validation loss.",
+            "sentences": [
+              "ch05.s12.p02.07"
+            ],
+            "cites": [
+              "0PpxZ3kNPWo@1496",
+              "0PpxZ3kNPWo@1500",
+              "0PpxZ3kNPWo@1501",
+              "0PpxZ3kNPWo@1504",
+              "0PpxZ3kNPWo@1506"
+            ],
+            "verdict": "supported",
+            "confidence": 0.92,
+            "reason": ""
+          }
+        ],
+        "passed": false,
+        "repaired": true,
+        "first_attempt": [
+          {
+            "id": "ch05.fig3.c1",
+            "type": "F",
+            "text": "One epoch means going through the entire dataset once, and within each epoch the code iterates over each batch.",
+            "sentences": [
+              "ch05.s12.p02.02",
+              "ch05.s12.p02.03"
+            ],
+            "cites": [
+              "0PpxZ3kNPWo@1449",
+              "0PpxZ3kNPWo@1452",
+              "0PpxZ3kNPWo@1457",
+              "0PpxZ3kNPWo@1459",
+              "0PpxZ3kNPWo@1460"
+            ],
+            "verdict": "partial",
+            "confidence": 0.78,
+            "reason": "Supported: 'one epoch is going through the entire data set once.' Not fully supported: the sentence adds that 'within each epoch the code iterates over each batch'; the cited lines mention a second loop and 'within each batch' but do not clearly state iterating over each batch within an epoch."
+          },
+          {
+            "id": "ch05.fig3.c2",
+            "type": "F",
+            "text": "The first step is to set the model to training mode.",
+            "sentences": [
+              "ch05.s12.p02.04"
+            ],
+            "cites": [
+              "0PpxZ3kNPWo@1609",
+              "0PpxZ3kNPWo@1612",
+              "0PpxZ3kNPWo@1613",
+              "0PpxZ3kNPWo@1615",
+              "0PpxZ3kNPWo@1617"
+            ],
+            "verdict": "supported",
+            "confidence": 0.97,
+            "reason": ""
+          },
+          {
+            "id": "ch05.fig3.c3",
+            "type": "F",
+            "text": "The second step is to reset the loss gradients from the previous batch.",
+            "sentences": [
+              "ch05.s12.p02.05"
+            ],
+            "cites": [
+              "0PpxZ3kNPWo@1619",
+              "0PpxZ3kNPWo@1621",
+              "0PpxZ3kNPWo@1624",
+              "0PpxZ3kNPWo@1626",
+              "0PpxZ3kNPWo@1630",
+              "0PpxZ3kNPWo@1633"
+            ],
+            "verdict": "supported",
+            "confidence": 0.96,
+            "reason": ""
+          },
+          {
+            "id": "ch05.fig3.c4",
+            "type": "F",
+            "text": "The third step computes the loss on the current batch.",
+            "sentences": [
+              "ch05.s12.p02.06"
+            ],
+            "cites": [
+              "0PpxZ3kNPWo@1469",
+              "0PpxZ3kNPWo@1472",
+              "0PpxZ3kNPWo@1475",
+              "0PpxZ3kNPWo@1478",
+              "0PpxZ3kNPWo@1480",
+              "0PpxZ3kNPWo@1636",
+              "0PpxZ3kNPWo@1637",
+              "0PpxZ3kNPWo@1639",
+              "0PpxZ3kNPWo@1642",
+              "0PpxZ3kNPWo@1644",
+              "0PpxZ3kNPWo@1646",
+              "0PpxZ3kNPWo@1647",
+              "0PpxZ3kNPWo@1650"
+            ],
+            "verdict": "supported",
+            "confidence": 0.9,
+            "reason": ""
+          },
+          {
+            "id": "ch05.fig3.c5",
+            "type": "F",
+            "text": "A backward pass calculates loss gradients.",
+            "sentences": [
+              "ch05.s12.p02.06",
+              "ch05.s12.p02.08"
+            ],
+            "cites": [
+              "0PpxZ3kNPWo@1469",
+              "0PpxZ3kNPWo@1472",
+              "0PpxZ3kNPWo@1475",
+              "0PpxZ3kNPWo@1478",
+              "0PpxZ3kNPWo@1480",
+              "0PpxZ3kNPWo@1510",
+              "0PpxZ3kNPWo@1512",
+              "0PpxZ3kNPWo@1514",
+              "0PpxZ3kNPWo@1516",
+              "0PpxZ3kNPWo@1518",
+              "0PpxZ3kNPWo@1521",
+              "0PpxZ3kNPWo@1522",
+              "0PpxZ3kNPWo@1636",
+              "0PpxZ3kNPWo@1637",
+              "0PpxZ3kNPWo@1639",
+              "0PpxZ3kNPWo@1642",
+              "0PpxZ3kNPWo@1644",
+              "0PpxZ3kNPWo@1646",
+              "0PpxZ3kNPWo@1647",
+              "0PpxZ3kNPWo@1650"
+            ],
+            "verdict": "supported",
+            "confidence": 0.95,
+            "reason": ""
+          },
+          {
+            "id": "ch05.fig3.c6",
+            "type": "F",
+            "text": "An optimizer step updates the model weights.",
+            "sentences": [
+              "ch05.s12.p02.06",
+              "ch05.s12.p02.09"
+            ],
+            "cites": [
+              "0PpxZ3kNPWo@1469",
+              "0PpxZ3kNPWo@1472",
+              "0PpxZ3kNPWo@1475",
+              "0PpxZ3kNPWo@1478",
+              "0PpxZ3kNPWo@1480",
+              "0PpxZ3kNPWo@1521",
+              "0PpxZ3kNPWo@1522",
+              "0PpxZ3kNPWo@1524",
+              "0PpxZ3kNPWo@1526",
+              "0PpxZ3kNPWo@1528",
+              "0PpxZ3kNPWo@1529",
+              "0PpxZ3kNPWo@1532",
+              "0PpxZ3kNPWo@1636",
+              "0PpxZ3kNPWo@1637",
+              "0PpxZ3kNPWo@1639",
+              "0PpxZ3kNPWo@1642",
+              "0PpxZ3kNPWo@1644",
+              "0PpxZ3kNPWo@1646",
+              "0PpxZ3kNPWo@1647",
+              "0PpxZ3kNPWo@1650"
+            ],
+            "verdict": "supported",
+            "confidence": 0.86,
+            "reason": ""
+          },
+          {
+            "id": "ch05.fig3.c7",
+            "type": "F",
+            "text": "After the weights are updated, the code prints the training loss and the validation loss.",
+            "sentences": [
+              "ch05.s12.p02.07"
+            ],
+            "cites": [
+              "0PpxZ3kNPWo@1496",
+              "0PpxZ3kNPWo@1500",
+              "0PpxZ3kNPWo@1501",
+              "0PpxZ3kNPWo@1504",
+              "0PpxZ3kNPWo@1506"
+            ],
+            "verdict": "supported",
+            "confidence": 0.93,
+            "reason": ""
+          }
+        ]
+      }
+    ]
+  }
+}

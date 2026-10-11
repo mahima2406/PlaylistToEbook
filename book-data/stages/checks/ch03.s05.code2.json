@@ -1,0 +1,24 @@
+{
+  "stage": "checks",
+  "item": "ch03.s05.code2",
+  "inputs_hash": "0f6361cccabd1fee4b47a25b3562f76aa537b8a2e7036333110b609fe4cc3550",
+  "output_hash": "13b537ee303b5ae86544f590f13ee28b95ecf0a97f30e94e901d8fa04646fa29",
+  "output": [
+    {
+      "sentence_id": "ch03.s05.p04.05",
+      "expected": 3,
+      "expression": "all_context_vecs.shape[1]",
+      "tolerance": 0,
+      "check_id": "ch03.s05.code2.chk1",
+      "sentence_text": "With attention weights of shape 6x6 and inputs of shape 6x3, the multiplication is valid and produces a 6x3 context matrix."
+    },
+    {
+      "sentence_id": "ch03.s05.p04.06",
+      "expected": 6,
+      "expression": "all_context_vecs.shape[0]",
+      "tolerance": 0,
+      "check_id": "ch03.s05.code2.chk2",
+      "sentence_text": "Each row of the final 6x3 matrix is the context vector for the corresponding token: the first row for the first token, the second row for the second token, and so on through the sixth row."
+    }
+  ]
+}

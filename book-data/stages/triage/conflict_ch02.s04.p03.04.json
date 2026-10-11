@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch02.s04.p03.04",
+  "inputs_hash": "495f448b62d131290adc73e8c0f27e4b096a56e58c99f5f0990a59fbda9419bc",
+  "output_hash": "030eb4a092a21d66eea02c1803a6eec0a5012c61ea53af47ade2f35832b7570e",
+  "output": {
+    "decision": "edit",
+    "text": "Its disadvantages are that, with a fixed word-level vocabulary, we don't know what to do with out-of-vocabulary words and the vocabulary size is pretty large.",
+    "reason": "The captions describe a fixed word-level vocabulary limitation, while the original wording overgeneralises and conflicts with the reference's explanation of BPE.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.95,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "8ad2da31ffe98a9e951fb541f62c3d2bdcdd3efb46b17b13f235f923b60399a2"
+  }
+}

@@ -1,0 +1,317 @@
+{
+  "stage": "crosscheck",
+  "item": "ch03.s06",
+  "inputs_hash": "e47081b6f244140ca3c24226d2a5e87430a6bffcbeb2ca32a4631dd281073496",
+  "output_hash": "6e505c31645e8ca56508458f1c4a6a0f4645364c9b06900cedac5b6193f6d4ac",
+  "output": {
+    "section_id": "ch03.s06",
+    "checked": 25,
+    "counts": {
+      "agrees": 13,
+      "contradicts": 0,
+      "not_covered": 12
+    },
+    "results": [
+      {
+        "sentence_id": "ch03.s06.p01.02",
+        "text": "In the simplified mechanism here, trainable weights are not used, although trainable weights are added later in LLMs because they help the model understand context text much better and learn in a better way.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell18",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell58",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly introduces a simple self-attention mechanism without trainable weights (Sec. 3.3.1) and then moves to implementing self-attention with trainable weights used in Transformers/GPT/LLMs (Sec. 3.4). It does not explicitly justify it as \"understand context much better,\" but it is consistent with the framing that trainable weights are added for the real mechanism."
+      },
+      {
+        "sentence_id": "ch03.s06.p01.03",
+        "text": "That simplified mechanism still matters because the same underlying intuition and mechanism carry over to key, query, and value attention.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell70",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell69"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference says the no-trainable-weights mechanism is purely illustrative and the next section extends it to the real self-attention mechanism with query/key/value, indicating the underlying idea carries over."
+      },
+      {
+        "sentence_id": "ch03.s06.p01.04",
+        "text": "The main change is in the final multiplication: instead of multiplying the attention weight matrix by the input matrix, this formulation multiplies by the values.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell77",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell38"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "In the simplified mechanism, the context vector is computed by weighting and summing the embedded input tokens x^(i) (i.e., multiplying attention weights with input vectors). In the trainable-weight formulation, attention weights are applied to value vectors; this matches the stated change from using inputs directly to using values."
+      },
+      {
+        "sentence_id": "ch03.s06.p01.05",
+        "text": "Once this simpler version is clear, key, query, and value are easier to understand because the intuition remains the same.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell70",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell69",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell2"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference positions the simplified mechanism as an illustration that will be extended to the real query/key/value mechanism, consistent with the claim that understanding the simple version helps with Q/K/V since the intuition remains similar."
+      },
+      {
+        "sentence_id": "ch03.s06.p02.r01",
+        "text": "The limitation of the current approach is that attention weights come only from dot products.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell95",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell29",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages mention \"scaled dot-product attention\" and define dot products, but they do not state a limitation that the current approach’s attention weights come only from dot products (nor contrast against other scoring functions)."
+      },
+      {
+        "sentence_id": "ch03.s06.p02.r02",
+        "text": "In this setup, attention is driven by semantic alignment between vectors.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell27",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell132"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference describes computing attention scores via dot products between a query and other tokens/keys, but it does not characterize this as being driven by \"semantic alignment\" specifically."
+      },
+      {
+        "sentence_id": "ch03.s06.p02.r04",
+        "text": "To capture what is happening in the current sentence, the model needs information beyond meaning alone, and without trainable weights it will not capture that context effectively.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell16",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell23",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references state the simplified self-attention lacks trainable weights and is not the transformer mechanism, and separately that an untrained model produces poor text, but they do not assert that capturing sentence context requires information beyond meaning alone or that lack of trainable weights is the reason context is not captured effectively."
+      },
+      {
+        "sentence_id": "ch03.s06.p02.r05",
+        "text": "Without trainable weights, the model does capture some context, but it mainly gives attention to words that are similar in meaning to the query.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell18",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell21",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell40"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference shows how context vectors are computed in the no-weights setup (attention weights times input vectors) but does not state that it mainly attends to semantically similar words."
+      },
+      {
+        "sentence_id": "ch03.s06.p03.02",
+        "text": "Take the sentence \"the cat sat on the mat because it is warm\" and use \"warm\" as the query.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell81",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell90",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell70"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference passage mentions the example sentence \"the cat sat on the mat because it is warm\" or using \"warm\" as the query."
+      },
+      {
+        "sentence_id": "ch03.s06.p03.03",
+        "text": "If trainable weights are not used, attention is computed only from the dot product between the query embedding for \"warm\" and each word embedding.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell25",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell73",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell28"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The simplified no-trainable-weights code computes attention scores as dot products between the chosen query token embedding and each other input embedding (torch.dot(x_i, query)), which matches the statement."
+      },
+      {
+        "sentence_id": "ch03.s06.p03.04",
+        "text": "In that case, \"warm\" is most similar to itself, may be somewhat related to \"mat\", and words such as \"the\", \"cat\", and \"sat\" can receive low similarity scores because they are not semantically related to \"warm\".",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not discuss the specific similarity relations for \"warm\" vs. \"mat/the/cat/sat\" or any semantic score outcomes for that example."
+      },
+      {
+        "sentence_id": "ch03.s06.p03.05",
+        "text": "So without trainable weights, attention mainly follows semantic similarity to the query.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell18",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell58",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell21"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the section title indicates no trainable weights and the mechanism uses dot-product-based scores, the provided passages do not explicitly conclude that attention mainly follows semantic similarity to the query."
+      },
+      {
+        "sentence_id": "ch03.s06.p03.06",
+        "text": "Yet in this sentence, \"mat\" can be the most important word for the query \"warm\" because the mat is warm, even though \"mat\" and \"warm\" are not closely related in meaning.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell81",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell146",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell83"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references discuss model instruction-following, loading weights, and finetuning accuracy, but do not address an example where a non-semantic token (\"mat\") becomes important for a query token (\"warm\") due to context."
+      },
+      {
+        "sentence_id": "ch03.s06.p03.07",
+        "text": "Trainable weights let the model learn that \"warm\" should pay more attention to \"mat\" even if \"mat\" is not semantically similar to \"warm\" in the embedding space.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell146",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the references mention simplified attention without trainable weights and later implementing real self-attention, they do not state that trainable weights specifically enable \"warm\" to attend to \"mat\" despite lack of semantic similarity in embedding space."
+      },
+      {
+        "sentence_id": "ch03.s06.p03.08",
+        "text": "That is why trainable weights are needed to capture contextual relationships and long-range dependencies that would be lost if attention relied only on semantic similarity.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell12",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell58",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell21"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited cells are section headers/definitions and do not explicitly claim that trainable weights are needed to capture contextual relationships/long-range dependencies versus relying only on semantic similarity."
+      },
+      {
+        "sentence_id": "ch03.s06.p04.r02",
+        "text": "The input matrix is multiplied by the query, key, and value weight matrices to produce the queries matrix, keys matrix, and values matrix.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell77"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly defines q^{(i)}=x^{(i)}W_q, k^{(i)}=x^{(i)}W_k, v^{(i)}=x^{(i)}W_v, which corresponds to multiplying the input (matrix of token embeddings) by query/key/value weight matrices to obtain Q/K/V matrices."
+      },
+      {
+        "sentence_id": "ch03.s06.p04.r03",
+        "text": "These query, key, and value weight matrices are trainable parameters learned from input data, although the focus here is on the forward pass rather than training or backpropagation.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell70",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell67"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference introduces W_q, W_k, W_v as training weight matrices and notes requires_grad is set False only for illustration, implying they are normally trainable; it also focuses on forward-pass computations in the walkthrough."
+      },
+      {
+        "sentence_id": "ch03.s06.p04.r04",
+        "text": "After that, the attention scores are computed by multiplying the queries matrix by the transpose of the keys matrix.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell77",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided excerpts mention scaling attention scores and PyTorch matrix multiplication behavior but do not explicitly state (in the quoted text) that attention scores are computed as Q multiplied by K transposed."
+      },
+      {
+        "sentence_id": "ch03.s06.p04.r05",
+        "text": "Each row of that attention score matrix shows how much attention one particular query pays to all the keys in the sentence.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell46",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell75"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references describe computing a pairwise attention score matrix and normalizing each row, consistent with the interpretation that each row corresponds to one query’s scores over all keys."
+      },
+      {
+        "sentence_id": "ch03.s06.p04.r06",
+        "text": "The scores are converted into attention weights by dividing by the square root of the key dimension and then applying softmax.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell101"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states that attention weights are computed by scaling attention scores by dividing by sqrt(d_k) and then applying softmax to obtain normalized weights."
+      },
+      {
+        "sentence_id": "ch03.s06.p04.r07",
+        "text": "Attention weights correspond to the attention scores, but each row of the attention weight matrix sums to one, giving the rows a probabilistic meaning.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell21",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell104",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell109"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference defines attention scores as unnormalized and attention weights as normalized to sum to 1, and explicitly discusses ensuring rows sum to 1, aligning with probabilistic row interpretation."
+      },
+      {
+        "sentence_id": "ch03.s06.p04.r08",
+        "text": "The final context vectors are obtained by multiplying the attention weight matrix by the values matrix.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell38",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references describe context vectors as weighted sums over input/value vectors using attention weights, which is equivalent to multiplying the attention weight matrix by the values matrix to obtain context vectors."
+      },
+      {
+        "sentence_id": "ch03.s06.p04.r09",
+        "text": "Each row of the resulting context vector matrix is the context vector for the corresponding token.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show computing a context vector for a specific query and discuss token-level outputs elsewhere, but do not explicitly state that each row of the context matrix corresponds to the context vector for the corresponding token."
+      },
+      {
+        "sentence_id": "ch03.s06.p04.r10",
+        "text": "A token’s context vector is richer than its original embedding because it also contains information about how much attention should be paid to the other words.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell67",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell16"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explains that attention connects each token to other tokens and that later tokens can contain information about prior tokens due to causal attention, supporting the idea that a token’s context vector/representation incorporates information from other words beyond its original embedding."
+      },
+      {
+        "sentence_id": "ch03.s06.p04.r11",
+        "text": "These context vectors are the inputs used for language model training, and the aim of attention is to produce one context vector for each input embedding vector so that next-word prediction becomes more reliable.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference describes self-attention as computing context vectors (weighted sums over input vectors) for each input element (query), which matches producing one context vector per input embedding to support language modeling. While the reference doesn’t explicitly state that context vectors are the direct inputs used for training, it is consistent with the idea that these context vectors are computed from token embeddings and used downstream (e.g., for next-token prediction)."
+      }
+    ],
+    "conflicts": []
+  }
+}

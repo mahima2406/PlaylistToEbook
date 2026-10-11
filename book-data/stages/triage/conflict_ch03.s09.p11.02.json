@@ -1,0 +1,13 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch03.s09.p11.02",
+  "inputs_hash": "68fd1657355d0155c844d5c96065022230d6327da6fced6e03114f0baefab34b",
+  "output_hash": "0ade121d8da5785b82a343f07d9fc4be54afc783b1af8ee9755883a378d17564",
+  "output": {
+    "decision": "keep",
+    "reason": "The sentence accurately reports the lecture’s toy demonstration settings from the cited captions, while the reference values describe separate illustrative and full-model examples.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "10f85934fc922a6db82b6fedae96477f98b50909c6e128013b30eba2d9371533"
+  }
+}

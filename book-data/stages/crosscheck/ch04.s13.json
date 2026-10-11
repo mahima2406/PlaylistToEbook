@@ -1,0 +1,191 @@
+{
+  "stage": "crosscheck",
+  "item": "ch04.s13",
+  "inputs_hash": "cefe01a085044318da0e419aab005f8cd1b28cf5d389ac851fae5b5999dd82ea",
+  "output_hash": "13d550410fd883510ef3f5e8140a7ef9cbfb413dbe1625be5985bf9d179c6e48",
+  "output": {
+    "section_id": "ch04.s13",
+    "checked": 13,
+    "counts": {
+      "agrees": 2,
+      "contradicts": 2,
+      "not_covered": 9
+    },
+    "results": [
+      {
+        "sentence_id": "ch04.s13.p01.02",
+        "text": "Top-k sampling is a decoding strategy for large language models, and it is used along with temperature scaling.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell88",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell104",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell108"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference sections explicitly introduce temperature scaling (5.3.1) and top-k sampling (5.3.2) as decoding strategies used to modify generation, implying they are used together in the decoding toolkit."
+      },
+      {
+        "sentence_id": "ch04.s13.p01.03",
+        "text": "Temperature scaling helps make the distribution sharper or more uniform, and it also helps prevent overfitting when sampling from a multinomial distribution.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell99",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell88",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell95"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference supports that temperature scaling makes distributions sharper (T<1) or more uniform (T>1), but it does not describe temperature scaling as preventing overfitting; it frames it as controlling randomness/diversity during decoding."
+      },
+      {
+        "sentence_id": "ch04.s13.p01.04",
+        "text": "Top-k sampling is paired with it because, after temperature scaling, random tokens can still have an opportunity to become the next token, whereas top-k sampling restricts sampling to the top-k most likely tokens.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell104",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell108",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell105"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states that to use higher temperatures for more diversity while reducing nonsensical outputs, sampling can be restricted to the top-k most likely tokens—consistent with top-k limiting the token set after temperature affects probabilities."
+      },
+      {
+        "sentence_id": "ch04.s13.p01.05",
+        "text": "In the stated workflow, the model first produces a logits tensor, then top-k sampling is applied, tokens outside the top k are replaced with negative infinity, temperature scaling is applied to the logits, softmax is applied, and the next token is finally sampled from the multinomial distribution.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell108",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell114",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell109"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The shown generate() code applies top-k filtering to logits first, then (later in the function) applies temperature and then softmax/multinomial sampling. The sentence’s specific workflow/order and claim that temperature scaling is applied after replacing outside-top-k with -inf is not supported as stated, and it asserts a full pipeline not fully shown in the provided excerpt."
+      },
+      {
+        "sentence_id": "ch04.s13.p01.06",
+        "text": "That workflow is presented as a way to reduce or minimize overfitting.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell85"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited reference about minimizing loss during training/validation does not connect the decoding workflow to reducing or minimizing overfitting."
+      },
+      {
+        "sentence_id": "ch04.s13.p02.02",
+        "text": "An earlier deterministic prediction setup is described as causing an overfitting problem, and the newer decoding strategy is described as solving that problem.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell7"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided chapter 3 reference snippet discusses causal self-attention and long-sequence modeling, not an overfitting problem caused by deterministic prediction nor decoding strategies solving it."
+      },
+      {
+        "sentence_id": "ch04.s13.p02.03",
+        "text": "The explanation is that, under deterministic prediction, the next tokens were just being taken from the text already available.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell95"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The causal self-attention reference explains masking future tokens, not that deterministic prediction took next tokens from the already-available text."
+      },
+      {
+        "sentence_id": "ch04.s13.p02.04",
+        "text": "Directly taking some next tokens from the source text is identified as a classic sign of overfitting.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell52"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided tokenizer/special-token reference does not discuss copying source text or identify it as a sign of overfitting."
+      },
+      {
+        "sentence_id": "ch04.s13.p02.05",
+        "text": "By contrast, the implemented decoding strategies are described as probabilistic in nature, and that probabilistic sampling is presented as the reason the GPT model will not memorize the passage when predicting the next words.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell87",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell18",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference notes deterministic generation yields the same output and that decoding strategies control randomness/diversity, but it does not claim probabilistic sampling prevents memorization of the passage."
+      },
+      {
+        "sentence_id": "ch04.s13.p02.06",
+        "text": "The same idea is related to ChatGPT: it is said to give new output rather than memorizing what was written, because of decoding strategies such as top-k sampling and temperature scaling.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell87",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell84",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell88"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages discuss decoding strategies and randomness/diversity but do not mention ChatGPT or attribute non-memorization/new output to these strategies."
+      },
+      {
+        "sentence_id": "ch04.s13.p03.r02",
+        "text": "The generated continuation includes words such as \"moves us stand to work on surprise,\" and these words are said not to be present in the original text.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell13"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the provided references mention the specific generated phrases (\"moves us stand to work on surprise\") or compare them to an original text."
+      },
+      {
+        "sentence_id": "ch04.s13.p03.r03",
+        "text": "A search of the original text for \"moves you\" and for \"stand to work\" is reported as finding that those phrases are not there.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell130",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell46"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not report any search of the original text for the phrases \"moves you\" or \"stand to work.\""
+      },
+      {
+        "sentence_id": "ch04.s13.p03.r04",
+        "text": "From this, the generated next tokens are described as completely new, with the model generating new tokens and new sentences instead of just memorizing the original text.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell82",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell116",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited reference snippets are about text generation section headings and a classifier training function (tracking examples_seen, computing accuracy, loading a model). They do not address whether generated next tokens are 'completely new' or whether the model generates new sentences vs memorizing original text."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch04.s13.p01.03",
+        "text": "Temperature scaling helps make the distribution sharper or more uniform, and it also helps prevent overfitting when sampling from a multinomial distribution.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell99",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell88",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell95"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference supports that temperature scaling makes distributions sharper (T<1) or more uniform (T>1), but it does not describe temperature scaling as preventing overfitting; it frames it as controlling randomness/diversity during decoding."
+      },
+      {
+        "sentence_id": "ch04.s13.p01.05",
+        "text": "In the stated workflow, the model first produces a logits tensor, then top-k sampling is applied, tokens outside the top k are replaced with negative infinity, temperature scaling is applied to the logits, softmax is applied, and the next token is finally sampled from the multinomial distribution.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell108",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell114",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell109"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The shown generate() code applies top-k filtering to logits first, then (later in the function) applies temperature and then softmax/multinomial sampling. The sentence’s specific workflow/order and claim that temperature scaling is applied after replacing outside-top-k with -inf is not supported as stated, and it asserts a full pipeline not fully shown in the provided excerpt."
+      }
+    ]
+  }
+}

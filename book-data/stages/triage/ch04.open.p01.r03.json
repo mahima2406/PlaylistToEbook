@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch04.open.p01.r03",
+  "inputs_hash": "d7ed455639022868e74cc55c2b8b836889c1b69573cbc15628946b73e92322ba",
+  "output_hash": "8a9cf9d96c650cc306389c55a4265d8e27151a686ea652ce3a09b03061111f7e",
+  "output": {
+    "decision": "edit",
+    "text": "It also marks the point where training becomes necessary, because next-token predictions need training to make sense rather than remain random.",
+    "reason": "The captions support that training is needed so next-token predictions make sense, but not the broader 'shift from architecture to training' framing.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.78,
+      "reason": "The cited lines support that training is needed so the next-token prediction makes sense (\"we need to train... so that the next token... makes sense\"). They do not support the added claim that without training the predictions would \"remain random\" or explicitly that this is the specific \"point\" where training becomes necessary."
+    },
+    "kind": "queue",
+    "sentence_hash": "a15826a747f96e4caddeabfb333832c81b37a0fda3ce47bc98edad322a585638"
+  }
+}

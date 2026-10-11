@@ -1,0 +1,395 @@
+{
+  "stage": "crosscheck",
+  "item": "ch02.s03",
+  "inputs_hash": "1e1fafd9753bf9ebdf547553b7de05ec9983986d730b09a746a5c4eebc082e14",
+  "output_hash": "8c9af5de97b2503ae57ccdc832c094ccf5cc9e13554497918e11314fd2e1a3f5",
+  "output": {
+    "section_id": "ch02.s03",
+    "checked": 30,
+    "counts": {
+      "agrees": 15,
+      "contradicts": 2,
+      "not_covered": 13
+    },
+    "results": [
+      {
+        "sentence_id": "ch02.s03.p01.02",
+        "text": "To build intuition, it helps to construct a word-based tokenizer from scratch before moving to the subword-based tokenizer used in GPT models.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell1",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell70",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell126"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References note GPT-2 uses BPE and give context about tokenizers, but do not state that it helps to first build a word-based tokenizer for intuition before moving to subword tokenizers."
+      },
+      {
+        "sentence_id": "ch02.s03.p01.04",
+        "text": "The code begins by opening the document, reading the full contents into a variable called \"raw text\", and then checking that the read succeeded by printing the total number of characters and a sample of the text.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell54",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell57",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell18"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "ch02 cell18 shows opening the file, reading into `raw_text`, and printing character count and a sample; ch05 cells also show printing character/token counts as a loading sanity check."
+      },
+      {
+        "sentence_id": "ch02.s03.p01.05",
+        "text": "In the example shown here, the file has 20479 characters, and the first 100 characters are printed to verify that they match the book text.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell57",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell54",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell55"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References show printing first 99 characters and computing character counts, but do not provide the specific value 20479 characters nor mention printing the first 100 characters or verifying against the book text."
+      },
+      {
+        "sentence_id": "ch02.s03.p02.02",
+        "text": "Using Python's regular expression library, text can be split wherever whitespace characters occur.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell19",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell21",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell57"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "ch02 cell19 states a regex will split on whitespaces, consistent with splitting text on whitespace using Python regex."
+      },
+      {
+        "sentence_id": "ch02.s03.p02.03",
+        "text": "But splitting only on whitespace is not enough, because punctuation stays attached to words and whitespace tokens may remain in the result.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell24"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "ch02 demonstrates filtering out whitespace/empty items after splitting, aligning with the point that whitespace-only splitting is insufficient and whitespace tokens may need removal."
+      },
+      {
+        "sentence_id": "ch02.s03.p02.05",
+        "text": "A better approach is to split not only on whitespace but also on punctuation and other special characters, and then remove the whitespace tokens afterward.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell25",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell57",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell21"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "ch02 indicates modifying the regex to split on punctuation in addition to whitespace and then stripping/filtering whitespace tokens."
+      },
+      {
+        "sentence_id": "ch02.s03.p02.06",
+        "text": "The regular expression is updated to split on characters such as commas, full stops, colons, semicolons, question marks, underscores, exclamation marks, quotation marks, brackets, and slashes, and the resulting list is filtered so that only non-whitespace items remain.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell25",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell21",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell19"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The implemented regex shown is `re.split(r'([,.:;?_!\"()\\']|--|\\s)', raw_text)`, which includes commas, periods, colons, semicolons, question marks, underscores, exclamation marks, double quotes, parentheses, apostrophes, double-dash, and whitespace—but it does not include brackets or slashes as stated."
+      },
+      {
+        "sentence_id": "ch02.s03.p02.07",
+        "text": "After this processing, words and punctuation become separate tokens and whitespace is no longer kept as a token.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell136",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell13"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "ch02 describes tokenizing into words and punctuation characters, and the shown preprocessing filters out whitespace-only items, consistent with punctuation/words as separate tokens and whitespace not retained."
+      },
+      {
+        "sentence_id": "ch02.s03.p03.02",
+        "text": "The same splitting and whitespace-removal steps are applied to the entire dataset to create a preprocessed list containing all tokens from the essay.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell60",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell29"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "ch02 cell29 applies the split/strip/filter steps to `raw_text` (the full essay) producing `preprocessed`, a token list over the whole text."
+      },
+      {
+        "sentence_id": "ch02.s03.p03.03",
+        "text": "To check the result, the code prints the first 30 tokens of the preprocessed list.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell29",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "ch02 cell29 prints `preprocessed[:30]`, i.e., the first 30 tokens."
+      },
+      {
+        "sentence_id": "ch02.s03.p03.04",
+        "text": "Those tokens show that the essay has been broken into individual words, while special symbols such as the dash also appear as separate tokens.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell52",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell13",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell51"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "ch02 explains tokens can be words and punctuation characters, and the regex explicitly treats `--` as a token, consistent with dashes/symbols appearing separately."
+      },
+      {
+        "sentence_id": "ch02.s03.p03.05",
+        "text": "The preprocessed list contains 4690 tokens in total, including duplicates.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell29",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell57",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell60"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show how `preprocessed` is created and how a set is taken, but they do not state the total length of `preprocessed` (4690) including duplicates."
+      },
+      {
+        "sentence_id": "ch02.s03.p04.r01",
+        "text": "To create token IDs, you take all tokens, remove duplicates, sort the unique tokens in ascending or alphabetical order, and then assign IDs starting from zero in that order.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell35",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell49",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The code builds unique tokens and sorts them, but then extends the sorted list with special tokens (\"<|endoftext|>\", \"<|unk|>\") appended after sorting before assigning IDs via enumerate, so IDs are not assigned purely in ascending/alphabetical order over the full vocabulary."
+      },
+      {
+        "sentence_id": "ch02.s03.p04.r02",
+        "text": "For example, with the text \"the quick brown fox jumps over the lazy dog\", the tokens are arranged alphabetically as \"brown\", \"dog\", \"fox\", \"jumps\", \"lazy\", \"over\", \"quick\", and \"the\" before IDs are assigned.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell54",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell46",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell52"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference passage describes this specific example text or the exact alphabetical ordering of those particular tokens."
+      },
+      {
+        "sentence_id": "ch02.s03.p04.r03",
+        "text": "This mapping is the vocabulary: a dictionary in which every unique token is paired with a unique integer token ID.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell35",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell37",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference defines vocab as a mapping from unique tokens to integer IDs (e.g., vocab = {token: integer for integer, token in enumerate(...)}), matching the described vocabulary concept."
+      },
+      {
+        "sentence_id": "ch02.s03.p04.r04",
+        "text": "In code, constructing the vocabulary means taking the preprocessed token list, converting it into a set to remove duplicates, and then sorting it in ascending order.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell38",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell32",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell42"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The shown code uses sorted(list(set(preprocessed))) but also extends with special tokens; the references provided here do not explicitly state the full procedure as 'set then sort' as a general definition of constructing the vocabulary."
+      },
+      {
+        "sentence_id": "ch02.s03.p04.r05",
+        "text": "The vocabulary size shown here is 1130.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell99",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell90",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell5"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the cited reference cells state that the vocabulary size is 1130."
+      },
+      {
+        "sentence_id": "ch02.s03.p04.r06",
+        "text": "After sorting, Python's \"enumerate\" function is used to assign each token an integer token ID.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell37",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell60",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly uses enumerate to assign integer IDs after obtaining the token list (e.g., vocab = {token: integer for integer, token in enumerate(all_tokens)})."
+      },
+      {
+        "sentence_id": "ch02.s03.p04.r07",
+        "text": "Because the tokens are enumerated in ascending order, the first token gets ID 0, the second gets ID 1, and so on.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell92",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell140",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Using enumerate assigns IDs starting at 0 and increasing by 1 in the order of the token list; with a sorted token list this yields 0,1,2,... in that order."
+      },
+      {
+        "sentence_id": "ch02.s03.p05.r01",
+        "text": "A tokenizer class in Python takes the vocabulary and provides an \"encode\" method and a \"decode\" method.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell68",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell50"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references demonstrate a tokenizer with encode and decode methods (e.g., tokenizer.decode(tokenizer.encode(text)))."
+      },
+      {
+        "sentence_id": "ch02.s03.p05.r02",
+        "text": "The \"encode\" method converts words or input text into token IDs, and the \"decode\" method converts token IDs back into tokens or text.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell44",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell48",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell49"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly states encode turns text into token IDs and decode turns token IDs back into text."
+      },
+      {
+        "sentence_id": "ch02.s03.p05.r03",
+        "text": "To support decoding, the class keeps both a string-to-integer dictionary and a reverse integer-to-string dictionary.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell20",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell37",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell60"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages show only the token->integer vocab construction; they do not show or state that the class also stores a reverse integer->string dictionary."
+      },
+      {
+        "sentence_id": "ch02.s03.p05.r04",
+        "text": "In \"encode\", the input text is split on the chosen characters, whitespace is removed, and the remaining strings are looked up in the vocabulary to return a list of token IDs.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell136",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the references mention segmentation into tokens and conversion to IDs, they do not specify the exact encode steps claimed here (splitting on chosen characters, removing whitespace, lookup details)."
+      },
+      {
+        "sentence_id": "ch02.s03.p05.r05",
+        "text": "In \"decode\", a list of token IDs is mapped back to strings with the integer-to-string dictionary, and those strings are joined to reconstruct the text.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell75",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell48",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show decode being called, but do not explicitly describe that it maps IDs via an integer-to-string dictionary and then joins the strings to reconstruct text."
+      },
+      {
+        "sentence_id": "ch02.s03.p05.r06",
+        "text": "When decoding, an extra space usually appears before punctuation after joining, so that space has to be removed.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell71"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited reference text discusses projecting tokens in embedding space and does not mention decoding, whitespace before punctuation, or removing spaces."
+      },
+      {
+        "sentence_id": "ch02.s03.p06.r02",
+        "text": "The tokenizer instance is created by passing in the previously defined vocabulary.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell76"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited reference passage is about training the LLM and does not show or describe creating a tokenizer instance from a previously defined vocabulary."
+      },
+      {
+        "sentence_id": "ch02.s03.p06.r03",
+        "text": "After that, the instance can call the \"encode\" and \"decode\" methods.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell68",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell50",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell120"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references explicitly show calling tokenizer.decode(tokenizer.encode(text)), which demonstrates the instance can call encode and decode methods."
+      },
+      {
+        "sentence_id": "ch02.s03.p06.r04",
+        "text": "A sample input text is given to the tokenizer.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell58",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell96",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference shows defining a sample text string and passing it to tokenizer.encode(text), i.e., giving sample input text to the tokenizer."
+      },
+      {
+        "sentence_id": "ch02.s03.p06.r05",
+        "text": "Encoding that sentence splits it, removes whitespace, converts each token to a token ID, and produces a list of token IDs for the sentence.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell26",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell46"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show using text_to_token_ids/tokenizer.encode to obtain token IDs, but do not specify the detailed steps (splitting, removing whitespace, converting each token) of how encoding works."
+      },
+      {
+        "sentence_id": "ch02.s03.p06.r06",
+        "text": "Decoding those token IDs returns the same sentence.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell26",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell46"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show converting token IDs back to text (token_ids_to_text / decode usage) but do not establish that decoding returns the exact same original sentence in general."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch02.s03.p02.06",
+        "text": "The regular expression is updated to split on characters such as commas, full stops, colons, semicolons, question marks, underscores, exclamation marks, quotation marks, brackets, and slashes, and the resulting list is filtered so that only non-whitespace items remain.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell25",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell21",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell19"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The implemented regex shown is `re.split(r'([,.:;?_!\"()\\']|--|\\s)', raw_text)`, which includes commas, periods, colons, semicolons, question marks, underscores, exclamation marks, double quotes, parentheses, apostrophes, double-dash, and whitespace—but it does not include brackets or slashes as stated."
+      },
+      {
+        "sentence_id": "ch02.s03.p04.r01",
+        "text": "To create token IDs, you take all tokens, remove duplicates, sort the unique tokens in ascending or alphabetical order, and then assign IDs starting from zero in that order.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell35",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell49",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The code builds unique tokens and sorts them, but then extends the sorted list with special tokens (\"<|endoftext|>\", \"<|unk|>\") appended after sorting before assigning IDs via enumerate, so IDs are not assigned purely in ascending/alphabetical order over the full vocabulary."
+      }
+    ]
+  }
+}

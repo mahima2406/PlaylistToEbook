@@ -1,0 +1,450 @@
+{
+  "stage": "crosscheck",
+  "item": "ch04.s10",
+  "inputs_hash": "d83410d6ccb76481d92d9d1315f28cde8382c889f48383a69382f20dedea60b8",
+  "output_hash": "46fee1edc933a3cee379a8bfb65e1e4b297651b5081d3484f3a7138e946c4bbd",
+  "output": {
+    "section_id": "ch04.s10",
+    "checked": 36,
+    "counts": {
+      "agrees": 16,
+      "contradicts": 2,
+      "not_covered": 18
+    },
+    "results": [
+      {
+        "sentence_id": "ch04.s10.p01.02",
+        "text": "The pre-training loop uses multiple epochs, where one epoch is one pass through the entire training set.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell85",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell49",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The referenced training code uses a loop over `range(num_epochs)`, implying multiple epochs. An epoch corresponds to iterating through the training loader once, i.e., one pass through the training set as organized by the loader."
+      },
+      {
+        "sentence_id": "ch04.s10.p01.03",
+        "text": "Each epoch contains multiple batches because the training set is divided into batches.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell26",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell87",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell40"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references discuss organizing data into training batches and show `len(train_loader)` as the number of training batches, indicating the dataset is divided into batches within an epoch."
+      },
+      {
+        "sentence_id": "ch04.s10.p01.04",
+        "text": "The outer loop runs over the number of epochs, and the inner loop goes through each batch in the training data set.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell104"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The training loop shown in ch05 has an outer `for epoch in range(num_epochs):` and an inner `for input_batch, target_batch in train_loader:`, matching the described structure."
+      },
+      {
+        "sentence_id": "ch04.s10.p01.05",
+        "text": "After all batches have been processed once, the same procedure is repeated again until the specified number of epochs is finished.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Given the nested epoch/batch loop structure referenced (and described as reused across chapters), after processing all batches once, the loop continues to the next epoch until `num_epochs` is reached."
+      },
+      {
+        "sentence_id": "ch04.s10.p02.r01",
+        "text": "The code takes a batch from the training loader and divides it into an input batch and a target batch.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell38",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell69"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The data loader yields `(input_batch, target_batch)` pairs (`for input_batch, target_batch in train_loader:`), i.e., a batch is already provided as input and target components and then used by `calc_loss_batch`."
+      },
+      {
+        "sentence_id": "ch04.s10.p02.r02",
+        "text": "One input batch and one target batch are processed at a time.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell38",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell83"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The code processes batches iteratively: each iteration of the loader provides one `input_batch` and one `target_batch`, which are then used together to compute loss."
+      },
+      {
+        "sentence_id": "ch04.s10.p02.r03",
+        "text": "The inputs are passed through the GPT model to get logits, softmax is applied, and then the cross-entropy loss between the output and the target is computed.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell48",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell42",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references state that feeding inputs to the model yields logits, and softmax can convert logits to probabilities; the loss is computed via PyTorch `cross_entropy` between logits and targets (which internally applies log-softmax). This is consistent with the statement at a conceptual level."
+      },
+      {
+        "sentence_id": "ch04.s10.p02.r04",
+        "text": "For a batch, the cross-entropy loss is computed for the entire batch and then the backward pass is run to calculate the loss gradients.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell48",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell44"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages show batch-level cross-entropy loss computation, but do not show or state that a backward pass (`loss.backward()`) is run after computing the batch loss."
+      },
+      {
+        "sentence_id": "ch04.s10.p02.r06",
+        "text": "Frameworks such as TensorFlow or PyTorch can compute the entire backward pass in essentially one line of Python.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell132"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The referenced note is about a TensorFlow installation issue and does not state that TensorFlow/PyTorch can compute the backward pass in one line of Python."
+      },
+      {
+        "sentence_id": "ch04.s10.p03.r01",
+        "text": "The backward pass is the most important step because it calculates the gradients of the loss.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell73",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the provided references discuss the relative importance of the backward pass or explicitly state that it calculates gradients of the loss."
+      },
+      {
+        "sentence_id": "ch04.s10.p03.r02",
+        "text": "Those loss gradients make it possible to update the model weights and parameters.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell37",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell75"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references mention optimizing model weights and show training code that zeroes gradients and computes loss within an optimizer-based loop, consistent with gradients enabling parameter updates."
+      },
+      {
+        "sentence_id": "ch04.s10.p03.r03",
+        "text": "More concretely, once the loss is obtained, backpropagation finds the partial derivative of the loss with respect to all the parameters in the model.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell86",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell90",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell48"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages do not explain backpropagation as computing partial derivatives of the loss with respect to all model parameters."
+      },
+      {
+        "sentence_id": "ch04.s10.p03.r04",
+        "text": "Backpropagation through the GPT workflow is possible because the whole operation is differentiable, and differentiability is maintained at every step.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell37",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell117",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell25"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss optimizing log probability/loss and show embedding/attention computations, but they do not state that the entire GPT workflow is differentiable at every step or explicitly connect that property to backpropagation."
+      },
+      {
+        "sentence_id": "ch04.s10.p03.r05",
+        "text": "In the model under discussion, the parameter count is described as around 161 million, and a single call to \"loss.backward()\" computes gradients with respect to all of them.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference specifies loading a 355M-parameter model (and mentions 124M), which is incompatible with the sentence’s ~161M parameter count for the model under discussion."
+      },
+      {
+        "sentence_id": "ch04.s10.p03.r06",
+        "text": "The scale is striking because this backward pass and optimization can be done on a laptop in about five to six minutes.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell97",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell52"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference reports training takes about 5 minutes on an M3 MacBook Air, consistent with the claim that backward pass/optimization can be done on a laptop in roughly 5–6 minutes in this educational setup."
+      },
+      {
+        "sentence_id": "ch04.s10.p04.02",
+        "text": "A parameter update follows the rule that the new value equals the old value minus the step size multiplied by the loss gradient.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell69",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell70",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell73"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages are about computing query/key/value and attention scores; they do not describe the gradient-descent parameter update rule."
+      },
+      {
+        "sentence_id": "ch04.s10.p04.03",
+        "text": "During backpropagation, a gradient is computed for each parameter, and then all model weights are updated using those gradients.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell104",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell42"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention embeddings are updated during training, but they do not explicitly state that backprop computes a gradient for each parameter and then updates all weights using those gradients."
+      },
+      {
+        "sentence_id": "ch04.s10.p04.04",
+        "text": "The code illustrates simple gradient descent for the update rule, but the actual implementation uses Adam.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell9",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell69"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not show an update-rule example contrasted with Adam, nor do they state that the actual implementation uses Adam."
+      },
+      {
+        "sentence_id": "ch04.s10.p04.05",
+        "text": "Even with Adam, the underlying idea is still to compute gradients of the loss with respect to the weights and then update parameter values based on those gradients.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell90"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passage only comments on loss curves and qualitative behavior during training; it does not explain Adam or the gradient-based update concept."
+      },
+      {
+        "sentence_id": "ch04.s10.p04.06",
+        "text": "Parameters are updated in each iteration with the hope that the loss value keeps decreasing and reaches some minimum.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell90"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference notes decreasing training/validation loss during training, consistent with the idea that iterative parameter updates aim to reduce the loss toward a minimum."
+      },
+      {
+        "sentence_id": "ch04.s10.p04.07",
+        "text": "This is often pictured as moving through a loss landscape toward a minimum where the loss is minimized.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell52",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell89",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell86"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show loss computation/evaluation but do not discuss the conceptual ‘loss landscape’ picture or moving toward a minimum."
+      },
+      {
+        "sentence_id": "ch04.s10.p05.02",
+        "text": "In each iteration, the loop finds the loss, performs the backward pass to get loss gradients, and updates the parameters based on those gradients.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell90",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell86",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell90"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages mention training to improve loss values but do not describe an iteration loop explicitly performing loss computation, backward pass, and parameter updates."
+      },
+      {
+        "sentence_id": "ch04.s10.p05.03",
+        "text": "This repeated process is the main algorithm for pre-training a large language model.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference discusses positional embeddings composition, not the broader statement that the repeated loss/backward/update process is the main pre-training algorithm."
+      },
+      {
+        "sentence_id": "ch04.s10.p05.04",
+        "text": "In the code, after \"loss.backward()\" the next step is \"optimizer.step()\", which updates parameter values according to the gradient values that were obtained.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell73",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell61",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell72"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited references are about step-by-step attention computation and do not show or describe the training code sequence loss.backward() followed by optimizer.step()."
+      },
+      {
+        "sentence_id": "ch04.s10.p05.05",
+        "text": "The code also resets the loss gradients from the previous batch to zero before repeating the same process on the next batch.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell85",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The training loop shown calls optimizer.zero_grad() with an inline comment 'Reset loss gradients from previous batch iteration,' matching the sentence."
+      },
+      {
+        "sentence_id": "ch04.s10.p05.06",
+        "text": "With a context size of 256 and two samples in a batch, the model processes 512 tokens in that input batch.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell127",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell38"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss batch/token embedding tensor shapes (e.g., 8x4x256) but do not state that context length 256 with batch size 2 implies 512 tokens processed."
+      },
+      {
+        "sentence_id": "ch04.s10.p05.07",
+        "text": "The \"tokens seen\" value tracks how many input tokens have been processed so far, and it accumulates as the loop moves through batches.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell67",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell63",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell29"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference code accumulates token counts across batches via train_tokens += input_batch.numel(), consistent with a 'tokens seen' counter accumulating through batches."
+      },
+      {
+        "sentence_id": "ch04.s10.p06.r02",
+        "text": "The optimizer used here is \"AdamW\".",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell124",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell123"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly constructs the optimizer as torch.optim.AdamW(...)."
+      },
+      {
+        "sentence_id": "ch04.s10.p06.r03",
+        "text": "\"AdamW\" is a variation of Adam that uses weight decay.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell122"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference mentions Adam/AdamW as adaptive optimizers but does not define AdamW as Adam with weight decay."
+      },
+      {
+        "sentence_id": "ch04.s10.p06.r05",
+        "text": "With \"AdamW\", the learning rate and the weight decay are specified, and these are hyperparameters that need to be tuned.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell106",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell27"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references show AdamW instantiated with lr and weight_decay, and note hyperparameters like learning rate and weight_decay can be tweaked."
+      },
+      {
+        "sentence_id": "ch04.s10.p07.r02",
+        "text": "Setting the number of epochs to 10 means repeating the entire training process 10 times.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell38"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided reference snippet does not discuss what 'epochs' mean or relate num_epochs=10 to repeating training 10 times."
+      },
+      {
+        "sentence_id": "ch04.s10.p07.r03",
+        "text": "With that setting, a generated sample is printed after each epoch.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference states that in the classifier training function they calculate accuracy after each epoch instead of printing a sample text after each epoch, which conflicts with the claim that a generated sample is printed after each epoch."
+      },
+      {
+        "sentence_id": "ch04.s10.p07.r04",
+        "text": "An evaluation frequency and evaluation iteration of five means that training loss and validation loss are printed after every five batches.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell89",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell52",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell86"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show evaluating loss with num_batches=5, but do not document an 'evaluation frequency' meaning printing losses every five training batches."
+      },
+      {
+        "sentence_id": "ch04.s10.p07.r05",
+        "text": "The code records a start time and an end time to measure how long training takes.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell77",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell89",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell98"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References show start_time = time.time() before training and end_time = time.time() after, then computing and printing elapsed time."
+      },
+      {
+        "sentence_id": "ch04.s10.p07.r06",
+        "text": "The main step in the training code is \"loss.backward()\"; the remaining parts mainly print training and validation losses every five batches, print a text sample after each epoch, and track tokens seen.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell75",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell51"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The referenced train_model_simple code resets gradients each batch and (as described) tracks tokens seen, prints losses per eval_freq, and prints a sample after each epoch; the sentence’s described remaining parts match this structure (though 'main step' is a high-level emphasis)."
+      },
+      {
+        "sentence_id": "ch04.s10.p07.r07",
+        "text": "Because \"loss.backward()\" calculates the loss gradients and then the code calls \"optimizer.step(),\" the training loop is only about 15 to 20 lines of code.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell89",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell52",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell85"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not state that the training loop is about 15–20 lines of code, nor tie that length claim to loss.backward() and optimizer.step()."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch04.s10.p03.r05",
+        "text": "In the model under discussion, the parameter count is described as around 161 million, and a single call to \"loss.backward()\" computes gradients with respect to all of them.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference specifies loading a 355M-parameter model (and mentions 124M), which is incompatible with the sentence’s ~161M parameter count for the model under discussion."
+      },
+      {
+        "sentence_id": "ch04.s10.p07.r03",
+        "text": "With that setting, a generated sample is printed after each epoch.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference states that in the classifier training function they calculate accuracy after each epoch instead of printing a sample text after each epoch, which conflicts with the claim that a generated sample is printed after each epoch."
+      }
+    ]
+  }
+}

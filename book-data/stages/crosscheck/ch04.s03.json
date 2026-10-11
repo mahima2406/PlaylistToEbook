@@ -1,0 +1,316 @@
+{
+  "stage": "crosscheck",
+  "item": "ch04.s03",
+  "inputs_hash": "6f3c5b97bd8a6a6bda3e07ab30852e0c5897d9af5df01438ca32075ab268c964",
+  "output_hash": "6b22250998094da7f96ac2c551ba42ae2e6225b9735a929c6c37f7f3e9d5ef51",
+  "output": {
+    "section_id": "ch04.s03",
+    "checked": 25,
+    "counts": {
+      "agrees": 9,
+      "contradicts": 0,
+      "not_covered": 16
+    },
+    "results": [
+      {
+        "sentence_id": "ch04.s03.p01.02",
+        "text": "The input to the large language model is a tensor whose rows correspond to batches.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell54",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell104",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited references discuss masking target token IDs and combining positional + token embeddings, but do not state that the model input tensor’s rows correspond to batches."
+      },
+      {
+        "sentence_id": "ch04.s03.p01.03",
+        "text": "In the GPT forward method, the input tensor is arranged so that the number of rows is the number of batches and the number of columns is the sequence length, or the number of tokens being considered.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell39"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages mention training functions and show logits for examples/tokens, but do not describe the GPT forward input tensor layout as (batch_size rows, sequence_length columns)."
+      },
+      {
+        "sentence_id": "ch04.s03.p01.04",
+        "text": "Inputs ideally come in batches, and in the coding example there are two batches with four token IDs in each batch.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell87",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell69",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell36"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show loss computation over batches and a custom collate example, but do not state that the example has exactly two batches with four token IDs each; the shown collate example actually uses three sequences of lengths 5, 2, and 3."
+      },
+      {
+        "sentence_id": "ch04.s03.p01.05",
+        "text": "For simplicity, it is helpful to focus on the first batch and apply the same reasoning to the second batch afterward.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell98",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell38"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show printing batch dimensions and accessing a second batch, but do not make the pedagogical claim about focusing on the first batch then applying reasoning to the second."
+      },
+      {
+        "sentence_id": "ch04.s03.p02.r01",
+        "text": "The first step is to map each input token to a token ID in the vocabulary.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell38",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show a vocabulary listing and embedding lookup given token IDs, but do not explicitly state that the first step is mapping each input token to a token ID."
+      },
+      {
+        "sentence_id": "ch04.s03.p02.r02",
+        "text": "In the running example, the first batch contains four tokens, shown as \"every\", \"effort\", \"moves\", and \"you\", and those four tokens are converted into four token IDs.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell115",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell103"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention the phrase \"every effort moves you\" and separately show an example with four input IDs (2,3,5,1), but do not state that the first batch has those four specific tokens mapped to four token IDs."
+      },
+      {
+        "sentence_id": "ch04.s03.p02.r04",
+        "text": "A token embedding vector is a vector representation of a token used to capture semantic meaning between words.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell104",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references describe embedding tokens into continuous vector representations via an embedding layer, but do not state that token embeddings capture semantic meaning between words."
+      },
+      {
+        "sentence_id": "ch04.s03.p02.r05",
+        "text": "Computers cannot directly understand words, and token IDs alone are not enough because the model needs representations that capture meaning between words.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell36",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell37",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show building a vocab mapping and discuss perplexity, but do not state that token IDs alone are insufficient because models need meaning-capturing representations."
+      },
+      {
+        "sentence_id": "ch04.s03.p02.r06",
+        "text": "Words with similar meanings, such as \"dog\" and \"puppy\" or \"cat\" and \"kitten\", should have embedding vectors that are closer to each other.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell43"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the cited passages discuss semantic similarity (e.g., dog/puppy) implying embeddings should be close; they discuss perplexity and attention dimensions/normalization instead."
+      },
+      {
+        "sentence_id": "ch04.s03.p03.02",
+        "text": "In this GPT-2 example, the embedding size is 768, which is the size used in the smallest GPT-2 model.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell66",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell11"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The ch04 config description explicitly states that \"emb_dim\" converts each input token into a 768-dimensional vector, consistent with the claim that the GPT-2-small example uses embedding size 768."
+      },
+      {
+        "sentence_id": "ch04.s03.p03.03",
+        "text": "Each token in the sequence is encoded as a 768-dimensional vector.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell90"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While ch04 indicates emb_dim=768 in the model config, the provided references for this sentence do not explicitly state that each token in the sequence is encoded as a 768-dimensional vector; the shown encoding tensor shape example only shows token IDs shape, not embedding dimensionality."
+      },
+      {
+        "sentence_id": "ch04.s03.p03.04",
+        "text": "For each token, the token embedding can be visualized as a 768-dimensional vector, and positional embeddings can be visualized in the same way.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references state that token and positional embeddings are added to form input embeddings, but do not specify the dimensionality as 768 or discuss visualizing them as 768-dimensional vectors."
+      },
+      {
+        "sentence_id": "ch04.s03.p03.05",
+        "text": "Token embedding vectors are not known in advance, so they are initialized randomly in the 768-dimensional space and learned during GPT model training along with the other embedding parameters.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell104",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References describe token embedding layer mapping one-hot tokens to 768-d vectors and note embeddings are part of the model updated during training; this is consistent with being randomly initialized and learned (random init not stated explicitly but not contradicted)."
+      },
+      {
+        "sentence_id": "ch04.s03.p04.02",
+        "text": "Besides word meaning, the model also needs to capture the position of each word in the sentence.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell82",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell120",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference section on encoding word positions indicates the model needs positional information in addition to token/word information."
+      },
+      {
+        "sentence_id": "ch04.s03.p04.03",
+        "text": "A positional embedding is an embedding vector that represents a token’s position in the sequence.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell25",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References discuss positional embeddings being combined with token embeddings to form inputs, consistent with positional embeddings representing position information."
+      },
+      {
+        "sentence_id": "ch04.s03.p04.04",
+        "text": "In the example sequence, there are four positions, and position one, position two, position three, and position four are each represented by a 768-dimensional positional embedding vector.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell15",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell131",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell82"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References mention absolute position embeddings and creating a positional embedding layer, but do not specify an example with four positions nor that each position is represented by a 768-dimensional vector in that example."
+      },
+      {
+        "sentence_id": "ch04.s03.p04.05",
+        "text": "Like token embeddings, positional embedding values are initially random because their best values are not known beforehand, and these values are trained during the training procedure.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell104",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References state embedding layers are part of the LLM and are updated (trained) during training; this is consistent with positional embeddings being learned (random initialization not explicitly stated but not contradicted)."
+      },
+      {
+        "sentence_id": "ch04.s03.p04.06",
+        "text": "The positional embedding vectors have size 768, the same size as the token embeddings.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References show token and positional embeddings are added; this requires same dimensionality, consistent with both being size 768 in the GPT-2 setting discussed."
+      },
+      {
+        "sentence_id": "ch04.s03.p05.02",
+        "text": "To form the input embedding for each token, the model adds that token’s token embedding to the positional embedding for its position.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell116",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell111"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference explicitly states to create input embeddings we simply add token and positional embeddings."
+      },
+      {
+        "sentence_id": "ch04.s03.p05.03",
+        "text": "Because token embeddings and positional embeddings have the same dimensions, each input embedding also has dimension 768.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference code adds token_embeddings + pos_embeddings and prints the resulting shape, supporting that the resulting input embeddings keep the embedding dimension (768 in the described setup)."
+      },
+      {
+        "sentence_id": "ch04.s03.p05.04",
+        "text": "The relationship is written as input embedding equals token embedding plus positional embedding.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell116",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell132",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell111"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the reference shows the addition in code elsewhere, the cited cells here show embedding layer inspection and positional embedding layer creation but do not explicitly state the equation 'input embedding = token embedding + positional embedding' in the provided snippets."
+      },
+      {
+        "sentence_id": "ch04.s03.p05.05",
+        "text": "In the GPT model, token IDs are converted to token embeddings, positional embeddings are generated for each position in the sequence, and the two are added to form the input embeddings.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References describe forming input embeddings by obtaining token embeddings from token IDs, creating positional embeddings per position, and adding them."
+      },
+      {
+        "sentence_id": "ch04.s03.p06.02",
+        "text": "The code for this GPT model is described as pretty simple and straightforward, but students often get confused because many tensors and many dimensions come into the picture.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Reference discusses tensor dimensions and that dimensions can vary for illustration, but does not state that students often get confused or that the code is described as simple/straightforward."
+      },
+      {
+        "sentence_id": "ch04.s03.p06.03",
+        "text": "For that reason, a visual flow map is used to follow a specific input sequence through the GPT model step by step and to represent input and output dimensions visually.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell61",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References show step-by-step computation of attention weights, but do not mention using a visual flow map through the GPT model to track dimensions."
+      },
+      {
+        "sentence_id": "ch04.s03.p06.04",
+        "text": "The purpose of that flow map is to make dimension changes easier to understand across token embedding, positional embedding, input embedding, dropout, the Transformer block, layer normalization, and the output head, which are hard to visualize directly from code.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell132",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell116"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss embedding dimensions (including multi-head attention output dim) and show code for token and positional embedding layers, but they do not mention a “flow map” or its purpose, nor do they cover the full sequence of components listed (dropout, Transformer block, layer norm, output head) or the goal of making dimension changes easier to understand."
+      }
+    ],
+    "conflicts": []
+  }
+}

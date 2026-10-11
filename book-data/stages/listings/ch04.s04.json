@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch04.s04",
+  "inputs_hash": "dd75383ad46e9dfb0481d51d10d2fd727a929944597226c65c6d3ac8da570192",
+  "output_hash": "1902605bd2be2e92cb5a4ea5ad947a0e3f562388d6c2cd6d318c455d4de186e6",
+  "output": {
+    "section_id": "ch04.s04",
+    "listings": [],
+    "rejected": [
+      {
+        "id": "ch04.s04.code1",
+        "ref": "ref:ch04/01_main-chapter-code/ch04.ipynb#cell28",
+        "path": "ch04/01_main-chapter-code/ch04.ipynb",
+        "caption": "This code normalizes each token's values by subtracting the mean and dividing by the square root of the variance, then prints the normalized outputs along with their resulting means and variances.",
+        "code": "out_norm = (out - mean) / torch.sqrt(var)\nprint(\"Normalized layer outputs:\\n\", out_norm)\n\nmean = out_norm.mean(dim=-1, keepdim=True)\nvar = out_norm.var(dim=-1, keepdim=True)\nprint(\"Mean:\\n\", mean)\nprint(\"Variance:\\n\", var)",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The code does demonstrate layer normalization’s core operation (subtract mean, divide by sqrt(variance)) and then computes/prints the resulting per-token means and variances, aligning with part of the section. However, it’s incomplete/incorrect for true layer norm because it divides by sqrt(var) without an epsilon for numerical stability, uses torch.var()’s default unbiased estimator (so the variance won’t generally be exactly 1), and does not include the trainable scale/shift parameters mentioned in the section. It also doesn’t relate to the full 8-step Transformer block described."
+      },
+      {
+        "id": "ch04.s04.code2",
+        "ref": "ref:ch04/01_main-chapter-code/ch04.ipynb#cell61",
+        "path": "ch04/01_main-chapter-code/ch04.ipynb",
+        "caption": "This code defines a TransformerBlock that applies layer normalization, multi-head attention, dropout, a residual connection, then a second layer normalization, feed-forward network, dropout, and a final residual connection.",
+        "code": "# If the `previous_chapters.py` file is not available locally,\n# you can import it from the `llms-from-scratch` PyPI package.\n# For details, see: https://github.com/rasbt/LLMs-from-scratch/tree/main/pkg\n# E.g.,\n# from llms_from_scratch.ch03 import MultiHeadAttention\n\nfrom previous_chapters import MultiHeadAttention\n\n\nclass TransformerBlock(nn.Module):\n    def __init__(self, cfg):\n        super().__init__()\n        self.att = MultiHeadAttention(\n            d_in=cfg[\"emb_dim\"],\n            d_out=cfg[\"emb_dim\"],\n            context_length=cfg[\"context_length\"],\n            num_heads=cfg[\"n_heads\"], \n            dropout=cfg[\"drop_rate\"],\n            qkv_bias=cfg[\"qkv_bias\"])\n        self.ff = FeedForward(cfg)\n        self.norm1 = LayerNorm(cfg[\"emb_dim\"])\n        self.norm2 = LayerNorm(cfg[\"emb_dim\"])\n        self.drop_shortcut = nn.Dropout(cfg[\"drop_rate\"])\n\n    def forward(self, x):\n        # Shortcut connection for attention block\n        shortcut = x\n        x = self.norm1(x)\n        x = self.att(x)  # Shape [batch_size, num_tokens, emb_size]\n        x = self.drop_shortcut(x)",
+        "truncated": true,
+        "check": "partial",
+        "reason": "The excerpt is clearly part of a Transformer block and shows the sequence norm1 → multi-head attention → dropout with a stored shortcut for a residual connection, which aligns with the section and caption in spirit. However, the code is incomplete: it does not actually add the residual/shortcut back, nor does it show the second layer norm, feed-forward network, second dropout, and final residual connection described in the caption and section’s eight-step flow (it also omits the initial dropout on embeddings mentioned in the section). As shown, it only demonstrates the first half of the block setup and forward pass."
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "stage": "checks",
+  "item": "ch02.s03.code1",
+  "inputs_hash": "92186d23d1482f61fa8860a57b15435a358b8da4934371598ba6d1df46c210cd",
+  "output_hash": "a1be4f3c4888be1d55a777df4d8182c07cb0e931df6221040ace99660603e679",
+  "output": [
+    {
+      "sentence_id": "ch02.s03.p04.r07",
+      "expected": 0,
+      "expression": "min(vocab.values())",
+      "tolerance": 0,
+      "check_id": "ch02.s03.code1.chk1",
+      "sentence_text": "Because the tokens are enumerated in ascending order, the first token gets ID 0, the second gets ID 1, and so on."
+    }
+  ]
+}

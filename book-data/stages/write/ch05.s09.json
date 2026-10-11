@@ -1,0 +1,347 @@
+{
+  "stage": "write",
+  "item": "ch05.s09",
+  "inputs_hash": "e1de00c576f8810201193e55ad9aa1fc5436b7fbaaabdd9bc8f2208ef17a4a84",
+  "output_hash": "8c3c37cc943b98cb7a82041de1591d19fb2cfc429ac8b0eb1b5fb887fdf92069",
+  "output": {
+    "section_id": "ch05.s09",
+    "paragraphs": [
+      {
+        "id": "ch05.s09.p01",
+        "sentences": [
+          {
+            "id": "ch05.s09.p01.01",
+            "text": "How does a prepared classification dataset become batches that a model can consume reliably and inspect easily?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s09.p01.02",
+            "text": "Once the dataset is defined, it serves as the input to a data loader.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1373",
+              "f6zqClXOh7Y@1375",
+              "f6zqClXOh7Y@1383",
+              "f6zqClXOh7Y@1390"
+            ]
+          },
+          {
+            "id": "ch05.s09.p01.03",
+            "text": "When a dataset is passed to a data loader, the loader can be configured with a batch size and a number of workers for parallel processing.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1398",
+              "f6zqClXOh7Y@1403",
+              "f6zqClXOh7Y@1405",
+              "f6zqClXOh7Y@1407"
+            ]
+          },
+          {
+            "id": "ch05.s09.p01.04",
+            "text": "Here, the batch size is set to 8 and the number of workers is set to 0.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1409",
+              "f6zqClXOh7Y@1410",
+              "f6zqClXOh7Y@1412",
+              "f6zqClXOh7Y@1414"
+            ]
+          },
+          {
+            "id": "ch05.s09.p01.05",
+            "text": "Setting the number of workers to 0 is only for simplicity, so no parallel processing is used.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1414",
+              "f6zqClXOh7Y@1417",
+              "f6zqClXOh7Y@1418",
+              "f6zqClXOh7Y@1420"
+            ]
+          },
+          {
+            "id": "ch05.s09.p01.06",
+            "text": "Setting \"drop_last\" to True means the last batch is dropped if it is smaller than the others.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1420",
+              "f6zqClXOh7Y@1423",
+              "f6zqClXOh7Y@1426"
+            ]
+          },
+          {
+            "id": "ch05.s09.p01.07",
+            "text": "The train, validation, and test loaders are then created by instantiating \"DataLoader\" with the corresponding datasets as input.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1431",
+              "f6zqClXOh7Y@1433",
+              "f6zqClXOh7Y@1436",
+              "f6zqClXOh7Y@1438",
+              "f6zqClXOh7Y@1440",
+              "f6zqClXOh7Y@1442"
+            ]
+          },
+          {
+            "id": "ch05.s09.p01.08",
+            "text": "After initialization, these loaders make it easy to extract batches such as the first, second, or eighth batch.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1445",
+              "f6zqClXOh7Y@1448",
+              "f6zqClXOh7Y@1459",
+              "f6zqClXOh7Y@1462",
+              "f6zqClXOh7Y@1466",
+              "f6zqClXOh7Y@1469",
+              "f6zqClXOh7Y@1471"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s09.p02",
+        "sentences": [
+          {
+            "id": "ch05.s09.p02.01",
+            "text": "A quick check confirms that the loaders return batches with the intended structure.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s09.p02.02",
+            "text": "To test the training loader, iterate through it and print the input batch dimension and the label batch dimension.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1474",
+              "f6zqClXOh7Y@1476",
+              "f6zqClXOh7Y@1478",
+              "f6zqClXOh7Y@1483",
+              "f6zqClXOh7Y@1484",
+              "f6zqClXOh7Y@1489",
+              "f6zqClXOh7Y@1491"
+            ]
+          },
+          {
+            "id": "ch05.s09.p02.03",
+            "text": "The input batch dimension is 8 by 120, and the label batch dimension is size 8.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1494",
+              "f6zqClXOh7Y@1498",
+              "f6zqClXOh7Y@1499",
+              "f6zqClXOh7Y@1502",
+              "f6zqClXOh7Y@1505"
+            ]
+          },
+          {
+            "id": "ch05.s09.p02.04",
+            "text": "An input batch of 8 by 120 means the batch contains 8 examples, with 120 token positions for each example.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1511",
+              "f6zqClXOh7Y@1514",
+              "f6zqClXOh7Y@1516",
+              "f6zqClXOh7Y@1519",
+              "f6zqClXOh7Y@1542",
+              "f6zqClXOh7Y@1545",
+              "f6zqClXOh7Y@1547",
+              "f6zqClXOh7Y@1549"
+            ]
+          },
+          {
+            "id": "ch05.s09.p02.05",
+            "text": "In the training dataloader, each input batch therefore contains eight samples and 120 token ID positions per sample.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1514",
+              "f6zqClXOh7Y@1516",
+              "f6zqClXOh7Y@1519",
+              "0PpxZ3kNPWo@133",
+              "0PpxZ3kNPWo@136",
+              "0PpxZ3kNPWo@143",
+              "0PpxZ3kNPWo@146"
+            ]
+          },
+          {
+            "id": "ch05.s09.p02.06",
+            "text": "A label tensor of size 8 means there are 8 labels in the batch, and each label is either 0 or 1.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1552",
+              "f6zqClXOh7Y@1556",
+              "f6zqClXOh7Y@1559",
+              "f6zqClXOh7Y@1561",
+              "f6zqClXOh7Y@1564"
+            ]
+          },
+          {
+            "id": "ch05.s09.p02.07",
+            "text": "The token ID 50256 is the end-of-text token, and shorter text messages were padded with it so that all messages have the same number of token IDs.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@150",
+              "0PpxZ3kNPWo@152",
+              "0PpxZ3kNPWo@155",
+              "0PpxZ3kNPWo@157",
+              "0PpxZ3kNPWo@159",
+              "0PpxZ3kNPWo@161"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s09.p03",
+        "sentences": [
+          {
+            "id": "ch05.s09.p03.01",
+            "text": "The batch counts follow directly from the dataset split and the batch size.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s09.p03.02",
+            "text": "The training dataset has 1045 samples.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1621"
+            ]
+          },
+          {
+            "id": "ch05.s09.p03.03",
+            "text": "With batch size 8, the number of training batches is approximately 130, since 1045 divided by 8 is approximately 130.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1626",
+              "f6zqClXOh7Y@1630",
+              "f6zqClXOh7Y@1632",
+              "f6zqClXOh7Y@1644",
+              "f6zqClXOh7Y@1650",
+              "f6zqClXOh7Y@1652",
+              "f6zqClXOh7Y@1656"
+            ]
+          },
+          {
+            "id": "ch05.s09.p03.04",
+            "text": "Printing the length of the training loader gives the number of training batches, which is 130 here.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1656",
+              "f6zqClXOh7Y@1658",
+              "f6zqClXOh7Y@1660",
+              "f6zqClXOh7Y@1662",
+              "f6zqClXOh7Y@1664",
+              "f6zqClXOh7Y@1666"
+            ]
+          },
+          {
+            "id": "ch05.s09.p03.05",
+            "text": "That count matches the earlier calculation.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1666",
+              "f6zqClXOh7Y@1667",
+              "f6zqClXOh7Y@1669"
+            ]
+          },
+          {
+            "id": "ch05.s09.p03.06",
+            "text": "The validation loader has 19 batches and the test loader has 38 batches.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1673",
+              "f6zqClXOh7Y@1676",
+              "f6zqClXOh7Y@1677",
+              "f6zqClXOh7Y@1679",
+              "0PpxZ3kNPWo@186",
+              "0PpxZ3kNPWo@190",
+              "0PpxZ3kNPWo@192"
+            ]
+          },
+          {
+            "id": "ch05.s09.p03.07",
+            "text": "Because 20% of the data is test and 10% is validation, the number of test batches is twice the number of validation batches.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1682",
+              "f6zqClXOh7Y@1686",
+              "f6zqClXOh7Y@1688",
+              "f6zqClXOh7Y@1691",
+              "f6zqClXOh7Y@1692"
+            ]
+          },
+          {
+            "id": "ch05.s09.p03.08",
+            "text": "Overall, the dataloaders contain 130 training batches, 19 validation batches, and 38 test batches.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@177",
+              "0PpxZ3kNPWo@180",
+              "0PpxZ3kNPWo@183",
+              "0PpxZ3kNPWo@186",
+              "0PpxZ3kNPWo@190",
+              "0PpxZ3kNPWo@192"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s09.p04",
+        "sentences": [
+          {
+            "id": "ch05.s09.p04.01",
+            "text": "It is also useful to picture each loader in terms of its full batch structure.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s09.p04.02",
+            "text": "One batch from the training loader has shape 8 by 120, and with 130 such batches, the full training loader can be viewed as a three-dimensional tensor of shape 130 by 8 by 120.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1697",
+              "f6zqClXOh7Y@1698",
+              "f6zqClXOh7Y@1701",
+              "f6zqClXOh7Y@1704",
+              "f6zqClXOh7Y@1710",
+              "f6zqClXOh7Y@1713",
+              "f6zqClXOh7Y@1717",
+              "f6zqClXOh7Y@1719",
+              "f6zqClXOh7Y@1721",
+              "f6zqClXOh7Y@1723",
+              "f6zqClXOh7Y@1726"
+            ]
+          },
+          {
+            "id": "ch05.s09.p04.03",
+            "text": "The test loader can be viewed as having dimensions 38 by 8 by 120, and the validation loader as 19 by 8 by 120.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1727",
+              "f6zqClXOh7Y@1731",
+              "f6zqClXOh7Y@1733",
+              "f6zqClXOh7Y@1738",
+              "f6zqClXOh7Y@1740",
+              "f6zqClXOh7Y@1743"
+            ]
+          },
+          {
+            "id": "ch05.s09.p04.04",
+            "text": "At this point, data preparation is complete, because the training, validation, and test loaders have been created and can provide input batches and label batches whenever they are needed.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1745",
+              "f6zqClXOh7Y@1749",
+              "f6zqClXOh7Y@1751",
+              "f6zqClXOh7Y@1753",
+              "f6zqClXOh7Y@1754",
+              "f6zqClXOh7Y@1756",
+              "f6zqClXOh7Y@1759",
+              "f6zqClXOh7Y@1761"
+            ]
+          }
+        ]
+      }
+    ],
+    "invalid_citation_sentences": 0
+  }
+}

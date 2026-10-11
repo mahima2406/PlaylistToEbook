@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch02.s06.p02.r01",
+  "inputs_hash": "5160a8f613e61660e1e07420d93944b0e0d8d5c1506e08269daf9f7480ac3c26",
+  "output_hash": "81ac011feadfad5b730af13ab6fade4cf4b443559c1e59e4e00dbbfa0e0e6495",
+  "output": {
+    "decision": "edit",
+    "text": "This tradeoff is severe.",
+    "reason": "The paragraph supports a strong downside to character-level tokenization, but the original fragment should be completed as a standalone sentence.",
+    "risk": "high",
+    "check": {
+      "verdict": "claim_in_connective",
+      "confidence": 0.74,
+      "reason": "Says the tradeoff is severe, which is a factual/evaluative claim about the subject despite being marked CONNECTIVE and has no supporting citation."
+    },
+    "kind": "queue",
+    "sentence_hash": "eafefeb5ba4570dbb3ea2c5d6bb7da7605129a273ffd39416b3bee06e42b8726"
+  }
+}

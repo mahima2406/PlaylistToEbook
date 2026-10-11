@@ -1,0 +1,2157 @@
+{
+  "stage": "extract",
+  "item": "h94TQOK7NRA",
+  "inputs_hash": "32dea5380202bfab20f375bd6ebff2efb86ccdb4936b0e9d52fd26d128cd442f",
+  "output_hash": "2ad3098461d9a92d11fcbfeff8aa5b238a6e8ada9922466e7e422fe49707a564",
+  "output": {
+    "video_id": "h94TQOK7NRA",
+    "points": [
+      {
+        "id": "h94TQOK7NRA:p001",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The lecture series first covered simplified self-attention without trainable weights, then self-attention with trainable weights, and this lecture introduces causal attention before moving on to multi-head attention.",
+        "line_ids": [
+          "h94TQOK7NRA@35",
+          "h94TQOK7NRA@38",
+          "h94TQOK7NRA@42",
+          "h94TQOK7NRA@44",
+          "h94TQOK7NRA@46",
+          "h94TQOK7NRA@58",
+          "h94TQOK7NRA@60",
+          "h94TQOK7NRA@65",
+          "h94TQOK7NRA@67",
+          "h94TQOK7NRA@69"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p002",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "A large language model data pipeline converts words into tokens, tokens into token IDs, and token IDs into vector embeddings.",
+        "line_ids": [
+          "h94TQOK7NRA@117",
+          "h94TQOK7NRA@120",
+          "h94TQOK7NRA@122",
+          "h94TQOK7NRA@125",
+          "h94TQOK7NRA@128"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p003",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 2,
+        "text": "For this lecture, the presenter uses the words of the sentence as tokens and gives each token a three-dimensional vector embedding for demonstration.",
+        "line_ids": [
+          "h94TQOK7NRA@107",
+          "h94TQOK7NRA@110",
+          "h94TQOK7NRA@133",
+          "h94TQOK7NRA@135",
+          "h94TQOK7NRA@168",
+          "h94TQOK7NRA@170"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p004",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In modern language models, one word is generally not equal to one token because GPT and similar models use byte pair encoding as a subword tokenizer, but the lecture uses the terms word and token interchangeably.",
+        "line_ids": [
+          "h94TQOK7NRA@147",
+          "h94TQOK7NRA@149",
+          "h94TQOK7NRA@153",
+          "h94TQOK7NRA@155",
+          "h94TQOK7NRA@158",
+          "h94TQOK7NRA@159",
+          "h94TQOK7NRA@162"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p005",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The goal of an attention mechanism is to take input embeddings for tokens and convert them into context embeddings or context vectors for those tokens.",
+        "line_ids": [
+          "h94TQOK7NRA@184",
+          "h94TQOK7NRA@187",
+          "h94TQOK7NRA@189",
+          "h94TQOK7NRA@191",
+          "h94TQOK7NRA@194"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p006",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "definition",
+        "importance": 3,
+        "text": "An input embedding encodes semantic meaning for a token but does not contain information about how that token relates to the other words in the sentence.",
+        "line_ids": [
+          "h94TQOK7NRA@201",
+          "h94TQOK7NRA@205",
+          "h94TQOK7NRA@207",
+          "h94TQOK7NRA@212",
+          "h94TQOK7NRA@215",
+          "h94TQOK7NRA@218",
+          "h94TQOK7NRA@233",
+          "h94TQOK7NRA@235"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p007",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "definition",
+        "importance": 3,
+        "text": "A context vector contains semantic meaning for a token and also encodes how that token relates to the other words in the sentence and how much attention should be paid to them.",
+        "line_ids": [
+          "h94TQOK7NRA@240",
+          "h94TQOK7NRA@242",
+          "h94TQOK7NRA@244",
+          "h94TQOK7NRA@247"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p008",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Context vectors make next-word prediction better and more reliable because they encode how much attention should be paid to different words in the sequence.",
+        "line_ids": [
+          "h94TQOK7NRA@255",
+          "h94TQOK7NRA@257",
+          "h94TQOK7NRA@259",
+          "h94TQOK7NRA@261",
+          "h94TQOK7NRA@264",
+          "h94TQOK7NRA@267",
+          "h94TQOK7NRA@269",
+          "h94TQOK7NRA@271"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p009",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In self-attention with trainable weights, the input matrix is multiplied by the query, key, and value weight matrices to produce the queries, keys, and values matrices.",
+        "line_ids": [
+          "h94TQOK7NRA@278",
+          "h94TQOK7NRA@280",
+          "h94TQOK7NRA@282",
+          "h94TQOK7NRA@286",
+          "h94TQOK7NRA@288",
+          "h94TQOK7NRA@293",
+          "h94TQOK7NRA@299",
+          "h94TQOK7NRA@303",
+          "h94TQOK7NRA@306",
+          "h94TQOK7NRA@308",
+          "h94TQOK7NRA@310",
+          "h94TQOK7NRA@314"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p010",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The query, key, and value weight matrices are trainable parameters that are learned from data, although the lecture is focusing only on the forward pass and not on training or backpropagation.",
+        "line_ids": [
+          "h94TQOK7NRA@318",
+          "h94TQOK7NRA@324",
+          "h94TQOK7NRA@327",
+          "h94TQOK7NRA@329",
+          "h94TQOK7NRA@332",
+          "h94TQOK7NRA@334",
+          "h94TQOK7NRA@336",
+          "h94TQOK7NRA@338",
+          "h94TQOK7NRA@341",
+          "h94TQOK7NRA@343",
+          "h94TQOK7NRA@345",
+          "h94TQOK7NRA@347"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p011",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "Attention scores are computed by multiplying the queries matrix by the transpose of the keys matrix.",
+        "line_ids": [
+          "h94TQOK7NRA@353",
+          "h94TQOK7NRA@355",
+          "h94TQOK7NRA@358",
+          "h94TQOK7NRA@360",
+          "h94TQOK7NRA@362",
+          "h94TQOK7NRA@364"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p012",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Each row of the attention score matrix represents how much attention a particular query pays to all the keys in the sentence.",
+        "line_ids": [
+          "h94TQOK7NRA@367",
+          "h94TQOK7NRA@371",
+          "h94TQOK7NRA@373",
+          "h94TQOK7NRA@376",
+          "h94TQOK7NRA@380",
+          "h94TQOK7NRA@383",
+          "h94TQOK7NRA@385",
+          "h94TQOK7NRA@421",
+          "h94TQOK7NRA@424",
+          "h94TQOK7NRA@429",
+          "h94TQOK7NRA@432"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p013",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "Attention scores are converted into attention weights by dividing by the square root of the key dimension and then applying the softmax function.",
+        "line_ids": [
+          "h94TQOK7NRA@447",
+          "h94TQOK7NRA@449",
+          "h94TQOK7NRA@452",
+          "h94TQOK7NRA@453",
+          "h94TQOK7NRA@455",
+          "h94TQOK7NRA@457",
+          "h94TQOK7NRA@463",
+          "h94TQOK7NRA@465",
+          "h94TQOK7NRA@468",
+          "h94TQOK7NRA@469"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p014",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Attention weights correspond to attention scores, but each row of the attention weight matrix sums to one and therefore has a probabilistic interpretation.",
+        "line_ids": [
+          "h94TQOK7NRA@471",
+          "h94TQOK7NRA@474",
+          "h94TQOK7NRA@475",
+          "h94TQOK7NRA@477",
+          "h94TQOK7NRA@479",
+          "h94TQOK7NRA@481",
+          "h94TQOK7NRA@484",
+          "h94TQOK7NRA@486",
+          "h94TQOK7NRA@493",
+          "h94TQOK7NRA@497"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p015",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The final context vectors are obtained by multiplying the attention weight matrix by the values matrix.",
+        "line_ids": [
+          "h94TQOK7NRA@500",
+          "h94TQOK7NRA@502",
+          "h94TQOK7NRA@504",
+          "h94TQOK7NRA@506",
+          "h94TQOK7NRA@510",
+          "h94TQOK7NRA@512",
+          "h94TQOK7NRA@514",
+          "h94TQOK7NRA@516"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p016",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Each row of the final context vector matrix is the context vector for the corresponding token.",
+        "line_ids": [
+          "h94TQOK7NRA@518",
+          "h94TQOK7NRA@520",
+          "h94TQOK7NRA@523",
+          "h94TQOK7NRA@525",
+          "h94TQOK7NRA@527",
+          "h94TQOK7NRA@530",
+          "h94TQOK7NRA@532"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p017",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 2,
+        "text": "A token's context vector is richer than its original embedding because it also includes how much attention should be paid to the other words.",
+        "line_ids": [
+          "h94TQOK7NRA@537",
+          "h94TQOK7NRA@540",
+          "h94TQOK7NRA@543",
+          "h94TQOK7NRA@545",
+          "h94TQOK7NRA@546",
+          "h94TQOK7NRA@549",
+          "h94TQOK7NRA@551",
+          "h94TQOK7NRA@554",
+          "h94TQOK7NRA@556"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p018",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The context vectors are used as inputs for language model training.",
+        "line_ids": [
+          "h94TQOK7NRA@556",
+          "h94TQOK7NRA@558",
+          "h94TQOK7NRA@563"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p019",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Causal attention is also called masked attention and is a special form of self-attention.",
+        "line_ids": [
+          "h94TQOK7NRA@570",
+          "h94TQOK7NRA@576",
+          "h94TQOK7NRA@578",
+          "h94TQOK7NRA@583",
+          "h94TQOK7NRA@585",
+          "h94TQOK7NRA@587"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p020",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Causal attention restricts the model to consider only the previous and current inputs in the sequence when processing a token, unlike ordinary self-attention which can access the entire sequence at once.",
+        "line_ids": [
+          "h94TQOK7NRA@590",
+          "h94TQOK7NRA@592",
+          "h94TQOK7NRA@596",
+          "h94TQOK7NRA@598",
+          "h94TQOK7NRA@604",
+          "h94TQOK7NRA@606",
+          "h94TQOK7NRA@608",
+          "h94TQOK7NRA@610"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p021",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In causal attention, when computing attention for a query token, the model only considers tokens that occur at or before that token in the sequence.",
+        "line_ids": [
+          "h94TQOK7NRA@631",
+          "h94TQOK7NRA@633",
+          "h94TQOK7NRA@636",
+          "h94TQOK7NRA@638",
+          "h94TQOK7NRA@640",
+          "h94TQOK7NRA@647",
+          "h94TQOK7NRA@649",
+          "h94TQOK7NRA@652",
+          "h94TQOK7NRA@656"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p022",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In GPT-like language models, causal attention is implemented by masking out future tokens that come after the current token.",
+        "line_ids": [
+          "h94TQOK7NRA@659",
+          "h94TQOK7NRA@661",
+          "h94TQOK7NRA@664",
+          "h94TQOK7NRA@666"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p023",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "For example, when the query is 'journey', only the attention to 'your' and 'journey' is kept, and the attention scores for later words are masked out.",
+        "line_ids": [
+          "h94TQOK7NRA@698",
+          "h94TQOK7NRA@700",
+          "h94TQOK7NRA@702",
+          "h94TQOK7NRA@704",
+          "h94TQOK7NRA@706",
+          "h94TQOK7NRA@708",
+          "h94TQOK7NRA@713",
+          "h94TQOK7NRA@715",
+          "h94TQOK7NRA@717",
+          "h94TQOK7NRA@719"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p024",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "For a token like 'with', attention is kept only for earlier tokens, while for the last token nothing is masked, and for the first token everything after it is masked.",
+        "line_ids": [
+          "h94TQOK7NRA@722",
+          "h94TQOK7NRA@724",
+          "h94TQOK7NRA@726",
+          "h94TQOK7NRA@728",
+          "h94TQOK7NRA@731",
+          "h94TQOK7NRA@733",
+          "h94TQOK7NRA@736",
+          "h94TQOK7NRA@739",
+          "h94TQOK7NRA@742",
+          "h94TQOK7NRA@744",
+          "h94TQOK7NRA@746",
+          "h94TQOK7NRA@748",
+          "h94TQOK7NRA@752",
+          "h94TQOK7NRA@754",
+          "h94TQOK7NRA@756"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p025",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The context size specifies how many words the language model can look at before predicting the next word.",
+        "line_ids": [
+          "h94TQOK7NRA@761",
+          "h94TQOK7NRA@764",
+          "h94TQOK7NRA@766",
+          "h94TQOK7NRA@768",
+          "h94TQOK7NRA@770"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p026",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "Causal attention masks out the attention weights above the diagonal of the attention matrix.",
+        "line_ids": [
+          "h94TQOK7NRA@780",
+          "h94TQOK7NRA@782",
+          "h94TQOK7NRA@785",
+          "h94TQOK7NRA@787",
+          "h94TQOK7NRA@789",
+          "h94TQOK7NRA@793",
+          "h94TQOK7NRA@796",
+          "h94TQOK7NRA@799",
+          "h94TQOK7NRA@801",
+          "h94TQOK7NRA@803"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p027",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The masked region above the diagonal forms the causal attention mask.",
+        "line_ids": [
+          "h94TQOK7NRA@855",
+          "h94TQOK7NRA@857",
+          "h94TQOK7NRA@859",
+          "h94TQOK7NRA@861",
+          "h94TQOK7NRA@863"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p028",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "One way to apply a causal attention mask is to first compute the usual attention scores and attention weights, then set the elements above the diagonal to zero, and finally renormalize the remaining attention weights.",
+        "line_ids": [
+          "h94TQOK7NRA@870",
+          "h94TQOK7NRA@872",
+          "h94TQOK7NRA@875",
+          "h94TQOK7NRA@879",
+          "h94TQOK7NRA@882",
+          "h94TQOK7NRA@884",
+          "h94TQOK7NRA@886",
+          "h94TQOK7NRA@887",
+          "h94TQOK7NRA@890",
+          "h94TQOK7NRA@892",
+          "h94TQOK7NRA@896",
+          "h94TQOK7NRA@898",
+          "h94TQOK7NRA@900",
+          "h94TQOK7NRA@902",
+          "h94TQOK7NRA@904"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p029",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "After masking, the remaining non-masked attention weights are normalized again so that each row still sums to one.",
+        "line_ids": [
+          "h94TQOK7NRA@825",
+          "h94TQOK7NRA@828",
+          "h94TQOK7NRA@830",
+          "h94TQOK7NRA@832",
+          "h94TQOK7NRA@835",
+          "h94TQOK7NRA@838",
+          "h94TQOK7NRA@840",
+          "h94TQOK7NRA@841",
+          "h94TQOK7NRA@844",
+          "h94TQOK7NRA@846",
+          "h94TQOK7NRA@848"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p030",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To implement causal attention, you take the attention weights, zero out the elements above the diagonal, and then normalize again so that each row sums to one.",
+        "line_ids": [
+          "h94TQOK7NRA@907",
+          "h94TQOK7NRA@910",
+          "h94TQOK7NRA@912",
+          "h94TQOK7NRA@914",
+          "h94TQOK7NRA@916",
+          "h94TQOK7NRA@923",
+          "h94TQOK7NRA@925",
+          "h94TQOK7NRA@927",
+          "h94TQOK7NRA@929"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p031",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "code",
+        "importance": 3,
+        "text": "The previously written self-attention class initializes trainable query, key, and value weight matrices randomly, multiplies the input by them to get queries, keys, and values, computes attention scores as queries times keys transpose, scales by the square root of the key dimension, applies softmax to get attention weights, and multiplies the attention weights by the values to get the context vector matrix.",
+        "line_ids": [
+          "h94TQOK7NRA@940",
+          "h94TQOK7NRA@942",
+          "h94TQOK7NRA@943",
+          "h94TQOK7NRA@946",
+          "h94TQOK7NRA@949",
+          "h94TQOK7NRA@951",
+          "h94TQOK7NRA@958",
+          "h94TQOK7NRA@960",
+          "h94TQOK7NRA@962",
+          "h94TQOK7NRA@965",
+          "h94TQOK7NRA@967",
+          "h94TQOK7NRA@970",
+          "h94TQOK7NRA@972",
+          "h94TQOK7NRA@974",
+          "h94TQOK7NRA@976",
+          "h94TQOK7NRA@978",
+          "h94TQOK7NRA@980",
+          "h94TQOK7NRA@982",
+          "h94TQOK7NRA@984"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p032",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The queries, keys, and values are obtained by passing the input through the trainable key, query, and value weight matrices.",
+        "line_ids": [
+          "h94TQOK7NRA@991",
+          "h94TQOK7NRA@993",
+          "h94TQOK7NRA@996",
+          "h94TQOK7NRA@999",
+          "h94TQOK7NRA@1000",
+          "h94TQOK7NRA@1003",
+          "h94TQOK7NRA@1005",
+          "h94TQOK7NRA@1008",
+          "h94TQOK7NRA@1012",
+          "h94TQOK7NRA@1015",
+          "h94TQOK7NRA@1017",
+          "h94TQOK7NRA@1020",
+          "h94TQOK7NRA@1022",
+          "h94TQOK7NRA@1024",
+          "h94TQOK7NRA@1026"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p033",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "To start causal attention from the self-attention code, you first compute queries and keys, then compute attention scores as queries multiplied by keys transpose, divide by the square root of the key dimension, and apply softmax to get attention weights before masking.",
+        "line_ids": [
+          "h94TQOK7NRA@1064",
+          "h94TQOK7NRA@1066",
+          "h94TQOK7NRA@1067",
+          "h94TQOK7NRA@1070",
+          "h94TQOK7NRA@1072",
+          "h94TQOK7NRA@1074",
+          "h94TQOK7NRA@1077",
+          "h94TQOK7NRA@1081",
+          "h94TQOK7NRA@1083",
+          "h94TQOK7NRA@1085",
+          "h94TQOK7NRA@1087",
+          "h94TQOK7NRA@1089"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p034",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "visual_ref",
+        "importance": 1,
+        "text": "In the running example, the input sequence is the six words \"your journey begins with one step.\"",
+        "line_ids": [
+          "h94TQOK7NRA@1093",
+          "h94TQOK7NRA@1095",
+          "h94TQOK7NRA@1098",
+          "h94TQOK7NRA@1100",
+          "h94TQOK7NRA@1112",
+          "h94TQOK7NRA@1114",
+          "h94TQOK7NRA@1116"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p035",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The causal attention implementation begins after the attention weights are computed, by generating a mask whose entries above the diagonal are zero.",
+        "line_ids": [
+          "h94TQOK7NRA@1124",
+          "h94TQOK7NRA@1126",
+          "h94TQOK7NRA@1128",
+          "h94TQOK7NRA@1129",
+          "h94TQOK7NRA@1131",
+          "h94TQOK7NRA@1133",
+          "h94TQOK7NRA@1136",
+          "h94TQOK7NRA@1137",
+          "h94TQOK7NRA@1140",
+          "h94TQOK7NRA@1142",
+          "h94TQOK7NRA@1145",
+          "h94TQOK7NRA@1146"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p036",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "If you multiply the attention weight matrix by a mask with zeros above the diagonal, all elements above the diagonal in the attention weights are set to zero.",
+        "line_ids": [
+          "h94TQOK7NRA@1156",
+          "h94TQOK7NRA@1159",
+          "h94TQOK7NRA@1160",
+          "h94TQOK7NRA@1163",
+          "h94TQOK7NRA@1165",
+          "h94TQOK7NRA@1167",
+          "h94TQOK7NRA@1170",
+          "h94TQOK7NRA@1172"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p037",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "definition",
+        "importance": 2,
+        "text": "An upper triangular matrix has all elements below the diagonal equal to zero, and a lower triangular matrix has all elements above the diagonal equal to zero.",
+        "line_ids": [
+          "h94TQOK7NRA@1177",
+          "h94TQOK7NRA@1179",
+          "h94TQOK7NRA@1183",
+          "h94TQOK7NRA@1187",
+          "h94TQOK7NRA@1189",
+          "h94TQOK7NRA@1191",
+          "h94TQOK7NRA@1193",
+          "h94TQOK7NRA@1195",
+          "h94TQOK7NRA@1196",
+          "h94TQOK7NRA@1201",
+          "h94TQOK7NRA@1206",
+          "h94TQOK7NRA@1209",
+          "h94TQOK7NRA@1211",
+          "h94TQOK7NRA@1214",
+          "h94TQOK7NRA@1216",
+          "h94TQOK7NRA@1217"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p038",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Torch.triu produces an upper triangular matrix, while torch.tril produces a lower triangular matrix with all elements above the diagonal set to zero.",
+        "line_ids": [
+          "h94TQOK7NRA@1222",
+          "h94TQOK7NRA@1225",
+          "h94TQOK7NRA@1229",
+          "h94TQOK7NRA@1233",
+          "h94TQOK7NRA@1234",
+          "h94TQOK7NRA@1238",
+          "h94TQOK7NRA@1241",
+          "h94TQOK7NRA@1243",
+          "h94TQOK7NRA@1246",
+          "h94TQOK7NRA@1249"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p039",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "To construct the causal mask with zeros above the diagonal, you need a lower triangular matrix, so torch.tril is used.",
+        "line_ids": [
+          "h94TQOK7NRA@1252",
+          "h94TQOK7NRA@1254",
+          "h94TQOK7NRA@1255",
+          "h94TQOK7NRA@1257",
+          "h94TQOK7NRA@1259",
+          "h94TQOK7NRA@1261",
+          "h94TQOK7NRA@1263",
+          "h94TQOK7NRA@1265"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p040",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "code",
+        "importance": 3,
+        "text": "The code creates the mask by applying torch.tril to a square matrix of ones of shape context length by context length, which sets all entries above the diagonal to zero.",
+        "line_ids": [
+          "h94TQOK7NRA@1270",
+          "h94TQOK7NRA@1272",
+          "h94TQOK7NRA@1275",
+          "h94TQOK7NRA@1277",
+          "h94TQOK7NRA@1278",
+          "h94TQOK7NRA@1281",
+          "h94TQOK7NRA@1282",
+          "h94TQOK7NRA@1284",
+          "h94TQOK7NRA@1296",
+          "h94TQOK7NRA@1299",
+          "h94TQOK7NRA@1302",
+          "h94TQOK7NRA@1303",
+          "h94TQOK7NRA@1305",
+          "h94TQOK7NRA@1307",
+          "h94TQOK7NRA@1311",
+          "h94TQOK7NRA@1313"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p041",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The mask size is determined by the context length, which is the number of words the language model can look at before predicting the next word.",
+        "line_ids": [
+          "h94TQOK7NRA@1322",
+          "h94TQOK7NRA@1324",
+          "h94TQOK7NRA@1327",
+          "h94TQOK7NRA@1330",
+          "h94TQOK7NRA@1331"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p042",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In the shown example, the context length is six because there are six tokens, which matches the number of rows in the attention score or attention weight matrix.",
+        "line_ids": [
+          "h94TQOK7NRA@1334",
+          "h94TQOK7NRA@1335",
+          "h94TQOK7NRA@1338",
+          "h94TQOK7NRA@1340",
+          "h94TQOK7NRA@1342",
+          "h94TQOK7NRA@1344",
+          "h94TQOK7NRA@1346",
+          "h94TQOK7NRA@1348",
+          "h94TQOK7NRA@1350",
+          "h94TQOK7NRA@1352",
+          "h94TQOK7NRA@1353"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p043",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "code",
+        "importance": 3,
+        "text": "Multiplying the attention weights by the mask produces a masked attention weight matrix in which all entries above the diagonal are zero.",
+        "line_ids": [
+          "h94TQOK7NRA@1361",
+          "h94TQOK7NRA@1364",
+          "h94TQOK7NRA@1366",
+          "h94TQOK7NRA@1369",
+          "h94TQOK7NRA@1371",
+          "h94TQOK7NRA@1373",
+          "h94TQOK7NRA@1378",
+          "h94TQOK7NRA@1380",
+          "h94TQOK7NRA@1382",
+          "h94TQOK7NRA@1385",
+          "h94TQOK7NRA@1387",
+          "h94TQOK7NRA@1390",
+          "h94TQOK7NRA@1392",
+          "h94TQOK7NRA@1395",
+          "h94TQOK7NRA@1396",
+          "h94TQOK7NRA@1399"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p044",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "After masking, the result is not yet a valid attention weight matrix because each row no longer sums to one.",
+        "line_ids": [
+          "h94TQOK7NRA@1404",
+          "h94TQOK7NRA@1406",
+          "h94TQOK7NRA@1408",
+          "h94TQOK7NRA@1410"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p045",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To renormalize the masked attention weights, compute the sum of each row and divide every element in that row by that row sum.",
+        "line_ids": [
+          "h94TQOK7NRA@1413",
+          "h94TQOK7NRA@1415",
+          "h94TQOK7NRA@1417",
+          "h94TQOK7NRA@1420",
+          "h94TQOK7NRA@1422",
+          "h94TQOK7NRA@1424",
+          "h94TQOK7NRA@1426",
+          "h94TQOK7NRA@1428",
+          "h94TQOK7NRA@1430",
+          "h94TQOK7NRA@1432",
+          "h94TQOK7NRA@1434",
+          "h94TQOK7NRA@1439",
+          "h94TQOK7NRA@1441",
+          "h94TQOK7NRA@1443",
+          "h94TQOK7NRA@1445"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p046",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "After this renormalization, each row of the masked attention weight matrix sums to one.",
+        "line_ids": [
+          "h94TQOK7NRA@1445",
+          "h94TQOK7NRA@1448",
+          "h94TQOK7NRA@1450",
+          "h94TQOK7NRA@1453",
+          "h94TQOK7NRA@1455"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p047",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The main modification introduced by causal attention is masking future positions and renormalizing before multiplying by the values matrix to get the context vector matrix.",
+        "line_ids": [
+          "h94TQOK7NRA@1457",
+          "h94TQOK7NRA@1460",
+          "h94TQOK7NRA@1462",
+          "h94TQOK7NRA@1464",
+          "h94TQOK7NRA@1466"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p048",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The purpose of causal attention is to prevent future tokens from influencing the current token.",
+        "line_ids": [
+          "h94TQOK7NRA@1486",
+          "h94TQOK7NRA@1489",
+          "h94TQOK7NRA@1491",
+          "h94TQOK7NRA@1494"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p049",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Masking after softmax causes a data leakage problem because the softmax denominator already includes future-token scores, so future tokens have already influenced the earlier attention values.",
+        "line_ids": [
+          "h94TQOK7NRA@1496",
+          "h94TQOK7NRA@1498",
+          "h94TQOK7NRA@1502",
+          "h94TQOK7NRA@1504",
+          "h94TQOK7NRA@1507",
+          "h94TQOK7NRA@1510",
+          "h94TQOK7NRA@1512",
+          "h94TQOK7NRA@1514",
+          "h94TQOK7NRA@1516",
+          "h94TQOK7NRA@1518",
+          "h94TQOK7NRA@1520",
+          "h94TQOK7NRA@1522",
+          "h94TQOK7NRA@1524",
+          "h94TQOK7NRA@1527",
+          "h94TQOK7NRA@1530",
+          "h94TQOK7NRA@1532",
+          "h94TQOK7NRA@1534",
+          "h94TQOK7NRA@1536",
+          "h94TQOK7NRA@1538",
+          "h94TQOK7NRA@1540",
+          "h94TQOK7NRA@1542",
+          "h94TQOK7NRA@1545",
+          "h94TQOK7NRA@1548",
+          "h94TQOK7NRA@1552",
+          "h94TQOK7NRA@1555",
+          "h94TQOK7NRA@1558",
+          "h94TQOK7NRA@1561",
+          "h94TQOK7NRA@1563",
+          "h94TQOK7NRA@1566",
+          "h94TQOK7NRA@1567"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p050",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "A better approach is to apply an upper triangular infinity mask to the attention scores before softmax, and then apply softmax once.",
+        "line_ids": [
+          "h94TQOK7NRA@1570",
+          "h94TQOK7NRA@1573",
+          "h94TQOK7NRA@1576",
+          "h94TQOK7NRA@1578",
+          "h94TQOK7NRA@1581",
+          "h94TQOK7NRA@1583",
+          "h94TQOK7NRA@1585",
+          "h94TQOK7NRA@1588",
+          "h94TQOK7NRA@1590",
+          "h94TQOK7NRA@1593",
+          "h94TQOK7NRA@1595",
+          "h94TQOK7NRA@1597",
+          "h94TQOK7NRA@1599",
+          "h94TQOK7NRA@1601",
+          "h94TQOK7NRA@1603",
+          "h94TQOK7NRA@1606",
+          "h94TQOK7NRA@1608",
+          "h94TQOK7NRA@1610",
+          "h94TQOK7NRA@1613"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p051",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In this improved method, all entries above the diagonal in the attention score matrix are replaced with negative infinity before applying softmax.",
+        "line_ids": [
+          "h94TQOK7NRA@1616",
+          "h94TQOK7NRA@1617",
+          "h94TQOK7NRA@1620",
+          "h94TQOK7NRA@1623",
+          "h94TQOK7NRA@1625",
+          "h94TQOK7NRA@1629",
+          "h94TQOK7NRA@1631",
+          "h94TQOK7NRA@1633",
+          "h94TQOK7NRA@1635",
+          "h94TQOK7NRA@1638",
+          "h94TQOK7NRA@1640",
+          "h94TQOK7NRA@1642",
+          "h94TQOK7NRA@1644",
+          "h94TQOK7NRA@1646",
+          "h94TQOK7NRA@1649"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p052",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "If entries above the diagonal are set to negative infinity before softmax, their exponentials become zero, so softmax makes those positions zero and automatically produces rows that sum to one.",
+        "line_ids": [
+          "h94TQOK7NRA@1649",
+          "h94TQOK7NRA@1651",
+          "h94TQOK7NRA@1654",
+          "h94TQOK7NRA@1656",
+          "h94TQOK7NRA@1658",
+          "h94TQOK7NRA@1660",
+          "h94TQOK7NRA@1662",
+          "h94TQOK7NRA@1664",
+          "h94TQOK7NRA@1666",
+          "h94TQOK7NRA@1669"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p053",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Applying the negative-infinity mask before softmax avoids leakage because future-token influence is removed before normalization.",
+        "line_ids": [
+          "h94TQOK7NRA@1669",
+          "h94TQOK7NRA@1671",
+          "h94TQOK7NRA@1674",
+          "h94TQOK7NRA@1676",
+          "h94TQOK7NRA@1678",
+          "h94TQOK7NRA@1680",
+          "h94TQOK7NRA@1682",
+          "h94TQOK7NRA@1684",
+          "h94TQOK7NRA@1685",
+          "h94TQOK7NRA@1688",
+          "h94TQOK7NRA@1689",
+          "h94TQOK7NRA@1692",
+          "h94TQOK7NRA@1694"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p054",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "Using the negative-infinity mask before softmax kills two birds with one stone: softmax turns the masked entries into zero and also ensures that each row sums to one.",
+        "line_ids": [
+          "h94TQOK7NRA@1697",
+          "h94TQOK7NRA@1699",
+          "h94TQOK7NRA@1700",
+          "h94TQOK7NRA@1703",
+          "h94TQOK7NRA@1705",
+          "h94TQOK7NRA@1707",
+          "h94TQOK7NRA@1709",
+          "h94TQOK7NRA@1711",
+          "h94TQOK7NRA@1713",
+          "h94TQOK7NRA@1715"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p055",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "For the negative-infinity masking approach, an upper triangular matrix is used because the positions above the diagonal are the ones to be replaced.",
+        "line_ids": [
+          "h94TQOK7NRA@1722",
+          "h94TQOK7NRA@1724",
+          "h94TQOK7NRA@1726",
+          "h94TQOK7NRA@1730",
+          "h94TQOK7NRA@1733",
+          "h94TQOK7NRA@1736",
+          "h94TQOK7NRA@1737",
+          "h94TQOK7NRA@1747",
+          "h94TQOK7NRA@1749",
+          "h94TQOK7NRA@1751",
+          "h94TQOK7NRA@1753"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p056",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "code",
+        "importance": 3,
+        "text": "The code constructs this mask by creating a 6 by 6 matrix of ones, taking its upper triangular part, and then treating the ones above the diagonal as the positions to replace with negative infinity.",
+        "line_ids": [
+          "h94TQOK7NRA@1753",
+          "h94TQOK7NRA@1756",
+          "h94TQOK7NRA@1758",
+          "h94TQOK7NRA@1762",
+          "h94TQOK7NRA@1765",
+          "h94TQOK7NRA@1766",
+          "h94TQOK7NRA@1769",
+          "h94TQOK7NRA@1773",
+          "h94TQOK7NRA@1775",
+          "h94TQOK7NRA@1777",
+          "h94TQOK7NRA@1778",
+          "h94TQOK7NRA@1781",
+          "h94TQOK7NRA@1783",
+          "h94TQOK7NRA@1784",
+          "h94TQOK7NRA@1787",
+          "h94TQOK7NRA@1789",
+          "h94TQOK7NRA@1791",
+          "h94TQOK7NRA@1792",
+          "h94TQOK7NRA@1795",
+          "h94TQOK7NRA@1798",
+          "h94TQOK7NRA@1801",
+          "h94TQOK7NRA@1805",
+          "h94TQOK7NRA@1808"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p057",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The mask fill operation takes the mask matrix, finds the positions where the mask is true or positive, and replaces the corresponding elements in the attention score matrix with negative infinity.",
+        "line_ids": [
+          "h94TQOK7NRA@1824",
+          "h94TQOK7NRA@1826",
+          "h94TQOK7NRA@1828",
+          "h94TQOK7NRA@1831",
+          "h94TQOK7NRA@1834",
+          "h94TQOK7NRA@1849"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p058",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In causal attention, the elements above the diagonal in the attention score matrix are replaced with negative infinity.",
+        "line_ids": [
+          "h94TQOK7NRA@1836",
+          "h94TQOK7NRA@1838",
+          "h94TQOK7NRA@1841",
+          "h94TQOK7NRA@1851",
+          "h94TQOK7NRA@1854",
+          "h94TQOK7NRA@1861",
+          "h94TQOK7NRA@1863",
+          "h94TQOK7NRA@1865"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p059",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "After masking, the attention scores are divided by the square root of the key dimension and then softmax is applied.",
+        "line_ids": [
+          "h94TQOK7NRA@1870",
+          "h94TQOK7NRA@1872",
+          "h94TQOK7NRA@1875",
+          "h94TQOK7NRA@1877",
+          "h94TQOK7NRA@1878"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p060",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Applying softmax after setting future elements to negative infinity makes those masked positions become zero and makes each row sum to one.",
+        "line_ids": [
+          "h94TQOK7NRA@1881",
+          "h94TQOK7NRA@1883",
+          "h94TQOK7NRA@1885",
+          "h94TQOK7NRA@1892",
+          "h94TQOK7NRA@1894",
+          "h94TQOK7NRA@1901",
+          "h94TQOK7NRA@1903"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p061",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Masking in transformers sets scores for future tokens to a very large negative value so that their influence in the softmax calculation is effectively zero.",
+        "line_ids": [
+          "h94TQOK7NRA@1923",
+          "h94TQOK7NRA@1926",
+          "h94TQOK7NRA@1928",
+          "h94TQOK7NRA@1930",
+          "h94TQOK7NRA@1933",
+          "h94TQOK7NRA@1935"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p062",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Softmax then recalculates attention weights among the unmasked tokens, which ensures no information leakage from masked tokens.",
+        "line_ids": [
+          "h94TQOK7NRA@1938",
+          "h94TQOK7NRA@1939",
+          "h94TQOK7NRA@1942",
+          "h94TQOK7NRA@1944"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p063",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "Once the attention weight matrix is obtained, it is multiplied by the value matrix to get the context vector.",
+        "line_ids": [
+          "h94TQOK7NRA@1949",
+          "h94TQOK7NRA@1951",
+          "h94TQOK7NRA@1954",
+          "h94TQOK7NRA@1956"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p064",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Dropout is a deep learning technique in which neurons in different layers are randomly turned off by setting them to zero.",
+        "line_ids": [
+          "h94TQOK7NRA@1974",
+          "h94TQOK7NRA@1976",
+          "h94TQOK7NRA@1978",
+          "h94TQOK7NRA@1980",
+          "h94TQOK7NRA@1981"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p065",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "The lecturer explains dropout as preventing a lazy neuron or codependency problem by forcing a neuron to work when other neurons are switched off.",
+        "line_ids": [
+          "h94TQOK7NRA@1984",
+          "h94TQOK7NRA@1986",
+          "h94TQOK7NRA@1989",
+          "h94TQOK7NRA@1991",
+          "h94TQOK7NRA@1993",
+          "h94TQOK7NRA@2001",
+          "h94TQOK7NRA@2004",
+          "h94TQOK7NRA@2006"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p066",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Dropout helps all neurons participate, prevents overfitting, and improves generalization performance.",
+        "line_ids": [
+          "h94TQOK7NRA@2011",
+          "h94TQOK7NRA@2013",
+          "h94TQOK7NRA@2015",
+          "h94TQOK7NRA@2019",
+          "h94TQOK7NRA@2021",
+          "h94TQOK7NRA@2027",
+          "h94TQOK7NRA@2029"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p067",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In transformer architectures such as GPT, dropout in the attention mechanism is usually applied either after calculating attention scores or after applying attention weights to the value vectors.",
+        "line_ids": [
+          "h94TQOK7NRA@2030",
+          "h94TQOK7NRA@2033",
+          "h94TQOK7NRA@2035",
+          "h94TQOK7NRA@2037",
+          "h94TQOK7NRA@2039",
+          "h94TQOK7NRA@2044",
+          "h94TQOK7NRA@2047"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p068",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 2,
+        "text": "A common choice is to apply dropout after calculating the attention weights or attention scores rather than after forming the context vector.",
+        "line_ids": [
+          "h94TQOK7NRA@2057",
+          "h94TQOK7NRA@2059",
+          "h94TQOK7NRA@2061",
+          "h94TQOK7NRA@2062",
+          "h94TQOK7NRA@2065",
+          "h94TQOK7NRA@2069",
+          "h94TQOK7NRA@2071",
+          "h94TQOK7NRA@2073"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p069",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To apply dropout to causal attention, first create a dropout mask that specifies which attention weights will be randomly turned off.",
+        "line_ids": [
+          "h94TQOK7NRA@2075",
+          "h94TQOK7NRA@2077",
+          "h94TQOK7NRA@2084",
+          "h94TQOK7NRA@2086",
+          "h94TQOK7NRA@2089",
+          "h94TQOK7NRA@2091"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p070",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "With dropout probability 0.5, on average 50% of the attention weights in each row are turned off.",
+        "line_ids": [
+          "h94TQOK7NRA@2093",
+          "h94TQOK7NRA@2096",
+          "h94TQOK7NRA@2099",
+          "h94TQOK7NRA@2101"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p071",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Dropout on attention weights works row by row by randomly zeroing out some elements with a given probability.",
+        "line_ids": [
+          "h94TQOK7NRA@2119",
+          "h94TQOK7NRA@2121",
+          "h94TQOK7NRA@2123",
+          "h94TQOK7NRA@2127",
+          "h94TQOK7NRA@2162",
+          "h94TQOK7NRA@2164",
+          "h94TQOK7NRA@2166",
+          "h94TQOK7NRA@2169"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p072",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "code",
+        "importance": 2,
+        "text": "The lecturer demonstrates dropout in Python by applying PyTorch dropout with rate 0.5 to a 6 by 6 tensor of ones for illustration before applying it to the attention weight matrix.",
+        "line_ids": [
+          "h94TQOK7NRA@2179",
+          "h94TQOK7NRA@2180",
+          "h94TQOK7NRA@2182",
+          "h94TQOK7NRA@2185",
+          "h94TQOK7NRA@2197",
+          "h94TQOK7NRA@2200",
+          "h94TQOK7NRA@2202",
+          "h94TQOK7NRA@2204"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p073",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "When dropout with rate 0.5 is applied, the weights that are not switched off are rescaled by a factor of two.",
+        "line_ids": [
+          "h94TQOK7NRA@2241",
+          "h94TQOK7NRA@2243",
+          "h94TQOK7NRA@2245",
+          "h94TQOK7NRA@2247",
+          "h94TQOK7NRA@2250",
+          "h94TQOK7NRA@2253",
+          "h94TQOK7NRA@2256"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p074",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Dropout is probabilistic, so an exact number of weights need not be switched off in every row, but over many rows the average matches the dropout rate.",
+        "line_ids": [
+          "h94TQOK7NRA@2266",
+          "h94TQOK7NRA@2269",
+          "h94TQOK7NRA@2273",
+          "h94TQOK7NRA@2275",
+          "h94TQOK7NRA@2278",
+          "h94TQOK7NRA@2281",
+          "h94TQOK7NRA@2285",
+          "h94TQOK7NRA@2289"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p075",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "When applying dropout with rate 50% to an attention weight matrix, half of the elements are randomly set to zero and the remaining elements are scaled up by a factor of two.",
+        "line_ids": [
+          "h94TQOK7NRA@2291",
+          "h94TQOK7NRA@2293",
+          "h94TQOK7NRA@2295",
+          "h94TQOK7NRA@2297",
+          "h94TQOK7NRA@2301",
+          "h94TQOK7NRA@2303",
+          "h94TQOK7NRA@2305",
+          "h94TQOK7NRA@2307"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p076",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "equation",
+        "importance": 2,
+        "text": "In PyTorch dropout, outputs are scaled by a factor of 1 divided by 1 minus p.",
+        "line_ids": [
+          "h94TQOK7NRA@2323",
+          "h94TQOK7NRA@2326",
+          "h94TQOK7NRA@2328",
+          "h94TQOK7NRA@2330",
+          "h94TQOK7NRA@2333"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p077",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 2,
+        "text": "This scaling is important for maintaining the overall balance of attention weights so that the average influence of the attention mechanism remains consistent during training and inference.",
+        "line_ids": [
+          "h94TQOK7NRA@2335",
+          "h94TQOK7NRA@2337",
+          "h94TQOK7NRA@2339",
+          "h94TQOK7NRA@2341",
+          "h94TQOK7NRA@2344",
+          "h94TQOK7NRA@2346",
+          "h94TQOK7NRA@2348"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p078",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "code",
+        "importance": 2,
+        "text": "The lecturer applies a dropout layer to the final attention weight matrix by creating a dropout class instance with input argument 0.5 and then applying it to the matrix.",
+        "line_ids": [
+          "h94TQOK7NRA@2351",
+          "h94TQOK7NRA@2352",
+          "h94TQOK7NRA@2354",
+          "h94TQOK7NRA@2356",
+          "h94TQOK7NRA@2359",
+          "h94TQOK7NRA@2362",
+          "h94TQOK7NRA@2364",
+          "h94TQOK7NRA@2371"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p079",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "After dropout is applied to the attention weight matrix, some attention weights are randomly set to zero and the remaining weights are scaled up.",
+        "line_ids": [
+          "h94TQOK7NRA@2373",
+          "h94TQOK7NRA@2377",
+          "h94TQOK7NRA@2378",
+          "h94TQOK7NRA@2380",
+          "h94TQOK7NRA@2382",
+          "h94TQOK7NRA@2384",
+          "h94TQOK7NRA@2419",
+          "h94TQOK7NRA@2426"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p080",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The causal attention class to be implemented is similar to the earlier self-attention class except that it adds causal masking and dropout.",
+        "line_ids": [
+          "h94TQOK7NRA@2444",
+          "h94TQOK7NRA@2446",
+          "h94TQOK7NRA@2448",
+          "h94TQOK7NRA@2450",
+          "h94TQOK7NRA@2452",
+          "h94TQOK7NRA@2465",
+          "h94TQOK7NRA@2467",
+          "h94TQOK7NRA@2472"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p081",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In the causal attention class, inputs are multiplied by the query, key, and value weight matrices to obtain queries, keys, and values, then queries are multiplied by keys transpose to get attention scores, elements above the diagonal are replaced with negative infinity, the scores are scaled, dropout and softmax are applied to obtain attention weights, and finally the attention weights are multiplied by the values to get the context vector matrix.",
+        "line_ids": [
+          "h94TQOK7NRA@2472",
+          "h94TQOK7NRA@2475",
+          "h94TQOK7NRA@2477",
+          "h94TQOK7NRA@2479",
+          "h94TQOK7NRA@2482",
+          "h94TQOK7NRA@2485",
+          "h94TQOK7NRA@2486",
+          "h94TQOK7NRA@2489",
+          "h94TQOK7NRA@2490",
+          "h94TQOK7NRA@2494",
+          "h94TQOK7NRA@2496",
+          "h94TQOK7NRA@2497",
+          "h94TQOK7NRA@2499",
+          "h94TQOK7NRA@2502",
+          "h94TQOK7NRA@2504",
+          "h94TQOK7NRA@2506",
+          "h94TQOK7NRA@2509",
+          "h94TQOK7NRA@2511",
+          "h94TQOK7NRA@2513",
+          "h94TQOK7NRA@2515",
+          "h94TQOK7NRA@2517",
+          "h94TQOK7NRA@2519",
+          "h94TQOK7NRA@2521",
+          "h94TQOK7NRA@2523",
+          "h94TQOK7NRA@2524",
+          "h94TQOK7NRA@2526"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p082",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The attention class should be able to handle multiple sentences at once as batches.",
+        "line_ids": [
+          "h94TQOK7NRA@2531",
+          "h94TQOK7NRA@2533",
+          "h94TQOK7NRA@2535",
+          "h94TQOK7NRA@2542",
+          "h94TQOK7NRA@2544",
+          "h94TQOK7NRA@2546",
+          "h94TQOK7NRA@2564",
+          "h94TQOK7NRA@2566"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p083",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To support batching, a simple batch with two inputs is created so that the model receives a tensor containing two sequences, each of shape 6 by 3.",
+        "line_ids": [
+          "h94TQOK7NRA@2583",
+          "h94TQOK7NRA@2585",
+          "h94TQOK7NRA@2587",
+          "h94TQOK7NRA@2589",
+          "h94TQOK7NRA@2592",
+          "h94TQOK7NRA@2594",
+          "h94TQOK7NRA@2597",
+          "h94TQOK7NRA@2601",
+          "h94TQOK7NRA@2604"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p084",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "This batched input is a 3D tensor consisting of two input texts with six tokens each, where each token has a three-dimensional embedding vector.",
+        "line_ids": [
+          "h94TQOK7NRA@2606",
+          "h94TQOK7NRA@2608",
+          "h94TQOK7NRA@2610",
+          "h94TQOK7NRA@2625",
+          "h94TQOK7NRA@2628",
+          "h94TQOK7NRA@2631"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p085",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In the causal attention class with batching, the input shape is batch size by number of tokens by embedding dimension, unlike the earlier self-attention class without batches.",
+        "line_ids": [
+          "h94TQOK7NRA@2632",
+          "h94TQOK7NRA@2635",
+          "h94TQOK7NRA@2637",
+          "h94TQOK7NRA@2639",
+          "h94TQOK7NRA@2641",
+          "h94TQOK7NRA@2642",
+          "h94TQOK7NRA@2648",
+          "h94TQOK7NRA@2650",
+          "h94TQOK7NRA@2652",
+          "h94TQOK7NRA@2654",
+          "h94TQOK7NRA@2658",
+          "h94TQOK7NRA@2660",
+          "h94TQOK7NRA@2662",
+          "h94TQOK7NRA@2664",
+          "h94TQOK7NRA@2666",
+          "h94TQOK7NRA@2668",
+          "h94TQOK7NRA@2670",
+          "h94TQOK7NRA@2671",
+          "h94TQOK7NRA@2674",
+          "h94TQOK7NRA@2677",
+          "h94TQOK7NRA@2678",
+          "h94TQOK7NRA@2681",
+          "h94TQOK7NRA@2685"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p086",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "With batched inputs, the model multiplies the input by the key, query, and value weight matrices to get keys, queries, and values, and then multiplies queries by the transpose of keys.",
+        "line_ids": [
+          "h94TQOK7NRA@2687",
+          "h94TQOK7NRA@2690",
+          "h94TQOK7NRA@2693",
+          "h94TQOK7NRA@2695",
+          "h94TQOK7NRA@2696",
+          "h94TQOK7NRA@2698",
+          "h94TQOK7NRA@2701",
+          "h94TQOK7NRA@2703",
+          "h94TQOK7NRA@2705"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p087",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "visual_ref",
+        "importance": 2,
+        "text": "The lecturer notes that in the transpose operation using dimensions 1 and 2, the focus is on the token dimensions.",
+        "line_ids": [
+          "h94TQOK7NRA@2705",
+          "h94TQOK7NRA@2707",
+          "h94TQOK7NRA@2709"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p088",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To compute attention scores in batches, multiply the queries by the transpose of the keys using `keys.transpose(1, 2)` so that matrix multiplication is possible within each batch.",
+        "line_ids": [
+          "h94TQOK7NRA@2730",
+          "h94TQOK7NRA@2732",
+          "h94TQOK7NRA@2734",
+          "h94TQOK7NRA@2737",
+          "h94TQOK7NRA@2743",
+          "h94TQOK7NRA@2771",
+          "h94TQOK7NRA@2774",
+          "h94TQOK7NRA@2777"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p089",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Using `keys.transpose(1, 2)` preserves the batch rows while transposing the matrix inside each batch.",
+        "line_ids": [
+          "h94TQOK7NRA@2781",
+          "h94TQOK7NRA@2783",
+          "h94TQOK7NRA@2786",
+          "h94TQOK7NRA@2787",
+          "h94TQOK7NRA@2789",
+          "h94TQOK7NRA@2795",
+          "h94TQOK7NRA@2798",
+          "h94TQOK7NRA@2804",
+          "h94TQOK7NRA@2807",
+          "h94TQOK7NRA@2810",
+          "h94TQOK7NRA@2812",
+          "h94TQOK7NRA@2815"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p090",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "When queries are multiplied by transposed keys in batched attention, each batch is processed separately, and the resulting attention score matrices are stacked together.",
+        "line_ids": [
+          "h94TQOK7NRA@2817",
+          "h94TQOK7NRA@2818",
+          "h94TQOK7NRA@2821",
+          "h94TQOK7NRA@2823",
+          "h94TQOK7NRA@2825",
+          "h94TQOK7NRA@2828",
+          "h94TQOK7NRA@2830",
+          "h94TQOK7NRA@2833",
+          "h94TQOK7NRA@2835",
+          "h94TQOK7NRA@2837",
+          "h94TQOK7NRA@2841",
+          "h94TQOK7NRA@2843"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p091",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "definition",
+        "importance": 2,
+        "text": "An upper triangular matrix has ones above the diagonal and zeros below the diagonal.",
+        "line_ids": [
+          "h94TQOK7NRA@2863",
+          "h94TQOK7NRA@2866",
+          "h94TQOK7NRA@2869",
+          "h94TQOK7NRA@2873",
+          "h94TQOK7NRA@2876",
+          "h94TQOK7NRA@2878",
+          "h94TQOK7NRA@2880",
+          "h94TQOK7NRA@2882"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p092",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In causal attention, create an upper triangular mask and replace the positions marked by ones with negative infinity in the attention scores matrix.",
+        "line_ids": [
+          "h94TQOK7NRA@2863",
+          "h94TQOK7NRA@2866",
+          "h94TQOK7NRA@2869",
+          "h94TQOK7NRA@2882",
+          "h94TQOK7NRA@2884",
+          "h94TQOK7NRA@2887"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p093",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "After masking the attention scores, divide by the square root of the key dimension and apply softmax to obtain the attention weight matrix.",
+        "line_ids": [
+          "h94TQOK7NRA@2890",
+          "h94TQOK7NRA@2892",
+          "h94TQOK7NRA@2894",
+          "h94TQOK7NRA@2896",
+          "h94TQOK7NRA@2899"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p094",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The attention weight matrix has rows that sum to one after softmax, with the causal attention mask applied.",
+        "line_ids": [
+          "h94TQOK7NRA@2896",
+          "h94TQOK7NRA@2899",
+          "h94TQOK7NRA@2901",
+          "h94TQOK7NRA@2903"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p095",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "After computing the attention weights, apply dropout to them, then compute the context vector as the attention weights multiplied by the values, and return the context vector.",
+        "line_ids": [
+          "h94TQOK7NRA@2905",
+          "h94TQOK7NRA@2908",
+          "h94TQOK7NRA@2910",
+          "h94TQOK7NRA@2912",
+          "h94TQOK7NRA@2914",
+          "h94TQOK7NRA@2916",
+          "h94TQOK7NRA@2918",
+          "h94TQOK7NRA@2921",
+          "h94TQOK7NRA@2922",
+          "h94TQOK7NRA@2924",
+          "h94TQOK7NRA@2926"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p096",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "code",
+        "importance": 2,
+        "text": "In the example, the context length is taken as `batch.shape[1]`, which equals 6 for the given batch.",
+        "line_ids": [
+          "h94TQOK7NRA@2932",
+          "h94TQOK7NRA@2935",
+          "h94TQOK7NRA@2937",
+          "h94TQOK7NRA@2940"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p097",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "code",
+        "importance": 2,
+        "text": "In the example, the causal attention class is instantiated with input dimension `D_in = 3`, output dimension `D_out = 2`, context length 6, and dropout rate 0.0.",
+        "line_ids": [
+          "h94TQOK7NRA@2942",
+          "h94TQOK7NRA@2944",
+          "h94TQOK7NRA@2946",
+          "h94TQOK7NRA@2949",
+          "h94TQOK7NRA@2953",
+          "h94TQOK7NRA@2956",
+          "h94TQOK7NRA@2960",
+          "h94TQOK7NRA@2962",
+          "h94TQOK7NRA@2967",
+          "h94TQOK7NRA@2969",
+          "h94TQOK7NRA@2971",
+          "h94TQOK7NRA@2976",
+          "h94TQOK7NRA@2978",
+          "h94TQOK7NRA@2981",
+          "h94TQOK7NRA@2982",
+          "h94TQOK7NRA@2985"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p098",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "code",
+        "importance": 3,
+        "text": "Passing the stacked batch into the causal attention class produces a 3D output tensor of shape 2 × 6 × 2 because each of the two inputs yields a 6 × 2 context vector matrix.",
+        "line_ids": [
+          "h94TQOK7NRA@2987",
+          "h94TQOK7NRA@2989",
+          "h94TQOK7NRA@2992",
+          "h94TQOK7NRA@2995",
+          "h94TQOK7NRA@2997",
+          "h94TQOK7NRA@2999",
+          "h94TQOK7NRA@3001",
+          "h94TQOK7NRA@3003",
+          "h94TQOK7NRA@3005",
+          "h94TQOK7NRA@3007",
+          "h94TQOK7NRA@3009",
+          "h94TQOK7NRA@3010",
+          "h94TQOK7NRA@3013",
+          "h94TQOK7NRA@3014",
+          "h94TQOK7NRA@3019",
+          "h94TQOK7NRA@3021",
+          "h94TQOK7NRA@3023",
+          "h94TQOK7NRA@3027",
+          "h94TQOK7NRA@3028",
+          "h94TQOK7NRA@3030",
+          "h94TQOK7NRA@3033",
+          "h94TQOK7NRA@3041",
+          "h94TQOK7NRA@3044",
+          "h94TQOK7NRA@3046",
+          "h94TQOK7NRA@3047",
+          "h94TQOK7NRA@3050",
+          "h94TQOK7NRA@3052",
+          "h94TQOK7NRA@3054"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p099",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "code",
+        "importance": 2,
+        "text": "Printing the context vectors shows that the first 6 × 2 matrix corresponds to the first input and the second 6 × 2 matrix corresponds to the second input, stacked together.",
+        "line_ids": [
+          "h94TQOK7NRA@3056",
+          "h94TQOK7NRA@3058",
+          "h94TQOK7NRA@3061",
+          "h94TQOK7NRA@3064",
+          "h94TQOK7NRA@3067",
+          "h94TQOK7NRA@3069",
+          "h94TQOK7NRA@3071",
+          "h94TQOK7NRA@3074",
+          "h94TQOK7NRA@3076",
+          "h94TQOK7NRA@3078",
+          "h94TQOK7NRA@3079"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p100",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The implemented causal attention class is capable of handling batches.",
+        "line_ids": [
+          "h94TQOK7NRA@3082",
+          "h94TQOK7NRA@3084",
+          "h94TQOK7NRA@3086"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p101",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "definition",
+        "importance": 2,
+        "text": "A buffer is useful for fixed tensors such as the causal mask that do not need to be trained.",
+        "line_ids": [
+          "h94TQOK7NRA@3088",
+          "h94TQOK7NRA@3089",
+          "h94TQOK7NRA@3092",
+          "h94TQOK7NRA@3094",
+          "h94TQOK7NRA@3096",
+          "h94TQOK7NRA@3110",
+          "h94TQOK7NRA@3112",
+          "h94TQOK7NRA@3114",
+          "h94TQOK7NRA@3117",
+          "h94TQOK7NRA@3119",
+          "h94TQOK7NRA@3123"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p102",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Using `register_buffer` for fixed matrices like the mask causes them to move automatically with the model to the appropriate device, such as CPU or GPU.",
+        "line_ids": [
+          "h94TQOK7NRA@3097",
+          "h94TQOK7NRA@3100",
+          "h94TQOK7NRA@3101",
+          "h94TQOK7NRA@3103",
+          "h94TQOK7NRA@3105",
+          "h94TQOK7NRA@3108",
+          "h94TQOK7NRA@3125",
+          "h94TQOK7NRA@3127",
+          "h94TQOK7NRA@3131",
+          "h94TQOK7NRA@3133",
+          "h94TQOK7NRA@3134"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p103",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Defining fixed, untrained tensors with `register_buffer` is more convenient because it avoids manually ensuring they are on the same device as the model parameters and helps prevent device mismatch errors.",
+        "line_ids": [
+          "h94TQOK7NRA@3134",
+          "h94TQOK7NRA@3137",
+          "h94TQOK7NRA@3140",
+          "h94TQOK7NRA@3142",
+          "h94TQOK7NRA@3144",
+          "h94TQOK7NRA@3146",
+          "h94TQOK7NRA@3149",
+          "h94TQOK7NRA@3151",
+          "h94TQOK7NRA@3154",
+          "h94TQOK7NRA@3157",
+          "h94TQOK7NRA@3159",
+          "h94TQOK7NRA@3162",
+          "h94TQOK7NRA@3163",
+          "h94TQOK7NRA@3166",
+          "h94TQOK7NRA@3167"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p104",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Slicing the mask by the number of tokens ensures that when a batch has fewer tokens than the supported context size, the mask is created only up to the actual number of tokens.",
+        "line_ids": [
+          "h94TQOK7NRA@3173",
+          "h94TQOK7NRA@3177",
+          "h94TQOK7NRA@3179",
+          "h94TQOK7NRA@3181",
+          "h94TQOK7NRA@3183",
+          "h94TQOK7NRA@3185",
+          "h94TQOK7NRA@3188",
+          "h94TQOK7NRA@3190",
+          "h94TQOK7NRA@3192",
+          "h94TQOK7NRA@3194"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p105",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The implemented class applies a causal attention mask so that elements above the diagonal are set to zero, uses softmax so each row of attention weights sums to one, and includes dropout for generalizability and to prevent overfitting.",
+        "line_ids": [
+          "h94TQOK7NRA@3206",
+          "h94TQOK7NRA@3208",
+          "h94TQOK7NRA@3211",
+          "h94TQOK7NRA@3213",
+          "h94TQOK7NRA@3215",
+          "h94TQOK7NRA@3218",
+          "h94TQOK7NRA@3219",
+          "h94TQOK7NRA@3222",
+          "h94TQOK7NRA@3224",
+          "h94TQOK7NRA@3227"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p106",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Stacking multiple causal attention heads together leads to multi-head attention, which is what is implemented in GPT.",
+        "line_ids": [
+          "h94TQOK7NRA@3234",
+          "h94TQOK7NRA@3236",
+          "h94TQOK7NRA@3238",
+          "h94TQOK7NRA@3240",
+          "h94TQOK7NRA@3242",
+          "h94TQOK7NRA@3247",
+          "h94TQOK7NRA@3250",
+          "h94TQOK7NRA@3252",
+          "h94TQOK7NRA@3255",
+          "h94TQOK7NRA@3263",
+          "h94TQOK7NRA@3265",
+          "h94TQOK7NRA@3267",
+          "h94TQOK7NRA@3269",
+          "h94TQOK7NRA@3270",
+          "h94TQOK7NRA@3272"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p107",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 2,
+        "text": "To understand multi-head attention, you first need to understand causal attention, and to understand causal attention, you need to understand keys, queries, and values.",
+        "line_ids": [
+          "h94TQOK7NRA@3275",
+          "h94TQOK7NRA@3277",
+          "h94TQOK7NRA@3278",
+          "h94TQOK7NRA@3281",
+          "h94TQOK7NRA@3283",
+          "h94TQOK7NRA@3285",
+          "h94TQOK7NRA@3287"
+        ]
+      },
+      {
+        "id": "h94TQOK7NRA:p108",
+        "video_id": "h94TQOK7NRA",
+        "lecture": 16,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Understanding dimensions, batches, three-dimensional tensors, matrices, and linear algebra fundamentals is important for understanding how attention works.",
+        "line_ids": [
+          "h94TQOK7NRA@3313",
+          "h94TQOK7NRA@3315",
+          "h94TQOK7NRA@3317",
+          "h94TQOK7NRA@3319",
+          "h94TQOK7NRA@3322",
+          "h94TQOK7NRA@3323",
+          "h94TQOK7NRA@3325",
+          "h94TQOK7NRA@3327",
+          "h94TQOK7NRA@3330",
+          "h94TQOK7NRA@3331"
+        ]
+      }
+    ],
+    "inventory": [
+      {
+        "chunk": "h94TQOK7NRA@0-910",
+        "start": 0,
+        "end": 910,
+        "points": 29,
+        "core_points": 16,
+        "invalid_points": 0,
+        "flag": null
+      },
+      {
+        "chunk": "h94TQOK7NRA@907-1813",
+        "start": 907,
+        "end": 1813,
+        "points": 27,
+        "core_points": 22,
+        "invalid_points": 0,
+        "flag": null
+      },
+      {
+        "chunk": "h94TQOK7NRA@1811-2713",
+        "start": 1811,
+        "end": 2713,
+        "points": 31,
+        "core_points": 23,
+        "invalid_points": 0,
+        "flag": null
+      },
+      {
+        "chunk": "h94TQOK7NRA@2711-3351",
+        "start": 2711,
+        "end": 3351,
+        "points": 21,
+        "core_points": 13,
+        "invalid_points": 0,
+        "flag": null
+      }
+    ]
+  }
+}

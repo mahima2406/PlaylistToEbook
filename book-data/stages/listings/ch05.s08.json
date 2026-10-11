@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch05.s08",
+  "inputs_hash": "9616170ad5138bd62f03d6352f9567a01b2356e04a6cac3b5ad477f8f5faa450",
+  "output_hash": "ed504f1dd1978a0c229b3e0e7d0d554e46a09a139a61bd566f80a20f2de15744",
+  "output": {
+    "section_id": "ch05.s08",
+    "listings": [
+      {
+        "id": "ch05.s08.code1",
+        "ref": "ref:ch06/01_main-chapter-code/ch06.ipynb#cell31",
+        "path": "ch06/01_main-chapter-code/ch06.ipynb",
+        "caption": "Creates a SpamDataset from train.csv with the tokenizer and no explicit maximum length, then prints the dataset's computed max_length.",
+        "code": "train_dataset = SpamDataset(\n    csv_file=\"train.csv\",\n    max_length=None,\n    tokenizer=tokenizer\n)\n\nprint(train_dataset.max_length)",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The section describes creating a SpamDataset from a CSV with a tokenizer, where max_length=None causes the dataset to compute the maximum length from the training data. The code instantiates SpamDataset with train.csv, tokenizer, and no explicit max_length, then prints the computed train_dataset.max_length, which aligns with both the workflow and the caption."
+      },
+      {
+        "id": "ch05.s08.code2",
+        "ref": "ref:ch06/01_main-chapter-code/ch06.ipynb#cell33",
+        "path": "ch06/01_main-chapter-code/ch06.ipynb",
+        "caption": "Creates validation and test SpamDataset instances using the same tokenizer and the training dataset's max_length for padding and truncation.",
+        "code": "val_dataset = SpamDataset(\n    csv_file=\"validation.csv\",\n    max_length=train_dataset.max_length,\n    tokenizer=tokenizer\n)\ntest_dataset = SpamDataset(\n    csv_file=\"test.csv\",\n    max_length=train_dataset.max_length,\n    tokenizer=tokenizer\n)",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The section explains that validation and test datasets should be padded/truncated to the same max_length determined from the training set, and that creating SpamDataset instances requires specifying the CSV file, tokenizer, and (for val/test) the training max_length. The code does exactly that by passing train_dataset.max_length and the same tokenizer when constructing SpamDataset for validation and test. The caption accurately describes this behavior."
+      }
+    ],
+    "rejected": []
+  }
+}

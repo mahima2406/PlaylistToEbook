@@ -1,0 +1,580 @@
+{
+  "stage": "write",
+  "item": "ch01.s02",
+  "inputs_hash": "6701883772aa9c2584673d66759bf4f2908b4cde63d2f0b47efa62c44cfe521b",
+  "output_hash": "7448ca1b469a8c064e4a4e4ffbd48365ba6314709fd85e7ee52acf913507ff86",
+  "output": {
+    "section_id": "ch01.s02",
+    "paragraphs": [
+      {
+        "id": "ch01.s02.p01",
+        "sentences": [
+          {
+            "id": "ch01.s02.p01.01",
+            "text": "How do large language models fit into the wider landscape of AI, and why are they only one part of generative AI?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s02.p01.02",
+            "text": "Generative AI is broader than large language models, and it includes language, video, audio, and 3D models.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@489",
+              "Xpr8D6LeAtw@490",
+              "Xpr8D6LeAtw@495",
+              "Xpr8D6LeAtw@497",
+              "Xpr8D6LeAtw@500",
+              "Xpr8D6LeAtw@503",
+              "Xpr8D6LeAtw@506"
+            ]
+          },
+          {
+            "id": "ch01.s02.p01.03",
+            "text": "Examples shown for generative AI include realistic videos that are made by artificial intelligence rather than shot on camera.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@511",
+              "Xpr8D6LeAtw@514",
+              "Xpr8D6LeAtw@519",
+              "Xpr8D6LeAtw@522",
+              "Xpr8D6LeAtw@524",
+              "Xpr8D6LeAtw@527"
+            ]
+          },
+          {
+            "id": "ch01.s02.p01.04",
+            "text": "A large language model, by contrast, is a neural network designed to understand, generate, and respond to human-like text.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@153",
+              "3dWzNZXA8DY@157",
+              "3dWzNZXA8DY@160",
+              "3dWzNZXA8DY@164",
+              "3dWzNZXA8DY@168",
+              "3dWzNZXA8DY@170",
+              "3dWzNZXA8DY@172",
+              "3dWzNZXA8DY@174"
+            ]
+          },
+          {
+            "id": "ch01.s02.p01.05",
+            "text": "At the core, LLMs are neural networks built for generic text-related applications such as understanding, generating, and responding to human-like text.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@232",
+              "3dWzNZXA8DY@235",
+              "3dWzNZXA8DY@241",
+              "3dWzNZXA8DY@243",
+              "3dWzNZXA8DY@245",
+              "3dWzNZXA8DY@360",
+              "3dWzNZXA8DY@362"
+            ]
+          },
+          {
+            "id": "ch01.s02.p01.06",
+            "text": "They can also be described as deep neural networks trained on massive amounts of data to do tasks such as understanding, generating, and responding to human-like text.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@366",
+              "3dWzNZXA8DY@369",
+              "3dWzNZXA8DY@371",
+              "3dWzNZXA8DY@374",
+              "3dWzNZXA8DY@377",
+              "3dWzNZXA8DY@379"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s02.p02",
+        "sentences": [
+          {
+            "id": "ch01.s02.p02.01",
+            "text": "To make that definition concrete, it helps to unpack what a neural network is.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s02.p02.02",
+            "text": "A neural network takes input data, feeds it into a layer of neurons, stacks a number of these layers together, and produces an output layer.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@189",
+              "3dWzNZXA8DY@192",
+              "3dWzNZXA8DY@193",
+              "3dWzNZXA8DY@197",
+              "3dWzNZXA8DY@199"
+            ]
+          },
+          {
+            "id": "ch01.s02.p02.03",
+            "text": "The name \"neural network\" comes from the idea that these neurons represent the circuitry in the brain in a very symbolic sense.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@201",
+              "3dWzNZXA8DY@204",
+              "3dWzNZXA8DY@206",
+              "3dWzNZXA8DY@210"
+            ]
+          },
+          {
+            "id": "ch01.s02.p02.04",
+            "text": "Deep neural networks have many applications, including image detection, text generation, self-driving cars, and detecting whether a patient has a brain tumor.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@213",
+              "3dWzNZXA8DY@215",
+              "3dWzNZXA8DY@218",
+              "3dWzNZXA8DY@220",
+              "3dWzNZXA8DY@223",
+              "3dWzNZXA8DY@226",
+              "3dWzNZXA8DY@229",
+              "3dWzNZXA8DY@230"
+            ]
+          },
+          {
+            "id": "ch01.s02.p02.05",
+            "text": "LLMs are one specific application of these deep learning techniques, focused on processing and generating human-like text.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1516",
+              "3dWzNZXA8DY@1520",
+              "3dWzNZXA8DY@1522",
+              "3dWzNZXA8DY@1524",
+              "3dWzNZXA8DY@1526",
+              "3dWzNZXA8DY@1528"
+            ]
+          },
+          {
+            "id": "ch01.s02.p02.06",
+            "text": "They are called language models because they deal with language rather than other modalities such as images or video.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@656",
+              "3dWzNZXA8DY@659",
+              "3dWzNZXA8DY@665",
+              "3dWzNZXA8DY@667",
+              "3dWzNZXA8DY@669",
+              "3dWzNZXA8DY@672"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s02.p03",
+        "sentences": [
+          {
+            "id": "ch01.s02.p03.01",
+            "text": "The word \"large\" adds another part of the definition.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s02.p03.02",
+            "text": "In \"large language model,\" \"large\" refers to the number of parameters in the model.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@417",
+              "3dWzNZXA8DY@421",
+              "3dWzNZXA8DY@423",
+              "3dWzNZXA8DY@426",
+              "3dWzNZXA8DY@428"
+            ]
+          },
+          {
+            "id": "ch01.s02.p03.03",
+            "text": "LLMs typically have billions of parameters, and some have trillions of parameters.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@432",
+              "3dWzNZXA8DY@433",
+              "3dWzNZXA8DY@435",
+              "3dWzNZXA8DY@439",
+              "3dWzNZXA8DY@441",
+              "3dWzNZXA8DY@445",
+              "3dWzNZXA8DY@447",
+              "3dWzNZXA8DY@450"
+            ]
+          },
+          {
+            "id": "ch01.s02.p03.04",
+            "text": "A table of GPT-3 model sizes ranges from 125 million parameters through 350 million, 760 million, 13 billion, and up to 175 billion parameters, and GPT-4 is said to have even more parameters.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@455",
+              "3dWzNZXA8DY@457",
+              "3dWzNZXA8DY@460",
+              "3dWzNZXA8DY@464",
+              "3dWzNZXA8DY@466",
+              "3dWzNZXA8DY@469",
+              "3dWzNZXA8DY@472",
+              "3dWzNZXA8DY@477",
+              "3dWzNZXA8DY@481",
+              "3dWzNZXA8DY@492",
+              "3dWzNZXA8DY@495"
+            ]
+          },
+          {
+            "id": "ch01.s02.p03.05",
+            "text": "As models progress from GPT-1 to GPT-2 to GPT-3, they become better and their parameter counts increase tremendously.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@501",
+              "3dWzNZXA8DY@503",
+              "3dWzNZXA8DY@508",
+              "3dWzNZXA8DY@511",
+              "3dWzNZXA8DY@513",
+              "3dWzNZXA8DY@515",
+              "3dWzNZXA8DY@526",
+              "3dWzNZXA8DY@529",
+              "3dWzNZXA8DY@533",
+              "3dWzNZXA8DY@536"
+            ]
+          },
+          {
+            "id": "ch01.s02.p03.06",
+            "text": "The same comparison also shows other quantities increasing as the models grow: GPT-1 has 12 decoders, GPT-2 has 48, GPT-3 has 96, and token size increases from 512 to 1024 to 2048.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@540",
+              "3dWzNZXA8DY@541",
+              "3dWzNZXA8DY@543",
+              "3dWzNZXA8DY@551",
+              "3dWzNZXA8DY@554",
+              "3dWzNZXA8DY@558",
+              "3dWzNZXA8DY@562",
+              "3dWzNZXA8DY@564",
+              "3dWzNZXA8DY@566"
+            ]
+          },
+          {
+            "id": "ch01.s02.p03.07",
+            "text": "A separate graph covering 1950 to 2022 shows model parameter counts growing from very small values in early decades to around 100 million, 1 billion, and almost 1 trillion by around 2020, with language models among the largest.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@568",
+              "3dWzNZXA8DY@570",
+              "3dWzNZXA8DY@573",
+              "3dWzNZXA8DY@575",
+              "3dWzNZXA8DY@577",
+              "3dWzNZXA8DY@585",
+              "3dWzNZXA8DY@586",
+              "3dWzNZXA8DY@589",
+              "3dWzNZXA8DY@595",
+              "3dWzNZXA8DY@599",
+              "3dWzNZXA8DY@602",
+              "3dWzNZXA8DY@605",
+              "3dWzNZXA8DY@608",
+              "3dWzNZXA8DY@610",
+              "3dWzNZXA8DY@613",
+              "3dWzNZXA8DY@615",
+              "3dWzNZXA8DY@619",
+              "3dWzNZXA8DY@623",
+              "3dWzNZXA8DY@625",
+              "3dWzNZXA8DY@627"
+            ]
+          },
+          {
+            "id": "ch01.s02.p03.08",
+            "text": "These models are called large language models because we are living in an age of unprecedentedly huge parameter counts.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@630",
+              "3dWzNZXA8DY@633",
+              "3dWzNZXA8DY@635",
+              "3dWzNZXA8DY@637",
+              "3dWzNZXA8DY@640",
+              "3dWzNZXA8DY@642"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s02.p04",
+        "sentences": [
+          {
+            "id": "ch01.s02.p04.01",
+            "text": "The broader AI stack becomes clearer when the categories are nested.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s02.p04.02",
+            "text": "Artificial intelligence is the broadest umbrella, machine learning is a subset of artificial intelligence, deep learning is a subset of machine learning, and large language models are a subset of deep learning.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1104",
+              "3dWzNZXA8DY@1107",
+              "3dWzNZXA8DY@1109",
+              "3dWzNZXA8DY@1111",
+              "3dWzNZXA8DY@1113",
+              "3dWzNZXA8DY@1115",
+              "3dWzNZXA8DY@1118",
+              "3dWzNZXA8DY@1120",
+              "3dWzNZXA8DY@1122",
+              "3dWzNZXA8DY@1125",
+              "3dWzNZXA8DY@1127",
+              "3dWzNZXA8DY@1130",
+              "3dWzNZXA8DY@1485",
+              "3dWzNZXA8DY@1487",
+              "3dWzNZXA8DY@1490",
+              "3dWzNZXA8DY@1492"
+            ]
+          },
+          {
+            "id": "ch01.s02.p04.03",
+            "text": "Artificial intelligence is the broad category that includes any machine showing even remotely human-like behavior or some sort of intelligence.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1141",
+              "3dWzNZXA8DY@1143",
+              "3dWzNZXA8DY@1146",
+              "3dWzNZXA8DY@1149",
+              "3dWzNZXA8DY@1152",
+              "3dWzNZXA8DY@1154"
+            ]
+          },
+          {
+            "id": "ch01.s02.p04.04",
+            "text": "A rule-based chatbot can be an example of artificial intelligence without being machine learning.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1160",
+              "3dWzNZXA8DY@1163",
+              "3dWzNZXA8DY@1181",
+              "3dWzNZXA8DY@1184",
+              "3dWzNZXA8DY@1191",
+              "3dWzNZXA8DY@1193",
+              "3dWzNZXA8DY@1220",
+              "3dWzNZXA8DY@1222",
+              "3dWzNZXA8DY@1225"
+            ]
+          },
+          {
+            "id": "ch01.s02.p04.05",
+            "text": "It is not machine learning because it does not learn from user responses and behaves the same way for different users.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1200",
+              "3dWzNZXA8DY@1203",
+              "3dWzNZXA8DY@1205",
+              "3dWzNZXA8DY@1208",
+              "3dWzNZXA8DY@1210",
+              "3dWzNZXA8DY@1212",
+              "3dWzNZXA8DY@1215",
+              "3dWzNZXA8DY@1218",
+              "3dWzNZXA8DY@1220"
+            ]
+          },
+          {
+            "id": "ch01.s02.p04.06",
+            "text": "Machine learning consists of machines that learn and adapt based on how users interact with them.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1231",
+              "3dWzNZXA8DY@1234",
+              "3dWzNZXA8DY@1236",
+              "3dWzNZXA8DY@1238"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s02.p05",
+        "sentences": [
+          {
+            "id": "ch01.s02.p05.01",
+            "text": "Deep learning narrows the focus further.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s02.p05.02",
+            "text": "Deep learning usually involves neural networks, whereas machine learning includes neural networks and also methods that are not neural networks, such as decision trees.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1242",
+              "3dWzNZXA8DY@1245",
+              "3dWzNZXA8DY@1248",
+              "3dWzNZXA8DY@1250",
+              "3dWzNZXA8DY@1252",
+              "3dWzNZXA8DY@1254",
+              "3dWzNZXA8DY@1257",
+              "3dWzNZXA8DY@1396",
+              "3dWzNZXA8DY@1398",
+              "3dWzNZXA8DY@1400",
+              "3dWzNZXA8DY@1403",
+              "3dWzNZXA8DY@1405",
+              "3dWzNZXA8DY@1407"
+            ]
+          },
+          {
+            "id": "ch01.s02.p05.03",
+            "text": "A decision tree used to predict heart disease from patient data is an example of machine learning but not deep learning because it does not use neural networks.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1257",
+              "3dWzNZXA8DY@1259",
+              "3dWzNZXA8DY@1261",
+              "3dWzNZXA8DY@1263",
+              "3dWzNZXA8DY@1266",
+              "3dWzNZXA8DY@1270",
+              "3dWzNZXA8DY@1272",
+              "3dWzNZXA8DY@1274",
+              "3dWzNZXA8DY@1276",
+              "3dWzNZXA8DY@1279",
+              "3dWzNZXA8DY@1281",
+              "3dWzNZXA8DY@1283",
+              "3dWzNZXA8DY@1285"
+            ]
+          },
+          {
+            "id": "ch01.s02.p05.04",
+            "text": "A convolutional neural network for image detection is an example of deep learning because it uses a neural network to classify an input image.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1289",
+              "3dWzNZXA8DY@1292",
+              "3dWzNZXA8DY@1293",
+              "3dWzNZXA8DY@1296",
+              "3dWzNZXA8DY@1298",
+              "3dWzNZXA8DY@1300",
+              "3dWzNZXA8DY@1304",
+              "3dWzNZXA8DY@1306",
+              "3dWzNZXA8DY@1308",
+              "3dWzNZXA8DY@1310",
+              "3dWzNZXA8DY@1312",
+              "3dWzNZXA8DY@1314",
+              "3dWzNZXA8DY@1317",
+              "3dWzNZXA8DY@1319",
+              "3dWzNZXA8DY@1321",
+              "3dWzNZXA8DY@1323"
+            ]
+          },
+          {
+            "id": "ch01.s02.p05.05",
+            "text": "A neural network for handwritten digit classification is also an example of deep learning.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1326",
+              "3dWzNZXA8DY@1328",
+              "3dWzNZXA8DY@1330",
+              "3dWzNZXA8DY@1333",
+              "3dWzNZXA8DY@1335",
+              "3dWzNZXA8DY@1337",
+              "3dWzNZXA8DY@1340",
+              "3dWzNZXA8DY@1346",
+              "3dWzNZXA8DY@1348",
+              "3dWzNZXA8DY@1350",
+              "3dWzNZXA8DY@1352",
+              "3dWzNZXA8DY@1354",
+              "3dWzNZXA8DY@1361",
+              "3dWzNZXA8DY@1365",
+              "3dWzNZXA8DY@1367",
+              "3dWzNZXA8DY@1370",
+              "3dWzNZXA8DY@1374",
+              "3dWzNZXA8DY@1376",
+              "3dWzNZXA8DY@1378"
+            ]
+          },
+          {
+            "id": "ch01.s02.p05.06",
+            "text": "Deep learning is therefore a subset of machine learning because machine learning includes neural network methods and also methods like decision trees that are not neural networks.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1396",
+              "3dWzNZXA8DY@1398",
+              "3dWzNZXA8DY@1400",
+              "3dWzNZXA8DY@1403",
+              "3dWzNZXA8DY@1405",
+              "3dWzNZXA8DY@1407"
+            ]
+          },
+          {
+            "id": "ch01.s02.p05.07",
+            "text": "Large language models are then a subset of deep learning because deep learning also includes image-based work, while LLMs deal only with text.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1409",
+              "3dWzNZXA8DY@1414",
+              "3dWzNZXA8DY@1416",
+              "3dWzNZXA8DY@1419",
+              "3dWzNZXA8DY@1422",
+              "3dWzNZXA8DY@1424",
+              "3dWzNZXA8DY@1427",
+              "3dWzNZXA8DY@1429"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s02.p06",
+        "sentences": [
+          {
+            "id": "ch01.s02.p06.01",
+            "text": "This also explains where generative AI sits relative to LLMs.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s02.p06.02",
+            "text": "Generative AI can be thought of as a mixture of large language models and deep learning because it handles multiple modalities such as image, sound, and video.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1435",
+              "3dWzNZXA8DY@1437",
+              "3dWzNZXA8DY@1439",
+              "3dWzNZXA8DY@1441",
+              "3dWzNZXA8DY@1444",
+              "3dWzNZXA8DY@1446",
+              "3dWzNZXA8DY@1450",
+              "3dWzNZXA8DY@1451",
+              "3dWzNZXA8DY@1454",
+              "3dWzNZXA8DY@1456"
+            ]
+          },
+          {
+            "id": "ch01.s02.p06.03",
+            "text": "More specifically, generative AI uses deep neural networks to create new content such as text, images, and other media, whereas LLMs deal only with text.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1458",
+              "3dWzNZXA8DY@1461",
+              "3dWzNZXA8DY@1463",
+              "3dWzNZXA8DY@1466",
+              "3dWzNZXA8DY@1469",
+              "3dWzNZXA8DY@1472",
+              "3dWzNZXA8DY@1474"
+            ]
+          },
+          {
+            "id": "ch01.s02.p06.04",
+            "text": "So although the terms are often confused, LLMs are a specific text-focused application within deep learning, while generative AI extends across several media types.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@493",
+              "Xpr8D6LeAtw@495",
+              "Xpr8D6LeAtw@497",
+              "Xpr8D6LeAtw@500",
+              "Xpr8D6LeAtw@503",
+              "3dWzNZXA8DY@1469",
+              "3dWzNZXA8DY@1501",
+              "3dWzNZXA8DY@1504",
+              "3dWzNZXA8DY@1506",
+              "3dWzNZXA8DY@1508",
+              "3dWzNZXA8DY@1511",
+              "3dWzNZXA8DY@1514",
+              "3dWzNZXA8DY@1516",
+              "3dWzNZXA8DY@1520",
+              "3dWzNZXA8DY@1522",
+              "3dWzNZXA8DY@1524",
+              "3dWzNZXA8DY@1526",
+              "3dWzNZXA8DY@1528"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

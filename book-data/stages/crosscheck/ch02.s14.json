@@ -1,0 +1,399 @@
+{
+  "stage": "crosscheck",
+  "item": "ch02.s14",
+  "inputs_hash": "027b854c164424ff1243a50236a1ad6084a78a73a44ae787c36d7c046de918e8",
+  "output_hash": "1a54323f2374e3a4ddc261d7126bc09f55c33df574fd9e62f9948c96abb0d7a9",
+  "output": {
+    "section_id": "ch02.s14",
+    "checked": 32,
+    "counts": {
+      "agrees": 14,
+      "contradicts": 0,
+      "not_covered": 18
+    },
+    "results": [
+      {
+        "sentence_id": "ch02.s14.p01.02",
+        "text": "After tokenization and token IDs, the next preprocessing steps are token embeddings and positional embeddings.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell103"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference shows token IDs after tokenization and then proceeds to creating token embeddings and positional embeddings, which are combined for input embeddings."
+      },
+      {
+        "sentence_id": "ch02.s14.p01.03",
+        "text": "Token embeddings convert token IDs into vectors, and these token IDs are encoded into a higher-dimensional vector space.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell32",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell33"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference describes converting token IDs into vectors via an embedding layer (e.g., id 3 to a 3D vector) and notes token IDs are processed via embedding layers later."
+      },
+      {
+        "sentence_id": "ch02.s14.p01.04",
+        "text": "Positional embeddings encode information about the position.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference introduces positional embeddings as something added/combined with token embeddings to form input embeddings, which serves to incorporate position information."
+      },
+      {
+        "sentence_id": "ch02.s14.p01.05",
+        "text": "They are needed in addition to token embeddings because token embeddings alone do not include positional information, and that additional positional information is helpful for large language models.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell103"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference states positional embeddings are combined with token embeddings but does not explicitly state that token embeddings alone lack positional information or that the added positional information is helpful."
+      },
+      {
+        "sentence_id": "ch02.s14.p01.06",
+        "text": "To create input embeddings, positional embeddings are added to token embeddings, and those input embeddings are the final input to the large language model.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly constructs input_embeddings by adding token_embeddings and pos_embeddings and describes these as the input embeddings for an LLM."
+      },
+      {
+        "sentence_id": "ch02.s14.p01.07",
+        "text": "In short, input embeddings are the sum of token embeddings and positional embeddings.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell6"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The code directly defines input_embeddings = token_embeddings + pos_embeddings in multiple places."
+      },
+      {
+        "sentence_id": "ch02.s14.p02.02",
+        "text": "The terms positional embedding and positional encoding are used interchangeably here.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided reference snippets use the term \"positional embeddings\" but do not discuss \"positional encoding\" terminology or say the terms are interchangeable."
+      },
+      {
+        "sentence_id": "ch02.s14.p02.03",
+        "text": "There are two types of positional encoding: absolute positional encoding and relative positional encoding.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference passages shown do not mention absolute vs relative positional encoding types."
+      },
+      {
+        "sentence_id": "ch02.s14.p02.04",
+        "text": "In absolute positional encoding, each position in the input sequence has a unique positional embedding vector that is added to the token embedding.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell131"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference notes GPT-2 uses absolute position embeddings and demonstrates creating a separate position embedding layer that is added to token embeddings."
+      },
+      {
+        "sentence_id": "ch02.s14.p02.05",
+        "text": "For example, with the tokens \"cat\", \"sat\", \"on\", and \"the\", each token can start from a similar token embedding, but the first, second, third, and fourth positions receive different positional embedding vectors.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference does not provide this specific illustrative example with tokens \"cat\", \"sat\", \"on\", and \"the\" or the stated scenario."
+      },
+      {
+        "sentence_id": "ch02.s14.p02.06",
+        "text": "Adding those positional vectors to the token embeddings produces the final input embeddings.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly says input embeddings are created by adding token and positional embeddings and shows the corresponding code."
+      },
+      {
+        "sentence_id": "ch02.s14.p02.07",
+        "text": "Because position is encoded, the final input embeddings can differ even when the token embeddings are similar.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell130",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell103"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the reference shows input embeddings are a sum of token and positional embeddings, it does not explicitly state the consequence that similar token embeddings can yield different final input embeddings due to position encoding."
+      },
+      {
+        "sentence_id": "ch02.s14.p02.08",
+        "text": "For the same reason, the input embeddings for \"cat sat on the mat\" differ from those for \"the mat the cat sat on\" when position is taken into account.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided references discuss creating token/positional embeddings and dataset batching, but do not state or demonstrate that the same tokens in different orders yield different input embeddings due to position."
+      },
+      {
+        "sentence_id": "ch02.s14.p02.09",
+        "text": "The positional embedding vectors must have the same dimension as the token embeddings because the two vectors are added together.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references state input embeddings are formed by adding token and positional embeddings; vector addition requires matching dimensions."
+      },
+      {
+        "sentence_id": "ch02.s14.p03.02",
+        "text": "Relative positional encoding focuses on the relative positions or distances between tokens rather than their exact positions.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell120",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References cover absolute positional embeddings and adding positional + token embeddings, but do not describe relative positional encoding."
+      },
+      {
+        "sentence_id": "ch02.s14.p03.03",
+        "text": "Absolute positional encoding is well suited when the fixed order of tokens is crucial, such as sequence generation.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell131"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References mention GPT-2 uses absolute positional embeddings but do not discuss suitability of absolute encoding for sequence generation or when fixed order is crucial."
+      },
+      {
+        "sentence_id": "ch02.s14.p03.04",
+        "text": "GPT uses absolute positional encoding, and absolute positional encoding is more commonly used than relative positional encoding.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell131",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References support that GPT-2 uses absolute position embeddings, but do not address the claim that absolute is more commonly used than relative."
+      },
+      {
+        "sentence_id": "ch02.s14.p03.05",
+        "text": "Relative positional encoding is suitable for tasks like language modeling or long sequences where the same phrase can appear in different parts of the sequence.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell7",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell10",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell17"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References discuss long-sequence modeling issues generally, but do not connect relative positional encoding to language modeling/long-sequence suitability or phrase reuse."
+      },
+      {
+        "sentence_id": "ch02.s14.p04.02",
+        "text": "For a batch size of eight, a context length of four, and an embedding dimension of 256, the token embedding layer produces token embeddings with shape 8 by 4 by 256.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell6",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell111",
+          "ref:ch02/01_main-chapter-code/dataloader.ipynb#cell6"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The code shows computing token_embeddings = token_embedding_layer(x) but does not provide the specific numeric example (batch=8, context=4, dim=256) or an explicit shape statement for those values."
+      },
+      {
+        "sentence_id": "ch02.s14.p04.03",
+        "text": "The token embeddings for one batch are then combined with positional embeddings, and that sum becomes the input to the large language model.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References explicitly state and show in code that input_embeddings = token_embeddings + pos_embeddings, which become the model inputs."
+      },
+      {
+        "sentence_id": "ch02.s14.p04.04",
+        "text": "The next step is to create a separate embedding layer for positional embeddings.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell111"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the notebook uses a positional embedding layer, the cited passages do not explicitly state this as the 'next step' in a procedure."
+      },
+      {
+        "sentence_id": "ch02.s14.p04.05",
+        "text": "When creating the positional embedding matrix, the relevant number of positions is determined by the context length.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell132",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell77"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference code sets context_length = max_length and creates pos_embedding_layer = Embedding(context_length, output_dim), so the number of positions is determined by context length."
+      },
+      {
+        "sentence_id": "ch02.s14.p04.06",
+        "text": "Here the positional embedding dimension is 256, matching the token embedding dimension, because the positional and token vectors must be added.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References support that positional and token embeddings are added (implying matching dimensions), but do not state that the dimension is specifically 256 in the described setup."
+      },
+      {
+        "sentence_id": "ch02.s14.p04.07",
+        "text": "With a context length of four, only four positional vectors are needed, one for each possible token position.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell115"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References show examples with four input ids and demonstrate embedding lookup, but do not state that with context length four only four positional vectors are needed (one per position)."
+      },
+      {
+        "sentence_id": "ch02.s14.p04.08",
+        "text": "Therefore, the positional embedding matrix has shape 4 by 256.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell76",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell66"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention combining positional and token embeddings but do not state a specific positional embedding matrix shape of 4×256."
+      },
+      {
+        "sentence_id": "ch02.s14.p04.09",
+        "text": "In code, the positional embedding layer is created with four rows and 256 columns, and the four positional vectors are obtained from it.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell115",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages show how token embeddings are retrieved for four input_ids and that positional embeddings are added, but they do not explicitly state (in the cited snippets) that the positional embedding layer is created with 4 rows and 256 columns or that four positional vectors are obtained from it."
+      },
+      {
+        "sentence_id": "ch02.s14.p05.02",
+        "text": "The same four positional vectors are added to each input sequence in the batch.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell42",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference shows forming input embeddings via token_embeddings + pos_embeddings; with token_embeddings including a batch dimension, this implies the same positional vectors are applied across batch elements (broadcast across the batch dimension)."
+      },
+      {
+        "sentence_id": "ch02.s14.p05.03",
+        "text": "After creating the positional embeddings, they are added to the token embeddings.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell103",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Cell 134 explicitly states that input embeddings are created by adding token and positional embeddings."
+      },
+      {
+        "sentence_id": "ch02.s14.p05.04",
+        "text": "When adding token embeddings of shape 8 by 4 by 256 and positional embeddings of shape 4 by 256 in Python, broadcasting duplicates the positional embeddings across the batch dimension to make the addition possible.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The code input_embeddings = token_embeddings + pos_embeddings and printing the resulting shape supports that broadcasting occurs when adding a (batch, seq, dim) tensor to a (seq, dim) tensor, duplicating positional embeddings across the batch dimension."
+      },
+      {
+        "sentence_id": "ch02.s14.p05.05",
+        "text": "The input embedding matrix is constructed by adding the positional embedding vectors to each row of the token embedding matrix to produce the corresponding rows of the input embeddings.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell115",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell116"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references describe creating input embeddings by adding token and positional embeddings, which corresponds to adding the positional vector for each position to the token embedding at that row/position."
+      },
+      {
+        "sentence_id": "ch02.s14.p05.06",
+        "text": "The positional embedding matrix is initialized randomly, similar to the token embedding matrix.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell77",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell115",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show embedding layers and their weights but do not state how positional embeddings are initialized (e.g., random initialization) or compare their initialization explicitly to token embeddings."
+      },
+      {
+        "sentence_id": "ch02.s14.p05.07",
+        "text": "Like the values in the token embedding layer, the values in the positional embedding layer must be optimized during training.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell132",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell111",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell114"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show creating a positional embedding layer via torch.nn.Embedding, but they do not explicitly state in the cited text that its values must be optimized during training."
+      }
+    ],
+    "conflicts": []
+  }
+}

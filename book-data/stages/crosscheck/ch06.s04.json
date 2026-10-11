@@ -1,0 +1,269 @@
+{
+  "stage": "crosscheck",
+  "item": "ch06.s04",
+  "inputs_hash": "4e371fe79f3ae70371b830ec865cc32297c45a5ddd5bbaea3fcc1f562f7f8abd",
+  "output_hash": "13d49216f336fd5afdfdbc77cf9e541a27517d2fead08aae0125ebf1f17f379c",
+  "output": {
+    "section_id": "ch06.s04",
+    "checked": 19,
+    "counts": {
+      "agrees": 11,
+      "contradicts": 2,
+      "not_covered": 6
+    },
+    "results": [
+      {
+        "sentence_id": "ch06.s04.p01.02",
+        "text": "The way to do it is to pad token ID sequences so that all numerical representations have exactly the same length.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell86",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell26"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs describe padding token-ID sequences so examples can be combined in a batch by padding to a common length (chapter 6 pads to longest in dataset)."
+      },
+      {
+        "sentence_id": "ch06.s04.p01.03",
+        "text": "In each batch, the longest sequence is found, that sequence is kept as it is, and the remaining sequences are padded until their lengths match the longest length.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell29",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell32",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell26"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Reference says chapter 6 pads all samples to the longest sequence in the training dataset (and pads val/test to that), not that it finds the longest sequence per batch."
+      },
+      {
+        "sentence_id": "ch06.s04.p01.04",
+        "text": "For example, with input lengths 5, 2, and 3, the first input stays unchanged, the second is padded with \"50256\" three times, and the third is padded with \"50256\" two times so all rows have length 5.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell33"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs mention token ID 50256 used for padding and show a toy batch, but do not specify this exact 5/2/3 example and the exact counts of padding tokens (and the collate draft also adds an extra +1 token)."
+      },
+      {
+        "sentence_id": "ch06.s04.p01.05",
+        "text": "After padding, all token ID representations in the batch have the same length, the number of columns matches across rows, and they can be processed together as a batch.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell26",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell35"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs state padding is needed so multiple examples can be combined in a batch, and the collate code pads sequences in a batch to the same length."
+      },
+      {
+        "sentence_id": "ch06.s04.p01.06",
+        "text": "This padding is done separately for each batch.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell31",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell38"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "In chapter 6 the padding is done at the dataset level to a fixed max length (longest in training set), not separately per batch."
+      },
+      {
+        "sentence_id": "ch06.s04.p02.02",
+        "text": "\"50256\" is the end-of-text token.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell46"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs use 50256 as eos_id and explicitly call it the end-of-text token used for padding."
+      },
+      {
+        "sentence_id": "ch06.s04.p02.03",
+        "text": "GPT-2 has a vocabulary size of \"50257\", so token IDs run from 0 to \"50256\", and \"50256\" is the last token ID.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell46",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell26"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs show usage of eos_id=50256 but do not state GPT-2 vocabulary size is 50257 nor that IDs run 0–50256."
+      },
+      {
+        "sentence_id": "ch06.s04.p02.04",
+        "text": "That last token corresponds to end of text, which marks that one text sample has ended and a new text sample begins.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell46",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell13",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs indicate 50256 is an end-of-text token, but do not state it marks boundaries such that a new sample begins after it."
+      },
+      {
+        "sentence_id": "ch06.s04.p02.05",
+        "text": "That is why padding uses \"50256\" to mark the end of text.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell42"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs say they use <|endoftext|> / token ID 50256 as the padding token (end-of-text used as padding)."
+      },
+      {
+        "sentence_id": "ch06.s04.p02.06",
+        "text": "Using another token ID could associate the padding with an actual token and confuse training.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell66",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell31"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs do not discuss the rationale that using another token ID could confuse training by associating padding with a real token."
+      },
+      {
+        "sentence_id": "ch06.s04.p03.02",
+        "text": "The custom collate function takes the inputs in each batch, finds the input with the maximum length, and pads all other inputs with token ID \"50256\".",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell36",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell33",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell35"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The custom collate draft finds the maximum length in the batch and pads items using pad_token_id=50256 (also appending one 50256 to each sequence first)."
+      },
+      {
+        "sentence_id": "ch06.s04.p03.03",
+        "text": "The draft version of this function takes a batch, a padding token ID of \"50256\", and a device such as CPU.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell35",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell42"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Function signature shown: custom_collate_draft_1(batch, pad_token_id=50256, device='cpu')."
+      },
+      {
+        "sentence_id": "ch06.s04.p03.04",
+        "text": "It finds the longest sequence in the batch, pads the other sequences to that length, converts the list of inputs into a tensor, and transfers it to the target device.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell29",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell35",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell40"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The collate code finds the longest sequence length in the batch (with +1), pads other sequences with pad_token_id, converts padded sequences to torch tensors, and later versions (described in text) move tensors to the target device."
+      },
+      {
+        "sentence_id": "ch06.s04.p03.05",
+        "text": "The padded result is converted into an input tensor, and the custom collate draft one function returns that input tensor.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell41",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell33",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show custom_collate_draft_2 returns both inputs and targets, and do not show (or fully include) draft_1’s return statement. So the claim that draft_1 returns only the input tensor is not established by the provided passages."
+      },
+      {
+        "sentence_id": "ch06.s04.p04.02",
+        "text": "The function first finds the longest sequence length in the batch and adds one to that length.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell29",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell26",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Both custom_collate_draft_1 and draft_2 compute batch_max_length = max(len(item)+1 for item in batch), i.e., longest length plus one."
+      },
+      {
+        "sentence_id": "ch06.s04.p04.03",
+        "text": "For every item in the batch, it first adds one \"50256\" token and then pads with additional \"50256\" tokens until the sequence reaches the maximum length.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell29",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell35",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The code explicitly appends one pad_token_id (50256) to each item and then pads with additional 50256 tokens up to batch_max_length."
+      },
+      {
+        "sentence_id": "ch06.s04.p04.04",
+        "text": "After padding, the function removes the extra added token.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell35",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "In draft_2, after padding, inputs are created as torch.tensor(padded[:-1]), which removes the final token (the extra added/padded token position) from the input sequence."
+      },
+      {
+        "sentence_id": "ch06.s04.p04.05",
+        "text": "The reason for adding this extra \"50256\" token first is that it later helps create the target, because the target is formed by removing the first element of the input and adding \"50256\".",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell27",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While draft_2 shows an extra 50256 is appended and inputs use padded[:-1] (implying targets may use a shifted version), the provided passages do not explicitly state the rationale described (target formed by removing first input element and adding 50256)."
+      },
+      {
+        "sentence_id": "ch06.s04.p04.06",
+        "text": "So the code adds an extra \"50256\" to each input first, gets rid of it later, and pads the inputs with \"50256\" until every sequence matches the maximum length in the batch.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell35",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell29"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The code adds an extra 50256 to each sequence, pads with 50256 to the batch maximum length, and (in draft_2) later drops the last element for inputs via padded[:-1], matching the described behavior at a high level."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch06.s04.p01.03",
+        "text": "In each batch, the longest sequence is found, that sequence is kept as it is, and the remaining sequences are padded until their lengths match the longest length.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell29",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell32",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell26"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Reference says chapter 6 pads all samples to the longest sequence in the training dataset (and pads val/test to that), not that it finds the longest sequence per batch."
+      },
+      {
+        "sentence_id": "ch06.s04.p01.06",
+        "text": "This padding is done separately for each batch.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell31",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell38"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "In chapter 6 the padding is done at the dataset level to a fixed max length (longest in training set), not separately per batch."
+      }
+    ]
+  }
+}

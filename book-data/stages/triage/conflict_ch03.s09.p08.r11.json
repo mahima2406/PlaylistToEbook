@@ -1,0 +1,14 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch03.s09.p08.r11",
+  "inputs_hash": "4003313d98ea032e9f0d052b9293f942363d0b4abe7e55dfc516ef3c67e098d4",
+  "output_hash": "0063e522c7de701875e65bdf62f84690d20f5d43f0f5853e1977f5a048f016b7",
+  "output": {
+    "decision": "note",
+    "note": "This example omits dropout for simplicity; the reference implementation applies dropout after attention weights, commonly with a 50% rate during training.",
+    "reason": "The captions explicitly say dropout is not implemented here for simplicity, while the reference describes a different implementation choice.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "d7f02ade26346eb9888e2f6ce02a2366bcdfa6a659c364daeb8d208da1583979"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "ch04.s10.p05.04": {
+    "decision": "edit",
+    "text": "After finding the loss gradients, the next step is \"optimizer.step()\", which updates parameter values according to the gradient values that were obtained.",
+    "reason": "The captions support gradients being found before optimizer.step() and explain that optimizer.step() updates parameters based on those gradients, but they do not explicitly cite the code call loss.backward().",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "8028165c36fbd5cea8034c8d9c5f5a582e984680cc2ff074dc814a6fdc2274b4"
+  },
+  "ch03.s10.p05.07": {
+    "decision": "edit",
+    "text": "In layer normalization, each output of an input is replaced by that output minus the input's mean, divided by the square root of its variance.",
+    "reason": "The captions explicitly describe normalizing the outputs for the first batch and then the second batch using output minus mu over the square root of the variance. (wording corrected before review)",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "ef3289bb80b0fb2f710096c1aceb144ce7dbc66c247da9c36967ad7229d1f8f6"
+  },
+  "ch01.s09.p01.02": {
+    "decision": "edit",
+    "text": "BERT and GPT are based on the Transformer architecture.",
+    "reason": "The cited captions support that these models are Transformer variations, but the cleaner supported wording is that they are based on the Transformer architecture.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.72,
+      "reason": "The context mentions GPT models and BERT and discusses 'later variations of the Transformer architecture,' implying a connection, but the cited lines do not explicitly state that BERT and GPT are based on the Transformer architecture."
+    },
+    "kind": "queue",
+    "sentence_hash": "86c229438ee27a120a518a28b9f3633920c4e691eff1682e0874d567d99c10a2"
+  },
+  "ch03.s10.p01.07": {
+    "decision": "edit",
+    "reason": "The captions support the count and placement in substance: two around multi-head attention and one before the output, so the sentence is a faithful paraphrase. (wording corrected before review)",
+    "risk": "low",
+    "kind": "queue",
+    "sentence_hash": "c02f617e8b70c214c97c04b715d61a6b05a02817c2e5bc1eb6b761d4f523e993",
+    "text": "Overall, it appears three times in the architecture being discussed: twice around the multi-head attention module and once before the final output layer.",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    }
+  }
+}

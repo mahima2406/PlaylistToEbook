@@ -1,0 +1,2350 @@
+{
+  "stage": "extract",
+  "item": "yXrGeDNuymY",
+  "inputs_hash": "1508b0fecc0c0b617141e78c49f76975d26778bb19c7a68926ac1d1ba7609fe5",
+  "output_hash": "85f0e8aaa18316806a37bf64ab49d2f1c23d4a34ecf1ce2c719d072b5ba46a76",
+  "output": {
+    "video_id": "yXrGeDNuymY",
+    "points": [
+      {
+        "id": "yXrGeDNuymY:p001",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The lecture explains how to load publicly released OpenAI GPT-2 pretrained weights into the GPT model class built earlier so that generated text becomes more coherent.",
+        "line_ids": [
+          "yXrGeDNuymY@15",
+          "yXrGeDNuymY@17",
+          "yXrGeDNuymY@21",
+          "yXrGeDNuymY@23",
+          "yXrGeDNuymY@26",
+          "yXrGeDNuymY@28"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p002",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The exact GPT architecture and GPT model class built earlier are reused and integrated with the GPT-2 OpenAI weights.",
+        "line_ids": [
+          "yXrGeDNuymY@37",
+          "yXrGeDNuymY@40",
+          "yXrGeDNuymY@43",
+          "yXrGeDNuymY@45",
+          "yXrGeDNuymY@47",
+          "yXrGeDNuymY@50",
+          "yXrGeDNuymY@52",
+          "yXrGeDNuymY@56"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p003",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Earlier training on a small book for a limited number of epochs produced text that was not very coherent.",
+        "line_ids": [
+          "yXrGeDNuymY@101",
+          "yXrGeDNuymY@102",
+          "yXrGeDNuymY@105",
+          "yXrGeDNuymY@107",
+          "yXrGeDNuymY@110",
+          "yXrGeDNuymY@113",
+          "yXrGeDNuymY@115",
+          "yXrGeDNuymY@118",
+          "yXrGeDNuymY@120"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p004",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Temperature scaling and top-k sampling reduced overfitting somewhat, but the generated next sentence still did not make much sense.",
+        "line_ids": [
+          "yXrGeDNuymY@123",
+          "yXrGeDNuymY@125",
+          "yXrGeDNuymY@128",
+          "yXrGeDNuymY@131",
+          "yXrGeDNuymY@133",
+          "yXrGeDNuymY@136",
+          "yXrGeDNuymY@138",
+          "yXrGeDNuymY@141",
+          "yXrGeDNuymY@142",
+          "yXrGeDNuymY@144"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p005",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "OpenAI originally saved the GPT-2 weights in TensorFlow, while the lecture series code uses PyTorch.",
+        "line_ids": [
+          "yXrGeDNuymY@260",
+          "yXrGeDNuymY@262",
+          "yXrGeDNuymY@265",
+          "yXrGeDNuymY@267",
+          "yXrGeDNuymY@269"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p006",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To work with the GPT-2 weights in this setup, install TensorFlow and the tqdm library, with TensorFlow version at least 2.15 and tqdm version at least 4.66.",
+        "line_ids": [
+          "yXrGeDNuymY@269",
+          "yXrGeDNuymY@272",
+          "yXrGeDNuymY@275",
+          "yXrGeDNuymY@277",
+          "yXrGeDNuymY@280",
+          "yXrGeDNuymY@286",
+          "yXrGeDNuymY@288",
+          "yXrGeDNuymY@291",
+          "yXrGeDNuymY@293",
+          "yXrGeDNuymY@294"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p007",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "code",
+        "importance": 1,
+        "text": "The code prints the installed TensorFlow version and tqdm version on the system after importing them.",
+        "line_ids": [
+          "yXrGeDNuymY@297",
+          "yXrGeDNuymY@299",
+          "yXrGeDNuymY@301",
+          "yXrGeDNuymY@304"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p008",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The downloadable GPT-2 files contain about seven files totaling about 500 megabytes, and preprocessing is needed before the weights can be integrated with the GPT architecture.",
+        "line_ids": [
+          "yXrGeDNuymY@327",
+          "yXrGeDNuymY@329",
+          "yXrGeDNuymY@332",
+          "yXrGeDNuymY@334",
+          "yXrGeDNuymY@337",
+          "yXrGeDNuymY@338",
+          "yXrGeDNuymY@340",
+          "yXrGeDNuymY@343",
+          "yXrGeDNuymY@344",
+          "yXrGeDNuymY@347",
+          "yXrGeDNuymY@350"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p009",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "code",
+        "importance": 3,
+        "text": "The file gpt_download3.py contains a main function called download_and_load_gpt2 and two helper functions called download_file and load_gpt2_params_from_tf_checkpoint.",
+        "line_ids": [
+          "yXrGeDNuymY@380",
+          "yXrGeDNuymY@385",
+          "yXrGeDNuymY@386",
+          "yXrGeDNuymY@388",
+          "yXrGeDNuymY@390",
+          "yXrGeDNuymY@392",
+          "yXrGeDNuymY@395",
+          "yXrGeDNuymY@398",
+          "yXrGeDNuymY@400",
+          "yXrGeDNuymY@403"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p010",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The main GPT-2 loading function first downloads the seven GPT-2 files to the local computer and then calls a TensorFlow checkpoint-loading function to store the parameters in a dictionary called params.",
+        "line_ids": [
+          "yXrGeDNuymY@405",
+          "yXrGeDNuymY@407",
+          "yXrGeDNuymY@409",
+          "yXrGeDNuymY@412",
+          "yXrGeDNuymY@414",
+          "yXrGeDNuymY@416",
+          "yXrGeDNuymY@418",
+          "yXrGeDNuymY@422",
+          "yXrGeDNuymY@424",
+          "yXrGeDNuymY@426",
+          "yXrGeDNuymY@428",
+          "yXrGeDNuymY@430",
+          "yXrGeDNuymY@436",
+          "yXrGeDNuymY@438",
+          "yXrGeDNuymY@442",
+          "yXrGeDNuymY@444"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p011",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Simply downloading the data is not enough; it is also necessary to understand the returned params dictionary format.",
+        "line_ids": [
+          "yXrGeDNuymY@451",
+          "yXrGeDNuymY@453",
+          "yXrGeDNuymY@455",
+          "yXrGeDNuymY@457"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p012",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The checkpoint file indicates the path where the current GPT-2 model parameters and weights are stored.",
+        "line_ids": [
+          "yXrGeDNuymY@498",
+          "yXrGeDNuymY@503",
+          "yXrGeDNuymY@505",
+          "yXrGeDNuymY@507",
+          "yXrGeDNuymY@510",
+          "yXrGeDNuymY@513",
+          "yXrGeDNuymY@516",
+          "yXrGeDNuymY@519",
+          "yXrGeDNuymY@522",
+          "yXrGeDNuymY@524",
+          "yXrGeDNuymY@527",
+          "yXrGeDNuymY@529"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p013",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The encoder.json file is the vocabulary mapping tokens to token IDs.",
+        "line_ids": [
+          "yXrGeDNuymY@531",
+          "yXrGeDNuymY@535",
+          "yXrGeDNuymY@537",
+          "yXrGeDNuymY@539",
+          "yXrGeDNuymY@541",
+          "yXrGeDNuymY@547",
+          "yXrGeDNuymY@549",
+          "yXrGeDNuymY@551"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p014",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The GPT-2 vocabulary size is 50,257 tokens, indexed from 0 up to the end-of-text token at 50,256.",
+        "line_ids": [
+          "yXrGeDNuymY@553",
+          "yXrGeDNuymY@555",
+          "yXrGeDNuymY@558",
+          "yXrGeDNuymY@560",
+          "yXrGeDNuymY@562"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p015",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The vocab.bpe file defines byte pair encoding, a subword tokenization scheme that repeatedly merges the most frequently occurring token pairs so that the merged pair becomes a token.",
+        "line_ids": [
+          "yXrGeDNuymY@566",
+          "yXrGeDNuymY@568",
+          "yXrGeDNuymY@570",
+          "yXrGeDNuymY@573",
+          "yXrGeDNuymY@575",
+          "yXrGeDNuymY@577",
+          "yXrGeDNuymY@579",
+          "yXrGeDNuymY@581",
+          "yXrGeDNuymY@583"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p016",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The vocab.bpe list contains merged tokens, with those merged with the highest probability appearing at the top.",
+        "line_ids": [
+          "yXrGeDNuymY@586",
+          "yXrGeDNuymY@591",
+          "yXrGeDNuymY@593",
+          "yXrGeDNuymY@595",
+          "yXrGeDNuymY@597",
+          "yXrGeDNuymY@599"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p017",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "definition",
+        "importance": 2,
+        "text": "The special marker shown as g-dot is an OpenAI convention indicating that one token has ended and a new token has begun, similar to a space marking the start of a new token.",
+        "line_ids": [
+          "yXrGeDNuymY@601",
+          "yXrGeDNuymY@603",
+          "yXrGeDNuymY@606",
+          "yXrGeDNuymY@608",
+          "yXrGeDNuymY@610",
+          "yXrGeDNuymY@612",
+          "yXrGeDNuymY@615",
+          "yXrGeDNuymY@617",
+          "yXrGeDNuymY@620",
+          "yXrGeDNuymY@622"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p018",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The hparams.json file contains the model settings such as vocabulary size, context length, embedding dimension, number of attention heads, and number of transformer blocks.",
+        "line_ids": [
+          "yXrGeDNuymY@624",
+          "yXrGeDNuymY@627",
+          "yXrGeDNuymY@629",
+          "yXrGeDNuymY@631",
+          "yXrGeDNuymY@633",
+          "yXrGeDNuymY@636",
+          "yXrGeDNuymY@640",
+          "yXrGeDNuymY@641",
+          "yXrGeDNuymY@649",
+          "yXrGeDNuymY@651",
+          "yXrGeDNuymY@654",
+          "yXrGeDNuymY@659",
+          "yXrGeDNuymY@662",
+          "yXrGeDNuymY@665",
+          "yXrGeDNuymY@669",
+          "yXrGeDNuymY@671",
+          "yXrGeDNuymY@674"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p019",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The embedding dimension means that each token ID is converted into a vector in a 768-dimensional space.",
+        "line_ids": [
+          "yXrGeDNuymY@640",
+          "yXrGeDNuymY@641",
+          "yXrGeDNuymY@643",
+          "yXrGeDNuymY@647",
+          "yXrGeDNuymY@649",
+          "yXrGeDNuymY@651",
+          "yXrGeDNuymY@654"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p020",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The parameter n_heads is the number of attention heads in each transformer block, and n_layer is the number of transformer blocks.",
+        "line_ids": [
+          "yXrGeDNuymY@659",
+          "yXrGeDNuymY@662",
+          "yXrGeDNuymY@665",
+          "yXrGeDNuymY@669",
+          "yXrGeDNuymY@671",
+          "yXrGeDNuymY@674"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p021",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The settings being shown are for the smallest GPT-2 model.",
+        "line_ids": [
+          "yXrGeDNuymY@677",
+          "yXrGeDNuymY@680",
+          "yXrGeDNuymY@682",
+          "yXrGeDNuymY@687"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p022",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 2,
+        "text": "OpenAI publicly released GPT-2 weights for models with 124 million, 355 million, 774 million, and 1558 million parameters.",
+        "line_ids": [
+          "yXrGeDNuymY@687",
+          "yXrGeDNuymY@690",
+          "yXrGeDNuymY@691",
+          "yXrGeDNuymY@694",
+          "yXrGeDNuymY@697",
+          "yXrGeDNuymY@701",
+          "yXrGeDNuymY@703"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p023",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "For simplicity, the lecture focuses on the 124 million parameter model, which has 12 transformer blocks.",
+        "line_ids": [
+          "yXrGeDNuymY@703",
+          "yXrGeDNuymY@705",
+          "yXrGeDNuymY@707",
+          "yXrGeDNuymY@709"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p024",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 2,
+        "text": "As GPT-2 models become more complex, the number of transformer blocks increases.",
+        "line_ids": [
+          "yXrGeDNuymY@709",
+          "yXrGeDNuymY@711",
+          "yXrGeDNuymY@713"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p025",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The same code can also be run for the larger GPT-2 architectures.",
+        "line_ids": [
+          "yXrGeDNuymY@716",
+          "yXrGeDNuymY@718",
+          "yXrGeDNuymY@720"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p026",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "The code specifies a URL, calls a download function to fetch the seven files, and saves them on the local computer.",
+        "line_ids": [
+          "yXrGeDNuymY@733",
+          "yXrGeDNuymY@736",
+          "yXrGeDNuymY@739",
+          "yXrGeDNuymY@741",
+          "yXrGeDNuymY@743",
+          "yXrGeDNuymY@745",
+          "yXrGeDNuymY@747",
+          "yXrGeDNuymY@751",
+          "yXrGeDNuymY@752"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p027",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "After downloading, the code uses TensorFlow's latest checkpoint utility to find the checkpoint directory and identify where the model parameters are stored.",
+        "line_ids": [
+          "yXrGeDNuymY@757",
+          "yXrGeDNuymY@760",
+          "yXrGeDNuymY@762",
+          "yXrGeDNuymY@765",
+          "yXrGeDNuymY@767",
+          "yXrGeDNuymY@769",
+          "yXrGeDNuymY@772",
+          "yXrGeDNuymY@774",
+          "yXrGeDNuymY@776",
+          "yXrGeDNuymY@778",
+          "yXrGeDNuymY@779",
+          "yXrGeDNuymY@781",
+          "yXrGeDNuymY@784"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p028",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "code",
+        "importance": 3,
+        "text": "The code maintains a settings dictionary that contains the same values as hparams.json, including vocabulary size, context length, embedding dimension, number of attention heads, and number of transformer blocks.",
+        "line_ids": [
+          "yXrGeDNuymY@788",
+          "yXrGeDNuymY@790",
+          "yXrGeDNuymY@792",
+          "yXrGeDNuymY@794",
+          "yXrGeDNuymY@796",
+          "yXrGeDNuymY@797",
+          "yXrGeDNuymY@800",
+          "yXrGeDNuymY@802",
+          "yXrGeDNuymY@804",
+          "yXrGeDNuymY@806"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p029",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The code takes the TensorFlow checkpoint path and the settings dictionary and uses them to load the model parameters into a special dictionary called params.",
+        "line_ids": [
+          "yXrGeDNuymY@815",
+          "yXrGeDNuymY@817",
+          "yXrGeDNuymY@819",
+          "yXrGeDNuymY@821",
+          "yXrGeDNuymY@823",
+          "yXrGeDNuymY@825",
+          "yXrGeDNuymY@827",
+          "yXrGeDNuymY@830",
+          "yXrGeDNuymY@833",
+          "yXrGeDNuymY@835",
+          "yXrGeDNuymY@838",
+          "yXrGeDNuymY@841",
+          "yXrGeDNuymY@843",
+          "yXrGeDNuymY@845",
+          "yXrGeDNuymY@850",
+          "yXrGeDNuymY@852",
+          "yXrGeDNuymY@854",
+          "yXrGeDNuymY@855"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p030",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The params dictionary has five keys: wte, wpe, blocks, final normalization scale, and final normalization shift.",
+        "line_ids": [
+          "yXrGeDNuymY@860",
+          "yXrGeDNuymY@862",
+          "yXrGeDNuymY@864",
+          "yXrGeDNuymY@867",
+          "yXrGeDNuymY@869",
+          "yXrGeDNuymY@871",
+          "yXrGeDNuymY@873",
+          "yXrGeDNuymY@875",
+          "yXrGeDNuymY@878",
+          "yXrGeDNuymY@882",
+          "yXrGeDNuymY@884",
+          "yXrGeDNuymY@887"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p031",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Input token IDs must first be converted into token embeddings using trainable parameters, and then positional embeddings, which are also trainable parameters, are added to form the input embeddings that are passed to the Transformer block.",
+        "line_ids": [
+          "yXrGeDNuymY@906",
+          "yXrGeDNuymY@908",
+          "yXrGeDNuymY@910",
+          "yXrGeDNuymY@913",
+          "yXrGeDNuymY@914",
+          "yXrGeDNuymY@917",
+          "yXrGeDNuymY@919",
+          "yXrGeDNuymY@921",
+          "yXrGeDNuymY@922",
+          "yXrGeDNuymY@924",
+          "yXrGeDNuymY@926"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p032",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In the parameter dictionary, the WTE key corresponds to token embedding parameters and the WPE key corresponds to positional embedding parameters.",
+        "line_ids": [
+          "yXrGeDNuymY@929",
+          "yXrGeDNuymY@931",
+          "yXrGeDNuymY@932",
+          "yXrGeDNuymY@935"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p033",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The dropout layer has no trainable weights, so there are no parameter-dictionary keys for it.",
+        "line_ids": [
+          "yXrGeDNuymY@938",
+          "yXrGeDNuymY@940",
+          "yXrGeDNuymY@942",
+          "yXrGeDNuymY@944"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p034",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Within a Transformer block, trainable weights appear in the multi-head attention layer, the feed-forward neural network, the layer normalizations, and the output projection layer.",
+        "line_ids": [
+          "yXrGeDNuymY@947",
+          "yXrGeDNuymY@949",
+          "yXrGeDNuymY@951",
+          "yXrGeDNuymY@953",
+          "yXrGeDNuymY@955",
+          "yXrGeDNuymY@957",
+          "yXrGeDNuymY@1003",
+          "yXrGeDNuymY@1004",
+          "yXrGeDNuymY@1053",
+          "yXrGeDNuymY@1056",
+          "yXrGeDNuymY@1058",
+          "yXrGeDNuymY@1060"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p035",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The multi-head attention layer contains trainable query, key, and value weight matrices.",
+        "line_ids": [
+          "yXrGeDNuymY@951",
+          "yXrGeDNuymY@953",
+          "yXrGeDNuymY@955",
+          "yXrGeDNuymY@957",
+          "yXrGeDNuymY@959",
+          "yXrGeDNuymY@962"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p036",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The feed-forward neural network has an input, a hidden layer with four times the input dimension, and a final output layer that projects back to the original size.",
+        "line_ids": [
+          "yXrGeDNuymY@967",
+          "yXrGeDNuymY@969",
+          "yXrGeDNuymY@971",
+          "yXrGeDNuymY@974",
+          "yXrGeDNuymY@976",
+          "yXrGeDNuymY@978",
+          "yXrGeDNuymY@980",
+          "yXrGeDNuymY@982",
+          "yXrGeDNuymY@984"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p037",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In the feed-forward neural network, the first layer is a fully connected layer called FC and the second is an output projection layer called P, and both have trainable weights.",
+        "line_ids": [
+          "yXrGeDNuymY@987",
+          "yXrGeDNuymY@989",
+          "yXrGeDNuymY@991",
+          "yXrGeDNuymY@994",
+          "yXrGeDNuymY@997",
+          "yXrGeDNuymY@999",
+          "yXrGeDNuymY@1001",
+          "yXrGeDNuymY@1003"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p038",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Although layer normalization normally just subtracts the mean and divides by the square root of the variance, here it also includes a trainable scale parameter and a trainable shift parameter.",
+        "line_ids": [
+          "yXrGeDNuymY@1016",
+          "yXrGeDNuymY@1018",
+          "yXrGeDNuymY@1021",
+          "yXrGeDNuymY@1023",
+          "yXrGeDNuymY@1025",
+          "yXrGeDNuymY@1027",
+          "yXrGeDNuymY@1029",
+          "yXrGeDNuymY@1031",
+          "yXrGeDNuymY@1033",
+          "yXrGeDNuymY@1036",
+          "yXrGeDNuymY@1039",
+          "yXrGeDNuymY@1041"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p039",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The trainable scale and shift parameters in layer normalization make a big difference.",
+        "line_ids": [
+          "yXrGeDNuymY@1041",
+          "yXrGeDNuymY@1044",
+          "yXrGeDNuymY@1046"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p040",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Layer normalization 1, layer normalization 2, and the final normalization layer all belong to the trainable-parameter category.",
+        "line_ids": [
+          "yXrGeDNuymY@1049",
+          "yXrGeDNuymY@1051",
+          "yXrGeDNuymY@1053",
+          "yXrGeDNuymY@1056",
+          "yXrGeDNuymY@1058",
+          "yXrGeDNuymY@1060"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p041",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Wherever the model has parameters to train, the parameter dictionary contains corresponding keys.",
+        "line_ids": [
+          "yXrGeDNuymY@1063",
+          "yXrGeDNuymY@1065",
+          "yXrGeDNuymY@1068"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p042",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The blocks key corresponds to all trainable weights and parameters inside the Transformer block, while G and B correspond to the trainable parameters in the final layer normalization.",
+        "line_ids": [
+          "yXrGeDNuymY@1070",
+          "yXrGeDNuymY@1072",
+          "yXrGeDNuymY@1075",
+          "yXrGeDNuymY@1077",
+          "yXrGeDNuymY@1079",
+          "yXrGeDNuymY@1082",
+          "yXrGeDNuymY@1084",
+          "yXrGeDNuymY@1086"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p043",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The token embedding matrix in GPT-2 has shape 50257 by 768, because the vocabulary size is 50257 and each token has a 768-dimensional vector.",
+        "line_ids": [
+          "yXrGeDNuymY@1088",
+          "yXrGeDNuymY@1091",
+          "yXrGeDNuymY@1094",
+          "yXrGeDNuymY@1097",
+          "yXrGeDNuymY@1101",
+          "yXrGeDNuymY@1103",
+          "yXrGeDNuymY@1104",
+          "yXrGeDNuymY@1107",
+          "yXrGeDNuymY@1109"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p044",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "For the smallest GPT-2 model considered here, the positional embedding matrix has one embedding for each of 1024 positions, each of dimension 768.",
+        "line_ids": [
+          "yXrGeDNuymY@1112",
+          "yXrGeDNuymY@1115",
+          "yXrGeDNuymY@1116",
+          "yXrGeDNuymY@1118",
+          "yXrGeDNuymY@1122",
+          "yXrGeDNuymY@1124",
+          "yXrGeDNuymY@1127",
+          "yXrGeDNuymY@1130",
+          "yXrGeDNuymY@1132",
+          "yXrGeDNuymY@1134",
+          "yXrGeDNuymY@1136",
+          "yXrGeDNuymY@1138",
+          "yXrGeDNuymY@1141"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p045",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Token embeddings and positional embeddings must have the same vector dimension so that they can be added, which is why both use dimension 768 here.",
+        "line_ids": [
+          "yXrGeDNuymY@1141",
+          "yXrGeDNuymY@1143",
+          "yXrGeDNuymY@1145",
+          "yXrGeDNuymY@1146",
+          "yXrGeDNuymY@1149",
+          "yXrGeDNuymY@1152"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p046",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The WTE key stores the token embedding matrix values and the WPE key stores the positional embedding matrix values.",
+        "line_ids": [
+          "yXrGeDNuymY@1152",
+          "yXrGeDNuymY@1156",
+          "yXrGeDNuymY@1158",
+          "yXrGeDNuymY@1161",
+          "yXrGeDNuymY@1163"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p047",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In released GPT-2 weights, the query, key, and value matrices are fused into one single large matrix, which must later be split into separate query, key, and value trainable matrices.",
+        "line_ids": [
+          "yXrGeDNuymY@1176",
+          "yXrGeDNuymY@1178",
+          "yXrGeDNuymY@1180",
+          "yXrGeDNuymY@1183",
+          "yXrGeDNuymY@1186",
+          "yXrGeDNuymY@1189",
+          "yXrGeDNuymY@1192",
+          "yXrGeDNuymY@1195",
+          "yXrGeDNuymY@1197",
+          "yXrGeDNuymY@1198"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p048",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "GPT-2 has 12 Transformer blocks, so the same parameter structure is repeated for blocks H0 through H11.",
+        "line_ids": [
+          "yXrGeDNuymY@1216",
+          "yXrGeDNuymY@1218",
+          "yXrGeDNuymY@1221",
+          "yXrGeDNuymY@1224",
+          "yXrGeDNuymY@1226",
+          "yXrGeDNuymY@1227",
+          "yXrGeDNuymY@1229",
+          "yXrGeDNuymY@1231"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p049",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To access the fused query-key-value attention weights for the first Transformer block, follow the nested keys blocks, transformer, H0, ATN, C_ATN, and then weights.",
+        "line_ids": [
+          "yXrGeDNuymY@1201",
+          "yXrGeDNuymY@1204",
+          "yXrGeDNuymY@1205",
+          "yXrGeDNuymY@1207",
+          "yXrGeDNuymY@1209",
+          "yXrGeDNuymY@1211",
+          "yXrGeDNuymY@1213",
+          "yXrGeDNuymY@1216",
+          "yXrGeDNuymY@1233",
+          "yXrGeDNuymY@1236",
+          "yXrGeDNuymY@1249",
+          "yXrGeDNuymY@1251",
+          "yXrGeDNuymY@1254",
+          "yXrGeDNuymY@1258",
+          "yXrGeDNuymY@1259",
+          "yXrGeDNuymY@1261",
+          "yXrGeDNuymY@1263",
+          "yXrGeDNuymY@1265",
+          "yXrGeDNuymY@1268",
+          "yXrGeDNuymY@1270",
+          "yXrGeDNuymY@1272",
+          "yXrGeDNuymY@1274",
+          "yXrGeDNuymY@1276",
+          "yXrGeDNuymY@1278",
+          "yXrGeDNuymY@1280",
+          "yXrGeDNuymY@1282",
+          "yXrGeDNuymY@1283"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p050",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The same nested access pattern is used for the biases of the query, key, and value matrices, and it is repeated for every Transformer block from H0 to H11.",
+        "line_ids": [
+          "yXrGeDNuymY@1286",
+          "yXrGeDNuymY@1290",
+          "yXrGeDNuymY@1292",
+          "yXrGeDNuymY@1295",
+          "yXrGeDNuymY@1297",
+          "yXrGeDNuymY@1299",
+          "yXrGeDNuymY@1301",
+          "yXrGeDNuymY@1304",
+          "yXrGeDNuymY@1307",
+          "yXrGeDNuymY@1309",
+          "yXrGeDNuymY@1311",
+          "yXrGeDNuymY@1313",
+          "yXrGeDNuymY@1316"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p051",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The feed-forward neural network inside the Transformer block has two layers, a fully connected layer and a projection layer, each with weights and biases.",
+        "line_ids": [
+          "yXrGeDNuymY@1321",
+          "yXrGeDNuymY@1322",
+          "yXrGeDNuymY@1325",
+          "yXrGeDNuymY@1326",
+          "yXrGeDNuymY@1328",
+          "yXrGeDNuymY@1330",
+          "yXrGeDNuymY@1332",
+          "yXrGeDNuymY@1335"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p052",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To access the fully connected layer in the feed-forward network for the first Transformer block, use the nested keys transformer, H0, MLP, and then the fully connected layer's weights and biases.",
+        "line_ids": [
+          "yXrGeDNuymY@1337",
+          "yXrGeDNuymY@1339",
+          "yXrGeDNuymY@1340",
+          "yXrGeDNuymY@1343",
+          "yXrGeDNuymY@1345",
+          "yXrGeDNuymY@1347",
+          "yXrGeDNuymY@1348",
+          "yXrGeDNuymY@1350",
+          "yXrGeDNuymY@1352",
+          "yXrGeDNuymY@1354",
+          "yXrGeDNuymY@1356",
+          "yXrGeDNuymY@1358",
+          "yXrGeDNuymY@1360",
+          "yXrGeDNuymY@1362",
+          "yXrGeDNuymY@1364"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p053",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To access the projection layer in the feed-forward network, use the C_PROJ key and then access its weights and biases.",
+        "line_ids": [
+          "yXrGeDNuymY@1366",
+          "yXrGeDNuymY@1368",
+          "yXrGeDNuymY@1372",
+          "yXrGeDNuymY@1373",
+          "yXrGeDNuymY@1375",
+          "yXrGeDNuymY@1377",
+          "yXrGeDNuymY@1379"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p054",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The attention mechanism also has an output projection layer with associated weights.",
+        "line_ids": [
+          "yXrGeDNuymY@1239",
+          "yXrGeDNuymY@1241",
+          "yXrGeDNuymY@1244",
+          "yXrGeDNuymY@1247",
+          "yXrGeDNuymY@1382",
+          "yXrGeDNuymY@1384",
+          "yXrGeDNuymY@1386",
+          "yXrGeDNuymY@1387",
+          "yXrGeDNuymY@1389",
+          "yXrGeDNuymY@1393",
+          "yXrGeDNuymY@1395"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p055",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To access the attention output projection layer, go through transformer, Hn, and then ATN C_PROJ to obtain the weights, and repeat this for all 12 Transformer blocks.",
+        "line_ids": [
+          "yXrGeDNuymY@1397",
+          "yXrGeDNuymY@1401",
+          "yXrGeDNuymY@1403",
+          "yXrGeDNuymY@1406",
+          "yXrGeDNuymY@1409",
+          "yXrGeDNuymY@1410",
+          "yXrGeDNuymY@1413",
+          "yXrGeDNuymY@1415",
+          "yXrGeDNuymY@1417",
+          "yXrGeDNuymY@1420",
+          "yXrGeDNuymY@1422"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p056",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Each Transformer block also includes layer normalization 1 and layer normalization 2, and both have trainable scale and shift parameters.",
+        "line_ids": [
+          "yXrGeDNuymY@1425",
+          "yXrGeDNuymY@1427",
+          "yXrGeDNuymY@1429",
+          "yXrGeDNuymY@1430",
+          "yXrGeDNuymY@1434",
+          "yXrGeDNuymY@1436"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p057",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To access the parameters of layer normalization 1 and layer normalization 2 inside a Transformer block, use the block keys for that block and then access G for scale and B for shift.",
+        "line_ids": [
+          "yXrGeDNuymY@1438",
+          "yXrGeDNuymY@1440",
+          "yXrGeDNuymY@1442",
+          "yXrGeDNuymY@1444",
+          "yXrGeDNuymY@1448",
+          "yXrGeDNuymY@1450",
+          "yXrGeDNuymY@1452",
+          "yXrGeDNuymY@1455",
+          "yXrGeDNuymY@1457",
+          "yXrGeDNuymY@1459",
+          "yXrGeDNuymY@1463",
+          "yXrGeDNuymY@1465"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p058",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Within the blocks dictionary, the model stores attention weights, feed-forward network weights, output projection weights, and layer normalization weights, which together cover all trainable parameters inside a Transformer block.",
+        "line_ids": [
+          "yXrGeDNuymY@1468",
+          "yXrGeDNuymY@1470",
+          "yXrGeDNuymY@1472",
+          "yXrGeDNuymY@1474",
+          "yXrGeDNuymY@1476",
+          "yXrGeDNuymY@1479",
+          "yXrGeDNuymY@1481",
+          "yXrGeDNuymY@1483",
+          "yXrGeDNuymY@1485",
+          "yXrGeDNuymY@1487",
+          "yXrGeDNuymY@1489",
+          "yXrGeDNuymY@1491",
+          "yXrGeDNuymY@1492",
+          "yXrGeDNuymY@1494",
+          "yXrGeDNuymY@1496",
+          "yXrGeDNuymY@1498"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p059",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Outside the Transformer blocks, the final layer normalization also has scale and shift parameters, with separate top-level keys G for scale and B for shift.",
+        "line_ids": [
+          "yXrGeDNuymY@1501",
+          "yXrGeDNuymY@1503",
+          "yXrGeDNuymY@1505",
+          "yXrGeDNuymY@1507",
+          "yXrGeDNuymY@1509",
+          "yXrGeDNuymY@1511",
+          "yXrGeDNuymY@1513",
+          "yXrGeDNuymY@1515",
+          "yXrGeDNuymY@1517",
+          "yXrGeDNuymY@1520",
+          "yXrGeDNuymY@1521",
+          "yXrGeDNuymY@1523",
+          "yXrGeDNuymY@1525",
+          "yXrGeDNuymY@1527"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p060",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To get the final normalization shift parameters, use params with key B, and to get the final normalization scale parameters, use params with key G.",
+        "line_ids": [
+          "yXrGeDNuymY@1529",
+          "yXrGeDNuymY@1532",
+          "yXrGeDNuymY@1535",
+          "yXrGeDNuymY@1539",
+          "yXrGeDNuymY@1543"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p061",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To access attention weights from the parameter dictionary in code, use params, then blocks, then the block number, then ATN, then C_ATN, and then W.",
+        "line_ids": [
+          "yXrGeDNuymY@1543",
+          "yXrGeDNuymY@1546",
+          "yXrGeDNuymY@1547",
+          "yXrGeDNuymY@1549",
+          "yXrGeDNuymY@1551",
+          "yXrGeDNuymY@1554",
+          "yXrGeDNuymY@1556",
+          "yXrGeDNuymY@1559",
+          "yXrGeDNuymY@1562",
+          "yXrGeDNuymY@1563",
+          "yXrGeDNuymY@1567",
+          "yXrGeDNuymY@1570",
+          "yXrGeDNuymY@1572"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p062",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The purpose of loading GPT-2 parameters from the TensorFlow checkpoint is to extract parameter values from the checkpoint and convert them into the params dictionary.",
+        "line_ids": [
+          "yXrGeDNuymY@1580",
+          "yXrGeDNuymY@1581",
+          "yXrGeDNuymY@1584",
+          "yXrGeDNuymY@1586",
+          "yXrGeDNuymY@1590",
+          "yXrGeDNuymY@1592",
+          "yXrGeDNuymY@1595",
+          "yXrGeDNuymY@1598"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p063",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "code",
+        "importance": 3,
+        "text": "The code first defines an empty params dictionary, creates the blocks key, and then fills it with the attention layers, feed-forward neural network, and output projection parameters taken from the model checkpoint and placed in the appropriate dictionary locations.",
+        "line_ids": [
+          "yXrGeDNuymY@1600",
+          "yXrGeDNuymY@1602",
+          "yXrGeDNuymY@1604",
+          "yXrGeDNuymY@1606",
+          "yXrGeDNuymY@1608",
+          "yXrGeDNuymY@1610",
+          "yXrGeDNuymY@1613",
+          "yXrGeDNuymY@1614",
+          "yXrGeDNuymY@1616",
+          "yXrGeDNuymY@1618",
+          "yXrGeDNuymY@1621",
+          "yXrGeDNuymY@1622",
+          "yXrGeDNuymY@1626",
+          "yXrGeDNuymY@1628"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p064",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "code",
+        "importance": 3,
+        "text": "The code also augments the params dictionary with the other keys WTE, WPE, G, and B from the model checkpoint path.",
+        "line_ids": [
+          "yXrGeDNuymY@1628",
+          "yXrGeDNuymY@1631",
+          "yXrGeDNuymY@1634",
+          "yXrGeDNuymY@1638",
+          "yXrGeDNuymY@1640"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p065",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "After executing the function that loads GPT-2 parameters from the TensorFlow checkpoint, the params dictionary contains the five keys shown on the whiteboard.",
+        "line_ids": [
+          "yXrGeDNuymY@1644",
+          "yXrGeDNuymY@1646",
+          "yXrGeDNuymY@1649",
+          "yXrGeDNuymY@1651",
+          "yXrGeDNuymY@1652",
+          "yXrGeDNuymY@1654"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p066",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "code",
+        "importance": 3,
+        "text": "When this function finishes, it returns the settings dictionary and the params dictionary.",
+        "line_ids": [
+          "yXrGeDNuymY@1657",
+          "yXrGeDNuymY@1658",
+          "yXrGeDNuymY@1659",
+          "yXrGeDNuymY@1662",
+          "yXrGeDNuymY@1664",
+          "yXrGeDNuymY@1666",
+          "yXrGeDNuymY@1668",
+          "yXrGeDNuymY@1670"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p067",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The settings dictionary contains the vocabulary size, context length, embedding dimension, number of attention heads, and number of Transformer blocks.",
+        "line_ids": [
+          "yXrGeDNuymY@1662",
+          "yXrGeDNuymY@1664",
+          "yXrGeDNuymY@1666",
+          "yXrGeDNuymY@1668"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p068",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Understanding how GPT-2 releases its weights and how to convert them into the parameter dictionary is important for doing research with large language models.",
+        "line_ids": [
+          "yXrGeDNuymY@1677",
+          "yXrGeDNuymY@1679",
+          "yXrGeDNuymY@1681",
+          "yXrGeDNuymY@1683",
+          "yXrGeDNuymY@1685",
+          "yXrGeDNuymY@1686",
+          "yXrGeDNuymY@1689",
+          "yXrGeDNuymY@1692",
+          "yXrGeDNuymY@1694",
+          "yXrGeDNuymY@1696",
+          "yXrGeDNuymY@1698",
+          "yXrGeDNuymY@1700",
+          "yXrGeDNuymY@1703",
+          "yXrGeDNuymY@1705"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p069",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "code",
+        "importance": 2,
+        "text": "In the notebook, the lecturer imports the download_and_load_gpt2 function from a Python file and then runs it.",
+        "line_ids": [
+          "yXrGeDNuymY@1713",
+          "yXrGeDNuymY@1716",
+          "yXrGeDNuymY@1719",
+          "yXrGeDNuymY@1721",
+          "yXrGeDNuymY@1723",
+          "yXrGeDNuymY@1724",
+          "yXrGeDNuymY@1727",
+          "yXrGeDNuymY@1729",
+          "yXrGeDNuymY@1731",
+          "yXrGeDNuymY@1733",
+          "yXrGeDNuymY@1735"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p070",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "When running the loading function, you must pass the model size and the directory.",
+        "line_ids": [
+          "yXrGeDNuymY@1735",
+          "yXrGeDNuymY@1737",
+          "yXrGeDNuymY@1739",
+          "yXrGeDNuymY@1741",
+          "yXrGeDNuymY@1744",
+          "yXrGeDNuymY@1747",
+          "yXrGeDNuymY@1749",
+          "yXrGeDNuymY@1751",
+          "yXrGeDNuymY@1753"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p071",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The model size can be 355 million, 774 million, or 1558 million, and the lecturer encourages experimentation with these options.",
+        "line_ids": [
+          "yXrGeDNuymY@1737",
+          "yXrGeDNuymY@1739",
+          "yXrGeDNuymY@1741",
+          "yXrGeDNuymY@1744",
+          "yXrGeDNuymY@1747",
+          "yXrGeDNuymY@1749"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p072",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "After running the loading code, you receive the settings dictionary and the params dictionary.",
+        "line_ids": [
+          "yXrGeDNuymY@1762",
+          "yXrGeDNuymY@1764",
+          "yXrGeDNuymY@1766",
+          "yXrGeDNuymY@1767",
+          "yXrGeDNuymY@1769"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p073",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 1,
+        "text": "Downloading and loading the GPT-2 files is the most time-consuming part, taking around 5 to 10 minutes for about 500 megabytes in the lecturer's example, and good internet connectivity helps the process complete smoothly.",
+        "line_ids": [
+          "yXrGeDNuymY@1772",
+          "yXrGeDNuymY@1774",
+          "yXrGeDNuymY@1777",
+          "yXrGeDNuymY@1778",
+          "yXrGeDNuymY@1781",
+          "yXrGeDNuymY@1784",
+          "yXrGeDNuymY@1787",
+          "yXrGeDNuymY@1788",
+          "yXrGeDNuymY@1790",
+          "yXrGeDNuymY@1793",
+          "yXrGeDNuymY@1795",
+          "yXrGeDNuymY@1798",
+          "yXrGeDNuymY@1799",
+          "yXrGeDNuymY@1801",
+          "yXrGeDNuymY@1803",
+          "yXrGeDNuymY@1805",
+          "yXrGeDNuymY@1807",
+          "yXrGeDNuymY@1809"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p074",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "code",
+        "importance": 2,
+        "text": "After the loading code runs, you can inspect the settings dictionary and the parameter dictionary keys.",
+        "line_ids": [
+          "yXrGeDNuymY@1812",
+          "yXrGeDNuymY@1814",
+          "yXrGeDNuymY@1816",
+          "yXrGeDNuymY@1819",
+          "yXrGeDNuymY@1825",
+          "yXrGeDNuymY@1827"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p075",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The settings dictionary contains keys such as n_vocab, n_ctx, n_embed, n_head, and n_layer, and it is the same information as the hparams.json file converted into a dictionary.",
+        "line_ids": [
+          "yXrGeDNuymY@1831",
+          "yXrGeDNuymY@1833",
+          "yXrGeDNuymY@1835",
+          "yXrGeDNuymY@1838",
+          "yXrGeDNuymY@1841",
+          "yXrGeDNuymY@1844",
+          "yXrGeDNuymY@1847"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p076",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The parameter dictionary has keys corresponding to the GPT-2 components, including wte, wpe, blocks, g, and b.",
+        "line_ids": [
+          "yXrGeDNuymY@1850",
+          "yXrGeDNuymY@1851",
+          "yXrGeDNuymY@1854",
+          "yXrGeDNuymY@1858",
+          "yXrGeDNuymY@1860",
+          "yXrGeDNuymY@1861"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p077",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 2,
+        "text": "At this stage, the GPT-2 architecture and its parameters have been loaded correctly onto the laptop.",
+        "line_ids": [
+          "yXrGeDNuymY@1869",
+          "yXrGeDNuymY@1871",
+          "yXrGeDNuymY@1875",
+          "yXrGeDNuymY@1879",
+          "yXrGeDNuymY@1881"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p078",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "code",
+        "importance": 2,
+        "text": "Instead of printing all parameter values, which would take too much screen space, the lecturer prints the parameter dictionary keys and then inspects the wte entry.",
+        "line_ids": [
+          "yXrGeDNuymY@1883",
+          "yXrGeDNuymY@1886",
+          "yXrGeDNuymY@1888",
+          "yXrGeDNuymY@1891",
+          "yXrGeDNuymY@1892",
+          "yXrGeDNuymY@1894",
+          "yXrGeDNuymY@1897",
+          "yXrGeDNuymY@1899"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p079",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The wte entry is the token embedding matrix, and its shape is 50257 by 768, which matches the expected dimensions.",
+        "line_ids": [
+          "yXrGeDNuymY@1903",
+          "yXrGeDNuymY@1905",
+          "yXrGeDNuymY@1907",
+          "yXrGeDNuymY@1911",
+          "yXrGeDNuymY@1913",
+          "yXrGeDNuymY@1915",
+          "yXrGeDNuymY@1918",
+          "yXrGeDNuymY@1921",
+          "yXrGeDNuymY@1923"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p080",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The token embedding values are optimized values, so each token embedding dimension encodes some semantic meaning.",
+        "line_ids": [
+          "yXrGeDNuymY@1927",
+          "yXrGeDNuymY@1929",
+          "yXrGeDNuymY@1931",
+          "yXrGeDNuymY@1934"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p081",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 2,
+        "text": "GPT-2 was released in multiple sizes, and in this lecture the 124 million parameter version is loaded rather than the larger 355 million, 774 million, or 1.5 billion parameter versions.",
+        "line_ids": [
+          "yXrGeDNuymY@1948",
+          "yXrGeDNuymY@1950",
+          "yXrGeDNuymY@1953",
+          "yXrGeDNuymY@1955",
+          "yXrGeDNuymY@1957",
+          "yXrGeDNuymY@1959"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p082",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The earlier GPTConfig124M used in the lecture series matches GPT-2 except that it used a context size of 256, whereas actual GPT-2 uses a context size of 1024.",
+        "line_ids": [
+          "yXrGeDNuymY@1962",
+          "yXrGeDNuymY@1964",
+          "yXrGeDNuymY@1967",
+          "yXrGeDNuymY@1969",
+          "yXrGeDNuymY@1971",
+          "yXrGeDNuymY@1974",
+          "yXrGeDNuymY@1977",
+          "yXrGeDNuymY@1979",
+          "yXrGeDNuymY@1983",
+          "yXrGeDNuymY@1985"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p083",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To match GPT-2, the configuration should be updated by setting the context length to 1024 and setting the query-key-value bias to true.",
+        "line_ids": [
+          "yXrGeDNuymY@1985",
+          "yXrGeDNuymY@1987",
+          "yXrGeDNuymY@1989",
+          "yXrGeDNuymY@1991",
+          "yXrGeDNuymY@1994",
+          "yXrGeDNuymY@1996",
+          "yXrGeDNuymY@1998",
+          "yXrGeDNuymY@2000",
+          "yXrGeDNuymY@2003",
+          "yXrGeDNuymY@2006",
+          "yXrGeDNuymY@2008",
+          "yXrGeDNuymY@2010",
+          "yXrGeDNuymY@2013"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p084",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Bias vectors are not commonly used in LLMs anymore because they do not improve modeling performance much and are not very necessary, but they must be enabled here to match the pre-trained GPT-2 settings consistently.",
+        "line_ids": [
+          "yXrGeDNuymY@2013",
+          "yXrGeDNuymY@2015",
+          "yXrGeDNuymY@2018",
+          "yXrGeDNuymY@2020",
+          "yXrGeDNuymY@2022",
+          "yXrGeDNuymY@2024",
+          "yXrGeDNuymY@2026",
+          "yXrGeDNuymY@2027",
+          "yXrGeDNuymY@2030",
+          "yXrGeDNuymY@2032",
+          "yXrGeDNuymY@2034",
+          "yXrGeDNuymY@2036",
+          "yXrGeDNuymY@2038"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p085",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "With the updated configuration, you create an instance of the GPT model class before integrating the downloaded GPT-2 weights into it.",
+        "line_ids": [
+          "yXrGeDNuymY@2038",
+          "yXrGeDNuymY@2041",
+          "yXrGeDNuymY@2044",
+          "yXrGeDNuymY@2064",
+          "yXrGeDNuymY@2066",
+          "yXrGeDNuymY@2068",
+          "yXrGeDNuymY@2070",
+          "yXrGeDNuymY@2071"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p086",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The GPT model class currently initializes token embeddings, positional embeddings, and transformer block weights randomly, but these random initializations need to be replaced with the downloaded GPT-2 parameters stored in the params dictionary.",
+        "line_ids": [
+          "yXrGeDNuymY@2074",
+          "yXrGeDNuymY@2076",
+          "yXrGeDNuymY@2078",
+          "yXrGeDNuymY@2080",
+          "yXrGeDNuymY@2082",
+          "yXrGeDNuymY@2083",
+          "yXrGeDNuymY@2085",
+          "yXrGeDNuymY@2088",
+          "yXrGeDNuymY@2089",
+          "yXrGeDNuymY@2093",
+          "yXrGeDNuymY@2095",
+          "yXrGeDNuymY@2098",
+          "yXrGeDNuymY@2099",
+          "yXrGeDNuymY@2102",
+          "yXrGeDNuymY@2104",
+          "yXrGeDNuymY@2106",
+          "yXrGeDNuymY@2109",
+          "yXrGeDNuymY@2111",
+          "yXrGeDNuymY@2113"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p087",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To integrate GPT-2 weights, you must assign the downloaded attention parameters to the transformer block's attention object and assign the downloaded feed-forward parameters to the transformer block's feed-forward object.",
+        "line_ids": [
+          "yXrGeDNuymY@2116",
+          "yXrGeDNuymY@2119",
+          "yXrGeDNuymY@2120",
+          "yXrGeDNuymY@2133",
+          "yXrGeDNuymY@2134",
+          "yXrGeDNuymY@2137",
+          "yXrGeDNuymY@2139",
+          "yXrGeDNuymY@2140",
+          "yXrGeDNuymY@2142",
+          "yXrGeDNuymY@2144",
+          "yXrGeDNuymY@2147",
+          "yXrGeDNuymY@2150",
+          "yXrGeDNuymY@2152",
+          "yXrGeDNuymY@2154",
+          "yXrGeDNuymY@2157",
+          "yXrGeDNuymY@2160",
+          "yXrGeDNuymY@2163",
+          "yXrGeDNuymY@2165",
+          "yXrGeDNuymY@2167",
+          "yXrGeDNuymY@2170",
+          "yXrGeDNuymY@2172",
+          "yXrGeDNuymY@2174"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p088",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The downloaded attention weights are accessed through the params dictionary under blocks, then the transformer subkeys for attention, and the fused query-key-value weights are split along the columns to obtain separate query, key, and value weight matrices.",
+        "line_ids": [
+          "yXrGeDNuymY@2198",
+          "yXrGeDNuymY@2199",
+          "yXrGeDNuymY@2202",
+          "yXrGeDNuymY@2204",
+          "yXrGeDNuymY@2205",
+          "yXrGeDNuymY@2207",
+          "yXrGeDNuymY@2210",
+          "yXrGeDNuymY@2212",
+          "yXrGeDNuymY@2215",
+          "yXrGeDNuymY@2217",
+          "yXrGeDNuymY@2219",
+          "yXrGeDNuymY@2222",
+          "yXrGeDNuymY@2224",
+          "yXrGeDNuymY@2228",
+          "yXrGeDNuymY@2230",
+          "yXrGeDNuymY@2232",
+          "yXrGeDNuymY@2233",
+          "yXrGeDNuymY@2235",
+          "yXrGeDNuymY@2238",
+          "yXrGeDNuymY@2239"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p089",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "After obtaining the separate query, key, and value matrices from GPT-2, they are assigned to the attention object's query, key, and value weights.",
+        "line_ids": [
+          "yXrGeDNuymY@2242",
+          "yXrGeDNuymY@2244",
+          "yXrGeDNuymY@2246",
+          "yXrGeDNuymY@2249",
+          "yXrGeDNuymY@2251",
+          "yXrGeDNuymY@2254",
+          "yXrGeDNuymY@2259",
+          "yXrGeDNuymY@2261",
+          "yXrGeDNuymY@2264",
+          "yXrGeDNuymY@2266"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p090",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The assign function checks whether the shapes of the left and right values match, returns the right value when they do match, and raises an error when they do not, indicating the GPT-2 weights are not being loaded or assigned correctly.",
+        "line_ids": [
+          "yXrGeDNuymY@2267",
+          "yXrGeDNuymY@2269",
+          "yXrGeDNuymY@2272",
+          "yXrGeDNuymY@2273",
+          "yXrGeDNuymY@2276",
+          "yXrGeDNuymY@2278",
+          "yXrGeDNuymY@2281",
+          "yXrGeDNuymY@2282",
+          "yXrGeDNuymY@2284",
+          "yXrGeDNuymY@2286",
+          "yXrGeDNuymY@2288",
+          "yXrGeDNuymY@2290",
+          "yXrGeDNuymY@2293",
+          "yXrGeDNuymY@2295"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p091",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "The attention bias terms are updated in the same way as the attention weights, except that the bias entries are used instead of the weight entries.",
+        "line_ids": [
+          "yXrGeDNuymY@2297",
+          "yXrGeDNuymY@2300",
+          "yXrGeDNuymY@2302",
+          "yXrGeDNuymY@2306",
+          "yXrGeDNuymY@2308",
+          "yXrGeDNuymY@2311",
+          "yXrGeDNuymY@2314"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p092",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The attention output projection weights and biases are accessed from the GPT-2 parameters and assigned to the attention object's output projection layer.",
+        "line_ids": [
+          "yXrGeDNuymY@2314",
+          "yXrGeDNuymY@2316",
+          "yXrGeDNuymY@2318",
+          "yXrGeDNuymY@2320",
+          "yXrGeDNuymY@2322",
+          "yXrGeDNuymY@2325",
+          "yXrGeDNuymY@2328",
+          "yXrGeDNuymY@2330",
+          "yXrGeDNuymY@2332",
+          "yXrGeDNuymY@2334",
+          "yXrGeDNuymY@2337",
+          "yXrGeDNuymY@2339",
+          "yXrGeDNuymY@2341",
+          "yXrGeDNuymY@2343",
+          "yXrGeDNuymY@2345"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p093",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The feed-forward network has a fully connected layer and a projection layer, and the weights and biases for both layers are taken from the downloaded GPT-2 values and assigned to the feed-forward object in the transformer block.",
+        "line_ids": [
+          "yXrGeDNuymY@2347",
+          "yXrGeDNuymY@2349",
+          "yXrGeDNuymY@2351",
+          "yXrGeDNuymY@2353",
+          "yXrGeDNuymY@2355",
+          "yXrGeDNuymY@2357",
+          "yXrGeDNuymY@2359",
+          "yXrGeDNuymY@2361",
+          "yXrGeDNuymY@2363",
+          "yXrGeDNuymY@2365",
+          "yXrGeDNuymY@2368",
+          "yXrGeDNuymY@2369",
+          "yXrGeDNuymY@2373",
+          "yXrGeDNuymY@2375",
+          "yXrGeDNuymY@2378",
+          "yXrGeDNuymY@2380",
+          "yXrGeDNuymY@2382",
+          "yXrGeDNuymY@2385",
+          "yXrGeDNuymY@2387",
+          "yXrGeDNuymY@2389",
+          "yXrGeDNuymY@2391",
+          "yXrGeDNuymY@2393"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p094",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Each transformer block contains two layer normalizations, and each layer normalization has both scale and shift parameters.",
+        "line_ids": [
+          "yXrGeDNuymY@2395",
+          "yXrGeDNuymY@2398",
+          "yXrGeDNuymY@2399",
+          "yXrGeDNuymY@2402",
+          "yXrGeDNuymY@2405",
+          "yXrGeDNuymY@2406",
+          "yXrGeDNuymY@2408",
+          "yXrGeDNuymY@2410",
+          "yXrGeDNuymY@2411"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p095",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "For both layer normalizations in the transformer block, the scale and shift parameters are accessed from the downloaded GPT-2 weights and assigned to the corresponding parts of the GPT model class.",
+        "line_ids": [
+          "yXrGeDNuymY@2411",
+          "yXrGeDNuymY@2414",
+          "yXrGeDNuymY@2416",
+          "yXrGeDNuymY@2419",
+          "yXrGeDNuymY@2422",
+          "yXrGeDNuymY@2425",
+          "yXrGeDNuymY@2428",
+          "yXrGeDNuymY@2429",
+          "yXrGeDNuymY@2431",
+          "yXrGeDNuymY@2434",
+          "yXrGeDNuymY@2435"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p096",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "Outside the transformer block, the final normalization layer is loaded by taking the g and b entries from the parameters and assigning them to the model's final normalization scale and shift values.",
+        "line_ids": [
+          "yXrGeDNuymY@2439",
+          "yXrGeDNuymY@2441",
+          "yXrGeDNuymY@2442",
+          "yXrGeDNuymY@2445",
+          "yXrGeDNuymY@2447",
+          "yXrGeDNuymY@2449",
+          "yXrGeDNuymY@2452",
+          "yXrGeDNuymY@2454",
+          "yXrGeDNuymY@2456",
+          "yXrGeDNuymY@2458"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p097",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "definition",
+        "importance": 3,
+        "text": "GPT-2 uses weight tying, which means the token embedding weights are reused for the final output head instead of defining new weights for that layer.",
+        "line_ids": [
+          "yXrGeDNuymY@2461",
+          "yXrGeDNuymY@2463",
+          "yXrGeDNuymY@2465",
+          "yXrGeDNuymY@2467",
+          "yXrGeDNuymY@2470",
+          "yXrGeDNuymY@2472",
+          "yXrGeDNuymY@2475",
+          "yXrGeDNuymY@2477",
+          "yXrGeDNuymY@2478",
+          "yXrGeDNuymY@2482",
+          "yXrGeDNuymY@2484",
+          "yXrGeDNuymY@2488",
+          "yXrGeDNuymY@2491",
+          "yXrGeDNuymY@2494",
+          "yXrGeDNuymY@2496",
+          "yXrGeDNuymY@2498",
+          "yXrGeDNuymY@2499",
+          "yXrGeDNuymY@2501"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p098",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Weight tying is not used as much these days, but it was used in the GPT-2 architecture.",
+        "line_ids": [
+          "yXrGeDNuymY@2501",
+          "yXrGeDNuymY@2504",
+          "yXrGeDNuymY@2506",
+          "yXrGeDNuymY@2508",
+          "yXrGeDNuymY@2510"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p099",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Using weight tying reduces the total parameter count from about 162 million to 124 million, whereas without weight tying it would be about 164 million.",
+        "line_ids": [
+          "yXrGeDNuymY@2510",
+          "yXrGeDNuymY@2512",
+          "yXrGeDNuymY@2515",
+          "yXrGeDNuymY@2517",
+          "yXrGeDNuymY@2520"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p100",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The load_weights_into_gpt function takes a GPT model instance and the params dictionary containing all GPT-2 weights, and assigns those weights into the GPT model.",
+        "line_ids": [
+          "yXrGeDNuymY@2523",
+          "yXrGeDNuymY@2525",
+          "yXrGeDNuymY@2527",
+          "yXrGeDNuymY@2530",
+          "yXrGeDNuymY@2532",
+          "yXrGeDNuymY@2534",
+          "yXrGeDNuymY@2536",
+          "yXrGeDNuymY@2538",
+          "yXrGeDNuymY@2540",
+          "yXrGeDNuymY@2541",
+          "yXrGeDNuymY@2544",
+          "yXrGeDNuymY@2547",
+          "yXrGeDNuymY@2549"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p101",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "Once the GPT model instance and params dictionary have been created, you call load_weights_into_gpt to load the downloaded GPT-2 parameters into the model instance.",
+        "line_ids": [
+          "yXrGeDNuymY@2551",
+          "yXrGeDNuymY@2553",
+          "yXrGeDNuymY@2556",
+          "yXrGeDNuymY@2557",
+          "yXrGeDNuymY@2560",
+          "yXrGeDNuymY@2562",
+          "yXrGeDNuymY@2565",
+          "yXrGeDNuymY@2566",
+          "yXrGeDNuymY@2568",
+          "yXrGeDNuymY@2570",
+          "yXrGeDNuymY@2573",
+          "yXrGeDNuymY@2575"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p102",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 2,
+        "text": "After loading the weights, the GPT model built from scratch is fully ready and functional for testing.",
+        "line_ids": [
+          "yXrGeDNuymY@2575",
+          "yXrGeDNuymY@2579",
+          "yXrGeDNuymY@2581",
+          "yXrGeDNuymY@2583",
+          "yXrGeDNuymY@2586"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p103",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "code",
+        "importance": 3,
+        "text": "To test the model, the generate function is called with the loaded model, input token IDs for the prompt \"every effort moves you,\" a maximum of 25 new tokens, temperature 1.5, and top-k 50.",
+        "line_ids": [
+          "yXrGeDNuymY@2601",
+          "yXrGeDNuymY@2604",
+          "yXrGeDNuymY@2607",
+          "yXrGeDNuymY@2608",
+          "yXrGeDNuymY@2610",
+          "yXrGeDNuymY@2612",
+          "yXrGeDNuymY@2615",
+          "yXrGeDNuymY@2617",
+          "yXrGeDNuymY@2620",
+          "yXrGeDNuymY@2622",
+          "yXrGeDNuymY@2625",
+          "yXrGeDNuymY@2628",
+          "yXrGeDNuymY@2630",
+          "yXrGeDNuymY@2632"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p104",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Before loading GPT-2 weights, the model produced output that did not make sense.",
+        "line_ids": [
+          "yXrGeDNuymY@2636",
+          "yXrGeDNuymY@2639",
+          "yXrGeDNuymY@2641",
+          "yXrGeDNuymY@2643",
+          "yXrGeDNuymY@2646",
+          "yXrGeDNuymY@2648",
+          "yXrGeDNuymY@2650",
+          "yXrGeDNuymY@2652"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p105",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Once the pre-trained weights are loaded, generation runs quickly because the model already has pre-trained weights.",
+        "line_ids": [
+          "yXrGeDNuymY@2654",
+          "yXrGeDNuymY@2657",
+          "yXrGeDNuymY@2659",
+          "yXrGeDNuymY@2661",
+          "yXrGeDNuymY@2664",
+          "yXrGeDNuymY@2666",
+          "yXrGeDNuymY@2667"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p106",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "With the loaded GPT-2 weights, the generated output is much more coherent than the earlier output.",
+        "line_ids": [
+          "yXrGeDNuymY@2671",
+          "yXrGeDNuymY@2674",
+          "yXrGeDNuymY@2676",
+          "yXrGeDNuymY@2679",
+          "yXrGeDNuymY@2681",
+          "yXrGeDNuymY@2683",
+          "yXrGeDNuymY@2686",
+          "yXrGeDNuymY@2688"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p107",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The lecture demonstrates that the GPT architecture built from scratch works after loading GPT-2 pre-trained weights.",
+        "line_ids": [
+          "yXrGeDNuymY@2688",
+          "yXrGeDNuymY@2691",
+          "yXrGeDNuymY@2693",
+          "yXrGeDNuymY@2696"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p108",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Increasing the temperature makes the output more random because increasing the temperature increases the entropy.",
+        "line_ids": [
+          "yXrGeDNuymY@2744",
+          "yXrGeDNuymY@2745",
+          "yXrGeDNuymY@2747",
+          "yXrGeDNuymY@2749",
+          "yXrGeDNuymY@2751",
+          "yXrGeDNuymY@2753"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p109",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "Setting the temperature to 10 produces random text, illustrating the effect of a very high temperature.",
+        "line_ids": [
+          "yXrGeDNuymY@2728",
+          "yXrGeDNuymY@2730",
+          "yXrGeDNuymY@2733",
+          "yXrGeDNuymY@2744",
+          "yXrGeDNuymY@2745",
+          "yXrGeDNuymY@2753",
+          "yXrGeDNuymY@2763",
+          "yXrGeDNuymY@2764"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p110",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Building your own GPT opens the door to experimentation, creativity, hyperparameter tuning, and research that is not possible in the same way through ChatGPT.",
+        "line_ids": [
+          "yXrGeDNuymY@2735",
+          "yXrGeDNuymY@2737",
+          "yXrGeDNuymY@2739",
+          "yXrGeDNuymY@2742",
+          "yXrGeDNuymY@2767",
+          "yXrGeDNuymY@2769",
+          "yXrGeDNuymY@2771",
+          "yXrGeDNuymY@2774"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p111",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To change the architecture, you go to the GPT model definition and add or remove layers such as transformer blocks.",
+        "line_ids": [
+          "yXrGeDNuymY@2774",
+          "yXrGeDNuymY@2776",
+          "yXrGeDNuymY@2777",
+          "yXrGeDNuymY@2780",
+          "yXrGeDNuymY@2781",
+          "yXrGeDNuymY@2783",
+          "yXrGeDNuymY@2789",
+          "yXrGeDNuymY@2796",
+          "yXrGeDNuymY@2798",
+          "yXrGeDNuymY@2800"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p112",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 2,
+        "text": "If you want a smaller language model, you can reduce the number of transformer blocks instead of using 12 blocks.",
+        "line_ids": [
+          "yXrGeDNuymY@2796",
+          "yXrGeDNuymY@2798",
+          "yXrGeDNuymY@2800",
+          "yXrGeDNuymY@2802",
+          "yXrGeDNuymY@2804"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p113",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Having a GPT model that works locally and runs fast lets you iterate and test many design choices.",
+        "line_ids": [
+          "yXrGeDNuymY@2806",
+          "yXrGeDNuymY@2808",
+          "yXrGeDNuymY@2810",
+          "yXrGeDNuymY@2812",
+          "yXrGeDNuymY@2814",
+          "yXrGeDNuymY@2816",
+          "yXrGeDNuymY@2818"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p114",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "With this implementation, you can experiment with top-k, maximum new tokens, the number of attention heads, the number of transformer blocks, and optimizer step size.",
+        "line_ids": [
+          "yXrGeDNuymY@2818",
+          "yXrGeDNuymY@2820",
+          "yXrGeDNuymY@2822",
+          "yXrGeDNuymY@2824",
+          "yXrGeDNuymY@2826",
+          "yXrGeDNuymY@2828",
+          "yXrGeDNuymY@2829"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p115",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "code",
+        "importance": 2,
+        "text": "The code uses the AdamW optimizer with a learning rate of 5 into 10 to the minus 4 and weight decay of 0.1, and these settings can be changed to observe their effect on the output.",
+        "line_ids": [
+          "yXrGeDNuymY@2832",
+          "yXrGeDNuymY@2835",
+          "yXrGeDNuymY@2839",
+          "yXrGeDNuymY@2842"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p116",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The model weights are considered loaded correctly because the model produces coherent text whose words make sense.",
+        "line_ids": [
+          "yXrGeDNuymY@2899",
+          "yXrGeDNuymY@2901",
+          "yXrGeDNuymY@2903",
+          "yXrGeDNuymY@2905",
+          "yXrGeDNuymY@2931",
+          "yXrGeDNuymY@2933",
+          "yXrGeDNuymY@2937",
+          "yXrGeDNuymY@2939"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p117",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Even a tiny mistake in the weight-loading process would cause the model to fail.",
+        "line_ids": [
+          "yXrGeDNuymY@2939",
+          "yXrGeDNuymY@2941",
+          "yXrGeDNuymY@2943"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p118",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Pre-training is not the end of working with a language model, because after obtaining a pretrained model you can fine-tune it for specific applications.",
+        "line_ids": [
+          "yXrGeDNuymY@2945",
+          "yXrGeDNuymY@2947",
+          "yXrGeDNuymY@2948",
+          "yXrGeDNuymY@2949",
+          "yXrGeDNuymY@2952",
+          "yXrGeDNuymY@2955",
+          "yXrGeDNuymY@2963",
+          "yXrGeDNuymY@2965",
+          "yXrGeDNuymY@2967"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p119",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "Examples of application-specific fine-tuning include building a text classifier or an educational quiz app.",
+        "line_ids": [
+          "yXrGeDNuymY@2955",
+          "yXrGeDNuymY@2956",
+          "yXrGeDNuymY@2959",
+          "yXrGeDNuymY@2961",
+          "yXrGeDNuymY@2963",
+          "yXrGeDNuymY@2965",
+          "yXrGeDNuymY@2967"
+        ]
+      },
+      {
+        "id": "yXrGeDNuymY:p120",
+        "video_id": "yXrGeDNuymY",
+        "lecture": 32,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The same GPT model that was built from scratch will be used for later application-oriented lectures instead of relying on another GPT model.",
+        "line_ids": [
+          "yXrGeDNuymY@2971",
+          "yXrGeDNuymY@2973",
+          "yXrGeDNuymY@2975",
+          "yXrGeDNuymY@2976",
+          "yXrGeDNuymY@2978",
+          "yXrGeDNuymY@2980",
+          "yXrGeDNuymY@2982"
+        ]
+      }
+    ],
+    "inventory": [
+      {
+        "chunk": "yXrGeDNuymY@0-906",
+        "start": 0,
+        "end": 906,
+        "points": 30,
+        "core_points": 18,
+        "invalid_points": 0,
+        "flag": null
+      },
+      {
+        "chunk": "yXrGeDNuymY@904-1814",
+        "start": 904,
+        "end": 1814,
+        "points": 43,
+        "core_points": 37,
+        "invalid_points": 0,
+        "flag": null
+      },
+      {
+        "chunk": "yXrGeDNuymY@1812-2718",
+        "start": 1812,
+        "end": 2718,
+        "points": 34,
+        "core_points": 21,
+        "invalid_points": 0,
+        "flag": null
+      },
+      {
+        "chunk": "yXrGeDNuymY@2714-3018",
+        "start": 2714,
+        "end": 3018,
+        "points": 13,
+        "core_points": 6,
+        "invalid_points": 0,
+        "flag": null
+      }
+    ]
+  }
+}

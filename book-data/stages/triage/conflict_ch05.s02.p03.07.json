@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch05.s02.p03.07",
+  "inputs_hash": "2fda8b0ecd306aa96e740a97db04f2ce1bf4af03c249f43ac2cbc65245a781d5",
+  "output_hash": "fccedd58236314a2ff99fb76a943afc514f9c6b240f4bc3dc728be0f246a5c67",
+  "output": {
+    "decision": "edit",
+    "text": "After downloading, the code uses TensorFlow's latest_checkpoint utility to search the model directory, find the checkpoint entry, and determine where the model parameters are stored.",
+    "reason": "The captions clearly describe TensorFlow's latest_checkpoint behavior, but the original wording overstates alignment with the reference, which uses direct PyTorch loading instead.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "2d3b1fbd0bef39e756ee743da3870affacb232927e126b7972148d35af13c1a1"
+  }
+}

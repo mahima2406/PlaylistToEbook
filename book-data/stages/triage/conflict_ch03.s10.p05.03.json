@@ -1,0 +1,14 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch03.s10.p05.03",
+  "inputs_hash": "2090427b0c5cb3bc54c2625e89828ff9b49b5df705a326a4b573001fd85de87b",
+  "output_hash": "124f9b6c5f0912422c73ef91759306fd3d63b654358b35e370dc8cd47ed1965c",
+  "output": {
+    "decision": "note",
+    "note": "Here the lecture uses a toy batch of token IDs with shape 2×5; the reference code later shows embedded inputs with shape (2, 6, 3).",
+    "reason": "The cited captions clearly support the sentence for a simplified example, while the reference is using a different example representation.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "67bcb9ded1724c4472a8ba85a9ebadd8aeeafae86da676481d80fd55c49255a9"
+  }
+}

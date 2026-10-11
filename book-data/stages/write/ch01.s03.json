@@ -1,0 +1,283 @@
+{
+  "stage": "write",
+  "item": "ch01.s03",
+  "inputs_hash": "d912bc81a27ce1f33135ab018a4003c8e10b055551d5b48ff7662714b63f58b0",
+  "output_hash": "3901092a9544ca67ca4163592f7f47ce12ec95a371318727cb7bbfd5c28438c1",
+  "output": {
+    "section_id": "ch01.s03",
+    "paragraphs": [
+      {
+        "id": "ch01.s03.p01",
+        "sentences": [
+          {
+            "id": "ch01.s03.p01.01",
+            "text": "Why are modern language models so much more useful than the NLP systems that came before them?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s03.p01.02",
+            "text": "Large language models work on language, and they perform a wide range of natural language processing tasks such as question answering, translation, and sentiment analysis.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@665",
+              "3dWzNZXA8DY@672",
+              "3dWzNZXA8DY@674",
+              "3dWzNZXA8DY@677",
+              "3dWzNZXA8DY@680",
+              "3dWzNZXA8DY@682",
+              "3dWzNZXA8DY@685"
+            ]
+          },
+          {
+            "id": "ch01.s03.p01.03",
+            "text": "Natural language processing existed long before large language models.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@710",
+              "3dWzNZXA8DY@712",
+              "3dWzNZXA8DY@713",
+              "3dWzNZXA8DY@716",
+              "3dWzNZXA8DY@720"
+            ]
+          },
+          {
+            "id": "ch01.s03.p01.04",
+            "text": "Earlier NLP models were designed for very specific tasks.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@728",
+              "3dWzNZXA8DY@730",
+              "3dWzNZXA8DY@733"
+            ]
+          },
+          {
+            "id": "ch01.s03.p01.05",
+            "text": "For example, one earlier NLP model might be designed for language translation, while another specific NLP model might be for sentiment analysis.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@733",
+              "3dWzNZXA8DY@736",
+              "3dWzNZXA8DY@738",
+              "3dWzNZXA8DY@741",
+              "3dWzNZXA8DY@744"
+            ]
+          },
+          {
+            "id": "ch01.s03.p01.06",
+            "text": "Before large language models, natural language processing typically required training a separate algorithm for each specific task.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@760",
+              "z9fgKz1Drlc@763",
+              "z9fgKz1Drlc@765"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s03.p02",
+        "sentences": [
+          {
+            "id": "ch01.s03.p02.01",
+            "text": "The key change is that modern large language models are much more generic.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s03.p02.02",
+            "text": "Modern LLMs can do a wide range of NLP tasks.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@746",
+              "3dWzNZXA8DY@750",
+              "3dWzNZXA8DY@768",
+              "3dWzNZXA8DY@771"
+            ]
+          },
+          {
+            "id": "ch01.s03.p02.03",
+            "text": "A GPT trained for text completion can also work well for language translation.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@753",
+              "3dWzNZXA8DY@756",
+              "3dWzNZXA8DY@758"
+            ]
+          },
+          {
+            "id": "ch01.s03.p02.04",
+            "text": "That is a basic difference between earlier NLP systems and modern LLMs: earlier models were built for specific tasks, whereas modern LLMs can handle many tasks.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@760",
+              "3dWzNZXA8DY@763",
+              "3dWzNZXA8DY@766",
+              "3dWzNZXA8DY@768",
+              "3dWzNZXA8DY@771"
+            ]
+          },
+          {
+            "id": "ch01.s03.p02.05",
+            "text": "Compared with earlier NLP models, LLMs are broader, they can do a wide range of generic tasks, and they have many more applications.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@833",
+              "3dWzNZXA8DY@835",
+              "3dWzNZXA8DY@838",
+              "3dWzNZXA8DY@840",
+              "3dWzNZXA8DY@842"
+            ]
+          },
+          {
+            "id": "ch01.s03.p02.06",
+            "text": "Large language models have transformed natural language processing by advancing the generation, understanding, and translation of human language.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@749",
+              "z9fgKz1Drlc@751",
+              "z9fgKz1Drlc@754",
+              "z9fgKz1Drlc@756",
+              "z9fgKz1Drlc@758"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s03.p03",
+        "sentences": [
+          {
+            "id": "ch01.s03.p03.01",
+            "text": "The difference becomes especially clear on open-ended tasks.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s03.p03.02",
+            "text": "Writing an email from custom instructions was very difficult for earlier language models.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@777",
+              "3dWzNZXA8DY@780",
+              "3dWzNZXA8DY@783",
+              "3dWzNZXA8DY@785",
+              "3dWzNZXA8DY@787"
+            ]
+          },
+          {
+            "id": "ch01.s03.p03.03",
+            "text": "For a modern LLM such as ChatGPT, the same task is almost trivial.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@789",
+              "3dWzNZXA8DY@792",
+              "3dWzNZXA8DY@795"
+            ]
+          },
+          {
+            "id": "ch01.s03.p03.04",
+            "text": "For example, an instruction to draft an email to a colleague or a friend to book movie tickets is handled directly, and ChatGPT starts drafting the email.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@800",
+              "3dWzNZXA8DY@805",
+              "3dWzNZXA8DY@808",
+              "3dWzNZXA8DY@816"
+            ]
+          },
+          {
+            "id": "ch01.s03.p03.05",
+            "text": "This kind of easy, generic behavior is part of why modern LLMs have so many more applications than earlier NLP models.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@821",
+              "3dWzNZXA8DY@826",
+              "3dWzNZXA8DY@830",
+              "3dWzNZXA8DY@833",
+              "3dWzNZXA8DY@835",
+              "3dWzNZXA8DY@838",
+              "3dWzNZXA8DY@840",
+              "3dWzNZXA8DY@842"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s03.p04",
+        "sentences": [
+          {
+            "id": "ch01.s03.p04.01",
+            "text": "What makes these models generic if they are trained in such a simple way?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s03.p04.02",
+            "text": "Large language models are trained to predict the next word.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@767",
+              "z9fgKz1Drlc@769",
+              "z9fgKz1Drlc@1077",
+              "z9fgKz1Drlc@1080"
+            ]
+          },
+          {
+            "id": "ch01.s03.p04.03",
+            "text": "Even so, training for next-word prediction can produce emergent properties.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@769",
+              "z9fgKz1Drlc@771",
+              "z9fgKz1Drlc@773",
+              "z9fgKz1Drlc@1082",
+              "z9fgKz1Drlc@1084"
+            ]
+          },
+          {
+            "id": "ch01.s03.p04.04",
+            "text": "Because of these emergent properties, a model that is not only good at predicting the next word can also be useful for multiple-choice questions, text summarization, emotion classification, and language translation.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@773",
+              "z9fgKz1Drlc@775",
+              "z9fgKz1Drlc@777",
+              "z9fgKz1Drlc@780",
+              "z9fgKz1Drlc@783",
+              "z9fgKz1Drlc@785",
+              "z9fgKz1Drlc@787"
+            ]
+          },
+          {
+            "id": "ch01.s03.p04.05",
+            "text": "Although they are only trained for next-word prediction, LLMs can show abilities such as classifying text, translating text from one language into another, and summarizing texts.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@1077",
+              "z9fgKz1Drlc@1080",
+              "z9fgKz1Drlc@1084",
+              "z9fgKz1Drlc@1087",
+              "z9fgKz1Drlc@1088",
+              "z9fgKz1Drlc@1091",
+              "z9fgKz1Drlc@1094",
+              "z9fgKz1Drlc@1096",
+              "z9fgKz1Drlc@1097"
+            ]
+          },
+          {
+            "id": "ch01.s03.p04.06",
+            "text": "The pre-training stage works so well that LLMs develop additional useful properties, which makes them impactful for a wide range of tasks.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@1103",
+              "z9fgKz1Drlc@1106",
+              "z9fgKz1Drlc@1108",
+              "z9fgKz1Drlc@1110",
+              "z9fgKz1Drlc@1113"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

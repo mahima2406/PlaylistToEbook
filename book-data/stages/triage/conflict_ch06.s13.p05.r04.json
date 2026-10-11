@@ -1,0 +1,13 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch06.s13.p05.r04",
+  "inputs_hash": "4bf5c850035ad698bec9981a0e1c4c26745bace3110a41e9268854c13116100c",
+  "output_hash": "44aa7d3b17f7a1afb17d89bfbe2f6825542c9cfdddaec98ff23aba3ec549a3fd",
+  "output": {
+    "decision": "keep",
+    "reason": "The lecture captions explicitly support changing the evaluation prompt to request an integer-only score, and the cited reference is from a different context so the mismatch is not material.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "5ef80485fc2de0d68d4cb3f670e4f5f04d292b7ff08e4106cf36c6ba73c8b236"
+  }
+}

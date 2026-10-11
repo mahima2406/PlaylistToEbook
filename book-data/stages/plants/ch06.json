@@ -1,0 +1,576 @@
+{
+  "stage": "plants",
+  "item": "ch06",
+  "inputs_hash": "2a2d8d36e0737e8d61eb5459699eaa5bd4155ae33f14de1d6bf5828215f02ee1",
+  "output_hash": "a2f9b68a8aaa740e111206380227c486258fe15553351b466e373171264a2e76",
+  "output": {
+    "chapter": "ch06",
+    "plants": [
+      {
+        "id": "ch06.plant1",
+        "type": "number",
+        "text": "In PyTorch, the default \"ignore_index\" for cross-entropy loss is \"-1\".",
+        "type_requested": "number",
+        "cites": [
+          "bkUkcyL_Xxc@1301",
+          "bkUkcyL_Xxc@1304",
+          "bkUkcyL_Xxc@1416",
+          "bkUkcyL_Xxc@1418",
+          "bkUkcyL_Xxc@1420",
+          "bkUkcyL_Xxc@2646",
+          "bkUkcyL_Xxc@2648",
+          "bkUkcyL_Xxc@2651",
+          "bkUkcyL_Xxc@2658",
+          "bkUkcyL_Xxc@2660",
+          "bkUkcyL_Xxc@2662"
+        ],
+        "original_id": "ch06.s06.p02.03",
+        "verdict": "unsupported",
+        "confidence": 0.98,
+        "reason": "Cited lines say PyTorch cross entropy loss default ignore_index is −100, not −1.",
+        "caught": true
+      },
+      {
+        "id": "ch06.plant2",
+        "type": "term_swap",
+        "text": "It is also described as a very commonly used LLM training application.",
+        "type_requested": "term_swap",
+        "cites": [
+          "7m2jV7BOFkA@1623",
+          "7m2jV7BOFkA@1626",
+          "7m2jV7BOFkA@1628",
+          "7m2jV7BOFkA@1631"
+        ],
+        "original_id": "ch06.s13.p01.r06",
+        "verdict": "unsupported",
+        "confidence": 0.83,
+        "reason": "Cited line describes it as a commonly used LLM inference application, not a training application.",
+        "caught": true
+      },
+      {
+        "id": "ch06.plant3",
+        "type": "reversed_cause",
+        "text": "Those GPT-2 weights were released for multiple model sizes, including 124 million, 345 million, 774 million, and 1558 million parameters, and they can be downloaded because the folders correspond to those parameter sizes.",
+        "type_requested": "reversed_cause",
+        "cites": [
+          "__OiQznq4ao@174",
+          "__OiQznq4ao@176",
+          "__OiQznq4ao@178",
+          "__OiQznq4ao@180",
+          "__OiQznq4ao@183",
+          "__OiQznq4ao@188",
+          "__OiQznq4ao@192",
+          "__OiQznq4ao@194",
+          "__OiQznq4ao@196"
+        ],
+        "original_id": "ch06.s08.p02.r02",
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": "",
+        "caught": false
+      },
+      {
+        "id": "ch06.plant4",
+        "type": "unsupported_addition",
+        "text": "The model is saved with \"torch.save\" and \"model.state_dict\", which stores the trained parameters in a file and also preserves the optimizer state for later resumption.",
+        "type_requested": "unsupported_addition",
+        "cites": [
+          "7m2jV7BOFkA@1316",
+          "7m2jV7BOFkA@1318",
+          "7m2jV7BOFkA@1321",
+          "7m2jV7BOFkA@1323"
+        ],
+        "original_id": "ch06.s11.p05.r03",
+        "verdict": "partial",
+        "confidence": 0.86,
+        "reason": "The lines support saving trained parameters with torch.save and model.state_dict, but they do not say the optimizer state is also preserved.",
+        "caught": true
+      },
+      {
+        "id": "ch06.plant5",
+        "type": "wrong_attribution",
+        "text": "When an instance of this instruction dataset class is created, the data loader first stores the dataset in \"self.data\".",
+        "type_requested": "wrong_attribution",
+        "cites": [
+          "bkUkcyL_Xxc@1512",
+          "bkUkcyL_Xxc@1515",
+          "bkUkcyL_Xxc@1518",
+          "bkUkcyL_Xxc@1520",
+          "bkUkcyL_Xxc@1523",
+          "bkUkcyL_Xxc@1525"
+        ],
+        "original_id": "ch06.s02.p04.01",
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": "",
+        "caught": false
+      },
+      {
+        "id": "ch06.plant6",
+        "type": "number",
+        "text": "The reason for the shift is that instruction fine-tuning still uses the 2-token prediction task.",
+        "type_requested": "number",
+        "cites": [
+          "bkUkcyL_Xxc@1012",
+          "bkUkcyL_Xxc@1016",
+          "bkUkcyL_Xxc@1018"
+        ],
+        "original_id": "ch06.s05.p02.r01",
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": "",
+        "caught": false
+      },
+      {
+        "id": "ch06.plant7",
+        "type": "term_swap",
+        "text": "The code first imports the \"load_state_dict_into_gpt\" function from the \"GPT_download3.py\" file and stores the results in \"settings\" and \"params\".",
+        "type_requested": "term_swap",
+        "cites": [
+          "__OiQznq4ao@586",
+          "__OiQznq4ao@588",
+          "__OiQznq4ao@593",
+          "__OiQznq4ao@595",
+          "__OiQznq4ao@598",
+          "__OiQznq4ao@599",
+          "__OiQznq4ao@602",
+          "__OiQznq4ao@604",
+          "__OiQznq4ao@606",
+          "__OiQznq4ao@608"
+        ],
+        "original_id": "ch06.s09.p02.04",
+        "verdict": "partial",
+        "confidence": 0.7,
+        "reason": "Captions support importing a function from GPT_download3.py and storing results in settings, params, but the function is referred to as \"download and load gpt2\" rather than explicitly \"load_state_dict_into_gpt\"; also 'first' is not stated.",
+        "caught": true
+      },
+      {
+        "id": "ch06.plant8",
+        "type": "reversed_cause",
+        "text": "That quantitative score is still more robust than classification accuracy, because the assigned number remains subjective.",
+        "type_requested": "reversed_cause",
+        "cites": [
+          "7m2jV7BOFkA@2582",
+          "7m2jV7BOFkA@2584",
+          "7m2jV7BOFkA@2586",
+          "7m2jV7BOFkA@2589",
+          "7m2jV7BOFkA@2592",
+          "7m2jV7BOFkA@2595",
+          "7m2jV7BOFkA@2597",
+          "7m2jV7BOFkA@2599",
+          "7m2jV7BOFkA@2602"
+        ],
+        "original_id": "ch06.s12.p04.04",
+        "verdict": "unsupported",
+        "confidence": 0.9,
+        "reason": "The cited lines say the quantitative score is still not as robust as classification accuracy (and is subjective), which contradicts the sentence’s claim that it is more robust.",
+        "caught": true
+      },
+      {
+        "id": "ch06.plant9",
+        "type": "unsupported_addition",
+        "text": "For every item in the batch, it first adds one \"50256\" token and then pads with additional \"50256\" tokens until the sequence reaches the maximum length, using left padding to keep the ends aligned.",
+        "type_requested": "unsupported_addition",
+        "cites": [
+          "bkUkcyL_Xxc@1731",
+          "bkUkcyL_Xxc@1733",
+          "bkUkcyL_Xxc@1735",
+          "bkUkcyL_Xxc@1738",
+          "bkUkcyL_Xxc@1741",
+          "bkUkcyL_Xxc@1743",
+          "bkUkcyL_Xxc@1746",
+          "bkUkcyL_Xxc@1762",
+          "bkUkcyL_Xxc@1765",
+          "bkUkcyL_Xxc@1768",
+          "bkUkcyL_Xxc@1770",
+          "bkUkcyL_Xxc@1773"
+        ],
+        "original_id": "ch06.s04.p04.03",
+        "verdict": "partial",
+        "confidence": 0.83,
+        "reason": "The lines support adding a 50256 token and then padding with 50256 tokens to reach the maximum length, but they do not state that left padding is used or that it is to keep the ends aligned.",
+        "caught": true
+      },
+      {
+        "id": "ch06.plant10",
+        "type": "wrong_attribution",
+        "text": "It reports 1100 entries and verifies the contents by printing the 50th and 999th examples and confirming that they match the training set.",
+        "type_requested": "wrong_attribution",
+        "cites": [
+          "bkUkcyL_Xxc@248",
+          "bkUkcyL_Xxc@251",
+          "bkUkcyL_Xxc@253",
+          "bkUkcyL_Xxc@256",
+          "bkUkcyL_Xxc@258",
+          "bkUkcyL_Xxc@261"
+        ],
+        "original_id": "ch06.s02.p02.02",
+        "verdict": "partial",
+        "confidence": 0.78,
+        "reason": "Lines support 1100 entries and printing 50th and 999th examples and that they matched the dataset, but do not state they matched the training set specifically.",
+        "caught": true
+      },
+      {
+        "id": "ch06.plant11",
+        "type": "number",
+        "text": "In instruction fine-tuning, the dataset consists of 3 instructions and the desired responses.",
+        "type_requested": "number",
+        "cites": [
+          "bkUkcyL_Xxc@50",
+          "bkUkcyL_Xxc@52",
+          "bkUkcyL_Xxc@55",
+          "bkUkcyL_Xxc@57",
+          "bkUkcyL_Xxc@59",
+          "bkUkcyL_Xxc@61"
+        ],
+        "original_id": "ch06.s01.p02.r02",
+        "verdict": "unsupported",
+        "confidence": 0.9,
+        "reason": "Cited lines say the dataset consists of a list of instruction and desired responses; they do not say there are exactly 3 instructions.",
+        "caught": true
+      },
+      {
+        "id": "ch06.plant12",
+        "type": "term_swap",
+        "text": "This is why the extra padded target positions are changed to \"0\": those added tokens do not matter and should be excluded from the training loss.",
+        "type_requested": "term_swap",
+        "cites": [
+          "bkUkcyL_Xxc@1306",
+          "bkUkcyL_Xxc@1309",
+          "bkUkcyL_Xxc@1311",
+          "bkUkcyL_Xxc@1315",
+          "bkUkcyL_Xxc@1317",
+          "bkUkcyL_Xxc@1412",
+          "bkUkcyL_Xxc@1414",
+          "bkUkcyL_Xxc@1416",
+          "bkUkcyL_Xxc@2222",
+          "bkUkcyL_Xxc@2224",
+          "bkUkcyL_Xxc@2226",
+          "bkUkcyL_Xxc@2678",
+          "bkUkcyL_Xxc@2681",
+          "bkUkcyL_Xxc@2682",
+          "bkUkcyL_Xxc@2684"
+        ],
+        "original_id": "ch06.s06.p02.05",
+        "verdict": "unsupported",
+        "confidence": 0.8,
+        "reason": "Captions describe changing padded target positions to -100 (ignore_index) to exclude from loss, not changing them to 0.",
+        "caught": true
+      },
+      {
+        "id": "ch06.plant13",
+        "type": "reversed_cause",
+        "text": "The process is to train on the curated dataset first and then load the pre-trained weights using the training, testing, and validation data loaders.",
+        "type_requested": "reversed_cause",
+        "cites": [
+          "__OiQznq4ao@89",
+          "__OiQznq4ao@90",
+          "__OiQznq4ao@93",
+          "__OiQznq4ao@283",
+          "__OiQznq4ao@285",
+          "__OiQznq4ao@287",
+          "__OiQznq4ao@289",
+          "__OiQznq4ao@291",
+          "__OiQznq4ao@293",
+          "__OiQznq4ao@296"
+        ],
+        "original_id": "ch06.s08.p03.r03",
+        "verdict": "unsupported",
+        "confidence": 0.86,
+        "reason": "Cited lines say load pre-trained weights and then train on the curated dataset using train/test/validation loaders; the sentence reverses the order (train first, then load weights).",
+        "caught": true
+      },
+      {
+        "id": "ch06.plant14",
+        "type": "unsupported_addition",
+        "text": "It lets you run local models such as Llama 3, Mistral, and Gemma 2 on a PC or laptop, with built-in support for distributed multi-GPU inference.",
+        "type_requested": "unsupported_addition",
+        "cites": [
+          "7m2jV7BOFkA@1503",
+          "7m2jV7BOFkA@1505",
+          "7m2jV7BOFkA@1513",
+          "7m2jV7BOFkA@1516",
+          "7m2jV7BOFkA@1830",
+          "7m2jV7BOFkA@1837",
+          "7m2jV7BOFkA@1840"
+        ],
+        "original_id": "ch06.s13.p01.r03",
+        "verdict": "partial",
+        "confidence": 0.84,
+        "reason": "The lines support running local models like Llama 3, Mistral, and Gemma 2 on a PC/laptop, but they do not mention built-in support for distributed multi-GPU inference.",
+        "caught": true
+      },
+      {
+        "id": "ch06.plant15",
+        "type": "wrong_attribution",
+        "text": "For example, with the input sentence \"the lecture was delivered in a clear manner\", the expected rewrite was \"the lecture was delivered clearly\", but the benchmark response remained \"the lecture was delivered in a clear manner\".",
+        "type_requested": "wrong_attribution",
+        "cites": [
+          "7m2jV7BOFkA@2758",
+          "7m2jV7BOFkA@2760",
+          "7m2jV7BOFkA@2762",
+          "7m2jV7BOFkA@2764",
+          "7m2jV7BOFkA@2766"
+        ],
+        "original_id": "ch06.s14.p01.03",
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": "",
+        "caught": false
+      },
+      {
+        "id": "ch06.plant16",
+        "type": "number",
+        "text": "The idea is to use Llama 2 to evaluate an LLM by comparing the correct output with the model response and assigning a score.",
+        "type_requested": "number",
+        "cites": [
+          "7m2jV7BOFkA@1585",
+          "7m2jV7BOFkA@1588",
+          "7m2jV7BOFkA@1592",
+          "7m2jV7BOFkA@1594",
+          "7m2jV7BOFkA@1596",
+          "7m2jV7BOFkA@1599",
+          "7m2jV7BOFkA@1897",
+          "7m2jV7BOFkA@1900",
+          "7m2jV7BOFkA@1903",
+          "7m2jV7BOFkA@2239",
+          "7m2jV7BOFkA@2244",
+          "7m2jV7BOFkA@2247",
+          "7m2jV7BOFkA@2249"
+        ],
+        "original_id": "ch06.s13.p01.r09",
+        "verdict": "partial",
+        "confidence": 0.75,
+        "reason": "Lines support using Llama 3 (8B) to compare actual output vs model response and assign a score, but the sentence says Llama 2.",
+        "caught": true
+      },
+      {
+        "id": "ch06.plant17",
+        "type": "term_swap",
+        "text": "The conversion itself is handled by a function called \"tokenize_input\".",
+        "type_requested": "term_swap",
+        "cites": [
+          "bkUkcyL_Xxc@262",
+          "bkUkcyL_Xxc@265",
+          "bkUkcyL_Xxc@267",
+          "bkUkcyL_Xxc@269"
+        ],
+        "original_id": "ch06.s02.p02.03",
+        "verdict": "unsupported",
+        "confidence": 0.9,
+        "reason": "Cited lines name the conversion function as \"format input\" (format_input), not \"tokenize_input\".",
+        "caught": true
+      },
+      {
+        "id": "ch06.plant18",
+        "type": "reversed_cause",
+        "text": "Running Llama 3 this way downloads files of about 4.7 GB, and the model has 8 billion parameters because it takes substantial space and memory.",
+        "type_requested": "reversed_cause",
+        "cites": [
+          "7m2jV7BOFkA@1770",
+          "7m2jV7BOFkA@1775",
+          "7m2jV7BOFkA@1777",
+          "7m2jV7BOFkA@1780",
+          "7m2jV7BOFkA@1783"
+        ],
+        "original_id": "ch06.s13.p02.04",
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": "",
+        "caught": false
+      },
+      {
+        "id": "ch06.plant19",
+        "type": "unsupported_addition",
+        "text": "After this process, the test data dictionary contains the instruction, input, output, and model response, along with a timestamp for when the response was generated.",
+        "type_requested": "unsupported_addition",
+        "cites": [
+          "7m2jV7BOFkA@1248",
+          "7m2jV7BOFkA@1252",
+          "7m2jV7BOFkA@1256",
+          "7m2jV7BOFkA@1258",
+          "7m2jV7BOFkA@1265",
+          "7m2jV7BOFkA@1266",
+          "7m2jV7BOFkA@1268",
+          "7m2jV7BOFkA@1270",
+          "7m2jV7BOFkA@1275",
+          "7m2jV7BOFkA@1278",
+          "7m2jV7BOFkA@1281",
+          "7m2jV7BOFkA@1283",
+          "7m2jV7BOFkA@1286"
+        ],
+        "original_id": "ch06.s11.p04.r09",
+        "verdict": "partial",
+        "confidence": 0.8,
+        "reason": "Captions support that the dictionary contains instruction, input, output, and model response, but they do not mention a timestamp.",
+        "caught": true
+      },
+      {
+        "id": "ch06.plant20",
+        "type": "wrong_attribution",
+        "text": "Pretraining is needed to improve the model's ability to comprehend and appropriately respond to these requests.",
+        "type_requested": "wrong_attribution",
+        "cites": [
+          "__OiQznq4ao@1075",
+          "__OiQznq4ao@1077",
+          "__OiQznq4ao@1080",
+          "__OiQznq4ao@1082",
+          "__OiQznq4ao@1084",
+          "__OiQznq4ao@1087"
+        ],
+        "original_id": "ch06.s10.p03.r04",
+        "verdict": "unsupported",
+        "confidence": 0.85,
+        "reason": "The cited lines discuss fine-tuning improving comprehension/response; they do not state that pretraining is needed for this.",
+        "caught": true
+      }
+    ],
+    "by_type": {
+      "number": {
+        "planted": 4,
+        "caught": 3
+      },
+      "term_swap": {
+        "planted": 4,
+        "caught": 4
+      },
+      "reversed_cause": {
+        "planted": 4,
+        "caught": 2
+      },
+      "unsupported_addition": {
+        "planted": 4,
+        "caught": 4
+      },
+      "wrong_attribution": {
+        "planted": 4,
+        "caught": 2
+      }
+    },
+    "caught": 15,
+    "planted": 20,
+    "decoys": [
+      {
+        "id": "ch06.s04.p01.02",
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      {
+        "id": "ch06.s12.p03.r04",
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      {
+        "id": "ch06.s13.p01.r04",
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      {
+        "id": "ch06.s11.p03.05",
+        "verdict": "partial",
+        "confidence": 0.7,
+        "reason": "Cited lines support that the model response is not doing what it is asked to do for the cloud/thunderstorms question, but do not explicitly state the specific reason that it fails is because it does not provide the requested cloud type."
+      },
+      {
+        "id": "ch06.s10.p03.r03",
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      {
+        "id": "ch06.s12.p03.r08",
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      {
+        "id": "ch06.s08.p01.03",
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      {
+        "id": "ch06.s14.p02.r03",
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      {
+        "id": "ch06.s07.p03.02",
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      {
+        "id": "ch06.s03.p03.r01",
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      {
+        "id": "ch06.s08.p04.r03",
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      {
+        "id": "ch06.s13.p01.r08",
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      {
+        "id": "ch06.s01.p02.r05",
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      {
+        "id": "ch06.s10.p01.05",
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      {
+        "id": "ch06.s06.p04.r05",
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      {
+        "id": "ch06.s13.p02.09",
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      {
+        "id": "ch06.s02.p04.03",
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      {
+        "id": "ch06.s05.p03.07",
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      {
+        "id": "ch06.s08.p05.03",
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      {
+        "id": "ch06.s10.p02.04",
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      }
+    ],
+    "decoys_flagged": 1
+  }
+}

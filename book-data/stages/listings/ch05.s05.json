@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch05.s05",
+  "inputs_hash": "faac02a1e588f78bf6345a902d0d421f03b75e750e29519fb90e3ca78e4e3db6",
+  "output_hash": "b4d74740523d53881bcff76463110dd42acc824390e5ebc147bb3276146ca5f1",
+  "output": {
+    "section_id": "ch05.s05",
+    "listings": [],
+    "rejected": [
+      {
+        "id": "ch05.s05.code1",
+        "ref": "ref:ch07/01_main-chapter-code/ch07.ipynb#cell75",
+        "path": "ch07/01_main-chapter-code/ch07.ipynb",
+        "caption": "This code updates the GPT configuration with a 1024 context length and qkv bias, selects a GPT-2 model size, downloads its parameters, and prepares the base configuration for loading pretrained weights.",
+        "code": "from gpt_download import download_and_load_gpt2\nfrom previous_chapters import GPTModel, load_weights_into_gpt\n# If the `previous_chapters.py` file is not available locally,\n# you can import it from the `llms-from-scratch` PyPI package.\n# For details, see: https://github.com/rasbt/LLMs-from-scratch/tree/main/pkg\n# E.g.,\n# from llms_from_scratch.ch04 import GPTModel\n# from llms_from_scratch.ch05 import download_and_load_gpt2, load_weights_into_gpt\n\n\nBASE_CONFIG = {\n    \"vocab_size\": 50257,     # Vocabulary size\n    \"context_length\": 1024,  # Context length\n    \"drop_rate\": 0.0,        # Dropout rate\n    \"qkv_bias\": True         # Query-key-value bias\n}\n\nmodel_configs = {\n    \"gpt2-small (124M)\": {\"emb_dim\": 768, \"n_layers\": 12, \"n_heads\": 12},\n    \"gpt2-medium (355M)\": {\"emb_dim\": 1024, \"n_layers\": 24, \"n_heads\": 16},\n    \"gpt2-large (774M)\": {\"emb_dim\": 1280, \"n_layers\": 36, \"n_heads\": 20},\n    \"gpt2-xl (1558M)\": {\"emb_dim\": 1600, \"n_layers\": 48, \"n_heads\": 25},\n}\n\nCHOOSE_MODEL = \"gpt2-medium (355M)\"\n\nBASE_CONFIG.update(model_configs[CHOOSE_MODEL])\n\nmodel_size = CHOOSE_MODEL.split(\" \")[-1].lstrip(\"(\").rstrip(\")\")\nsettings, params = download_and_load_gpt2(",
+        "truncated": true,
+        "check": "partial",
+        "reason": "The snippet does update the base config to context_length=1024 and qkv_bias=True, selects a GPT-2 size, and begins downloading/loading parameters, which aligns with part of the section and matches the caption. However, the section also teaches creating the GPTModel instance and calling load_weights_into_gpt, plus the detailed assignment of attention/FFN/LayerNorm weights (splitting fused QKV, copying biases, projections, etc.). None of that integration/loading work is shown here, and the code is truncated mid-call to download_and_load_gpt2, so it does not demonstrate the core weight-loading procedure described."
+      },
+      {
+        "id": "ch05.s05.code2",
+        "ref": "ref:ch05/01_main-chapter-code/ch05.ipynb#cell143",
+        "path": "ch05/01_main-chapter-code/ch05.ipynb",
+        "caption": "This function copies GPT-2 parameters into a GPT model by assigning token and position embeddings, splitting fused attention query-key-value weights and biases per block, and loading transformer attention, projection, feed-forward, and normalization parameters.",
+        "code": "import numpy as np\n\ndef load_weights_into_gpt(gpt, params):\n    gpt.pos_emb.weight = assign(gpt.pos_emb.weight, params['wpe'])\n    gpt.tok_emb.weight = assign(gpt.tok_emb.weight, params['wte'])\n    \n    for b in range(len(params[\"blocks\"])):\n        q_w, k_w, v_w = np.split(\n            (params[\"blocks\"][b][\"attn\"][\"c_attn\"])[\"w\"], 3, axis=-1)\n        gpt.trf_blocks[b].att.W_query.weight = assign(\n            gpt.trf_blocks[b].att.W_query.weight, q_w.T)\n        gpt.trf_blocks[b].att.W_key.weight = assign(\n            gpt.trf_blocks[b].att.W_key.weight, k_w.T)\n        gpt.trf_blocks[b].att.W_value.weight = assign(\n            gpt.trf_blocks[b].att.W_value.weight, v_w.T)\n\n        q_b, k_b, v_b = np.split(\n            (params[\"blocks\"][b][\"attn\"][\"c_attn\"])[\"b\"], 3, axis=-1)\n        gpt.trf_blocks[b].att.W_query.bias = assign(\n            gpt.trf_blocks[b].att.W_query.bias, q_b)\n        gpt.trf_blocks[b].att.W_key.bias = assign(\n            gpt.trf_blocks[b].att.W_key.bias, k_b)\n        gpt.trf_blocks[b].att.W_value.bias = assign(\n            gpt.trf_blocks[b].att.W_value.bias, v_b)\n\n        gpt.trf_blocks[b].att.out_proj.weight = assign(\n            gpt.trf_blocks[b].att.out_proj.weight, \n            params[\"blocks\"][b][\"attn\"][\"c_proj\"][\"w\"].T)\n        gpt.trf_blocks[b].att.out_proj.bias = assign(\n            gpt.trf_blocks[b].att.out_proj.bias, ",
+        "truncated": true,
+        "check": "partial",
+        "reason": "The excerpt correctly demonstrates the core mechanism the section teaches: assigning token/position embeddings, splitting fused QKV attention weights and biases from params['blocks'][b]['attn']['c_attn'] and loading them into per-block attention query/key/value projections, and assigning the attention output projection weights. However, the code is truncated (out_proj.bias line is incomplete) and does not show the rest of what the section/caption claim: loading feed-forward (MLP) weights/biases, loading both transformer block layer norms, loading the final normalization layer, or the configuration updates/calling context described in the section. The caption states it loads feed-forward and normalization parameters, which are not present in the shown excerpt."
+      }
+    ]
+  }
+}

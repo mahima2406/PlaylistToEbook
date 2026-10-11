@@ -1,0 +1,56 @@
+{
+  "stage": "frames",
+  "item": "EhU32O7DkA4:p009",
+  "inputs_hash": "e48c37576828b28a367a4046cf4738503d5297d6308caabc5edd5c0c751ef5f8",
+  "output_hash": "54c8bc9865d7d134747a8d5cb0a868c6d0cbd03076db187e7c303faef6c982cf",
+  "output": {
+    "point_id": "EhU32O7DkA4:p009",
+    "video_id": "EhU32O7DkA4",
+    "seconds": 268,
+    "frame_sha256": "5875348ab49af39b01224c758f1e8f27441e6e8fdfdd5a48a78a49afe98eef37",
+    "status": "kept",
+    "kind": "diagram",
+    "title": "Visualizing the Effects of Temperature Scaling",
+    "caption": "A bar chart titled \"Temperature: 0.7\" with tokens 0 through 9 on the x-axis and probabilities on the y-axis; the visible caption says each word gets equal probability as the temperature increases.",
+    "mermaid": "flowchart LR\n  T[\"Temperature: 0.7\"] --> D[\"Probability distribution over tokens 0-9\"]\n  D --> P0[\"Token 0: about 0.11\"]\n  D --> P3[\"Token 3: about 0.06\"]\n  D --> P7[\"Token 7: about 0.12\"]\n  D --> P9[\"Token 9: about 0.15\"]\n  Inc[\"Temperature increases\"] --> Eq[\"Words get more equal probability\"]",
+    "latex": "",
+    "claims": [
+      {
+        "text": "The figure shows a probability distribution over tokens 0 through 9 at temperature 0.7.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "The bar chart is labeled 'Temperature: 0.7' and shows bars for tokens 0–9."
+      },
+      {
+        "text": "At temperature 0.7, token probabilities are not equal across tokens.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Bar heights differ noticeably across tokens at temperature 0.7, so probabilities are not equal."
+      },
+      {
+        "text": "Token 9 has the highest visible probability, about 0.15.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Token 9’s bar is the tallest, near ~0.15 on the y-axis."
+      },
+      {
+        "text": "Token 3 has one of the lowest visible probabilities, about 0.06.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Token 3’s bar is among the shortest and is around ~0.06–0.07."
+      },
+      {
+        "text": "Token 7 has a higher visible probability than token 3.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Token 7’s bar (~0.12) is clearly higher than token 3’s (~0.06–0.07)."
+      },
+      {
+        "text": "The caption states that as temperature increases, each word gets equal probability.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "The caption text under the plot reads that each word gets equal probability as the temperature increases, matching the lecturer’s explanation about higher temperature leading toward uniform probabilities."
+      }
+    ]
+  }
+}

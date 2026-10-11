@@ -1,0 +1,200 @@
+{
+  "stage": "crosscheck",
+  "item": "ch06.s12",
+  "inputs_hash": "cd3b1d52ff675a8e3c760cfb44173a81ca4dcb261daea974e6d07a77fd2c50a9",
+  "output_hash": "89f277e1e54e9d88fa49fd4756a88bd674ba23ee79de7911a10802f2d23ea99a",
+  "output": {
+    "section_id": "ch06.s12",
+    "checked": 16,
+    "counts": {
+      "agrees": 9,
+      "contradicts": 0,
+      "not_covered": 7
+    },
+    "results": [
+      {
+        "sentence_id": "ch06.s12.p01.r02",
+        "text": "Three common evaluation methods for instruction-fine-tuned LLMs are MMLU, human preference comparison, and using another larger language model to evaluate the model’s performance.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell97"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss qualitative evaluation difficulty and show LLM-as-judge evaluation, but do not list MMLU, human preference comparison, and larger-LLM evaluation as three common methods."
+      },
+      {
+        "sentence_id": "ch06.s12.p01.r03",
+        "text": "One very common method is to give the LLM a general knowledge test by benchmarking it on known responses, and this is called measuring Massive Multitask Language Understanding, or MMLU.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell97"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passage does not mention MMLU or describe benchmarking on known responses as MMLU."
+      },
+      {
+        "sentence_id": "ch06.s12.p01.r04",
+        "text": "An MMLU score is used as a measure of how the LLM is performing on general knowledge tasks.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell76",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell16",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references discuss evaluating model performance on validation tasks and introduce model quality evaluation methods, which is consistent with using a score/metric to measure general task performance (as an MMLU score would)."
+      },
+      {
+        "sentence_id": "ch06.s12.p01.r06",
+        "text": "MMLU consists of 57 tasks that cover STEM, humanities, social sciences, and other areas, with difficulty ranging from elementary to professional levels.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell35"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference passage mentions the number of MMLU tasks (57), the subject areas, or the difficulty range."
+      },
+      {
+        "sentence_id": "ch06.s12.p01.r07",
+        "text": "A custom instruction-fine-tuned LLM can be evaluated with MMLU by testing its performance on those 57 tasks, and many papers in the instruction-finetuned LLM space report the MMLU score.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell82",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell105",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell103"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references describe instruction finetuning and automated evaluation using a larger LLM, but do not mention evaluating with MMLU’s 57 tasks or that many papers report MMLU."
+      },
+      {
+        "sentence_id": "ch06.s12.p03.r01",
+        "text": "Another common approach is to use another large language model to compare the expected output with the model response and assign a score.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell66",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell118",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell121"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The notebook code builds a prompt that provides the correct output and model response and asks another LLM to score the response from 0 to 100."
+      },
+      {
+        "sentence_id": "ch06.s12.p03.r02",
+        "text": "The setup is to keep the instruction, input, true output, and model response together, then ask a large language model to compare the true output with the model response and assign a score.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell118",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell20",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell22"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The evaluation prompt explicitly includes the input, correct output, and model response, then queries another LLM to produce a score."
+      },
+      {
+        "sentence_id": "ch06.s12.p03.r03",
+        "text": "This approach is fairly straightforward because it is fully automated.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell112"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided reference for S8 is about embeddings/one-hot encoding and does not discuss whether the LLM-judge evaluation approach is straightforward or fully automated."
+      },
+      {
+        "sentence_id": "ch06.s12.p03.r04",
+        "text": "At the same time, it is like taking the easy way out because the evaluation criteria used by the evaluator LLM are not known, so the method depends on trusting that LLM.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell83"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the cited passages state that evaluator criteria are unknown or that the method relies on trust in the evaluator LLM."
+      },
+      {
+        "sentence_id": "ch06.s12.p03.r05",
+        "text": "After responses are extracted from the fine-tuned LLM, another large language model can automatically evaluate them.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell117",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell97"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references state that, using the defined query_model function, responses of the finetuned model can be evaluated by another (larger) LLM."
+      },
+      {
+        "sentence_id": "ch06.s12.p03.r07",
+        "text": "The evaluation can use a bigger pre-trained LLM to compare the model response with the true response and assign a score.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell118",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell80",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell115"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The code shows using an evaluator LLM (via query_model) to compare the correct output with the model response and return a score."
+      },
+      {
+        "sentence_id": "ch06.s12.p03.r08",
+        "text": "In the example implementation, the chosen evaluator is the Meta Llama 8B Instruct model, used as an automated and simpler evaluation method.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell123",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell120"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references describe using an instruction-finetuned Llama 3 8B model via Ollama to automate response evaluation and frame it as a practical evaluation approach."
+      },
+      {
+        "sentence_id": "ch06.s12.p04.02",
+        "text": "The goal here is to move beyond qualitative inspection and quantify the responses with a score.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell85",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell99",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell95"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference describes saving test responses for scoring in the next section and computing losses, indicating a move toward quantifying model behavior with a score/metric rather than only inspecting outputs."
+      },
+      {
+        "sentence_id": "ch06.s12.p04.03",
+        "text": "By asking the evaluator to respond with an integer number only, the evaluation produces a quantitative metric.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell37",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell120"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly says the verbose evaluator prompt can be tweaked to generate integer responses (0–100) in order to calculate an average score, i.e., a quantitative metric."
+      },
+      {
+        "sentence_id": "ch06.s12.p04.04",
+        "text": "That quantitative score is still not as robust as classification accuracy, because the assigned number remains subjective.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell70",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell77",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell86"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the references discuss classification loss/accuracy and separately discuss integer scoring for LLM evaluation, they do not state that the numeric evaluator score is less robust than classification accuracy due to subjectivity."
+      },
+      {
+        "sentence_id": "ch06.s12.p04.05",
+        "text": "LLM evaluation remains an open research area because there is substantial subjectivity in the choice of metrics and in judging responses, unlike problems where accuracy is a single value based on correct and wrong answers.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell97",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell120",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell8"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference notes that model evaluation is not as straightforward as computing percent correct in spam/non-spam classification and discusses partial credit and subjective grading via an LLM evaluator, consistent with the claim that LLM evaluation is less straightforward/subjective compared to single-value accuracy in clear right/wrong tasks."
+      }
+    ],
+    "conflicts": []
+  }
+}

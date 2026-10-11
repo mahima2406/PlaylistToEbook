@@ -1,0 +1,64 @@
+{
+  "stage": "checks",
+  "item": "ch04.s03.code2",
+  "inputs_hash": "697093b24c0cee54fdc2db955e8baf63a53d04d61401fa46fb0085a879166f91",
+  "output_hash": "bec7bccd30ae966363696d251c8b3b8bc00aea3d8f7277130fcb3423e5c1a159",
+  "output": [
+    {
+      "sentence_id": "ch04.s03.p03.02",
+      "expected": 768,
+      "expression": "input_embeddings.shape[1]",
+      "tolerance": 0,
+      "check_id": "ch04.s03.code2.chk1",
+      "sentence_text": "In this GPT-2 example, the embedding size is 768, which is the size used in the smallest GPT-2 model."
+    },
+    {
+      "sentence_id": "ch04.s03.p03.03",
+      "expected": 768,
+      "expression": "input_embeddings.shape[1]",
+      "tolerance": 0,
+      "check_id": "ch04.s03.code2.chk2",
+      "sentence_text": "Each token in the sequence is encoded as a 768-dimensional vector."
+    },
+    {
+      "sentence_id": "ch04.s03.p03.04",
+      "expected": 768,
+      "expression": "input_embeddings.shape[1]",
+      "tolerance": 0,
+      "check_id": "ch04.s03.code2.chk3",
+      "sentence_text": "For each token, the token embedding can be visualized as a 768-dimensional vector, and positional embeddings can be visualized in the same way."
+    },
+    {
+      "sentence_id": "ch04.s03.p03.05",
+      "expected": 768,
+      "expression": "input_embeddings.shape[1]",
+      "tolerance": 0,
+      "check_id": "ch04.s03.code2.chk4",
+      "sentence_text": "Token embedding vectors are not known in advance, so they are initialized randomly in the 768-dimensional space and learned during GPT model training along with the other embedding parameters."
+    },
+    {
+      "sentence_id": "ch04.s03.p04.04",
+      "expected": 768,
+      "expression": "input_embeddings.shape[1]",
+      "tolerance": 0,
+      "check_id": "ch04.s03.code2.chk5",
+      "sentence_text": "In the example sequence, there are four positions, and position one, position two, position three, and position four are each represented by a 768-dimensional positional embedding vector."
+    },
+    {
+      "sentence_id": "ch04.s03.p04.06",
+      "expected": 768,
+      "expression": "input_embeddings.shape[1]",
+      "tolerance": 0,
+      "check_id": "ch04.s03.code2.chk6",
+      "sentence_text": "The positional embedding vectors have size 768, the same size as the token embeddings."
+    },
+    {
+      "sentence_id": "ch04.s03.p05.03",
+      "expected": 768,
+      "expression": "input_embeddings.shape[1]",
+      "tolerance": 0,
+      "check_id": "ch04.s03.code2.chk7",
+      "sentence_text": "Because token embeddings and positional embeddings have the same dimensions, each input embedding also has dimension 768."
+    }
+  ]
+}

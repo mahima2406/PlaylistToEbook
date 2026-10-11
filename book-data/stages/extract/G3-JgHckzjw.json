@@ -1,0 +1,2035 @@
+{
+  "stage": "extract",
+  "item": "G3-JgHckzjw",
+  "inputs_hash": "4837201b4b11192aaa5808ce0194e1234a75d737a4f00c75196f29337b6edb3f",
+  "output_hash": "f0f65f9107b41c208a7780f7d7139a3798608f73981185000bc1ed24e6d0abdf",
+  "output": {
+    "video_id": "G3-JgHckzjw",
+    "points": [
+      {
+        "id": "G3-JgHckzjw:p001",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The lecture assembles the previously implemented components into the full GPT architecture by combining tokenization, dropout, transformer blocks, a final layer normalization, and a final linear output layer.",
+        "line_ids": [
+          "G3-JgHckzjw@13",
+          "G3-JgHckzjw@21",
+          "G3-JgHckzjw@87",
+          "G3-JgHckzjw@99",
+          "G3-JgHckzjw@163",
+          "G3-JgHckzjw@187",
+          "G3-JgHckzjw@207"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p002",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In the GPT architecture, text is tokenized, passed through embeddings and dropout, sent through transformer blocks, and then postprocessed with a final layer normalization and linear output layer to produce the model output.",
+        "line_ids": [
+          "G3-JgHckzjw@115",
+          "G3-JgHckzjw@125",
+          "G3-JgHckzjw@127",
+          "G3-JgHckzjw@145",
+          "G3-JgHckzjw@148",
+          "G3-JgHckzjw@160"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p003",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Masked multi-head attention is the key component of a transformer block, and the transformer block is the key component of the entire GPT model.",
+        "line_ids": [
+          "G3-JgHckzjw@169",
+          "G3-JgHckzjw@179"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p004",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The GPT model is trained for the next-word prediction task, such as taking the input \"every effort moves you\" and predicting the next word.",
+        "line_ids": [
+          "G3-JgHckzjw@229",
+          "G3-JgHckzjw@244"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p005",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The model’s immediate output is a final tensor, and the next lecture will show how to decode that tensor to get the next word.",
+        "line_ids": [
+          "G3-JgHckzjw@246",
+          "G3-JgHckzjw@260"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p006",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "code",
+        "importance": 3,
+        "text": "The workflow of the GPT model code is to convert input IDs into token embeddings, add positional embeddings, apply dropout, pass the result through transformer blocks, apply another layer normalization, apply an output head layer, and return the logits.",
+        "line_ids": [
+          "G3-JgHckzjw@324",
+          "G3-JgHckzjw@345"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p007",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The goal is to assemble a fully working version of the original 124 million parameter GPT-2 model.",
+        "line_ids": [
+          "G3-JgHckzjw@388"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p008",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The lecturer emphasizes understanding GPT through tensor dimensions, because the code is relatively straightforward but students often get confused by the many tensors and dimensions.",
+        "line_ids": [
+          "G3-JgHckzjw@466",
+          "G3-JgHckzjw@477",
+          "G3-JgHckzjw@481",
+          "G3-JgHckzjw@485",
+          "G3-JgHckzjw@503",
+          "G3-JgHckzjw@519",
+          "G3-JgHckzjw@527"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p009",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "A visual flow map is used to show how a specific input sequence moves through the GPT model step by step so that the dimensions and operations become easier to understand.",
+        "line_ids": [
+          "G3-JgHckzjw@486",
+          "G3-JgHckzjw@508",
+          "G3-JgHckzjw@565",
+          "G3-JgHckzjw@567"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p010",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "For simplicity in this example, the lecturer treats one token as one word, even though GPT-2 actually uses byte pair encoding as a subword tokenizer.",
+        "line_ids": [
+          "G3-JgHckzjw@669",
+          "G3-JgHckzjw@681",
+          "G3-JgHckzjw@689",
+          "G3-JgHckzjw@695"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p011",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Inputs ideally come in batches, and in the coding example there are two batches with four tokens in each batch, although the explanation focuses on the first batch for simplicity.",
+        "line_ids": [
+          "G3-JgHckzjw@595",
+          "G3-JgHckzjw@633"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p012",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "GPT-2 has a vocabulary, and the vocabulary size for GPT-2 is 50,257.",
+        "line_ids": [
+          "G3-JgHckzjw@640",
+          "G3-JgHckzjw@658"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p013",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The first step is to map each input token to a token ID in the vocabulary.",
+        "line_ids": [
+          "G3-JgHckzjw@658",
+          "G3-JgHckzjw@666",
+          "G3-JgHckzjw@669",
+          "G3-JgHckzjw@703"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p014",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "definition",
+        "importance": 3,
+        "text": "A token embedding vector is a vector representation of a token that allows the model to capture semantic relationships between words.",
+        "line_ids": [
+          "G3-JgHckzjw@706",
+          "G3-JgHckzjw@717",
+          "G3-JgHckzjw@732",
+          "G3-JgHckzjw@737"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p015",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Computers cannot directly understand words, and token IDs alone are not enough because the model needs representations that capture meaning between words.",
+        "line_ids": [
+          "G3-JgHckzjw@720",
+          "G3-JgHckzjw@726"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p016",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "Words with similar meanings, such as dog and puppy or cat and kitten, should have embedding vectors that are closer to each other.",
+        "line_ids": [
+          "G3-JgHckzjw@720",
+          "G3-JgHckzjw@726",
+          "G3-JgHckzjw@796",
+          "G3-JgHckzjw@807"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p017",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In this GPT-2 example, the embedding size is 768, which is the embedding size used in the smallest GPT-2 model.",
+        "line_ids": [
+          "G3-JgHckzjw@739",
+          "G3-JgHckzjw@749"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p018",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Each token in the sequence is encoded as a 768-dimensional vector.",
+        "line_ids": [
+          "G3-JgHckzjw@770"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p019",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Token embedding vectors are not known in advance, so they are initialized randomly and learned during GPT model training along with the other parameters.",
+        "line_ids": [
+          "G3-JgHckzjw@773",
+          "G3-JgHckzjw@794",
+          "G3-JgHckzjw@804",
+          "G3-JgHckzjw@819"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p020",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Besides word meaning, the model also needs to capture the position of each word in the sentence.",
+        "line_ids": [
+          "G3-JgHckzjw@824",
+          "G3-JgHckzjw@832"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p021",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "definition",
+        "importance": 3,
+        "text": "A positional embedding is an embedding vector that represents a token’s position in the sequence.",
+        "line_ids": [
+          "G3-JgHckzjw@844"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p022",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In the example sequence, the four positions are represented by four positional embedding vectors, each with 768 dimensions.",
+        "line_ids": [
+          "G3-JgHckzjw@851",
+          "G3-JgHckzjw@887"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p023",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The context size is the maximum number of words that can be used to predict the next word.",
+        "line_ids": [
+          "G3-JgHckzjw@853"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p024",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In this example, the context size is four, so only four positions matter.",
+        "line_ids": [
+          "G3-JgHckzjw@853",
+          "G3-JgHckzjw@867"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p025",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Like token embeddings, positional embedding values are initially random because their best values are not known beforehand.",
+        "line_ids": [
+          "G3-JgHckzjw@887",
+          "G3-JgHckzjw@900"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p026",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The positional embedding vectors have size 768, which is the same size as the token embeddings.",
+        "line_ids": [
+          "G3-JgHckzjw@908",
+          "G3-JgHckzjw@910",
+          "G3-JgHckzjw@912",
+          "G3-JgHckzjw@915",
+          "G3-JgHckzjw@919",
+          "G3-JgHckzjw@922"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p027",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To form the input embedding for each token, the model adds that token's token embedding to the positional embedding for its position.",
+        "line_ids": [
+          "G3-JgHckzjw@923",
+          "G3-JgHckzjw@926",
+          "G3-JgHckzjw@928",
+          "G3-JgHckzjw@931",
+          "G3-JgHckzjw@939",
+          "G3-JgHckzjw@945"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p028",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Because token embeddings and positional embeddings have the same dimensions, each input embedding also has dimension 768.",
+        "line_ids": [
+          "G3-JgHckzjw@951",
+          "G3-JgHckzjw@953",
+          "G3-JgHckzjw@954",
+          "G3-JgHckzjw@956"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p029",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "equation",
+        "importance": 3,
+        "text": "Input embedding equals token embedding plus positional embedding.",
+        "line_ids": [
+          "G3-JgHckzjw@1023",
+          "G3-JgHckzjw@1025",
+          "G3-JgHckzjw@1027",
+          "G3-JgHckzjw@1030",
+          "G3-JgHckzjw@1031",
+          "G3-JgHckzjw@1042"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p030",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Dropout randomly turns some elements of each input embedding to zero according to the dropout rate.",
+        "line_ids": [
+          "G3-JgHckzjw@1049",
+          "G3-JgHckzjw@1051",
+          "G3-JgHckzjw@1073",
+          "G3-JgHckzjw@1075",
+          "G3-JgHckzjw@1078",
+          "G3-JgHckzjw@1080"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p031",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 2,
+        "text": "If the dropout rate is 50%, then on average about half of the elements in each embedding are turned off to zero, not exactly half every time.",
+        "line_ids": [
+          "G3-JgHckzjw@1080",
+          "G3-JgHckzjw@1082",
+          "G3-JgHckzjw@1085",
+          "G3-JgHckzjw@1088",
+          "G3-JgHckzjw@1107",
+          "G3-JgHckzjw@1118"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p032",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Dropout is implemented to prevent overfitting and improve generalization.",
+        "line_ids": [
+          "G3-JgHckzjw@1121",
+          "G3-JgHckzjw@1124",
+          "G3-JgHckzjw@1126",
+          "G3-JgHckzjw@1128"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p033",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "The lecturer explains dropout as preventing some neurons from being lazy, so randomly turning neurons off forces them to learn and improves generalization.",
+        "line_ids": [
+          "G3-JgHckzjw@1133",
+          "G3-JgHckzjw@1136",
+          "G3-JgHckzjw@1139",
+          "G3-JgHckzjw@1143",
+          "G3-JgHckzjw@1148",
+          "G3-JgHckzjw@1159"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p034",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Before entering the Transformer block, the four steps are token embedding, positional embedding, input embedding by addition, and dropout.",
+        "line_ids": [
+          "G3-JgHckzjw@1175",
+          "G3-JgHckzjw@1177",
+          "G3-JgHckzjw@1181",
+          "G3-JgHckzjw@1183",
+          "G3-JgHckzjw@1186",
+          "G3-JgHckzjw@1195"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p035",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 2,
+        "text": "These embedding and dropout steps happen before the Transformer block begins.",
+        "line_ids": [
+          "G3-JgHckzjw@1195",
+          "G3-JgHckzjw@1197",
+          "G3-JgHckzjw@1199",
+          "G3-JgHckzjw@1201",
+          "G3-JgHckzjw@1231",
+          "G3-JgHckzjw@1238"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p036",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "When the embeddings enter the Transformer block, the dimensionality is preserved, so each token is still represented by a 768-dimensional vector.",
+        "line_ids": [
+          "G3-JgHckzjw@1256",
+          "G3-JgHckzjw@1257",
+          "G3-JgHckzjw@1260",
+          "G3-JgHckzjw@1267",
+          "G3-JgHckzjw@1270",
+          "G3-JgHckzjw@1281"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p037",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Before attention is applied, each token vector contains meaning about itself but does not yet capture how much attention it should give to other words when predicting the next word.",
+        "line_ids": [
+          "G3-JgHckzjw@1284",
+          "G3-JgHckzjw@1288",
+          "G3-JgHckzjw@1290",
+          "G3-JgHckzjw@1295",
+          "G3-JgHckzjw@1300",
+          "G3-JgHckzjw@1324"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p038",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Layer normalization normalizes the values within each token embedding so that their mean is 0 and their variance is 1.",
+        "line_ids": [
+          "G3-JgHckzjw@1333",
+          "G3-JgHckzjw@1337",
+          "G3-JgHckzjw@1339",
+          "G3-JgHckzjw@1341",
+          "G3-JgHckzjw@1352",
+          "G3-JgHckzjw@1358"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p039",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "For each token, layer normalization subtracts the mean from every value and divides by the square root of the variance.",
+        "line_ids": [
+          "G3-JgHckzjw@1360",
+          "G3-JgHckzjw@1362",
+          "G3-JgHckzjw@1365",
+          "G3-JgHckzjw@1369",
+          "G3-JgHckzjw@1371",
+          "G3-JgHckzjw@1378"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p040",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Layer normalization is performed for every single token to improve stability during training.",
+        "line_ids": [
+          "G3-JgHckzjw@1380",
+          "G3-JgHckzjw@1382",
+          "G3-JgHckzjw@1386",
+          "G3-JgHckzjw@1390",
+          "G3-JgHckzjw@1394",
+          "G3-JgHckzjw@1398"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p041",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Masked multi-head attention converts embedding vectors into context vectors.",
+        "line_ids": [
+          "G3-JgHckzjw@1401",
+          "G3-JgHckzjw@1403",
+          "G3-JgHckzjw@1405",
+          "G3-JgHckzjw@1410",
+          "G3-JgHckzjw@1413",
+          "G3-JgHckzjw@1417"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p042",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "After multi-head attention, the output size is still the same, so each token still has a 768-dimensional representation.",
+        "line_ids": [
+          "G3-JgHckzjw@1417",
+          "G3-JgHckzjw@1420",
+          "G3-JgHckzjw@1422",
+          "G3-JgHckzjw@1424",
+          "G3-JgHckzjw@1427",
+          "G3-JgHckzjw@1429"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p043",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "definition",
+        "importance": 3,
+        "text": "A context vector captures both the token's semantic meaning and how much attention it should give to the other tokens in the sentence.",
+        "line_ids": [
+          "G3-JgHckzjw@1432",
+          "G3-JgHckzjw@1434",
+          "G3-JgHckzjw@1443",
+          "G3-JgHckzjw@1445",
+          "G3-JgHckzjw@1452",
+          "G3-JgHckzjw@1464"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p044",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Attention is the most important step in the GPT model because it determines which words are important to look at and how different words relate to each other when predicting the next word.",
+        "line_ids": [
+          "G3-JgHckzjw@1464",
+          "G3-JgHckzjw@1467",
+          "G3-JgHckzjw@1470",
+          "G3-JgHckzjw@1476",
+          "G3-JgHckzjw@1480",
+          "G3-JgHckzjw@1482"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p045",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The GPT model preserves dimensionality throughout these steps, which makes it easier to add multiple modules together because the dimensions do not change.",
+        "line_ids": [
+          "G3-JgHckzjw@1517",
+          "G3-JgHckzjw@1519",
+          "G3-JgHckzjw@1522",
+          "G3-JgHckzjw@1527",
+          "G3-JgHckzjw@1532",
+          "G3-JgHckzjw@1539"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p046",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 2,
+        "text": "After multi-head attention there is another dropout layer that randomly turns some context vector values to zero.",
+        "line_ids": [
+          "G3-JgHckzjw@1541",
+          "G3-JgHckzjw@1543",
+          "G3-JgHckzjw@1547",
+          "G3-JgHckzjw@1550",
+          "G3-JgHckzjw@1557",
+          "G3-JgHckzjw@1561"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p047",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "definition",
+        "importance": 3,
+        "text": "A shortcut connection adds the output of a layer back to the input that entered the Transformer block.",
+        "line_ids": [
+          "G3-JgHckzjw@1563",
+          "G3-JgHckzjw@1564",
+          "G3-JgHckzjw@1566",
+          "G3-JgHckzjw@1569",
+          "G3-JgHckzjw@1576",
+          "G3-JgHckzjw@1580"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p048",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Shortcut connections provide another route for gradient flow and help prevent the vanishing gradient problem, making training smoother.",
+        "line_ids": [
+          "G3-JgHckzjw@1583",
+          "G3-JgHckzjw@1585",
+          "G3-JgHckzjw@1587",
+          "G3-JgHckzjw@1589",
+          "G3-JgHckzjw@1592",
+          "G3-JgHckzjw@1593"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p049",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 2,
+        "text": "After the shortcut connection, another round of layer normalization is applied without changing the dimensions.",
+        "line_ids": [
+          "G3-JgHckzjw@1596",
+          "G3-JgHckzjw@1598",
+          "G3-JgHckzjw@1600",
+          "G3-JgHckzjw@1602"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p050",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "In the second layer normalization, each token's values are again normalized by subtracting the mean and dividing by the square root of the variance so the resulting mean is 0 and variance is 1.",
+        "line_ids": [
+          "G3-JgHckzjw@1609",
+          "G3-JgHckzjw@1612",
+          "G3-JgHckzjw@1616",
+          "G3-JgHckzjw@1620",
+          "G3-JgHckzjw@1625"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p051",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The feed-forward neural network is an expansion-contraction network.",
+        "line_ids": [
+          "G3-JgHckzjw@1628",
+          "G3-JgHckzjw@1629",
+          "G3-JgHckzjw@1632",
+          "G3-JgHckzjw@1634",
+          "G3-JgHckzjw@1636"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p052",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The feed-forward network processes each token sequentially.",
+        "line_ids": [
+          "G3-JgHckzjw@1638",
+          "G3-JgHckzjw@1641",
+          "G3-JgHckzjw@1661",
+          "G3-JgHckzjw@1663",
+          "G3-JgHckzjw@1665"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p053",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Each token enters the feed-forward network with embedding size 768, is projected into a higher-dimensional hidden layer of size 4 times 768, and is then contracted back to the original dimension.",
+        "line_ids": [
+          "G3-JgHckzjw@1653",
+          "G3-JgHckzjw@1656",
+          "G3-JgHckzjw@1659",
+          "G3-JgHckzjw@1673",
+          "G3-JgHckzjw@1677",
+          "G3-JgHckzjw@1688"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p054",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The output of the feed-forward neural network has the same dimension as its input.",
+        "line_ids": [
+          "G3-JgHckzjw@1688",
+          "G3-JgHckzjw@1690",
+          "G3-JgHckzjw@1693"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p055",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The expansion and contraction in the feed-forward network allow a richer exploration of parameters and help the model predict the next word better.",
+        "line_ids": [
+          "G3-JgHckzjw@1693",
+          "G3-JgHckzjw@1695",
+          "G3-JgHckzjw@1697",
+          "G3-JgHckzjw@1701",
+          "G3-JgHckzjw@1704",
+          "G3-JgHckzjw@1706"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p056",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Because the middle layer of the feed-forward network has 4 times the embedding dimension, it contains many parameters and provides a richer exploration space.",
+        "line_ids": [
+          "G3-JgHckzjw@1727",
+          "G3-JgHckzjw@1729",
+          "G3-JgHckzjw@1731",
+          "G3-JgHckzjw@1735",
+          "G3-JgHckzjw@1737",
+          "G3-JgHckzjw@1739"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p057",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 2,
+        "text": "After the feed-forward neural network there is another dropout layer that randomly sets certain values in every token to zero.",
+        "line_ids": [
+          "G3-JgHckzjw@1743",
+          "G3-JgHckzjw@1745",
+          "G3-JgHckzjw@1747",
+          "G3-JgHckzjw@1749",
+          "G3-JgHckzjw@1755",
+          "G3-JgHckzjw@1758"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p058",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Typically one dropout rate is specified at the start and used everywhere dropout layers are implemented.",
+        "line_ids": [
+          "G3-JgHckzjw@1760",
+          "G3-JgHckzjw@1762",
+          "G3-JgHckzjw@1763"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p059",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The second shortcut connection adds the output after this dropout layer to the input of that sublayer.",
+        "line_ids": [
+          "G3-JgHckzjw@1765",
+          "G3-JgHckzjw@1768",
+          "G3-JgHckzjw@1771",
+          "G3-JgHckzjw@1775",
+          "G3-JgHckzjw@1784",
+          "G3-JgHckzjw@1788"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p060",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The output after this second shortcut connection is the Transformer block output.",
+        "line_ids": [
+          "G3-JgHckzjw@1791",
+          "G3-JgHckzjw@1793",
+          "G3-JgHckzjw@1795",
+          "G3-JgHckzjw@1798",
+          "G3-JgHckzjw@1800"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p061",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A Transformer block preserves the token embedding dimension, so its output has the same dimensions as its input, with each token still represented by a 768-dimensional vector.",
+        "line_ids": [
+          "G3-JgHckzjw@1802",
+          "G3-JgHckzjw@1805",
+          "G3-JgHckzjw@1806",
+          "G3-JgHckzjw@1808",
+          "G3-JgHckzjw@1811",
+          "G3-JgHckzjw@1813"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p062",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The Transformer block consists of eight steps in order: layer normalization, masked multi-head attention, dropout, a shortcut connection, another layer normalization, a feed-forward neural network, dropout, and a final shortcut connection to produce the block output.",
+        "line_ids": [
+          "G3-JgHckzjw@1852",
+          "G3-JgHckzjw@1855",
+          "G3-JgHckzjw@1859",
+          "G3-JgHckzjw@1861",
+          "G3-JgHckzjw@1864",
+          "G3-JgHckzjw@1867",
+          "G3-JgHckzjw@1869",
+          "G3-JgHckzjw@1884",
+          "G3-JgHckzjw@1886",
+          "G3-JgHckzjw@1888",
+          "G3-JgHckzjw@1890",
+          "G3-JgHckzjw@1892",
+          "G3-JgHckzjw@1894"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p063",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 2,
+        "text": "After the Transformer block, GPT applies an additional layer normalization layer even though the Transformer block itself already contains two normalization layers.",
+        "line_ids": [
+          "G3-JgHckzjw@1956",
+          "G3-JgHckzjw@1958",
+          "G3-JgHckzjw@1960",
+          "G3-JgHckzjw@1962",
+          "G3-JgHckzjw@1964",
+          "G3-JgHckzjw@1968",
+          "G3-JgHckzjw@1971",
+          "G3-JgHckzjw@1973",
+          "G3-JgHckzjw@1976",
+          "G3-JgHckzjw@1977"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p064",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "definition",
+        "importance": 3,
+        "text": "In this layer normalization, the embedding values within each token are normalized so that the resulting values have mean zero and variance one, and this does not change the tensor dimensions.",
+        "line_ids": [
+          "G3-JgHckzjw@1980",
+          "G3-JgHckzjw@1981",
+          "G3-JgHckzjw@1983",
+          "G3-JgHckzjw@1986",
+          "G3-JgHckzjw@1990",
+          "G3-JgHckzjw@1992",
+          "G3-JgHckzjw@1994",
+          "G3-JgHckzjw@1996",
+          "G3-JgHckzjw@1998",
+          "G3-JgHckzjw@2002",
+          "G3-JgHckzjw@2005",
+          "G3-JgHckzjw@2007",
+          "G3-JgHckzjw@2009",
+          "G3-JgHckzjw@2012",
+          "G3-JgHckzjw@2014"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p065",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "definition",
+        "importance": 2,
+        "text": "The output head is the final neural network stage of the GPT model.",
+        "line_ids": [
+          "G3-JgHckzjw@2016",
+          "G3-JgHckzjw@2018",
+          "G3-JgHckzjw@2020",
+          "G3-JgHckzjw@2023"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p066",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The output head takes an input of shape four tokens by 768 dimensions and maps each token representation to a vector of size 50257, producing a logits matrix with four rows and vocabulary-sized columns.",
+        "line_ids": [
+          "G3-JgHckzjw@2023",
+          "G3-JgHckzjw@2026",
+          "G3-JgHckzjw@2029",
+          "G3-JgHckzjw@2031",
+          "G3-JgHckzjw@2033",
+          "G3-JgHckzjw@2036",
+          "G3-JgHckzjw@2038",
+          "G3-JgHckzjw@2043",
+          "G3-JgHckzjw@2046",
+          "G3-JgHckzjw@2049",
+          "G3-JgHckzjw@2051",
+          "G3-JgHckzjw@2053",
+          "G3-JgHckzjw@2058",
+          "G3-JgHckzjw@2060",
+          "G3-JgHckzjw@2063",
+          "G3-JgHckzjw@2066",
+          "G3-JgHckzjw@2069",
+          "G3-JgHckzjw@2071",
+          "G3-JgHckzjw@2073",
+          "G3-JgHckzjw@2076",
+          "G3-JgHckzjw@2078",
+          "G3-JgHckzjw@2081"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p067",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "definition",
+        "importance": 2,
+        "text": "The output of the final neural network is called the logits matrix.",
+        "line_ids": [
+          "G3-JgHckzjw@2049",
+          "G3-JgHckzjw@2051",
+          "G3-JgHckzjw@2053",
+          "G3-JgHckzjw@2058",
+          "G3-JgHckzjw@2060"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p068",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "For every token position, the model produces a 50257-dimensional logits vector because it is predicting the next word over the entire vocabulary.",
+        "line_ids": [
+          "G3-JgHckzjw@2081",
+          "G3-JgHckzjw@2084",
+          "G3-JgHckzjw@2086",
+          "G3-JgHckzjw@2090",
+          "G3-JgHckzjw@2093",
+          "G3-JgHckzjw@2096",
+          "G3-JgHckzjw@2098",
+          "G3-JgHckzjw@2101",
+          "G3-JgHckzjw@2103",
+          "G3-JgHckzjw@2106"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p069",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To predict the next word for a given input context, one looks at the vocabulary column with the highest logit value, and that column should correspond to the correct next token.",
+        "line_ids": [
+          "G3-JgHckzjw@2106",
+          "G3-JgHckzjw@2108",
+          "G3-JgHckzjw@2110",
+          "G3-JgHckzjw@2112",
+          "G3-JgHckzjw@2115",
+          "G3-JgHckzjw@2118",
+          "G3-JgHckzjw@2121",
+          "G3-JgHckzjw@2123",
+          "G3-JgHckzjw@2126",
+          "G3-JgHckzjw@2128",
+          "G3-JgHckzjw@2130",
+          "G3-JgHckzjw@2132",
+          "G3-JgHckzjw@2134",
+          "G3-JgHckzjw@2136"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p070",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "In the example sequence \"every effort moves you forward,\" the model should predict \"effort\" after \"every,\" \"moves\" after \"every effort,\" \"you\" after \"every effort moves,\" and \"forward\" after \"every effort moves you.\"",
+        "line_ids": [
+          "G3-JgHckzjw@2106",
+          "G3-JgHckzjw@2108",
+          "G3-JgHckzjw@2110",
+          "G3-JgHckzjw@2112",
+          "G3-JgHckzjw@2123",
+          "G3-JgHckzjw@2126",
+          "G3-JgHckzjw@2134",
+          "G3-JgHckzjw@2136",
+          "G3-JgHckzjw@2139",
+          "G3-JgHckzjw@2140",
+          "G3-JgHckzjw@2143",
+          "G3-JgHckzjw@2145",
+          "G3-JgHckzjw@2146",
+          "G3-JgHckzjw@2148",
+          "G3-JgHckzjw@2151",
+          "G3-JgHckzjw@2153",
+          "G3-JgHckzjw@2156",
+          "G3-JgHckzjw@2158",
+          "G3-JgHckzjw@2162",
+          "G3-JgHckzjw@2164"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p071",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The output head is the only step in this flow where the dimensions change, from number of tokens by 768 to number of tokens by 50257.",
+        "line_ids": [
+          "G3-JgHckzjw@2171",
+          "G3-JgHckzjw@2173",
+          "G3-JgHckzjw@2175",
+          "G3-JgHckzjw@2177",
+          "G3-JgHckzjw@2179",
+          "G3-JgHckzjw@2181",
+          "G3-JgHckzjw@2184",
+          "G3-JgHckzjw@2186",
+          "G3-JgHckzjw@2188",
+          "G3-JgHckzjw@2191",
+          "G3-JgHckzjw@2194"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p072",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "With a context size of four, there are four prediction tasks, one for each token position, not just one prediction for the full input sequence.",
+        "line_ids": [
+          "G3-JgHckzjw@2195",
+          "G3-JgHckzjw@2198",
+          "G3-JgHckzjw@2200",
+          "G3-JgHckzjw@2203",
+          "G3-JgHckzjw@2205",
+          "G3-JgHckzjw@2207",
+          "G3-JgHckzjw@2208",
+          "G3-JgHckzjw@2211",
+          "G3-JgHckzjw@2212",
+          "G3-JgHckzjw@2214",
+          "G3-JgHckzjw@2216"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p073",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "For the four-token context \"every effort moves you,\" the four prediction tasks are predicting \"effort\" from \"every,\" \"moves\" from \"every effort,\" \"you\" from \"every effort moves,\" and the next word from \"every effort moves you.\"",
+        "line_ids": [
+          "G3-JgHckzjw@2216",
+          "G3-JgHckzjw@2218",
+          "G3-JgHckzjw@2220",
+          "G3-JgHckzjw@2222",
+          "G3-JgHckzjw@2225",
+          "G3-JgHckzjw@2226",
+          "G3-JgHckzjw@2228",
+          "G3-JgHckzjw@2230",
+          "G3-JgHckzjw@2233",
+          "G3-JgHckzjw@2235"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p074",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "equation",
+        "importance": 3,
+        "text": "For one batch with four tokens, the final output tensor has shape 4 by 50257.",
+        "line_ids": [
+          "G3-JgHckzjw@2244",
+          "G3-JgHckzjw@2247",
+          "G3-JgHckzjw@2249",
+          "G3-JgHckzjw@2252",
+          "G3-JgHckzjw@2254",
+          "G3-JgHckzjw@2260",
+          "G3-JgHckzjw@2268",
+          "G3-JgHckzjw@2271",
+          "G3-JgHckzjw@2274",
+          "G3-JgHckzjw@2277"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p075",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "When there are multiple batches, the output tensor includes the batch size as the first dimension.",
+        "line_ids": [
+          "G3-JgHckzjw@2277",
+          "G3-JgHckzjw@2280",
+          "G3-JgHckzjw@2283",
+          "G3-JgHckzjw@2285",
+          "G3-JgHckzjw@2287",
+          "G3-JgHckzjw@2289",
+          "G3-JgHckzjw@2291",
+          "G3-JgHckzjw@2295",
+          "G3-JgHckzjw@2297",
+          "G3-JgHckzjw@2299",
+          "G3-JgHckzjw@2300",
+          "G3-JgHckzjw@2303",
+          "G3-JgHckzjw@2309",
+          "G3-JgHckzjw@2310"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p076",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "equation",
+        "importance": 3,
+        "text": "For batch size 2 and context size 4, the output tensor shape is 2 by 4 by 50257.",
+        "line_ids": [
+          "G3-JgHckzjw@2299",
+          "G3-JgHckzjw@2300",
+          "G3-JgHckzjw@2303",
+          "G3-JgHckzjw@2309",
+          "G3-JgHckzjw@2310",
+          "G3-JgHckzjw@2313",
+          "G3-JgHckzjw@2315",
+          "G3-JgHckzjw@2317",
+          "G3-JgHckzjw@2320",
+          "G3-JgHckzjw@2323",
+          "G3-JgHckzjw@2326"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p077",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The output tensor dimensions are ordered as batch size, then number of tokens or context size, then vocabulary size 50257.",
+        "line_ids": [
+          "G3-JgHckzjw@2310",
+          "G3-JgHckzjw@2313",
+          "G3-JgHckzjw@2315",
+          "G3-JgHckzjw@2317",
+          "G3-JgHckzjw@2320",
+          "G3-JgHckzjw@2323",
+          "G3-JgHckzjw@2326"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p078",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The purpose of the visual flow map is to help learners understand how dimensions change across token embedding, positional embedding, input embedding, dropout, the Transformer block, layer normalization, and the output head, because this is harder to visualize directly from code.",
+        "line_ids": [
+          "G3-JgHckzjw@2330",
+          "G3-JgHckzjw@2332",
+          "G3-JgHckzjw@2334",
+          "G3-JgHckzjw@2337",
+          "G3-JgHckzjw@2339",
+          "G3-JgHckzjw@2341",
+          "G3-JgHckzjw@2343",
+          "G3-JgHckzjw@2345",
+          "G3-JgHckzjw@2347",
+          "G3-JgHckzjw@2350",
+          "G3-JgHckzjw@2352",
+          "G3-JgHckzjw@2354",
+          "G3-JgHckzjw@2356",
+          "G3-JgHckzjw@2357",
+          "G3-JgHckzjw@2360",
+          "G3-JgHckzjw@2361",
+          "G3-JgHckzjw@2363"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p079",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Once the visual intuition for the GPT blocks is clear, the model is ready to be implemented in code by arranging those blocks together.",
+        "line_ids": [
+          "G3-JgHckzjw@2402",
+          "G3-JgHckzjw@2406",
+          "G3-JgHckzjw@2408",
+          "G3-JgHckzjw@2409",
+          "G3-JgHckzjw@2413",
+          "G3-JgHckzjw@2415",
+          "G3-JgHckzjw@2416"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p080",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "code",
+        "importance": 3,
+        "text": "The GPT-2 configuration used in the code sets vocabulary size to 50257, context length to 1024, embedding dimension to 768, number of attention heads to 12, number of Transformer blocks to 12, dropout rate to 0.1, and query-key-value bias to false.",
+        "line_ids": [
+          "G3-JgHckzjw@2423",
+          "G3-JgHckzjw@2426",
+          "G3-JgHckzjw@2429",
+          "G3-JgHckzjw@2432",
+          "G3-JgHckzjw@2434",
+          "G3-JgHckzjw@2436",
+          "G3-JgHckzjw@2438",
+          "G3-JgHckzjw@2441",
+          "G3-JgHckzjw@2444",
+          "G3-JgHckzjw@2447",
+          "G3-JgHckzjw@2450",
+          "G3-JgHckzjw@2452",
+          "G3-JgHckzjw@2455",
+          "G3-JgHckzjw@2458",
+          "G3-JgHckzjw@2461",
+          "G3-JgHckzjw@2463",
+          "G3-JgHckzjw@2465",
+          "G3-JgHckzjw@2468",
+          "G3-JgHckzjw@2471",
+          "G3-JgHckzjw@2474",
+          "G3-JgHckzjw@2476"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p081",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In GPT-2, 12 Transformer blocks are used, and each Transformer block's multi-head attention module uses 12 attention heads.",
+        "line_ids": [
+          "G3-JgHckzjw@2495",
+          "G3-JgHckzjw@2498",
+          "G3-JgHckzjw@2501",
+          "G3-JgHckzjw@2502",
+          "G3-JgHckzjw@2505",
+          "G3-JgHckzjw@2507",
+          "G3-JgHckzjw@2509",
+          "G3-JgHckzjw@2511",
+          "G3-JgHckzjw@2513",
+          "G3-JgHckzjw@2515",
+          "G3-JgHckzjw@2517"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p082",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "code",
+        "importance": 2,
+        "text": "Earlier in the lecture series, the GPT model class had a forward method but used dummy implementations for the Transformer block and layer normalization, and later lectures replaced these with coded implementations of layer normalization, the feed-forward neural network, and the Transformer block.",
+        "line_ids": [
+          "G3-JgHckzjw@2540",
+          "G3-JgHckzjw@2543",
+          "G3-JgHckzjw@2546",
+          "G3-JgHckzjw@2549",
+          "G3-JgHckzjw@2552",
+          "G3-JgHckzjw@2554",
+          "G3-JgHckzjw@2556",
+          "G3-JgHckzjw@2559",
+          "G3-JgHckzjw@2562",
+          "G3-JgHckzjw@2564",
+          "G3-JgHckzjw@2565",
+          "G3-JgHckzjw@2567",
+          "G3-JgHckzjw@2570"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p083",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "code",
+        "importance": 3,
+        "text": "The coded layer normalization class subtracts the mean and divides by the square root of the variance for each token's 768-dimensional representation so that the result has mean zero and variance one, and it also includes trainable scale and shift parameters.",
+        "line_ids": [
+          "G3-JgHckzjw@2570",
+          "G3-JgHckzjw@2572",
+          "G3-JgHckzjw@2575",
+          "G3-JgHckzjw@2578",
+          "G3-JgHckzjw@2580",
+          "G3-JgHckzjw@2582",
+          "G3-JgHckzjw@2585",
+          "G3-JgHckzjw@2588",
+          "G3-JgHckzjw@2590",
+          "G3-JgHckzjw@2592",
+          "G3-JgHckzjw@2594",
+          "G3-JgHckzjw@2596",
+          "G3-JgHckzjw@2599",
+          "G3-JgHckzjw@2601",
+          "G3-JgHckzjw@2603",
+          "G3-JgHckzjw@2606",
+          "G3-JgHckzjw@2608",
+          "G3-JgHckzjw@2610",
+          "G3-JgHckzjw@2612"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p084",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "code",
+        "importance": 3,
+        "text": "The coded feed-forward block takes the embedding dimension as input, expands to four times the embedding dimension, then contracts back to the embedding dimension, and uses a GELU activation function.",
+        "line_ids": [
+          "G3-JgHckzjw@2615",
+          "G3-JgHckzjw@2617",
+          "G3-JgHckzjw@2619",
+          "G3-JgHckzjw@2622",
+          "G3-JgHckzjw@2626",
+          "G3-JgHckzjw@2628",
+          "G3-JgHckzjw@2630",
+          "G3-JgHckzjw@2632",
+          "G3-JgHckzjw@2635",
+          "G3-JgHckzjw@2637",
+          "G3-JgHckzjw@2638",
+          "G3-JgHckzjw@2640",
+          "G3-JgHckzjw@2642",
+          "G3-JgHckzjw@2644",
+          "G3-JgHckzjw@2647",
+          "G3-JgHckzjw@2649",
+          "G3-JgHckzjw@2652",
+          "G3-JgHckzjw@2653",
+          "G3-JgHckzjw@2655",
+          "G3-JgHckzjw@2657",
+          "G3-JgHckzjw@2659",
+          "G3-JgHckzjw@2662"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p085",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 2,
+        "text": "GELU differs from ReLU because for negative inputs it is not zero and it is differentiable at zero, which is why GELU is generally used in LLM training.",
+        "line_ids": [
+          "G3-JgHckzjw@2662",
+          "G3-JgHckzjw@2664",
+          "G3-JgHckzjw@2666",
+          "G3-JgHckzjw@2667",
+          "G3-JgHckzjw@2670",
+          "G3-JgHckzjw@2672",
+          "G3-JgHckzjw@2678",
+          "G3-JgHckzjw@2680",
+          "G3-JgHckzjw@2683",
+          "G3-JgHckzjw@2685",
+          "G3-JgHckzjw@2688",
+          "G3-JgHckzjw@2690"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p086",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "code",
+        "importance": 1,
+        "text": "In the previous lecture, the entire Transformer block class itself was coded.",
+        "line_ids": [
+          "G3-JgHckzjw@2690",
+          "G3-JgHckzjw@2693",
+          "G3-JgHckzjw@2696",
+          "G3-JgHckzjw@2698",
+          "G3-JgHckzjw@2700"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p087",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "A Transformer block performs eight steps: input embeddings go through dropout, layer normalization, masked multi-head attention, dropout, a shortcut connection, another layer normalization, a feed-forward neural network, dropout, and another shortcut connection.",
+        "line_ids": [
+          "G3-JgHckzjw@2714",
+          "G3-JgHckzjw@2716",
+          "G3-JgHckzjw@2718",
+          "G3-JgHckzjw@2721",
+          "G3-JgHckzjw@2724",
+          "G3-JgHckzjw@2726",
+          "G3-JgHckzjw@2734",
+          "G3-JgHckzjw@2737",
+          "G3-JgHckzjw@2739",
+          "G3-JgHckzjw@2742",
+          "G3-JgHckzjw@2746"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p088",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A Transformer block preserves dimensions, so the input to the block has the same dimensions as its output.",
+        "line_ids": [
+          "G3-JgHckzjw@2765",
+          "G3-JgHckzjw@2767",
+          "G3-JgHckzjw@2769",
+          "G3-JgHckzjw@2771",
+          "G3-JgHckzjw@2773",
+          "G3-JgHckzjw@2778"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p089",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The GPT forward method takes an input tensor whose rows are batches and whose columns are the sequence length, or number of tokens.",
+        "line_ids": [
+          "G3-JgHckzjw@2787",
+          "G3-JgHckzjw@2790",
+          "G3-JgHckzjw@2793",
+          "G3-JgHckzjw@2797",
+          "G3-JgHckzjw@2799",
+          "G3-JgHckzjw@2804",
+          "G3-JgHckzjw@2806",
+          "G3-JgHckzjw@2809",
+          "G3-JgHckzjw@2810",
+          "G3-JgHckzjw@2812",
+          "G3-JgHckzjw@2814",
+          "G3-JgHckzjw@2819"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p090",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In the GPT model, token IDs are converted to token embeddings, positional embeddings are generated for each position in the sequence, and the token and positional embeddings are added to form the input embeddings.",
+        "line_ids": [
+          "G3-JgHckzjw@2833",
+          "G3-JgHckzjw@2836",
+          "G3-JgHckzjw@2839",
+          "G3-JgHckzjw@2841",
+          "G3-JgHckzjw@2846",
+          "G3-JgHckzjw@2851",
+          "G3-JgHckzjw@2853",
+          "G3-JgHckzjw@2858",
+          "G3-JgHckzjw@2859",
+          "G3-JgHckzjw@2861",
+          "G3-JgHckzjw@2863",
+          "G3-JgHckzjw@2867",
+          "G3-JgHckzjw@2869"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p091",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 2,
+        "text": "For each token, the token embedding is a 768-dimensional vector, and the positional embeddings can be visualized in the same way.",
+        "line_ids": [
+          "G3-JgHckzjw@2892",
+          "G3-JgHckzjw@2894",
+          "G3-JgHckzjw@2896",
+          "G3-JgHckzjw@2900",
+          "G3-JgHckzjw@2902",
+          "G3-JgHckzjw@2906",
+          "G3-JgHckzjw@2908",
+          "G3-JgHckzjw@2911",
+          "G3-JgHckzjw@2914"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p092",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "After forming the input embeddings, the GPT model applies dropout, the stacked Transformer blocks, another layer normalization, and then the output head.",
+        "line_ids": [
+          "G3-JgHckzjw@2937",
+          "G3-JgHckzjw@2939",
+          "G3-JgHckzjw@2942",
+          "G3-JgHckzjw@2944",
+          "G3-JgHckzjw@2948",
+          "G3-JgHckzjw@2951",
+          "G3-JgHckzjw@2955",
+          "G3-JgHckzjw@2958",
+          "G3-JgHckzjw@2962",
+          "G3-JgHckzjw@2964",
+          "G3-JgHckzjw@2966",
+          "G3-JgHckzjw@2976",
+          "G3-JgHckzjw@2979",
+          "G3-JgHckzjw@2981",
+          "G3-JgHckzjw@2984",
+          "G3-JgHckzjw@2986",
+          "G3-JgHckzjw@2988"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p093",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "code",
+        "importance": 3,
+        "text": "The Transformer blocks are implemented by chaining multiple TransformerBlock modules together with nn.Sequential.",
+        "line_ids": [
+          "G3-JgHckzjw@2990",
+          "G3-JgHckzjw@2994",
+          "G3-JgHckzjw@2996",
+          "G3-JgHckzjw@2998",
+          "G3-JgHckzjw@3000",
+          "G3-JgHckzjw@3002",
+          "G3-JgHckzjw@3005",
+          "G3-JgHckzjw@3009",
+          "G3-JgHckzjw@3011",
+          "G3-JgHckzjw@3014",
+          "G3-JgHckzjw@3016",
+          "G3-JgHckzjw@3018",
+          "G3-JgHckzjw@3021"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p094",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In the shown configuration, the GPT model chains together 12 Transformer blocks.",
+        "line_ids": [
+          "G3-JgHckzjw@2998",
+          "G3-JgHckzjw@3000",
+          "G3-JgHckzjw@3002",
+          "G3-JgHckzjw@3005",
+          "G3-JgHckzjw@3009",
+          "G3-JgHckzjw@3021"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p095",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The GPT model outputs logits whose shape is batch size by number of tokens by vocabulary size.",
+        "line_ids": [
+          "G3-JgHckzjw@3063",
+          "G3-JgHckzjw@3066",
+          "G3-JgHckzjw@3068",
+          "G3-JgHckzjw@3071",
+          "G3-JgHckzjw@3072",
+          "G3-JgHckzjw@3076",
+          "G3-JgHckzjw@3078",
+          "G3-JgHckzjw@3083",
+          "G3-JgHckzjw@3085",
+          "G3-JgHckzjw@3088",
+          "G3-JgHckzjw@3090",
+          "G3-JgHckzjw@3092",
+          "G3-JgHckzjw@3094",
+          "G3-JgHckzjw@3097",
+          "G3-JgHckzjw@3098"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p096",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "code",
+        "importance": 3,
+        "text": "Running a simple input batch through the GPT model produces an output tensor with shape 2 by 4 by 50257, corresponding to two batches, four tokens per batch, and the vocabulary size.",
+        "line_ids": [
+          "G3-JgHckzjw@3103",
+          "G3-JgHckzjw@3106",
+          "G3-JgHckzjw@3107",
+          "G3-JgHckzjw@3111",
+          "G3-JgHckzjw@3113",
+          "G3-JgHckzjw@3116",
+          "G3-JgHckzjw@3118",
+          "G3-JgHckzjw@3120",
+          "G3-JgHckzjw@3122",
+          "G3-JgHckzjw@3130",
+          "G3-JgHckzjw@3132",
+          "G3-JgHckzjw@3134",
+          "G3-JgHckzjw@3137",
+          "G3-JgHckzjw@3139",
+          "G3-JgHckzjw@3141",
+          "G3-JgHckzjw@3143",
+          "G3-JgHckzjw@3148",
+          "G3-JgHckzjw@3150",
+          "G3-JgHckzjw@3157",
+          "G3-JgHckzjw@3159",
+          "G3-JgHckzjw@3162",
+          "G3-JgHckzjw@3163",
+          "G3-JgHckzjw@3166",
+          "G3-JgHckzjw@3170",
+          "G3-JgHckzjw@3175",
+          "G3-JgHckzjw@3177"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p097",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 2,
+        "text": "This GPT implementation has more than 100 million parameters because it includes 12 Transformer blocks, each with eight steps, along with token and positional embeddings and large feed-forward expansion and contraction layers.",
+        "line_ids": [
+          "G3-JgHckzjw@3192",
+          "G3-JgHckzjw@3195",
+          "G3-JgHckzjw@3197",
+          "G3-JgHckzjw@3199",
+          "G3-JgHckzjw@3201",
+          "G3-JgHckzjw@3203",
+          "G3-JgHckzjw@3207",
+          "G3-JgHckzjw@3208",
+          "G3-JgHckzjw@3210",
+          "G3-JgHckzjw@3211",
+          "G3-JgHckzjw@3212",
+          "G3-JgHckzjw@3216",
+          "G3-JgHckzjw@3218",
+          "G3-JgHckzjw@3221",
+          "G3-JgHckzjw@3223",
+          "G3-JgHckzjw@3225"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p098",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "code",
+        "importance": 2,
+        "text": "The total number of model parameters can be computed by summing p.numel() over the model's parameter tensors.",
+        "line_ids": [
+          "G3-JgHckzjw@3231",
+          "G3-JgHckzjw@3233",
+          "G3-JgHckzjw@3236",
+          "G3-JgHckzjw@3238",
+          "G3-JgHckzjw@3241",
+          "G3-JgHckzjw@3244",
+          "G3-JgHckzjw@3246",
+          "G3-JgHckzjw@3248",
+          "G3-JgHckzjw@3249"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p099",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The implemented model has 163 million parameters before weight tying.",
+        "line_ids": [
+          "G3-JgHckzjw@3252",
+          "G3-JgHckzjw@3253",
+          "G3-JgHckzjw@3256"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p100",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Weight tying in the original GPT-2 architecture means reusing the token embedding layer weights in the output layer.",
+        "line_ids": [
+          "G3-JgHckzjw@3274",
+          "G3-JgHckzjw@3277",
+          "G3-JgHckzjw@3279",
+          "G3-JgHckzjw@3281",
+          "G3-JgHckzjw@3283",
+          "G3-JgHckzjw@3285",
+          "G3-JgHckzjw@3287"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p101",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The token embedding layer and the output layer have the same shape, 50257 by 768, which is why GPT-2 can reuse those parameters.",
+        "line_ids": [
+          "G3-JgHckzjw@3331",
+          "G3-JgHckzjw@3333",
+          "G3-JgHckzjw@3336",
+          "G3-JgHckzjw@3338",
+          "G3-JgHckzjw@3342",
+          "G3-JgHckzjw@3344",
+          "G3-JgHckzjw@3346",
+          "G3-JgHckzjw@3348"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p102",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "If the output layer parameters are excluded because of weight tying, the parameter count becomes 124 million, matching the GPT-2 model size.",
+        "line_ids": [
+          "G3-JgHckzjw@3354",
+          "G3-JgHckzjw@3358",
+          "G3-JgHckzjw@3359",
+          "G3-JgHckzjw@3361",
+          "G3-JgHckzjw@3364",
+          "G3-JgHckzjw@3366",
+          "G3-JgHckzjw@3368",
+          "G3-JgHckzjw@3370",
+          "G3-JgHckzjw@3372"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p103",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Weight tying reduces the overall memory footprint and computational complexity of the model.",
+        "line_ids": [
+          "G3-JgHckzjw@3372",
+          "G3-JgHckzjw@3376",
+          "G3-JgHckzjw@3379",
+          "G3-JgHckzjw@3381",
+          "G3-JgHckzjw@3383"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p104",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Using separate token embedding and output layers gives better training and model performance, so this implementation and modern LLMs use separate layers instead of weight tying.",
+        "line_ids": [
+          "G3-JgHckzjw@3383",
+          "G3-JgHckzjw@3386",
+          "G3-JgHckzjw@3388",
+          "G3-JgHckzjw@3390",
+          "G3-JgHckzjw@3392",
+          "G3-JgHckzjw@3394",
+          "G3-JgHckzjw@3397",
+          "G3-JgHckzjw@3400",
+          "G3-JgHckzjw@3402",
+          "G3-JgHckzjw@3405",
+          "G3-JgHckzjw@3408",
+          "G3-JgHckzjw@3410",
+          "G3-JgHckzjw@3412"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p105",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The 163 million parameters in this model require about 600 megabytes of storage.",
+        "line_ids": [
+          "G3-JgHckzjw@3414",
+          "G3-JgHckzjw@3418",
+          "G3-JgHckzjw@3420",
+          "G3-JgHckzjw@3422",
+          "G3-JgHckzjw@3424",
+          "G3-JgHckzjw@3426"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p106",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "equation",
+        "importance": 3,
+        "text": "Assuming each parameter is a 32-bit float that takes 4 bytes, the total model size is computed by multiplying the total number of parameters by 4, giving about 620 MB.",
+        "line_ids": [
+          "G3-JgHckzjw@3429",
+          "G3-JgHckzjw@3431",
+          "G3-JgHckzjw@3433",
+          "G3-JgHckzjw@3437",
+          "G3-JgHckzjw@3439",
+          "G3-JgHckzjw@3441",
+          "G3-JgHckzjw@3443",
+          "G3-JgHckzjw@3445",
+          "G3-JgHckzjw@3446",
+          "G3-JgHckzjw@3449"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p107",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Even relatively small LLMs such as GPT-2 require substantial storage, and extremely large models cannot be run on local devices, which is why GPU access is needed.",
+        "line_ids": [
+          "G3-JgHckzjw@3449",
+          "G3-JgHckzjw@3452",
+          "G3-JgHckzjw@3454",
+          "G3-JgHckzjw@3456",
+          "G3-JgHckzjw@3459",
+          "G3-JgHckzjw@3462",
+          "G3-JgHckzjw@3464",
+          "G3-JgHckzjw@3467",
+          "G3-JgHckzjw@3469",
+          "G3-JgHckzjw@3472",
+          "G3-JgHckzjw@3473"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p108",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The GPT model implementation can be understood as stacking token embeddings, positional embeddings, a dropout layer, Transformer blocks, another layer normalization, and an output head to produce logits.",
+        "line_ids": [
+          "G3-JgHckzjw@3540",
+          "G3-JgHckzjw@3542",
+          "G3-JgHckzjw@3544",
+          "G3-JgHckzjw@3545",
+          "G3-JgHckzjw@3548",
+          "G3-JgHckzjw@3551"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p109",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "code",
+        "importance": 3,
+        "text": "The forward method takes a batch of input tokens, computes token and positional embeddings, passes the sequence through the Transformer blocks, normalizes the final output, and computes logits representing unnormalized probabilities for the next tokens.",
+        "line_ids": [
+          "G3-JgHckzjw@3586",
+          "G3-JgHckzjw@3588",
+          "G3-JgHckzjw@3590",
+          "G3-JgHckzjw@3592",
+          "G3-JgHckzjw@3594",
+          "G3-JgHckzjw@3596",
+          "G3-JgHckzjw@3598",
+          "G3-JgHckzjw@3600",
+          "G3-JgHckzjw@3604"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p110",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "Writing every step of the transformer code as a visual flow map on a whiteboard or in a notebook can greatly strengthen understanding and confidence about the subject.",
+        "line_ids": [
+          "G3-JgHckzjw@3622",
+          "G3-JgHckzjw@3624",
+          "G3-JgHckzjw@3627",
+          "G3-JgHckzjw@3628",
+          "G3-JgHckzjw@3631",
+          "G3-JgHckzjw@3633",
+          "G3-JgHckzjw@3635",
+          "G3-JgHckzjw@3637",
+          "G3-JgHckzjw@3640",
+          "G3-JgHckzjw@3643",
+          "G3-JgHckzjw@3645",
+          "G3-JgHckzjw@3648",
+          "G3-JgHckzjw@3652",
+          "G3-JgHckzjw@3654",
+          "G3-JgHckzjw@3656",
+          "G3-JgHckzjw@3657",
+          "G3-JgHckzjw@3659",
+          "G3-JgHckzjw@3661",
+          "G3-JgHckzjw@3664",
+          "G3-JgHckzjw@3666",
+          "G3-JgHckzjw@3668"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p111",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "visual_ref",
+        "importance": 1,
+        "text": "The lecturer is showing on the screen a visual flow map of the transformer similar to the one written on the whiteboard.",
+        "line_ids": [
+          "G3-JgHckzjw@3652",
+          "G3-JgHckzjw@3654",
+          "G3-JgHckzjw@3656",
+          "G3-JgHckzjw@3657"
+        ]
+      },
+      {
+        "id": "G3-JgHckzjw:p112",
+        "video_id": "G3-JgHckzjw",
+        "lecture": 24,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The next lecture will probably be the last lecture in the GPT architecture series and will generate text from the final output tensor obtained today.",
+        "line_ids": [
+          "G3-JgHckzjw@3670",
+          "G3-JgHckzjw@3672",
+          "G3-JgHckzjw@3674",
+          "G3-JgHckzjw@3676",
+          "G3-JgHckzjw@3679",
+          "G3-JgHckzjw@3680"
+        ]
+      }
+    ],
+    "inventory": [
+      {
+        "chunk": "G3-JgHckzjw@0-904",
+        "start": 0,
+        "end": 904,
+        "points": 25,
+        "core_points": 18,
+        "invalid_points": 0,
+        "flag": null
+      },
+      {
+        "chunk": "G3-JgHckzjw@902-1805",
+        "start": 902,
+        "end": 1805,
+        "points": 35,
+        "core_points": 23,
+        "invalid_points": 0,
+        "flag": null
+      },
+      {
+        "chunk": "G3-JgHckzjw@1802-2714",
+        "start": 1802,
+        "end": 2714,
+        "points": 26,
+        "core_points": 15,
+        "invalid_points": 0,
+        "flag": null
+      },
+      {
+        "chunk": "G3-JgHckzjw@2712-3619",
+        "start": 2712,
+        "end": 3619,
+        "points": 23,
+        "core_points": 16,
+        "invalid_points": 0,
+        "flag": null
+      },
+      {
+        "chunk": "G3-JgHckzjw@3617-3689",
+        "start": 3617,
+        "end": 3689,
+        "points": 3,
+        "core_points": 0,
+        "invalid_points": 0,
+        "flag": null
+      }
+    ]
+  }
+}

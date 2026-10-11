@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch04.s11.p02.02",
+  "inputs_hash": "75ca1e6010e1f79d0ae45c23f121d88a93f9caf96a95a3c84955c838657a00e1",
+  "output_hash": "1c766bfb2e7984b4c3163767278fe33eb7713a3cb455428721fe6fbdbd380f57",
+  "output": {
+    "decision": "edit",
+    "text": "A \"generate_and_print_sample\" function is used after each epoch as a convenience function for tracking whether the model improves during training by showing generated text, though in this chapter the training loop calculates accuracy after each epoch instead.",
+    "reason": "The captions support the generate_and_print_sample description, and the reference clarifies that this chapter’s training setup uses accuracy after each epoch rather than sample printing.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.74,
+      "reason": "The cited lines support that a generate_and_print_sample convenience function is used after every epoch to track whether the model improves by showing generated text. However, the claim that 'in this chapter the training loop calculates accuracy after each epoch instead' is not supported by the provided lines."
+    },
+    "kind": "conflict",
+    "sentence_hash": "568b7fbcdb239bfe206659afc410bda99c90b1d568e8a77cc11e6a4ca7f84407"
+  }
+}

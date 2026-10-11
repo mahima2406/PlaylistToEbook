@@ -1,0 +1,197 @@
+{
+  "stage": "crosscheck",
+  "item": "ch02.s01",
+  "inputs_hash": "5b0a989952d1f1538a18a89d7b32ca1a142e095f4c66d0d7177ac584f0f05c83",
+  "output_hash": "ef7103cff7a6528ad8b18f936f5b617a9961f597bfa41a309ba65fe2fe91bae4",
+  "output": {
+    "section_id": "ch02.s01",
+    "checked": 14,
+    "counts": {
+      "agrees": 9,
+      "contradicts": 1,
+      "not_covered": 4
+    },
+    "results": [
+      {
+        "sentence_id": "ch02.s01.p01.02",
+        "text": "Data preprocessing is one of the fundamental building blocks of a strongly performing large language model.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell51",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell143",
+          "ref:ch05/01_main-chapter-code/gpt_generate.py"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references show various code snippets (e.g., label replacement with -100, loading weights, tokenization utilities) but do not state that data preprocessing is a fundamental building block of strong LLM performance."
+      },
+      {
+        "sentence_id": "ch02.s01.p01.03",
+        "text": "Data preprocessing is the procedure of processing data before it is fed as input to a large language model.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell65"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited reference discusses model input tokens and output vectors, not a definition of data preprocessing as processing data before feeding it to an LLM."
+      },
+      {
+        "sentence_id": "ch02.s01.p01.04",
+        "text": "In this chapter, that data is text such as paragraphs and documents.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell13",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell4",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell2"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Chapter 2 references explicitly discuss preparing and tokenizing text (breaking text into smaller units) and describe the chapter as covering data preparation for LLM input, consistent with using text such as paragraphs/documents."
+      },
+      {
+        "sentence_id": "ch02.s01.p02.02",
+        "text": "Before a sentence is in a form good enough to be an input for a large language model, four fundamental steps are used: tokenization, token embeddings, positional embeddings, and creating input embeddings.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references state that token embeddings and positional embeddings are combined (added) to form input embeddings; this supports the steps of token embeddings, positional embeddings, and creating input embeddings as part of the preparation pipeline (and tokenization is covered elsewhere in the chapter)."
+      },
+      {
+        "sentence_id": "ch02.s01.p02.03",
+        "text": "The final input embeddings then serve as inputs to the large language model.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell130"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states positional embeddings are combined with token embeddings to form input embeddings for an LLM, implying these final input embeddings are what is used as the model’s inputs."
+      },
+      {
+        "sentence_id": "ch02.s01.p02.04",
+        "text": "The complete pipeline runs from tokenization to token IDs to token embeddings to positional embeddings and finally to input embeddings.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell130"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The code and accompanying text show token IDs being embedded into token embeddings, then combined with positional embeddings via addition to create input embeddings, matching the described pipeline ordering."
+      },
+      {
+        "sentence_id": "ch02.s01.p02.05",
+        "text": "This pipeline makes the data ready to be fed into the LLM architecture or the LLM pre-training process.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell5",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell52"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References discuss returning inputs to the LLM, and for training also creating targets via shifting; along with sections on LLM architecture and preparing a pretrained LLM for finetuning, this is consistent with the pipeline making data ready for architecture input and (pre)training setup."
+      },
+      {
+        "sentence_id": "ch02.s01.p03.02",
+        "text": "For an input text such as \"this is an example\", the text is first broken down into tokens.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell89",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell27",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell13"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references describe tokenizing text as breaking it into smaller units (tokens), consistent with first breaking an input text into tokens."
+      },
+      {
+        "sentence_id": "ch02.s01.p03.03",
+        "text": "In a word-based tokenizer, \"this\", \"is\", \"an\", and \"example\" are four tokens, one word per token.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell120",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell6",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell7"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not describe a word-based tokenizer example where \"this\", \"is\", \"an\", and \"example\" are each single tokens."
+      },
+      {
+        "sentence_id": "ch02.s01.p03.04",
+        "text": "After tokenization, each token is converted into a token ID.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell40"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References discuss tokenization and show examples with input IDs after tokenization, consistent with converting tokens into token IDs."
+      },
+      {
+        "sentence_id": "ch02.s01.p03.05",
+        "text": "Those token IDs are then converted into token embeddings.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell107",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell103",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell130"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references show input IDs and then creation of token embeddings via an embedding layer, consistent with converting token IDs into token embeddings."
+      },
+      {
+        "sentence_id": "ch02.s01.p03.06",
+        "text": "These token embeddings serve as the input to training the large language model.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell130"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The references state that input embeddings (token embeddings + positional embeddings) form the input embeddings for a large language model; this conflicts with the claim that token embeddings themselves serve as the training input."
+      },
+      {
+        "sentence_id": "ch02.s01.p03.07",
+        "text": "The term \"token embeddings\" is preferred over \"word embeddings\" because tokens can be words, subwords, or even characters.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell130",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell103"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference shows code and headings about creating token embeddings and combining token + positional embeddings, but it does not state why the term \"token embeddings\" is preferred over \"word embeddings\" or explicitly discuss tokens being words/subwords/characters."
+      },
+      {
+        "sentence_id": "ch02.s01.p03.08",
+        "text": "A fuller treatment of tokenizers and byte pair encoding is separate from this overview, but the key point here is that text must pass through these preprocessing steps before it can be used by the model.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell76"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference section on Byte Pair Encoding and the tokenizer notes that BPE breaks unknown words into subwords and individual characters, and the use of a tokenizer implies the required preprocessing step before obtaining model inputs/embeddings."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch02.s01.p03.06",
+        "text": "These token embeddings serve as the input to training the large language model.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell130"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The references state that input embeddings (token embeddings + positional embeddings) form the input embeddings for a large language model; this conflicts with the claim that token embeddings themselves serve as the training input."
+      }
+    ]
+  }
+}

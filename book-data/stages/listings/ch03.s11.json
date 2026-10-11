@@ -1,0 +1,33 @@
+{
+  "stage": "listings",
+  "item": "ch03.s11",
+  "inputs_hash": "8a30309ef6871af7f34d4a940d48616dd7e949c1434942465da1421fedb45437",
+  "output_hash": "3c57153cc7b31ee48a241a4a85ca90eeab213b795e0d7c52d1ceaa431192f9fb",
+  "output": {
+    "section_id": "ch03.s11",
+    "listings": [
+      {
+        "id": "ch03.s11.code2",
+        "ref": "ref:ch04/01_main-chapter-code/ch04.ipynb#cell55",
+        "path": "ch04/01_main-chapter-code/ch04.ipynb",
+        "caption": "Sets layer sizes and a three-dimensional sample input, initializes the network without shortcut connections, and calls the gradient-printing helper on that model.",
+        "code": "layer_sizes = [3, 3, 3, 3, 3, 1]  \n\nsample_input = torch.tensor([[1., 0., -1.]])\n\ntorch.manual_seed(123)\nmodel_without_shortcut = ExampleDeepNeuralNetwork(\n    layer_sizes, use_shortcut=False\n)\nprint_gradients(model_without_shortcut, sample_input)",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The snippet sets the specified layer sizes (including five hidden 3→3 layers and a final 3→1), defines the 3D sample input [1, 0, -1], fixes the seed, instantiates the ExampleDeepNeuralNetwork with use_shortcut=False (i.e., without shortcut connections), and calls the gradient-printing helper on that model. This aligns with the section’s described setup and the caption accurately describes what the code does."
+      }
+    ],
+    "rejected": [
+      {
+        "id": "ch03.s11.code1",
+        "ref": "ref:ch04/01_main-chapter-code/ch04.ipynb#cell53",
+        "path": "ch04/01_main-chapter-code/ch04.ipynb",
+        "caption": "Defines a five-layer neural network with GELU activations, optionally adds each layer output back to the running tensor when shapes match, and includes a helper that runs a forward pass, computes an MSE loss to a zero target, and backpropagates to inspect gradients.",
+        "code": "class ExampleDeepNeuralNetwork(nn.Module):\n    def __init__(self, layer_sizes, use_shortcut):\n        super().__init__()\n        self.use_shortcut = use_shortcut\n        self.layers = nn.ModuleList([\n            nn.Sequential(nn.Linear(layer_sizes[0], layer_sizes[1]), GELU()),\n            nn.Sequential(nn.Linear(layer_sizes[1], layer_sizes[2]), GELU()),\n            nn.Sequential(nn.Linear(layer_sizes[2], layer_sizes[3]), GELU()),\n            nn.Sequential(nn.Linear(layer_sizes[3], layer_sizes[4]), GELU()),\n            nn.Sequential(nn.Linear(layer_sizes[4], layer_sizes[5]), GELU())\n        ])\n\n    def forward(self, x):\n        for layer in self.layers:\n            # Compute the output of the current layer\n            layer_output = layer(x)\n            # Check if shortcut can be applied\n            if self.use_shortcut and x.shape == layer_output.shape:\n                x = x + layer_output\n            else:\n                x = layer_output\n        return x\n\n\ndef print_gradients(model, x):\n    # Forward pass\n    output = model(x)\n    target = torch.tensor([[0.]])\n\n    # Calculate loss based on how close the target",
+        "truncated": true,
+        "check": "partial",
+        "reason": "The code does define a multi-layer (five Sequential blocks) network with GELU activations and an optional residual/shortcut update implemented as `x = x + layer_output` when shapes match, which aligns with the section’s shortcut-connection description. It also starts a helper intended to run a forward pass and set a zero target. However, the excerpt is incomplete: the helper does not actually compute an MSE/squared loss, call `backward()`, or print per-layer mean gradients as the section describes, and the layer_sizes indexing expects 6 entries (0..5) whereas the section states sizes 3,3,3,3,1 (5 entries). The caption claims backprop/gradient inspection functionality that is not fully shown in the provided code."
+      }
+    ]
+  }
+}

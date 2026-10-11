@@ -1,0 +1,22 @@
+{
+  "stage": "listings",
+  "item": "ch04.s01",
+  "inputs_hash": "44b2ef08b36bada70c5cb3882f58f141914a70d1b5aeb0bcb67fb48f75090c12",
+  "output_hash": "853820134d6f9ce4fb8d01ce0ea4d5ee3c14130776219bf0ee389d53511f2e97",
+  "output": {
+    "section_id": "ch04.s01",
+    "listings": [],
+    "rejected": [
+      {
+        "id": "ch04.s01.code1",
+        "ref": "ref:ch02/01_main-chapter-code/dataloader.ipynb#cell6",
+        "path": "ch02/01_main-chapter-code/dataloader.ipynb",
+        "caption": "This code takes a batch of token indices, looks up token embeddings and positional embeddings, adds them together, and stores the combined input embeddings.",
+        "code": "for batch in dataloader:\n    x, y = batch\n\n    token_embeddings = token_embedding_layer(x)\n    pos_embeddings = pos_embedding_layer(torch.arange(max_length))\n\n    input_embeddings = token_embeddings + pos_embeddings\n\n    break\n\nprint(input_embeddings.shape)",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The excerpt demonstrates part of the forward-pass pipeline the section describes: taking a batch of token indices, computing token and positional embeddings, and adding them to form input embeddings. However, it does not pass through Transformer blocks, apply final normalization, or compute logits for next-token prediction. The caption accurately describes what the snippet does, but it covers only a subset of what the section teaches."
+      }
+    ]
+  }
+}

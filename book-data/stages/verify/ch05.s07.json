@@ -1,0 +1,460 @@
+{
+  "stage": "verify",
+  "item": "ch05.s07",
+  "inputs_hash": "8a847f64be66c7e9b9de8cf77f3f3d8c2964134fce3adfc367529f250c396f66",
+  "output_hash": "8904967264cabca353f3727c77f2c626f3b72cd55faec2e5ea221fb153ac9d9b",
+  "output": {
+    "section_id": "ch05.s07",
+    "paragraphs": [
+      {
+        "id": "ch05.s07.p01",
+        "sentences": [
+          {
+            "id": "ch05.s07.p01.01",
+            "text": "What does the spam-classification dataset look like before any model can use it, and why is that preparation necessary?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s07.p01.02",
+            "text": "The dataset was downloaded from the UCI Irvine Machine Learning Repository.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@89",
+              "f6zqClXOh7Y@91",
+              "0PpxZ3kNPWo@70",
+              "0PpxZ3kNPWo@73"
+            ]
+          },
+          {
+            "id": "ch05.s07.p01.03",
+            "text": "It is an SMS spam collection dataset made of text messages that are labeled as either spam or not spam.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@75",
+              "0PpxZ3kNPWo@78",
+              "0PpxZ3kNPWo@80"
+            ]
+          },
+          {
+            "id": "ch05.s07.p01.04",
+            "text": "Each entry consists of a text together with a label indicating whether it is ham, meaning no spam, or spam.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@120",
+              "f6zqClXOh7Y@124",
+              "f6zqClXOh7Y@126",
+              "f6zqClXOh7Y@129"
+            ]
+          },
+          {
+            "id": "ch05.s07.p01.05",
+            "text": "In this dataset, non-spam is also called ham.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@97",
+              "f6zqClXOh7Y@101"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s07.p02",
+        "sentences": [
+          {
+            "id": "ch05.s07.p02.r01",
+            "text": "One description gives the dataset as around 747 spam emails and more than 3,000 non-spam emails.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@93",
+              "f6zqClXOh7Y@96",
+              "f6zqClXOh7Y@97",
+              "f6zqClXOh7Y@101"
+            ]
+          },
+          {
+            "id": "ch05.s07.p02.r02",
+            "text": "Another count states that there were 4,825 no-spam entries and 747 spam entries, and also summarizes this as around 4,800 no-spam messages and 747 spam messages.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@135",
+              "f6zqClXOh7Y@138",
+              "0PpxZ3kNPWo@85",
+              "0PpxZ3kNPWo@87"
+            ]
+          },
+          {
+            "id": "ch05.s07.p02.r03",
+            "text": "To balance the classes, 747 non-spam entries were randomly sampled so that spam and non-spam each had 747 examples.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@141",
+              "f6zqClXOh7Y@144",
+              "f6zqClXOh7Y@147",
+              "f6zqClXOh7Y@150",
+              "f6zqClXOh7Y@152"
+            ]
+          },
+          {
+            "id": "ch05.s07.p02.r04",
+            "text": "After balancing, the dataset contains 747 spam examples and 747 non-spam examples, for a total of 1,494 examples.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@91",
+              "0PpxZ3kNPWo@93",
+              "0PpxZ3kNPWo@96",
+              "0PpxZ3kNPWo@98",
+              "f6zqClXOh7Y@1572",
+              "f6zqClXOh7Y@1576",
+              "f6zqClXOh7Y@1580",
+              "f6zqClXOh7Y@1583"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s07.p03",
+        "sentences": [
+          {
+            "id": "ch05.s07.p03.r01",
+            "text": "The labels are then encoded numerically.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@152",
+              "f6zqClXOh7Y@154",
+              "f6zqClXOh7Y@157",
+              "f6zqClXOh7Y@160"
+            ]
+          },
+          {
+            "id": "ch05.s07.p03.r02",
+            "text": "Ham is encoded as 0 and spam is encoded as 1.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@154",
+              "f6zqClXOh7Y@157",
+              "f6zqClXOh7Y@160"
+            ]
+          },
+          {
+            "id": "ch05.s07.p03.r03",
+            "text": "Accordingly, the target tensor contains zeros and ones, where zero means no spam and one means spam.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@166",
+              "0PpxZ3kNPWo@168",
+              "0PpxZ3kNPWo@171"
+            ]
+          },
+          {
+            "id": "ch05.s07.p03.r04",
+            "text": "With the labels encoded, the full dataset is split into training, validation, and testing data.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@160",
+              "f6zqClXOh7Y@163",
+              "f6zqClXOh7Y@165"
+            ]
+          },
+          {
+            "id": "ch05.s07.p03.r05",
+            "text": "The split uses 70% for training, 10% for validation, and 20% for testing, and these splits were converted into CSV files.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@165",
+              "f6zqClXOh7Y@168",
+              "f6zqClXOh7Y@171",
+              "f6zqClXOh7Y@174",
+              "f6zqClXOh7Y@176",
+              "f6zqClXOh7Y@180",
+              "f6zqClXOh7Y@183",
+              "f6zqClXOh7Y@185",
+              "f6zqClXOh7Y@187",
+              "f6zqClXOh7Y@189"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s07.p04",
+        "sentences": [
+          {
+            "id": "ch05.s07.p04.r01",
+            "text": "The dataloaders batch the dataset into inputs and targets.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@104",
+              "0PpxZ3kNPWo@106",
+              "0PpxZ3kNPWo@108",
+              "0PpxZ3kNPWo@112",
+              "0PpxZ3kNPWo@131",
+              "0PpxZ3kNPWo@133"
+            ]
+          },
+          {
+            "id": "ch05.s07.p04.r02",
+            "text": "The same split proportions are also described as 70% training, 20% testing, and 10% validation.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@117",
+              "0PpxZ3kNPWo@119",
+              "0PpxZ3kNPWo@122",
+              "0PpxZ3kNPWo@126"
+            ]
+          },
+          {
+            "id": "ch05.s07.p04.r03",
+            "text": "Because the balanced dataset has 1,494 examples, taking 70% for training gives 1,045 training samples.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1583",
+              "f6zqClXOh7Y@1588",
+              "f6zqClXOh7Y@1590",
+              "f6zqClXOh7Y@1592",
+              "f6zqClXOh7Y@1601",
+              "f6zqClXOh7Y@1607",
+              "f6zqClXOh7Y@1611"
+            ]
+          },
+          {
+            "id": "ch05.s07.p04.r04",
+            "text": "That training count is the basis for the batches used by the training dataloader.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1590",
+              "f6zqClXOh7Y@1592",
+              "f6zqClXOh7Y@1607",
+              "f6zqClXOh7Y@1611"
+            ]
+          },
+          {
+            "id": "ch05.s07.p04.r05",
+            "text": "Next, look at the token IDs, padding, and batch shapes.",
+            "type": "C",
+            "cites": []
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch05.s07.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s07.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.82,
+        "reason": ""
+      },
+      "ch05.s07.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s07.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s07.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch05.s07.p02.r01": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch05.s07.p02.r02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s07.p02.r03": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch05.s07.p02.r04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s07.p03.r01": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s07.p03.r02": {
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch05.s07.p03.r03": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch05.s07.p03.r04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s07.p03.r05": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch05.s07.p04.r01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s07.p04.r02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch05.s07.p04.r03": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch05.s07.p04.r04": {
+        "verdict": "partial",
+        "confidence": 0.62,
+        "reason": "the cited lines support that 70% training corresponds to batches and that the training set has 1045 samples, but they do not explicitly state that this training count is the basis specifically for the batches used by the training dataloader (training dataloader is not mentioned)."
+      },
+      "ch05.s07.p04.r05": {
+        "verdict": "ok",
+        "confidence": 0.93,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch05.s07.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s07.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.82,
+        "reason": ""
+      },
+      "ch05.s07.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s07.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s07.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch05.s07.p02.01": {
+        "verdict": "partial",
+        "confidence": 0.78,
+        "reason": "captions support that the download was imbalanced and that they balanced it, but they do not explicitly say the class counts had to be adjusted *before training* (the necessity/timing is implied but not stated)."
+      },
+      "ch05.s07.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.87,
+        "reason": ""
+      },
+      "ch05.s07.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s07.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch05.s07.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch05.s07.p03.01": {
+        "verdict": "partial",
+        "confidence": 0.8,
+        "reason": "captions clearly state the labels were encoded (ham->0, spam->1), but do not explicitly state the purpose 'so they can be used as targets'."
+      },
+      "ch05.s07.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch05.s07.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s07.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.s07.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.s07.p04.01": {
+        "verdict": "partial",
+        "confidence": 0.75,
+        "reason": "Captions support that dataloaders batch the dataset into input and target, but they do not clearly state the temporal/causal link 'once the data is split' (batching is described without explicitly tying it to occurring after the split)."
+      },
+      "ch05.s07.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch05.s07.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch05.s07.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.82,
+        "reason": "Lines state 'we will have batches corresponding to' the 70% training portion and then compute 1045 training samples, which implies batches are based on that training count."
+      },
+      "ch05.s07.p04.05": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "ch05.s07.p02",
+      "ch05.s07.p03",
+      "ch05.s07.p04"
+    ],
+    "queue": [
+      {
+        "sentence_id": "ch05.s07.p04.r04",
+        "text": "That training count is the basis for the batches used by the training dataloader.",
+        "cites": [
+          "f6zqClXOh7Y@1590",
+          "f6zqClXOh7Y@1592",
+          "f6zqClXOh7Y@1607",
+          "f6zqClXOh7Y@1611"
+        ],
+        "verdict": "partial",
+        "confidence": 0.62,
+        "reason": "the cited lines support that 70% training corresponds to batches and that the training set has 1045 samples, but they do not explicitly state that this training count is the basis specifically for the batches used by the training dataloader (training dataloader is not mentioned).",
+        "status": "open"
+      }
+    ]
+  }
+}

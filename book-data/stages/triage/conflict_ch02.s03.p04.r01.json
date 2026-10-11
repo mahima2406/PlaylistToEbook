@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch02.s03.p04.r01",
+  "inputs_hash": "37bbb6468f254dc7f9cb0315576cbe0f9382052753ce8ba87d9bc9ea57e82acf",
+  "output_hash": "7ce86aeb89c01ecffd34293c938c61c9ce8b4ea4ed72285b746db18d52571773",
+  "output": {
+    "decision": "edit",
+    "text": "To create token IDs, you take all tokens, remove duplicates, sort the unique tokens in ascending or alphabetical order, and assign IDs starting from zero; special tokens can then be added to the vocabulary as needed.",
+    "reason": "The captions support sorting unique tokens and assigning IDs from zero, while the reference shows special tokens are appended afterward, so the original overstates the ordering rule for the full vocabulary.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.82,
+      "reason": "The cited lines support removing duplicates, sorting tokens alphabetically/ascending, and assigning IDs starting from 0. They do not mention adding special tokens to the vocabulary afterward."
+    },
+    "kind": "conflict",
+    "sentence_hash": "493594341bdddac6fe78416eb345f51e542f1fec52fb88a584d684e29f232d83"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch06.s11.p04.r06",
+  "inputs_hash": "95eada4b226924beff5c3f2347530f5f3700d3e9ff43eeaf168a7476d25e943f",
+  "output_hash": "ffca82e1c92ec33f251cfa09492333250432c159bfd14533b481e5fc3d9bd33d",
+  "output": {
+    "decision": "note",
+    "note": "An earlier cell generates responses over the test set and writes instruction-data-with-response.json; this later optional cell only reloads that file.",
+    "reason": "The captions support the workflow described, but the referenced cell in this context only loads the already-created file.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "612e593c8429ab4a156cd41baef17d652cf17d8dac7f829796ee60762430fd83"
+  }
+}

@@ -1,0 +1,239 @@
+{
+  "stage": "crosscheck",
+  "item": "ch01.s07",
+  "inputs_hash": "bee3ee34fa6c67e4324d3f86dcf58db666389bbda13fd3cf99de580cf297dcd2",
+  "output_hash": "83dbf35bb813e25f2706f52d4f5086a6196e0c28eaf37b4517328ed28bc0154e",
+  "output": {
+    "section_id": "ch01.s07",
+    "checked": 19,
+    "counts": {
+      "agrees": 6,
+      "contradicts": 0,
+      "not_covered": 13
+    },
+    "results": [
+      {
+        "sentence_id": "ch01.s07.p01.02",
+        "text": "Tokenization is a preprocessing step in which sentences are broken into simpler words or tokens, because the entire sentence cannot be fed into the model directly.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell40"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References mention tokenization and that tokens/IDs are inputs for later embedding, but they do not state that an entire sentence cannot be fed into the model directly as the reason for tokenization."
+      },
+      {
+        "sentence_id": "ch01.s07.p01.03",
+        "text": "A token can be thought of as a unit of a sentence.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell81",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell46",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell29"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages do not define a token as a 'unit of a sentence'; they discuss tokenization/encoding into integers and later embedding."
+      },
+      {
+        "sentence_id": "ch01.s07.p01.04",
+        "text": "For simplicity, it is useful to imagine that tokenization breaks a sentence into individual words, although one word is generally not equal to one token.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell52",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell85",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell23"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References discuss special tokens and tokenization generally, but do not state the specific simplification 'imagine individual words' nor the caveat that one word is generally not equal to one token."
+      },
+      {
+        "sentence_id": "ch01.s07.p01.05",
+        "text": "There is a particular way of doing tokenization.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell40"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference shows an illustration of tokenization but does not claim there is a single 'particular way' of doing tokenization."
+      },
+      {
+        "sentence_id": "ch01.s07.p01.06",
+        "text": "In the simplified workflow, the input text is first taken and then preprocessed into tokens.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell136",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell29",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell64"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The workflow described in the reference explicitly says input text is segmented into tokens in the initial phase, matching 'input text is first taken and then preprocessed into tokens.'"
+      },
+      {
+        "sentence_id": "ch01.s07.p01.07",
+        "text": "Tokenization can be understood procedurally as breaking sentences into individual tokens and assigning each token a unique numerical ID.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell35",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell13",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell40"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References define tokenization as breaking text into smaller units and then transforming tokens into token IDs via a vocabulary (unique integer IDs), consistent with the procedural description."
+      },
+      {
+        "sentence_id": "ch01.s07.p01.08",
+        "text": "For example, the sentence \"fine tuning is fun for all\" is broken into smaller pieces such as \"fine\", \"tu\", \"tu\", \"ing\", \"is\", \"fun\", \"for\", and \"all\", and each is given an ID.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell41"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference passage provides this specific example sentence or the particular subword split ('fine','tu','tu','ing',...) and IDs."
+      },
+      {
+        "sentence_id": "ch01.s07.p01.09",
+        "text": "In preprocessing, data such as Reddit posts or Wikipedia text is broken into words or collected subwords from each sentence in the dataset.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell76",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell13",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References state tokenization breaks text into smaller units like words/punctuation and that BPE breaks unknown words into subwords/characters, consistent with breaking dataset text into words or subwords."
+      },
+      {
+        "sentence_id": "ch01.s07.p02.02",
+        "text": "Numerical token IDs alone do not capture semantic relationships between words.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell37",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell36",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show building vocab/token IDs and using token IDs in generation, but do not state that token IDs alone fail to capture semantic relationships."
+      },
+      {
+        "sentence_id": "ch01.s07.p02.03",
+        "text": "If tokenization assigns random IDs to words like \"dog\" and \"puppy\", those IDs do not express that the words are related.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell36",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell49",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References do not discuss randomness of assigned IDs or use the 'dog'/'puppy' relatedness example."
+      },
+      {
+        "sentence_id": "ch01.s07.p02.04",
+        "text": "Vector embedding is the process that represents tokens in a way that captures semantic meaning between words.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell25",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell33",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References mention embedding dimensions/rows and that token IDs are processed via embedding layers later, but do not explicitly define embeddings as capturing semantic meaning between words."
+      },
+      {
+        "sentence_id": "ch01.s07.p02.05",
+        "text": "After tokenization, each word is transformed into a very high-dimensional vector space so that semantic meaning between words is captured.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell10"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference states LLMs work with embeddings in high-dimensional spaces (thousands of dimensions) after tokenization/IDs, consistent with mapping tokens into a high-dimensional vector space to capture meaning."
+      },
+      {
+        "sentence_id": "ch01.s07.p02.06",
+        "text": "In the simplified transformer workflow, token IDs are passed into the encoder, and the encoder converts them into embeddings.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell136",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell44",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell32"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references cover tokenization and conversion of tokens to token IDs, but they do not describe an encoder stage that takes token IDs and converts them into embeddings in a simplified transformer workflow."
+      },
+      {
+        "sentence_id": "ch01.s07.p02.07",
+        "text": "These embeddings project words into high-dimensional vector space in a way that captures semantic relationships between words.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell10",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell36",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention embeddings in high-dimensional spaces and show converting an ID to a vector, but do not state that embeddings capture semantic relationships between words."
+      },
+      {
+        "sentence_id": "ch01.s07.p03.r01",
+        "text": "In the embedding examples, words such as \"king\", \"man\", and \"woman\" are closer together, \"apple\", \"banana\", and \"orange\" are closer together, and \"football\", \"golf\", and \"tennis\" are closer together.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell42",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell85"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the cited passages discuss specific example groupings like {king, man, woman}, {apple, banana, orange}, or {football, golf, tennis} being close in embedding space."
+      },
+      {
+        "sentence_id": "ch01.s07.p03.r02",
+        "text": "Words with similar meanings should lie closer together than unrelated words.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell36",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell91",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not state the principle that semantically similar words should be closer together in embedding space."
+      },
+      {
+        "sentence_id": "ch01.s07.p03.r03",
+        "text": "Creating useful vector embeddings is difficult, because vectors cannot just be placed randomly.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell103",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell107",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited sections show how token embeddings are created/used, but do not claim that creating useful embeddings is difficult because vectors cannot be placed randomly."
+      },
+      {
+        "sentence_id": "ch01.s07.p03.r05",
+        "text": "The examples also show text converted first into token IDs and then into three-dimensional vector representations by an embedding model.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell33",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references describe converting text/tokens into token IDs and demonstrate mapping a token ID to a 3-dimensional vector representation; they also treat embedded tokens as the inputs to later projections (Wq/Wk/Wv)."
+      },
+      {
+        "sentence_id": "ch01.s07.p03.r06",
+        "text": "Alongside tokenization and embeddings, positional encoding provides information about the order in which words appear in a sentence.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references state that token embeddings are combined (added) with positional embeddings to form input embeddings, implying positional embeddings provide sequence/order information."
+      }
+    ],
+    "conflicts": []
+  }
+}

@@ -1,0 +1,457 @@
+{
+  "stage": "crosscheck",
+  "item": "ch04.s07",
+  "inputs_hash": "c6ad8c131579c3f70083977be459df4704e79b7a1807ecd2e7e5a2e837580e83",
+  "output_hash": "afce860044402ca59467def8c8b09b2ff3f40ba36dadfa9047edccd27b9eef6e",
+  "output": {
+    "section_id": "ch04.s07",
+    "checked": 36,
+    "counts": {
+      "agrees": 25,
+      "contradicts": 1,
+      "not_covered": 10
+    },
+    "results": [
+      {
+        "sentence_id": "ch04.s07.p01.02",
+        "text": "Here, the word \"target\" means the true values.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell8",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell120"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference describes the next word/token in a sequence as the “target to predict,” i.e., the ground-truth next token."
+      },
+      {
+        "sentence_id": "ch04.s07.p01.03",
+        "text": "The loss function is determined by the predicted values and the target values and how close they are.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell90",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell31"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references discuss targets vs. predictions and improving (reducing) loss during training, consistent with loss depending on predicted outputs and target values."
+      },
+      {
+        "sentence_id": "ch04.s07.p01.04",
+        "text": "For the input tokens \"every effort moves\", there are three prediction tasks.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell103",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell91"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Given 3 input tokens, next-token training defines 3 target positions (one per input position), which matches the example inputs/targets setup used in the reference."
+      },
+      {
+        "sentence_id": "ch04.s07.p01.05",
+        "text": "From the prefix \"every\", the correct next token is \"effort\".",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell91",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell103",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell115"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages do not explicitly state the target for the single-token prefix \"every\" is \"effort\" (they show a next-token example for the full prefix \"every effort moves you\" and separate shifted-target tensors elsewhere)."
+      },
+      {
+        "sentence_id": "ch04.s07.p01.06",
+        "text": "From the prefix \"every effort\", the correct next token is \"moves\".",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell91",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell103",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell115"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The passages do not explicitly state that for the prefix \"every effort\" the correct next token is \"moves\"."
+      },
+      {
+        "sentence_id": "ch04.s07.p01.07",
+        "text": "From the prefix \"every effort moves\", the correct next token is \"you\".",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell103",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell91",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell115"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The passages do not explicitly state that for the prefix \"every effort moves\" the correct next token is \"you\" (they mention the phrase \"every effort moves you\" but not as an explicit target mapping for that prefix)."
+      },
+      {
+        "sentence_id": "ch04.s07.p01.08",
+        "text": "For the input tokens \"I really like\", there are also three prediction tasks.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell85",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference shows an input row corresponding to [\"I really like\"] with targets [\"really like chocolate\"], implying three next-token prediction positions for the three input tokens."
+      },
+      {
+        "sentence_id": "ch04.s07.p01.09",
+        "text": "From the prefix \"I\", the correct next token is \"really\".",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell91",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell19",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell29"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "In the reference, the second training example has inputs starting with token ID for \"I\" and the corresponding first target token ID is \"really\" (targets are inputs shifted by 1)."
+      },
+      {
+        "sentence_id": "ch04.s07.p01.10",
+        "text": "From the prefix \"I really\", the correct next token is \"like\".",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell19",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell91"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The targets for the \"I really like\" example are [\"really like chocolate\"], so after the prefix \"I really\" the next (target) token is \"like\"."
+      },
+      {
+        "sentence_id": "ch04.s07.p01.11",
+        "text": "From the prefix \"I really like\", the correct next token is \"chocolate\".",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell19",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell91"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The targets for the \"I really like\" example end with \"chocolate\" as the third target token, corresponding to predicting \"chocolate\" from the third input position (prefix including \"I really like\")."
+      },
+      {
+        "sentence_id": "ch04.s07.p02.r01",
+        "text": "When the input has three tokens, there are three prediction tasks.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passage about Wq/Wk/Wv concerns three projection matrices, not the number of next-token prediction tasks as a function of input length."
+      },
+      {
+        "sentence_id": "ch04.s07.p02.r02",
+        "text": "The targets are the true prediction values for the given inputs.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell82",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell18",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references define targets as the desired token IDs (ground-truth) for the inputs, specifically the inputs shifted right by one so the model learns the true next token."
+      },
+      {
+        "sentence_id": "ch04.s07.p02.r03",
+        "text": "In code, the first batch targets are 3626, 610, and 345, and the second batch targets are 1107, 588, and 11311.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell19",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell45",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell98"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference code defines targets as [[3626, 6100, 345],[1107, 588, 11311]], matching the sentence’s listed first- and second-row target IDs."
+      },
+      {
+        "sentence_id": "ch04.s07.p02.r04",
+        "text": "These targets are the input shifted by one position.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell82",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell18"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Multiple reference passages explicitly state that targets are the inputs shifted by one position (next-token prediction)."
+      },
+      {
+        "sentence_id": "ch04.s07.p02.r05",
+        "text": "The reason given is that there are three input-output pairs.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell65",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell15",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not state that the reason is 'there are three input-output pairs'; they discuss one output per input token and other unrelated 'three' concepts (Wq/Wk/Wv), but not this justification."
+      },
+      {
+        "sentence_id": "ch04.s07.p03.r01",
+        "text": "The function \"text to token IDs\" converts input text into token IDs using the tiktoken tokenizer, and \"token IDs to text\" does the reverse conversion.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell46",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell15"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference defines text_to_token_ids using the tiktoken tokenizer’s encode and token_ids_to_text using decode, i.e., forward and reverse conversion."
+      },
+      {
+        "sentence_id": "ch04.s07.p03.r02",
+        "text": "For a simple illustration, it is enough to use a vocabulary with seven elements, even though the actual example vocabulary has 50257 elements.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention vocab sizes (e.g., 50,257) and that some mechanisms are simplified for illustration, but do not state a toy vocabulary of seven elements versus 50,257."
+      },
+      {
+        "sentence_id": "ch04.s07.p03.r03",
+        "text": "In that toy vocabulary, the input text \"every effort moves\" maps to the token IDs 2, 1, and 4.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell115",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell46",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell145"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references shown use the real GPT-2 tokenizer and do not provide a toy-vocabulary mapping where 'every effort moves' corresponds to token IDs 2, 1, and 4."
+      },
+      {
+        "sentence_id": "ch04.s07.p03.r04",
+        "text": "The input tensor is then passed into the GPT model, which returns an output tensor called the logit tensor.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell107",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell109"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references describe feeding inputs to the model and obtaining a logits tensor (logits vector/tensor) as output."
+      },
+      {
+        "sentence_id": "ch04.s07.p03.r05",
+        "text": "To generate outputs, the logits are passed through softmax because the logits are not yet normalized into probabilities between 0 and 1.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell114",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell109",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell97"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References show applying softmax to logits to obtain probability scores (normalized probabilities), and generation code uses softmax (with temperature) to turn logits into probabilities for sampling."
+      },
+      {
+        "sentence_id": "ch04.s07.p03.r06",
+        "text": "After softmax, the output matrix has one row for each input token and one column for each vocabulary element.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell65",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell85"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References state there is one output vector per input token, and that applying softmax yields a tensor of the same dimension as logits (i.e., per-token distributions over the vocabulary)."
+      },
+      {
+        "sentence_id": "ch04.s07.p03.r07",
+        "text": "In the batched case, the probabilities have shape batch size, number of tokens, and vocabulary size, which is described as 2, 3, 50257.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell43",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell21",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell87"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References explicitly state logits/probabilities have shape (batch_size, num_tokens, vocab_size) and the example uses batch_size=2, num_tokens=3, vocab_size=50,257."
+      },
+      {
+        "sentence_id": "ch04.s07.p03.r08",
+        "text": "Each row contains the probabilities of the possible next tokens.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell37",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References explain that applying softmax turns each token’s logits into probability scores over the vocabulary, i.e., each row/vector gives probabilities for possible tokens."
+      },
+      {
+        "sentence_id": "ch04.s07.p03.r09",
+        "text": "For each input prefix, the row gives the probabilities of the next token.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell31"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The setup is next-token prediction with targets shifted by one; per-token softmax outputs correspond to probabilities of the next token at each position/prefix, consistent with the references."
+      },
+      {
+        "sentence_id": "ch04.s07.p04.r01",
+        "text": "To get output token IDs, the inputs pass through the GPT architecture to produce logits, softmax is applied to obtain probabilities, and then the index with the highest probability is extracted from each row.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell75",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell85"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs describe feeding inputs through the model to get logits, applying softmax to get probabilities, and using argmax to select the highest-probability token per position (greedy decoding)."
+      },
+      {
+        "sentence_id": "ch04.s07.p04.r02",
+        "text": "Using \"torch.argmax\" with dimension equal to minus one selects the index of the maximum value along the vocabulary dimension for each row.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs explain dim=-1 applies operations across the last dimension; with logits shaped (..., vocab_size), argmax(dim=-1) selects the max index along the vocabulary dimension per row/token position."
+      },
+      {
+        "sentence_id": "ch04.s07.p04.r03",
+        "text": "In the toy example, the three predicted output token IDs for \"every effort moves\" are 1, 4, and 5.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell115",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell145",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell103"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided refs show generation calls and qualitative discussion but do not state that the predicted token IDs for \"every effort moves\" are specifically 1, 4, and 5."
+      },
+      {
+        "sentence_id": "ch04.s07.p04.r04",
+        "text": "These correspond to the tokens \"effort\", \"moves\", and \"you\".",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell103",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell27",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell19"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The refs define inputs [[16833, 3626, 6100]] corresponding to \"every effort moves\" and targets [[3626, 6100, 345]] corresponding to \"effort moves you\"; thus the (shifted) target tokens are \"effort\", \"moves\", and \"you\"."
+      },
+      {
+        "sentence_id": "ch04.s07.p04.r05",
+        "text": "In the cited example, GPT-2's vocabulary size is stated as 5257, and the range of the output token ID is stated as 0 to 50257, whereas in the toy example the vocabulary size was 7 and the range was 0 to 7.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell63",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Ref states vocab size is 50,257 (not 5,257). It also mentions token ID 50256 and vocab dimension 50,257, conflicting with the stated GPT-2 vocab size/range. The toy-example vocab size/range (7, 0–7) is not supported by provided refs."
+      },
+      {
+        "sentence_id": "ch04.s07.p04.r06",
+        "text": "After obtaining output token IDs, they can be decoded back into text to inspect the model's prediction.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell48",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell44",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell46"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs explicitly state token IDs can be decoded back to text and show code using token_ids_to_text/tokenizer.decode to inspect outputs."
+      },
+      {
+        "sentence_id": "ch04.s07.p05.r01",
+        "text": "For the first batch, the target text is \"effort moves you\", but the decoded output is \"armed H Netflix\".",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell93",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell103",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs shown do not provide the specific decoded output \"armed H Netflix\" for the first batch, nor directly pair it with the target \"effort moves you\" in the cited passages."
+      },
+      {
+        "sentence_id": "ch04.s07.p05.r02",
+        "text": "This shows a large mismatch between outputs and targets.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell64",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell28"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs show printing/decoding of targets vs outputs for a batch, supporting the point that outputs differ substantially from targets in the untrained/early setting."
+      },
+      {
+        "sentence_id": "ch04.s07.p05.r03",
+        "text": "The model has not yet been optimized, the loss function has not yet been minimized, and the current output token IDs are not the actual target token IDs because training has not happened yet.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell83",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell16"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs state the model does not produce good text because it has not been trained/finetuned yet, implying outputs won’t match targets prior to optimization."
+      },
+      {
+        "sentence_id": "ch04.s07.p05.r04",
+        "text": "The goal is for the model's output token IDs to be as close as possible to the target token IDs.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell46",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell115"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs show generation/decoding usage but do not state the training objective as making output token IDs themselves \"as close as possible\" to target token IDs (training is framed via likelihood/cross-entropy, not ID-distance)."
+      },
+      {
+        "sentence_id": "ch04.s07.p05.r05",
+        "text": "The loss function is defined between the outputs and the targets so that the target text and output text become as close as possible.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell37",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell42",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell31"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs discuss cross-entropy / average log probability objective defined between logits (outputs) and target indices, optimized so the model assigns higher probability to the target tokens (i.e., outputs align with targets)."
+      },
+      {
+        "sentence_id": "ch04.s07.p05.r06",
+        "text": "An untrained model does not yet produce good text, which is why a loss function is needed to measure how good the text is.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell16",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell83",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell5"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs explicitly say the untrained model does not produce good text and motivate introducing a loss metric to quantify/track text quality during training."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch04.s07.p04.r05",
+        "text": "In the cited example, GPT-2's vocabulary size is stated as 5257, and the range of the output token ID is stated as 0 to 50257, whereas in the toy example the vocabulary size was 7 and the range was 0 to 7.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell63",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Ref states vocab size is 50,257 (not 5,257). It also mentions token ID 50256 and vocab dimension 50,257, conflicting with the stated GPT-2 vocab size/range. The toy-example vocab size/range (7, 0–7) is not supported by provided refs."
+      }
+    ]
+  }
+}

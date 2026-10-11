@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch05.s11",
+  "inputs_hash": "45e562c42c394f0c726e216357d582d3fab9bb87a94c6faf4e12541377e47db5",
+  "output_hash": "fd4d8a33052aeed326756954276450938deeb2109f3529c0ef668124ac7e6592",
+  "output": {
+    "section_id": "ch05.s11",
+    "listings": [
+      {
+        "id": "ch05.s11.code1",
+        "ref": "ref:ch06/01_main-chapter-code/ch06.ipynb#cell80",
+        "path": "ch06/01_main-chapter-code/ch06.ipynb",
+        "caption": "Defines a function that iterates over batches in a data loader, takes the last-token logits from the model output, uses argmax to get predicted labels, counts matches against targets, and returns accuracy over a chosen number of batches.",
+        "code": "def calc_accuracy_loader(data_loader, model, device, num_batches=None):\n    model.eval()\n    correct_predictions, num_examples = 0, 0\n\n    if num_batches is None:\n        num_batches = len(data_loader)\n    else:\n        num_batches = min(num_batches, len(data_loader))\n    for i, (input_batch, target_batch) in enumerate(data_loader):\n        if i < num_batches:\n            input_batch, target_batch = input_batch.to(device), target_batch.to(device)\n\n            with torch.no_grad():\n                logits = model(input_batch)[:, -1, :]  # Logits of last output token\n            predicted_labels = torch.argmax(logits, dim=-1)\n\n            num_examples += predicted_labels.shape[0]\n            correct_predictions += (predicted_labels == target_batch).sum().item()\n        else:\n            break\n    return correct_predictions / num_examples",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The section teaches an argmax-based accuracy function over a dataloader: set num_batches to full length or min(specified, loader length), iterate batches, run model in eval/no_grad, take last-token logits, argmax to predicted labels, count matches vs targets, track total examples, and return correct/total. The code implements exactly this, and the caption accurately describes the behavior."
+      },
+      {
+        "id": "ch05.s11.code2",
+        "ref": "ref:ch06/01_main-chapter-code/ch06.ipynb#cell89",
+        "path": "ch06/01_main-chapter-code/ch06.ipynb",
+        "caption": "Computes average loss on the train, validation, and test loaders for five batches each with gradients disabled, then prints the three loss values.",
+        "code": "with torch.no_grad(): # Disable gradient tracking for efficiency because we are not training, yet\n    train_loss = calc_loss_loader(train_loader, model, device, num_batches=5)\n    val_loss = calc_loss_loader(val_loader, model, device, num_batches=5)\n    test_loss = calc_loss_loader(test_loader, model, device, num_batches=5)\n\nprint(f\"Training loss: {train_loss:.3f}\")\nprint(f\"Validation loss: {val_loss:.3f}\")\nprint(f\"Test loss: {test_loss:.3f}\")",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The section includes computing initial loss values by applying a loader-level loss function to train/validation/test loaders with num_batches=5 and printing them, with gradients disabled. The code does exactly that using torch.no_grad(), calls calc_loss_loader on the three loaders with num_batches=5, and prints the resulting losses. The caption accurately describes the code."
+      }
+    ],
+    "rejected": []
+  }
+}

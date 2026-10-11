@@ -1,0 +1,802 @@
+{
+  "stage": "write",
+  "item": "ch02.s08",
+  "inputs_hash": "1d32382bc2a80bb3c66eb92e7015dcc2be3d9515f1850f98b27efec996dc7f70",
+  "output_hash": "cefe3de2d385e8ae30c1a9b28662f233b7fb46bd440a0dfc74e7e6067f5a9376",
+  "output": {
+    "section_id": "ch02.s08",
+    "paragraphs": [
+      {
+        "id": "ch02.s08.p01",
+        "sentences": [
+          {
+            "id": "ch02.s08.p01.01",
+            "text": "How can a tokenizer keep vocabulary size manageable while still preserving useful pieces of words for a language model?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s08.p01.02",
+            "text": "Modern LLMs such as GPT-2 and GPT-3 usually use byte pair encoding, so it is important to understand it.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@33",
+              "fKd8s29e-l4@36",
+              "fKd8s29e-l4@41",
+              "fKd8s29e-l4@45",
+              "fKd8s29e-l4@983",
+              "fKd8s29e-l4@986"
+            ]
+          },
+          {
+            "id": "ch02.s08.p01.03",
+            "text": "Byte pair encoding, or BPE, is a subword tokenization algorithm.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@971",
+              "fKd8s29e-l4@975",
+              "mk-6cFebjis@150",
+              "mk-6cFebjis@152",
+              "mk-6cFebjis@155",
+              "mk-6cFebjis@159"
+            ]
+          },
+          {
+            "id": "ch02.s08.p01.04",
+            "text": "It is a subword-based method because the tokens are subwords rather than full words or full characters.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@2061",
+              "mk-6cFebjis@2064",
+              "mk-6cFebjis@2066",
+              "mk-6cFebjis@2068"
+            ]
+          },
+          {
+            "id": "ch02.s08.p01.05",
+            "text": "For large language models, byte pair encoding is slightly modified so that it converts sentences into subwords.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1306",
+              "fKd8s29e-l4@1309",
+              "fKd8s29e-l4@1312",
+              "fKd8s29e-l4@1315"
+            ]
+          },
+          {
+            "id": "ch02.s08.p01.06",
+            "text": "In that role, it keeps the most common words as single tokens and breaks rare words into two or more subword tokens.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1323",
+              "fKd8s29e-l4@1326",
+              "fKd8s29e-l4@1328",
+              "fKd8s29e-l4@1330",
+              "fKd8s29e-l4@1334",
+              "mk-6cFebjis@2073",
+              "mk-6cFebjis@2075",
+              "mk-6cFebjis@2078",
+              "mk-6cFebjis@2081",
+              "mk-6cFebjis@2083",
+              "mk-6cFebjis@2283",
+              "mk-6cFebjis@2286",
+              "mk-6cFebjis@2289"
+            ]
+          },
+          {
+            "id": "ch02.s08.p01.07",
+            "text": "A simple example is that a frequent word like \"boy\" can stay as one token, while a rarer related word like \"boys\" can be split into \"boy\" and \"s\".",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@2087",
+              "mk-6cFebjis@2090",
+              "mk-6cFebjis@2092",
+              "mk-6cFebjis@2094",
+              "mk-6cFebjis@2098",
+              "mk-6cFebjis@2102",
+              "mk-6cFebjis@2106"
+            ]
+          },
+          {
+            "id": "ch02.s08.p01.08",
+            "text": "This preserves a shared root token across related words, and the same idea helps with pairs such as \"tokens\" and \"tokenizing\".",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@2111",
+              "mk-6cFebjis@2112",
+              "mk-6cFebjis@2115",
+              "mk-6cFebjis@2118",
+              "mk-6cFebjis@2120",
+              "mk-6cFebjis@2123",
+              "mk-6cFebjis@2152",
+              "mk-6cFebjis@2155",
+              "mk-6cFebjis@2157",
+              "mk-6cFebjis@2161",
+              "mk-6cFebjis@2169",
+              "mk-6cFebjis@2171",
+              "mk-6cFebjis@2173",
+              "mk-6cFebjis@2176",
+              "mk-6cFebjis@2178"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s08.p02",
+        "sentences": [
+          {
+            "id": "ch02.s08.p02.01",
+            "text": "To see how the algorithm builds such a vocabulary, consider a small data corpus of words.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1374",
+              "fKd8s29e-l4@1378",
+              "fKd8s29e-l4@1381"
+            ]
+          },
+          {
+            "id": "ch02.s08.p02.02",
+            "text": "In this corpus, the words are \"old\", \"older\", \"finest\", and \"lowest\".",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1383",
+              "fKd8s29e-l4@1385",
+              "fKd8s29e-l4@1387"
+            ]
+          },
+          {
+            "id": "ch02.s08.p02.03",
+            "text": "With word-based tokenization, these would simply be four tokens, while character-level tokenization would make each character its own token.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1407",
+              "fKd8s29e-l4@1410",
+              "fKd8s29e-l4@1412",
+              "fKd8s29e-l4@1415",
+              "fKd8s29e-l4@1418",
+              "fKd8s29e-l4@1420",
+              "fKd8s29e-l4@1422",
+              "fKd8s29e-l4@1425",
+              "fKd8s29e-l4@1428"
+            ]
+          },
+          {
+            "id": "ch02.s08.p02.04",
+            "text": "Before applying BPE for subword tokenization, each word is augmented with an end-of-word marker so the tokenizer knows where the word ends.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1440",
+              "fKd8s29e-l4@1443",
+              "fKd8s29e-l4@1452",
+              "fKd8s29e-l4@1454",
+              "fKd8s29e-l4@1456",
+              "fKd8s29e-l4@1458",
+              "fKd8s29e-l4@1461",
+              "fKd8s29e-l4@1464",
+              "fKd8s29e-l4@1467",
+              "fKd8s29e-l4@1469",
+              "fKd8s29e-l4@1475",
+              "fKd8s29e-l4@1477",
+              "mk-6cFebjis@2316",
+              "mk-6cFebjis@2318",
+              "mk-6cFebjis@2320",
+              "mk-6cFebjis@2323",
+              "mk-6cFebjis@2325"
+            ]
+          },
+          {
+            "id": "ch02.s08.p02.05",
+            "text": "In the example, \"old\", \"older\", \"finest\", and \"lowest\" are all written with the added end token.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1480",
+              "fKd8s29e-l4@1482",
+              "fKd8s29e-l4@1485",
+              "fKd8s29e-l4@1490",
+              "fKd8s29e-l4@1493",
+              "fKd8s29e-l4@1495"
+            ]
+          },
+          {
+            "id": "ch02.s08.p02.06",
+            "text": "The first step is then to split the words into characters and make a frequency table using the word frequencies in the corpus.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1535",
+              "fKd8s29e-l4@1537",
+              "fKd8s29e-l4@1540",
+              "fKd8s29e-l4@1543",
+              "fKd8s29e-l4@1546",
+              "fKd8s29e-l4@1548",
+              "fKd8s29e-l4@1550",
+              "fKd8s29e-l4@1553",
+              "fKd8s29e-l4@1555",
+              "fKd8s29e-l4@1557",
+              "fKd8s29e-l4@1560",
+              "fKd8s29e-l4@1562",
+              "fKd8s29e-l4@1566",
+              "fKd8s29e-l4@1568",
+              "mk-6cFebjis@2333",
+              "mk-6cFebjis@2335",
+              "mk-6cFebjis@2337",
+              "mk-6cFebjis@2339",
+              "mk-6cFebjis@2341",
+              "mk-6cFebjis@2344",
+              "mk-6cFebjis@2346",
+              "mk-6cFebjis@2348"
+            ]
+          },
+          {
+            "id": "ch02.s08.p02.07",
+            "text": "Here, \"old\" appears 7 times, \"older\" 3 times, \"finest\" 9 times, and \"lowest\" 4 times.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1550",
+              "fKd8s29e-l4@1553",
+              "fKd8s29e-l4@1555",
+              "fKd8s29e-l4@1557",
+              "fKd8s29e-l4@1560",
+              "fKd8s29e-l4@1562"
+            ]
+          },
+          {
+            "id": "ch02.s08.p02.08",
+            "text": "Because every word token includes the end-of-word marker, that marker appears once for every word token in the corpus, which is 23 times here.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1572",
+              "fKd8s29e-l4@1577",
+              "fKd8s29e-l4@1579",
+              "fKd8s29e-l4@1583",
+              "fKd8s29e-l4@1586"
+            ]
+          },
+          {
+            "id": "ch02.s08.p02.09",
+            "text": "At this character level, the example has 12 tokens, and pure character-level tokenization would stop at that point.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1602",
+              "fKd8s29e-l4@1605",
+              "fKd8s29e-l4@1607",
+              "fKd8s29e-l4@1609",
+              "fKd8s29e-l4@1611"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s08.p03",
+        "sentences": [
+          {
+            "id": "ch02.s08.p03.01",
+            "text": "The modified BPE procedure repeatedly finds the most frequent adjacent pair in the dataset and merges that pair into a new token.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1631",
+              "fKd8s29e-l4@1633",
+              "fKd8s29e-l4@1636",
+              "fKd8s29e-l4@1639",
+              "fKd8s29e-l4@1643",
+              "fKd8s29e-l4@1646",
+              "fKd8s29e-l4@1648",
+              "fKd8s29e-l4@1651",
+              "mk-6cFebjis@2350",
+              "mk-6cFebjis@2352",
+              "mk-6cFebjis@2355",
+              "mk-6cFebjis@2357"
+            ]
+          },
+          {
+            "id": "ch02.s08.p03.02",
+            "text": "In the first iteration of this corpus, the most frequent pair is \"e\" and \"s\".",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1665",
+              "fKd8s29e-l4@1667",
+              "fKd8s29e-l4@1676",
+              "fKd8s29e-l4@1679",
+              "mk-6cFebjis@2360",
+              "mk-6cFebjis@2362"
+            ]
+          },
+          {
+            "id": "ch02.s08.p03.03",
+            "text": "That pair occurs 13 times in total: 9 times in \"finest\" and 4 times in \"lowest\".",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1680",
+              "fKd8s29e-l4@1684",
+              "fKd8s29e-l4@1686",
+              "fKd8s29e-l4@1689",
+              "mk-6cFebjis@2362",
+              "mk-6cFebjis@2365",
+              "mk-6cFebjis@2367"
+            ]
+          },
+          {
+            "id": "ch02.s08.p03.04",
+            "text": "The tokenizer merges them into the subword token \"es\" and updates the token table.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1700",
+              "fKd8s29e-l4@1703",
+              "fKd8s29e-l4@1706",
+              "fKd8s29e-l4@1708",
+              "fKd8s29e-l4@1718",
+              "fKd8s29e-l4@1720",
+              "fKd8s29e-l4@1723",
+              "fKd8s29e-l4@1724",
+              "fKd8s29e-l4@1726"
+            ]
+          },
+          {
+            "id": "ch02.s08.p03.05",
+            "text": "When \"es\" is added, its count is 13, 13 is subtracted from the count of \"e\", and the count of \"s\" drops to zero in this example.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1726",
+              "fKd8s29e-l4@1730",
+              "fKd8s29e-l4@1732",
+              "fKd8s29e-l4@1734",
+              "fKd8s29e-l4@1738",
+              "fKd8s29e-l4@1740",
+              "fKd8s29e-l4@1743",
+              "fKd8s29e-l4@1745",
+              "fKd8s29e-l4@1748"
+            ]
+          },
+          {
+            "id": "ch02.s08.p03.06",
+            "text": "That also shows that in this corpus, \"s\" never appears without \"e\".",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1750",
+              "fKd8s29e-l4@1752",
+              "fKd8s29e-l4@1761",
+              "fKd8s29e-l4@1764"
+            ]
+          },
+          {
+            "id": "ch02.s08.p03.07",
+            "text": "Once \"es\" becomes a token, the next frequent pair is \"es\" with \"t\", producing the token \"EST\" with count 13, while \"es\" drops to zero occurrences.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1793",
+              "fKd8s29e-l4@1796",
+              "fKd8s29e-l4@1798",
+              "fKd8s29e-l4@1801",
+              "fKd8s29e-l4@1804",
+              "fKd8s29e-l4@1807",
+              "fKd8s29e-l4@1809",
+              "fKd8s29e-l4@1822",
+              "fKd8s29e-l4@1823",
+              "fKd8s29e-l4@1826",
+              "fKd8s29e-l4@1862",
+              "fKd8s29e-l4@1866",
+              "fKd8s29e-l4@1868",
+              "fKd8s29e-l4@1871",
+              "fKd8s29e-l4@1875"
+            ]
+          },
+          {
+            "id": "ch02.s08.p03.08",
+            "text": "This identifies \"EST\" as a common root across \"finest\" and \"lowest\", something the word-based and character-based tokenizers do not capture.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1878",
+              "fKd8s29e-l4@1881",
+              "fKd8s29e-l4@1883",
+              "fKd8s29e-l4@1885",
+              "fKd8s29e-l4@1887",
+              "fKd8s29e-l4@1890",
+              "fKd8s29e-l4@1892",
+              "fKd8s29e-l4@1895",
+              "fKd8s29e-l4@1897",
+              "mk-6cFebjis@2444",
+              "mk-6cFebjis@2448",
+              "mk-6cFebjis@2451",
+              "mk-6cFebjis@2454",
+              "mk-6cFebjis@2456",
+              "mk-6cFebjis@2458"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s08.p04",
+        "sentences": [
+          {
+            "id": "ch02.s08.p04.01",
+            "text": "The next merge uses the end-of-word marker.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s08.p04.02",
+            "text": "After \"EST\" is formed, the pair \"EST\" and the end-of-word marker appears 13 times, more than any other pair in these words.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1915",
+              "fKd8s29e-l4@1919",
+              "fKd8s29e-l4@1923",
+              "fKd8s29e-l4@1931",
+              "fKd8s29e-l4@1935",
+              "fKd8s29e-l4@1938",
+              "fKd8s29e-l4@1940"
+            ]
+          },
+          {
+            "id": "ch02.s08.p04.03",
+            "text": "Merging \"EST\" with the end-of-word marker encodes that \"EST\" is an ending sequence in this dataset.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1942",
+              "fKd8s29e-l4@1946",
+              "fKd8s29e-l4@1953",
+              "fKd8s29e-l4@1975",
+              "fKd8s29e-l4@1978",
+              "fKd8s29e-l4@1980",
+              "fKd8s29e-l4@1981",
+              "fKd8s29e-l4@1985"
+            ]
+          },
+          {
+            "id": "ch02.s08.p04.04",
+            "text": "That distinction lets the tokenizer treat a word like \"highest\" differently from \"estimate\", where \"EST\" is not at the end.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@1964",
+              "fKd8s29e-l4@1966",
+              "fKd8s29e-l4@1969",
+              "fKd8s29e-l4@1972",
+              "fKd8s29e-l4@1988",
+              "fKd8s29e-l4@1990",
+              "fKd8s29e-l4@1992",
+              "fKd8s29e-l4@1996",
+              "fKd8s29e-l4@1998",
+              "fKd8s29e-l4@2000",
+              "fKd8s29e-l4@2003"
+            ]
+          },
+          {
+            "id": "ch02.s08.p04.05",
+            "text": "Once this final merged token is created, the intermediate tokens \"es\" and \"EST\" are no longer needed.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2005",
+              "fKd8s29e-l4@2008",
+              "fKd8s29e-l4@2010",
+              "fKd8s29e-l4@2012",
+              "fKd8s29e-l4@2015",
+              "fKd8s29e-l4@2016",
+              "fKd8s29e-l4@2018",
+              "fKd8s29e-l4@2021"
+            ]
+          },
+          {
+            "id": "ch02.s08.p04.06",
+            "text": "Another frequent sequence is \"o\" with \"l\", which occurs 10 times because it appears in \"old\" and \"older\".",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2023",
+              "fKd8s29e-l4@2025",
+              "fKd8s29e-l4@2027",
+              "fKd8s29e-l4@2030"
+            ]
+          },
+          {
+            "id": "ch02.s08.p04.07",
+            "text": "That pair is merged into a new token, and then that token is merged with \"d\" to form the token \"old\".",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2032",
+              "fKd8s29e-l4@2034",
+              "fKd8s29e-l4@2036",
+              "fKd8s29e-l4@2059",
+              "fKd8s29e-l4@2062",
+              "fKd8s29e-l4@2065",
+              "fKd8s29e-l4@2067",
+              "fKd8s29e-l4@2069",
+              "fKd8s29e-l4@2072"
+            ]
+          },
+          {
+            "id": "ch02.s08.p04.08",
+            "text": "The token \"old\" captures a root shared by both \"old\" and \"older\", again preserving structure that word-level and character-level tokenization miss.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2075",
+              "fKd8s29e-l4@2077",
+              "fKd8s29e-l4@2079",
+              "fKd8s29e-l4@2088",
+              "fKd8s29e-l4@2090",
+              "fKd8s29e-l4@2093",
+              "fKd8s29e-l4@2096",
+              "fKd8s29e-l4@2099",
+              "fKd8s29e-l4@2102",
+              "fKd8s29e-l4@2107",
+              "fKd8s29e-l4@2109",
+              "fKd8s29e-l4@2113",
+              "fKd8s29e-l4@2116"
+            ]
+          },
+          {
+            "id": "ch02.s08.p04.09",
+            "text": "By contrast, a frequent sequence that appears only inside one word, such as the beginning of \"finest\", is not a useful merge just because it repeats within that single word.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2120",
+              "fKd8s29e-l4@2124",
+              "fKd8s29e-l4@2126",
+              "fKd8s29e-l4@2129",
+              "fKd8s29e-l4@2130",
+              "fKd8s29e-l4@2132",
+              "fKd8s29e-l4@2134",
+              "fKd8s29e-l4@2140",
+              "fKd8s29e-l4@2141",
+              "fKd8s29e-l4@2144",
+              "fKd8s29e-l4@2148",
+              "fKd8s29e-l4@2149",
+              "fKd8s29e-l4@2151",
+              "fKd8s29e-l4@2153",
+              "fKd8s29e-l4@2155",
+              "fKd8s29e-l4@2158",
+              "fKd8s29e-l4@2159"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s08.p05",
+        "sentences": [
+          {
+            "id": "ch02.s08.p05.01",
+            "text": "After the merges are constructed, tokens whose frequency has become zero can be removed to obtain the final token table.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2202",
+              "fKd8s29e-l4@2205",
+              "fKd8s29e-l4@2207",
+              "fKd8s29e-l4@2209",
+              "fKd8s29e-l4@2211",
+              "fKd8s29e-l4@2214",
+              "fKd8s29e-l4@2217",
+              "fKd8s29e-l4@2219",
+              "fKd8s29e-l4@2223",
+              "fKd8s29e-l4@2225",
+              "fKd8s29e-l4@2227"
+            ]
+          },
+          {
+            "id": "ch02.s08.p05.02",
+            "text": "Those final tokens serve as the vocabulary for later training steps such as vector embedding.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2255",
+              "fKd8s29e-l4@2257",
+              "fKd8s29e-l4@2259",
+              "fKd8s29e-l4@2261",
+              "fKd8s29e-l4@2281",
+              "fKd8s29e-l4@2284"
+            ]
+          },
+          {
+            "id": "ch02.s08.p05.03",
+            "text": "BPE stops merging according to a stopping criterion, such as reaching a target token count or a chosen number of iterations.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2235",
+              "fKd8s29e-l4@2236",
+              "fKd8s29e-l4@2239",
+              "fKd8s29e-l4@2241",
+              "fKd8s29e-l4@2244",
+              "fKd8s29e-l4@2247",
+              "fKd8s29e-l4@2248",
+              "fKd8s29e-l4@2251",
+              "fKd8s29e-l4@2301",
+              "fKd8s29e-l4@2304",
+              "fKd8s29e-l4@2306",
+              "fKd8s29e-l4@2313",
+              "fKd8s29e-l4@2316",
+              "fKd8s29e-l4@2318",
+              "fKd8s29e-l4@2320",
+              "fKd8s29e-l4@2332",
+              "fKd8s29e-l4@2335",
+              "mk-6cFebjis@2498",
+              "mk-6cFebjis@2500",
+              "mk-6cFebjis@2502",
+              "mk-6cFebjis@2505",
+              "mk-6cFebjis@2507",
+              "mk-6cFebjis@2508",
+              "mk-6cFebjis@2510"
+            ]
+          },
+          {
+            "id": "ch02.s08.p05.04",
+            "text": "Compared with word-level encoding, this can reduce the number of tokens because related words like \"boy\" and \"boys\" do not both need separate full-word tokens.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2343",
+              "fKd8s29e-l4@2346",
+              "fKd8s29e-l4@2348",
+              "fKd8s29e-l4@2350",
+              "fKd8s29e-l4@2353",
+              "fKd8s29e-l4@2355",
+              "fKd8s29e-l4@2358",
+              "fKd8s29e-l4@2360",
+              "mk-6cFebjis@2111",
+              "mk-6cFebjis@2112",
+              "mk-6cFebjis@2115"
+            ]
+          },
+          {
+            "id": "ch02.s08.p05.05",
+            "text": "This is why BPE is presented as the best of both worlds: it keeps vocabulary size efficient while retaining root-word meaning.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@2483",
+              "mk-6cFebjis@2485",
+              "mk-6cFebjis@2532",
+              "mk-6cFebjis@2535",
+              "mk-6cFebjis@2537",
+              "mk-6cFebjis@2540",
+              "mk-6cFebjis@2543",
+              "mk-6cFebjis@2546",
+              "mk-6cFebjis@2555",
+              "mk-6cFebjis@2558",
+              "mk-6cFebjis@2561",
+              "mk-6cFebjis@2563"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s08.p06",
+        "sentences": [
+          {
+            "id": "ch02.s08.p06.01",
+            "text": "A second advantage is handling text that is not already in the vocabulary.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s08.p06.02",
+            "text": "Byte pair encoding helps solve the out-of-vocabulary problem because its vocabulary includes subwords and sometimes characters.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2380",
+              "fKd8s29e-l4@2382",
+              "fKd8s29e-l4@2384",
+              "fKd8s29e-l4@2386",
+              "fKd8s29e-l4@2388",
+              "fKd8s29e-l4@2395",
+              "fKd8s29e-l4@2398",
+              "fKd8s29e-l4@2400",
+              "mk-6cFebjis@2660",
+              "mk-6cFebjis@2663",
+              "mk-6cFebjis@2665",
+              "mk-6cFebjis@2794",
+              "mk-6cFebjis@2796",
+              "mk-6cFebjis@2798",
+              "mk-6cFebjis@2800",
+              "mk-6cFebjis@2802"
+            ]
+          },
+          {
+            "id": "ch02.s08.p06.03",
+            "text": "A word-based tokenizer can fail on an unknown word, but a BPE tokenizer can still produce token IDs for it.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2685",
+              "fKd8s29e-l4@2688",
+              "fKd8s29e-l4@2690",
+              "fKd8s29e-l4@2692",
+              "fKd8s29e-l4@2695",
+              "fKd8s29e-l4@2697",
+              "fKd8s29e-l4@2699",
+              "fKd8s29e-l4@2701",
+              "fKd8s29e-l4@2703",
+              "fKd8s29e-l4@2790",
+              "fKd8s29e-l4@2793",
+              "mk-6cFebjis@2810",
+              "mk-6cFebjis@2812",
+              "mk-6cFebjis@2814",
+              "mk-6cFebjis@2817",
+              "mk-6cFebjis@2820"
+            ]
+          },
+          {
+            "id": "ch02.s08.p06.04",
+            "text": "The underlying algorithm breaks words that are not in the predefined vocabulary into smaller subword units or even individual characters.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2942",
+              "fKd8s29e-l4@2944",
+              "fKd8s29e-l4@2946",
+              "fKd8s29e-l4@2949",
+              "fKd8s29e-l4@2951",
+              "mk-6cFebjis@2794",
+              "mk-6cFebjis@2796",
+              "mk-6cFebjis@2798",
+              "mk-6cFebjis@2800"
+            ]
+          },
+          {
+            "id": "ch02.s08.p06.05",
+            "text": "Because of that, an unfamiliar word can be represented as a sequence of subword tokens or characters.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@2956",
+              "fKd8s29e-l4@2959",
+              "fKd8s29e-l4@2962",
+              "fKd8s29e-l4@2965",
+              "fKd8s29e-l4@2967",
+              "fKd8s29e-l4@2969",
+              "fKd8s29e-l4@2971"
+            ]
+          },
+          {
+            "id": "ch02.s08.p06.06",
+            "text": "To encode such text, the tokenizer scans from left to right, breaks it into characters or subwords based on what exists in the vocabulary, and assigns each piece a token ID.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@3033",
+              "fKd8s29e-l4@3035",
+              "fKd8s29e-l4@3037",
+              "fKd8s29e-l4@3039",
+              "fKd8s29e-l4@3042",
+              "fKd8s29e-l4@3045",
+              "fKd8s29e-l4@3047",
+              "fKd8s29e-l4@3049",
+              "fKd8s29e-l4@3051",
+              "fKd8s29e-l4@3053",
+              "fKd8s29e-l4@3055"
+            ]
+          },
+          {
+            "id": "ch02.s08.p06.07",
+            "text": "That is why BPE does not need a special unknown token to deal with unseen words.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@2674",
+              "mk-6cFebjis@2675",
+              "mk-6cFebjis@2678",
+              "mk-6cFebjis@2680",
+              "mk-6cFebjis@2683",
+              "mk-6cFebjis@2686",
+              "mk-6cFebjis@2688"
+            ]
+          },
+          {
+            "id": "ch02.s08.p06.08",
+            "text": "The highlighted advantages are that it keeps the vocabulary from becoming too large, retains root-word meaning, and automatically deals with unknown words.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@2690",
+              "mk-6cFebjis@2693",
+              "mk-6cFebjis@2694",
+              "mk-6cFebjis@2698",
+              "mk-6cFebjis@2700",
+              "mk-6cFebjis@2702",
+              "fKd8s29e-l4@2858",
+              "fKd8s29e-l4@2859",
+              "fKd8s29e-l4@2861",
+              "fKd8s29e-l4@2863"
+            ]
+          },
+          {
+            "id": "ch02.s08.p06.09",
+            "text": "Character-level encoding is not generally used in large-scale LLMs, which is one reason subword tokenization is preferred here.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@2883",
+              "mk-6cFebjis@2885",
+              "mk-6cFebjis@2887"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

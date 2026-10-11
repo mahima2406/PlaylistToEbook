@@ -1,0 +1,538 @@
+{
+  "stage": "verify",
+  "item": "ch01.s08",
+  "inputs_hash": "232625d2fe835b08caa2ab10d88226fc1f4e05117f4d0f531b5fe6f1f5e9cefa",
+  "output_hash": "332446ff8077a58f75774c06a0bc34d46d46aed471dc13e5022d9dcbd9e87908",
+  "output": {
+    "section_id": "ch01.s08",
+    "paragraphs": [
+      {
+        "id": "ch01.s08.p01",
+        "sentences": [
+          {
+            "id": "ch01.s08.p01.01",
+            "text": "How can a model use earlier context when the words that matter may be far away from the current prediction?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s08.p01.02",
+            "text": "In this setting, attention is a technical term.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@217",
+              "NLn4eetGmf8@219"
+            ]
+          },
+          {
+            "id": "ch01.s08.p01.03",
+            "text": "A key part of the transformer architecture is the self-attention mechanism.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@237",
+              "NLn4eetGmf8@238",
+              "NLn4eetGmf8@1256",
+              "NLn4eetGmf8@1261"
+            ]
+          },
+          {
+            "id": "ch01.s08.p01.04",
+            "text": "Attention mechanisms have become an integral part of sequence modeling because they allow modeling dependencies without regard to distance in the input or output sequences.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1276",
+              "NLn4eetGmf8@1280",
+              "NLn4eetGmf8@1282",
+              "NLn4eetGmf8@1284",
+              "NLn4eetGmf8@1286"
+            ]
+          },
+          {
+            "id": "ch01.s08.p01.05",
+            "text": "Put more concretely, attention lets the model relate different words even when those words are close together or far apart.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1293",
+              "NLn4eetGmf8@1295",
+              "NLn4eetGmf8@1297",
+              "NLn4eetGmf8@1299"
+            ]
+          },
+          {
+            "id": "ch01.s08.p01.06",
+            "text": "Self-attention is an attention mechanism that relates different positions of a single sequence in order to compute a representation of that sequence.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1305",
+              "NLn4eetGmf8@1309",
+              "NLn4eetGmf8@1311",
+              "NLn4eetGmf8@1314",
+              "NLn4eetGmf8@1316"
+            ]
+          },
+          {
+            "id": "ch01.s08.p01.07",
+            "text": "One useful intuition is that attention allows the model to weigh the importance of different words or tokens relative to each other.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1324",
+              "NLn4eetGmf8@1326",
+              "NLn4eetGmf8@1329",
+              "NLn4eetGmf8@1332",
+              "NLn4eetGmf8@1334"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s08.p02",
+        "sentences": [
+          {
+            "id": "ch01.s08.p02.r01",
+            "text": "For example, suppose earlier sentences mention that Harry Potter is on a station or platform number something and that Harry Potter wants to board the train.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1334",
+              "NLn4eetGmf8@1337",
+              "NLn4eetGmf8@1340",
+              "NLn4eetGmf8@1342",
+              "NLn4eetGmf8@1344",
+              "NLn4eetGmf8@1346"
+            ]
+          },
+          {
+            "id": "ch01.s08.p02.r02",
+            "text": "When predicting the next word in a fourth sentence, the context from sentences one, two, and three is important for understanding that fourth sentence and predicting its next word.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1348",
+              "NLn4eetGmf8@1350",
+              "NLn4eetGmf8@1353",
+              "NLn4eetGmf8@1355",
+              "NLn4eetGmf8@1358",
+              "NLn4eetGmf8@1360",
+              "NLn4eetGmf8@1362",
+              "NLn4eetGmf8@1365",
+              "NLn4eetGmf8@1367",
+              "NLn4eetGmf8@1368"
+            ]
+          },
+          {
+            "id": "ch01.s08.p02.r03",
+            "text": "That is the meaning of long-range dependencies: when predicting the next word, the model needs to know the importance of previous words.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1370",
+              "NLn4eetGmf8@1373",
+              "NLn4eetGmf8@1376",
+              "NLn4eetGmf8@1377",
+              "NLn4eetGmf8@1380"
+            ]
+          },
+          {
+            "id": "ch01.s08.p02.r04",
+            "text": "It needs to know how much attention to give to previous words and which earlier words should receive more attention, perhaps \"Harry,\" perhaps \"platform,\" or perhaps \"train.\"",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1380",
+              "NLn4eetGmf8@1382",
+              "NLn4eetGmf8@1385",
+              "NLn4eetGmf8@1387",
+              "NLn4eetGmf8@1388",
+              "NLn4eetGmf8@1391",
+              "NLn4eetGmf8@1393"
+            ]
+          },
+          {
+            "id": "ch01.s08.p02.r05",
+            "text": "Self-attention captures these long-range dependencies so the model can look far behind, including sentences closer to the current one, to identify the next word.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1394",
+              "NLn4eetGmf8@1397",
+              "NLn4eetGmf8@1399",
+              "NLn4eetGmf8@1401",
+              "NLn4eetGmf8@1404",
+              "NLn4eetGmf8@1406"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s08.p03",
+        "sentences": [
+          {
+            "id": "ch01.s08.p03.01",
+            "text": "The mechanism becomes easier to picture if you think in terms of scores over words.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s08.p03.02",
+            "text": "For next-word prediction, self-attention maintains an attention score that tells the model which word should receive more attention.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1418",
+              "NLn4eetGmf8@1421",
+              "NLn4eetGmf8@1423",
+              "NLn4eetGmf8@1425",
+              "NLn4eetGmf8@1428",
+              "NLn4eetGmf8@1429"
+            ]
+          },
+          {
+            "id": "ch01.s08.p03.03",
+            "text": "That attention score is a matrix that tells the model which words should be given more importance in relation to other words.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1464",
+              "NLn4eetGmf8@1466",
+              "NLn4eetGmf8@1469",
+              "NLn4eetGmf8@1471",
+              "NLn4eetGmf8@1472",
+              "NLn4eetGmf8@1475"
+            ]
+          },
+          {
+            "id": "ch01.s08.p03.04",
+            "text": "In the transformer architecture, attention appears in attention blocks such as multi-head attention and masked multi-head attention.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1441",
+              "NLn4eetGmf8@1443",
+              "NLn4eetGmf8@1445",
+              "NLn4eetGmf8@1447"
+            ]
+          },
+          {
+            "id": "ch01.s08.p03.05",
+            "text": "These attention blocks help capture long-range dependencies in sentences, which is why the paper is called \"attention is all you need.\"",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1447",
+              "NLn4eetGmf8@1450",
+              "NLn4eetGmf8@1452",
+              "NLn4eetGmf8@1455",
+              "NLn4eetGmf8@1456",
+              "NLn4eetGmf8@1458"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s08.p04",
+        "sentences": [
+          {
+            "id": "ch01.s08.p04.01",
+            "text": "There is also a helpful human analogy.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s08.p04.02",
+            "text": "People naturally keep context in mind while reading a story and remember what was written on the previous page.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1489",
+              "NLn4eetGmf8@1493",
+              "NLn4eetGmf8@1495",
+              "NLn4eetGmf8@1497",
+              "NLn4eetGmf8@1498"
+            ]
+          },
+          {
+            "id": "ch01.s08.p04.03",
+            "text": "Self-attention gives a model a way to capture that long-range context, and this helps make next-word prediction accurate.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1501",
+              "NLn4eetGmf8@1504",
+              "NLn4eetGmf8@1506",
+              "NLn4eetGmf8@1508",
+              "NLn4eetGmf8@1511",
+              "NLn4eetGmf8@1513"
+            ]
+          },
+          {
+            "id": "ch01.s08.p04.04",
+            "text": "In ChatGPT, the model gives attention to every sentence in the input when predicting the next word.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1513",
+              "NLn4eetGmf8@1516",
+              "NLn4eetGmf8@1519",
+              "NLn4eetGmf8@1521"
+            ]
+          },
+          {
+            "id": "ch01.s08.p04.05",
+            "text": "It does not just look at the sentence immediately before the current one, because previous words may be more important.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1523",
+              "NLn4eetGmf8@1526",
+              "NLn4eetGmf8@1528",
+              "NLn4eetGmf8@1530",
+              "NLn4eetGmf8@1531",
+              "NLn4eetGmf8@1533"
+            ]
+          },
+          {
+            "id": "ch01.s08.p04.06",
+            "text": "Another way to think about self-attention is as parallel attention to different parts of a paragraph or to different sentences.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@2259",
+              "NLn4eetGmf8@2261",
+              "NLn4eetGmf8@2263",
+              "NLn4eetGmf8@2265"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch01.s08.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s08.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch01.s08.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s08.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch01.s08.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.s08.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch01.s08.p01.07": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch01.s08.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s08.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch01.s08.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch01.s08.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch01.s08.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch01.s08.p04.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s08.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch01.s08.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.s08.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.91,
+        "reason": ""
+      },
+      "ch01.s08.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s08.p04.06": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch01.s08.p02.r01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.s08.p02.r02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch01.s08.p02.r03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s08.p02.r04": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch01.s08.p02.r05": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch01.s08.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s08.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch01.s08.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s08.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch01.s08.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.s08.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch01.s08.p01.07": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch01.s08.p02.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.75,
+        "reason": "asserts that this matters most specifically when prediction depends on earlier sentences rather than local phrase; this is a factual/comparative claim but no citations are provided."
+      },
+      "ch01.s08.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch01.s08.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch01.s08.p02.04": {
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "the lines define long-range dependencies as needing the importance of previous words when predicting the next word, but they do not explicitly state 'important words from much earlier in the sequence' (the 'much earlier' emphasis is added)."
+      },
+      "ch01.s08.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch01.s08.p02.06": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch01.s08.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s08.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch01.s08.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch01.s08.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch01.s08.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch01.s08.p04.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s08.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch01.s08.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.s08.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.91,
+        "reason": ""
+      },
+      "ch01.s08.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s08.p04.06": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "ch01.s08.p02"
+    ],
+    "queue": []
+  }
+}

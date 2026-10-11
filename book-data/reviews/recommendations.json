@@ -1,0 +1,1414 @@
+{
+  "ch01.s01.p02.r02": {
+    "decision": "edit",
+    "text": "Some of these courses are pretty quick courses.",
+    "reason": "The captions support that at least one course is described as a pretty quick course, but not the broader claim that multiple courses are quick crash courses.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.86,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "557418ee9623e130c00084d56b5d3792ebf27b5566db4549b9643143c28586b7"
+  },
+  "ch01.s04.p06.r04": {
+    "decision": "edit",
+    "text": "Knowledge of generative AI and large language models is an extremely useful skill, and the need for this skill is only going to increase in the future.",
+    "reason": "The captions support usefulness and growing demand for a singular skill tied to generative AI and large language models, but not that both are separately 'skills.'",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.9,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "b2d972f31bc0f080ca230fad5bc5b53db36fc0ee9b558f7cf38d36cc01878c96"
+  },
+  "ch02.s05.p04.r07": {
+    "decision": "edit",
+    "text": "Here, both \"hello\" and \"palace\" are treated as unknown words, and augmenting the vocabulary with the additional tokens allows encoding and decoding even unknown words successfully.",
+    "reason": "The captions support that both words are unknown and that the added tokens enable successful encoding and decoding of unknown words, but not the specific explanation that both are unknown because they are not in the data set.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "7f705b5f23a4ff09aa89371d3c35c29f3a1fc6e34db0108861ac86d46974e95a"
+  },
+  "ch02.s06.p02.r01": {
+    "decision": "edit",
+    "text": "This tradeoff is severe.",
+    "reason": "The paragraph supports a strong downside to character-level tokenization, but the original fragment should be completed as a standalone sentence.",
+    "risk": "high",
+    "check": {
+      "verdict": "claim_in_connective",
+      "confidence": 0.74,
+      "reason": "Says the tradeoff is severe, which is a factual/evaluative claim about the subject despite being marked CONNECTIVE and has no supporting citation."
+    },
+    "kind": "queue",
+    "sentence_hash": "eafefeb5ba4570dbb3ea2c5d6bb7da7605129a273ffd39416b3bee06e42b8726"
+  },
+  "ch02.s06.p02.r08": {
+    "decision": "edit",
+    "text": "So character-level tokenization has a very small vocabulary and avoids out-of-vocabulary words, but it produces much longer token sequences, while the main problem with word-based tokenization is its large vocabulary.",
+    "reason": "The captions support 'very small vocabulary' but not the stronger claim that it is 'fixed.'",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.9,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "da9bd92c1361a42851e0c3f5389888d98d1bec392e11e98af02368624e279aec"
+  },
+  "ch02.s08.p03.r01": {
+    "decision": "edit",
+    "text": "The modified BPE procedure repeatedly finds the most frequent pairing in the dataset and merges that pair, then performs the same iteration again.",
+    "reason": "The captions support repeatedly finding the most frequent pairing, merging it, and iterating again, but not explicitly that the merge creates a new token in this segment.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "bb2dd1331075796208c0f3f751e4721019c4061872f15ca1926e89e78a7607df"
+  },
+  "ch02.s08.p03.r05": {
+    "decision": "accept",
+    "reason": "The captions directly say ES appears 13 times and discuss updating counts after adding ES, which supports the sentence as written.",
+    "risk": "low",
+    "kind": "queue",
+    "sentence_hash": "3310d8cc904d4741990134523b83b5a1f4e1c279e364f49f70686a1906e20922"
+  },
+  "ch02.s08.p04.r08": {
+    "decision": "edit",
+    "text": "The token \"old\" captures a root shared by both \"old\" and \"older\", preserving structure that was not captured here by word-level or character-level tokenization.",
+    "reason": "The captions support the shared-root point and say this structure was not captured in this example by word- and character-level tokenization, but not the broader claim that those methods generally miss it.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.9,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "c33dae71a39dabe488e4b620a799cfd3b2d3b6d77982f1df78d96ef666b938ba"
+  },
+  "ch02.s09.p02.r03": {
+    "decision": "edit",
+    "text": "In the GPT-2 tokenization scheme, token ID \"50256\" is the end-of-text token.",
+    "reason": "The cited captions explicitly identify 50256 as the end-of-text token for GPT-2, but do not directly support extending that claim to GPT-3.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.97,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "3cf4238095ed67a848102e9e72d4b5188732277fe1005fb70093210057b8d79c"
+  },
+  "ch02.s09.p04.r05": {
+    "decision": "edit",
+    "text": "The tokenizer created with \"get_encoding\" can then be tested with both \"encode\" and \"decode\".",
+    "reason": "The captions support creating a tokenizer with get_encoding and then testing encode and decode, but not the specific argument \"gpt2\".",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "cd84a2bc51785e47488f2e29d805c82ec1238a27af8f3b8e9a71e98f938bec7c"
+  },
+  "ch02.s11.p05.r04": {
+    "decision": "edit",
+    "text": "The code computes similarity scores between word vectors for pairs such as \"woman\" and \"man\".",
+    "reason": "The captions support the similarity operation on those word pairs but not the exact code identifier formatting.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.9,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "d99f6407194ee18b4ca7255731375a28165bb0f9284ecde5c1bfd629730ac592"
+  },
+  "ch02.s15.p03.r03": {
+    "decision": "edit",
+    "text": "The same input-output pairs can be viewed either as token ID sequences or in textual format showing the corresponding outputs.",
+    "reason": "The captions support both ID-based and textual views of the pairs, but not the specific claim that they show next-word targets.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "d224d7de0b5faeddc306dcb8811d05758fcd2cf67263eb7b29c939c492c85865"
+  },
+  "ch03.s03.p04.r11": {
+    "decision": "edit",
+    "text": "PyTorch softmax is still preferred because later computations may involve very large parameters, so it is better to use numerically stable implementations.",
+    "reason": "The captions support preferring PyTorch due to later very large parameters and numerical concerns, but not the narrower claim about softmax specifically being where instability matters.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.72,
+      "reason": "The cited lines support that using PyTorch is advisable because later computations involve very large parameters and numerical instability is a concern. However, they do not specifically mention \"PyTorch softmax\" or explicitly state using \"numerically stable implementations\" (only generally referring to numerical instability)."
+    },
+    "kind": "queue",
+    "sentence_hash": "bb8becdb3c84fff7b6a13aac2337ec9428530f786899f34d71a46f8a3469cc7e"
+  },
+  "ch03.s05.p02.r08": {
+    "decision": "edit",
+    "text": "Using two for-loops for these dot products is not computationally efficient, so matrix multiplication needs to be understood; linear algebra is a core foundation of machine learning concepts.",
+    "reason": "The captions support the inefficiency point, the need to understand matrix multiplication, and the separate claim about linear algebra being foundational, but not the explicit causal linkage between them.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "1d0c05eed4d74eecb27639139da39facca1cdfd2e8918e0cdd96ba4f8ee91ef2"
+  },
+  "ch03.s07.p03.r01": {
+    "decision": "edit",
+    "text": "The mask is built from a triangular matrix.",
+    "reason": "The surrounding paragraph supports that the mask is constructed with torch.tril on a square matrix of ones, while the original wording is broader than necessary and has no citation.",
+    "risk": "high",
+    "check": {
+      "verdict": "claim_in_connective",
+      "confidence": 0.62,
+      "reason": "CONNECTIVE sentence makes a factual claim (that the mask is built from a triangular matrix) but provides no cited caption lines to support it."
+    },
+    "kind": "queue",
+    "sentence_hash": "f6e066a1c057352ebd42ec75bebe1914367e8dd04934d3c04238ece17a8769b1"
+  },
+  "ch03.s07.p04.r09": {
+    "decision": "edit",
+    "text": "After masking, the masked matrix is divided by the square root of the key dimension and then softmax is applied.",
+    "reason": "The cited captions support division of the masked matrix before softmax, but do not clearly say the attention scores themselves are divided after masking.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.96,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "b0aab58caf41b2a775727acbad01d9758b9c5fb38400fe0fece8244d67460df0"
+  },
+  "ch03.s08.p02.r01": {
+    "decision": "edit",
+    "text": "Dropout is applied by first creating a dropout mask that specifies which neurons are randomly turned off.",
+    "reason": "The cited captions support the dropout-mask explanation but do not explicitly limit it to causal attention.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.86,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "9101120b34c6d4d1ff449ef2c24e3747bd0e239a3907b6f6c75ac2d4768b2f78"
+  },
+  "ch03.s08.p05.r02": {
+    "decision": "edit",
+    "text": "Here, the upper triangular mask has ones above the diagonal.",
+    "reason": "The captions explicitly support ones above the diagonal but do not fully show that the entries below the diagonal are zeros.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.94,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "0ec62e82997df42bc84ddf8bdca42ab2eb723ba33515b96be40b352f9ce2bd39"
+  },
+  "ch03.s08.p06.r01": {
+    "decision": "edit",
+    "text": "In the worked example, the context length is taken as batch.shape[1], which is 6 for the given batch.",
+    "reason": "The captions support that the context length is set from batch.shape[1] and that this value is 6, even though the spoken justification confuses batch size with sequence length.",
+    "risk": "high",
+    "check": {
+      "verdict": "unsupported",
+      "confidence": 0.78,
+      "reason": "The cited lines say the context length is taken as batch.shape[1] and that batch.shape[1] is 6 due to a batch size of six. They do not state that the context length is 6; they instead appear to tie the 6 to batch size, not context length."
+    },
+    "kind": "queue",
+    "sentence_hash": "e41a1a8ebe4ea3d8007f85cdcdb913fd3ec6c06152f3aa9ef5940b73f1431792"
+  },
+  "ch03.s09.p03.r06": {
+    "decision": "edit",
+    "text": "Two example tokens are \"cat\" and \"sleeps.\"",
+    "reason": "The cited captions support those two tokens being examples, but not that they are the complete set of example tokens.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "d41187c5b4435a0a9b063d011220a6d2779e902a97c9b2dc8df8523332b4e59f"
+  },
+  "ch03.s10.p10.r08": {
+    "decision": "edit",
+    "text": "When resources or hardware capabilities force small batch sizes, or when batch-size-independent normalization is desired, layer normalization offers much greater flexibility.",
+    "reason": "The captions support layer normalization being much better in terms of flexibility under those conditions, but not the broader claim 'better choice than batch normalization.'",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "964f792ab9f928a319cb745b1fa13db51764175e597061bbc637341e67a2e752"
+  },
+  "ch03.s11.p06.r04": {
+    "decision": "edit",
+    "text": "The loss is defined from the model output y and the ground truth; for example, when the ground truth is zero, the loss is based on y - 0.",
+    "reason": "The captions support that the loss uses y minus the ground truth and give the zero-target example, but they do not clearly confirm the squaring.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "e4e3073a18722c26c4240a3130115cc6505ee849557d7648044b6657d0cfceee"
+  },
+  "ch03.s11.p06.r06": {
+    "decision": "edit",
+    "text": "The code sets the target to zero, computes the model output for x, uses a squared loss, calls loss.backward(), and prints a single gradient value per layer as the mean absolute gradient of that layer’s gradient matrix.",
+    "reason": "The captions support the target, output, squared loss, backward call, and per-layer mean absolute gradient, but not that every layer has 3 by 3 gradients.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.76,
+      "reason": "Supported: target is zero; output is model(x); uses squared loss; calls loss.backward(); prints one value per layer as the mean absolute gradient of 3x3 gradients. Not fully supported: it says the gradients are from each layer’s “gradient matrix” and earlier mentions a 9x9 matrix; the cited lines specifically describe 3x3 gradient values per layer, and do not clearly establish that the printed value is the mean absolute of an entire layer’s gradient matrix in general."
+    },
+    "kind": "queue",
+    "sentence_hash": "7b647c00a1ad9a3555e93547f53d893e40383a71c135c689d8f04eed347e3282"
+  },
+  "ch03.s11.p07.r01": {
+    "decision": "edit",
+    "text": "The mean gradient becomes much smaller in earlier layers, illustrating the vanishing gradient problem.",
+    "reason": "The captions support the shrinking gradients and vanishing-gradient interpretation, but not the explicit tie to the no-shortcut case in this sentence alone.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.95,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "ee12b35349e83aa1bd5c65179fe1f43befec1e138014017fa6297fbe526b2841"
+  },
+  "ch04.s03.p02.r04": {
+    "decision": "edit",
+    "text": "A token embedding vector is used to capture semantic meaning between words.",
+    "reason": "The captions support that token IDs are converted into token embedding vectors and that these vectors help preserve semantic meaning, but not the fuller definition as written.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "4d094b7820c60fe589d377c5a33552a629cd1c7f939119f5d73fa62273c76faa"
+  },
+  "ch04.s05.p02.r06": {
+    "decision": "edit",
+    "text": "For every token position, the model therefore produces a 50,257-dimensional logits vector because it is predicting the next word.",
+    "reason": "The captions support the 50,257-dimensional vector and the reason of next-word prediction, but not the stronger phrasing about the full vocabulary.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "dee2ff0fe79fbcd9daa66d339d445b591657bcb2295782d24bd14ea7f5736dfe"
+  },
+  "ch04.s06.p03.r06": {
+    "decision": "accept",
+    "reason": "The captions explicitly mention query, key, and value trainable weights, three matrices, embedding dimension 768 for input and output, and the resulting 1.77 million parameters, which supports the sentence as written.",
+    "risk": "low",
+    "kind": "queue",
+    "sentence_hash": "defadc8a80f7ccf636e7bf1dc0f7f30d52798c507c974998f8a376f60a044c2e"
+  },
+  "ch04.s06.p04.r05": {
+    "decision": "edit",
+    "text": "The model being trained has on the order of more than 100 million parameters.",
+    "reason": "The captions support the scale of the parameter count but not the causal phrasing 'This is why.'",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.96,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "daf61d4b88053cdd3aa2330f7bce637da014a2d26ef022515dda17a23f0913fb"
+  },
+  "ch04.s07.p04.r05": {
+    "decision": "edit",
+    "text": "In the cited example, GPT-2's output token ID range is stated as 0 to 50257, whereas in the toy example the vocabulary size was 7 and the range was 0 to 7.",
+    "reason": "The captions support the GPT-2 range and the toy-example values, but not a GPT-2 vocabulary size of 5257.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.78,
+      "reason": "The captions support that GPT-2’s output token ID range is 0 to 50257, and that in the toy example the vocabulary size was 7 and the range was 0 to 7. However, they state GPT-2’s vocabulary size as “5257” (likely a mishearing of 50257), not explicitly 50257, so the claim about GPT-2’s vocabulary size/range pairing is not fully supported exactly as written."
+    },
+    "kind": "queue",
+    "sentence_hash": "1c52870aaeef22d32522a1425de12139f9506d4416f8ec2da8293d9e45deb175"
+  },
+  "ch04.s08.p02.r02": {
+    "decision": "edit",
+    "text": "The probability tensor is indexed at the target positions, and those probabilities are collected together.",
+    "reason": "The captions support indexing at target indices and collecting those probabilities, but not the added purpose phrase or the fuller batching detail as written.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "49da3d5bdfdc168507dac66cbd9e2c8a27c7f020461239f6862208e03e36f9db"
+  },
+  "ch04.s08.p05.r09": {
+    "decision": "edit",
+    "text": "In an ideal model, the probabilities at the target indices would be close to one, but in an unoptimized LLM they are typically small, so the goal is to bring them as close to one as possible by taking the negative log of these probabilities and averaging them as the cross-entropy loss.",
+    "reason": "The captions support the goal and the cross-entropy computation, but not the explicit framing that training aims to increase them by minimizing cross-entropy.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.97,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "734195213adf975f06978a458db3a87b65c45bf120c811b5cb734568fab2fa97"
+  },
+  "ch04.s10.p06.r01": {
+    "decision": "remove",
+    "reason": "There are no cited caption lines supporting this claim, and the paragraph remains coherent without it.",
+    "risk": "high",
+    "kind": "queue",
+    "sentence_hash": "afa1fa7039da8e9877d7c4476797b26cc42ae7c38f339cac7082d2694de4c267"
+  },
+  "ch04.s11.p04.r03": {
+    "decision": "edit",
+    "text": "The validation loss decreases during training but never becomes as small as the training loss, and it stagnates at 6.37 after the 10th epoch.",
+    "reason": "The captions support the decrease, the comparison to training loss, the value 6.37, and placement after the 10th epoch, but not the original phrasing exactly.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.92,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "ac931eb4a3692a927f3ade1e22532798ba183c5bd34711c7abba8799f43deb44"
+  },
+  "ch05.s01.p01.r03": {
+    "decision": "edit",
+    "text": "That result is tied to the setup used there: the model had been trained on one small book, described as a very small data set, and run only briefly.",
+    "reason": "The captions clearly support the small-book and very small data set points, and 'run only briefly' preserves the limited-training idea without asserting unsupported epochs.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.62,
+      "reason": "The cited lines support that the model was trained on one small book, described as a very small dataset. They do not clearly support that it was 'run only briefly' (the phrase 'had run it for 10ox' is unclear) or that the result was explicitly tied to the setup."
+    },
+    "kind": "queue",
+    "sentence_hash": "8084d030621b6c4a3aa5797c4fa961f09666a14490a0cc1d548a6a59ed171b7d"
+  },
+  "ch05.s04.p02.r01": {
+    "decision": "edit",
+    "text": "The first two keys correspond to the token and positional embeddings used for GPT-2 inputs.",
+    "reason": "The available context supports identifying the first two keys with token and positional embeddings, but not the stronger claim that they 'mirror the way inputs enter GPT-2.'",
+    "risk": "high",
+    "check": {
+      "verdict": "claim_in_connective",
+      "confidence": 0.74,
+      "reason": "Although labeled CONNECTIVE, it makes a factual claim about GPT-2 inputs (that the first two keys correspond to token and positional embeddings). No cited caption lines are provided to support this."
+    },
+    "kind": "queue",
+    "sentence_hash": "a05eb72587b50e1cedceef14ae44d5ed9dcc39428452a2ce6d358d60de6ab738"
+  },
+  "ch05.s04.p04.r04": {
+    "decision": "edit",
+    "text": "To access the fused attention weights for the first block, follow the nested keys \"blocks\", \"transformer\", \"h0\", and \"atn\", then the \"cn\" entry and its weights.",
+    "reason": "The captions explicitly name the fused query-key-value entry as \"cn\", so the sentence should use that exact key.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.72,
+      "reason": "The cited lines support navigating nested keys blocks → transformer → h0 → atn and then cn to get to the fused QKV matrix weights. However, they do not explicitly say 'fused attention weights' (as opposed to fused QKV weights) and do not clearly state 'cn entry and its weights' beyond generally saying they are looking at weights within the fused matrix."
+    },
+    "kind": "queue",
+    "sentence_hash": "10937338440533200ac2d45504adafa81505042be5f19f3ea550a4f9c5b225bc"
+  },
+  "ch05.s04.p04.r07": {
+    "decision": "edit",
+    "text": "To access the fully connected layer for the first block, use the nested keys \"h0\" and \"mlp\", and then access that layer's weights and biases.",
+    "reason": "The cited captions support the first block's \"h0\" → \"mlp\" path and accessing the layer's weights and biases, but not the extra \"transformer\" key.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.72,
+      "reason": "The captions support that within the first transformer block there are nested keys like 'h0' (misheard as 'H not') and 'MLP', and that they are accessing a fully connected layer’s weights and biases. However, they do not explicitly state that using the nested keys 'h0' and 'mlp' is how you access the fully connected layer, nor that 'mlp' is the specific key used to reach that layer (only that an MLP key exists)."
+    },
+    "kind": "queue",
+    "sentence_hash": "e933944d246b3822cf6199e87835f388989a8f0b0a184f87c0fa4a6e72bebdd4"
+  },
+  "ch05.s04.p04.r10": {
+    "decision": "edit",
+    "text": "To access the attention output projection layer, go through \"transformer\", then the block key (\"h0\" through \"h11\"), and then \"atn\" and \"c_proj\" to obtain the weights across all 12 blocks.",
+    "reason": "The captions support transformer → a specific block key such as h0 through h11 → atn → c_proj, not a literal generic key \"hn\".",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "73ec88d65e00ff821005f691a4cca076255661e84a13c86b6766d222248a2230"
+  },
+  "ch05.s06.p03.r01": {
+    "decision": "edit",
+    "text": "That freedom also extends to the model itself.",
+    "reason": "The context supports that the model architecture can be changed, but without citations there is no support for the contrastive phrase about sampling settings.",
+    "risk": "high",
+    "check": {
+      "verdict": "claim_in_connective",
+      "confidence": 0.74,
+      "reason": "Asserts a factual relationship (that some previously mentioned freedom extends to the model itself) rather than serving purely as a transition, and provides no citation to support it."
+    },
+    "kind": "queue",
+    "sentence_hash": "6d04c7ae3b4e9a9122fbd1aabb092d15d592b0a590770ded4d3d737d0762df07"
+  },
+  "ch05.s07.p04.r04": {
+    "decision": "edit",
+    "text": "Because the balanced dataset has 1,494 examples, taking 70% for training gives 1,045 training samples, with batches corresponding to that split.",
+    "reason": "The captions support the 70% split, the 1,045 training samples, and that batches correspond to that split, but do not mention a training dataloader specifically.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.9,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "863707c332aa5ec4b289da2e99097d1466d05c982e6627beb3cb7366c659e7ed"
+  },
+  "ch05.s08.p01.r04": {
+    "decision": "edit",
+    "text": "The goal is to convert each email into tokens and make every item in a batch have the same token length, producing an input tensor together with a target tensor of labels \"0\" or \"1\".",
+    "reason": "The captions support tokenizing emails, equalizing token lengths, and forming input/target tensors with 0/1 labels, but not the added phrase \"for this classification task.\"",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.86,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "d7b8f29a0758a8736d540c2fb0e79ce6a4416ba7e57ca5d92e08bddc4cfc4f47"
+  },
+  "ch05.s09.p02.r04": {
+    "decision": "accept",
+    "reason": "The captions state that each batch has eight rows and 120 columns, with 120 being the number of token IDs, which supports '120 token ID positions per sample.'",
+    "risk": "low",
+    "kind": "queue",
+    "sentence_hash": "078861e9cf471d9e6f910e75a9bbcfac45ed0a430cd3e6e1f5de0f054ef35c0f"
+  },
+  "ch05.s12.p04.r01": {
+    "decision": "remove",
+    "reason": "No cited captions are provided to support this summary sentence, and the paragraph remains coherent without it.",
+    "risk": "high",
+    "kind": "queue",
+    "sentence_hash": "47645925cfc7955e7cb427a6868a1f71ef50d072f126a8c657e28ce1541549fe"
+  },
+  "ch05.s12.p04.r08": {
+    "decision": "edit",
+    "text": "On a MacBook Air 2020, the full training process took about 8.8 minutes, and on a typical i5, i7, or MacBook laptop it should take about 7 to 10 minutes.",
+    "reason": "The captions give the 8.8-minute runtime specifically for a MacBook Air 2020, not for an unspecified machine.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "4a1c37ed2e208e748142ca309096ce6922e91da4f8d999b02671b6f50d2cb95f"
+  },
+  "ch06.s13.p01.r07": {
+    "decision": "accept",
+    "reason": "The captions support that the evaluator is an instruction-fine-tuned Llama 3 model accessed through Ollama, and the size inconsistency does not affect this sentence.",
+    "risk": "low",
+    "kind": "queue",
+    "sentence_hash": "0491fabd766a653b714db1904c7a461519ad09e96446db0f26bca1eb6690b79e"
+  },
+  "ch06.s13.p04.r03": {
+    "decision": "edit",
+    "text": "To evaluate the responses generated by the fine-tuned model, prompt Llama 3 to rate those responses on a scale of 0 to 100.",
+    "reason": "The captions support evaluating responses from the fine-tuned model and clearly restate the scale as 0 to 100, but the original wording is slightly broader.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "3ca6b39b569b32026170430c3267918c3b234faf58b7da09c53a84efa426b5fa"
+  },
+  "ch06.s13.p05.r02": {
+    "decision": "edit",
+    "text": "The evaluator is described as doing an awesome job at qualitative evaluation, and its quantitative scores kind of make sense even if the exact numbers are not fully clear.",
+    "reason": "The cited captions support the praise and the uncertainty about specific scores, but they do not identify the model as Llama 3 in these lines.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "0447d44c7862ce0da5397f6c34331719d07e7089bbbb2fd51d47cc269f866d8b"
+  },
+  "ch06.s14.p04.r03": {
+    "decision": "edit",
+    "text": "These methods lead to a large computational speedup, and the course notes that they sometimes help accuracy too.",
+    "reason": "The captions clearly support computational speedup and mention a possible speedup related to accuracy, but not a clear improvement in accuracy itself. (wording cleaned up before approval)",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.86,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "7da61adc5f67133b96646cdc7693ad16b4d61b93b15ad324178556437cf0d557"
+  },
+  "ch01.open.p01.r02": {
+    "decision": "edit",
+    "text": "That emphasis matters because many learners jump straight to applications, Colab notebooks, copied code, or LLM app tools, even though real depth is what builds confidence, helps you answer detailed interview questions, and prevents knowledge from remaining superficial.",
+    "reason": "The captions support that foundations and depth build confidence, help with detailed questions, and that without understanding the concepts knowledge remains superficial; this wording makes that link without overclaiming.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.78,
+      "reason": "Supported: many learners jump straight to applications/Colab notebooks/videos, download/clone and run code, and use LLM app tools like LangChain; the speaker stresses foundations/depth to feel confident and answer detailed interview questions, and warns knowledge can be superficial otherwise. Not supported: the causal claim that depth is what 'prevents knowledge from remaining superficial' (captions link superficiality to not understanding concepts, but do not explicitly say depth prevents it), and the added idea that this emphasis is the reason ('That emphasis matters because...') is only implied."
+    },
+    "kind": "queue",
+    "sentence_hash": "b0e65b9f2ba99de312e6d7823dbed93988f5b8be79af34050e051a19e77edb45"
+  },
+  "ch04.open.p01.r03": {
+    "decision": "edit",
+    "text": "It also marks the point where training becomes necessary, because next-token predictions need training to make sense rather than remain random.",
+    "reason": "The captions support that training is needed so next-token predictions make sense, but not the broader 'shift from architecture to training' framing.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.78,
+      "reason": "The cited lines support that training is needed so the next-token prediction makes sense (\"we need to train... so that the next token... makes sense\"). They do not support the added claim that without training the predictions would \"remain random\" or explicitly that this is the specific \"point\" where training becomes necessary."
+    },
+    "kind": "queue",
+    "sentence_hash": "a15826a747f96e4caddeabfb333832c81b37a0fda3ce47bc98edad322a585638"
+  },
+  "ch05.glance.p03.r01": {
+    "decision": "edit",
+    "text": "The main loading function downloads seven GPT-2 files, locates the latest checkpoint, loads the TensorFlow checkpoint parameters into a dictionary named \"params\", and returns that along with a \"settings\" dictionary.",
+    "reason": "The captions support the function behavior and return values, but not the exact filename \"gpt_download3.py\".",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.78,
+      "reason": "Supported: load_gpt2 is described as the main function; it downloads seven files; it finds the latest checkpoint path; it loads TensorFlow checkpoint parameters into a dictionary called params; and it returns settings and params. Not supported explicitly: that the TensorFlow checkpoint parameters are loaded \"into a dictionary\" (it says a 'special dictionary' called params) and the sentence’s phrasing suggests all these steps are in the single main loading function, whereas the captions indicate it uses helper functions (so the exact responsibility split is not stated)."
+    },
+    "kind": "queue",
+    "sentence_hash": "1d57ebec749ab4a217e2e9da64432336ba474b8defec7c320c3cab9393175901"
+  },
+  "ch06.open.p01.r02": {
+    "decision": "remove",
+    "reason": "The cited captions are empty, so none of the sentence’s assumptions or chapter-organization claims can be verified from the evidence shown.",
+    "risk": "high",
+    "kind": "queue",
+    "sentence_hash": "1dbfc1bfbf20272ca5d8df827f75e3767ce5ebceafa77ce880952ab7cf20429b"
+  },
+  "ch05.take.p03.r01": {
+    "decision": "edit",
+    "text": "The classification project fine-tunes the model to classify messages as spam or not spam, using the SMS Spam Collection dataset, balancing the classes, encoding ham as 0 and spam as 1, and splitting the data into training, validation, and test sets.",
+    "reason": "The captions support spam classification with the SMS Spam Collection text-message dataset and the preprocessing steps, but not calling those dataset items emails.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "92dcbeaea66ee3e60c4e4ae559887316957d67d9906dcad26f40657b0a10fc74"
+  },
+  "conflict:ch01.s10.p03.r03": {
+    "decision": "edit",
+    "text": "The training procedure breaks the training dataset into epochs, computes the gradient of the loss in each epoch, updates the parameters, and calculates accuracy after each epoch.",
+    "reason": "The cited captions support the epoch/gradient/update flow, but the reference shows this classifier training uses accuracy each epoch rather than sample-text generation.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.72,
+      "reason": "Cited lines support breaking the dataset into epochs, computing the gradient of the loss each epoch, and updating parameters. They mention generating sample text and doing model evaluation, but do not specifically state calculating accuracy after each epoch."
+    },
+    "kind": "conflict",
+    "sentence_hash": "f0d99f80c7e43a28e2addab127ac76a137ecc3cd4179dad18c4a165334ef7b7e"
+  },
+  "conflict:ch01.s10.p03.r06": {
+    "decision": "edit",
+    "text": "Saving and loading weights saves a lot of computational cost.",
+    "reason": "The captions support computational cost savings, but they do not clearly support a separate claim that saving/loading weights saves memory.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.96,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "c328880190c8a963fe3df292749a94073ec571e527519f826e632caa259815d8"
+  },
+  "conflict:ch02.s01.p03.06": {
+    "decision": "edit",
+    "text": "These token embeddings are then combined with positional embeddings to form the input embeddings used to train a large language model.",
+    "reason": "The cited caption supports token embeddings as inputs, but the reference shows the actual model input includes positional embeddings as well.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.62,
+      "reason": "The cited lines support that token embeddings serve as input to training a large language model, but they do not mention combining token embeddings with positional embeddings to form input embeddings."
+    },
+    "kind": "conflict",
+    "sentence_hash": "552bed4938d84131521eb1b63056bd96ab4e19380e9ace68761d9ea42bd84e5f"
+  },
+  "conflict:ch02.s02.p03.02": {
+    "decision": "edit",
+    "text": "A vocabulary is a dictionary containing a collection of tokens, and every token corresponds to a token ID.",
+    "reason": "The captions support the dictionary and token-to-ID mapping, but the ascending-order claim overgeneralises relative to the reference implementation.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "8d4e7b300bc4f5f352126c42041f824f20534a5468724af7acb008984ce7ca8b"
+  },
+  "conflict:ch02.s03.p02.06": {
+    "decision": "edit",
+    "text": "The regular expression is updated to split on characters such as commas, full stops, colons, semicolons, question marks, underscores, exclamation marks, quotation marks, brackets, slashes, and whitespace, and the resulting list is filtered so that only non-whitespace items remain.",
+    "reason": "The captions explicitly mention splitting on those punctuation marks and then filtering out whitespace-only tokens, while the broader wording avoids contradicting the reference's simpler examples.",
+    "risk": "high",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "225c06acb4e0c17d0fa036bd486044906e289a38381bc0a7f92f0bd12c6e28c9"
+  },
+  "conflict:ch02.s03.p04.r01": {
+    "decision": "edit",
+    "text": "To create token IDs, you take all tokens, remove duplicates, sort the unique tokens in ascending or alphabetical order, and assign IDs starting from zero; special tokens can then be added to the vocabulary as needed.",
+    "reason": "The captions support sorting unique tokens and assigning IDs from zero, while the reference shows special tokens are appended afterward, so the original overstates the ordering rule for the full vocabulary.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.82,
+      "reason": "The cited lines support removing duplicates, sorting tokens alphabetically/ascending, and assigning IDs starting from 0. They do not mention adding special tokens to the vocabulary afterward."
+    },
+    "kind": "conflict",
+    "sentence_hash": "493594341bdddac6fe78416eb345f51e542f1fec52fb88a584d684e29f232d83"
+  },
+  "conflict:ch02.s04.p03.04": {
+    "decision": "edit",
+    "text": "Its disadvantages are that, with a fixed word-level vocabulary, we don't know what to do with out-of-vocabulary words and the vocabulary size is pretty large.",
+    "reason": "The captions describe a fixed word-level vocabulary limitation, while the original wording overgeneralises and conflicts with the reference's explanation of BPE.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.95,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "8ad2da31ffe98a9e951fb541f62c3d2bdcdd3efb46b17b13f235f923b60399a2"
+  },
+  "conflict:ch02.s08.p06.r07": {
+    "decision": "keep",
+    "reason": "The cited captions explicitly say BPE can replace words not present in the vocabulary without special unknown tokens, which matches the reference note that GPT-2 BPE does not use an <UNK> token.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "dabc6cbdc3a4f36cafbc74c628148160214ca03ce7021e41474f75063c804573"
+  },
+  "conflict:ch02.s09.p02.r04": {
+    "decision": "note",
+    "note": "The reference gives GPT-2’s exact BPE vocabulary as 50,257; the lecture additionally contrasts this with an estimated 170,000–200,000 English word-level vocabulary.",
+    "reason": "The cited captions support both figures, while the reference only specifies the exact GPT-2 BPE size rather than addressing the comparison.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "c394f5e8c1cd77994f32905a958a36698043687d57351178ee1abc465e33bf76"
+  },
+  "conflict:ch03.s03.p03.r07": {
+    "decision": "edit",
+    "text": "In that implementation, the sum uses dimension 0 to sum the entries being treated as a row.",
+    "reason": "The captions support the lecturer’s row-based intent, but the original wording overexplains it in a way that conflicts with the reference’s dimension convention.",
+    "risk": "high",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "40ed67d5f63681c703309e1aae806ccb11d2fb2d16f2a2cdfb84eebd42a5124d"
+  },
+  "conflict:ch03.s07.p04.r06": {
+    "decision": "note",
+    "note": "Here the lecture uses an upper-triangular replace-mask; the reference uses a lower-triangular keep-mask. Both encode masking positions above the diagonal.",
+    "reason": "The captions support the lecture’s framing, and the difference from the reference is the mask convention rather than the masking goal.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "cf6c500b87943b65c8bd807efd8158ba02a23d13f277fcfcd4b5d0c2b3896237"
+  },
+  "conflict:ch03.s07.p04.r07": {
+    "decision": "edit",
+    "text": "The code constructs this mask as a matrix with ones above the diagonal and uses those ones as the positions to replace with negative infinity.",
+    "reason": "The captions support an upper-triangular mask with ones above the diagonal used for negative-infinity replacement, but not the specific claim that the code builds it from a 6×6 ones matrix.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "9ec47120f58bb66d4491b6248bc6e8cee01c697bba8e1d576e13eec56206b45d"
+  },
+  "conflict:ch03.s08.p03.04": {
+    "decision": "edit",
+    "text": "Its computation is: multiply the inputs by the query, key, and value weight matrices to obtain queries, keys, and values; multiply queries by keys transpose to get attention scores; mask out elements above the diagonal; scale by the square root of the dimension; apply softmax to obtain attention weights; apply dropout; and multiply those attention weights by the values to get the context vector matrix.",
+    "reason": "This keeps the caption-supported sequence while avoiding the reference conflict over minus-infinity masking and dropout placement.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "7f8c0685fd0cf21885aeac5f5a821752c23ff327e695caed1fef3287dfc7faf8"
+  },
+  "conflict:ch03.s08.p05.r02": {
+    "decision": "note",
+    "note": "The reference uses a lower-triangular mask via `torch.tril`—1s on/below the diagonal and 0s above—to achieve the same causal masking effect.",
+    "reason": "The captions support the lecture’s upper-triangular description, while the reference presents the complementary lower-triangular formulation.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "0ec62e82997df42bc84ddf8bdca42ab2eb723ba33515b96be40b352f9ce2bd39"
+  },
+  "conflict:ch03.s09.p01.r02": {
+    "decision": "note",
+    "note": "Earlier, this uses the intuitive per-head implementation; the stand-alone MultiHeadAttention later uses one query, key, and value matrix and then splits into heads.",
+    "reason": "The cited captions support the sentence for the earlier intuitive implementation, while the reference describes a different, more efficient variant.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "5515d66e8c386be5169a939a76cd240e7e3b2a8eb5213d6f4acc4d0f2642577f"
+  },
+  "conflict:ch03.s09.p03.r11": {
+    "decision": "note",
+    "note": "Here, concatenating 2 heads of size 3 gives 6; elsewhere, a different example sets d_out=2, and some MultiHeadAttention implementations keep the final output dimension fixed.",
+    "reason": "The cited captions support the lecture’s arithmetic, while the reference describes a different parameter setting and implementation detail.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "adf7f6a76aab6d98f69e62e4e9c0bda0b0efff1d1b1a0348c687420e1b689d1d"
+  },
+  "conflict:ch03.s09.p08.r11": {
+    "decision": "note",
+    "note": "This example omits dropout for simplicity; the reference implementation applies dropout after attention weights, commonly with a 50% rate during training.",
+    "reason": "The captions explicitly say dropout is not implemented here for simplicity, while the reference describes a different implementation choice.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "d7f02ade26346eb9888e2f6ce02a2366bcdfa6a659c364daeb8d208da1583979"
+  },
+  "conflict:ch03.s09.p08.r16": {
+    "decision": "edit",
+    "text": "Softmax is applied along the last dimension so that the values in each row sum to one.",
+    "reason": "The cited captions and reference support row-wise normalization, and the original wording incorrectly says columns within each row sum to one.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.9,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "6df7b4d82f621cd84532ffe1afc5a3ca0b5e25f02f6f7b9c397c885a0a497d51"
+  },
+  "conflict:ch03.s09.p10.r02": {
+    "decision": "note",
+    "note": "Here, heads are merged to recover a D_out-sized output; in the reference, one wrapper returns d_out*num_heads, while MultiHeadAttention can keep output dimension at d_out.",
+    "reason": "The captions support this as the lecture’s goal for that implementation, but the reference documents another valid implementation choice.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "56c93e67b9cbd88438c9f19f78ff09aba637d760893660b25bfc616ba6b62236"
+  },
+  "conflict:ch03.s09.p11.02": {
+    "decision": "keep",
+    "reason": "The sentence accurately reports the lecture’s toy demonstration settings from the cited captions, while the reference values describe separate illustrative and full-model examples.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "10f85934fc922a6db82b6fedae96477f98b50909c6e128013b30eba2d9371533"
+  },
+  "conflict:ch03.s10.p01.06": {
+    "decision": "keep",
+    "reason": "The cited captions explicitly describe LayerNorm before attention, again after attention/before the neural network module, and once more before the final output layer, so this does not materially conflict with the reference.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "fa1477929478da556d471e10209e73998e235b9d0e82c3b79af22b6a9945124d"
+  },
+  "conflict:ch03.s10.p03.07": {
+    "decision": "edit",
+    "text": "Layer normalization centers a layer's activations to mean zero and normalizes their variance to one, which helps stabilize training and reduce internal covariate shift.",
+    "reason": "The caption supports the normalization effect and benefits, while this edit avoids the overgeneralization that every layer output is always adjusted.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.74,
+      "reason": "The cited lines support normalizing layer outputs to mean 0 and variance 1, improving training stability and reducing internal covariate shift, but they do not specifically mention 'layer normalization' (as opposed to normalization in general/batch normalization)."
+    },
+    "kind": "conflict",
+    "sentence_hash": "1cf19ef27aae3e31b30588834c9824329cf6ecb93f8376654f0963a2682d0ff7"
+  },
+  "conflict:ch03.s10.p05.03": {
+    "decision": "note",
+    "note": "Here the lecture uses a toy batch of token IDs with shape 2×5; the reference code later shows embedded inputs with shape (2, 6, 3).",
+    "reason": "The cited captions clearly support the sentence for a simplified example, while the reference is using a different example representation.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "67bcb9ded1724c4472a8ba85a9ebadd8aeeafae86da676481d80fd55c49255a9"
+  },
+  "conflict:ch03.s10.p05.07": {
+    "decision": "edit",
+    "text": "In layer normalization, each output in an input is replaced by that output minus the mean, divided by the square root of the variance.",
+    "reason": "The captions support the normalization formula but not the phrasing about batch mean/variance, and the edit fixes the parenthesization and avoids contradicting the reference.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.96,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "4a42b11f76fc005dc00ca7d8abcbf9230d24514f3625202fff6b39bb28314e99"
+  },
+  "conflict:ch03.s10.p07.r08": {
+    "decision": "edit",
+    "text": "After the normalization step, the output is further adjusted by the scale and shift parameters.",
+    "reason": "The captions support an additional scale-and-shift step, but saying both are multiplied contradicts the reference because shift is additive.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.92,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "1fc2b02409c151152802b586cf5fcae3c398dd782fc21594a3d99f4696d7a708"
+  },
+  "conflict:ch03.s11.p04.03": {
+    "decision": "edit",
+    "text": "If \"layer_sizes\" is \"3, 3, 3, 3, 3, 1\", the network has five layers with three neurons and a final layer with one neuron.",
+    "reason": "The captions support the teaching point, but the example must use six entries to match the implementation and avoid the contradiction.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "752f4af2b25b2510eff468d9489d35cc9f4053e0c53e5bc9e54a48ae11225473"
+  },
+  "conflict:ch04.s01.p01.02": {
+    "decision": "note",
+    "note": "For instruction finetuning, the reference uses GPT-2 Medium (355M) instead of 124M because the smallest model is too limited for good qualitative results.",
+    "reason": "The cited captions support the sentence for the assembly step, while the reference describes a later choice for instruction finetuning.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "f09a59d26973ce0d8699437381585b0e9feac34aedd76f7442302ecbe5646789"
+  },
+  "conflict:ch04.s02.p03.r01": {
+    "decision": "note",
+    "note": "Later code shortens context_length to 256 for efficiency; the original GPT-2 124M configuration uses 1024.",
+    "reason": "The captions support the listed GPT-2 defaults, while the reference also shows a later, deliberate code variant with a reduced context length.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "26d5f678e5083b2c7c8692b99009f0a8305320843f6bb975dac6a512184f74a3"
+  },
+  "conflict:ch04.s02.p03.r05": {
+    "decision": "edit",
+    "text": "The number of attention heads is the number of self-attention heads within the multi-head attention mechanism.",
+    "reason": "The caption wording conflates heads with blocks, and this edit preserves the teaching point while matching the reference distinction.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.7,
+      "reason": "The cited lines support that 'number of attention heads' refers to the number of self-attention mechanism blocks within a Transformer, but they do not explicitly mention the multi-head attention mechanism as the context for these heads."
+    },
+    "kind": "conflict",
+    "sentence_hash": "d32fe2a05dc037b57b1e481c294a5a232f7343a90ed32bf4074f29381af4da6a"
+  },
+  "conflict:ch04.s04.p01.03": {
+    "decision": "edit",
+    "text": "These embedding steps happen outside the Transformer block, and after this dropout the model enters the block.",
+    "reason": "The captions support that this particular dropout occurs before entering the block, but the original wording incorrectly implies dropout happens only outside the block.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "1fabd4ffa57ecaa28d12595da20b030634f5d59d4fe85cd54c133b35a38ce06d"
+  },
+  "conflict:ch04.s04.p02.r09": {
+    "decision": "edit",
+    "text": "A context vector keeps the token’s semantic meaning while incorporating information from the other tokens in the sentence through attention.",
+    "reason": "The captions support that the context vector reflects both token meaning and attention to other tokens, but the reference assigns the attention allocation itself to the attention weights rather than the context vector.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.74,
+      "reason": "The cited lines support that a context vector captures a token’s semantic meaning and also reflects how much attention should be given to all the other tokens in the sentence. However, they do not explicitly state that this incorporation happens 'through attention' as a mechanism (only that it captures the meaning of how much attention to give)."
+    },
+    "kind": "conflict",
+    "sentence_hash": "d85bbefb219555063e5cac00a6586897ca87a88c55f4fb9a3b46804206c60467"
+  },
+  "conflict:ch04.s04.p03.r02": {
+    "decision": "note",
+    "note": "The reference applies dropout to attention weights; here the lecture describes dropout after multi-head attention on context vector values, another common placement.",
+    "reason": "Both the lecture and reference describe valid dropout placements in attention, and the captions directly support the sentence's context-vector wording.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "67d3b4cffedebfb49866c1effe886f3e2b2f5577475f7540b93827c5c084a74c"
+  },
+  "conflict:ch04.s04.p03.r06": {
+    "decision": "edit",
+    "text": "In that second layer normalization, each token’s values are normalized by subtracting the mean and dividing by the square root of the variance.",
+    "reason": "The captions support the normalization step itself, but the claim about the final mean being 0 and variance being 1 overgeneralizes once LayerNorm’s trainable scale and shift are included.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.97,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "70d7e142fb4a0e0d8072dc150fab80d0fff2b1a20e23f5db52003c0c21ce2a89"
+  },
+  "conflict:ch04.s05.p02.r08": {
+    "decision": "edit",
+    "text": "For one batch with four tokens, the final logits tensor has shape 4 by 50257.",
+    "reason": "The captions support a 4 × vocabulary-size final output for a single batch, and adding 'logits' resolves the conflict with the block output shape in the reference.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.9,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "a214c9dc9e83da57a1cfcac91510ec2c4f9113f6747f6a2600949cc54c8a5dd2"
+  },
+  "conflict:ch04.s07.p04.r05": {
+    "decision": "edit",
+    "text": "In the cited example, GPT-2's vocabulary size is stated as 50,257, and the output token IDs range from 0 to 50,256.",
+    "reason": "The original sentence conflicts with the reference on GPT-2's vocabulary size and ID range, and the toy-example numbers are not reliably supported here.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.74,
+      "reason": "The cited lines support that GPT-2’s vocabulary size is about 50,257 (though one line is misheard as 5,257) and that token IDs start at 0, but they state the range as 0 to 50,257, not 0 to 50,256."
+    },
+    "kind": "conflict",
+    "sentence_hash": "1c52870aaeef22d32522a1425de12139f9506d4416f8ec2da8293d9e45deb175"
+  },
+  "conflict:ch04.s08.p02.r04": {
+    "decision": "edit",
+    "text": "The training goal is to make the selected target probabilities as large as possible, increasing the average log probability so the highest-probability output indices line up with the target indices.",
+    "reason": "The captions support raising the target probabilities and aligning argmax outputs with targets, while this wording avoids the incorrect implication that each probability can independently approach one.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.78,
+      "reason": "Cited lines support that the training goal is to push the target probabilities close to 1 so the max-probability output indices align with the target indices. However, they do not mention 'increasing the average log probability' (log/average log likelihood is not stated)."
+    },
+    "kind": "conflict",
+    "sentence_hash": "c071652da7b7c945bbf6a8f4881ede3992c2fa072af3f5a0e261716bcb520321"
+  },
+  "conflict:ch04.s08.p05.r04": {
+    "decision": "edit",
+    "text": "After flattening, the target sequence is 3626, 610, 345, 107, 588, and 11311, and these indices identify the entries whose probabilities correspond to p11 through p23 in the example.",
+    "reason": "The captions support the flattened sequence as spoken and the p11-to-p23 mapping only as an example, not as a general identification claim.",
+    "risk": "high",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.9,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "2e8fe531a300fb4ac823a1256bb548102b41d925474225979eac778ec7c73702"
+  },
+  "conflict:ch04.s09.p02.05": {
+    "decision": "edit",
+    "text": "Input-target pairs are formed by shifting each input row by one position to create the corresponding target row.",
+    "reason": "The captions support only that the target row is a one-position shift of the corresponding input row, without resolving the directional wording that conflicts with next-token indexing.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.9,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "cdec1147b919562ee19c8d819590badaa4fc1092a2698ea53ffbc8cda3fe10be"
+  },
+  "conflict:ch04.s09.p02.09": {
+    "decision": "note",
+    "note": "The reference code example uses a 2×6 input batch; this lecture example illustrates a smaller 2×4 input/target batch.",
+    "reason": "The captions explicitly support a two-sample input and target with four tokens per sample, so the difference appears to be a different illustrative example.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "b58387004bec1ea3debb6325dd7bd691c8c4d8f0df7178c3978396731eba4e12"
+  },
+  "conflict:ch04.s10.p03.r05": {
+    "decision": "note",
+    "note": "Here the lecture discusses a ~161M-parameter setup; the reference later loads the 355M medium model instead of the smaller 124M version.",
+    "reason": "The captions clearly support the lecture’s parameter count for that context, while the reference is describing a different model choice.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "88a7454defe5ae541f9056be0f84ede57277d78ec54b9fe11b9dcd865f5227be"
+  },
+  "conflict:ch04.s10.p07.r03": {
+    "decision": "note",
+    "note": "The reference’s classifier-training variant reports accuracy after each epoch; the lecture here describes the earlier text-generation training loop that prints a sample each epoch.",
+    "reason": "The cited captions support the sentence for the lecture’s context, but the reference describes a different training function variant.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "3ec2f8532828be511fee281874219b99a8e1533b2b9562aada58ae289422f625"
+  },
+  "conflict:ch04.s11.p01.04": {
+    "decision": "edit",
+    "text": "This function uses the previously defined loss-calculation functions to compute loss for the training loader and the validation loader.",
+    "reason": "The captions support computing training and validation loss, but the reference code uses num_batches=5, so it is not over the entire dataset here.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "16f94fa7487af29a8bfc66a6b0423342463a29c2cb0b55e89c1421c91178c736"
+  },
+  "conflict:ch04.s11.p02.02": {
+    "decision": "edit",
+    "text": "A \"generate_and_print_sample\" function is used after each epoch as a convenience function for tracking whether the model improves during training by showing generated text, though in this chapter the training loop calculates accuracy after each epoch instead.",
+    "reason": "The captions support the generate_and_print_sample description, and the reference clarifies that this chapter’s training setup uses accuracy after each epoch rather than sample printing.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.74,
+      "reason": "The cited lines support that a generate_and_print_sample convenience function is used after every epoch to track whether the model improves by showing generated text. However, the claim that 'in this chapter the training loop calculates accuracy after each epoch instead' is not supported by the provided lines."
+    },
+    "kind": "conflict",
+    "sentence_hash": "568b7fbcdb239bfe206659afc410bda99c90b1d568e8a77cc11e6a4ca7f84407"
+  },
+  "conflict:ch04.s11.p04.r05": {
+    "decision": "note",
+    "note": "The reference says slight overfitting appears around 1 epoch; here the plotted losses are described as diverging after the second epoch.",
+    "reason": "The cited captions support the sentence, and the discrepancy is about when overfitting becomes noticeable rather than a clear factual error.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "c61d83709530e7e16b57dfeb00323cf5833efd1a83f47ac6724c1de51ab16ee8"
+  },
+  "conflict:ch04.s12.p05.09": {
+    "decision": "edit",
+    "text": "The flow that is shown is: start from the logit tensor, apply top-k sampling, scale the logits with temperature, sample the next token from a multinomial distribution, or use argmax otherwise, and keep appending tokens until the new-token limit is reached.",
+    "reason": "This keeps the lecture-supported sequence while removing the incorrect claim that argmax is used only when temperature is unspecified.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "436dcd9819fca87ac19b73f7c7944adcf4e9eb32b375e6a58e57df459b836b89"
+  },
+  "conflict:ch04.s13.p01.03": {
+    "decision": "edit",
+    "text": "Temperature scaling helps make the distribution sharper or more uniform when sampling from a multinomial distribution.",
+    "reason": "The captions support sharpening or flattening the distribution, but the overfitting claim is not supported by the reference and overgeneralizes its role.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.9,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "1c6018d6c2fcda2fb76f0a9422702a54249b9e0fa029b9fc0f7efa6cad034e8c"
+  },
+  "conflict:ch04.s13.p01.05": {
+    "decision": "keep",
+    "reason": "The cited captions explicitly describe this ordering for the workflow, and the reference code excerpt matches the same top-k → -inf masking → temperature → softmax → multinomial sequence when sampling is enabled.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "acfd3a22f4bafa1c30b8df564b368708f701629d659fb985facfb909f486dafa"
+  },
+  "conflict:ch05.s02.p02.04": {
+    "decision": "edit",
+    "text": "For simplicity, the model discussed here is the 124 million parameter version rather than the larger 355 million, 774 million, or 1.5 billion parameter releases.",
+    "reason": "The captions support discussing the 124M model for simplicity, but saying it is the model loaded here contradicts the reference, which loads 355M.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "2cf2e0c2acd363fc953772f8b00fa9ca3fee7f5b3284aad51ba08016e4af1b3d"
+  },
+  "conflict:ch05.s02.p03.07": {
+    "decision": "edit",
+    "text": "After downloading, the code uses TensorFlow's latest_checkpoint utility to search the model directory, find the checkpoint entry, and determine where the model parameters are stored.",
+    "reason": "The captions clearly describe TensorFlow's latest_checkpoint behavior, but the original wording overstates alignment with the reference, which uses direct PyTorch loading instead.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "2d3b1fbd0bef39e756ee743da3870affacb232927e126b7972148d35af13c1a1"
+  },
+  "conflict:ch05.s06.p02.03": {
+    "decision": "keep",
+    "reason": "The sentence reports a lecture-specific exploratory setting (temperature 10) and does not materially conflict with the reference, which uses different example values.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "a50961ac0eead763f3110b6fe60b74897825c86d564007003e6bda1c7d04ef01"
+  },
+  "conflict:ch05.s08.p04.03": {
+    "decision": "edit",
+    "text": "If the maximum length is selected from the training data, this problem will not arise for the training sequences.",
+    "reason": "The caption supports a limited claim, while the reference shows longer validation or test sequences can still occur and be truncated.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.74,
+      "reason": "Cited lines support that selecting the maximum length from the data means 'this problem will not arise', but they do not specify 'for the training sequences' (the scope could be broader/unspecified)."
+    },
+    "kind": "conflict",
+    "sentence_hash": "b2957ec8d01e15936fde5c30225869dd69a3906d543c8849b112ca8eaa2df9f1"
+  },
+  "conflict:ch05.s10.p04.r02": {
+    "decision": "edit",
+    "text": "For a last-token output of -3.5983 and 3.9902, the code applies softmax to print the resulting probabilities and uses argmax on the last-token output to find the class label.",
+    "reason": "The captions support printing softmax probabilities, while the reference shows argmax may be applied directly to logits rather than after softmax.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.9,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "3d22a086816063bfc60835b4781e1052fe01f3ea5db5f956155e793c58f15534"
+  },
+  "conflict:ch05.s11.p02.r06": {
+    "decision": "edit",
+    "text": "The code calls this accuracy function on the training, validation, and test loaders, and then prints the three accuracies.",
+    "reason": "The captions mention setting the number of batches to 10, but the reference code shown does not pass num_batches=10, so removing that detail resolves the conflict while staying supported.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.94,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "2d7c08f4f5baba94a26c677a1cd43823ac19a41466c3f8b2dbdafc6ebd6ce096"
+  },
+  "conflict:ch05.s12.p01.02": {
+    "decision": "edit",
+    "text": "Fine-tuning means implementing a training function that adjusts the parameters to minimize the training loss and also prints the validation loss and the test loss.",
+    "reason": "The cited captions support minimizing training loss and printing validation and test loss, but not presenting that as a universal definition beyond this training function.",
+    "risk": "high",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "404c2a6ca6d5068697d379f7c0e5afc357a1af3132b2c5e5ebe0fdad9926322f"
+  },
+  "conflict:ch05.s12.p04.r08": {
+    "decision": "note",
+    "note": "Runtime varies by model and hardware: the reference reports about 5 minutes on an M3 MacBook Air for gpt2-small, while larger models and other laptops can take longer.",
+    "reason": "The caption supports the lecture’s machine-specific estimate, while the reference’s faster figure is for a different hardware/model setup.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "4a1c37ed2e208e748142ca309096ce6922e91da4f8d999b02671b6f50d2cb95f"
+  },
+  "conflict:ch06.s02.p01.03": {
+    "decision": "edit",
+    "text": "In this prompt style, the prompt starts with a fixed introductory instruction: \"Below is an instruction that describes a task. Write a response that appropriately completes the request.\"",
+    "reason": "The lecture quotes a broader Alpaca-style template, but the chapter’s actual format_input intro is the shorter fixed string shown in the reference code.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.94,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "a8fbf23b8250e2a67c4c4e2f7d5a5af36d0aaed628f67485e126c0c10db4dc26"
+  },
+  "conflict:ch06.s02.p02.04": {
+    "decision": "edit",
+    "text": "This function takes an entry containing the instruction, input, and output fields and converts the instruction and input into the Alpaca prompt.",
+    "reason": "The captions mention entries as instruction-input-output pairs, but the reference code shows the function uses only instruction and optional input to build the prompt.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.78,
+      "reason": "Captions support that the function takes an entry with instruction/input/output pairs and converts it into the Alpaca prompt, but they do not explicitly state that only the instruction and input are converted (excluding output)."
+    },
+    "kind": "conflict",
+    "sentence_hash": "be33907462653be99cbd22ad2f074ca9d4c1c0659b9ec12339b7e37833cf06d3"
+  },
+  "conflict:ch06.s02.p02.05": {
+    "decision": "edit",
+    "text": "It builds the prompt from the instruction plus the input, and the response is handled separately as the output.",
+    "reason": "The captions mention appending the response, but the referenced formatting function builds only the instruction-plus-input prompt, with the output added separately elsewhere.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.86,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "a6338eb420ed0c810197fb726d846dd2c5b8ca7b72b289d3b22de81ccd14f2f9"
+  },
+  "conflict:ch06.s04.p01.03": {
+    "decision": "note",
+    "note": "Here the lecture describes per-batch padding; the reference implementation instead pads to the longest training sequence for the whole dataset.",
+    "reason": "The cited captions clearly support the sentence, but the reference code uses dataset-level rather than batch-level padding.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "ce6fecdae865c1e7bf06746aed83b9ef61dedf9b506e711b3ee26902680ad0fb"
+  },
+  "conflict:ch06.s04.p01.06": {
+    "decision": "keep",
+    "reason": "The cited captions explicitly describe finding the longest sequence within each batch and padding the others to match it, so the lecture statement is correct in its context.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "85eacb0f35f92f6e9733107c648fc638f82598576eb4783c102be6765dedbfcc"
+  },
+  "conflict:ch06.s06.p01.03": {
+    "decision": "keep",
+    "reason": "The sentence matches the cited captions and does not materially conflict with the reference, which also implies that not every 50256 should be replaced.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "617b90521fa869f541ecdcd69ae411c9d681000eb44b3b317158b1b47b6853ac"
+  },
+  "conflict:ch06.s06.p03.r03": {
+    "decision": "edit",
+    "text": "Adding a third example changes the loss because one more training example is included.",
+    "reason": "The captions support only that the loss differs after adding a third example, not the specific value or a general claim that survives the ignored-target case in the reference.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "4e4e37bcaaa79d5a2b39b49acbda02398b8c4aeb2309cc9ba4bc99e20fc9dfce"
+  },
+  "conflict:ch06.s08.p04.r06": {
+    "decision": "note",
+    "note": "The lecture uses GPT-2-style settings here (dropout 0, qkv bias true); the reference code switches to 0.1 dropout and disables qkv bias for the book’s implementation.",
+    "reason": "The cited captions support the sentence, and the reference explicitly describes a different implementation choice rather than an error.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "ab011ed73ba06daa3a0b6113b6b44f683c740e9052e753b57b5e32f881a88c47"
+  },
+  "conflict:ch06.s09.p02.02": {
+    "decision": "note",
+    "note": "The reference code example uses the 124M model in a gpt2 directory; the lecture here describes downloading the 355M model instead.",
+    "reason": "Both statements fit different model_size choices, so the conflict is contextual rather than an error.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "ce00f1143367350bb9591326b48e50b9066f95b04383c2356a84efcdec10c268"
+  },
+  "conflict:ch06.s10.p01.04": {
+    "decision": "keep",
+    "reason": "The cited captions explicitly give this exact passive-voice output, and the reference uses an equally valid word order rather than a materially different answer.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "54f252429899163202320d881fa26f1d1309e76853641dbbc19864290026bd3c"
+  },
+  "conflict:ch06.s10.p03.r05": {
+    "decision": "keep",
+    "reason": "The cited captions explicitly support the 774 million parameter example and the claim about incoherent responses without fine-tuning, while the reference discusses different GPT-2 sizes for a separate setup.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "da2c45349b63bfe876207efe74bc7f6a6139b6b649a260fd6f68ae0f2e577b17"
+  },
+  "conflict:ch06.s11.p01.06": {
+    "decision": "note",
+    "note": "The lecture example says the model answered “prepared,” while the reference’s printed example shows the correct passive form “cooked every day by the chef.”",
+    "reason": "The cited captions support the sentence, but the reference presents a different example outcome for the same task.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "26e4ac5275552ee0ee155a804434bfc9063dbc429936676ce3787aec652b384c"
+  },
+  "conflict:ch06.s11.p04.r06": {
+    "decision": "note",
+    "note": "An earlier cell generates responses over the test set and writes instruction-data-with-response.json; this later optional cell only reloads that file.",
+    "reason": "The captions support the workflow described, but the referenced cell in this context only loads the already-created file.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "612e593c8429ab4a156cd41baef17d652cf17d8dac7f829796ee60762430fd83"
+  },
+  "conflict:ch06.s11.p04.r07": {
+    "decision": "edit",
+    "text": "When this code runs, the generate function is called on all instruction-input pairs in the test data, the responses are generated, and the response is added to the instruction data and then written to the file.",
+    "reason": "The lecture supports generation over all test pairs and collecting responses, but the code writes the updated full JSON file rather than appending to it.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.74,
+      "reason": "The cited lines support that generate is called on all instruction-input pairs, responses are generated, and the response is appended to the instruction data. They do not explicitly state that the updated data is then written to the file (only that it will be appended/collected and mentions an 'instruction data with response file')."
+    },
+    "kind": "conflict",
+    "sentence_hash": "784b9fb6c73ff8291e74220ddbc935eceba4b27e0c2ad5a1dd42900ba9c7cb61"
+  },
+  "conflict:ch06.s13.p05.r04": {
+    "decision": "keep",
+    "reason": "The lecture captions explicitly support changing the evaluation prompt to request an integer-only score, and the cited reference is from a different context so the mismatch is not material.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "5ef80485fc2de0d68d4cb3f670e4f5f04d292b7ff08e4106cf36c6ba73c8b236"
+  },
+  "numeric:ch04.s08.p05.r04": {
+    "decision": "edit",
+    "text": "After flattening, the target sequence is 3626, 6100, 345, 1107, 588, and 11311, and these indices identify the entries whose probabilities correspond to \"p11\" through \"p23\".",
+    "reason": "This sentence gives concrete flattened index values, so it should match the executed reference code for the checked positions.",
+    "risk": "low",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.78,
+      "reason": "The captions support that after flattening the sequence includes 3626, 610, 345, 107, 588, and 11311, and that indices for 3626 and 610 map to p11 and p12, and 11311 maps to p23, with a later summary listing p11 p12 p13 p21 p22 p23. However, the sentence claims the target sequence is 3626, 6100, 345, 1107, 588, and 11311, and that these indices correspond to p11 through p23; the captions say '610' and '107' (not 6100 and 1107) and do not explicitly map every listed index to each of p11–p23."
+    },
+    "kind": "numeric",
+    "sentence_hash": "2e8fe531a300fb4ac823a1256bb548102b41d925474225979eac778ec7c73702"
+  },
+  "numeric:ch04.s08.p06.11": {
+    "decision": "dismiss",
+    "reason": "The sentence uses “such as 10” as an illustrative example from the lecture rather than claiming the specific value computed by the reference code.",
+    "risk": "low",
+    "kind": "numeric",
+    "sentence_hash": "3dd6a2c77c57fda31717d626c1abb00b507bf083b0b234a9fdfdea686c976ca1"
+  }
+}

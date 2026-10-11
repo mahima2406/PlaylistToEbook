@@ -1,0 +1,570 @@
+{
+  "stage": "write",
+  "item": "ch01.s09",
+  "inputs_hash": "0ccb14a03acbb848f3bfb6873d1ea7cbed5a64b705a4875e022e5ce9d5c2fd39",
+  "output_hash": "cb3df74cbc39cd4b66de3a5bc109245b3a4ee1f09583771d7099a05d258e6fdc",
+  "output": {
+    "section_id": "ch01.s09",
+    "paragraphs": [
+      {
+        "id": "ch01.s09.p01",
+        "sentences": [
+          {
+            "id": "ch01.s09.p01.01",
+            "text": "How should you think about model families such as BERT and GPT, and how do they relate to Transformers and large language models more broadly?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s09.p01.02",
+            "text": "BERT and GPT are later variations of the Transformer architecture.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1543",
+              "NLn4eetGmf8@1545",
+              "NLn4eetGmf8@1552",
+              "NLn4eetGmf8@1557"
+            ]
+          },
+          {
+            "id": "ch01.s09.p01.03",
+            "text": "BERT stands for Bidirectional Encoder Representations from Transformers.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1568",
+              "NLn4eetGmf8@1570",
+              "NLn4eetGmf8@1581",
+              "NLn4eetGmf8@1583"
+            ]
+          },
+          {
+            "id": "ch01.s09.p01.04",
+            "text": "GPT stands for Generative Pre-trained Transformers.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1585",
+              "NLn4eetGmf8@1589",
+              "NLn4eetGmf8@1593"
+            ]
+          },
+          {
+            "id": "ch01.s09.p01.05",
+            "text": "GPT is described as pre-trained because it is a pre-trained or foundational model.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1593",
+              "NLn4eetGmf8@1597",
+              "NLn4eetGmf8@1599"
+            ]
+          },
+          {
+            "id": "ch01.s09.p01.06",
+            "text": "Both BERT and GPT are based on the Transformer architecture.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1855",
+              "NLn4eetGmf8@1857",
+              "NLn4eetGmf8@1859",
+              "NLn4eetGmf8@1861"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s09.p02",
+        "sentences": [
+          {
+            "id": "ch01.s09.p02.01",
+            "text": "The main difference is in what each model is trained to predict.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s09.p02.02",
+            "text": "BERT predicts hidden or missing words in a sentence, which are also called masked words, whereas GPT generates a new next word.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1612",
+              "NLn4eetGmf8@1615",
+              "NLn4eetGmf8@1619",
+              "NLn4eetGmf8@1621",
+              "NLn4eetGmf8@1626",
+              "NLn4eetGmf8@1629",
+              "NLn4eetGmf8@2292",
+              "NLn4eetGmf8@2296",
+              "NLn4eetGmf8@2298",
+              "NLn4eetGmf8@2332"
+            ]
+          },
+          {
+            "id": "ch01.s09.p02.03",
+            "text": "In BERT, words are randomly masked during training.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1650",
+              "NLn4eetGmf8@1653",
+              "NLn4eetGmf8@1655"
+            ]
+          },
+          {
+            "id": "ch01.s09.p02.04",
+            "text": "The text is pre-processed by converting it into token IDs, then passed to the encoder for embeddings, and the output fills in the missing words.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1659",
+              "NLn4eetGmf8@1661",
+              "NLn4eetGmf8@1663",
+              "NLn4eetGmf8@1666",
+              "NLn4eetGmf8@1668",
+              "NLn4eetGmf8@1670",
+              "NLn4eetGmf8@1673"
+            ]
+          },
+          {
+            "id": "ch01.s09.p02.05",
+            "text": "For example, from the incomplete text \"this is an Dash or question mark of how llm Dash perform\", BERT outputs the missing words \"example\" and \"can\", giving \"this is an example of how llm can perform\".",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1638",
+              "NLn4eetGmf8@1640",
+              "NLn4eetGmf8@1644",
+              "NLn4eetGmf8@1673",
+              "NLn4eetGmf8@1676",
+              "NLn4eetGmf8@1678",
+              "NLn4eetGmf8@1681",
+              "NLn4eetGmf8@1683"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s09.p03",
+        "sentences": [
+          {
+            "id": "ch01.s09.p03.01",
+            "text": "GPT handles incomplete text in a different way.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s09.p03.02",
+            "text": "GPT receives incomplete text where the next word is unknown, pre-processes it into token IDs, and uses a decoder-only model to predict that next word.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1692",
+              "NLn4eetGmf8@1694",
+              "NLn4eetGmf8@1697",
+              "NLn4eetGmf8@1700",
+              "NLn4eetGmf8@1704",
+              "NLn4eetGmf8@1707",
+              "NLn4eetGmf8@1709",
+              "NLn4eetGmf8@1711",
+              "NLn4eetGmf8@1714"
+            ]
+          },
+          {
+            "id": "ch01.s09.p03.03",
+            "text": "For example, given \"this is an example of how llm can Dash\", the decoder predicts the unknown word \"perform\" to produce \"this is an example of how llm can perform\".",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1692",
+              "NLn4eetGmf8@1694",
+              "NLn4eetGmf8@1714",
+              "NLn4eetGmf8@1716",
+              "NLn4eetGmf8@1719",
+              "NLn4eetGmf8@1722"
+            ]
+          },
+          {
+            "id": "ch01.s09.p03.04",
+            "text": "GPT models learn to generate one word at a time.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1725",
+              "NLn4eetGmf8@1728",
+              "NLn4eetGmf8@2342",
+              "NLn4eetGmf8@2345"
+            ]
+          },
+          {
+            "id": "ch01.s09.p03.05",
+            "text": "GPT is a left-to-right model: it uses the information on the left and predicts the rightmost unknown token or next word.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1731",
+              "NLn4eetGmf8@1733",
+              "NLn4eetGmf8@1736",
+              "NLn4eetGmf8@1738",
+              "NLn4eetGmf8@2335",
+              "NLn4eetGmf8@2337",
+              "NLn4eetGmf8@2339",
+              "NLn4eetGmf8@2341"
+            ]
+          },
+          {
+            "id": "ch01.s09.p03.06",
+            "text": "Because GPT produces one word at a time, it can complete missing text.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1836",
+              "NLn4eetGmf8@1839",
+              "NLn4eetGmf8@1841"
+            ]
+          },
+          {
+            "id": "ch01.s09.p03.07",
+            "text": "GPT does not have an encoder and only has a decoder.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1711",
+              "NLn4eetGmf8@1714",
+              "NLn4eetGmf8@1864",
+              "NLn4eetGmf8@1867",
+              "NLn4eetGmf8@1869",
+              "NLn4eetGmf8@2350",
+              "NLn4eetGmf8@2353",
+              "NLn4eetGmf8@2354"
+            ]
+          },
+          {
+            "id": "ch01.s09.p03.08",
+            "text": "BERT, by contrast, only has the encoder.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1666",
+              "NLn4eetGmf8@1869",
+              "NLn4eetGmf8@1874",
+              "NLn4eetGmf8@2308",
+              "NLn4eetGmf8@2311"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s09.p04",
+        "sentences": [
+          {
+            "id": "ch01.s09.p04.01",
+            "text": "This left-to-right versus bidirectional behavior leads to different strengths.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s09.p04.02",
+            "text": "In BERT, random words can be masked, so the model has to pay attention to different parts of the sentence.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1740",
+              "NLn4eetGmf8@1743",
+              "NLn4eetGmf8@1745",
+              "NLn4eetGmf8@2301",
+              "NLn4eetGmf8@2303",
+              "NLn4eetGmf8@2304",
+              "NLn4eetGmf8@2306"
+            ]
+          },
+          {
+            "id": "ch01.s09.p04.03",
+            "text": "BERT is called bidirectional because it looks at the sentence from both directions, paying attention from the left and the right, unlike GPT which looks left to right.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1764",
+              "NLn4eetGmf8@1766",
+              "NLn4eetGmf8@1771",
+              "NLn4eetGmf8@1772",
+              "NLn4eetGmf8@1775",
+              "NLn4eetGmf8@1777",
+              "NLn4eetGmf8@1779",
+              "NLn4eetGmf8@1781",
+              "NLn4eetGmf8@1783",
+              "NLn4eetGmf8@1786",
+              "NLn4eetGmf8@2303",
+              "NLn4eetGmf8@2306",
+              "NLn4eetGmf8@2308"
+            ]
+          },
+          {
+            "id": "ch01.s09.p04.04",
+            "text": "By looking at the entire sentence from both directions, BERT can capture nuances and relationships between words that are important for understanding meaning and context.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1786",
+              "NLn4eetGmf8@1788",
+              "NLn4eetGmf8@1790",
+              "NLn4eetGmf8@1793",
+              "NLn4eetGmf8@1795"
+            ]
+          },
+          {
+            "id": "ch01.s09.p04.05",
+            "text": "It can also capture the meanings of different words and how they relate to each other very well.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@2313",
+              "NLn4eetGmf8@2315",
+              "NLn4eetGmf8@2318",
+              "NLn4eetGmf8@2320",
+              "NLn4eetGmf8@2321"
+            ]
+          },
+          {
+            "id": "ch01.s09.p04.06",
+            "text": "For example, BERT can distinguish \"bank\" as a financial institution from \"bank\" as a river bank by looking at the surrounding words.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1798",
+              "NLn4eetGmf8@1800",
+              "NLn4eetGmf8@1802",
+              "NLn4eetGmf8@1804",
+              "NLn4eetGmf8@1808"
+            ]
+          },
+          {
+            "id": "ch01.s09.p04.07",
+            "text": "That is why BERT does very well in sentiment analysis and is very commonly used for it.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1748",
+              "NLn4eetGmf8@1750",
+              "NLn4eetGmf8@1816",
+              "NLn4eetGmf8@1818",
+              "NLn4eetGmf8@1820",
+              "NLn4eetGmf8@2321",
+              "NLn4eetGmf8@2324"
+            ]
+          },
+          {
+            "id": "ch01.s09.p04.08",
+            "text": "GPT can also be used for sentiment analysis, but BERT is especially suited to it.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1820",
+              "NLn4eetGmf8@1823",
+              "NLn4eetGmf8@1826",
+              "NLn4eetGmf8@1841",
+              "NLn4eetGmf8@1844"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s09.p05",
+        "sentences": [
+          {
+            "id": "ch01.s09.p05.01",
+            "text": "The broader picture is just as important: Transformer and large language model are not interchangeable names.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s09.p05.02",
+            "text": "Not all Transformers are LLMs.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1894",
+              "NLn4eetGmf8@1897",
+              "NLn4eetGmf8@1991",
+              "NLn4eetGmf8@2105",
+              "NLn4eetGmf8@2107",
+              "NLn4eetGmf8@2361"
+            ]
+          },
+          {
+            "id": "ch01.s09.p05.03",
+            "text": "Transformers can be used for tasks other than language, including computer vision.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1901",
+              "NLn4eetGmf8@1903",
+              "NLn4eetGmf8@1909",
+              "NLn4eetGmf8@1912",
+              "NLn4eetGmf8@1981",
+              "NLn4eetGmf8@1983",
+              "NLn4eetGmf8@1985",
+              "NLn4eetGmf8@1988"
+            ]
+          },
+          {
+            "id": "ch01.s09.p05.04",
+            "text": "Vision Transformers can be used for image recognition and image classification.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1914",
+              "NLn4eetGmf8@1916",
+              "NLn4eetGmf8@1921",
+              "NLn4eetGmf8@1922",
+              "NLn4eetGmf8@1973",
+              "NLn4eetGmf8@1975"
+            ]
+          },
+          {
+            "id": "ch01.s09.p05.05",
+            "text": "They can also be used to detect potholes on roads and to classify tumors from images.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1925",
+              "NLn4eetGmf8@1927",
+              "NLn4eetGmf8@1929",
+              "NLn4eetGmf8@1934",
+              "NLn4eetGmf8@1936",
+              "NLn4eetGmf8@1938"
+            ]
+          },
+          {
+            "id": "ch01.s09.p05.06",
+            "text": "Compared to convolutional neural networks, Vision Transformers achieve remarkable results while using substantially fewer computational resources for pre-training, and they show a generally weaker bias.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1941",
+              "NLn4eetGmf8@1943",
+              "NLn4eetGmf8@1948",
+              "NLn4eetGmf8@1950",
+              "NLn4eetGmf8@1953",
+              "NLn4eetGmf8@1955",
+              "NLn4eetGmf8@1959",
+              "NLn4eetGmf8@1961"
+            ]
+          },
+          {
+            "id": "ch01.s09.p05.07",
+            "text": "When thinking about image classification, many people think first of convolutional neural networks, but Vision Transformers are a newer method that is also gaining popularity.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1961",
+              "NLn4eetGmf8@1964",
+              "NLn4eetGmf8@1966",
+              "NLn4eetGmf8@1968",
+              "NLn4eetGmf8@1971",
+              "NLn4eetGmf8@1973"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s09.p06",
+        "sentences": [
+          {
+            "id": "ch01.s09.p06.01",
+            "text": "The reverse confusion is also common.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s09.p06.02",
+            "text": "Not all LLMs are Transformers.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1994",
+              "NLn4eetGmf8@1997",
+              "NLn4eetGmf8@1999",
+              "NLn4eetGmf8@2109",
+              "NLn4eetGmf8@2112",
+              "NLn4eetGmf8@2370"
+            ]
+          },
+          {
+            "id": "ch01.s09.p06.03",
+            "text": "LLMs can be based on recurrent or convolutional architectures as well.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1999",
+              "NLn4eetGmf8@2003",
+              "NLn4eetGmf8@2004",
+              "NLn4eetGmf8@2377",
+              "NLn4eetGmf8@2379",
+              "NLn4eetGmf8@2382",
+              "NLn4eetGmf8@2385"
+            ]
+          },
+          {
+            "id": "ch01.s09.p06.04",
+            "text": "Before Transformers, recurrent neural networks were introduced in 1980 and long short-term memory networks were introduced in 1997.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@2015",
+              "NLn4eetGmf8@2018",
+              "NLn4eetGmf8@2020",
+              "NLn4eetGmf8@2022",
+              "NLn4eetGmf8@2025",
+              "NLn4eetGmf8@2027"
+            ]
+          },
+          {
+            "id": "ch01.s09.p06.05",
+            "text": "Recurrent neural networks and long short-term memory networks could do sequence modeling and text completion tasks, so they can also be called language models.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@2027",
+              "NLn4eetGmf8@2029",
+              "NLn4eetGmf8@2032",
+              "NLn4eetGmf8@2034"
+            ]
+          },
+          {
+            "id": "ch01.s09.p06.06",
+            "text": "An RNN maintains a feedback loop, which is why it can incorporate memory.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@2049",
+              "NLn4eetGmf8@2052",
+              "NLn4eetGmf8@2054",
+              "NLn4eetGmf8@2058"
+            ]
+          },
+          {
+            "id": "ch01.s09.p06.07",
+            "text": "An LSTM incorporates two separate paths, one for short-term memories and one for long-term memories.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@2060",
+              "NLn4eetGmf8@2062",
+              "NLn4eetGmf8@2066",
+              "NLn4eetGmf8@2068",
+              "NLn4eetGmf8@2071",
+              "NLn4eetGmf8@2075",
+              "NLn4eetGmf8@2077"
+            ]
+          },
+          {
+            "id": "ch01.s09.p06.08",
+            "text": "Using both paths, LSTMs can make predictions of what comes next.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@2080",
+              "NLn4eetGmf8@2082",
+              "NLn4eetGmf8@2084",
+              "NLn4eetGmf8@2086",
+              "NLn4eetGmf8@2089",
+              "NLn4eetGmf8@2091"
+            ]
+          },
+          {
+            "id": "ch01.s09.p06.09",
+            "text": "Recurrent neural networks, long short-term memory networks, and some convolutional architectures can also be large language models.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@2091",
+              "NLn4eetGmf8@2094",
+              "NLn4eetGmf8@2096",
+              "NLn4eetGmf8@2099",
+              "NLn4eetGmf8@2102"
+            ]
+          },
+          {
+            "id": "ch01.s09.p06.10",
+            "text": "For that reason, Transformers and LLMs should not be used interchangeably, because they are different things.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@2112",
+              "NLn4eetGmf8@2115",
+              "NLn4eetGmf8@2118",
+              "NLn4eetGmf8@2386",
+              "NLn4eetGmf8@2389",
+              "NLn4eetGmf8@2391"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

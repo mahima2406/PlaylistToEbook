@@ -1,0 +1,1949 @@
+{
+  "stage": "verify",
+  "item": "ch03.s10",
+  "inputs_hash": "0b951a6cae5a06b7cc57a7e2f302bf6575e4a1494b674484cf975dc4db538d3e",
+  "output_hash": "97e52a4518aafde923ce58fb1d0976870efc0483040c2d4b0a942cfd94e6a6ba",
+  "output": {
+    "section_id": "ch03.s10",
+    "paragraphs": [
+      {
+        "id": "ch03.s10.p01",
+        "sentences": [
+          {
+            "id": "ch03.s10.p01.01",
+            "text": "How do transformer blocks keep training stable when so many layers and parameters are stacked together?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s10.p01.02",
+            "text": "A transformer block contains layer normalization, masked multi-head attention, dropout, shortcut connections, another layer normalization, a feed-forward neural network, another dropout layer, and another shortcut connection.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@66",
+              "G3W-LT79LSI@68",
+              "G3W-LT79LSI@72",
+              "G3W-LT79LSI@75",
+              "G3W-LT79LSI@77",
+              "G3W-LT79LSI@80",
+              "G3W-LT79LSI@81",
+              "G3W-LT79LSI@83",
+              "G3W-LT79LSI@86"
+            ]
+          },
+          {
+            "id": "ch03.s10.p01.03",
+            "text": "Layer normalization appears at multiple places inside the transformer block and also outside the transformer block in the GPT architecture.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@148",
+              "G3W-LT79LSI@150",
+              "G3W-LT79LSI@152",
+              "G3W-LT79LSI@155",
+              "G3W-LT79LSI@157",
+              "G3W-LT79LSI@159",
+              "G3W-LT79LSI@161",
+              "G3W-LT79LSI@163",
+              "G3W-LT79LSI@168",
+              "G3W-LT79LSI@170"
+            ]
+          },
+          {
+            "id": "ch03.s10.p01.04",
+            "text": "In the architecture here, normalization appears before the attention head, after the attention head, and once again after coming out of the transformer block, before output processing.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@217",
+              "G3W-LT79LSI@219",
+              "G3W-LT79LSI@221",
+              "G3W-LT79LSI@222",
+              "G3W-LT79LSI@224",
+              "G3W-LT79LSI@226",
+              "G3W-LT79LSI@228",
+              "G3W-LT79LSI@230"
+            ]
+          },
+          {
+            "id": "ch03.s10.p01.05",
+            "text": "That repeated use is why it makes sense to define layer normalization as a separate class when coding GPT.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@174",
+              "G3W-LT79LSI@176",
+              "G3W-LT79LSI@177",
+              "G3W-LT79LSI@258",
+              "G3W-LT79LSI@261",
+              "G3W-LT79LSI@263",
+              "G3W-LT79LSI@269",
+              "G3W-LT79LSI@271",
+              "G3W-LT79LSI@273",
+              "G3W-LT79LSI@275",
+              "G3W-LT79LSI@277"
+            ]
+          },
+          {
+            "id": "ch03.s10.p01.06",
+            "text": "In GPT and modern transformer architectures, layer normalization is applied before multi-head attention, before the neural network module inside the transformer block, and once more outside the transformer block before the final output layer.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@865",
+              "G3W-LT79LSI@868",
+              "G3W-LT79LSI@870",
+              "G3W-LT79LSI@875",
+              "G3W-LT79LSI@878",
+              "G3W-LT79LSI@880",
+              "G3W-LT79LSI@888",
+              "G3W-LT79LSI@890",
+              "G3W-LT79LSI@894",
+              "G3W-LT79LSI@897",
+              "G3W-LT79LSI@899",
+              "G3W-LT79LSI@904",
+              "G3W-LT79LSI@907"
+            ]
+          },
+          {
+            "id": "ch03.s10.p01.07",
+            "text": "Overall, it appears three times in the architecture being discussed: around the multi-head attention module and once before the final output layer.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@911",
+              "G3W-LT79LSI@914",
+              "G3W-LT79LSI@916",
+              "G3W-LT79LSI@917",
+              "G3W-LT79LSI@920",
+              "G3W-LT79LSI@923",
+              "G3W-LT79LSI@925"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s10.p02",
+        "sentences": [
+          {
+            "id": "ch03.s10.p02.r01",
+            "text": "Why is normalization worth this much attention?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s10.p02.r02",
+            "text": "Layer normalization is important because it improves the stability and efficiency of training deep neural networks.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@324",
+              "G3W-LT79LSI@326",
+              "G3W-LT79LSI@328",
+              "G3W-LT79LSI@349",
+              "G3W-LT79LSI@352",
+              "G3W-LT79LSI@355",
+              "G3W-LT79LSI@358"
+            ]
+          },
+          {
+            "id": "ch03.s10.p02.r03",
+            "text": "Training deep neural networks with many layers can be challenging because they can suffer from vanishing gradients or exploding gradients, which leads to unstable training dynamics.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@333",
+              "G3W-LT79LSI@335",
+              "G3W-LT79LSI@337",
+              "G3W-LT79LSI@340",
+              "G3W-LT79LSI@343",
+              "G3W-LT79LSI@345"
+            ]
+          },
+          {
+            "id": "ch03.s10.p02.r04",
+            "text": "If a layer's output is too large or too small, gradient magnitudes can also become too large or too small.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@433",
+              "G3W-LT79LSI@436",
+              "G3W-LT79LSI@439",
+              "G3W-LT79LSI@442",
+              "G3W-LT79LSI@445",
+              "G3W-LT79LSI@447",
+              "G3W-LT79LSI@449"
+            ]
+          },
+          {
+            "id": "ch03.s10.p02.r05",
+            "text": "If a gradient becomes too large during backpropagation, multiplying gradients together can make the gradient at early layers explode.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@450",
+              "G3W-LT79LSI@451",
+              "G3W-LT79LSI@453",
+              "G3W-LT79LSI@455",
+              "G3W-LT79LSI@460",
+              "G3W-LT79LSI@462",
+              "G3W-LT79LSI@464",
+              "G3W-LT79LSI@466",
+              "G3W-LT79LSI@468",
+              "G3W-LT79LSI@470"
+            ]
+          },
+          {
+            "id": "ch03.s10.p02.r06",
+            "text": "If a gradient becomes very small during backpropagation, the gradients at earlier layers also become very small, parameter updates do not happen in practice, and learning stagnates.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@473",
+              "G3W-LT79LSI@475",
+              "G3W-LT79LSI@478",
+              "G3W-LT79LSI@480",
+              "G3W-LT79LSI@482",
+              "G3W-LT79LSI@483",
+              "G3W-LT79LSI@485",
+              "G3W-LT79LSI@487",
+              "G3W-LT79LSI@489",
+              "G3W-LT79LSI@491",
+              "G3W-LT79LSI@494",
+              "G3W-LT79LSI@496"
+            ]
+          },
+          {
+            "id": "ch03.s10.p02.r07",
+            "text": "Both very small gradients and very large gradients lead to unstable training dynamics.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@498",
+              "G3W-LT79LSI@501",
+              "G3W-LT79LSI@503",
+              "G3W-LT79LSI@505"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s10.p03",
+        "sentences": [
+          {
+            "id": "ch03.s10.p03.01",
+            "text": "There is a second problem normalization is meant to reduce.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s10.p03.02",
+            "text": "Internal covariate shift is the problem that, as training proceeds, the input distribution seen by a layer changes from one iteration to another.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@567",
+              "G3W-LT79LSI@569",
+              "G3W-LT79LSI@571",
+              "G3W-LT79LSI@573",
+              "G3W-LT79LSI@575",
+              "G3W-LT79LSI@580",
+              "G3W-LT79LSI@582",
+              "G3W-LT79LSI@583",
+              "G3W-LT79LSI@585",
+              "G3W-LT79LSI@588",
+              "G3W-LT79LSI@590"
+            ]
+          },
+          {
+            "id": "ch03.s10.p03.03",
+            "text": "Changing input distributions at each layer make training difficult, make weight updates harder, and delay convergence to an optimal solution.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@592",
+              "G3W-LT79LSI@594",
+              "G3W-LT79LSI@596",
+              "G3W-LT79LSI@598",
+              "G3W-LT79LSI@600",
+              "G3W-LT79LSI@603",
+              "G3W-LT79LSI@605",
+              "G3W-LT79LSI@608"
+            ]
+          },
+          {
+            "id": "ch03.s10.p03.04",
+            "text": "Layer normalization helps reduce internal covariate shift by fixing the mean and standard deviation of each layer's outputs, which accelerates convergence.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@611",
+              "G3W-LT79LSI@614",
+              "G3W-LT79LSI@617",
+              "G3W-LT79LSI@619",
+              "G3W-LT79LSI@621",
+              "G3W-LT79LSI@623",
+              "G3W-LT79LSI@625",
+              "G3W-LT79LSI@629",
+              "G3W-LT79LSI@631"
+            ]
+          },
+          {
+            "id": "ch03.s10.p03.05",
+            "text": "The two main reasons for using layer normalization are to stabilize training by preventing vanishing or exploding gradients and to reduce internal covariate shift so convergence is faster.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@633",
+              "G3W-LT79LSI@635",
+              "G3W-LT79LSI@637",
+              "G3W-LT79LSI@639",
+              "G3W-LT79LSI@642",
+              "G3W-LT79LSI@644",
+              "G3W-LT79LSI@646",
+              "G3W-LT79LSI@649",
+              "G3W-LT79LSI@651",
+              "G3W-LT79LSI@654",
+              "G3W-LT79LSI@656",
+              "G3W-LT79LSI@658"
+            ]
+          },
+          {
+            "id": "ch03.s10.p03.06",
+            "text": "The main idea of layer normalization is to take the outputs of a specific layer and adjust them so that they have mean zero and variance one.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@672",
+              "G3W-LT79LSI@676",
+              "G3W-LT79LSI@680",
+              "G3W-LT79LSI@683",
+              "G3W-LT79LSI@685",
+              "G3W-LT79LSI@687",
+              "G3W-LT79LSI@689",
+              "G3W-LT79LSI@691"
+            ]
+          },
+          {
+            "id": "ch03.s10.p03.07",
+            "text": "Layer normalization adjusts the outputs of every neural network layer to have mean zero and variance one, and this helps stabilize training and reduce internal covariate shift.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@830",
+              "G3W-LT79LSI@833",
+              "G3W-LT79LSI@834",
+              "G3W-LT79LSI@837",
+              "G3W-LT79LSI@839",
+              "G3W-LT79LSI@842",
+              "G3W-LT79LSI@844",
+              "G3W-LT79LSI@846"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s10.p04",
+        "sentences": [
+          {
+            "id": "ch03.s10.p04.01",
+            "text": "A small numeric example makes the normalization step concrete.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s10.p04.02",
+            "text": "For four layer outputs \"X1\", \"X2\", \"X3\", and \"X4\", the mean is computed as (\"X1\" + \"X2\" + \"X3\" + \"X4\") / 4, which in the example equals 2.15.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@693",
+              "G3W-LT79LSI@697",
+              "G3W-LT79LSI@701",
+              "G3W-LT79LSI@717",
+              "G3W-LT79LSI@719",
+              "G3W-LT79LSI@722",
+              "G3W-LT79LSI@726"
+            ]
+          },
+          {
+            "id": "ch03.s10.p04.03",
+            "text": "The variance is computed as one fourth of the sum of the squared differences between each output and the mean.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@728",
+              "G3W-LT79LSI@731",
+              "G3W-LT79LSI@734",
+              "G3W-LT79LSI@737",
+              "G3W-LT79LSI@740",
+              "G3W-LT79LSI@743",
+              "G3W-LT79LSI@746"
+            ]
+          },
+          {
+            "id": "ch03.s10.p04.04",
+            "text": "To normalize the outputs, subtract the mean from each output and divide by the square root of the variance, which is the standard deviation.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@748",
+              "G3W-LT79LSI@750",
+              "G3W-LT79LSI@753",
+              "G3W-LT79LSI@755",
+              "G3W-LT79LSI@757",
+              "G3W-LT79LSI@758",
+              "G3W-LT79LSI@762",
+              "G3W-LT79LSI@765",
+              "G3W-LT79LSI@768",
+              "G3W-LT79LSI@770",
+              "G3W-LT79LSI@774",
+              "G3W-LT79LSI@777"
+            ]
+          },
+          {
+            "id": "ch03.s10.p04.05",
+            "text": "After this normalization, the normalized values have mean zero.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@784",
+              "G3W-LT79LSI@787",
+              "G3W-LT79LSI@789",
+              "G3W-LT79LSI@794",
+              "G3W-LT79LSI@797",
+              "G3W-LT79LSI@799"
+            ]
+          },
+          {
+            "id": "ch03.s10.p04.06",
+            "text": "After this normalization, the normalized values have variance one.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@799",
+              "G3W-LT79LSI@801",
+              "G3W-LT79LSI@803",
+              "G3W-LT79LSI@806",
+              "G3W-LT79LSI@809"
+            ]
+          },
+          {
+            "id": "ch03.s10.p04.07",
+            "text": "The same procedure can be summarized simply as subtracting the mean from each layer output and dividing by the square root of the variance.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@954",
+              "G3W-LT79LSI@956",
+              "G3W-LT79LSI@958",
+              "G3W-LT79LSI@960"
+            ]
+          },
+          {
+            "id": "ch03.s10.p04.08",
+            "text": "After layer normalization, the normalized outputs have mean zero and variance one.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@965",
+              "G3W-LT79LSI@967",
+              "G3W-LT79LSI@968",
+              "G3W-LT79LSI@970",
+              "G3W-LT79LSI@972"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s10.p05",
+        "sentences": [
+          {
+            "id": "ch03.s10.p05.01",
+            "text": "The code example starts with a simple network before moving to the GPT module.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s10.p05.02",
+            "text": "To illustrate layer normalization in code, the implementation is first applied to a simple neural network and then turned into a separate layer normalization class for integration into the GPT architecture.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@981",
+              "G3W-LT79LSI@982",
+              "G3W-LT79LSI@984",
+              "G3W-LT79LSI@986",
+              "G3W-LT79LSI@988",
+              "G3W-LT79LSI@990",
+              "G3W-LT79LSI@992",
+              "G3W-LT79LSI@994",
+              "G3W-LT79LSI@1004",
+              "G3W-LT79LSI@1006",
+              "G3W-LT79LSI@1008",
+              "G3W-LT79LSI@1011",
+              "G3W-LT79LSI@1014",
+              "G3W-LT79LSI@1016"
+            ]
+          },
+          {
+            "id": "ch03.s10.p05.03",
+            "text": "In the example, the input tensor has shape 2 by 5 because there are two batches and each batch has five inputs.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1035",
+              "G3W-LT79LSI@1037",
+              "G3W-LT79LSI@1040",
+              "G3W-LT79LSI@1044",
+              "G3W-LT79LSI@1046",
+              "G3W-LT79LSI@1082",
+              "G3W-LT79LSI@1084",
+              "G3W-LT79LSI@1087",
+              "G3W-LT79LSI@1089"
+            ]
+          },
+          {
+            "id": "ch03.s10.p05.04",
+            "text": "The example network layer takes five inputs and produces six outputs, so the output tensor has shape 2 by 6, with one row of six outputs for each batch.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1054",
+              "G3W-LT79LSI@1057",
+              "G3W-LT79LSI@1059",
+              "G3W-LT79LSI@1065",
+              "G3W-LT79LSI@1068",
+              "G3W-LT79LSI@1070",
+              "G3W-LT79LSI@1074",
+              "G3W-LT79LSI@1076",
+              "G3W-LT79LSI@1091",
+              "G3W-LT79LSI@1094",
+              "G3W-LT79LSI@1097",
+              "G3W-LT79LSI@1126",
+              "G3W-LT79LSI@1128",
+              "G3W-LT79LSI@1130",
+              "G3W-LT79LSI@1133",
+              "G3W-LT79LSI@1136",
+              "G3W-LT79LSI@1139",
+              "G3W-LT79LSI@1142",
+              "G3W-LT79LSI@1145"
+            ]
+          },
+          {
+            "id": "ch03.s10.p05.05",
+            "text": "This example neural network consists of a linear layer followed by a ReLU activation function.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1182",
+              "G3W-LT79LSI@1184",
+              "G3W-LT79LSI@1186"
+            ]
+          },
+          {
+            "id": "ch03.s10.p05.06",
+            "text": "The ReLU activation function outputs \"x\" when \"x\" is positive and outputs zero when \"x\" is negative.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1196",
+              "G3W-LT79LSI@1199",
+              "G3W-LT79LSI@1201",
+              "G3W-LT79LSI@1204"
+            ]
+          },
+          {
+            "id": "ch03.s10.p05.07",
+            "text": "In layer normalization, normalization is applied separately to each batch in the example by replacing each output value with that output minus the batch mean divided by the square root of the batch variance.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1211",
+              "G3W-LT79LSI@1213",
+              "G3W-LT79LSI@1218",
+              "G3W-LT79LSI@1220",
+              "G3W-LT79LSI@1223",
+              "G3W-LT79LSI@1225",
+              "G3W-LT79LSI@1227",
+              "G3W-LT79LSI@1229",
+              "G3W-LT79LSI@1233",
+              "G3W-LT79LSI@1237",
+              "G3W-LT79LSI@1244",
+              "G3W-LT79LSI@1250",
+              "G3W-LT79LSI@1260",
+              "G3W-LT79LSI@1263",
+              "G3W-LT79LSI@1269",
+              "G3W-LT79LSI@1273",
+              "G3W-LT79LSI@1279",
+              "G3W-LT79LSI@1281",
+              "G3W-LT79LSI@1283"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s10.p06",
+        "sentences": [
+          {
+            "id": "ch03.s10.p06.r01",
+            "text": "In code, the mean is computed with dimension equal to minus one so that the mean is taken across the columns for each batch.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1292",
+              "G3W-LT79LSI@1296",
+              "G3W-LT79LSI@1299",
+              "G3W-LT79LSI@1301",
+              "G3W-LT79LSI@1304",
+              "G3W-LT79LSI@1306",
+              "G3W-LT79LSI@1308",
+              "G3W-LT79LSI@1401",
+              "G3W-LT79LSI@1404",
+              "G3W-LT79LSI@1429",
+              "G3W-LT79LSI@1431"
+            ]
+          },
+          {
+            "id": "ch03.s10.p06.r02",
+            "text": "Using keepdim equal to true preserves the mean as a 2 by 1 matrix instead of reducing it to a vector, which keeps dimensions aligned for later calculations.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1311",
+              "G3W-LT79LSI@1313",
+              "G3W-LT79LSI@1315",
+              "G3W-LT79LSI@1317",
+              "G3W-LT79LSI@1319",
+              "G3W-LT79LSI@1322",
+              "G3W-LT79LSI@1324",
+              "G3W-LT79LSI@1329",
+              "G3W-LT79LSI@1331",
+              "G3W-LT79LSI@1340",
+              "G3W-LT79LSI@1343",
+              "G3W-LT79LSI@1345",
+              "G3W-LT79LSI@1350",
+              "G3W-LT79LSI@1352",
+              "G3W-LT79LSI@1355",
+              "G3W-LT79LSI@1357",
+              "G3W-LT79LSI@1359",
+              "G3W-LT79LSI@1362",
+              "G3W-LT79LSI@1364"
+            ]
+          },
+          {
+            "id": "ch03.s10.p06.r03",
+            "text": "The variance is also computed across the columns for both batches with keepdim equal to true.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1366",
+              "G3W-LT79LSI@1368",
+              "G3W-LT79LSI@1370",
+              "G3W-LT79LSI@1372",
+              "G3W-LT79LSI@1374",
+              "G3W-LT79LSI@1406",
+              "G3W-LT79LSI@1408",
+              "G3W-LT79LSI@1410",
+              "G3W-LT79LSI@1414"
+            ]
+          },
+          {
+            "id": "ch03.s10.p06.r04",
+            "text": "If keepdim equal to true is not used, subtracting the mean from each individual element later can cause problems.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1414",
+              "G3W-LT79LSI@1416",
+              "G3W-LT79LSI@1418",
+              "G3W-LT79LSI@1420",
+              "G3W-LT79LSI@1422"
+            ]
+          },
+          {
+            "id": "ch03.s10.p06.r05",
+            "text": "The main normalization step in code is to subtract the mean tensor from the output tensor and divide by the square root of the variance.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1441",
+              "G3W-LT79LSI@1445",
+              "G3W-LT79LSI@1448",
+              "G3W-LT79LSI@1449",
+              "G3W-LT79LSI@1453",
+              "G3W-LT79LSI@1455",
+              "G3W-LT79LSI@1457",
+              "G3W-LT79LSI@1462",
+              "G3W-LT79LSI@1465",
+              "G3W-LT79LSI@1466",
+              "G3W-LT79LSI@1468"
+            ]
+          },
+          {
+            "id": "ch03.s10.p06.r06",
+            "text": "After normalization in the example, the mean of each batch is approximately zero and the variance of each batch is one.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1486",
+              "G3W-LT79LSI@1488",
+              "G3W-LT79LSI@1491",
+              "G3W-LT79LSI@1493",
+              "G3W-LT79LSI@1495",
+              "G3W-LT79LSI@1500",
+              "G3W-LT79LSI@1505",
+              "G3W-LT79LSI@1507",
+              "G3W-LT79LSI@1509",
+              "G3W-LT79LSI@1511",
+              "G3W-LT79LSI@1513",
+              "G3W-LT79LSI@1515"
+            ]
+          },
+          {
+            "id": "ch03.s10.p06.r07",
+            "text": "Very small nonzero mean values after normalization are due to numerical errors in Python and are very close to zero.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1496",
+              "G3W-LT79LSI@1500",
+              "G3W-LT79LSI@1502",
+              "G3W-LT79LSI@1507",
+              "G3W-LT79LSI@1509",
+              "G3W-LT79LSI@1521",
+              "G3W-LT79LSI@1524",
+              "G3W-LT79LSI@1528",
+              "G3W-LT79LSI@1531"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s10.p07",
+        "sentences": [
+          {
+            "id": "ch03.s10.p07.r01",
+            "text": "The layer normalization class takes the output of a layer as input and applies normalization to it.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1562",
+              "G3W-LT79LSI@1564",
+              "G3W-LT79LSI@1567",
+              "G3W-LT79LSI@1573",
+              "G3W-LT79LSI@1576"
+            ]
+          },
+          {
+            "id": "ch03.s10.p07.r02",
+            "text": "In the GPT setting, layer normalization is applied by taking the mean and variance across the embedding dimension for each row, where each row corresponds to a token embedding.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1617",
+              "G3W-LT79LSI@1619",
+              "G3W-LT79LSI@1622",
+              "G3W-LT79LSI@1639",
+              "G3W-LT79LSI@1641",
+              "G3W-LT79LSI@1643",
+              "G3W-LT79LSI@1644",
+              "G3W-LT79LSI@1647",
+              "G3W-LT79LSI@1650",
+              "G3W-LT79LSI@1652",
+              "G3W-LT79LSI@1655",
+              "G3W-LT79LSI@1657",
+              "G3W-LT79LSI@1659",
+              "G3W-LT79LSI@1661"
+            ]
+          },
+          {
+            "id": "ch03.s10.p07.r03",
+            "text": "For GPT-2 in this example, the embedding size is 768.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1624",
+              "G3W-LT79LSI@1629",
+              "G3W-LT79LSI@1635"
+            ]
+          },
+          {
+            "id": "ch03.s10.p07.r04",
+            "text": "The embedding dimension must be passed when creating the layer normalization class because the trainable scale and shift parameters have sizes determined by the embedding dimension.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1668",
+              "G3W-LT79LSI@1671",
+              "G3W-LT79LSI@1673",
+              "G3W-LT79LSI@1675",
+              "G3W-LT79LSI@1677",
+              "G3W-LT79LSI@1679",
+              "G3W-LT79LSI@1681",
+              "G3W-LT79LSI@1684",
+              "G3W-LT79LSI@1686"
+            ]
+          },
+          {
+            "id": "ch03.s10.p07.r05",
+            "text": "Normalization does not change dimensions, so the output of layer normalization has the same dimensions as its input.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1688",
+              "G3W-LT79LSI@1691",
+              "G3W-LT79LSI@1692",
+              "G3W-LT79LSI@1693",
+              "G3W-LT79LSI@1696",
+              "G3W-LT79LSI@1698",
+              "G3W-LT79LSI@1700",
+              "G3W-LT79LSI@1702",
+              "G3W-LT79LSI@1704",
+              "G3W-LT79LSI@1706"
+            ]
+          },
+          {
+            "id": "ch03.s10.p07.r06",
+            "text": "In the forward method, the model takes the mean across columns, takes the variance across columns, subtracts the mean, and divides by the square root of the variance.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1713",
+              "G3W-LT79LSI@1715",
+              "G3W-LT79LSI@1731",
+              "G3W-LT79LSI@1733",
+              "G3W-LT79LSI@1735",
+              "G3W-LT79LSI@1741",
+              "G3W-LT79LSI@1744",
+              "G3W-LT79LSI@1746",
+              "G3W-LT79LSI@1749"
+            ]
+          },
+          {
+            "id": "ch03.s10.p07.r07",
+            "text": "Epsilon is a small constant added to the variance to prevent division by zero during normalization.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1749",
+              "G3W-LT79LSI@1751",
+              "G3W-LT79LSI@1753",
+              "G3W-LT79LSI@1756",
+              "G3W-LT79LSI@1757",
+              "G3W-LT79LSI@1759",
+              "G3W-LT79LSI@1761",
+              "G3W-LT79LSI@1763",
+              "G3W-LT79LSI@1766"
+            ]
+          },
+          {
+            "id": "ch03.s10.p07.r08",
+            "text": "After the normalization step, the output is further multiplied by the scale and shift parameters.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1770",
+              "G3W-LT79LSI@1772",
+              "G3W-LT79LSI@1774",
+              "G3W-LT79LSI@1776"
+            ]
+          },
+          {
+            "id": "ch03.s10.p07.r09",
+            "text": "The scale and shift are trainable parameters with the same dimension as the input, and the model adjusts them during training if that improves performance on the training task.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1782",
+              "G3W-LT79LSI@1784",
+              "G3W-LT79LSI@1786",
+              "G3W-LT79LSI@1787",
+              "G3W-LT79LSI@1789",
+              "G3W-LT79LSI@1794",
+              "G3W-LT79LSI@1797",
+              "G3W-LT79LSI@1799",
+              "G3W-LT79LSI@1801",
+              "G3W-LT79LSI@1804",
+              "G3W-LT79LSI@1805"
+            ]
+          },
+          {
+            "id": "ch03.s10.p07.r10",
+            "text": "These scale and shift parameters act like adjustable knobs that fine-tune the normalization.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1815",
+              "G3W-LT79LSI@1817",
+              "G3W-LT79LSI@1819",
+              "G3W-LT79LSI@1822",
+              "G3W-LT79LSI@1825",
+              "G3W-LT79LSI@1827",
+              "G3W-LT79LSI@1828",
+              "G3W-LT79LSI@1830"
+            ]
+          },
+          {
+            "id": "ch03.s10.p07.r11",
+            "text": "Because the scale and shift vectors have the embedding dimension, they can be applied to the normalized output by element-wise multiplication and element-wise addition.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1837",
+              "G3W-LT79LSI@1841",
+              "G3W-LT79LSI@1843",
+              "G3W-LT79LSI@1847",
+              "G3W-LT79LSI@1849",
+              "G3W-LT79LSI@1851",
+              "G3W-LT79LSI@1855",
+              "G3W-LT79LSI@1858",
+              "G3W-LT79LSI@1861",
+              "G3W-LT79LSI@1863",
+              "G3W-LT79LSI@1865",
+              "G3W-LT79LSI@1867"
+            ]
+          },
+          {
+            "id": "ch03.s10.p07.r12",
+            "text": "The epsilon parameter is set to a small value such as 10^-5.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1867",
+              "G3W-LT79LSI@1870",
+              "G3W-LT79LSI@1873"
+            ]
+          },
+          {
+            "id": "ch03.s10.p07.r13",
+            "text": "The main step in layer normalization is to take each row of the input, subtract its mean, and divide by the square root of its variance.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1873",
+              "G3W-LT79LSI@1875",
+              "G3W-LT79LSI@1877",
+              "G3W-LT79LSI@1879",
+              "G3W-LT79LSI@1881",
+              "G3W-LT79LSI@1883"
+            ]
+          },
+          {
+            "id": "ch03.s10.p07.r14",
+            "text": "After layer normalization, the mean of each resulting row is zero and the standard deviation is one.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1883",
+              "G3W-LT79LSI@1885",
+              "G3W-LT79LSI@1888",
+              "G3W-LT79LSI@1890"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s10.p08",
+        "sentences": [
+          {
+            "id": "ch03.s10.p08.01",
+            "text": "One implementation detail concerns how variance is computed.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s10.p08.02",
+            "text": "Setting unbiased to true in the variance calculation applies Bessel's correction, which divides by n minus 1 instead of n.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1912",
+              "G3W-LT79LSI@1915",
+              "G3W-LT79LSI@1917",
+              "G3W-LT79LSI@1919",
+              "G3W-LT79LSI@1922",
+              "G3W-LT79LSI@1924",
+              "G3W-LT79LSI@1926",
+              "G3W-LT79LSI@1928",
+              "G3W-LT79LSI@1931",
+              "G3W-LT79LSI@1933",
+              "G3W-LT79LSI@1935",
+              "G3W-LT79LSI@1937"
+            ]
+          },
+          {
+            "id": "ch03.s10.p08.03",
+            "text": "Using n minus 1 instead of n in the sample variance formula gives an unbiased variance estimate.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1971",
+              "G3W-LT79LSI@1974",
+              "G3W-LT79LSI@1976",
+              "G3W-LT79LSI@1978",
+              "G3W-LT79LSI@1981",
+              "G3W-LT79LSI@1984"
+            ]
+          },
+          {
+            "id": "ch03.s10.p08.04",
+            "text": "In large language models, using n instead of n minus 1 makes little practical difference because the embedding dimension is large.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1959",
+              "G3W-LT79LSI@1960",
+              "G3W-LT79LSI@1962",
+              "G3W-LT79LSI@1964",
+              "G3W-LT79LSI@1965"
+            ]
+          },
+          {
+            "id": "ch03.s10.p08.05",
+            "text": "For this implementation, setting unbiased to false works well and is chosen for compatibility with GPT-2 normalization layers and TensorFlow's default behavior used in the original GPT-2 model.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@1984",
+              "G3W-LT79LSI@1987",
+              "G3W-LT79LSI@1989",
+              "G3W-LT79LSI@1992",
+              "G3W-LT79LSI@1994",
+              "G3W-LT79LSI@1996",
+              "G3W-LT79LSI@2000",
+              "G3W-LT79LSI@2003",
+              "G3W-LT79LSI@2004",
+              "G3W-LT79LSI@2007",
+              "G3W-LT79LSI@2010",
+              "G3W-LT79LSI@2011"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s10.p09",
+        "sentences": [
+          {
+            "id": "ch03.s10.p09.01",
+            "text": "The class can then be tested directly on the batch example.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s10.p09.02",
+            "text": "An instance of the layer normalization class is created by passing in the embedding dimension, which is set to five for the batch example.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@2030",
+              "G3W-LT79LSI@2032",
+              "G3W-LT79LSI@2034",
+              "G3W-LT79LSI@2037",
+              "G3W-LT79LSI@2039",
+              "G3W-LT79LSI@2041",
+              "G3W-LT79LSI@2044"
+            ]
+          },
+          {
+            "id": "ch03.s10.p09.03",
+            "text": "The batch example is passed through the layer normalization layer, which computes the mean and variance across the dimensions, subtracts the mean, and divides by the square root of the variance.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@2044",
+              "G3W-LT79LSI@2046",
+              "G3W-LT79LSI@2053",
+              "G3W-LT79LSI@2056",
+              "G3W-LT79LSI@2059",
+              "G3W-LT79LSI@2061",
+              "G3W-LT79LSI@2062",
+              "G3W-LT79LSI@2064",
+              "G3W-LT79LSI@2067",
+              "G3W-LT79LSI@2069",
+              "G3W-LT79LSI@2071",
+              "G3W-LT79LSI@2073",
+              "G3W-LT79LSI@2075"
+            ]
+          },
+          {
+            "id": "ch03.s10.p09.04",
+            "text": "In the printed batch example, layer normalization is applied separately to each batch item by subtracting that item's mean from its elements and dividing its elements by the square root of that item's variance.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@2095",
+              "G3W-LT79LSI@2099",
+              "G3W-LT79LSI@2101",
+              "G3W-LT79LSI@2103",
+              "G3W-LT79LSI@2105",
+              "G3W-LT79LSI@2107",
+              "G3W-LT79LSI@2110",
+              "G3W-LT79LSI@2112"
+            ]
+          },
+          {
+            "id": "ch03.s10.p09.05",
+            "text": "The output of the layer normalization code has mean zero and variance one for both batch items, showing that the code works as expected.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@2114",
+              "G3W-LT79LSI@2118",
+              "G3W-LT79LSI@2121",
+              "G3W-LT79LSI@2123",
+              "G3W-LT79LSI@2124",
+              "G3W-LT79LSI@2127",
+              "G3W-LT79LSI@2129",
+              "G3W-LT79LSI@2131",
+              "G3W-LT79LSI@2133",
+              "G3W-LT79LSI@2136",
+              "G3W-LT79LSI@2139",
+              "G3W-LT79LSI@2141",
+              "G3W-LT79LSI@2143"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s10.p10",
+        "sentences": [
+          {
+            "id": "ch03.s10.p10.r01",
+            "text": "It is also important not to confuse layer normalization with batch normalization.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s10.p10.r02",
+            "text": "Layer normalization and batch normalization are very different from each other.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@2216",
+              "G3W-LT79LSI@2218",
+              "G3W-LT79LSI@2221",
+              "G3W-LT79LSI@2223",
+              "G3W-LT79LSI@2225",
+              "G3W-LT79LSI@2228",
+              "G3W-LT79LSI@2230"
+            ]
+          },
+          {
+            "id": "ch03.s10.p10.r03",
+            "text": "In layer normalization, normalization is usually done along the feature dimension, which is the columns, and it does not depend on the batch size.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@2230",
+              "G3W-LT79LSI@2232",
+              "G3W-LT79LSI@2234",
+              "G3W-LT79LSI@2235",
+              "G3W-LT79LSI@2238"
+            ]
+          },
+          {
+            "id": "ch03.s10.p10.r04",
+            "text": "In layer normalization, each layer's output is normalized using its mean and standard deviation regardless of batch size.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@2238",
+              "G3W-LT79LSI@2241",
+              "G3W-LT79LSI@2243",
+              "G3W-LT79LSI@2245",
+              "G3W-LT79LSI@2247"
+            ]
+          },
+          {
+            "id": "ch03.s10.p10.r05",
+            "text": "In batch normalization, normalization is performed for an entire batch, so it depends on the batch size.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@2249",
+              "G3W-LT79LSI@2250",
+              "G3W-LT79LSI@2253"
+            ]
+          },
+          {
+            "id": "ch03.s10.p10.r06",
+            "text": "Batch normalization is less flexible because batch size is often determined by available hardware.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@2256",
+              "G3W-LT79LSI@2258",
+              "G3W-LT79LSI@2260",
+              "G3W-LT79LSI@2262",
+              "G3W-LT79LSI@2265",
+              "G3W-LT79LSI@2267",
+              "G3W-LT79LSI@2269",
+              "G3W-LT79LSI@2271",
+              "G3W-LT79LSI@2274"
+            ]
+          },
+          {
+            "id": "ch03.s10.p10.r07",
+            "text": "Layer normalization is more flexible and provides more flexibility and stability for distributed training.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@2274",
+              "G3W-LT79LSI@2276",
+              "G3W-LT79LSI@2278",
+              "G3W-LT79LSI@2280",
+              "G3W-LT79LSI@2282",
+              "G3W-LT79LSI@2284"
+            ]
+          },
+          {
+            "id": "ch03.s10.p10.r08",
+            "text": "When resources or hardware capabilities force small batch sizes, or when batch-size-independent normalization is desired, layer normalization is a better choice than batch normalization.",
+            "type": "F",
+            "cites": [
+              "G3W-LT79LSI@2287",
+              "G3W-LT79LSI@2289",
+              "G3W-LT79LSI@2291",
+              "G3W-LT79LSI@2294",
+              "G3W-LT79LSI@2295",
+              "G3W-LT79LSI@2298",
+              "G3W-LT79LSI@2300",
+              "G3W-LT79LSI@2302"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch03.s10.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s10.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s10.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch03.s10.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s10.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s10.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch03.s10.p01.07": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s10.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.84,
+        "reason": ""
+      },
+      "ch03.s10.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s10.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s10.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s10.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s10.p03.06": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s10.p03.07": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s10.p04.01": {
+        "verdict": "ok",
+        "confidence": 0.82,
+        "reason": ""
+      },
+      "ch03.s10.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s10.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s10.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s10.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s10.p04.06": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s10.p04.07": {
+        "verdict": "supported",
+        "confidence": 0.91,
+        "reason": ""
+      },
+      "ch03.s10.p04.08": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s10.p05.01": {
+        "verdict": "ok",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch03.s10.p05.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s10.p05.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s10.p05.04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s10.p05.05": {
+        "verdict": "supported",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch03.s10.p05.06": {
+        "verdict": "supported",
+        "confidence": 0.84,
+        "reason": ""
+      },
+      "ch03.s10.p05.07": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s10.p08.01": {
+        "verdict": "ok",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s10.p08.02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s10.p08.03": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s10.p08.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s10.p08.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s10.p09.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s10.p09.02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s10.p09.03": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s10.p09.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s10.p09.05": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch03.s10.p02.r01": {
+        "verdict": "ok",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch03.s10.p02.r02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s10.p02.r03": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s10.p02.r04": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s10.p02.r05": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s10.p02.r06": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s10.p02.r07": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s10.p06.r01": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s10.p06.r02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s10.p06.r03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s10.p06.r04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s10.p06.r05": {
+        "verdict": "supported",
+        "confidence": 0.91,
+        "reason": ""
+      },
+      "ch03.s10.p06.r06": {
+        "verdict": "supported",
+        "confidence": 0.82,
+        "reason": ""
+      },
+      "ch03.s10.p06.r07": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s10.p07.r01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s10.p07.r02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s10.p07.r03": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s10.p07.r04": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s10.p07.r05": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s10.p07.r06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s10.p07.r07": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s10.p07.r08": {
+        "verdict": "supported",
+        "confidence": 0.83,
+        "reason": ""
+      },
+      "ch03.s10.p07.r09": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s10.p07.r10": {
+        "verdict": "supported",
+        "confidence": 0.91,
+        "reason": ""
+      },
+      "ch03.s10.p07.r11": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s10.p07.r12": {
+        "verdict": "supported",
+        "confidence": 0.74,
+        "reason": ""
+      },
+      "ch03.s10.p07.r13": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s10.p07.r14": {
+        "verdict": "supported",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch03.s10.p10.r01": {
+        "verdict": "ok",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch03.s10.p10.r02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s10.p10.r03": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s10.p10.r04": {
+        "verdict": "supported",
+        "confidence": 0.77,
+        "reason": ""
+      },
+      "ch03.s10.p10.r05": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s10.p10.r06": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s10.p10.r07": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch03.s10.p10.r08": {
+        "verdict": "partial",
+        "confidence": 0.7,
+        "reason": "the cited lines say layer normalization is much better for flexibility when batches are low or when you want batch-size-independent normalization, but they do not explicitly state it is a better choice than batch normalization overall (the explicit comparison 'better choice than batch normalization' is not stated)."
+      }
+    },
+    "first_pass": {
+      "ch03.s10.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s10.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s10.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch03.s10.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s10.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s10.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch03.s10.p01.07": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s10.p02.01": {
+        "verdict": "ok",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s10.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s10.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s10.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s10.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s10.p02.06": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s10.p02.07": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s10.p02.08": {
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "the cited lines attribute this mechanism to batch normalization (and later correct to batch/layer), but do not explicitly state that layer normalization (specifically) controls layer output magnitudes to stabilize gradients/training in this excerpt"
+      },
+      "ch03.s10.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.84,
+        "reason": ""
+      },
+      "ch03.s10.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s10.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s10.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s10.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s10.p03.06": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s10.p03.07": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s10.p04.01": {
+        "verdict": "ok",
+        "confidence": 0.82,
+        "reason": ""
+      },
+      "ch03.s10.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s10.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s10.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s10.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s10.p04.06": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s10.p04.07": {
+        "verdict": "supported",
+        "confidence": 0.91,
+        "reason": ""
+      },
+      "ch03.s10.p04.08": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s10.p05.01": {
+        "verdict": "ok",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch03.s10.p05.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s10.p05.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s10.p05.04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s10.p05.05": {
+        "verdict": "supported",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch03.s10.p05.06": {
+        "verdict": "supported",
+        "confidence": 0.84,
+        "reason": ""
+      },
+      "ch03.s10.p05.07": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s10.p06.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.6,
+        "reason": "asserts a factual detail (normalization is done row by row across features) but is labeled CONNECTIVE and has no citations."
+      },
+      "ch03.s10.p06.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s10.p06.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s10.p06.04": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s10.p06.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s10.p06.06": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s10.p06.07": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s10.p06.08": {
+        "verdict": "partial",
+        "confidence": 0.83,
+        "reason": "captions support that the small nonzero values are due to numerical errors in Python and are close to zero, but they do not explicitly state they 'can be treated as zero' (only that they can be approximated to zero earlier)."
+      },
+      "ch03.s10.p07.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.74,
+        "reason": "Connective sentence asserts a fact about the reusable class following the same math and being in the GPT shape, but no citations are provided."
+      },
+      "ch03.s10.p07.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s10.p07.03": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s10.p07.04": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s10.p07.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s10.p07.06": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s10.p07.07": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s10.p07.08": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s10.p07.09": {
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "Cited lines say an additional step multiplies by scale and multiplies by shift; they do not clearly state the shift is applied as an additive term (only ‘multiply by the shift’)."
+      },
+      "ch03.s10.p07.10": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s10.p07.11": {
+        "verdict": "supported",
+        "confidence": 0.91,
+        "reason": ""
+      },
+      "ch03.s10.p07.12": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s10.p07.13": {
+        "verdict": "supported",
+        "confidence": 0.78,
+        "reason": "Caption says '10us 5', which is reasonably interpreted as 10^-5 given the context of epsilon being a small value."
+      },
+      "ch03.s10.p07.14": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s10.p07.15": {
+        "verdict": "supported",
+        "confidence": 0.76,
+        "reason": "Lines explicitly state mean becomes zero and standard deviation becomes 1, though the caption fragment 'standard deviation of the variance' is slightly garbled."
+      },
+      "ch03.s10.p08.01": {
+        "verdict": "ok",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s10.p08.02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s10.p08.03": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s10.p08.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s10.p08.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s10.p09.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s10.p09.02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s10.p09.03": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s10.p09.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s10.p09.05": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch03.s10.p10.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s10.p10.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s10.p10.03": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s10.p10.04": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch03.s10.p10.05": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s10.p10.06": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s10.p10.07": {
+        "verdict": "partial",
+        "confidence": 0.76,
+        "reason": "The cited lines support that layer normalization is flexible and gives more flexibility and stability for distributed training, but they do not explicitly state that it is independent of batch size (that appears only in the context lines beyond the cited segment)."
+      },
+      "ch03.s10.p10.08": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "ch03.s10.p02",
+      "ch03.s10.p06",
+      "ch03.s10.p07",
+      "ch03.s10.p10"
+    ],
+    "queue": [
+      {
+        "sentence_id": "ch03.s10.p10.r08",
+        "text": "When resources or hardware capabilities force small batch sizes, or when batch-size-independent normalization is desired, layer normalization is a better choice than batch normalization.",
+        "cites": [
+          "G3W-LT79LSI@2287",
+          "G3W-LT79LSI@2289",
+          "G3W-LT79LSI@2291",
+          "G3W-LT79LSI@2294",
+          "G3W-LT79LSI@2295",
+          "G3W-LT79LSI@2298",
+          "G3W-LT79LSI@2300",
+          "G3W-LT79LSI@2302"
+        ],
+        "verdict": "partial",
+        "confidence": 0.7,
+        "reason": "the cited lines say layer normalization is much better for flexibility when batches are low or when you want batch-size-independent normalization, but they do not explicitly state it is a better choice than batch normalization overall (the explicit comparison 'better choice than batch normalization' is not stated).",
+        "status": "open"
+      }
+    ]
+  }
+}

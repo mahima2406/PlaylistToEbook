@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch04.s07.p04.r05",
+  "inputs_hash": "99fb040049e77483d71acf7642eca445a8e94ca27b7bf82a721c16a5f37a01be",
+  "output_hash": "bdcf9532df3fa42aaebea0b93bdb1b9b1999aa96b19cf77398d12c5ccf3707ce",
+  "output": {
+    "decision": "edit",
+    "text": "In the cited example, GPT-2's vocabulary size is stated as 50,257, and the output token IDs range from 0 to 50,256.",
+    "reason": "The original sentence conflicts with the reference on GPT-2's vocabulary size and ID range, and the toy-example numbers are not reliably supported here.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.74,
+      "reason": "The cited lines support that GPT-2’s vocabulary size is about 50,257 (though one line is misheard as 5,257) and that token IDs start at 0, but they state the range as 0 to 50,257, not 0 to 50,256."
+    },
+    "kind": "conflict",
+    "sentence_hash": "1c52870aaeef22d32522a1425de12139f9506d4416f8ec2da8293d9e45deb175"
+  }
+}

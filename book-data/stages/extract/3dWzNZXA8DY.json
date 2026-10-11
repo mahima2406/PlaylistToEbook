@@ -1,0 +1,1336 @@
+{
+  "stage": "extract",
+  "item": "3dWzNZXA8DY",
+  "inputs_hash": "2f030b3ccb90a0a5e13e148d49bd2eb1215e64c834d6df0c73c8c2c5b746d4be",
+  "output_hash": "bc770b4792cb4bfe41827f47bac6cbfc8fab448a00ce2ce78f6ee39d6188152d",
+  "output": {
+    "video_id": "3dWzNZXA8DY",
+    "points": [
+      {
+        "id": "3dWzNZXA8DY:p001",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 1,
+        "text": "This lecture will cover what a large language model is, what \"large\" means in that term, how modern large language models differ from earlier NLP models, what makes LLMs so good, how terms like LLM, generative AI, deep learning, machine learning, and artificial intelligence differ, and some applications of LLMs.",
+        "line_ids": [
+          "3dWzNZXA8DY@64",
+          "3dWzNZXA8DY@67",
+          "3dWzNZXA8DY@69",
+          "3dWzNZXA8DY@71",
+          "3dWzNZXA8DY@74",
+          "3dWzNZXA8DY@77",
+          "3dWzNZXA8DY@79",
+          "3dWzNZXA8DY@82",
+          "3dWzNZXA8DY@84",
+          "3dWzNZXA8DY@87",
+          "3dWzNZXA8DY@90",
+          "3dWzNZXA8DY@92",
+          "3dWzNZXA8DY@95",
+          "3dWzNZXA8DY@97",
+          "3dWzNZXA8DY@99",
+          "3dWzNZXA8DY@103",
+          "3dWzNZXA8DY@105",
+          "3dWzNZXA8DY@107",
+          "3dWzNZXA8DY@109",
+          "3dWzNZXA8DY@112",
+          "3dWzNZXA8DY@114",
+          "3dWzNZXA8DY@117",
+          "3dWzNZXA8DY@119",
+          "3dWzNZXA8DY@123"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p002",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "definition",
+        "importance": 3,
+        "text": "A large language model is a neural network designed to understand, generate, and respond to human-like text.",
+        "line_ids": [
+          "3dWzNZXA8DY@153",
+          "3dWzNZXA8DY@157",
+          "3dWzNZXA8DY@160",
+          "3dWzNZXA8DY@164",
+          "3dWzNZXA8DY@168",
+          "3dWzNZXA8DY@170",
+          "3dWzNZXA8DY@172",
+          "3dWzNZXA8DY@174"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p003",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "definition",
+        "importance": 2,
+        "text": "A neural network takes input data, passes it through stacked layers of neurons, and produces an output layer.",
+        "line_ids": [
+          "3dWzNZXA8DY@179",
+          "3dWzNZXA8DY@182",
+          "3dWzNZXA8DY@184",
+          "3dWzNZXA8DY@186",
+          "3dWzNZXA8DY@189",
+          "3dWzNZXA8DY@192",
+          "3dWzNZXA8DY@193",
+          "3dWzNZXA8DY@197",
+          "3dWzNZXA8DY@199",
+          "3dWzNZXA8DY@201"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p004",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "The name \"neural network\" comes from neurons symbolically representing circuitry in the brain.",
+        "line_ids": [
+          "3dWzNZXA8DY@201",
+          "3dWzNZXA8DY@204",
+          "3dWzNZXA8DY@206",
+          "3dWzNZXA8DY@210",
+          "3dWzNZXA8DY@213"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p005",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Deep neural networks have many applications, including image detection, text generation, self-driving cars, and detecting whether a patient has a brain tumor.",
+        "line_ids": [
+          "3dWzNZXA8DY@215",
+          "3dWzNZXA8DY@218",
+          "3dWzNZXA8DY@220",
+          "3dWzNZXA8DY@223",
+          "3dWzNZXA8DY@226",
+          "3dWzNZXA8DY@229",
+          "3dWzNZXA8DY@230",
+          "3dWzNZXA8DY@232"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p006",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 3,
+        "text": "LLMs are neural networks designed for generic text-related applications such as understanding, generating, and responding to human-like text.",
+        "line_ids": [
+          "3dWzNZXA8DY@232",
+          "3dWzNZXA8DY@235",
+          "3dWzNZXA8DY@238",
+          "3dWzNZXA8DY@241",
+          "3dWzNZXA8DY@243",
+          "3dWzNZXA8DY@245",
+          "3dWzNZXA8DY@247"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p007",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "code",
+        "importance": 2,
+        "text": "The lecturer demonstrates ChatGPT by asking it to plan a relaxing day, and ChatGPT replies conversationally, asks about favorite forms of relaxation, and then generates a reading-focused plan.",
+        "line_ids": [
+          "3dWzNZXA8DY@255",
+          "3dWzNZXA8DY@258",
+          "3dWzNZXA8DY@261",
+          "3dWzNZXA8DY@264",
+          "3dWzNZXA8DY@267",
+          "3dWzNZXA8DY@271",
+          "3dWzNZXA8DY@273",
+          "3dWzNZXA8DY@277",
+          "3dWzNZXA8DY@279",
+          "3dWzNZXA8DY@280",
+          "3dWzNZXA8DY@284",
+          "3dWzNZXA8DY@286",
+          "3dWzNZXA8DY@289",
+          "3dWzNZXA8DY@290",
+          "3dWzNZXA8DY@294",
+          "3dWzNZXA8DY@297",
+          "3dWzNZXA8DY@299",
+          "3dWzNZXA8DY@301",
+          "3dWzNZXA8DY@303",
+          "3dWzNZXA8DY@306",
+          "3dWzNZXA8DY@308",
+          "3dWzNZXA8DY@310",
+          "3dWzNZXA8DY@313",
+          "3dWzNZXA8DY@315",
+          "3dWzNZXA8DY@318",
+          "3dWzNZXA8DY@320",
+          "3dWzNZXA8DY@323",
+          "3dWzNZXA8DY@325",
+          "3dWzNZXA8DY@326",
+          "3dWzNZXA8DY@329",
+          "3dWzNZXA8DY@331",
+          "3dWzNZXA8DY@333",
+          "3dWzNZXA8DY@334",
+          "3dWzNZXA8DY@337"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p008",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The ChatGPT demonstration shows that large language models understand, generate, and respond to human-like text, and they also respond like humans.",
+        "line_ids": [
+          "3dWzNZXA8DY@340",
+          "3dWzNZXA8DY@342",
+          "3dWzNZXA8DY@345",
+          "3dWzNZXA8DY@348",
+          "3dWzNZXA8DY@350",
+          "3dWzNZXA8DY@353",
+          "3dWzNZXA8DY@355"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p009",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "definition",
+        "importance": 3,
+        "text": "LLMs are deep neural networks trained on massive amounts of data to perform tasks such as understanding, generating, and responding to human-like text.",
+        "line_ids": [
+          "3dWzNZXA8DY@357",
+          "3dWzNZXA8DY@360",
+          "3dWzNZXA8DY@362",
+          "3dWzNZXA8DY@366",
+          "3dWzNZXA8DY@369",
+          "3dWzNZXA8DY@371",
+          "3dWzNZXA8DY@374",
+          "3dWzNZXA8DY@377",
+          "3dWzNZXA8DY@379",
+          "3dWzNZXA8DY@381"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p010",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 2,
+        "text": "LLMs are sounding more and more like humans.",
+        "line_ids": [
+          "3dWzNZXA8DY@381",
+          "3dWzNZXA8DY@384",
+          "3dWzNZXA8DY@386",
+          "3dWzNZXA8DY@389",
+          "3dWzNZXA8DY@392"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p011",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "definition",
+        "importance": 3,
+        "text": "In the term \"large language model,\" \"large\" refers to the number of parameters in the model.",
+        "line_ids": [
+          "3dWzNZXA8DY@406",
+          "3dWzNZXA8DY@408",
+          "3dWzNZXA8DY@410",
+          "3dWzNZXA8DY@413",
+          "3dWzNZXA8DY@415",
+          "3dWzNZXA8DY@417",
+          "3dWzNZXA8DY@421",
+          "3dWzNZXA8DY@423",
+          "3dWzNZXA8DY@426",
+          "3dWzNZXA8DY@428"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p012",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 3,
+        "text": "LLMs typically have billions of parameters, and some have trillions of parameters.",
+        "line_ids": [
+          "3dWzNZXA8DY@428",
+          "3dWzNZXA8DY@432",
+          "3dWzNZXA8DY@433",
+          "3dWzNZXA8DY@435",
+          "3dWzNZXA8DY@439",
+          "3dWzNZXA8DY@441",
+          "3dWzNZXA8DY@445",
+          "3dWzNZXA8DY@447",
+          "3dWzNZXA8DY@450",
+          "3dWzNZXA8DY@452"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p013",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "visual_ref",
+        "importance": 2,
+        "text": "The lecturer shows a table of GPT-3 model sizes ranging from 125 million parameters up to 175 billion parameters, and says GPT-4 has even more parameters.",
+        "line_ids": [
+          "3dWzNZXA8DY@455",
+          "3dWzNZXA8DY@457",
+          "3dWzNZXA8DY@460",
+          "3dWzNZXA8DY@464",
+          "3dWzNZXA8DY@466",
+          "3dWzNZXA8DY@469",
+          "3dWzNZXA8DY@472",
+          "3dWzNZXA8DY@477",
+          "3dWzNZXA8DY@481",
+          "3dWzNZXA8DY@484",
+          "3dWzNZXA8DY@487",
+          "3dWzNZXA8DY@489",
+          "3dWzNZXA8DY@492",
+          "3dWzNZXA8DY@495",
+          "3dWzNZXA8DY@498"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p014",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 3,
+        "text": "As models progress from GPT-1 to GPT-2 to GPT-3, they become better and their number of parameters increases tremendously.",
+        "line_ids": [
+          "3dWzNZXA8DY@501",
+          "3dWzNZXA8DY@503",
+          "3dWzNZXA8DY@508",
+          "3dWzNZXA8DY@511",
+          "3dWzNZXA8DY@513",
+          "3dWzNZXA8DY@515"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p015",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "visual_ref",
+        "importance": 2,
+        "text": "The lecturer shows that GPT-1, GPT-2, and GPT-3 also differ in decoder count and token size, and says these quantities generally increase as the models grow.",
+        "line_ids": [
+          "3dWzNZXA8DY@540",
+          "3dWzNZXA8DY@541",
+          "3dWzNZXA8DY@543",
+          "3dWzNZXA8DY@548",
+          "3dWzNZXA8DY@549",
+          "3dWzNZXA8DY@551",
+          "3dWzNZXA8DY@554",
+          "3dWzNZXA8DY@558",
+          "3dWzNZXA8DY@562",
+          "3dWzNZXA8DY@564",
+          "3dWzNZXA8DY@566",
+          "3dWzNZXA8DY@568"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p016",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "visual_ref",
+        "importance": 2,
+        "text": "The lecturer shows a graph from 1950 to 2022 indicating that model parameter counts in AI grew from very small values in early decades to around 100 million, 1 billion, and almost 1 trillion by around 2020, with language models among the largest.",
+        "line_ids": [
+          "3dWzNZXA8DY@568",
+          "3dWzNZXA8DY@570",
+          "3dWzNZXA8DY@573",
+          "3dWzNZXA8DY@575",
+          "3dWzNZXA8DY@577",
+          "3dWzNZXA8DY@581",
+          "3dWzNZXA8DY@585",
+          "3dWzNZXA8DY@586",
+          "3dWzNZXA8DY@589",
+          "3dWzNZXA8DY@593",
+          "3dWzNZXA8DY@595",
+          "3dWzNZXA8DY@599",
+          "3dWzNZXA8DY@602",
+          "3dWzNZXA8DY@605",
+          "3dWzNZXA8DY@608",
+          "3dWzNZXA8DY@610",
+          "3dWzNZXA8DY@613",
+          "3dWzNZXA8DY@615",
+          "3dWzNZXA8DY@619",
+          "3dWzNZXA8DY@621",
+          "3dWzNZXA8DY@623",
+          "3dWzNZXA8DY@625",
+          "3dWzNZXA8DY@627"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p017",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 3,
+        "text": "These models are called large language models because we are in an age of unprecedentedly huge parameter counts.",
+        "line_ids": [
+          "3dWzNZXA8DY@630",
+          "3dWzNZXA8DY@633",
+          "3dWzNZXA8DY@635",
+          "3dWzNZXA8DY@637",
+          "3dWzNZXA8DY@640",
+          "3dWzNZXA8DY@642"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p018",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "definition",
+        "importance": 3,
+        "text": "They are called language models because they deal with language rather than other modalities such as images or video.",
+        "line_ids": [
+          "3dWzNZXA8DY@656",
+          "3dWzNZXA8DY@659",
+          "3dWzNZXA8DY@661",
+          "3dWzNZXA8DY@663",
+          "3dWzNZXA8DY@665",
+          "3dWzNZXA8DY@667",
+          "3dWzNZXA8DY@669",
+          "3dWzNZXA8DY@672",
+          "3dWzNZXA8DY@674"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p019",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Language models perform a wide range of natural language processing tasks such as question answering, translation, and sentiment analysis.",
+        "line_ids": [
+          "3dWzNZXA8DY@674",
+          "3dWzNZXA8DY@677",
+          "3dWzNZXA8DY@680",
+          "3dWzNZXA8DY@682",
+          "3dWzNZXA8DY@685",
+          "3dWzNZXA8DY@687",
+          "3dWzNZXA8DY@688",
+          "3dWzNZXA8DY@690",
+          "3dWzNZXA8DY@692",
+          "3dWzNZXA8DY@694",
+          "3dWzNZXA8DY@697"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p020",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Natural language processing existed before LLMs, and earlier NLP models were designed for very specific tasks.",
+        "line_ids": [
+          "3dWzNZXA8DY@707",
+          "3dWzNZXA8DY@710",
+          "3dWzNZXA8DY@712",
+          "3dWzNZXA8DY@713",
+          "3dWzNZXA8DY@716",
+          "3dWzNZXA8DY@718",
+          "3dWzNZXA8DY@720",
+          "3dWzNZXA8DY@723",
+          "3dWzNZXA8DY@728",
+          "3dWzNZXA8DY@730",
+          "3dWzNZXA8DY@733"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p021",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "Examples of earlier NLP systems include one model for language translation and another model for sentiment analysis.",
+        "line_ids": [
+          "3dWzNZXA8DY@733",
+          "3dWzNZXA8DY@736",
+          "3dWzNZXA8DY@738",
+          "3dWzNZXA8DY@741",
+          "3dWzNZXA8DY@744",
+          "3dWzNZXA8DY@746"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p022",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Modern LLMs can perform a wide range of NLP tasks, and a GPT trained for text completion can also work well for language translation.",
+        "line_ids": [
+          "3dWzNZXA8DY@746",
+          "3dWzNZXA8DY@750",
+          "3dWzNZXA8DY@753",
+          "3dWzNZXA8DY@756",
+          "3dWzNZXA8DY@758",
+          "3dWzNZXA8DY@760",
+          "3dWzNZXA8DY@763"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p023",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A key difference is that earlier NLP models were built for specific tasks, whereas modern LLMs are more generic and can handle many NLP tasks.",
+        "line_ids": [
+          "3dWzNZXA8DY@763",
+          "3dWzNZXA8DY@766",
+          "3dWzNZXA8DY@768",
+          "3dWzNZXA8DY@771"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p024",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Tasks like writing an email from custom instructions were very difficult for earlier language models but are almost trivial for modern LLMs such as ChatGPT.",
+        "line_ids": [
+          "3dWzNZXA8DY@774",
+          "3dWzNZXA8DY@777",
+          "3dWzNZXA8DY@780",
+          "3dWzNZXA8DY@783",
+          "3dWzNZXA8DY@785",
+          "3dWzNZXA8DY@787",
+          "3dWzNZXA8DY@789",
+          "3dWzNZXA8DY@792",
+          "3dWzNZXA8DY@795"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p025",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "code",
+        "importance": 2,
+        "text": "The lecturer demonstrates ChatGPT with a prompt to draft an email to a friend about booking movie tickets, and ChatGPT begins drafting the email and even includes emojis.",
+        "line_ids": [
+          "3dWzNZXA8DY@795",
+          "3dWzNZXA8DY@798",
+          "3dWzNZXA8DY@800",
+          "3dWzNZXA8DY@805",
+          "3dWzNZXA8DY@808",
+          "3dWzNZXA8DY@812",
+          "3dWzNZXA8DY@813",
+          "3dWzNZXA8DY@816",
+          "3dWzNZXA8DY@819",
+          "3dWzNZXA8DY@821"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p026",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Compared with earlier NLP models, LLMs are broader, can do a wide range of generic tasks, and have many more applications.",
+        "line_ids": [
+          "3dWzNZXA8DY@824",
+          "3dWzNZXA8DY@826",
+          "3dWzNZXA8DY@830",
+          "3dWzNZXA8DY@833",
+          "3dWzNZXA8DY@835",
+          "3dWzNZXA8DY@838",
+          "3dWzNZXA8DY@840",
+          "3dWzNZXA8DY@842",
+          "3dWzNZXA8DY@844"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p027",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The specific \"secret sauce\" behind LLMs is the Transformer architecture.",
+        "line_ids": [
+          "3dWzNZXA8DY@852",
+          "3dWzNZXA8DY@854",
+          "3dWzNZXA8DY@857",
+          "3dWzNZXA8DY@859",
+          "3dWzNZXA8DY@862",
+          "3dWzNZXA8DY@865",
+          "3dWzNZXA8DY@868",
+          "3dWzNZXA8DY@870",
+          "3dWzNZXA8DY@874",
+          "3dWzNZXA8DY@876",
+          "3dWzNZXA8DY@879",
+          "3dWzNZXA8DY@881",
+          "3dWzNZXA8DY@883",
+          "3dWzNZXA8DY@887",
+          "3dWzNZXA8DY@890",
+          "3dWzNZXA8DY@894",
+          "3dWzNZXA8DY@896"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p028",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "definition",
+        "importance": 3,
+        "text": "A Transformer is a neural network architecture introduced in the 2017 paper \"Attention Is All You Need.\"",
+        "line_ids": [
+          "3dWzNZXA8DY@959",
+          "3dWzNZXA8DY@962",
+          "3dWzNZXA8DY@964",
+          "3dWzNZXA8DY@966",
+          "3dWzNZXA8DY@972",
+          "3dWzNZXA8DY@976"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p029",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The paper \"Attention Is All You Need\" had more than 100,000 citations in about five years.",
+        "line_ids": [
+          "3dWzNZXA8DY@981",
+          "3dWzNZXA8DY@984",
+          "3dWzNZXA8DY@986",
+          "3dWzNZXA8DY@990"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p030",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The paper \"Attention Is All You Need\" is dense, and understanding it takes a lot of time and effort.",
+        "line_ids": [
+          "3dWzNZXA8DY@1009",
+          "3dWzNZXA8DY@1012",
+          "3dWzNZXA8DY@1015",
+          "3dWzNZXA8DY@1017"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p031",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "visual_ref",
+        "importance": 2,
+        "text": "The Transformer schematic contains components such as input embedding, multi-head attention, feed-forward layers, add and norm, and output embedding.",
+        "line_ids": [
+          "3dWzNZXA8DY@931",
+          "3dWzNZXA8DY@933",
+          "3dWzNZXA8DY@939",
+          "3dWzNZXA8DY@941",
+          "3dWzNZXA8DY@943",
+          "3dWzNZXA8DY@945",
+          "3dWzNZXA8DY@947"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p032",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Artificial intelligence is the broadest umbrella, machine learning is a subset of artificial intelligence, deep learning is a subset of machine learning, and large language models are a subset of deep learning.",
+        "line_ids": [
+          "3dWzNZXA8DY@1107",
+          "3dWzNZXA8DY@1109",
+          "3dWzNZXA8DY@1111",
+          "3dWzNZXA8DY@1113",
+          "3dWzNZXA8DY@1115",
+          "3dWzNZXA8DY@1118",
+          "3dWzNZXA8DY@1120",
+          "3dWzNZXA8DY@1122",
+          "3dWzNZXA8DY@1125",
+          "3dWzNZXA8DY@1127",
+          "3dWzNZXA8DY@1130",
+          "3dWzNZXA8DY@1132"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p033",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Artificial intelligence is the broad category that includes machines showing human-like intelligent behavior.",
+        "line_ids": [
+          "3dWzNZXA8DY@1141",
+          "3dWzNZXA8DY@1143",
+          "3dWzNZXA8DY@1145",
+          "3dWzNZXA8DY@1146",
+          "3dWzNZXA8DY@1149",
+          "3dWzNZXA8DY@1152",
+          "3dWzNZXA8DY@1154",
+          "3dWzNZXA8DY@1156"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p034",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "A rule-based chatbot can be an example of artificial intelligence without being an example of machine learning.",
+        "line_ids": [
+          "3dWzNZXA8DY@1160",
+          "3dWzNZXA8DY@1163",
+          "3dWzNZXA8DY@1167",
+          "3dWzNZXA8DY@1170",
+          "3dWzNZXA8DY@1172",
+          "3dWzNZXA8DY@1174",
+          "3dWzNZXA8DY@1179",
+          "3dWzNZXA8DY@1181",
+          "3dWzNZXA8DY@1184",
+          "3dWzNZXA8DY@1186",
+          "3dWzNZXA8DY@1193",
+          "3dWzNZXA8DY@1196"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p035",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A rule-based chatbot is not machine learning because it does not learn from user responses and behaves the same for different users.",
+        "line_ids": [
+          "3dWzNZXA8DY@1200",
+          "3dWzNZXA8DY@1203",
+          "3dWzNZXA8DY@1205",
+          "3dWzNZXA8DY@1208",
+          "3dWzNZXA8DY@1210",
+          "3dWzNZXA8DY@1212",
+          "3dWzNZXA8DY@1215",
+          "3dWzNZXA8DY@1218",
+          "3dWzNZXA8DY@1220",
+          "3dWzNZXA8DY@1222",
+          "3dWzNZXA8DY@1225"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p036",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Machine learning consists of machines that learn and adapt based on how users interact with them.",
+        "line_ids": [
+          "3dWzNZXA8DY@1231",
+          "3dWzNZXA8DY@1234",
+          "3dWzNZXA8DY@1236",
+          "3dWzNZXA8DY@1238"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p037",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Deep learning usually involves neural networks, whereas machine learning includes neural networks and other methods such as decision trees.",
+        "line_ids": [
+          "3dWzNZXA8DY@1242",
+          "3dWzNZXA8DY@1245",
+          "3dWzNZXA8DY@1248",
+          "3dWzNZXA8DY@1250",
+          "3dWzNZXA8DY@1252",
+          "3dWzNZXA8DY@1254",
+          "3dWzNZXA8DY@1257"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p038",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "A decision tree used to predict heart disease is an example of machine learning but not deep learning because it does not use neural networks.",
+        "line_ids": [
+          "3dWzNZXA8DY@1257",
+          "3dWzNZXA8DY@1259",
+          "3dWzNZXA8DY@1261",
+          "3dWzNZXA8DY@1263",
+          "3dWzNZXA8DY@1266",
+          "3dWzNZXA8DY@1270",
+          "3dWzNZXA8DY@1272",
+          "3dWzNZXA8DY@1274",
+          "3dWzNZXA8DY@1276",
+          "3dWzNZXA8DY@1279",
+          "3dWzNZXA8DY@1281",
+          "3dWzNZXA8DY@1283",
+          "3dWzNZXA8DY@1285",
+          "3dWzNZXA8DY@1288"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p039",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "A convolutional neural network for image detection is an example of deep learning because it uses a neural network to classify an input image.",
+        "line_ids": [
+          "3dWzNZXA8DY@1292",
+          "3dWzNZXA8DY@1293",
+          "3dWzNZXA8DY@1296",
+          "3dWzNZXA8DY@1298",
+          "3dWzNZXA8DY@1300",
+          "3dWzNZXA8DY@1302",
+          "3dWzNZXA8DY@1304",
+          "3dWzNZXA8DY@1306",
+          "3dWzNZXA8DY@1308",
+          "3dWzNZXA8DY@1310",
+          "3dWzNZXA8DY@1312",
+          "3dWzNZXA8DY@1314",
+          "3dWzNZXA8DY@1317",
+          "3dWzNZXA8DY@1319",
+          "3dWzNZXA8DY@1321",
+          "3dWzNZXA8DY@1323"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p040",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "A neural network for handwritten digit classification is an example of deep learning.",
+        "line_ids": [
+          "3dWzNZXA8DY@1326",
+          "3dWzNZXA8DY@1328",
+          "3dWzNZXA8DY@1330",
+          "3dWzNZXA8DY@1333",
+          "3dWzNZXA8DY@1335",
+          "3dWzNZXA8DY@1337",
+          "3dWzNZXA8DY@1340",
+          "3dWzNZXA8DY@1342",
+          "3dWzNZXA8DY@1346",
+          "3dWzNZXA8DY@1348",
+          "3dWzNZXA8DY@1350",
+          "3dWzNZXA8DY@1352",
+          "3dWzNZXA8DY@1354",
+          "3dWzNZXA8DY@1357",
+          "3dWzNZXA8DY@1358",
+          "3dWzNZXA8DY@1361",
+          "3dWzNZXA8DY@1365",
+          "3dWzNZXA8DY@1367",
+          "3dWzNZXA8DY@1370",
+          "3dWzNZXA8DY@1374",
+          "3dWzNZXA8DY@1376",
+          "3dWzNZXA8DY@1378"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p041",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Deep learning is a subset of machine learning because machine learning includes neural network methods and also methods that are not neural networks, such as decision trees.",
+        "line_ids": [
+          "3dWzNZXA8DY@1396",
+          "3dWzNZXA8DY@1398",
+          "3dWzNZXA8DY@1400",
+          "3dWzNZXA8DY@1403",
+          "3dWzNZXA8DY@1405",
+          "3dWzNZXA8DY@1407"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p042",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Large language models are a subset of deep learning because deep learning also includes image-based tasks, while large language models deal only with text.",
+        "line_ids": [
+          "3dWzNZXA8DY@1409",
+          "3dWzNZXA8DY@1414",
+          "3dWzNZXA8DY@1416",
+          "3dWzNZXA8DY@1419",
+          "3dWzNZXA8DY@1422",
+          "3dWzNZXA8DY@1424",
+          "3dWzNZXA8DY@1427",
+          "3dWzNZXA8DY@1429"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p043",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Generative AI can be thought of as combining large language models with deep learning because it handles multiple modalities such as text, images, sound, and video.",
+        "line_ids": [
+          "3dWzNZXA8DY@1435",
+          "3dWzNZXA8DY@1437",
+          "3dWzNZXA8DY@1439",
+          "3dWzNZXA8DY@1441",
+          "3dWzNZXA8DY@1444",
+          "3dWzNZXA8DY@1446",
+          "3dWzNZXA8DY@1450",
+          "3dWzNZXA8DY@1451",
+          "3dWzNZXA8DY@1454",
+          "3dWzNZXA8DY@1456"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p044",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Generative AI uses deep neural networks to create new content such as text, images, and other media, whereas large language models deal only with text.",
+        "line_ids": [
+          "3dWzNZXA8DY@1458",
+          "3dWzNZXA8DY@1461",
+          "3dWzNZXA8DY@1463",
+          "3dWzNZXA8DY@1466",
+          "3dWzNZXA8DY@1469",
+          "3dWzNZXA8DY@1472",
+          "3dWzNZXA8DY@1474",
+          "3dWzNZXA8DY@1476"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p045",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Large language models are a specific application of deep learning techniques that process and generate human-like text.",
+        "line_ids": [
+          "3dWzNZXA8DY@1516",
+          "3dWzNZXA8DY@1520",
+          "3dWzNZXA8DY@1522",
+          "3dWzNZXA8DY@1524",
+          "3dWzNZXA8DY@1526",
+          "3dWzNZXA8DY@1528"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p046",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The lecturer says that large language model applications can be divided into five main categories.",
+        "line_ids": [
+          "3dWzNZXA8DY@1547",
+          "3dWzNZXA8DY@1549",
+          "3dWzNZXA8DY@1552",
+          "3dWzNZXA8DY@1554",
+          "3dWzNZXA8DY@1556"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p047",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Large language models can be used to create new content that may not already exist, such as poems, books, and media articles.",
+        "line_ids": [
+          "3dWzNZXA8DY@1558",
+          "3dWzNZXA8DY@1560",
+          "3dWzNZXA8DY@1566",
+          "3dWzNZXA8DY@1570",
+          "3dWzNZXA8DY@1573",
+          "3dWzNZXA8DY@1577",
+          "3dWzNZXA8DY@1580",
+          "3dWzNZXA8DY@1583",
+          "3dWzNZXA8DY@1587",
+          "3dWzNZXA8DY@1589",
+          "3dWzNZXA8DY@1592",
+          "3dWzNZXA8DY@1606",
+          "3dWzNZXA8DY@1608",
+          "3dWzNZXA8DY@1611",
+          "3dWzNZXA8DY@1613"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p048",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Large language models can be used as chatbots or virtual assistants for interactive conversations.",
+        "line_ids": [
+          "3dWzNZXA8DY@1615",
+          "3dWzNZXA8DY@1618",
+          "3dWzNZXA8DY@1621",
+          "3dWzNZXA8DY@1623",
+          "3dWzNZXA8DY@1625",
+          "3dWzNZXA8DY@1627",
+          "3dWzNZXA8DY@1629",
+          "3dWzNZXA8DY@1631",
+          "3dWzNZXA8DY@1632",
+          "3dWzNZXA8DY@1634"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p049",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Chatbots are a major application of large language models for companies such as airlines, hotels, banks, movie and restaurant services, and customer support.",
+        "line_ids": [
+          "3dWzNZXA8DY@1634",
+          "3dWzNZXA8DY@1638",
+          "3dWzNZXA8DY@1641",
+          "3dWzNZXA8DY@1643",
+          "3dWzNZXA8DY@1645",
+          "3dWzNZXA8DY@1648",
+          "3dWzNZXA8DY@1650",
+          "3dWzNZXA8DY@1664",
+          "3dWzNZXA8DY@1666",
+          "3dWzNZXA8DY@1668",
+          "3dWzNZXA8DY@1672",
+          "3dWzNZXA8DY@1673",
+          "3dWzNZXA8DY@1675",
+          "3dWzNZXA8DY@1677",
+          "3dWzNZXA8DY@1679",
+          "3dWzNZXA8DY@1681"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p050",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Machine translation is an application of large language models that translates text into other languages.",
+        "line_ids": [
+          "3dWzNZXA8DY@1690",
+          "3dWzNZXA8DY@1693",
+          "3dWzNZXA8DY@1694",
+          "3dWzNZXA8DY@1696",
+          "3dWzNZXA8DY@1706",
+          "3dWzNZXA8DY@1708",
+          "3dWzNZXA8DY@1710",
+          "3dWzNZXA8DY@1712"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p051",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The lecturer says large language models can quickly translate output into many languages and have some support for regional languages, with research ongoing to improve this.",
+        "line_ids": [
+          "3dWzNZXA8DY@1714",
+          "3dWzNZXA8DY@1717",
+          "3dWzNZXA8DY@1719",
+          "3dWzNZXA8DY@1722",
+          "3dWzNZXA8DY@1724",
+          "3dWzNZXA8DY@1727",
+          "3dWzNZXA8DY@1728",
+          "3dWzNZXA8DY@1731",
+          "3dWzNZXA8DY@1734",
+          "3dWzNZXA8DY@1737",
+          "3dWzNZXA8DY@1740"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p052",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Large language models can generate new text such as poems, books, media articles, and news articles.",
+        "line_ids": [
+          "3dWzNZXA8DY@1743",
+          "3dWzNZXA8DY@1745",
+          "3dWzNZXA8DY@1747",
+          "3dWzNZXA8DY@1750",
+          "3dWzNZXA8DY@1752",
+          "3dWzNZXA8DY@1755",
+          "3dWzNZXA8DY@1758"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p053",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Large language models can be used for sentiment analysis, such as identifying sentiment in paragraphs for applications like hate speech detection on social media.",
+        "line_ids": [
+          "3dWzNZXA8DY@1761",
+          "3dWzNZXA8DY@1763",
+          "3dWzNZXA8DY@1765",
+          "3dWzNZXA8DY@1768",
+          "3dWzNZXA8DY@1771",
+          "3dWzNZXA8DY@1773",
+          "3dWzNZXA8DY@1776"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p054",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The lecturer describes these five applications as the major pillars of what large language models can do, while noting that there are more applications.",
+        "line_ids": [
+          "3dWzNZXA8DY@1776",
+          "3dWzNZXA8DY@1778",
+          "3dWzNZXA8DY@1781",
+          "3dWzNZXA8DY@1783",
+          "3dWzNZXA8DY@1785"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p055",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "visual_ref",
+        "importance": 2,
+        "text": "The lecturer shows a portal built using large language model knowledge with tools such as a YouTube generator, MCQ generator, text summarizer, text rewriter, worksheet generator, and lesson plan generator.",
+        "line_ids": [
+          "3dWzNZXA8DY@1787",
+          "3dWzNZXA8DY@1789",
+          "3dWzNZXA8DY@1790",
+          "3dWzNZXA8DY@1792",
+          "3dWzNZXA8DY@1795",
+          "3dWzNZXA8DY@1797",
+          "3dWzNZXA8DY@1799",
+          "3dWzNZXA8DY@1802",
+          "3dWzNZXA8DY@1806",
+          "3dWzNZXA8DY@1807",
+          "3dWzNZXA8DY@1810",
+          "3dWzNZXA8DY@1811"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p056",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "code",
+        "importance": 2,
+        "text": "An LLM application can generate a lesson plan for gravity aligned with the CBSE curriculum of India, including objectives, assessment, key points, opening, introduction to new material, guided practice, and independent practice.",
+        "line_ids": [
+          "3dWzNZXA8DY@1814",
+          "3dWzNZXA8DY@1816",
+          "3dWzNZXA8DY@1819",
+          "3dWzNZXA8DY@1821",
+          "3dWzNZXA8DY@1824",
+          "3dWzNZXA8DY@1836"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p057",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Such lesson-plan generation can save teachers a lot of time, and the lecturer states that this was not possible five years earlier but is now possible with LLMs.",
+        "line_ids": [
+          "3dWzNZXA8DY@1836",
+          "3dWzNZXA8DY@1839",
+          "3dWzNZXA8DY@1841",
+          "3dWzNZXA8DY@1844"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p058",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "code",
+        "importance": 2,
+        "text": "An LLM application can generate multiple-choice questions on a topic such as World War II at different difficulty levels, along with the correct answers and explanations.",
+        "line_ids": [
+          "3dWzNZXA8DY@1846",
+          "3dWzNZXA8DY@1850",
+          "3dWzNZXA8DY@1852",
+          "3dWzNZXA8DY@1854",
+          "3dWzNZXA8DY@1859",
+          "3dWzNZXA8DY@1862",
+          "3dWzNZXA8DY@1865",
+          "3dWzNZXA8DY@1868",
+          "3dWzNZXA8DY@1872",
+          "3dWzNZXA8DY@1874",
+          "3dWzNZXA8DY@1876",
+          "3dWzNZXA8DY@1877"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p059",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The lecturer says that with knowledge about LLMs, the sky is the limit and many wonderful applications can be built.",
+        "line_ids": [
+          "3dWzNZXA8DY@1890",
+          "3dWzNZXA8DY@1892",
+          "3dWzNZXA8DY@1894",
+          "3dWzNZXA8DY@1896",
+          "3dWzNZXA8DY@1898"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p060",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A wrong approach is to be fascinated by LLM applications, download and run code, make small changes, and then claim to know LLMs.",
+        "line_ids": [
+          "3dWzNZXA8DY@1900",
+          "3dWzNZXA8DY@1903",
+          "3dWzNZXA8DY@1904",
+          "3dWzNZXA8DY@1907",
+          "3dWzNZXA8DY@1908",
+          "3dWzNZXA8DY@1910"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p061",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The right way to learn LLMs is to understand the foundations, make the basics clear, and understand the nuts and bolts of how LLMs work.",
+        "line_ids": [
+          "3dWzNZXA8DY@1913",
+          "3dWzNZXA8DY@1915",
+          "3dWzNZXA8DY@1918",
+          "3dWzNZXA8DY@1920"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p062",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The applications shown are only the tip of the iceberg, because LLMs can be used for many more research and industrial applications.",
+        "line_ids": [
+          "3dWzNZXA8DY@1932",
+          "3dWzNZXA8DY@1935",
+          "3dWzNZXA8DY@1938",
+          "3dWzNZXA8DY@1940",
+          "3dWzNZXA8DY@1942",
+          "3dWzNZXA8DY@1944",
+          "3dWzNZXA8DY@1945",
+          "3dWzNZXA8DY@1948",
+          "3dWzNZXA8DY@1951",
+          "3dWzNZXA8DY@1952",
+          "3dWzNZXA8DY@1956",
+          "3dWzNZXA8DY@1958"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p063",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Students who will really contribute and make an impact are the ones who know details such as how to write Transformer code, how key, query, and value work, and what positional encoding is.",
+        "line_ids": [
+          "3dWzNZXA8DY@1960",
+          "3dWzNZXA8DY@1962",
+          "3dWzNZXA8DY@1964",
+          "3dWzNZXA8DY@1965",
+          "3dWzNZXA8DY@1968",
+          "3dWzNZXA8DY@1970"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p064",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Without understanding concepts such as Transformer code, key-query-value, and positional encoding, a student's knowledge of LLMs remains superficial.",
+        "line_ids": [
+          "3dWzNZXA8DY@1970",
+          "3dWzNZXA8DY@1974",
+          "3dWzNZXA8DY@1976",
+          "3dWzNZXA8DY@1978"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p065",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "visual_ref",
+        "importance": 1,
+        "text": "The lecturer says the whiteboard approach is intended to provide a visual flavor and visual intuition for how things work.",
+        "line_ids": [
+          "3dWzNZXA8DY@1983",
+          "3dWzNZXA8DY@1985",
+          "3dWzNZXA8DY@1988",
+          "3dWzNZXA8DY@1990",
+          "3dWzNZXA8DY@1993",
+          "3dWzNZXA8DY@1995",
+          "3dWzNZXA8DY@1997"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p066",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The next lesson is about the stages of building LLMs, with a few more lectures on basics before moving into coding.",
+        "line_ids": [
+          "3dWzNZXA8DY@1999",
+          "3dWzNZXA8DY@2002",
+          "3dWzNZXA8DY@2004",
+          "3dWzNZXA8DY@2006",
+          "3dWzNZXA8DY@2008",
+          "3dWzNZXA8DY@2010"
+        ]
+      },
+      {
+        "id": "3dWzNZXA8DY:p067",
+        "video_id": "3dWzNZXA8DY",
+        "lecture": 2,
+        "kind": "procedure",
+        "importance": 1,
+        "text": "Learners should make sure they understand the material, take notes, and ask questions in the comments.",
+        "line_ids": [
+          "3dWzNZXA8DY@2010",
+          "3dWzNZXA8DY@2013",
+          "3dWzNZXA8DY@2015"
+        ]
+      }
+    ],
+    "inventory": [
+      {
+        "chunk": "3dWzNZXA8DY@0-906",
+        "start": 0,
+        "end": 906,
+        "points": 27,
+        "core_points": 16,
+        "flag": null
+      },
+      {
+        "chunk": "3dWzNZXA8DY@904-1816",
+        "start": 904,
+        "end": 1816,
+        "points": 28,
+        "core_points": 16,
+        "flag": null
+      },
+      {
+        "chunk": "3dWzNZXA8DY@1814-2018",
+        "start": 1814,
+        "end": 2018,
+        "points": 12,
+        "core_points": 4,
+        "flag": null
+      }
+    ]
+  }
+}

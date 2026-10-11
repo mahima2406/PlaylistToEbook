@@ -1,0 +1,572 @@
+{
+  "stage": "plants",
+  "item": "ch04",
+  "inputs_hash": "ab6cb62d3f752d72c6556acde74825080e42a6b0e2adc78c3e197db4aedc863f",
+  "output_hash": "34c5498aaf479485c822dd26546629f6f192a7947ebb2ba4678973ebaa35fb8c",
+  "output": {
+    "chapter": "ch04",
+    "plants": [
+      {
+        "id": "ch04.plant1",
+        "type": "number",
+        "text": "In each iteration, the loop finds the loss, performs the backward pass to get loss gradients, and updates the parameters based on those gradients for 2 steps.",
+        "type_requested": "number",
+        "cites": [
+          "Zxf-34voZss@856",
+          "Zxf-34voZss@858",
+          "Zxf-34voZss@860",
+          "Zxf-34voZss@862",
+          "Zxf-34voZss@864",
+          "Zxf-34voZss@866",
+          "Zxf-34voZss@868"
+        ],
+        "original_id": "ch04.s10.p05.02",
+        "verdict": "partial",
+        "confidence": 0.78,
+        "reason": "Cited lines support: in every iteration, find the loss, do backward pass to get gradients, and update parameters based on gradients. They do not support the added claim 'for 2 steps'.",
+        "caught": true
+      },
+      {
+        "id": "ch04.plant2",
+        "type": "term_swap",
+        "text": "That simplification is not how GPT-2 actually tokenizes text, because GPT-2 uses WordPiece as a subword tokenizer.",
+        "type_requested": "term_swap",
+        "cites": [
+          "G3-JgHckzjw@673",
+          "G3-JgHckzjw@675",
+          "G3-JgHckzjw@678"
+        ],
+        "original_id": "ch04.s02.p01.r08",
+        "verdict": "unsupported",
+        "confidence": 0.93,
+        "reason": "The cited lines say GPT-2 uses byte pair encoding (BPE), not WordPiece; so the claim about WordPiece contradicts the source.",
+        "caught": true
+      },
+      {
+        "id": "ch04.plant3",
+        "type": "reversed_cause",
+        "text": "If the temperature is specified, the next token is chosen by taking the token ID with the maximum probability instead of sampling.",
+        "type_requested": "reversed_cause",
+        "cites": [
+          "EhU32O7DkA4@953",
+          "EhU32O7DkA4@956",
+          "EhU32O7DkA4@959",
+          "EhU32O7DkA4@962",
+          "EhU32O7DkA4@966",
+          "EhU32O7DkA4@968",
+          "EhU32O7DkA4@970",
+          "EhU32O7DkA4@972"
+        ],
+        "original_id": "ch04.s12.p05.06",
+        "verdict": "unsupported",
+        "confidence": 0.76,
+        "reason": "The cited lines describe the opposite condition: when temperature is not specified, they take the token ID with maximum probability; they do not say that specifying temperature leads to argmax instead of sampling.",
+        "caught": true
+      },
+      {
+        "id": "ch04.plant4",
+        "type": "unsupported_addition",
+        "text": "One input batch and one target batch are processed at a time, and the batches are always shuffled after every update.",
+        "type_requested": "unsupported_addition",
+        "cites": [
+          "Zxf-34voZss@1332",
+          "Zxf-34voZss@1334",
+          "Zxf-34voZss@1336",
+          "Zxf-34voZss@1339",
+          "Zxf-34voZss@1340"
+        ],
+        "original_id": "ch04.s10.p02.r02",
+        "verdict": "partial",
+        "confidence": 0.86,
+        "reason": "Captions support processing one input batch and one target batch at a time, but do not state batches are always shuffled after every update.",
+        "caught": true
+      },
+      {
+        "id": "ch04.plant5",
+        "type": "wrong_attribution",
+        "text": "For a simple illustration, it is enough to use a vocabulary with seven elements, even though the actual GPT-3 vocabulary has 50257 elements.",
+        "type_requested": "wrong_attribution",
+        "cites": [
+          "7TKCrt--bWI@790",
+          "7TKCrt--bWI@792",
+          "7TKCrt--bWI@794",
+          "7TKCrt--bWI@796",
+          "7TKCrt--bWI@798",
+          "7TKCrt--bWI@801",
+          "7TKCrt--bWI@803",
+          "7TKCrt--bWI@805",
+          "7TKCrt--bWI@808",
+          "7TKCrt--bWI@809"
+        ],
+        "original_id": "ch04.s07.p03.r02",
+        "verdict": "partial",
+        "confidence": 0.86,
+        "reason": "Supported that the illustration uses a 7-element vocabulary and the actual example uses 50257 elements, but the sentence attributes 50257 specifically to the 'actual GPT-3 vocabulary', which is not stated.",
+        "caught": true
+      },
+      {
+        "id": "ch04.plant6",
+        "type": "number",
+        "text": "After multi-head attention there are two dropout layers that randomly turn some context vector values to zero.",
+        "type_requested": "number",
+        "cites": [
+          "G3-JgHckzjw@1539",
+          "G3-JgHckzjw@1541",
+          "G3-JgHckzjw@1543",
+          "G3-JgHckzjw@1547",
+          "G3-JgHckzjw@1557",
+          "G3-JgHckzjw@1558"
+        ],
+        "original_id": "ch04.s04.p03.r02",
+        "verdict": "unsupported",
+        "confidence": 0.78,
+        "reason": "The cited lines mention a dropout layer after multi-head attention that zeros some context vector values, but they do not state there are two dropout layers after multi-head attention.",
+        "caught": true
+      },
+      {
+        "id": "ch04.plant7",
+        "type": "term_swap",
+        "text": "When the non-top-k logits are replaced with negative infinity, sigmoid makes their probabilities effectively zero, so only the surviving top-k tokens can be selected.",
+        "type_requested": "term_swap",
+        "cites": [
+          "EhU32O7DkA4@407",
+          "EhU32O7DkA4@409",
+          "EhU32O7DkA4@411",
+          "EhU32O7DkA4@414",
+          "EhU32O7DkA4@415",
+          "EhU32O7DkA4@421"
+        ],
+        "original_id": "ch04.s12.p03.r03",
+        "verdict": "partial",
+        "confidence": 0.8,
+        "reason": "Cited lines support replacing logits with -infinity and then softmax makes their probabilities effectively zero so only top-k survive. The sentence incorrectly says 'sigmoid' rather than 'softmax'.",
+        "caught": true
+      },
+      {
+        "id": "ch04.plant8",
+        "type": "reversed_cause",
+        "text": "The code for this GPT model is described as pretty simple and straightforward, but students often get confused because only a few tensors and dimensions come into the picture.",
+        "type_requested": "reversed_cause",
+        "cites": [
+          "G3-JgHckzjw@511",
+          "G3-JgHckzjw@513",
+          "G3-JgHckzjw@516",
+          "G3-JgHckzjw@517",
+          "G3-JgHckzjw@519",
+          "G3-JgHckzjw@521",
+          "G3-JgHckzjw@523",
+          "G3-JgHckzjw@525",
+          "G3-JgHckzjw@527"
+        ],
+        "original_id": "ch04.s03.p06.02",
+        "verdict": "partial",
+        "confidence": 0.82,
+        "reason": "Captions support that the code is simple/straightforward and students get confused because many tensors and dimensions come into the picture, but not the claim that confusion is because only a few tensors and dimensions come into the picture.",
+        "caught": true
+      },
+      {
+        "id": "ch04.plant9",
+        "type": "unsupported_addition",
+        "text": "The configuration used here includes vocabulary size, context length, embedding dimension, number of attention heads, number of Transformer blocks, dropout rate, and whether query, key, and value use a bias term, as well as the optimizer learning rate.",
+        "type_requested": "unsupported_addition",
+        "cites": [
+          "7TKCrt--bWI@320",
+          "7TKCrt--bWI@324",
+          "7TKCrt--bWI@326",
+          "7TKCrt--bWI@328",
+          "7TKCrt--bWI@363",
+          "7TKCrt--bWI@387",
+          "7TKCrt--bWI@398",
+          "7TKCrt--bWI@411",
+          "7TKCrt--bWI@416",
+          "7TKCrt--bWI@421"
+        ],
+        "original_id": "ch04.s02.p01.r02",
+        "verdict": "partial",
+        "confidence": 0.74,
+        "reason": "The lines list configuration items such as vocabulary size, context length, embedding dimension, attention heads, number of transformer blocks, dropout rate, and query/key/value bias, but they do not mention the optimizer learning rate as part of this configuration.",
+        "caught": true
+      },
+      {
+        "id": "ch04.plant10",
+        "type": "wrong_attribution",
+        "text": "With four input tokens, that logits matrix has four rows and a number of columns equal to the context length, not 768.",
+        "type_requested": "wrong_attribution",
+        "cites": [
+          "G3-JgHckzjw@2060",
+          "G3-JgHckzjw@2063",
+          "G3-JgHckzjw@2069",
+          "G3-JgHckzjw@2071",
+          "G3-JgHckzjw@2073"
+        ],
+        "original_id": "ch04.s05.p02.r05",
+        "verdict": "partial",
+        "confidence": 0.7,
+        "reason": "Lines support: four tokens -> logits matrix has four rows; columns are not 768 and are equal to vocabulary size. The sentence’s claim that columns equal context length is not supported and contradicts the cited lines.",
+        "caught": true
+      },
+      {
+        "id": "ch04.plant11",
+        "type": "number",
+        "text": "In the original GPT-2 architecture, weight tying means reusing the 50256 token embedding layer weights in the output layer.",
+        "type_requested": "number",
+        "cites": [
+          "G3-JgHckzjw@3277",
+          "G3-JgHckzjw@3279",
+          "G3-JgHckzjw@3281",
+          "G3-JgHckzjw@3283",
+          "G3-JgHckzjw@3285",
+          "G3-JgHckzjw@3287",
+          "G3-JgHckzjw@3301",
+          "G3-JgHckzjw@3304",
+          "G3-JgHckzjw@3306",
+          "G3-JgHckzjw@3308",
+          "G3-JgHckzjw@3310",
+          "Zxf-34voZss@1205",
+          "Zxf-34voZss@1207",
+          "Zxf-34voZss@1211",
+          "Zxf-34voZss@1213"
+        ],
+        "original_id": "ch04.s06.p05.02",
+        "verdict": "partial",
+        "confidence": 0.88,
+        "reason": "Supported that GPT-2 uses weight tying by reusing token embedding weights in the output layer, but the specific number '50256' for the token embedding layer weights is not stated in the cited lines.",
+        "caught": true
+      },
+      {
+        "id": "ch04.plant12",
+        "type": "term_swap",
+        "text": "From the prefix \"every effort\", the correct next token is \"counts\".",
+        "type_requested": "term_swap",
+        "cites": [
+          "7TKCrt--bWI@617",
+          "7TKCrt--bWI@620",
+          "7TKCrt--bWI@623",
+          "7TKCrt--bWI@627"
+        ],
+        "original_id": "ch04.s07.p01.06",
+        "verdict": "unsupported",
+        "confidence": 0.8,
+        "reason": "The cited lines discuss inputs/outputs for sequences like 'every effort' and mention an output token ID '610' corresponding to 'moves'; they do not state that the correct next token after 'every effort' is 'counts'.",
+        "caught": true
+      },
+      {
+        "id": "ch04.plant13",
+        "type": "reversed_cause",
+        "text": "The code then uses \"torch.where\" to replace logits above the smallest top-k logit with negative infinity, and after softmax only the top-k tokens retain nonzero probabilities that sum to one.",
+        "type_requested": "reversed_cause",
+        "cites": [
+          "EhU32O7DkA4@611",
+          "EhU32O7DkA4@617",
+          "EhU32O7DkA4@622",
+          "EhU32O7DkA4@624",
+          "EhU32O7DkA4@627",
+          "EhU32O7DkA4@630",
+          "EhU32O7DkA4@635",
+          "EhU32O7DkA4@637",
+          "EhU32O7DkA4@640",
+          "EhU32O7DkA4@642",
+          "EhU32O7DkA4@644",
+          "EhU32O7DkA4@647",
+          "EhU32O7DkA4@648",
+          "EhU32O7DkA4@650",
+          "EhU32O7DkA4@653"
+        ],
+        "original_id": "ch04.s12.p03.r06",
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "Lines support using torch.where to replace logits below a threshold (the smallest top-3 value) with -infinity, and after softmax only the top 3 retain probability and sum to one. They do not explicitly state 'above the smallest top-k logit' (they say 'less than 4.51'), and they don’t explicitly state 'retain nonzero probabilities' (only that others have no probability score).",
+        "caught": true
+      },
+      {
+        "id": "ch04.plant14",
+        "type": "unsupported_addition",
+        "text": "That is why the returned logits have one row per input token position and a number of columns equal to the vocabulary size, and they are already normalized into probabilities.",
+        "type_requested": "unsupported_addition",
+        "cites": [
+          "7TKCrt--bWI@469",
+          "7TKCrt--bWI@472",
+          "7TKCrt--bWI@476",
+          "7TKCrt--bWI@479",
+          "7TKCrt--bWI@480",
+          "G3-JgHckzjw@2230",
+          "G3-JgHckzjw@2233"
+        ],
+        "original_id": "ch04.s05.p03.05",
+        "verdict": "partial",
+        "confidence": 0.8,
+        "reason": "Captions support rows per token position and columns equal to vocabulary size (logits shape), but do not support the claim that logits are already normalized into probabilities.",
+        "caught": true
+      },
+      {
+        "id": "ch04.plant15",
+        "type": "wrong_attribution",
+        "text": "In traditional machine learning, clustering generally uses least-square or mean-squared-error losses, while classification uses losses such as cross-entropy or hinge loss.",
+        "type_requested": "wrong_attribution",
+        "cites": [
+          "7TKCrt--bWI@20",
+          "7TKCrt--bWI@23",
+          "7TKCrt--bWI@27",
+          "7TKCrt--bWI@29",
+          "7TKCrt--bWI@32",
+          "7TKCrt--bWI@34",
+          "7TKCrt--bWI@36",
+          "7TKCrt--bWI@39"
+        ],
+        "original_id": "ch04.s08.p01.02",
+        "verdict": "unsupported",
+        "confidence": 0.86,
+        "reason": "The cited lines discuss regression using least squares/MSE and classification using cross-entropy/hinge loss, but they do not mention clustering at all.",
+        "caught": true
+      },
+      {
+        "id": "ch04.plant16",
+        "type": "number",
+        "text": "To form the input embedding for each token, the model adds that token’s token embedding to the 2 positional embedding for its position.",
+        "type_requested": "number",
+        "cites": [
+          "G3-JgHckzjw@919",
+          "G3-JgHckzjw@922",
+          "G3-JgHckzjw@923",
+          "G3-JgHckzjw@926",
+          "G3-JgHckzjw@928",
+          "G3-JgHckzjw@936",
+          "G3-JgHckzjw@939",
+          "G3-JgHckzjw@940",
+          "G3-JgHckzjw@942",
+          "G3-JgHckzjw@945",
+          "G3-JgHckzjw@948"
+        ],
+        "original_id": "ch04.s03.p05.02",
+        "verdict": "partial",
+        "confidence": 0.78,
+        "reason": "Captions support adding token embedding and positional embedding to form the input embedding, but do not support the specific claim about '2 positional embedding' (the '2' is not stated).",
+        "caught": true
+      },
+      {
+        "id": "ch04.plant17",
+        "type": "term_swap",
+        "text": "From the prefix \"I really like\", the correct next token is \"vanilla\".",
+        "type_requested": "term_swap",
+        "cites": [
+          "7TKCrt--bWI@647",
+          "7TKCrt--bWI@650",
+          "7TKCrt--bWI@651",
+          "7TKCrt--bWI@654"
+        ],
+        "original_id": "ch04.s07.p01.11",
+        "verdict": "unsupported",
+        "confidence": 0.9,
+        "reason": "Captions describe that when 'i really like' is the input, 'chocolate' is the output/target; they do not mention 'vanilla' as the correct next token.",
+        "caught": true
+      },
+      {
+        "id": "ch04.plant18",
+        "type": "reversed_cause",
+        "text": "The scale is striking because this backward pass and optimization cannot be done on a laptop in about five to six minutes.",
+        "type_requested": "reversed_cause",
+        "cites": [
+          "Zxf-34voZss@1000",
+          "Zxf-34voZss@1002",
+          "Zxf-34voZss@1005",
+          "Zxf-34voZss@1009",
+          "Zxf-34voZss@1012",
+          "Zxf-34voZss@1015",
+          "Zxf-34voZss@1017",
+          "Zxf-34voZss@1019"
+        ],
+        "original_id": "ch04.s10.p03.r06",
+        "verdict": "unsupported",
+        "confidence": 0.9,
+        "reason": "Captions say the backward pass/optimization can be done on a laptop in about 5–6 minutes, which contradicts the sentence’s claim that it cannot be done.",
+        "caught": true
+      },
+      {
+        "id": "ch04.plant19",
+        "type": "unsupported_addition",
+        "text": "The target is the true value, the actual value the LLM is supposed to approximate, and it is usually represented as a one-hot vector.",
+        "type_requested": "unsupported_addition",
+        "cites": [
+          "Zxf-34voZss@196",
+          "Zxf-34voZss@199",
+          "Zxf-34voZss@201"
+        ],
+        "original_id": "ch04.s09.p02.04",
+        "verdict": "unsupported",
+        "confidence": 0.85,
+        "reason": "Lines define the target as the true/actual value the LLM approximates, but do not say it is usually represented as a one-hot vector.",
+        "caught": true
+      },
+      {
+        "id": "ch04.plant20",
+        "type": "wrong_attribution",
+        "text": "This layer normalization step is the only step in this flow where the dimensions change, from four tokens by 768 to four tokens by 50257.",
+        "type_requested": "wrong_attribution",
+        "cites": [
+          "G3-JgHckzjw@2171",
+          "G3-JgHckzjw@2173",
+          "G3-JgHckzjw@2175",
+          "G3-JgHckzjw@2177",
+          "G3-JgHckzjw@2179",
+          "G3-JgHckzjw@2181",
+          "G3-JgHckzjw@2184",
+          "G3-JgHckzjw@2186",
+          "G3-JgHckzjw@2188",
+          "G3-JgHckzjw@2191"
+        ],
+        "original_id": "ch04.s05.p02.r07",
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": "",
+        "caught": false
+      }
+    ],
+    "by_type": {
+      "number": {
+        "planted": 4,
+        "caught": 4
+      },
+      "term_swap": {
+        "planted": 4,
+        "caught": 4
+      },
+      "reversed_cause": {
+        "planted": 4,
+        "caught": 4
+      },
+      "unsupported_addition": {
+        "planted": 4,
+        "caught": 4
+      },
+      "wrong_attribution": {
+        "planted": 4,
+        "caught": 3
+      }
+    },
+    "caught": 19,
+    "planted": 20,
+    "decoys": [
+      {
+        "id": "ch04.s13.p01.03",
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      {
+        "id": "ch04.s07.p05.r02",
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      {
+        "id": "ch04.s12.p05.07",
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      {
+        "id": "ch04.s04.p01.04",
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      {
+        "id": "ch04.s09.p03.r02",
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      {
+        "id": "ch04.s05.p02.r03",
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      {
+        "id": "ch04.s08.p06.11",
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      {
+        "id": "ch04.s05.p02.r08",
+        "verdict": "supported",
+        "confidence": 0.72,
+        "reason": ""
+      },
+      {
+        "id": "ch04.s07.p05.r04",
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      {
+        "id": "ch04.s11.p01.06",
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      {
+        "id": "ch04.s10.p04.05",
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      {
+        "id": "ch04.s09.p02.09",
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      {
+        "id": "ch04.s12.p04.r03",
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "Captions support that multinomial sampling samples tokens according to their probabilities and the highest-probability token is sampled most often, but they do not state this is specifically after top-k filtering and temperature scaling."
+      },
+      {
+        "id": "ch04.s10.p03.r01",
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      {
+        "id": "ch04.s10.p03.r03",
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      {
+        "id": "ch04.s08.p04.03",
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      {
+        "id": "ch04.s08.p03.05",
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      {
+        "id": "ch04.s09.p02.02",
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      {
+        "id": "ch04.s12.p01.08",
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      {
+        "id": "ch04.s12.p01.07",
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      }
+    ],
+    "decoys_flagged": 1
+  }
+}

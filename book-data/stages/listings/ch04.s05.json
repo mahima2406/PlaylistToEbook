@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch04.s05",
+  "inputs_hash": "d9c8d3a4ce3df9e0ce328ce4949622495a687e4643b5745c69ae8aa8586c9401",
+  "output_hash": "0b8c53ec5c256cd922c6e6e139306638479c51267a517e4f58bced954dd610e1",
+  "output": {
+    "section_id": "ch04.s05",
+    "listings": [],
+    "rejected": [
+      {
+        "id": "ch04.s05.code1",
+        "ref": "ref:ch04/01_main-chapter-code/ch04.ipynb#cell16",
+        "path": "ch04/01_main-chapter-code/ch04.ipynb",
+        "caption": "This code creates a DummyGPTModel, runs it on a batch of input tokens, and prints the resulting output tensor shape and logits.",
+        "code": "torch.manual_seed(123)\nmodel = DummyGPTModel(GPT_CONFIG_124M)\n\nlogits = model(batch)\nprint(\"Output shape:\", logits.shape)\nprint(logits)",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The code does run a (Dummy) GPT-like model on a batch and prints the logits tensor and its shape, which is related to the section’s focus on output shapes/logits. However, it does not demonstrate the specific shapes mentioned (4×50257 or 2×4×50257) because neither the batch size/context size nor the vocabulary size (50257) are shown, and it doesn’t illustrate the internal steps (embeddings, positional embeddings, dropout, transformer blocks, final norm). The caption also slightly overstates by implying it prints both the output shape and logits in a way tied to the taught shapes, which isn’t guaranteed from the excerpt alone."
+      },
+      {
+        "id": "ch04.s05.code2",
+        "ref": "ref:ch04/01_main-chapter-code/ch04.ipynb#cell76",
+        "path": "ch04/01_main-chapter-code/ch04.ipynb",
+        "caption": "This code prints the shapes of the token embedding matrix and the output head weight matrix.",
+        "code": "print(\"Token embedding layer shape:\", model.tok_emb.weight.shape)\nprint(\"Output layer shape:\", model.out_head.weight.shape)",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The code relates to the model’s token embeddings and output head, which are components mentioned in the section, but it does not demonstrate the taught output tensor/logits shapes for given batch/context sizes. Also, the caption is accurate about what is printed, but the section focuses on output logits tensor shapes and the forward pass pipeline rather than just the parameter matrix shapes."
+      }
+    ]
+  }
+}

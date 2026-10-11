@@ -1,0 +1,22 @@
+{
+  "stage": "listings",
+  "item": "ch05.s06",
+  "inputs_hash": "ab13b2c3d52be1bae0470ca5a224f2f9d4305c5f6987aa89a10baca9f4ceb2f9",
+  "output_hash": "cc740f921eb1c24e0f22d2e93d954bf38d6a4f734e72b4180a29f2bdaac7729d",
+  "output": {
+    "section_id": "ch05.s06",
+    "listings": [
+      {
+        "id": "ch05.s06.code1",
+        "ref": "ref:ch05/01_main-chapter-code/ch05.ipynb#cell145",
+        "path": "ch05/01_main-chapter-code/ch05.ipynb",
+        "caption": "This code seeds PyTorch, calls generate on the GPT model with the prompt \"Every effort moves you\" using 25 new tokens, top-k 50, and temperature 1.5, and prints the decoded output text.",
+        "code": "torch.manual_seed(123)\n\ntoken_ids = generate(\n    model=gpt,\n    idx=text_to_token_ids(\"Every effort moves you\", tokenizer).to(device),\n    max_new_tokens=25,\n    context_size=NEW_CONFIG[\"context_length\"],\n    top_k=50,\n    temperature=1.5\n)\n\nprint(\"Output text:\\n\", token_ids_to_text(token_ids, tokenizer))",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The excerpt seeds PyTorch, calls `generate` with the loaded GPT model and the prompt \"Every effort moves you\" (via token IDs), sets `max_new_tokens=25`, `temperature=1.5`, and `top_k=50`, and prints the decoded output text, which aligns with the section’s model-testing description and the caption. It does not cover architecture changes or AdamW, but it correctly demonstrates the generation-testing part taught in the section."
+      }
+    ],
+    "rejected": []
+  }
+}

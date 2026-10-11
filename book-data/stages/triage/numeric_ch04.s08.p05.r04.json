@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "numeric_ch04.s08.p05.r04",
+  "inputs_hash": "e835d6795601aea3be6bcc40676189f998326983576321d7572ba443937e3a9a",
+  "output_hash": "d617599a041d47d39903c0200c557a4afdd1e887570643600ca6231812b4dec3",
+  "output": {
+    "decision": "edit",
+    "text": "After flattening, the target sequence is 3626, 6100, 345, 1107, 588, and 11311, and these indices identify the entries whose probabilities correspond to \"p11\" through \"p23\".",
+    "reason": "This sentence gives concrete flattened index values, so it should match the executed reference code for the checked positions.",
+    "risk": "low",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.78,
+      "reason": "The captions support that after flattening the sequence includes 3626, 610, 345, 107, 588, and 11311, and that indices for 3626 and 610 map to p11 and p12, and 11311 maps to p23, with a later summary listing p11 p12 p13 p21 p22 p23. However, the sentence claims the target sequence is 3626, 6100, 345, 1107, 588, and 11311, and that these indices correspond to p11 through p23; the captions say '610' and '107' (not 6100 and 1107) and do not explicitly map every listed index to each of p11–p23."
+    },
+    "kind": "numeric",
+    "sentence_hash": "2e8fe531a300fb4ac823a1256bb548102b41d925474225979eac778ec7c73702"
+  }
+}

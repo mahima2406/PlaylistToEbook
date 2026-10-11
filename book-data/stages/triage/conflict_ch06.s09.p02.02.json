@@ -1,0 +1,14 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch06.s09.p02.02",
+  "inputs_hash": "7755442b88eef61e00f8092042adb549d04fa92a646f5f919386bba42e684876",
+  "output_hash": "7ea1d74e75484c772146c957fab7d6973d64a8d681918b0ee1628d46186da867",
+  "output": {
+    "decision": "note",
+    "note": "The reference code example uses the 124M model in a gpt2 directory; the lecture here describes downloading the 355M model instead.",
+    "reason": "Both statements fit different model_size choices, so the conflict is contextual rather than an error.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "ce00f1143367350bb9591326b48e50b9066f95b04383c2356a84efcdec10c268"
+  }
+}

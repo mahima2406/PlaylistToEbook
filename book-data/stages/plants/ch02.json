@@ -1,0 +1,600 @@
+{
+  "stage": "plants",
+  "item": "ch02",
+  "inputs_hash": "69a1e65b31332de604eb303b47a5f609b4c0c504f4be9c84e21026585263b8fe",
+  "output_hash": "9c975becf55001c549d9289b3eb3c5ac602c0e02e482cd352b0eda27e5bfb85b",
+  "output": {
+    "chapter": "ch02",
+    "plants": [
+      {
+        "id": "ch02.plant1",
+        "type": "number",
+        "text": "After the merges are constructed, tokens whose frequency has become 1 can be removed to obtain the final token table.",
+        "type_requested": "number",
+        "cites": [
+          "fKd8s29e-l4@2202",
+          "fKd8s29e-l4@2205",
+          "fKd8s29e-l4@2207",
+          "fKd8s29e-l4@2209",
+          "fKd8s29e-l4@2211",
+          "fKd8s29e-l4@2214",
+          "fKd8s29e-l4@2217",
+          "fKd8s29e-l4@2219",
+          "fKd8s29e-l4@2223",
+          "fKd8s29e-l4@2225",
+          "fKd8s29e-l4@2227"
+        ],
+        "original_id": "ch02.s08.p05.01",
+        "verdict": "unsupported",
+        "confidence": 0.93,
+        "reason": "The cited lines describe removing tokens whose frequency is zero, not tokens whose frequency has become 1.",
+        "caught": true
+      },
+      {
+        "id": "ch02.plant2",
+        "type": "term_swap",
+        "text": "An embedding layer is essentially a sorting operation that retrieves rows from the embedding layer’s weight matrix using a token ID.",
+        "type_requested": "term_swap",
+        "cites": [
+          "ghCSGRgVB_o@2597",
+          "ghCSGRgVB_o@2600",
+          "ghCSGRgVB_o@2602",
+          "ghCSGRgVB_o@2604",
+          "ghCSGRgVB_o@2607",
+          "ghCSGRgVB_o@2610",
+          "ghCSGRgVB_o@2611",
+          "ghCSGRgVB_o@2614",
+          "ghCSGRgVB_o@2616",
+          "ghCSGRgVB_o@2618",
+          "mk-6cFebjis@4583",
+          "mk-6cFebjis@4585",
+          "mk-6cFebjis@4587",
+          "mk-6cFebjis@4589",
+          "mk-6cFebjis@4591",
+          "mk-6cFebjis@4593",
+          "mk-6cFebjis@4595"
+        ],
+        "original_id": "ch02.s12.p05.05",
+        "verdict": "partial",
+        "confidence": 0.86,
+        "reason": "The cited lines support that an embedding layer is a lookup operation retrieving rows from the weight matrix via a token ID, but they do not describe it as a \"sorting operation.\"",
+        "caught": true
+      },
+      {
+        "id": "ch02.plant3",
+        "type": "reversed_cause",
+        "text": "The code prints that the encoded text has length 5145 tokens, so it reads the raw text and encodes it with the byte pair tokenizer from tiktoken.",
+        "type_requested": "reversed_cause",
+        "cites": [
+          "mk-6cFebjis@3321",
+          "mk-6cFebjis@3323",
+          "mk-6cFebjis@3325",
+          "mk-6cFebjis@3328",
+          "mk-6cFebjis@3331",
+          "mk-6cFebjis@3336",
+          "mk-6cFebjis@3338",
+          "mk-6cFebjis@3340"
+        ],
+        "original_id": "ch02.s15.p03.r02",
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": "",
+        "caught": false
+      },
+      {
+        "id": "ch02.plant4",
+        "type": "unsupported_addition",
+        "text": "For example, the vector returned for token ID 3 is identical to the fourth row of the matrix because the IDs are zero-indexed, and token ID 3 is reserved for punctuation.",
+        "type_requested": "unsupported_addition",
+        "cites": [
+          "ghCSGRgVB_o@2550",
+          "ghCSGRgVB_o@2552",
+          "ghCSGRgVB_o@2560",
+          "ghCSGRgVB_o@2564",
+          "ghCSGRgVB_o@2566",
+          "ghCSGRgVB_o@2569",
+          "ghCSGRgVB_o@2571",
+          "ghCSGRgVB_o@2573",
+          "ghCSGRgVB_o@2583",
+          "ghCSGRgVB_o@2586",
+          "ghCSGRgVB_o@2589",
+          "ghCSGRgVB_o@2591",
+          "mk-6cFebjis@4477",
+          "mk-6cFebjis@4478",
+          "mk-6cFebjis@4480",
+          "mk-6cFebjis@4483",
+          "mk-6cFebjis@4488",
+          "mk-6cFebjis@4490",
+          "mk-6cFebjis@4492"
+        ],
+        "original_id": "ch02.s12.p05.04",
+        "verdict": "partial",
+        "confidence": 0.84,
+        "reason": "Supported: token ID 3 returns a vector identical to the fourth row due to zero-indexing. Unsupported: that token ID 3 is reserved for punctuation.",
+        "caught": true
+      },
+      {
+        "id": "ch02.plant5",
+        "type": "wrong_attribution",
+        "text": "BPE stops merging according to the tokenizer’s embedding dimension, such as reaching a target token count or a chosen number of iterations.",
+        "type_requested": "wrong_attribution",
+        "cites": [
+          "fKd8s29e-l4@2235",
+          "fKd8s29e-l4@2236",
+          "fKd8s29e-l4@2239",
+          "fKd8s29e-l4@2241",
+          "fKd8s29e-l4@2244",
+          "fKd8s29e-l4@2247",
+          "fKd8s29e-l4@2248",
+          "fKd8s29e-l4@2251",
+          "fKd8s29e-l4@2301",
+          "fKd8s29e-l4@2304",
+          "fKd8s29e-l4@2306",
+          "fKd8s29e-l4@2313",
+          "fKd8s29e-l4@2316",
+          "fKd8s29e-l4@2318",
+          "fKd8s29e-l4@2320",
+          "fKd8s29e-l4@2332",
+          "fKd8s29e-l4@2335",
+          "mk-6cFebjis@2498",
+          "mk-6cFebjis@2500",
+          "mk-6cFebjis@2502",
+          "mk-6cFebjis@2505",
+          "mk-6cFebjis@2507",
+          "mk-6cFebjis@2508",
+          "mk-6cFebjis@2510"
+        ],
+        "original_id": "ch02.s08.p05.03",
+        "verdict": "partial",
+        "confidence": 0.76,
+        "reason": "Citations support stopping by target token count or number of iterations, but do not connect stopping to the tokenizer’s embedding dimension.",
+        "caught": true
+      },
+      {
+        "id": "ch02.plant6",
+        "type": "number",
+        "text": "Byte pair encoding, or BPE, is a 2-stage subword tokenization algorithm.",
+        "type_requested": "number",
+        "cites": [
+          "fKd8s29e-l4@971",
+          "fKd8s29e-l4@975",
+          "mk-6cFebjis@150",
+          "mk-6cFebjis@152",
+          "mk-6cFebjis@155",
+          "mk-6cFebjis@159"
+        ],
+        "original_id": "ch02.s08.p01.03",
+        "verdict": "partial",
+        "confidence": 0.8,
+        "reason": "The citations support that BPE is a subword tokenization algorithm, but do not mention it being '2-stage.'",
+        "caught": true
+      },
+      {
+        "id": "ch02.plant7",
+        "type": "term_swap",
+        "text": "For GPT, however, the tokenizer does not use an unknown token, but it does use a padding token.",
+        "type_requested": "term_swap",
+        "cites": [
+          "mk-6cFebjis@1717",
+          "mk-6cFebjis@1721",
+          "mk-6cFebjis@1723",
+          "mk-6cFebjis@1726"
+        ],
+        "original_id": "ch02.s05.p05.03",
+        "verdict": "unsupported",
+        "confidence": 0.9,
+        "reason": "The cited lines say GPT’s tokenizer does not use an unknown token and does use an end-of-text token; they do not mention a padding token.",
+        "caught": true
+      },
+      {
+        "id": "ch02.plant8",
+        "type": "reversed_cause",
+        "text": "Byte pair encoding is described as subwords made through the token vocabulary.",
+        "type_requested": "reversed_cause",
+        "cites": [
+          "ghCSGRgVB_o@1711",
+          "ghCSGRgVB_o@1714",
+          "ghCSGRgVB_o@1717",
+          "ghCSGRgVB_o@1718"
+        ],
+        "original_id": "ch02.s12.p07.r06",
+        "verdict": "partial",
+        "confidence": 0.78,
+        "reason": "The lines support that GPT-2’s tokens were subwords made through byte pair encoding, but they do not state \"made through the token vocabulary\" (the vocabulary aspect is not expressed that way).",
+        "caught": true
+      },
+      {
+        "id": "ch02.plant9",
+        "type": "unsupported_addition",
+        "text": "\"AAA\" is not the answer, because a byte pair contains only two consecutive symbols, not three, and the symbols must be lowercase letters.",
+        "type_requested": "unsupported_addition",
+        "cites": [
+          "fKd8s29e-l4@1102",
+          "fKd8s29e-l4@1105",
+          "fKd8s29e-l4@1107"
+        ],
+        "original_id": "ch02.s07.p02.r04",
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "Lines support that 'AAA' (three characters) is not a byte pair because a byte pair is two characters, but they do not state that the symbols must be lowercase letters.",
+        "caught": true
+      },
+      {
+        "id": "ch02.plant10",
+        "type": "wrong_attribution",
+        "text": "It also removes the large-vocabulary problem of word-based tokenization, and the small vocabulary makes the embedding layer computationally and memory efficient.",
+        "type_requested": "wrong_attribution",
+        "cites": [
+          "fKd8s29e-l4@507",
+          "fKd8s29e-l4@520",
+          "fKd8s29e-l4@522",
+          "fKd8s29e-l4@525",
+          "fKd8s29e-l4@527",
+          "fKd8s29e-l4@531",
+          "fKd8s29e-l4@540",
+          "fKd8s29e-l4@542",
+          "fKd8s29e-l4@544",
+          "mk-6cFebjis@1883",
+          "mk-6cFebjis@1885",
+          "mk-6cFebjis@1929",
+          "mk-6cFebjis@1946",
+          "mk-6cFebjis@1949"
+        ],
+        "original_id": "ch02.s06.p01.07",
+        "verdict": "partial",
+        "confidence": 0.7,
+        "reason": "Captions support that character-based tokenization solves the large word-vocabulary problem and is computationally/memory efficient due to small vocabulary size, but they do not mention the embedding layer specifically.",
+        "caught": true
+      },
+      {
+        "id": "ch02.plant11",
+        "type": "number",
+        "text": "After tokenization, each token is converted into 2 token IDs.",
+        "type_requested": "number",
+        "cites": [
+          "ghCSGRgVB_o@119",
+          "ghCSGRgVB_o@122",
+          "ghCSGRgVB_o@124",
+          "ghCSGRgVB_o@127"
+        ],
+        "original_id": "ch02.s01.p03.04",
+        "verdict": "unsupported",
+        "confidence": 0.9,
+        "reason": "Cited lines say tokens are converted into token IDs, but do not state that each token becomes 2 token IDs.",
+        "caught": true
+      },
+      {
+        "id": "ch02.plant12",
+        "type": "term_swap",
+        "text": "In \"encode\", the input text is split on the chosen characters, whitespace is removed, and the remaining strings are hashed in the vocabulary to return a list of token IDs.",
+        "type_requested": "term_swap",
+        "cites": [
+          "mk-6cFebjis@1110",
+          "mk-6cFebjis@1112",
+          "mk-6cFebjis@1114",
+          "mk-6cFebjis@1117",
+          "mk-6cFebjis@1119",
+          "mk-6cFebjis@1120",
+          "mk-6cFebjis@1122",
+          "mk-6cFebjis@1124",
+          "mk-6cFebjis@1126",
+          "mk-6cFebjis@1128",
+          "mk-6cFebjis@1131",
+          "mk-6cFebjis@1132",
+          "mk-6cFebjis@1135",
+          "mk-6cFebjis@1136",
+          "mk-6cFebjis@1139",
+          "mk-6cFebjis@1141",
+          "mk-6cFebjis@1143",
+          "mk-6cFebjis@1146"
+        ],
+        "original_id": "ch02.s03.p05.r04",
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": "",
+        "caught": false
+      },
+      {
+        "id": "ch02.plant13",
+        "type": "reversed_cause",
+        "text": "PyTorch describes the embedding as a simple lookup table because it stores embeddings of a variable dictionary and size.",
+        "type_requested": "reversed_cause",
+        "cites": [
+          "ghCSGRgVB_o@2310",
+          "ghCSGRgVB_o@2312",
+          "ghCSGRgVB_o@2314",
+          "ghCSGRgVB_o@2316"
+        ],
+        "original_id": "ch02.s12.p04.04",
+        "verdict": "unsupported",
+        "confidence": 0.82,
+        "reason": "The cited line says a lookup table stores embeddings of a fixed dictionary and size, but the sentence claims variable dictionary and size and adds a causal 'because' not supported.",
+        "caught": true
+      },
+      {
+        "id": "ch02.plant14",
+        "type": "unsupported_addition",
+        "text": "Embeddings can also be used to find words similar to a given word; for \"tower\", the shown similar words include \"scraper\", \"tower\", and \"spire\", and the similarity is computed with Euclidean distance.",
+        "type_requested": "unsupported_addition",
+        "cites": [
+          "ghCSGRgVB_o@1456",
+          "ghCSGRgVB_o@1459",
+          "ghCSGRgVB_o@1461",
+          "ghCSGRgVB_o@1464",
+          "ghCSGRgVB_o@1465",
+          "ghCSGRgVB_o@1468"
+        ],
+        "original_id": "ch02.s11.p05.r06",
+        "verdict": "partial",
+        "confidence": 0.74,
+        "reason": "The cited lines support that embeddings can find similar words and list 'scraper', 'tower', 'spire' for 'tower', but they do not state that similarity is computed with Euclidean distance.",
+        "caught": true
+      },
+      {
+        "id": "ch02.plant15",
+        "type": "wrong_attribution",
+        "text": "After the input-output pairs are created, the tokenizer is passed to a data loader, which processes the dataset and generates input-output batches from the input and output tensors.",
+        "type_requested": "wrong_attribution",
+        "cites": [
+          "mk-6cFebjis@3643",
+          "mk-6cFebjis@3645",
+          "mk-6cFebjis@3647",
+          "mk-6cFebjis@3650",
+          "mk-6cFebjis@3652",
+          "mk-6cFebjis@3695",
+          "mk-6cFebjis@3697",
+          "mk-6cFebjis@3699",
+          "mk-6cFebjis@3703",
+          "mk-6cFebjis@3705",
+          "mk-6cFebjis@3707",
+          "mk-6cFebjis@3710"
+        ],
+        "original_id": "ch02.s15.p06.01",
+        "verdict": "unsupported",
+        "confidence": 0.8,
+        "reason": "Cited lines describe passing the dataset (input/output tensors) to the data loader and generating batches, but they do not say the tokenizer is passed to the data loader.",
+        "caught": true
+      },
+      {
+        "id": "ch02.plant16",
+        "type": "number",
+        "text": "Here, \"old\" appears 6 times, \"older\" 3 times, \"finest\" 9 times, and \"lowest\" 4 times.",
+        "type_requested": "number",
+        "cites": [
+          "fKd8s29e-l4@1550",
+          "fKd8s29e-l4@1553",
+          "fKd8s29e-l4@1555",
+          "fKd8s29e-l4@1557",
+          "fKd8s29e-l4@1560",
+          "fKd8s29e-l4@1562"
+        ],
+        "original_id": "ch02.s08.p02.07",
+        "verdict": "unsupported",
+        "confidence": 0.9,
+        "reason": "The cited lines state 'old appears seven times' (not 6); the other counts (older 3, finest 9, lowest 4) are supported.",
+        "caught": true
+      },
+      {
+        "id": "ch02.plant17",
+        "type": "term_swap",
+        "text": "A major reason for the large vocabulary is that a model would need layers for a huge number of words in the language.",
+        "type_requested": "term_swap",
+        "cites": [
+          "mk-6cFebjis@1843",
+          "mk-6cFebjis@1845",
+          "mk-6cFebjis@1847",
+          "mk-6cFebjis@1849",
+          "mk-6cFebjis@1856",
+          "mk-6cFebjis@1858",
+          "mk-6cFebjis@1860"
+        ],
+        "original_id": "ch02.s04.p03.05",
+        "verdict": "unsupported",
+        "confidence": 0.78,
+        "reason": "Cited lines support that training GPT would need a vocabulary with a huge number of words, but do not say this is because the model would need layers for each word.",
+        "caught": true
+      },
+      {
+        "id": "ch02.plant18",
+        "type": "reversed_cause",
+        "text": "Equivalently, the unique integer called the token ID is a dictionary in which every vocabulary is mapped to a unique token.",
+        "type_requested": "reversed_cause",
+        "cites": [
+          "mk-6cFebjis@859",
+          "mk-6cFebjis@862",
+          "mk-6cFebjis@866",
+          "mk-6cFebjis@869",
+          "mk-6cFebjis@871"
+        ],
+        "original_id": "ch02.s02.p03.03",
+        "verdict": "partial",
+        "confidence": 0.74,
+        "reason": "Captions support that the vocabulary is a dictionary mapping each unique token to a unique integer (token ID), but the sentence incorrectly says the token ID itself is a dictionary and that 'every vocabulary is mapped to a unique token.'",
+        "caught": true
+      },
+      {
+        "id": "ch02.plant19",
+        "type": "unsupported_addition",
+        "text": "With a batch size of eight, the model parameters are updated only after the entire batch is processed, and the gradients are averaged across exactly eight GPUs.",
+        "type_requested": "unsupported_addition",
+        "cites": [
+          "mk-6cFebjis@3729",
+          "mk-6cFebjis@3731",
+          "mk-6cFebjis@3733",
+          "mk-6cFebjis@3737",
+          "mk-6cFebjis@3740",
+          "mk-6cFebjis@3742",
+          "mk-6cFebjis@3744"
+        ],
+        "original_id": "ch02.s15.p06.05",
+        "verdict": "partial",
+        "confidence": 0.78,
+        "reason": "Cited lines support that with batch size 8, parameters are updated only after the entire batch is processed, but they do not mention GPUs or averaging gradients across exactly eight GPUs.",
+        "caught": true
+      },
+      {
+        "id": "ch02.plant20",
+        "type": "wrong_attribution",
+        "text": "These token embeddings serve as the input to training the data loader.",
+        "type_requested": "wrong_attribution",
+        "cites": [
+          "ghCSGRgVB_o@141",
+          "ghCSGRgVB_o@143",
+          "ghCSGRgVB_o@146"
+        ],
+        "original_id": "ch02.s01.p03.06",
+        "verdict": "partial",
+        "confidence": 0.78,
+        "reason": "Cited lines say token embeddings serve as input to training the large language model (e.g., GPT), not specifically 'the data loader.'",
+        "caught": true
+      }
+    ],
+    "by_type": {
+      "number": {
+        "planted": 4,
+        "caught": 4
+      },
+      "term_swap": {
+        "planted": 4,
+        "caught": 3
+      },
+      "reversed_cause": {
+        "planted": 4,
+        "caught": 3
+      },
+      "unsupported_addition": {
+        "planted": 4,
+        "caught": 4
+      },
+      "wrong_attribution": {
+        "planted": 4,
+        "caught": 4
+      }
+    },
+    "caught": 18,
+    "planted": 20,
+    "decoys": [
+      {
+        "id": "ch02.s11.p02.07",
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      {
+        "id": "ch02.s09.p01.r04",
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      {
+        "id": "ch02.s06.p03.04",
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      {
+        "id": "ch02.s12.p04.03",
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      {
+        "id": "ch02.s01.p03.03",
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      {
+        "id": "ch02.s14.p02.09",
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      {
+        "id": "ch02.s15.p05.03",
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      {
+        "id": "ch02.s02.p02.02",
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      {
+        "id": "ch02.s12.p02.r06",
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      {
+        "id": "ch02.s06.p03.05",
+        "verdict": "supported",
+        "confidence": 0.91,
+        "reason": ""
+      },
+      {
+        "id": "ch02.s14.p01.04",
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      {
+        "id": "ch02.s13.p01.02",
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      {
+        "id": "ch02.s06.p04.03",
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      {
+        "id": "ch02.s11.p01.05",
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      {
+        "id": "ch02.s03.p06.r04",
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      {
+        "id": "ch02.s09.p02.r04",
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      {
+        "id": "ch02.s10.p04.03",
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      {
+        "id": "ch02.s12.p04.08",
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      {
+        "id": "ch02.s14.p05.05",
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      {
+        "id": "ch02.s12.p03.r04",
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      }
+    ],
+    "decoys_flagged": 0
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch03.s08.p06.r01",
+  "inputs_hash": "b80689a639611c64aafc4a343d7d29a4ca1ad46f42497978f39b1abb636982ca",
+  "output_hash": "118b49fd4e529f30d1ffabe5f5e68a07bd6f52c6ede0dd49ce5853305435facd",
+  "output": {
+    "decision": "edit",
+    "text": "In the worked example, the context length is taken as batch.shape[1], which is 6 for the given batch.",
+    "reason": "The captions support that the context length is set from batch.shape[1] and that this value is 6, even though the spoken justification confuses batch size with sequence length.",
+    "risk": "high",
+    "check": {
+      "verdict": "unsupported",
+      "confidence": 0.78,
+      "reason": "The cited lines say the context length is taken as batch.shape[1] and that batch.shape[1] is 6 due to a batch size of six. They do not state that the context length is 6; they instead appear to tie the 6 to batch size, not context length."
+    },
+    "kind": "queue",
+    "sentence_hash": "e41a1a8ebe4ea3d8007f85cdcdb913fd3ec6c06152f3aa9ef5940b73f1431792"
+  }
+}

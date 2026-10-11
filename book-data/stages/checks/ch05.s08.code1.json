@@ -1,0 +1,16 @@
+{
+  "stage": "checks",
+  "item": "ch05.s08.code1",
+  "inputs_hash": "7bf6f4ddcb8242f5e3f10b6ec14c307f508058a49578cc11d48663ff9eb4a7ef",
+  "output_hash": "74fe46e28b49a76aa767deba791b4fc886a63732f16c97ee642ed8ba04c627f3",
+  "output": [
+    {
+      "sentence_id": "ch05.s08.p05.r04",
+      "expected": 120,
+      "expression": "train_dataset.max_length",
+      "tolerance": 0,
+      "check_id": "ch05.s08.code1.chk1",
+      "sentence_text": "In this example, the computed maximum length is \"120\"."
+    }
+  ]
+}

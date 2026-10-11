@@ -1,0 +1,1191 @@
+{
+  "stage": "runconfirm",
+  "item": "book",
+  "inputs_hash": "d8e21e4f176a232fac8408bbfbb95bf1945d64c23de3c82ca852387f41a3a3b4",
+  "output_hash": "0bcd267a05da77b3b127433362e031ff9d03401457e5247082ff1174fdb0dbe1",
+  "output": {
+    "torch": "2.14.1",
+    "commit": "cdbd33e6d57a71e20ea31434841095fac50cecd8",
+    "listings": {
+      "ch01.s07.code1": {
+        "status": "ran",
+        "error": null,
+        "output": "",
+        "checks": []
+      },
+      "ch02.s01.code1": {
+        "status": "ran",
+        "error": null,
+        "output": "torch.Size([8, 4, 256])",
+        "checks": []
+      },
+      "ch02.s01.code2": {
+        "status": "ran",
+        "error": null,
+        "output": "torch.Size([8, 4, 256])",
+        "checks": []
+      },
+      "ch02.s02.code1": {
+        "status": "ran",
+        "error": null,
+        "output": "",
+        "checks": [
+          {
+            "sentence_id": "ch02.s02.p03.06",
+            "expected": 0,
+            "expression": "vocab[list(vocab.keys())[0]]",
+            "tolerance": 0,
+            "check_id": "ch02.s02.code1.chk1",
+            "sentence_text": "In the example shown, the first token receives token ID 0, the second receives token ID 1, and this continues through the vocabulary.",
+            "value": 0.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch02.s02.p03.06",
+            "expected": 1,
+            "expression": "vocab[list(vocab.keys())[1]]",
+            "tolerance": 0,
+            "check_id": "ch02.s02.code1.chk2",
+            "sentence_text": "In the example shown, the first token receives token ID 0, the second receives token ID 1, and this continues through the vocabulary.",
+            "value": 1.0,
+            "error": null,
+            "passed": true
+          }
+        ]
+      },
+      "ch02.s02.code2": {
+        "status": "ran",
+        "error": null,
+        "output": "('!', 0)\n('\"', 1)\n(\"'\", 2)\n('(', 3)\n(')', 4)\n(',', 5)\n('--', 6)\n('.', 7)\n(':', 8)\n(';', 9)\n('?', 10)\n('A', 11)\n('Ah', 12)\n('Among', 13)\n('And', 14)\n('Are', 15)\n('Arrt', 16)\n('As', 17)\n('At', 18)\n('Be', 19)\n('Begin', 20)\n('Burlington', 21)\n('But', 22)\n('By', 23)\n('Carlo', 24)\n('Chicago', 25)\n('Claude', 26)\n('Come', 27)\n('Croft', 28)\n('Destroyed', 29)\n('Devonshire', 30)\n('Don', 31)\n('Dubarry', 32)\n('Emperors', 33)\n('Florence', 34)\n('For', 35)\n('Gallery', 36)\n('Gideon', 37)\n('Gisburn', 38)\n('Gisburns', 39)\n('Grafton', 40)\n('Greek', 41)\n('Grindle', 42)\n('Grindles', 43)\n('HAD', 44)\n('Had', 45)\n('Hang', 46)\n('Has', 47)\n('He', 48)\n('Her', 49)\n('Hermia', 50)",
+        "checks": []
+      },
+      "ch02.s03.code1": {
+        "status": "ran",
+        "error": null,
+        "output": "",
+        "checks": [
+          {
+            "sentence_id": "ch02.s03.p04.r07",
+            "expected": 0,
+            "expression": "min(vocab.values())",
+            "tolerance": 0,
+            "check_id": "ch02.s03.code1.chk1",
+            "sentence_text": "Because the tokens are enumerated in ascending order, the first token gets ID 0, the second gets ID 1, and so on.",
+            "value": 0.0,
+            "error": null,
+            "passed": true
+          }
+        ]
+      },
+      "ch02.s03.code2": {
+        "status": "ran",
+        "error": null,
+        "output": "",
+        "checks": []
+      },
+      "ch02.s09.code1": {
+        "status": "ran",
+        "error": null,
+        "output": "[15496, 11, 466, 345, 588, 8887, 30, 220, 50256, 554, 262, 4252, 18250, 8812, 2114, 1659, 617, 34680, 27271, 13]\nHello, do you like tea? <|endoftext|> In the sunlit terracesof someunknownPlace.",
+        "checks": [
+          {
+            "sentence_id": "ch02.s09.p02.r03",
+            "expected": 50256,
+            "expression": "tokenizer.encode('<|endoftext|>', allowed_special={'<|endoftext|>'})[0]",
+            "tolerance": 0,
+            "check_id": "ch02.s09.code1.chk2",
+            "sentence_text": "In the GPT-2 and GPT-3 tokenization scheme, token ID \"50256\" is the end-of-text token.",
+            "value": 50256.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch02.s09.p03.r02",
+            "expected": 50256,
+            "expression": "tokenizer.n_vocab - 1",
+            "tolerance": 0,
+            "check_id": "ch02.s09.code1.chk3",
+            "sentence_text": "In the GPT-2 byte pair tokenizer, the end-of-text token is the last token in the vocabulary, so it has the largest token ID, \"50256\".",
+            "value": 50256.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch02.s09.p03.r03",
+            "expected": 50257,
+            "expression": "tokenizer.n_vocab",
+            "tolerance": 0,
+            "check_id": "ch02.s09.code1.chk4",
+            "sentence_text": "The byte pair tokenizer used for GPT-2, GPT-3, and the original model used in ChatGPT has a total vocabulary size of \"50257\".",
+            "value": 50257.0,
+            "error": null,
+            "passed": true
+          }
+        ]
+      },
+      "ch02.s12.code1": {
+        "status": "ran",
+        "error": null,
+        "output": "",
+        "checks": [
+          {
+            "sentence_id": "ch02.s12.p02.r02",
+            "expected": 50257,
+            "expression": "vocab_size",
+            "tolerance": 0,
+            "check_id": "ch02.s12.code1.chk1",
+            "sentence_text": "For GPT-2, the vocabulary size is stated as 50,257 and the embedding dimension as 768 for the smallest model.",
+            "value": 50257.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch02.s12.p02.r03",
+            "expected": 50257,
+            "expression": "vocab_size",
+            "tolerance": 0,
+            "check_id": "ch02.s12.code1.chk2",
+            "sentence_text": "Its vocabulary consists of 50,257 subword tokens made through byte pair encoding, with corresponding token IDs.",
+            "value": 50257.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch02.s12.p02.r05",
+            "expected": 50257,
+            "expression": "token_embedding_layer.weight.shape[0]",
+            "tolerance": 0,
+            "check_id": "ch02.s12.code1.chk3",
+            "sentence_text": "That means the embedding layer weight matrix has 50,257 rows and 768 columns.",
+            "value": 50257.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch02.s12.p03.r01",
+            "expected": 50257,
+            "expression": "token_embedding_layer.weight.shape[0]",
+            "tolerance": 0,
+            "check_id": "ch02.s12.code1.chk4",
+            "sentence_text": "When training GPT-2, you know that the embedding layer weight matrix must have 50,257 rows and 768 columns, but you do not know the actual weight values in advance.",
+            "value": 50257.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch02.s12.p07.r02",
+            "expected": 50257,
+            "expression": "token_embedding_layer.weight.shape[0]",
+            "tolerance": 0,
+            "check_id": "ch02.s12.code1.chk5",
+            "sentence_text": "A practical embedding layer is created using the same embedding function with GPT-2’s vocabulary size of 50,257 and a vector dimension of 256, giving an embedding matrix with 50,257 rows and 256 columns.",
+            "value": 50257.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch02.s12.p07.r02",
+            "expected": 256,
+            "expression": "token_embedding_layer.weight.shape[1]",
+            "tolerance": 0,
+            "check_id": "ch02.s12.code1.chk6",
+            "sentence_text": "A practical embedding layer is created using the same embedding function with GPT-2’s vocabulary size of 50,257 and a vector dimension of 256, giving an embedding matrix with 50,257 rows and 256 columns.",
+            "value": 256.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch02.s12.p07.r03",
+            "expected": 256,
+            "expression": "output_dim",
+            "tolerance": 0,
+            "check_id": "ch02.s12.code1.chk7",
+            "sentence_text": "Here each token ID is associated with a vector containing 256 values.",
+            "value": 256.0,
+            "error": null,
+            "passed": true
+          }
+        ]
+      },
+      "ch02.s12.code2": {
+        "status": "ran",
+        "error": null,
+        "output": "tensor([[ 1.2753, -0.2010, -0.1606],\n        [-0.4015,  0.9666, -1.1481],\n        [-2.8400, -0.7849, -1.4096],\n        [ 0.9178,  1.5810,  1.3010]], grad_fn=<EmbeddingBackward0>)",
+        "checks": []
+      },
+      "ch02.s14.code2": {
+        "status": "ran",
+        "error": null,
+        "output": "torch.Size([8, 4, 256])",
+        "checks": [
+          {
+            "sentence_id": "ch02.s14.p05.04",
+            "expected": 8,
+            "expression": "input_embeddings.shape[0]",
+            "tolerance": 0,
+            "check_id": "ch02.s14.code2.chk1",
+            "sentence_text": "When adding token embeddings of shape 8 by 4 by 256 and positional embeddings of shape 4 by 256 in Python, broadcasting duplicates the positional embeddings across the batch dimension to make the addition possible.",
+            "value": 8.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch02.s14.p05.04",
+            "expected": 4,
+            "expression": "input_embeddings.shape[1]",
+            "tolerance": 0,
+            "check_id": "ch02.s14.code2.chk2",
+            "sentence_text": "When adding token embeddings of shape 8 by 4 by 256 and positional embeddings of shape 4 by 256 in Python, broadcasting duplicates the positional embeddings across the batch dimension to make the addition possible.",
+            "value": 4.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch02.s14.p05.04",
+            "expected": 256,
+            "expression": "input_embeddings.shape[2]",
+            "tolerance": 0,
+            "check_id": "ch02.s14.code2.chk3",
+            "sentence_text": "When adding token embeddings of shape 8 by 4 by 256 and positional embeddings of shape 4 by 256 in Python, broadcasting duplicates the positional embeddings across the batch dimension to make the addition possible.",
+            "value": 256.0,
+            "error": null,
+            "passed": true
+          }
+        ]
+      },
+      "ch03.s01.code2": {
+        "status": "ran",
+        "error": null,
+        "output": "tensor([[ 1.2753, -0.2010, -0.1606],\n        [-0.4015,  0.9666, -1.1481],\n        [-2.8400, -0.7849, -1.4096],\n        [ 0.9178,  1.5810,  1.3010]], grad_fn=<EmbeddingBackward0>)",
+        "checks": []
+      },
+      "ch04.s03.code2": {
+        "status": "ran",
+        "error": null,
+        "output": "torch.Size([8, 4, 256])",
+        "checks": []
+      },
+      "ch06.s05.code2": {
+        "status": "ran",
+        "error": null,
+        "output": "",
+        "checks": []
+      },
+      "ch01.s10.code1": {
+        "status": "ran",
+        "error": null,
+        "output": "",
+        "checks": []
+      },
+      "ch03.s02.code1": {
+        "status": "ran",
+        "error": null,
+        "output": "tensor([0.9544, 1.4950, 1.4754, 0.8434, 0.7070, 1.0865])",
+        "checks": [
+          {
+            "sentence_id": "ch03.s02.p05.02",
+            "expected": 1,
+            "expression": "1",
+            "tolerance": 0,
+            "check_id": "ch03.s02.code1.chk1",
+            "sentence_text": "The query is set to \"inputs[1]\" because Python uses zero-based indexing, and the second token, \"journey\", is therefore at index 1.",
+            "value": 1.0,
+            "error": null,
+            "passed": true
+          }
+        ]
+      },
+      "ch03.s03.code1": {
+        "status": "ran",
+        "error": null,
+        "output": "Attention weights: tensor([0.1455, 0.2278, 0.2249, 0.1285, 0.1077, 0.1656])\nSum: tensor(1.0000)",
+        "checks": []
+      },
+      "ch03.s04.code1": {
+        "status": "ran",
+        "error": null,
+        "output": "tensor([0.4419, 0.6515, 0.5683])",
+        "checks": []
+      },
+      "ch03.s05.code1": {
+        "status": "ran",
+        "error": null,
+        "output": "tensor([[0.9995, 0.9544, 0.9422, 0.4753, 0.4576, 0.6310],\n        [0.9544, 1.4950, 1.4754, 0.8434, 0.7070, 1.0865],\n        [0.9422, 1.4754, 1.4570, 0.8296, 0.7154, 1.0605],\n        [0.4753, 0.8434, 0.8296, 0.4937, 0.3474, 0.6565],\n        [0.4576, 0.7070, 0.7154, 0.3474, 0.6654, 0.2935],\n        [0.6310, 1.0865, 1.0605, 0.6565, 0.2935, 0.9450]])",
+        "checks": []
+      },
+      "ch03.s05.code2": {
+        "status": "ran",
+        "error": null,
+        "output": "tensor([[0.4421, 0.5931, 0.5790],\n        [0.4419, 0.6515, 0.5683],\n        [0.4431, 0.6496, 0.5671],\n        [0.4304, 0.6298, 0.5510],\n        [0.4671, 0.5910, 0.5266],\n        [0.4177, 0.6503, 0.5645]])",
+        "checks": [
+          {
+            "sentence_id": "ch03.s05.p04.05",
+            "expected": 3,
+            "expression": "all_context_vecs.shape[1]",
+            "tolerance": 0,
+            "check_id": "ch03.s05.code2.chk1",
+            "sentence_text": "With attention weights of shape 6x6 and inputs of shape 6x3, the multiplication is valid and produces a 6x3 context matrix.",
+            "value": 3.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch03.s05.p04.06",
+            "expected": 6,
+            "expression": "all_context_vecs.shape[0]",
+            "tolerance": 0,
+            "check_id": "ch03.s05.code2.chk2",
+            "sentence_text": "Each row of the final 6x3 matrix is the context vector for the corresponding token: the first row for the first token, the second row for the second token, and so on through the sixth row.",
+            "value": 6.0,
+            "error": null,
+            "passed": true
+          }
+        ]
+      },
+      "ch03.s06.code1": {
+        "status": "ran",
+        "error": null,
+        "output": "tensor([[0.2996, 0.8053],\n        [0.3061, 0.8210],\n        [0.3058, 0.8203],\n        [0.2948, 0.7939],\n        [0.2927, 0.7891],\n        [0.2990, 0.8040]], grad_fn=<MmBackward0>)",
+        "checks": []
+      },
+      "ch03.s07.code2": {
+        "status": "ran",
+        "error": null,
+        "output": "tensor([[0.2899,   -inf,   -inf,   -inf,   -inf,   -inf],\n        [0.4656, 0.1723,   -inf,   -inf,   -inf,   -inf],\n        [0.4594, 0.1703, 0.1731,   -inf,   -inf,   -inf],\n        [0.2642, 0.1024, 0.1036, 0.0186,   -inf,   -inf],\n        [0.2183, 0.0874, 0.0882, 0.0177, 0.0786,   -inf],\n        [0.3408, 0.1270, 0.1290, 0.0198, 0.1290, 0.0078]],\n       grad_fn=<MaskedFillBackward0>)",
+        "checks": []
+      },
+      "ch01.s10.code2": {
+        "status": "ran",
+        "error": null,
+        "output": "",
+        "checks": []
+      },
+      "ch04.s08.code1": {
+        "status": "ran",
+        "error": null,
+        "output": "Flattened logits: torch.Size([6, 50257])\nFlattened targets: torch.Size([6])",
+        "checks": [
+          {
+            "sentence_id": "ch04.s08.p05.r02",
+            "expected": 2,
+            "expression": "logits.shape[0]",
+            "tolerance": 0,
+            "check_id": "ch04.s08.code1.chk1",
+            "sentence_text": "The logits are flattened from shape 2 by 3 by 50257 to shape 6 by 50257 by merging the batch and token dimensions.",
+            "value": 2.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s08.p05.r02",
+            "expected": 3,
+            "expression": "logits.shape[1]",
+            "tolerance": 0,
+            "check_id": "ch04.s08.code1.chk2",
+            "sentence_text": "The logits are flattened from shape 2 by 3 by 50257 to shape 6 by 50257 by merging the batch and token dimensions.",
+            "value": 3.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s08.p05.r02",
+            "expected": 50257,
+            "expression": "logits.shape[2]",
+            "tolerance": 0,
+            "check_id": "ch04.s08.code1.chk3",
+            "sentence_text": "The logits are flattened from shape 2 by 3 by 50257 to shape 6 by 50257 by merging the batch and token dimensions.",
+            "value": 50257.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s08.p05.r02",
+            "expected": 6,
+            "expression": "logits_flat.shape[0]",
+            "tolerance": 0,
+            "check_id": "ch04.s08.code1.chk4",
+            "sentence_text": "The logits are flattened from shape 2 by 3 by 50257 to shape 6 by 50257 by merging the batch and token dimensions.",
+            "value": 6.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s08.p05.r02",
+            "expected": 50257,
+            "expression": "logits_flat.shape[1]",
+            "tolerance": 0,
+            "check_id": "ch04.s08.code1.chk5",
+            "sentence_text": "The logits are flattened from shape 2 by 3 by 50257 to shape 6 by 50257 by merging the batch and token dimensions.",
+            "value": 50257.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s08.p05.r04",
+            "expected": 3626,
+            "expression": "targets_flat[0]",
+            "tolerance": 0,
+            "check_id": "ch04.s08.code1.chk6",
+            "sentence_text": "After flattening, the target sequence is 3626, 610, 345, 107, 588, and 11311, and these indices identify the entries whose probabilities correspond to \"p11\" through \"p23\".",
+            "value": 3626.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s08.p05.r04",
+            "expected": 610,
+            "expression": "targets_flat[1]",
+            "tolerance": 0,
+            "check_id": "ch04.s08.code1.chk7",
+            "sentence_text": "After flattening, the target sequence is 3626, 610, 345, 107, 588, and 11311, and these indices identify the entries whose probabilities correspond to \"p11\" through \"p23\".",
+            "value": 6100.0,
+            "error": null,
+            "passed": false,
+            "confirmed_by_judge": "The sentence’s second flattened target index (p12) should equal targets_flat[1], but the code-produced value is 6100 instead of the exact stated 610."
+          },
+          {
+            "sentence_id": "ch04.s08.p05.r04",
+            "expected": 345,
+            "expression": "targets_flat[2]",
+            "tolerance": 0,
+            "check_id": "ch04.s08.code1.chk8",
+            "sentence_text": "After flattening, the target sequence is 3626, 610, 345, 107, 588, and 11311, and these indices identify the entries whose probabilities correspond to \"p11\" through \"p23\".",
+            "value": 345.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s08.p05.r04",
+            "expected": 107,
+            "expression": "targets_flat[3]",
+            "tolerance": 0,
+            "check_id": "ch04.s08.code1.chk9",
+            "sentence_text": "After flattening, the target sequence is 3626, 610, 345, 107, 588, and 11311, and these indices identify the entries whose probabilities correspond to \"p11\" through \"p23\".",
+            "value": 1107.0,
+            "error": null,
+            "passed": false,
+            "confirmed_by_judge": "The sentence’s 4th flattened target index is 107, and the check reads the same element targets_flat[3], but the code run produced 1107 so the exact value disagrees."
+          },
+          {
+            "sentence_id": "ch04.s08.p05.r04",
+            "expected": 588,
+            "expression": "targets_flat[4]",
+            "tolerance": 0,
+            "check_id": "ch04.s08.code1.chk10",
+            "sentence_text": "After flattening, the target sequence is 3626, 610, 345, 107, 588, and 11311, and these indices identify the entries whose probabilities correspond to \"p11\" through \"p23\".",
+            "value": 588.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s08.p05.r04",
+            "expected": 11311,
+            "expression": "targets_flat[5]",
+            "tolerance": 0,
+            "check_id": "ch04.s08.code1.chk11",
+            "sentence_text": "After flattening, the target sequence is 3626, 610, 345, 107, 588, and 11311, and these indices identify the entries whose probabilities correspond to \"p11\" through \"p23\".",
+            "value": 11311.0,
+            "error": null,
+            "passed": true
+          }
+        ]
+      },
+      "ch04.s08.code2": {
+        "status": "ran",
+        "error": null,
+        "output": "tensor(10.7940)",
+        "checks": [
+          {
+            "sentence_id": "ch04.s08.p06.06",
+            "expected": 10.79,
+            "expression": "loss.item()",
+            "tolerance": 0.005,
+            "check_id": "ch04.s08.code2.chk1",
+            "sentence_text": "In the example, the loss is 10.79 and the perplexity is 48725.",
+            "value": 10.793964385986328,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s08.p06.11",
+            "expected": 10,
+            "expression": "round(loss.item())",
+            "tolerance": 0,
+            "check_id": "ch04.s08.code2.chk2",
+            "sentence_text": "Perplexity is usually more interpretable than a raw categorical cross-entropy value such as 10, because it can be related directly to the vocabulary size.",
+            "value": 11.0,
+            "error": null,
+            "passed": false,
+            "confirmed_by_judge": "The sentence’s “such as 10” refers to an example cross-entropy loss value, and the check rounds the computed cross-entropy loss, but the exact-example number 10 does not match the produced rounded value 11."
+          }
+        ]
+      },
+      "ch05.s02.code2": {
+        "status": "error in cell 131",
+        "error": "Traceback (most recent call last):\n  File \"/Users/mahimaarora/Projects/coursebook/src/coursebook/nbexec.py\", line 40, in main\n    exec(compile(_source(cell), f\"cell{n}\", \"exec\"), namespace)\n  File \"cell131\", line 3, in <module>\nModuleNotFoundError: No module named 'tensorflow'\n",
+        "output": "",
+        "checks": []
+      },
+      "ch05.s06.code1": {
+        "status": "error in cell 145",
+        "error": "Traceback (most recent call last):\n  File \"/Users/mahimaarora/Projects/coursebook/src/coursebook/nbexec.py\", line 40, in main\n    exec(compile(_source(cell), f\"cell{n}\", \"exec\"), namespace)\n  File \"cell145\", line 3, in <module>\nRuntimeError: Passed CPU tensor to MPS op\n",
+        "output": "",
+        "checks": [
+          {
+            "sentence_id": "ch05.s06.p01.r02",
+            "expected": 25,
+            "expression": "token_ids.shape[-1] - text_to_token_ids(\"Every effort moves you\", tokenizer).to(device).shape[-1]",
+            "tolerance": 0,
+            "check_id": "ch05.s06.code1.chk1",
+            "sentence_text": "A simple check is to call the \"generate\" function with the loaded model, using input token IDs for the prompt \"every effort moves you\", a maximum of 25 new tokens, temperature 1.5, and top-k 50.",
+            "value": 15.0,
+            "error": null,
+            "passed": null
+          },
+          {
+            "sentence_id": "ch05.s06.p01.r02",
+            "expected": 50,
+            "expression": "50",
+            "tolerance": 0,
+            "check_id": "ch05.s06.code1.chk2",
+            "sentence_text": "A simple check is to call the \"generate\" function with the loaded model, using input token IDs for the prompt \"every effort moves you\", a maximum of 25 new tokens, temperature 1.5, and top-k 50.",
+            "value": 50.0,
+            "error": null,
+            "passed": null
+          },
+          {
+            "sentence_id": "ch05.s06.p01.r02",
+            "expected": 1.5,
+            "expression": "1.5",
+            "tolerance": 0,
+            "check_id": "ch05.s06.code1.chk3",
+            "sentence_text": "A simple check is to call the \"generate\" function with the loaded model, using input token IDs for the prompt \"every effort moves you\", a maximum of 25 new tokens, temperature 1.5, and top-k 50.",
+            "value": 1.5,
+            "error": null,
+            "passed": null
+          }
+        ]
+      },
+      "ch03.s10.code2": {
+        "status": "ran",
+        "error": null,
+        "output": "",
+        "checks": []
+      },
+      "ch03.s11.code2": {
+        "status": "ran",
+        "error": null,
+        "output": "layers.0.0.weight has gradient mean of 0.00020173587836325169\nlayers.1.0.weight has gradient mean of 0.0001201116101583466\nlayers.2.0.weight has gradient mean of 0.0007152041071094573\nlayers.3.0.weight has gradient mean of 0.0013988735154271126\nlayers.4.0.weight has gradient mean of 0.005049645435065031",
+        "checks": [
+          {
+            "sentence_id": "ch03.s11.p04.03",
+            "expected": 1,
+            "expression": "layer_sizes[-1]",
+            "tolerance": 0,
+            "check_id": "ch03.s11.code2.chk1",
+            "sentence_text": "If \"layer_sizes\" is \"3, 3, 3, 3, 1\", the network has five layers with three neurons and a final layer with one neuron.",
+            "value": 1.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch03.s11.p06.r01",
+            "expected": 3,
+            "expression": "sample_input.shape[1]",
+            "tolerance": 0,
+            "check_id": "ch03.s11.code2.chk2",
+            "sentence_text": "To inspect gradient flow, the example initializes a neural network without shortcut connections, uses layer sizes 3 3 3 3 3 1, takes a three-dimensional sample input with values 1, 0, and minus 1, and sets use shortcut to false.",
+            "value": 3.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch03.s11.p06.r01",
+            "expected": 1,
+            "expression": "sample_input[0,0].item()",
+            "tolerance": 0,
+            "check_id": "ch03.s11.code2.chk3",
+            "sentence_text": "To inspect gradient flow, the example initializes a neural network without shortcut connections, uses layer sizes 3 3 3 3 3 1, takes a three-dimensional sample input with values 1, 0, and minus 1, and sets use shortcut to false.",
+            "value": 1.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch03.s11.p06.r01",
+            "expected": 0,
+            "expression": "sample_input[0,1].item()",
+            "tolerance": 0,
+            "check_id": "ch03.s11.code2.chk4",
+            "sentence_text": "To inspect gradient flow, the example initializes a neural network without shortcut connections, uses layer sizes 3 3 3 3 3 1, takes a three-dimensional sample input with values 1, 0, and minus 1, and sets use shortcut to false.",
+            "value": 0.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch03.s11.p06.r02",
+            "expected": 3,
+            "expression": "model_without_shortcut.layers[0][0].in_features",
+            "tolerance": 0,
+            "check_id": "ch03.s11.code2.chk5",
+            "sentence_text": "In layers with input dimension 3 and output dimension 3, each neuron has three weights, so the weight matrix is 3 by 3, while the final layer has a 3 by 1 weight matrix.",
+            "value": 3.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch03.s11.p06.r02",
+            "expected": 3,
+            "expression": "model_without_shortcut.layers[0][0].out_features",
+            "tolerance": 0,
+            "check_id": "ch03.s11.code2.chk6",
+            "sentence_text": "In layers with input dimension 3 and output dimension 3, each neuron has three weights, so the weight matrix is 3 by 3, while the final layer has a 3 by 1 weight matrix.",
+            "value": 3.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch03.s11.p06.r02",
+            "expected": 3,
+            "expression": "model_without_shortcut.layers[-1][0].in_features",
+            "tolerance": 0,
+            "check_id": "ch03.s11.code2.chk7",
+            "sentence_text": "In layers with input dimension 3 and output dimension 3, each neuron has three weights, so the weight matrix is 3 by 3, while the final layer has a 3 by 1 weight matrix.",
+            "value": 3.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch03.s11.p06.r02",
+            "expected": 1,
+            "expression": "model_without_shortcut.layers[-1][0].out_features",
+            "tolerance": 0,
+            "check_id": "ch03.s11.code2.chk8",
+            "sentence_text": "In layers with input dimension 3 and output dimension 3, each neuron has three weights, so the weight matrix is 3 by 3, while the final layer has a 3 by 1 weight matrix.",
+            "value": 1.0,
+            "error": null,
+            "passed": true
+          }
+        ]
+      },
+      "ch04.s02.code1": {
+        "status": "ran",
+        "error": null,
+        "output": "",
+        "checks": [
+          {
+            "sentence_id": "ch04.s02.p01.r04",
+            "expected": 50257,
+            "expression": "GPT_CONFIG_124M['vocab_size']",
+            "tolerance": 0,
+            "check_id": "ch04.s02.code1.chk1",
+            "sentence_text": "GPT-2 has a vocabulary of size 50,257.",
+            "value": 50257.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s02.p01.r06",
+            "expected": 50257,
+            "expression": "GPT_CONFIG_124M['vocab_size']",
+            "tolerance": 0,
+            "check_id": "ch04.s02.code1.chk2",
+            "sentence_text": "The constructed model uses the same vocabulary size, 50,257.",
+            "value": 50257.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s02.p02.r04",
+            "expected": 1024,
+            "expression": "GPT_CONFIG_124M['context_length']",
+            "tolerance": 0,
+            "check_id": "ch04.s02.code1.chk3",
+            "sentence_text": "GPT-2 used a context length of 1024.",
+            "value": 1024.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s02.p03.r01",
+            "expected": 50257,
+            "expression": "GPT_CONFIG_124M['vocab_size']",
+            "tolerance": 0,
+            "check_id": "ch04.s02.code1.chk4",
+            "sentence_text": "The GPT-2 configuration shown in code sets vocabulary size to 50257, context length to 1024, embedding dimension to 768, number of attention heads to 12, number of transformer blocks to 12, dropout rate to 0.1, and query-key-value bias to false.",
+            "value": 50257.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s02.p03.r01",
+            "expected": 1024,
+            "expression": "GPT_CONFIG_124M['context_length']",
+            "tolerance": 0,
+            "check_id": "ch04.s02.code1.chk5",
+            "sentence_text": "The GPT-2 configuration shown in code sets vocabulary size to 50257, context length to 1024, embedding dimension to 768, number of attention heads to 12, number of transformer blocks to 12, dropout rate to 0.1, and query-key-value bias to false.",
+            "value": 1024.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s02.p03.r01",
+            "expected": 768,
+            "expression": "GPT_CONFIG_124M['emb_dim']",
+            "tolerance": 0,
+            "check_id": "ch04.s02.code1.chk6",
+            "sentence_text": "The GPT-2 configuration shown in code sets vocabulary size to 50257, context length to 1024, embedding dimension to 768, number of attention heads to 12, number of transformer blocks to 12, dropout rate to 0.1, and query-key-value bias to false.",
+            "value": 768.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s02.p03.r01",
+            "expected": 12,
+            "expression": "GPT_CONFIG_124M['n_heads']",
+            "tolerance": 0,
+            "check_id": "ch04.s02.code1.chk7",
+            "sentence_text": "The GPT-2 configuration shown in code sets vocabulary size to 50257, context length to 1024, embedding dimension to 768, number of attention heads to 12, number of transformer blocks to 12, dropout rate to 0.1, and query-key-value bias to false.",
+            "value": 12.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s02.p03.r01",
+            "expected": 12,
+            "expression": "GPT_CONFIG_124M['n_layers']",
+            "tolerance": 0,
+            "check_id": "ch04.s02.code1.chk8",
+            "sentence_text": "The GPT-2 configuration shown in code sets vocabulary size to 50257, context length to 1024, embedding dimension to 768, number of attention heads to 12, number of transformer blocks to 12, dropout rate to 0.1, and query-key-value bias to false.",
+            "value": 12.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s02.p03.r01",
+            "expected": 0.1,
+            "expression": "GPT_CONFIG_124M['drop_rate']",
+            "tolerance": 0,
+            "check_id": "ch04.s02.code1.chk9",
+            "sentence_text": "The GPT-2 configuration shown in code sets vocabulary size to 50257, context length to 1024, embedding dimension to 768, number of attention heads to 12, number of transformer blocks to 12, dropout rate to 0.1, and query-key-value bias to false.",
+            "value": 0.1,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s02.p03.r02",
+            "expected": 50257,
+            "expression": "GPT_CONFIG_124M['vocab_size']",
+            "tolerance": 0,
+            "check_id": "ch04.s02.code1.chk10",
+            "sentence_text": "The configuration used for the model here keeps vocabulary size 50257, embedding dimension 768, 12 attention heads, 12 transformer layers, dropout 0.1, and query-key-value bias false, while reducing context length to 256.",
+            "value": 50257.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s02.p03.r02",
+            "expected": 768,
+            "expression": "GPT_CONFIG_124M['emb_dim']",
+            "tolerance": 0,
+            "check_id": "ch04.s02.code1.chk11",
+            "sentence_text": "The configuration used for the model here keeps vocabulary size 50257, embedding dimension 768, 12 attention heads, 12 transformer layers, dropout 0.1, and query-key-value bias false, while reducing context length to 256.",
+            "value": 768.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s02.p03.r02",
+            "expected": 12,
+            "expression": "GPT_CONFIG_124M['n_heads']",
+            "tolerance": 0,
+            "check_id": "ch04.s02.code1.chk12",
+            "sentence_text": "The configuration used for the model here keeps vocabulary size 50257, embedding dimension 768, 12 attention heads, 12 transformer layers, dropout 0.1, and query-key-value bias false, while reducing context length to 256.",
+            "value": 12.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s02.p03.r02",
+            "expected": 12,
+            "expression": "GPT_CONFIG_124M['n_layers']",
+            "tolerance": 0,
+            "check_id": "ch04.s02.code1.chk13",
+            "sentence_text": "The configuration used for the model here keeps vocabulary size 50257, embedding dimension 768, 12 attention heads, 12 transformer layers, dropout 0.1, and query-key-value bias false, while reducing context length to 256.",
+            "value": 12.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s02.p03.r02",
+            "expected": 0.1,
+            "expression": "GPT_CONFIG_124M['drop_rate']",
+            "tolerance": 0,
+            "check_id": "ch04.s02.code1.chk14",
+            "sentence_text": "The configuration used for the model here keeps vocabulary size 50257, embedding dimension 768, 12 attention heads, 12 transformer layers, dropout 0.1, and query-key-value bias false, while reducing context length to 256.",
+            "value": 0.1,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s02.p03.r04",
+            "expected": 768,
+            "expression": "GPT_CONFIG_124M['emb_dim']",
+            "tolerance": 0,
+            "check_id": "ch04.s02.code1.chk15",
+            "sentence_text": "Here that embedding dimension is 768, because the inputs are projected into a 768-dimensional space.",
+            "value": 768.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s02.p03.r07",
+            "expected": 12,
+            "expression": "GPT_CONFIG_124M['n_layers']",
+            "tolerance": 0,
+            "check_id": "ch04.s02.code1.chk16",
+            "sentence_text": "In GPT-2, 12 transformer blocks are used, and each transformer's multi-head attention module uses 12 attention heads.",
+            "value": 12.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s02.p03.r07",
+            "expected": 12,
+            "expression": "GPT_CONFIG_124M['n_heads']",
+            "tolerance": 0,
+            "check_id": "ch04.s02.code1.chk17",
+            "sentence_text": "In GPT-2, 12 transformer blocks are used, and each transformer's multi-head attention module uses 12 attention heads.",
+            "value": 12.0,
+            "error": null,
+            "passed": true
+          }
+        ]
+      },
+      "ch04.s06.code1": {
+        "status": "ran",
+        "error": null,
+        "output": "Total number of parameters: 163,009,536",
+        "checks": [
+          {
+            "sentence_id": "ch04.s06.p03.r02",
+            "expected": 163000000,
+            "expression": "total_params",
+            "tolerance": 0.02,
+            "check_id": "ch04.s06.code1.chk1",
+            "sentence_text": "If you print out the total number of parameters, you will see that the number of parameters is equal to 163 million.",
+            "value": 163009536.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s06.p04.r04",
+            "expected": 162000000,
+            "expression": "total_params",
+            "tolerance": 0.02,
+            "check_id": "ch04.s06.code1.chk2",
+            "sentence_text": "Adding 38.4 million embedding parameters, 85.2 million Transformer parameters, and 38.4 million final-layer parameters gives about 162 million parameters in total.",
+            "value": 163009536.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s06.p04.r05",
+            "expected": 100000000,
+            "expression": "total_params",
+            "tolerance": 0.02,
+            "check_id": "ch04.s06.code1.chk3",
+            "sentence_text": "This is why the model being trained is on the order of more than 100 million parameters.",
+            "value": 163009536.0,
+            "error": null,
+            "passed": true,
+            "within_claim": "The code sums all trainable parameters in the model, matching the sentence’s claim about total parameter count, and 1.6301e+08 is indeed on the order of and greater than 1e+08."
+          },
+          {
+            "sentence_id": "ch04.s06.p05.01",
+            "expected": 163000000,
+            "expression": "total_params",
+            "tolerance": 0.02,
+            "check_id": "ch04.s06.code1.chk4",
+            "sentence_text": "The gap between 163 million parameters in this implementation and 124 million parameters in the smallest GPT-2 comes from weight tying.",
+            "value": 163009536.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s06.p06.r01",
+            "expected": 163000000,
+            "expression": "total_params",
+            "tolerance": 0.02,
+            "check_id": "ch04.s06.code1.chk5",
+            "sentence_text": "For this model, 163 million parameters require around 600 megabytes of space.",
+            "value": 163009536.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch04.s06.p06.r02",
+            "expected": 4,
+            "expression": "(32 // 8)",
+            "tolerance": 0,
+            "check_id": "ch04.s06.code1.chk6",
+            "sentence_text": "Assuming each parameter is a 32-bit float taking 4 bytes, the size is computed by multiplying the total number of parameters by 4, which gives about 620 MB.",
+            "value": 4.0,
+            "error": null,
+            "passed": true
+          }
+        ]
+      },
+      "ch04.s06.code2": {
+        "status": "ran",
+        "error": null,
+        "output": "Total size of the model: 621.83 MB",
+        "checks": []
+      },
+      "ch05.s08.code1": {
+        "status": "ran",
+        "error": null,
+        "output": "120",
+        "checks": [
+          {
+            "sentence_id": "ch05.s08.p05.r04",
+            "expected": 120,
+            "expression": "train_dataset.max_length",
+            "tolerance": 0,
+            "check_id": "ch05.s08.code1.chk1",
+            "sentence_text": "In this example, the computed maximum length is \"120\".",
+            "value": 120.0,
+            "error": null,
+            "passed": true
+          }
+        ]
+      },
+      "ch05.s08.code2": {
+        "status": "ran",
+        "error": null,
+        "output": "",
+        "checks": []
+      },
+      "ch05.s09.code2": {
+        "status": "ran",
+        "error": null,
+        "output": "Train loader:\nInput batch dimensions: torch.Size([8, 120])\nLabel batch dimensions torch.Size([8])",
+        "checks": [
+          {
+            "sentence_id": "ch05.s09.p02.r03",
+            "expected": 8,
+            "expression": "input_batch.shape[0]",
+            "tolerance": 0,
+            "check_id": "ch05.s09.code2.chk1",
+            "sentence_text": "The input batch dimension is 8 by 120, and the label batch dimension is size 8.",
+            "value": 8.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch05.s09.p02.r03",
+            "expected": 120,
+            "expression": "input_batch.shape[1]",
+            "tolerance": 0,
+            "check_id": "ch05.s09.code2.chk2",
+            "sentence_text": "The input batch dimension is 8 by 120, and the label batch dimension is size 8.",
+            "value": 120.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch05.s09.p02.r03",
+            "expected": 8,
+            "expression": "target_batch.shape[0]",
+            "tolerance": 0,
+            "check_id": "ch05.s09.code2.chk3",
+            "sentence_text": "The input batch dimension is 8 by 120, and the label batch dimension is size 8.",
+            "value": 8.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch05.s09.p02.r04",
+            "expected": 120,
+            "expression": "input_batch.shape[1]",
+            "tolerance": 0,
+            "check_id": "ch05.s09.code2.chk4",
+            "sentence_text": "In the training dataloader, each input batch therefore contains eight samples and 120 token ID positions per sample.",
+            "value": 120.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch05.s09.p02.r05",
+            "expected": 8,
+            "expression": "target_batch.shape[0]",
+            "tolerance": 0,
+            "check_id": "ch05.s09.code2.chk5",
+            "sentence_text": "A label tensor of size 8 means there are 8 labels in the batch, and each label is either 0 or 1.",
+            "value": 8.0,
+            "error": null,
+            "passed": true
+          }
+        ]
+      },
+      "ch05.s10.code1": {
+        "status": "error in cell 76",
+        "error": "Traceback (most recent call last):\n  File \"/Users/mahimaarora/Projects/coursebook/src/coursebook/nbexec.py\", line 40, in main\n    exec(compile(_source(cell), f\"cell{n}\", \"exec\"), namespace)\n  File \"cell76\", line 1, in <module>\nNameError: name 'outputs' is not defined\n",
+        "output": "",
+        "checks": []
+      },
+      "ch05.s11.code1": {
+        "status": "ran",
+        "error": null,
+        "output": "",
+        "checks": []
+      },
+      "ch05.s11.code2": {
+        "status": "error in cell 89",
+        "error": "Traceback (most recent call last):\n  File \"/Users/mahimaarora/Projects/coursebook/src/coursebook/nbexec.py\", line 40, in main\n    exec(compile(_source(cell), f\"cell{n}\", \"exec\"), namespace)\n  File \"cell89\", line 2, in <module>\nNameError: name 'model' is not defined\n",
+        "output": "",
+        "checks": []
+      },
+      "ch05.s13.code1": {
+        "status": "error in cell 105",
+        "error": "Traceback (most recent call last):\n  File \"/Users/mahimaarora/Projects/coursebook/src/coursebook/nbexec.py\", line 40, in main\n    exec(compile(_source(cell), f\"cell{n}\", \"exec\"), namespace)\n  File \"cell105\", line 1, in <module>\nNameError: name 'model' is not defined\n",
+        "output": "",
+        "checks": [
+          {
+            "sentence_id": "ch05.s13.p03.02",
+            "expected": 97,
+            "expression": "train_accuracy*100",
+            "tolerance": 0.02,
+            "check_id": "ch05.s13.code1.chk1",
+            "sentence_text": "On the full datasets, the training accuracy is 97%, the validation accuracy is 97%, and the test accuracy is 95%.",
+            "value": null,
+            "error": "NameError: name 'train_accuracy' is not defined",
+            "passed": null
+          },
+          {
+            "sentence_id": "ch05.s13.p03.02",
+            "expected": 97,
+            "expression": "val_accuracy*100",
+            "tolerance": 0.02,
+            "check_id": "ch05.s13.code1.chk2",
+            "sentence_text": "On the full datasets, the training accuracy is 97%, the validation accuracy is 97%, and the test accuracy is 95%.",
+            "value": null,
+            "error": "NameError: name 'val_accuracy' is not defined",
+            "passed": null
+          },
+          {
+            "sentence_id": "ch05.s13.p03.02",
+            "expected": 95,
+            "expression": "test_accuracy*100",
+            "tolerance": 0.02,
+            "check_id": "ch05.s13.code1.chk3",
+            "sentence_text": "On the full datasets, the training accuracy is 97%, the validation accuracy is 97%, and the test accuracy is 95%.",
+            "value": null,
+            "error": "NameError: name 'test_accuracy' is not defined",
+            "passed": null
+          }
+        ]
+      },
+      "ch06.s02.code2": {
+        "status": "ran",
+        "error": null,
+        "output": "",
+        "checks": []
+      },
+      "ch06.s04.code1": {
+        "status": "ran",
+        "error": null,
+        "output": "",
+        "checks": []
+      },
+      "ch06.s06.code1": {
+        "status": "ran",
+        "error": null,
+        "output": "",
+        "checks": [
+          {
+            "sentence_id": "ch06.s06.p01.03",
+            "expected": 50256,
+            "expression": "50256",
+            "tolerance": 0,
+            "check_id": "ch06.s06.code1.chk1",
+            "sentence_text": "The padding token ID here is \"50256\", but not every \"50256\" in the target should be replaced.",
+            "value": 50256.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch06.s06.p01.04",
+            "expected": 50256,
+            "expression": "50256",
+            "tolerance": 0,
+            "check_id": "ch06.s06.code1.chk2",
+            "sentence_text": "If a target contains several \"50256\" values, the first one is kept because it indicates the end of text, and all remaining \"50256\" values are replaced with \"-100\".",
+            "value": 50256.0,
+            "error": null,
+            "passed": true
+          },
+          {
+            "sentence_id": "ch06.s06.p01.05",
+            "expected": 50256,
+            "expression": "50256",
+            "tolerance": 0,
+            "check_id": "ch06.s06.code1.chk3",
+            "sentence_text": "If a target has only the end-of-text \"50256\", that first \"50256\" remains unchanged.",
+            "value": 50256.0,
+            "error": null,
+            "passed": true
+          }
+        ]
+      },
+      "ch06.s10.code2": {
+        "status": "error in cell 80",
+        "error": "Traceback (most recent call last):\n  File \"/Users/mahimaarora/Projects/coursebook/src/coursebook/nbexec.py\", line 40, in main\n    exec(compile(_source(cell), f\"cell{n}\", \"exec\"), namespace)\n  File \"cell80\", line 2, in <module>\nNameError: name 'generated_text' is not defined\n",
+        "output": "",
+        "checks": []
+      },
+      "ch06.s11.code1": {
+        "status": "error in cell 98",
+        "error": "Traceback (most recent call last):\n  File \"/Users/mahimaarora/Projects/coursebook/src/coursebook/nbexec.py\", line 40, in main\n    exec(compile(_source(cell), f\"cell{n}\", \"exec\"), namespace)\n  File \"cell98\", line 8, in <module>\nNameError: name 'model' is not defined\n",
+        "output": "",
+        "checks": []
+      },
+      "ch06.s12.code1": {
+        "status": "error in cell 118",
+        "error": "Pool(host='localhost', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [Errno 61] Connection refused\"))\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/Users/mahimaarora/Projects/coursebook/src/coursebook/nbexec.py\", line 40, in main\n    exec(compile(_source(cell), f\"cell{n}\", \"exec\"), namespace)\n  File \"cell118\", line 13, in <module>\nrequests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [Errno 61] Connection refused\"))\n",
+        "output": "Dataset response:\n>> The car is as fast as lightning.\n\nModel response:\n>> The car is as fast as a bullet.\n\nScore:",
+        "checks": []
+      },
+      "ch06.s13.code2": {
+        "status": "error in cell 118",
+        "error": "Pool(host='localhost', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [Errno 61] Connection refused\"))\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/Users/mahimaarora/Projects/coursebook/src/coursebook/nbexec.py\", line 40, in main\n    exec(compile(_source(cell), f\"cell{n}\", \"exec\"), namespace)\n  File \"cell118\", line 13, in <module>\nrequests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [Errno 61] Connection refused\"))\n",
+        "output": "Dataset response:\n>> The car is as fast as lightning.\n\nModel response:\n>> The car is as fast as a bullet.\n\nScore:",
+        "checks": [
+          {
+            "sentence_id": "ch06.s13.p04.r03",
+            "expected": 100,
+            "expression": "100",
+            "tolerance": 0,
+            "check_id": "ch06.s13.code2.chk1",
+            "sentence_text": "To evaluate fine-tuned responses, prompt Llama 3 to rate the fine-tuned model's responses on a scale from 0 to 100.",
+            "value": 100.0,
+            "error": null,
+            "passed": null
+          },
+          {
+            "sentence_id": "ch06.s13.p04.r04",
+            "expected": 100,
+            "expression": "100",
+            "tolerance": 0,
+            "check_id": "ch06.s13.code2.chk2",
+            "sentence_text": "The evaluation prompt includes the instruction and input, the correct output, and the model response, and asks for a score where 100 is the best score.",
+            "value": 100.0,
+            "error": null,
+            "passed": null
+          }
+        ]
+      }
+    },
+    "checks_discarded": 9
+  }
+}

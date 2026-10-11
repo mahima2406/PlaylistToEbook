@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch01.s01.p02.r02",
+  "inputs_hash": "54aebcfbebbc81696d075e49aaf3b39a26fa7e95ed20083255ef742c1011cebb",
+  "output_hash": "6c914d77c7b57998cb6a0356fa2bc836fc325467741ac3323546a01d8e6eec21",
+  "output": {
+    "decision": "edit",
+    "text": "Some of these courses are pretty quick courses.",
+    "reason": "The captions support that at least one course is described as a pretty quick course, but not the broader claim that multiple courses are quick crash courses.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.86,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "557418ee9623e130c00084d56b5d3792ebf27b5566db4549b9643143c28586b7"
+  }
+}

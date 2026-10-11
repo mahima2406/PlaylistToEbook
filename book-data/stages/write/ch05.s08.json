@@ -1,0 +1,723 @@
+{
+  "stage": "write",
+  "item": "ch05.s08",
+  "inputs_hash": "6f8ff3d32cb6b5cad32f4d2da46d5dfe11f666cf4dcbb48d40973359ec469349",
+  "output_hash": "26be729c61acb7d2258027105734fdb5ab51199fd6d35eaa52c47398d69da18d",
+  "output": {
+    "section_id": "ch05.s08",
+    "paragraphs": [
+      {
+        "id": "ch05.s08.p01",
+        "sentences": [
+          {
+            "id": "ch05.s08.p01.01",
+            "text": "How do raw email texts become the uniform input-target pairs that a classifier can batch and train on?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s08.p01.02",
+            "text": "The purpose of the data loader is to feed input-target pairs through the model and manage the data more effectively.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@232",
+              "f6zqClXOh7Y@237",
+              "f6zqClXOh7Y@282",
+              "f6zqClXOh7Y@288"
+            ]
+          },
+          {
+            "id": "ch05.s08.p01.03",
+            "text": "In PyTorch, \"Dataset\" and \"DataLoader\" can be used with a custom dataset to give easy access to samples, run batches on the data, and even do parallel processing.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@244",
+              "f6zqClXOh7Y@253",
+              "f6zqClXOh7Y@258",
+              "f6zqClXOh7Y@261",
+              "f6zqClXOh7Y@264",
+              "f6zqClXOh7Y@266",
+              "f6zqClXOh7Y@269"
+            ]
+          },
+          {
+            "id": "ch05.s08.p01.04",
+            "text": "For this classification task, the goal is to convert each email into tokens and make every email in a batch have the same token length, producing an input tensor together with a target tensor of labels \"0\" or \"1\".",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@298",
+              "f6zqClXOh7Y@302",
+              "f6zqClXOh7Y@305",
+              "f6zqClXOh7Y@307",
+              "f6zqClXOh7Y@322",
+              "f6zqClXOh7Y@325",
+              "f6zqClXOh7Y@327",
+              "f6zqClXOh7Y@329"
+            ]
+          },
+          {
+            "id": "ch05.s08.p01.05",
+            "text": "A key difficulty is that email texts have varying lengths, while batching requires every row in the batch to have the same number of columns.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@376",
+              "f6zqClXOh7Y@378",
+              "f6zqClXOh7Y@380",
+              "f6zqClXOh7Y@388",
+              "f6zqClXOh7Y@390",
+              "f6zqClXOh7Y@392",
+              "f6zqClXOh7Y@396",
+              "f6zqClXOh7Y@399",
+              "f6zqClXOh7Y@400"
+            ]
+          },
+          {
+            "id": "ch05.s08.p01.06",
+            "text": "One possible way to equalize lengths is to find the shortest email and truncate every longer email to that length.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@405",
+              "f6zqClXOh7Y@407",
+              "f6zqClXOh7Y@410",
+              "f6zqClXOh7Y@412",
+              "f6zqClXOh7Y@425",
+              "f6zqClXOh7Y@426",
+              "f6zqClXOh7Y@428"
+            ]
+          },
+          {
+            "id": "ch05.s08.p01.07",
+            "text": "That approach is not recommended because information from the longer texts would be lost.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@447",
+              "f6zqClXOh7Y@449",
+              "f6zqClXOh7Y@451",
+              "f6zqClXOh7Y@454",
+              "f6zqClXOh7Y@457",
+              "f6zqClXOh7Y@460",
+              "f6zqClXOh7Y@463",
+              "f6zqClXOh7Y@465"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s08.p02",
+        "sentences": [
+          {
+            "id": "ch05.s08.p02.01",
+            "text": "A better strategy is to use the longest email length and pad every shorter email until it reaches that length.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@467",
+              "f6zqClXOh7Y@472",
+              "f6zqClXOh7Y@484",
+              "f6zqClXOh7Y@488",
+              "f6zqClXOh7Y@490",
+              "f6zqClXOh7Y@494",
+              "f6zqClXOh7Y@495",
+              "f6zqClXOh7Y@498",
+              "f6zqClXOh7Y@502",
+              "f6zqClXOh7Y@503"
+            ]
+          },
+          {
+            "id": "ch05.s08.p02.02",
+            "text": "The first preprocessing step is to tokenize each text message.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@529",
+              "f6zqClXOh7Y@531",
+              "f6zqClXOh7Y@580",
+              "f6zqClXOh7Y@583",
+              "f6zqClXOh7Y@585"
+            ]
+          },
+          {
+            "id": "ch05.s08.p02.03",
+            "text": "The tokenizer used here is the byte pair encoder tokenizer that GPT models use.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@539",
+              "f6zqClXOh7Y@545",
+              "f6zqClXOh7Y@587",
+              "f6zqClXOh7Y@590"
+            ]
+          },
+          {
+            "id": "ch05.s08.p02.04",
+            "text": "The \"tiktoken\" library is the tokenizer library used by OpenAI, and it converts a sentence into token IDs.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@545",
+              "f6zqClXOh7Y@548",
+              "f6zqClXOh7Y@550",
+              "f6zqClXOh7Y@552",
+              "f6zqClXOh7Y@554"
+            ]
+          },
+          {
+            "id": "ch05.s08.p02.05",
+            "text": "Byte pair encoding is a subword tokenizer, so a word is not necessarily equal to one token.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@558",
+              "f6zqClXOh7Y@559",
+              "f6zqClXOh7Y@569",
+              "f6zqClXOh7Y@572"
+            ]
+          },
+          {
+            "id": "ch05.s08.p02.06",
+            "text": "After tokenization, shorter token sequences are padded with token \"50256\" until all sequences have the same length.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@611",
+              "f6zqClXOh7Y@613",
+              "f6zqClXOh7Y@616",
+              "f6zqClXOh7Y@618",
+              "f6zqClXOh7Y@621"
+            ]
+          },
+          {
+            "id": "ch05.s08.p02.07",
+            "text": "In the GPT-2 vocabulary, token \"50256\" is the end-of-text token.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@656",
+              "f6zqClXOh7Y@659",
+              "f6zqClXOh7Y@660",
+              "f6zqClXOh7Y@662"
+            ]
+          },
+          {
+            "id": "ch05.s08.p02.08",
+            "text": "A vocabulary maps tokens to token IDs.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@631",
+              "f6zqClXOh7Y@633",
+              "f6zqClXOh7Y@635",
+              "f6zqClXOh7Y@637"
+            ]
+          },
+          {
+            "id": "ch05.s08.p02.09",
+            "text": "It is helpful to think of the vocabulary like a dictionary: instead of words with meanings, it provides words with associated token IDs.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@680",
+              "f6zqClXOh7Y@681",
+              "f6zqClXOh7Y@685",
+              "f6zqClXOh7Y@687",
+              "f6zqClXOh7Y@689",
+              "f6zqClXOh7Y@692",
+              "f6zqClXOh7Y@694",
+              "f6zqClXOh7Y@697",
+              "f6zqClXOh7Y@700",
+              "f6zqClXOh7Y@702",
+              "f6zqClXOh7Y@704"
+            ]
+          },
+          {
+            "id": "ch05.s08.p02.10",
+            "text": "The end-of-text token signifies that the end of a document or sentence has been reached, and it is used during GPT training to distinguish between separate document sources.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@662",
+              "f6zqClXOh7Y@665",
+              "f6zqClXOh7Y@668",
+              "f6zqClXOh7Y@669",
+              "f6zqClXOh7Y@672",
+              "f6zqClXOh7Y@675",
+              "f6zqClXOh7Y@677"
+            ]
+          },
+          {
+            "id": "ch05.s08.p02.11",
+            "text": "Although any token could be used for padding, using the end-of-text token makes symbolic sense because it indicates that there is no additional text and avoids confusing the model with a random word.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@722",
+              "f6zqClXOh7Y@725",
+              "f6zqClXOh7Y@727",
+              "f6zqClXOh7Y@730",
+              "f6zqClXOh7Y@732",
+              "f6zqClXOh7Y@736",
+              "f6zqClXOh7Y@738",
+              "f6zqClXOh7Y@740",
+              "f6zqClXOh7Y@743",
+              "f6zqClXOh7Y@745"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s08.p03",
+        "sentences": [
+          {
+            "id": "ch05.s08.p03.01",
+            "text": "With those pieces in place, the preprocessing workflow becomes straightforward.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s08.p03.02",
+            "text": "The overall workflow is to take the train, validation, and test CSV text, tokenize it into token IDs, find the longest email, and pad all messages with end-of-text token \"50256\" to that same length.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@754",
+              "f6zqClXOh7Y@756",
+              "f6zqClXOh7Y@758",
+              "f6zqClXOh7Y@761",
+              "f6zqClXOh7Y@763",
+              "f6zqClXOh7Y@765",
+              "f6zqClXOh7Y@767",
+              "f6zqClXOh7Y@769",
+              "f6zqClXOh7Y@771",
+              "f6zqClXOh7Y@773",
+              "f6zqClXOh7Y@775",
+              "f6zqClXOh7Y@778",
+              "f6zqClXOh7Y@781"
+            ]
+          },
+          {
+            "id": "ch05.s08.p03.03",
+            "text": "Before a \"DataLoader\" can be instantiated, a PyTorch \"Dataset\" must be implemented to specify how the data is loaded and processed.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@793",
+              "f6zqClXOh7Y@795",
+              "f6zqClXOh7Y@798",
+              "f6zqClXOh7Y@801",
+              "f6zqClXOh7Y@802"
+            ]
+          },
+          {
+            "id": "ch05.s08.p03.04",
+            "text": "The dataset defines how data is loaded and what the input-target pairs are, and only after that is defined is the data loader instantiated.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@805",
+              "f6zqClXOh7Y@807",
+              "f6zqClXOh7Y@810",
+              "f6zqClXOh7Y@811",
+              "f6zqClXOh7Y@813",
+              "f6zqClXOh7Y@816",
+              "f6zqClXOh7Y@818"
+            ]
+          },
+          {
+            "id": "ch05.s08.p03.05",
+            "text": "The \"SpamDataset\" class identifies the longest sequence in the training set, converts each text message into token IDs, and pads the other sequences to match the longest sequence.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@823",
+              "f6zqClXOh7Y@827",
+              "f6zqClXOh7Y@829",
+              "f6zqClXOh7Y@830",
+              "f6zqClXOh7Y@840",
+              "f6zqClXOh7Y@842",
+              "f6zqClXOh7Y@845",
+              "f6zqClXOh7Y@847",
+              "f6zqClXOh7Y@849",
+              "f6zqClXOh7Y@851",
+              "f6zqClXOh7Y@853"
+            ]
+          },
+          {
+            "id": "ch05.s08.p03.06",
+            "text": "To create an instance of \"SpamDataset\", you specify the CSV file and the tokenizer being used.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@865",
+              "f6zqClXOh7Y@867",
+              "f6zqClXOh7Y@869",
+              "f6zqClXOh7Y@870",
+              "f6zqClXOh7Y@877",
+              "f6zqClXOh7Y@879"
+            ]
+          },
+          {
+            "id": "ch05.s08.p03.07",
+            "text": "The CSV file is read with pandas into a data object, and then each email or text message in that data is converted into token IDs.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@969",
+              "f6zqClXOh7Y@972",
+              "f6zqClXOh7Y@976",
+              "f6zqClXOh7Y@979",
+              "f6zqClXOh7Y@981",
+              "f6zqClXOh7Y@983",
+              "f6zqClXOh7Y@985"
+            ]
+          },
+          {
+            "id": "ch05.s08.p03.08",
+            "text": "If no maximum length is specified, the maximum length is taken from the longest encoded text in the dataset.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1000",
+              "f6zqClXOh7Y@1003",
+              "f6zqClXOh7Y@1004",
+              "f6zqClXOh7Y@1007",
+              "f6zqClXOh7Y@1009",
+              "f6zqClXOh7Y@1030",
+              "f6zqClXOh7Y@1032",
+              "f6zqClXOh7Y@1035"
+            ]
+          },
+          {
+            "id": "ch05.s08.p03.09",
+            "text": "The \"longest_encoded_length\" function finds the lengths of all text messages and returns the maximum length among them.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1009",
+              "f6zqClXOh7Y@1011",
+              "f6zqClXOh7Y@1013",
+              "f6zqClXOh7Y@1016",
+              "f6zqClXOh7Y@1018",
+              "f6zqClXOh7Y@1020",
+              "f6zqClXOh7Y@1022"
+            ]
+          },
+          {
+            "id": "ch05.s08.p03.10",
+            "text": "If the user specifies a maximum length, that user-defined value is used instead.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@916",
+              "f6zqClXOh7Y@918",
+              "f6zqClXOh7Y@920",
+              "f6zqClXOh7Y@922",
+              "f6zqClXOh7Y@1037",
+              "f6zqClXOh7Y@1039",
+              "f6zqClXOh7Y@1041"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s08.p04",
+        "sentences": [
+          {
+            "id": "ch05.s08.p04.01",
+            "text": "A user-defined maximum length introduces one more preprocessing step.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s08.p04.02",
+            "text": "If some sequences are longer than the maximum length, they must be truncated so that their length equals the maximum length.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1045",
+              "f6zqClXOh7Y@1047",
+              "f6zqClXOh7Y@1049",
+              "f6zqClXOh7Y@1051",
+              "f6zqClXOh7Y@1053",
+              "f6zqClXOh7Y@1055",
+              "f6zqClXOh7Y@1057"
+            ]
+          },
+          {
+            "id": "ch05.s08.p04.03",
+            "text": "If the maximum length is selected from the data itself, sequences longer than that maximum length do not arise.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1061",
+              "f6zqClXOh7Y@1063",
+              "f6zqClXOh7Y@1065",
+              "f6zqClXOh7Y@1067"
+            ]
+          },
+          {
+            "id": "ch05.s08.p04.04",
+            "text": "The pad token ID is \"50256\", and texts shorter than the maximum length are padded with this token ID.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@922",
+              "f6zqClXOh7Y@925",
+              "f6zqClXOh7Y@928",
+              "f6zqClXOh7Y@930",
+              "f6zqClXOh7Y@932",
+              "f6zqClXOh7Y@933",
+              "f6zqClXOh7Y@1079",
+              "f6zqClXOh7Y@1082"
+            ]
+          },
+          {
+            "id": "ch05.s08.p04.05",
+            "text": "For each text message, pad token IDs are appended until the message reaches the maximum length, so all text messages have the same size.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1082",
+              "f6zqClXOh7Y@1085",
+              "f6zqClXOh7Y@1087",
+              "f6zqClXOh7Y@1089",
+              "f6zqClXOh7Y@1091",
+              "f6zqClXOh7Y@1094",
+              "f6zqClXOh7Y@1102",
+              "f6zqClXOh7Y@1104",
+              "f6zqClXOh7Y@1106"
+            ]
+          },
+          {
+            "id": "ch05.s08.p04.06",
+            "text": "The dataset creates two tensors named \"encoded\" and \"label\".",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1113",
+              "f6zqClXOh7Y@1115",
+              "f6zqClXOh7Y@1118",
+              "f6zqClXOh7Y@1120",
+              "f6zqClXOh7Y@1122"
+            ]
+          },
+          {
+            "id": "ch05.s08.p04.07",
+            "text": "The \"encoded\" tensor is the tensor of token-ID encodings for the text messages.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1122",
+              "f6zqClXOh7Y@1126",
+              "f6zqClXOh7Y@1128",
+              "f6zqClXOh7Y@1131",
+              "f6zqClXOh7Y@1147",
+              "f6zqClXOh7Y@1150",
+              "f6zqClXOh7Y@1152",
+              "f6zqClXOh7Y@1154"
+            ]
+          },
+          {
+            "id": "ch05.s08.p04.08",
+            "text": "The \"label\" tensor contains the labels for the examples, and those labels are zeros or ones.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1157",
+              "f6zqClXOh7Y@1159",
+              "f6zqClXOh7Y@1161",
+              "f6zqClXOh7Y@1185",
+              "f6zqClXOh7Y@1188"
+            ]
+          },
+          {
+            "id": "ch05.s08.p04.09",
+            "text": "The dataset’s main function is \"getitem\", and calling it converts the dataset into the \"encoded\" tensor and the labeled tensor.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1164",
+              "f6zqClXOh7Y@1165",
+              "f6zqClXOh7Y@1168",
+              "f6zqClXOh7Y@1170",
+              "f6zqClXOh7Y@1172",
+              "f6zqClXOh7Y@1174"
+            ]
+          },
+          {
+            "id": "ch05.s08.p04.10",
+            "text": "The \"encoded\" tensor ensures that every sentence has been converted into token IDs and that all sentences have equal length so they can be batched together.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1174",
+              "f6zqClXOh7Y@1176",
+              "f6zqClXOh7Y@1178",
+              "f6zqClXOh7Y@1181",
+              "f6zqClXOh7Y@1183"
+            ]
+          },
+          {
+            "id": "ch05.s08.p04.11",
+            "text": "For this classification setup, the input-target pairs differ from language-model training because the targets are zeros and ones rather than token IDs shifted by one position.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1766",
+              "f6zqClXOh7Y@1769",
+              "f6zqClXOh7Y@1771",
+              "f6zqClXOh7Y@1774",
+              "f6zqClXOh7Y@1776",
+              "f6zqClXOh7Y@1779",
+              "f6zqClXOh7Y@1781",
+              "f6zqClXOh7Y@1782"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s08.p05",
+        "sentences": [
+          {
+            "id": "ch05.s08.p05.01",
+            "text": "The same dataset design is then applied across the train, validation, and test splits.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s08.p05.02",
+            "text": "The \"SpamDataset\" class loads data from CSV files, tokenizes the text using the GPT-2 tokenizer from \"tiktoken\", and pads or truncates sequences to a uniform length defined either by the longest sequence or by a predefined maximum length.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1201",
+              "f6zqClXOh7Y@1204",
+              "f6zqClXOh7Y@1206",
+              "f6zqClXOh7Y@1209",
+              "f6zqClXOh7Y@1212",
+              "f6zqClXOh7Y@1214",
+              "f6zqClXOh7Y@1217",
+              "f6zqClXOh7Y@1219",
+              "f6zqClXOh7Y@1221"
+            ]
+          },
+          {
+            "id": "ch05.s08.p05.03",
+            "text": "An instance of \"SpamDataset\" is created with the \"train.csv\" file, and if no maximum length is passed, that maximum length is computed from the training dataset itself.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1223",
+              "f6zqClXOh7Y@1225",
+              "f6zqClXOh7Y@1227",
+              "f6zqClXOh7Y@1231",
+              "f6zqClXOh7Y@1234",
+              "f6zqClXOh7Y@1236",
+              "f6zqClXOh7Y@1237"
+            ]
+          },
+          {
+            "id": "ch05.s08.p05.04",
+            "text": "In this example, the computed maximum length is \"120\".",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1237",
+              "f6zqClXOh7Y@1239",
+              "f6zqClXOh7Y@1242"
+            ]
+          },
+          {
+            "id": "ch05.s08.p05.05",
+            "text": "GPT-2 can handle sequences up to \"1024\" tokens because its context length is \"1024\", so the maximum length passed here can be at most \"1024\".",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1257",
+              "f6zqClXOh7Y@1260",
+              "f6zqClXOh7Y@1262",
+              "f6zqClXOh7Y@1265",
+              "f6zqClXOh7Y@1267",
+              "f6zqClXOh7Y@1268",
+              "f6zqClXOh7Y@1272",
+              "f6zqClXOh7Y@1275"
+            ]
+          },
+          {
+            "id": "ch05.s08.p05.06",
+            "text": "The validation and test datasets are padded to match the length of the longest training sequence.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1280",
+              "f6zqClXOh7Y@1283",
+              "f6zqClXOh7Y@1285",
+              "f6zqClXOh7Y@1287"
+            ]
+          },
+          {
+            "id": "ch05.s08.p05.07",
+            "text": "Validation and test samples that exceed the length of the longest training examples are truncated.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1287",
+              "f6zqClXOh7Y@1289",
+              "f6zqClXOh7Y@1291",
+              "f6zqClXOh7Y@1293"
+            ]
+          },
+          {
+            "id": "ch05.s08.p05.08",
+            "text": "When creating the validation and test dataset instances, the maximum length is passed in as \"120\", the maximum length from the training dataset.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1295",
+              "f6zqClXOh7Y@1297",
+              "f6zqClXOh7Y@1299",
+              "f6zqClXOh7Y@1301",
+              "f6zqClXOh7Y@1303",
+              "f6zqClXOh7Y@1306",
+              "f6zqClXOh7Y@1308"
+            ]
+          },
+          {
+            "id": "ch05.s08.p05.09",
+            "text": "When a maximum length has been defined for validation and test data, sequences in those sets that are longer than that maximum length must be truncated.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1311",
+              "f6zqClXOh7Y@1313",
+              "f6zqClXOh7Y@1316",
+              "f6zqClXOh7Y@1318",
+              "f6zqClXOh7Y@1319",
+              "f6zqClXOh7Y@1321"
+            ]
+          },
+          {
+            "id": "ch05.s08.p05.10",
+            "text": "There is no requirement that the maximum length for validation and test must equal the maximum length from training, and it can also be set to none.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1324",
+              "f6zqClXOh7Y@1327",
+              "f6zqClXOh7Y@1329",
+              "f6zqClXOh7Y@1331",
+              "f6zqClXOh7Y@1332",
+              "f6zqClXOh7Y@1334",
+              "f6zqClXOh7Y@1336",
+              "f6zqClXOh7Y@1339"
+            ]
+          },
+          {
+            "id": "ch05.s08.p05.11",
+            "text": "If the user-defined maximum length \"120\" is passed for validation or test data, printing the maximum length shows \"120\".",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1351",
+              "f6zqClXOh7Y@1353",
+              "f6zqClXOh7Y@1355",
+              "f6zqClXOh7Y@1360",
+              "f6zqClXOh7Y@1363",
+              "f6zqClXOh7Y@1365",
+              "f6zqClXOh7Y@1369"
+            ]
+          },
+          {
+            "id": "ch05.s08.p05.12",
+            "text": "The dataset serves as the input to the data loader, so the dataset is implemented first and then passed into a data loader.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1373",
+              "f6zqClXOh7Y@1375",
+              "f6zqClXOh7Y@1378",
+              "f6zqClXOh7Y@1380",
+              "f6zqClXOh7Y@1383",
+              "f6zqClXOh7Y@1385",
+              "f6zqClXOh7Y@1388",
+              "f6zqClXOh7Y@1390",
+              "f6zqClXOh7Y@1392",
+              "f6zqClXOh7Y@1394"
+            ]
+          },
+          {
+            "id": "ch05.s08.p05.13",
+            "text": "Data preprocessing, data cleaning, datasets, and data loaders are usually very important before model training begins.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@1819",
+              "f6zqClXOh7Y@1822",
+              "f6zqClXOh7Y@1824",
+              "f6zqClXOh7Y@1826",
+              "f6zqClXOh7Y@1827"
+            ]
+          }
+        ]
+      }
+    ],
+    "invalid_citation_sentences": 0
+  }
+}

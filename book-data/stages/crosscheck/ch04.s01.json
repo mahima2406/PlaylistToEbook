@@ -1,0 +1,199 @@
+{
+  "stage": "crosscheck",
+  "item": "ch04.s01",
+  "inputs_hash": "b70446250bdee0140c39102972fe5353dad710f65a67d683147a45fad597820a",
+  "output_hash": "2f4c2c9a28244c266a3f508107d586ebeb10302c1b351af837c5c901c7362374",
+  "output": {
+    "section_id": "ch04.s01",
+    "checked": 14,
+    "counts": {
+      "agrees": 9,
+      "contradicts": 1,
+      "not_covered": 4
+    },
+    "results": [
+      {
+        "sentence_id": "ch04.s01.p01.02",
+        "text": "The goal here is to assemble a fully working version of the original 124 million parameter GPT-2 model.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell9",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell3"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference explicitly says that, instead of loading the 124M GPT-2 model, they load the medium 355M parameter version because 124M is too small for qualitatively reasonable instruction finetuning."
+      },
+      {
+        "sentence_id": "ch04.s01.p01.03",
+        "text": "The full architecture is built by bringing together components that were implemented separately and coding the entire GPT model as one system.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell66",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell5",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell83"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The chapter sections indicate separately implemented components are combined to code the full GPT model as one system (\"Coding an LLM architecture\" and \"Coding the GPT model\")."
+      },
+      {
+        "sentence_id": "ch04.s01.p01.04",
+        "text": "In this assembled model, text is tokenized, the input embeddings pass through dropout, those embeddings are sent into transformer blocks, and the result is postprocessed by another layer normalization and another linear output layer to produce the GPT model output.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell131",
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell6"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references show token+positional embeddings being added, but do not cover the full end-to-end sequence of dropout -> transformer blocks -> final layer norm -> linear output head in one described pipeline."
+      },
+      {
+        "sentence_id": "ch04.s01.p01.05",
+        "text": "Masked multi-head attention is the key component inside a transformer block, and the transformer block is the key component of the entire GPT model.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell59",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell64"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference describes the transformer block as combining causal multi-head attention with other components, and positions the transformer block as the key repeated unit of the model."
+      },
+      {
+        "sentence_id": "ch04.s01.p02.02",
+        "text": "The implementation stacks token embeddings, positional embeddings, a dropout layer, transformer blocks, another layer normalization, and an output head, and then produces logits.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell6",
+          "ref:ch02/01_main-chapter-code/dataloader.ipynb#cell6"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The passages cited only cover adding token and positional embeddings; they do not document stacking dropout, transformer blocks, final layer norm, output head, and producing logits."
+      },
+      {
+        "sentence_id": "ch04.s01.p02.03",
+        "text": "The forward method takes a batch of input tokens, computes their embeddings, applies positional embeddings, passes the sequence through the transformer block, normalizes the final output, and computes logits representing unnormalized probabilities for the next tokens.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited references cover combining token and positional embeddings, but do not describe the forward method steps through transformer blocks, final normalization, and logits computation."
+      },
+      {
+        "sentence_id": "ch04.s01.p02.04",
+        "text": "The model itself is an instance of the GPT model class.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell66",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell120",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell71"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references discuss instantiating a GPT model and loading weights into a new `GPTModel` instance, consistent with the model being an instance of the GPT model class."
+      },
+      {
+        "sentence_id": "ch04.s01.p02.05",
+        "text": "This GPT model class takes the input and converts it into a logits tensor.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell109",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell16",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References discuss obtaining logits from feeding inputs to the model (including a GPT/DummyGPT-style model producing logits tensors)."
+      },
+      {
+        "sentence_id": "ch04.s01.p02.06",
+        "text": "It performs the operations in the GPT architecture schematic and gives the LLM output at the end.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell76",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell5"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states they plug the transformer block into the earlier architecture to obtain a usable GPT architecture, consistent with executing the schematic operations to produce outputs."
+      },
+      {
+        "sentence_id": "ch04.s01.p03.02",
+        "text": "The GPT model is trained for next-word prediction.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell88",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell66",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell95"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References state the setup is for next-word prediction and explain causal self-attention ensures each next word prediction depends only on preceding words."
+      },
+      {
+        "sentence_id": "ch04.s01.p03.03",
+        "text": "For example, given the input text \"every effort moves you\", the model is trained to predict the next word.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell103",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell91",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell82"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References use the exact example input \"every effort moves you\" in the context of predicting/producing the next token/word, and describe next-word prediction targets shifted by one."
+      },
+      {
+        "sentence_id": "ch04.s01.p03.04",
+        "text": "At this stage, the GPT architecture that has been built takes input text and can predict next tokens or next words.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell3",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell16"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References indicate the GPT-like architecture is implemented and can be evaluated (though not trained well yet), which is consistent with being able to take text input and produce next-token/word predictions."
+      },
+      {
+        "sentence_id": "ch04.s01.p03.05",
+        "text": "Without training, those predictions do not yet look good and can be random.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell83",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell16",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references state the model’s prediction accuracies are not very good before finetuning/training and that it does not produce good text or follow instructions; this is consistent with predictions being poor and potentially seemingly random without training/finetuning."
+      },
+      {
+        "sentence_id": "ch04.s01.p03.06",
+        "text": "Training is the second stage of building the large language model, and it is needed so that the next token it predicts makes sense.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell122",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell85",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss that untrained models produce poor text, that next-token generation selects the highest-probability token, and some training/inference details, but they do not explicitly frame training as the 'second stage' of building an LLM or state that training is needed so the next token 'makes sense'."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch04.s01.p01.02",
+        "text": "The goal here is to assemble a fully working version of the original 124 million parameter GPT-2 model.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell9",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell3"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference explicitly says that, instead of loading the 124M GPT-2 model, they load the medium 355M parameter version because 124M is too small for qualitatively reasonable instruction finetuning."
+      }
+    ]
+  }
+}

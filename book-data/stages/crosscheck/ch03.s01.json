@@ -1,0 +1,243 @@
+{
+  "stage": "crosscheck",
+  "item": "ch03.s01",
+  "inputs_hash": "301bc11215afd1fc2e01aad8b7d718c6a3ea12a38ff6050652490cff535b86a8",
+  "output_hash": "e2137a65ea40d4085a77db35663d2441c58f2f55a51c7386b4390cf0f5ab8f47",
+  "output": {
+    "section_id": "ch03.s01",
+    "checked": 19,
+    "counts": {
+      "agrees": 10,
+      "contradicts": 0,
+      "not_covered": 9
+    },
+    "results": [
+      {
+        "sentence_id": "ch03.s01.p01.02",
+        "text": "A large language model data pipeline first converts words into tokens, then tokens into token IDs, and then token IDs into vector embeddings.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell32",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell49",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell33"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs describe converting text to tokens, then converting tokens to token IDs, which are then processed via embedding layers (token IDs -> embeddings)."
+      },
+      {
+        "sentence_id": "ch03.s01.p01.03",
+        "text": "For the sentence \"your journey starts with one step\", the six words are used as the tokens for the demonstration, and each token is assigned a three-dimensional vector embedding.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref uses the sentence “Your journey starts with one step” as an example with 6 token embeddings, and shows a 6x3 tensor (3-dimensional embeddings) for illustration."
+      },
+      {
+        "sentence_id": "ch03.s01.p01.04",
+        "text": "GPT uses byte pair encoding, described here as a subword tokenizer.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell71"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs explicitly cover “BytePair encoding” and use the GPT-2 tiktoken encoding, which is BPE (a subword tokenizer)."
+      },
+      {
+        "sentence_id": "ch03.s01.p01.05",
+        "text": "Because of that, one token is not generally equal to one word, but for simplicity the terms \"token\" and \"word\" are used interchangeably here.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell83",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs mention generating ‘one word at a time’ and show input tokens, but do not state that tokens are not generally equal to words nor that the terms are used interchangeably for simplicity."
+      },
+      {
+        "sentence_id": "ch03.s01.p01.06",
+        "text": "A vector embedding is the vector representation of a token in a higher-dimensional space.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell125",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs discuss encoding token IDs into vector representations with specified dimensionality (e.g., 3D, 256D), consistent with embeddings being vector representations in a higher-dimensional space."
+      },
+      {
+        "sentence_id": "ch03.s01.p01.07",
+        "text": "In large language models such as GPT, that space can be much larger, with dimensions described here as 500, 700, or even more than 1000, but the running example uses three dimensions for simplicity and illustration.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell10",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell8"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs say embeddings can be thousands of dimensions and that small dimensions are used for illustration, but do not mention specific sizes like 500 or 700 or ‘more than 1000’."
+      },
+      {
+        "sentence_id": "ch03.s01.p02.02",
+        "text": "Embedding vectors capture the semantic meaning of words, so semantically related words are closer to each other in the vector space.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell36",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided refs do not discuss semantic closeness/geometry properties of embeddings (e.g., similar words being closer in vector space)."
+      },
+      {
+        "sentence_id": "ch03.s01.p02.04",
+        "text": "An input embedding encodes the meaning of a word itself, but it does not contain information about how that word relates to the other words in the sentence.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell81"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs introduce self-attention operating on token embeddings and computing context vectors, but do not explicitly state that input embeddings lack relational/context information."
+      },
+      {
+        "sentence_id": "ch03.s01.p02.05",
+        "text": "For example, the embedding for \"journey\" does not say how \"journey\" relates to words such as \"your\", \"starts\", \"with\", \"one\", and \"step\", or how much relative importance those words have with respect to \"journey\".",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell24"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs show example token embeddings for the words (including “journey”) but do not explicitly state that the embedding does not encode relations/importance with respect to other words."
+      },
+      {
+        "sentence_id": "ch03.s01.p02.06",
+        "text": "That relational information is crucial for predicting the next word, because the model needs context and needs to know how much attention should be paid to the different words in the sequence.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell29",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs discuss self-attention and context vectors but do not explicitly claim that relational information is crucial for next-word prediction or link it to ‘how much attention should be paid’ as the reason."
+      },
+      {
+        "sentence_id": "ch03.s01.p03.02",
+        "text": "The goal of an attention mechanism is to take the input embeddings for tokens and transform them into context vectors, also called context embeddings.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref on scaled dot-product attention states the goal is to compute context vectors as weighted sums over input vectors, consistent with transforming token/input embeddings into context vectors (context embeddings)."
+      },
+      {
+        "sentence_id": "ch03.s01.p03.03",
+        "text": "A context vector is an enriched embedding vector: it contains the semantic meaning of the word and also information about how that word relates to other words in the sentence and how much attention should be paid to them.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell25"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs describe context vector calculation using attention scores/weights relating a query token to other input elements, aligning with context vectors enriching token meaning with relational/attention information."
+      },
+      {
+        "sentence_id": "ch03.s01.p03.04",
+        "text": "This contextual information helps next-word prediction and makes it better and more reliable.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell88"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference only says next-word prediction will be handled later and currently implements a shifted inputs/targets data loader; it does not claim contextual information improves prediction reliability."
+      },
+      {
+        "sentence_id": "ch03.s01.p03.05",
+        "text": "Attention produces one context vector for each input embedding vector.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell57",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference discusses computing a context vector for a specific input query (e.g., z^(2)) and, in general, self-attention computes context vectors corresponding to inputs in the sequence."
+      },
+      {
+        "sentence_id": "ch03.s01.p03.06",
+        "text": "That same goal is shared by simplified attention and by the multi-head attention used in modern large language models: convert embedding vectors into context vectors that are then used as inputs to the model.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell44",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell133"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states the self-attention used in transformers/LLMs computes context vectors as weighted sums over input vectors, consistent with the stated shared goal of converting embeddings to context vectors used downstream."
+      },
+      {
+        "sentence_id": "ch03.s01.p04.02",
+        "text": "\"x1\" denotes the vector representation of the first token, \"x2\" the vector representation of the second token, and \"x3\" the vector representation of the third token.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell125",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references discuss vocab sizes, softmax/logits dimensions, and token/vector representations but do not define the specific notation x1/x2/x3 as the first/second/third token vectors."
+      },
+      {
+        "sentence_id": "ch03.s01.p04.03",
+        "text": "For the word \"journey\", which is the second word in the sentence, the input embedding is \"x2\", and its context vector is denoted by \"z2\".",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell25",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell66"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference uses the example sentence including 'Your journey...' and explicitly frames computing the context vector z^(2) from the second input x^(2) as query, matching x2 and z2 for the second word/token."
+      },
+      {
+        "sentence_id": "ch03.s01.p04.04",
+        "text": "In the Python implementation, the inputs are stored as a tensor containing six three-dimensional embedding vectors, one for each token in the sentence.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell18",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references shown either discuss token-ID tensors for 2 examples of 3 tokens or other embedding/output dimensions; they do not state an inputs tensor of six 3-dimensional embedding vectors for one sentence."
+      },
+      {
+        "sentence_id": "ch03.s01.p04.05",
+        "text": "In that tensor, each row represents a token and each column represents a vector dimension, so with three dimensions there are three columns.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell25",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly states the convention that each row represents a word/token and each column an embedding dimension, which supports the described row/column interpretation (and the implied 3 columns if embedding dimension is 3)."
+      }
+    ],
+    "conflicts": []
+  }
+}

@@ -1,0 +1,4260 @@
+{
+  "stage": "extract",
+  "item": "mk-6cFebjis",
+  "inputs_hash": "bc1424b66e69748aec072fe59d7a810d2e927ec9fb2314168b4f2887d89a289b",
+  "output_hash": "b73e3aaf4cb0ef98aaa85d258daf2e3bc1bc792e0879e6665f05a9b71a8c609f",
+  "output": {
+    "video_id": "mk-6cFebjis",
+    "points": [
+      {
+        "id": "mk-6cFebjis:p001",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Data preprocessing is one of the most fundamental building blocks for a strongly performing large language model.",
+        "line_ids": [
+          "mk-6cFebjis@13",
+          "mk-6cFebjis@15",
+          "mk-6cFebjis@18",
+          "mk-6cFebjis@20",
+          "mk-6cFebjis@23",
+          "mk-6cFebjis@30",
+          "mk-6cFebjis@32",
+          "mk-6cFebjis@36"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p002",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Data preprocessing is the procedure of processing data before it is fed as input to a large language model.",
+        "line_ids": [
+          "mk-6cFebjis@41",
+          "mk-6cFebjis@43",
+          "mk-6cFebjis@46",
+          "mk-6cFebjis@50",
+          "mk-6cFebjis@54",
+          "mk-6cFebjis@59",
+          "mk-6cFebjis@63",
+          "mk-6cFebjis@66",
+          "mk-6cFebjis@70",
+          "mk-6cFebjis@72"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p003",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Text such as paragraphs, documents, or a PDF file cannot be given directly as input to a large language model and must be processed first.",
+        "line_ids": [
+          "mk-6cFebjis@46",
+          "mk-6cFebjis@48",
+          "mk-6cFebjis@50",
+          "mk-6cFebjis@54",
+          "mk-6cFebjis@56",
+          "mk-6cFebjis@59"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p004",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The lecture presents four fundamental steps before a sentence becomes suitable input for a large language model: tokenization, token embeddings, positional embeddings, and creating input embeddings.",
+        "line_ids": [
+          "mk-6cFebjis@90",
+          "mk-6cFebjis@92",
+          "mk-6cFebjis@94",
+          "mk-6cFebjis@98",
+          "mk-6cFebjis@101",
+          "mk-6cFebjis@104",
+          "mk-6cFebjis@107",
+          "mk-6cFebjis@110",
+          "mk-6cFebjis@112",
+          "mk-6cFebjis@115",
+          "mk-6cFebjis@117",
+          "mk-6cFebjis@119",
+          "mk-6cFebjis@121",
+          "mk-6cFebjis@123"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p005",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "equation",
+        "importance": 3,
+        "text": "Input embeddings are the sum of token embeddings and positional embeddings.",
+        "line_ids": [
+          "mk-6cFebjis@125",
+          "mk-6cFebjis@128",
+          "mk-6cFebjis@130"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p006",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Tokenization can be broken down into word-based, subword-based, and character-based tokenization.",
+        "line_ids": [
+          "mk-6cFebjis@140",
+          "mk-6cFebjis@142",
+          "mk-6cFebjis@144",
+          "mk-6cFebjis@147",
+          "mk-6cFebjis@150"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p007",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Byte pair encoding is a type of subword-based tokenizer, and GPT-2 and many GPT models use it.",
+        "line_ids": [
+          "mk-6cFebjis@150",
+          "mk-6cFebjis@152",
+          "mk-6cFebjis@155",
+          "mk-6cFebjis@159",
+          "mk-6cFebjis@161",
+          "mk-6cFebjis@163"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p008",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Token embeddings convert token IDs into vectors.",
+        "line_ids": [
+          "mk-6cFebjis@163",
+          "mk-6cFebjis@165",
+          "mk-6cFebjis@168"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p009",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Positional embeddings encode information about position.",
+        "line_ids": [
+          "mk-6cFebjis@168",
+          "mk-6cFebjis@170",
+          "mk-6cFebjis@173"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p010",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 1,
+        "text": "This lecture belongs to stage one of building an LLM, specifically the data preparation and sampling part, while the three stages are building the basics, pre-training, and fine-tuning.",
+        "line_ids": [
+          "mk-6cFebjis@185",
+          "mk-6cFebjis@187",
+          "mk-6cFebjis@190",
+          "mk-6cFebjis@193",
+          "mk-6cFebjis@196",
+          "mk-6cFebjis@199",
+          "mk-6cFebjis@201",
+          "mk-6cFebjis@203"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p011",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "To build intuition, the lecturer first constructs a word-based tokenizer from scratch before moving to the subword-based tokenizer used in GPT models.",
+        "line_ids": [
+          "mk-6cFebjis@208",
+          "mk-6cFebjis@210",
+          "mk-6cFebjis@212",
+          "mk-6cFebjis@214",
+          "mk-6cFebjis@217",
+          "mk-6cFebjis@219",
+          "mk-6cFebjis@221",
+          "mk-6cFebjis@223",
+          "mk-6cFebjis@226",
+          "mk-6cFebjis@229",
+          "mk-6cFebjis@231",
+          "mk-6cFebjis@232",
+          "mk-6cFebjis@235",
+          "mk-6cFebjis@237"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p012",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Word-based tokenization means converting the dataset into chunks of words.",
+        "line_ids": [
+          "mk-6cFebjis@243",
+          "mk-6cFebjis@245",
+          "mk-6cFebjis@247",
+          "mk-6cFebjis@249"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p013",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "visual_ref",
+        "importance": 1,
+        "text": "The dataset used for demonstration is the book \"The Verdict,\" shown on screen with its cover and text.",
+        "line_ids": [
+          "mk-6cFebjis@258",
+          "mk-6cFebjis@260",
+          "mk-6cFebjis@262",
+          "mk-6cFebjis@265",
+          "mk-6cFebjis@269",
+          "mk-6cFebjis@271",
+          "mk-6cFebjis@274"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p014",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "The code opens the document, reads its full contents into a raw text variable, and then prints the total number of characters and a sample of the text to verify that the file was read correctly.",
+        "line_ids": [
+          "mk-6cFebjis@306",
+          "mk-6cFebjis@309",
+          "mk-6cFebjis@311",
+          "mk-6cFebjis@313",
+          "mk-6cFebjis@316",
+          "mk-6cFebjis@318",
+          "mk-6cFebjis@320",
+          "mk-6cFebjis@338",
+          "mk-6cFebjis@340",
+          "mk-6cFebjis@342",
+          "mk-6cFebjis@344",
+          "mk-6cFebjis@346",
+          "mk-6cFebjis@348",
+          "mk-6cFebjis@350",
+          "mk-6cFebjis@354",
+          "mk-6cFebjis@356",
+          "mk-6cFebjis@361",
+          "mk-6cFebjis@363",
+          "mk-6cFebjis@366",
+          "mk-6cFebjis@368",
+          "mk-6cFebjis@371"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p015",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "For educational purposes, a single book is sufficient to demonstrate preprocessing, even though real large language models process millions of articles and hundreds of thousands of books.",
+        "line_ids": [
+          "mk-6cFebjis@383",
+          "mk-6cFebjis@384",
+          "mk-6cFebjis@387",
+          "mk-6cFebjis@389",
+          "mk-6cFebjis@391",
+          "mk-6cFebjis@393",
+          "mk-6cFebjis@395",
+          "mk-6cFebjis@397",
+          "mk-6cFebjis@399",
+          "mk-6cFebjis@402",
+          "mk-6cFebjis@404",
+          "mk-6cFebjis@406",
+          "mk-6cFebjis@408",
+          "mk-6cFebjis@411",
+          "mk-6cFebjis@414"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p016",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "Using Python's regular expression library, text can be split wherever whitespace characters occur.",
+        "line_ids": [
+          "mk-6cFebjis@422",
+          "mk-6cFebjis@424",
+          "mk-6cFebjis@427",
+          "mk-6cFebjis@429",
+          "mk-6cFebjis@431",
+          "mk-6cFebjis@434",
+          "mk-6cFebjis@438",
+          "mk-6cFebjis@439",
+          "mk-6cFebjis@444",
+          "mk-6cFebjis@446",
+          "mk-6cFebjis@449",
+          "mk-6cFebjis@451",
+          "mk-6cFebjis@454",
+          "mk-6cFebjis@456",
+          "mk-6cFebjis@458",
+          "mk-6cFebjis@461",
+          "mk-6cFebjis@463",
+          "mk-6cFebjis@465",
+          "mk-6cFebjis@467",
+          "mk-6cFebjis@470",
+          "mk-6cFebjis@473",
+          "mk-6cFebjis@475",
+          "mk-6cFebjis@478",
+          "mk-6cFebjis@481"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p017",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Splitting only on whitespace is inadequate because punctuation remains attached to words and whitespace tokens may be retained.",
+        "line_ids": [
+          "mk-6cFebjis@483",
+          "mk-6cFebjis@485",
+          "mk-6cFebjis@488",
+          "mk-6cFebjis@490",
+          "mk-6cFebjis@498",
+          "mk-6cFebjis@502",
+          "mk-6cFebjis@505",
+          "mk-6cFebjis@507",
+          "mk-6cFebjis@509",
+          "mk-6cFebjis@511",
+          "mk-6cFebjis@513",
+          "mk-6cFebjis@515",
+          "mk-6cFebjis@518",
+          "mk-6cFebjis@520",
+          "mk-6cFebjis@522",
+          "mk-6cFebjis@524",
+          "mk-6cFebjis@526",
+          "mk-6cFebjis@528",
+          "mk-6cFebjis@530",
+          "mk-6cFebjis@532",
+          "mk-6cFebjis@535",
+          "mk-6cFebjis@537",
+          "mk-6cFebjis@539"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p018",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Whether whitespace should be kept as separate tokens is debatable, because it can matter in cases like Python indentation, but the lecturer omits whitespace tokens for this demonstration.",
+        "line_ids": [
+          "mk-6cFebjis@542",
+          "mk-6cFebjis@545",
+          "mk-6cFebjis@547",
+          "mk-6cFebjis@549",
+          "mk-6cFebjis@552",
+          "mk-6cFebjis@554",
+          "mk-6cFebjis@555",
+          "mk-6cFebjis@557",
+          "mk-6cFebjis@559"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p019",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To improve tokenization, the text should be split not only on whitespace but also on punctuation and other special characters, and then whitespace tokens should be removed.",
+        "line_ids": [
+          "mk-6cFebjis@561",
+          "mk-6cFebjis@564",
+          "mk-6cFebjis@567",
+          "mk-6cFebjis@569",
+          "mk-6cFebjis@571",
+          "mk-6cFebjis@573",
+          "mk-6cFebjis@575",
+          "mk-6cFebjis@578"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p020",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "code",
+        "importance": 3,
+        "text": "The code updates the regular expression to split on characters such as commas, full stops, colons, semicolons, question marks, underscores, exclamation marks, quotation marks, brackets, and slashes, and then filters the resulting list so only non-whitespace tokens remain.",
+        "line_ids": [
+          "mk-6cFebjis@583",
+          "mk-6cFebjis@586",
+          "mk-6cFebjis@588",
+          "mk-6cFebjis@590",
+          "mk-6cFebjis@592",
+          "mk-6cFebjis@595",
+          "mk-6cFebjis@597",
+          "mk-6cFebjis@600",
+          "mk-6cFebjis@602",
+          "mk-6cFebjis@606",
+          "mk-6cFebjis@607",
+          "mk-6cFebjis@609",
+          "mk-6cFebjis@611",
+          "mk-6cFebjis@613",
+          "mk-6cFebjis@616",
+          "mk-6cFebjis@617",
+          "mk-6cFebjis@619",
+          "mk-6cFebjis@622",
+          "mk-6cFebjis@625",
+          "mk-6cFebjis@627",
+          "mk-6cFebjis@629",
+          "mk-6cFebjis@632",
+          "mk-6cFebjis@635",
+          "mk-6cFebjis@637",
+          "mk-6cFebjis@640",
+          "mk-6cFebjis@643",
+          "mk-6cFebjis@645",
+          "mk-6cFebjis@647"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p021",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "After this processing, words and punctuation become separate tokens and whitespace is no longer kept as a token.",
+        "line_ids": [
+          "mk-6cFebjis@649",
+          "mk-6cFebjis@651",
+          "mk-6cFebjis@654",
+          "mk-6cFebjis@656",
+          "mk-6cFebjis@658",
+          "mk-6cFebjis@664",
+          "mk-6cFebjis@667",
+          "mk-6cFebjis@670",
+          "mk-6cFebjis@673",
+          "mk-6cFebjis@675",
+          "mk-6cFebjis@676",
+          "mk-6cFebjis@678",
+          "mk-6cFebjis@680",
+          "mk-6cFebjis@683"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p022",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "code",
+        "importance": 3,
+        "text": "The same splitting and whitespace-removal steps are then applied to the entire dataset to create a preprocessed list containing all tokens from the essay.",
+        "line_ids": [
+          "mk-6cFebjis@685",
+          "mk-6cFebjis@688",
+          "mk-6cFebjis@691",
+          "mk-6cFebjis@694",
+          "mk-6cFebjis@696",
+          "mk-6cFebjis@698",
+          "mk-6cFebjis@700",
+          "mk-6cFebjis@702",
+          "mk-6cFebjis@705",
+          "mk-6cFebjis@706",
+          "mk-6cFebjis@709",
+          "mk-6cFebjis@710",
+          "mk-6cFebjis@714",
+          "mk-6cFebjis@716",
+          "mk-6cFebjis@717",
+          "mk-6cFebjis@720",
+          "mk-6cFebjis@722",
+          "mk-6cFebjis@725",
+          "mk-6cFebjis@726",
+          "mk-6cFebjis@728",
+          "mk-6cFebjis@730",
+          "mk-6cFebjis@733"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p023",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "code",
+        "importance": 2,
+        "text": "The code prints the first 30 tokens of the preprocessed list to check that tokenization was done correctly.",
+        "line_ids": [
+          "mk-6cFebjis@736",
+          "mk-6cFebjis@738",
+          "mk-6cFebjis@740",
+          "mk-6cFebjis@743",
+          "mk-6cFebjis@745",
+          "mk-6cFebjis@749",
+          "mk-6cFebjis@752",
+          "mk-6cFebjis@754",
+          "mk-6cFebjis@756",
+          "mk-6cFebjis@758",
+          "mk-6cFebjis@761"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p024",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 3,
+        "text": "In this word-based tokenization example, each token is either a separate word or a special symbol such as a comma, exclamation mark, full stop, or quotation mark.",
+        "line_ids": [
+          "mk-6cFebjis@764",
+          "mk-6cFebjis@765",
+          "mk-6cFebjis@767",
+          "mk-6cFebjis@769",
+          "mk-6cFebjis@771",
+          "mk-6cFebjis@774",
+          "mk-6cFebjis@777"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p025",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The preprocessed list contains 4690 tokens, including duplicates.",
+        "line_ids": [
+          "mk-6cFebjis@780",
+          "mk-6cFebjis@782",
+          "mk-6cFebjis@784",
+          "mk-6cFebjis@786",
+          "mk-6cFebjis@790",
+          "mk-6cFebjis@791",
+          "mk-6cFebjis@793",
+          "mk-6cFebjis@795"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p026",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Computers and large language models need numerical representations, so tokens must be converted into token IDs.",
+        "line_ids": [
+          "mk-6cFebjis@801",
+          "mk-6cFebjis@803",
+          "mk-6cFebjis@806",
+          "mk-6cFebjis@808",
+          "mk-6cFebjis@809",
+          "mk-6cFebjis@812",
+          "mk-6cFebjis@814",
+          "mk-6cFebjis@816",
+          "mk-6cFebjis@818"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p027",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To create token IDs, take all tokens, remove duplicates, sort the unique tokens in ascending or alphabetical order, and then assign IDs starting from zero in that order.",
+        "line_ids": [
+          "mk-6cFebjis@821",
+          "mk-6cFebjis@823",
+          "mk-6cFebjis@826",
+          "mk-6cFebjis@828",
+          "mk-6cFebjis@830",
+          "mk-6cFebjis@832",
+          "mk-6cFebjis@835",
+          "mk-6cFebjis@837",
+          "mk-6cFebjis@839",
+          "mk-6cFebjis@842",
+          "mk-6cFebjis@845",
+          "mk-6cFebjis@849",
+          "mk-6cFebjis@850",
+          "mk-6cFebjis@853",
+          "mk-6cFebjis@855",
+          "mk-6cFebjis@857",
+          "mk-6cFebjis@859"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p028",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 3,
+        "text": "A vocabulary is a dictionary in which every unique token is mapped to a unique integer called the token ID.",
+        "line_ids": [
+          "mk-6cFebjis@859",
+          "mk-6cFebjis@862",
+          "mk-6cFebjis@866",
+          "mk-6cFebjis@869",
+          "mk-6cFebjis@871"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p029",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "For practical purposes, the LLM cares about token IDs rather than the original tokens because token IDs have a numerical representation.",
+        "line_ids": [
+          "mk-6cFebjis@871",
+          "mk-6cFebjis@874",
+          "mk-6cFebjis@877",
+          "mk-6cFebjis@879",
+          "mk-6cFebjis@882",
+          "mk-6cFebjis@884"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p030",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "code",
+        "importance": 3,
+        "text": "In code, constructing the vocabulary means taking the preprocessed token list, converting it into a set to remove duplicates, and then sorting it in ascending order.",
+        "line_ids": [
+          "mk-6cFebjis@886",
+          "mk-6cFebjis@888",
+          "mk-6cFebjis@890",
+          "mk-6cFebjis@893",
+          "mk-6cFebjis@895",
+          "mk-6cFebjis@897",
+          "mk-6cFebjis@899",
+          "mk-6cFebjis@902",
+          "mk-6cFebjis@905"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p031",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "After sorting all tokens in ascending order, you assign each token an integer token ID using Python's enumerate function.",
+        "line_ids": [
+          "mk-6cFebjis@908",
+          "mk-6cFebjis@910",
+          "mk-6cFebjis@920",
+          "mk-6cFebjis@922",
+          "mk-6cFebjis@924",
+          "mk-6cFebjis@927",
+          "mk-6cFebjis@929",
+          "mk-6cFebjis@931",
+          "mk-6cFebjis@945",
+          "mk-6cFebjis@948",
+          "mk-6cFebjis@950",
+          "mk-6cFebjis@952"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p032",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The vocabulary size shown here is 1130.",
+        "line_ids": [
+          "mk-6cFebjis@913",
+          "mk-6cFebjis@915",
+          "mk-6cFebjis@916"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p033",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The vocabulary is a dictionary in which each token is associated with an integer token ID.",
+        "line_ids": [
+          "mk-6cFebjis@933",
+          "mk-6cFebjis@936",
+          "mk-6cFebjis@939",
+          "mk-6cFebjis@941",
+          "mk-6cFebjis@983",
+          "mk-6cFebjis@985",
+          "mk-6cFebjis@987",
+          "mk-6cFebjis@989",
+          "mk-6cFebjis@991"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p034",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Because the tokens are enumerated in ascending order, the first token gets ID 0, the second gets ID 1, and so on.",
+        "line_ids": [
+          "mk-6cFebjis@943",
+          "mk-6cFebjis@945",
+          "mk-6cFebjis@948",
+          "mk-6cFebjis@950",
+          "mk-6cFebjis@952",
+          "mk-6cFebjis@954"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p035",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "visual_ref",
+        "importance": 1,
+        "text": "Printing the first 50 vocabulary items shows special characters first with token IDs such as 0, 1, and 2, followed by other tokens with their IDs.",
+        "line_ids": [
+          "mk-6cFebjis@957",
+          "mk-6cFebjis@959",
+          "mk-6cFebjis@962",
+          "mk-6cFebjis@964",
+          "mk-6cFebjis@967",
+          "mk-6cFebjis@970",
+          "mk-6cFebjis@973",
+          "mk-6cFebjis@976",
+          "mk-6cFebjis@979"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p036",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "A tokenizer class in Python should take the vocabulary and provide an encode method and a decode method.",
+        "line_ids": [
+          "mk-6cFebjis@999",
+          "mk-6cFebjis@1002",
+          "mk-6cFebjis@1005",
+          "mk-6cFebjis@1008",
+          "mk-6cFebjis@1010",
+          "mk-6cFebjis@1013",
+          "mk-6cFebjis@1016"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p037",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The encode method converts input text into token IDs, and the decode method converts token IDs back into tokens or text.",
+        "line_ids": [
+          "mk-6cFebjis@1016",
+          "mk-6cFebjis@1018",
+          "mk-6cFebjis@1020",
+          "mk-6cFebjis@1022",
+          "mk-6cFebjis@1024",
+          "mk-6cFebjis@1026",
+          "mk-6cFebjis@1041",
+          "mk-6cFebjis@1044",
+          "mk-6cFebjis@1047",
+          "mk-6cFebjis@1049",
+          "mk-6cFebjis@1051",
+          "mk-6cFebjis@1053",
+          "mk-6cFebjis@1056",
+          "mk-6cFebjis@1058",
+          "mk-6cFebjis@1060",
+          "mk-6cFebjis@1062",
+          "mk-6cFebjis@1065"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p038",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The tokenizer class maintains both a string-to-integer dictionary and a reverse integer-to-string dictionary so that decoding can look up strings from token IDs.",
+        "line_ids": [
+          "mk-6cFebjis@1070",
+          "mk-6cFebjis@1073",
+          "mk-6cFebjis@1075",
+          "mk-6cFebjis@1077",
+          "mk-6cFebjis@1079",
+          "mk-6cFebjis@1081",
+          "mk-6cFebjis@1083",
+          "mk-6cFebjis@1084",
+          "mk-6cFebjis@1085",
+          "mk-6cFebjis@1088",
+          "mk-6cFebjis@1089",
+          "mk-6cFebjis@1092",
+          "mk-6cFebjis@1094",
+          "mk-6cFebjis@1097",
+          "mk-6cFebjis@1098",
+          "mk-6cFebjis@1100",
+          "mk-6cFebjis@1103",
+          "mk-6cFebjis@1104",
+          "mk-6cFebjis@1107"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p039",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In encode, the input text is split based on the chosen characters, whitespace is removed, and the remaining strings are mapped through the vocabulary to return a list of token IDs.",
+        "line_ids": [
+          "mk-6cFebjis@1110",
+          "mk-6cFebjis@1112",
+          "mk-6cFebjis@1114",
+          "mk-6cFebjis@1117",
+          "mk-6cFebjis@1119",
+          "mk-6cFebjis@1120",
+          "mk-6cFebjis@1122",
+          "mk-6cFebjis@1124",
+          "mk-6cFebjis@1126",
+          "mk-6cFebjis@1128",
+          "mk-6cFebjis@1131",
+          "mk-6cFebjis@1132",
+          "mk-6cFebjis@1135",
+          "mk-6cFebjis@1136",
+          "mk-6cFebjis@1139",
+          "mk-6cFebjis@1141",
+          "mk-6cFebjis@1143",
+          "mk-6cFebjis@1146"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p040",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In decode, the input list of token IDs is mapped back to strings using the integer-to-string dictionary and the strings are joined to reconstruct the text.",
+        "line_ids": [
+          "mk-6cFebjis@1149",
+          "mk-6cFebjis@1151",
+          "mk-6cFebjis@1154",
+          "mk-6cFebjis@1157",
+          "mk-6cFebjis@1158",
+          "mk-6cFebjis@1160",
+          "mk-6cFebjis@1162",
+          "mk-6cFebjis@1164",
+          "mk-6cFebjis@1166",
+          "mk-6cFebjis@1179",
+          "mk-6cFebjis@1182"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p041",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "When decoding, you need to remove the extra space that usually appears before punctuation after joining strings.",
+        "line_ids": [
+          "mk-6cFebjis@1168",
+          "mk-6cFebjis@1171",
+          "mk-6cFebjis@1173",
+          "mk-6cFebjis@1175",
+          "mk-6cFebjis@1177"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p042",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "code",
+        "importance": 2,
+        "text": "The lecturer creates an instance of the tokenizer class by passing in the previously defined vocabulary, after which the encode and decode methods can be called on that instance.",
+        "line_ids": [
+          "mk-6cFebjis@1184",
+          "mk-6cFebjis@1186",
+          "mk-6cFebjis@1188",
+          "mk-6cFebjis@1190",
+          "mk-6cFebjis@1191",
+          "mk-6cFebjis@1193",
+          "mk-6cFebjis@1195",
+          "mk-6cFebjis@1199",
+          "mk-6cFebjis@1201",
+          "mk-6cFebjis@1204",
+          "mk-6cFebjis@1206",
+          "mk-6cFebjis@1208",
+          "mk-6cFebjis@1211",
+          "mk-6cFebjis@1213"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p043",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "code",
+        "importance": 2,
+        "text": "Encoding the sample sentence splits it, removes whitespace, converts each token to a token ID, and produces a list of token IDs for the sentence.",
+        "line_ids": [
+          "mk-6cFebjis@1215",
+          "mk-6cFebjis@1218",
+          "mk-6cFebjis@1220",
+          "mk-6cFebjis@1222",
+          "mk-6cFebjis@1229",
+          "mk-6cFebjis@1231",
+          "mk-6cFebjis@1234",
+          "mk-6cFebjis@1237",
+          "mk-6cFebjis@1239",
+          "mk-6cFebjis@1241",
+          "mk-6cFebjis@1244",
+          "mk-6cFebjis@1245",
+          "mk-6cFebjis@1247",
+          "mk-6cFebjis@1250",
+          "mk-6cFebjis@1252",
+          "mk-6cFebjis@1255",
+          "mk-6cFebjis@1257",
+          "mk-6cFebjis@1259",
+          "mk-6cFebjis@1262",
+          "mk-6cFebjis@1264",
+          "mk-6cFebjis@1266"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p044",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "code",
+        "importance": 2,
+        "text": "Decoding the produced token IDs returns the same sample sentence, showing that the encode and decode methods work correctly on known vocabulary.",
+        "line_ids": [
+          "mk-6cFebjis@1269",
+          "mk-6cFebjis@1271",
+          "mk-6cFebjis@1273",
+          "mk-6cFebjis@1275",
+          "mk-6cFebjis@1277",
+          "mk-6cFebjis@1279",
+          "mk-6cFebjis@1281",
+          "mk-6cFebjis@1283",
+          "mk-6cFebjis@1285"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p045",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A major disadvantage of a word-based tokenizer is that it fails on out-of-vocabulary words and returns an error when input text contains words not present in the vocabulary.",
+        "line_ids": [
+          "mk-6cFebjis@1288",
+          "mk-6cFebjis@1290",
+          "mk-6cFebjis@1293",
+          "mk-6cFebjis@1295",
+          "mk-6cFebjis@1297",
+          "mk-6cFebjis@1300",
+          "mk-6cFebjis@1302",
+          "mk-6cFebjis@1305",
+          "mk-6cFebjis@1314",
+          "mk-6cFebjis@1316",
+          "mk-6cFebjis@1318",
+          "mk-6cFebjis@1321",
+          "mk-6cFebjis@1323",
+          "mk-6cFebjis@1325",
+          "mk-6cFebjis@1330",
+          "mk-6cFebjis@1333",
+          "mk-6cFebjis@1335",
+          "mk-6cFebjis@1338",
+          "mk-6cFebjis@1340",
+          "mk-6cFebjis@1342",
+          "mk-6cFebjis@1344",
+          "mk-6cFebjis@1346",
+          "mk-6cFebjis@1349",
+          "mk-6cFebjis@1351",
+          "mk-6cFebjis@1354"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p046",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "A simple way to handle unknown tokens is to augment the vocabulary with an unknown token and an end-of-text token.",
+        "line_ids": [
+          "mk-6cFebjis@1358",
+          "mk-6cFebjis@1359",
+          "mk-6cFebjis@1361",
+          "mk-6cFebjis@1364",
+          "mk-6cFebjis@1367",
+          "mk-6cFebjis@1369",
+          "mk-6cFebjis@1371",
+          "mk-6cFebjis@1374",
+          "mk-6cFebjis@1376",
+          "mk-6cFebjis@1378",
+          "mk-6cFebjis@1381",
+          "mk-6cFebjis@1383",
+          "mk-6cFebjis@1386",
+          "mk-6cFebjis@1388"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p047",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The unknown token is used to represent a word in the input text that is not known to the vocabulary.",
+        "line_ids": [
+          "mk-6cFebjis@1371",
+          "mk-6cFebjis@1374",
+          "mk-6cFebjis@1376",
+          "mk-6cFebjis@1378",
+          "mk-6cFebjis@1381",
+          "mk-6cFebjis@1388",
+          "mk-6cFebjis@1390"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p048",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The end-of-text token is used to mark document boundaries when working with multiple input documents.",
+        "line_ids": [
+          "mk-6cFebjis@1383",
+          "mk-6cFebjis@1386",
+          "mk-6cFebjis@1393",
+          "mk-6cFebjis@1394",
+          "mk-6cFebjis@1397",
+          "mk-6cFebjis@1399",
+          "mk-6cFebjis@1401",
+          "mk-6cFebjis@1404",
+          "mk-6cFebjis@1405"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p049",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "When multiple text sources such as news articles, Reddit posts, blogs, or newspaper clippings are combined, an end-of-text token is inserted between them to indicate that one source has ended and the next has begun.",
+        "line_ids": [
+          "mk-6cFebjis@1409",
+          "mk-6cFebjis@1410",
+          "mk-6cFebjis@1412",
+          "mk-6cFebjis@1414",
+          "mk-6cFebjis@1416",
+          "mk-6cFebjis@1418",
+          "mk-6cFebjis@1420",
+          "mk-6cFebjis@1422",
+          "mk-6cFebjis@1424",
+          "mk-6cFebjis@1426",
+          "mk-6cFebjis@1428",
+          "mk-6cFebjis@1431",
+          "mk-6cFebjis@1433",
+          "mk-6cFebjis@1435",
+          "mk-6cFebjis@1437",
+          "mk-6cFebjis@1439",
+          "mk-6cFebjis@1441"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p050",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Adding end-of-text tokens between texts acts as a marker for segment boundaries and leads to more effective processing and understanding by the language model.",
+        "line_ids": [
+          "mk-6cFebjis@1445",
+          "mk-6cFebjis@1447",
+          "mk-6cFebjis@1450",
+          "mk-6cFebjis@1452",
+          "mk-6cFebjis@1456",
+          "mk-6cFebjis@1458",
+          "mk-6cFebjis@1460"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p051",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "During preprocessing for ChatGPT, end-of-text tokens are also added to text resources.",
+        "line_ids": [
+          "mk-6cFebjis@1463",
+          "mk-6cFebjis@1466",
+          "mk-6cFebjis@1468",
+          "mk-6cFebjis@1471"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p052",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The modified tokenizer should use the unknown token for words not in the vocabulary and should include an end-of-text token between unrelated texts.",
+        "line_ids": [
+          "mk-6cFebjis@1474",
+          "mk-6cFebjis@1475",
+          "mk-6cFebjis@1478",
+          "mk-6cFebjis@1480",
+          "mk-6cFebjis@1482",
+          "mk-6cFebjis@1484",
+          "mk-6cFebjis@1486"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p053",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "After adding the end-of-text token and the unknown token to the token list, you recreate the token-to-integer vocabulary mapping with these two additional entries.",
+        "line_ids": [
+          "mk-6cFebjis@1489",
+          "mk-6cFebjis@1491",
+          "mk-6cFebjis@1494",
+          "mk-6cFebjis@1496",
+          "mk-6cFebjis@1498",
+          "mk-6cFebjis@1500",
+          "mk-6cFebjis@1503",
+          "mk-6cFebjis@1506",
+          "mk-6cFebjis@1508"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p054",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "After adding the two special tokens, the vocabulary length becomes 1132 instead of 1130.",
+        "line_ids": [
+          "mk-6cFebjis@1508",
+          "mk-6cFebjis@1511",
+          "mk-6cFebjis@1513",
+          "mk-6cFebjis@1517",
+          "mk-6cFebjis@1519"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p055",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In the augmented vocabulary, the end-of-text token has token ID 1130 and the unknown token has token ID 1131.",
+        "line_ids": [
+          "mk-6cFebjis@1521",
+          "mk-6cFebjis@1523",
+          "mk-6cFebjis@1525",
+          "mk-6cFebjis@1528",
+          "mk-6cFebjis@1531"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p056",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To modify the tokenizer, keep the decode method the same but change encode so that any item not found in the string-to-integer dictionary is replaced with the unknown token before mapping to an ID.",
+        "line_ids": [
+          "mk-6cFebjis@1538",
+          "mk-6cFebjis@1539",
+          "mk-6cFebjis@1542",
+          "mk-6cFebjis@1545",
+          "mk-6cFebjis@1547",
+          "mk-6cFebjis@1549",
+          "mk-6cFebjis@1550",
+          "mk-6cFebjis@1553",
+          "mk-6cFebjis@1555",
+          "mk-6cFebjis@1557",
+          "mk-6cFebjis@1560",
+          "mk-6cFebjis@1564",
+          "mk-6cFebjis@1566",
+          "mk-6cFebjis@1568",
+          "mk-6cFebjis@1570",
+          "mk-6cFebjis@1572",
+          "mk-6cFebjis@1574",
+          "mk-6cFebjis@1576",
+          "mk-6cFebjis@1579",
+          "mk-6cFebjis@1582",
+          "mk-6cFebjis@1584",
+          "mk-6cFebjis@1587",
+          "mk-6cFebjis@1589",
+          "mk-6cFebjis@1590",
+          "mk-6cFebjis@1592"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p057",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "code",
+        "importance": 2,
+        "text": "In the version 2 tokenizer example, two texts are merged with an end-of-text token between them before being passed to encode, which is how the lecturer says this is done in GPT.",
+        "line_ids": [
+          "mk-6cFebjis@1595",
+          "mk-6cFebjis@1598",
+          "mk-6cFebjis@1600",
+          "mk-6cFebjis@1602",
+          "mk-6cFebjis@1605",
+          "mk-6cFebjis@1608",
+          "mk-6cFebjis@1610",
+          "mk-6cFebjis@1612",
+          "mk-6cFebjis@1615",
+          "mk-6cFebjis@1616",
+          "mk-6cFebjis@1619",
+          "mk-6cFebjis@1621",
+          "mk-6cFebjis@1623",
+          "mk-6cFebjis@1625",
+          "mk-6cFebjis@1627",
+          "mk-6cFebjis@1629"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p058",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "code",
+        "importance": 3,
+        "text": "With the modified tokenizer, encoding no longer errors on unknown words because an unseen word such as hello is replaced with the unknown token, while the end-of-text token is also assigned its own ID.",
+        "line_ids": [
+          "mk-6cFebjis@1631",
+          "mk-6cFebjis@1633",
+          "mk-6cFebjis@1635",
+          "mk-6cFebjis@1638",
+          "mk-6cFebjis@1640",
+          "mk-6cFebjis@1643",
+          "mk-6cFebjis@1645",
+          "mk-6cFebjis@1646",
+          "mk-6cFebjis@1649",
+          "mk-6cFebjis@1650",
+          "mk-6cFebjis@1654",
+          "mk-6cFebjis@1657",
+          "mk-6cFebjis@1659",
+          "mk-6cFebjis@1662"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p059",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "code",
+        "importance": 2,
+        "text": "Decoding the encoded sequence produces text in which unseen words are rendered as unknown tokens, showing that the augmented vocabulary allows encoding and decoding even when words were not in the dataset.",
+        "line_ids": [
+          "mk-6cFebjis@1662",
+          "mk-6cFebjis@1664",
+          "mk-6cFebjis@1666",
+          "mk-6cFebjis@1668",
+          "mk-6cFebjis@1670",
+          "mk-6cFebjis@1672",
+          "mk-6cFebjis@1674",
+          "mk-6cFebjis@1677",
+          "mk-6cFebjis@1679",
+          "mk-6cFebjis@1681"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p060",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Depending on the language model, researchers may also use other special tokens such as beginning-of-sequence, end-of-sequence, and padding tokens.",
+        "line_ids": [
+          "mk-6cFebjis@1695",
+          "mk-6cFebjis@1698",
+          "mk-6cFebjis@1700",
+          "mk-6cFebjis@1702",
+          "mk-6cFebjis@1704",
+          "mk-6cFebjis@1707",
+          "mk-6cFebjis@1708",
+          "mk-6cFebjis@1711",
+          "mk-6cFebjis@1713",
+          "mk-6cFebjis@1715",
+          "mk-6cFebjis@1717"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p061",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "For GPT, the tokenizer does not use an unknown token, but it does use an end-of-text token.",
+        "line_ids": [
+          "mk-6cFebjis@1721",
+          "mk-6cFebjis@1723",
+          "mk-6cFebjis@1726"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p062",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Word-based tokenization means breaking a sentence down into individual words.",
+        "line_ids": [
+          "mk-6cFebjis@1777",
+          "mk-6cFebjis@1779",
+          "mk-6cFebjis@1782",
+          "mk-6cFebjis@1784",
+          "mk-6cFebjis@1787",
+          "mk-6cFebjis@1789",
+          "mk-6cFebjis@1791",
+          "mk-6cFebjis@1793"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p063",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Another major problem with word-based tokenization is that similar words such as boy and boys are treated as separate words despite their similarity.",
+        "line_ids": [
+          "mk-6cFebjis@1805",
+          "mk-6cFebjis@1808",
+          "mk-6cFebjis@1810",
+          "mk-6cFebjis@1812"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p064",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In word-based tokenization, different forms of related words get separate token IDs, so similarity based on a shared root word is not captured.",
+        "line_ids": [
+          "mk-6cFebjis@1814",
+          "mk-6cFebjis@1816",
+          "mk-6cFebjis@1819",
+          "mk-6cFebjis@1821",
+          "mk-6cFebjis@1823",
+          "mk-6cFebjis@1825",
+          "mk-6cFebjis@1827",
+          "mk-6cFebjis@1829",
+          "mk-6cFebjis@1832",
+          "mk-6cFebjis@1835",
+          "mk-6cFebjis@1839",
+          "mk-6cFebjis@1841"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p065",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Word-based tokenization requires a very large vocabulary because a model would need tokens for a huge number of words in the language.",
+        "line_ids": [
+          "mk-6cFebjis@1843",
+          "mk-6cFebjis@1845",
+          "mk-6cFebjis@1847",
+          "mk-6cFebjis@1849",
+          "mk-6cFebjis@1851",
+          "mk-6cFebjis@1853",
+          "mk-6cFebjis@1856",
+          "mk-6cFebjis@1858",
+          "mk-6cFebjis@1860",
+          "mk-6cFebjis@1862",
+          "mk-6cFebjis@1866",
+          "mk-6cFebjis@1868",
+          "mk-6cFebjis@1870",
+          "mk-6cFebjis@1872",
+          "mk-6cFebjis@1874",
+          "mk-6cFebjis@1878",
+          "mk-6cFebjis@1881",
+          "mk-6cFebjis@1883",
+          "mk-6cFebjis@1885",
+          "mk-6cFebjis@1888"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p066",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The number of words in English is estimated to be around 600,000 to 1 million.",
+        "line_ids": [
+          "mk-6cFebjis@1866",
+          "mk-6cFebjis@1868",
+          "mk-6cFebjis@1870",
+          "mk-6cFebjis@1872"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p067",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 3,
+        "text": "In character-based tokenization, characters rather than words are used as tokens.",
+        "line_ids": [
+          "mk-6cFebjis@1892",
+          "mk-6cFebjis@1894",
+          "mk-6cFebjis@1895",
+          "mk-6cFebjis@1898",
+          "mk-6cFebjis@1900",
+          "mk-6cFebjis@1903",
+          "mk-6cFebjis@1905",
+          "mk-6cFebjis@1908",
+          "mk-6cFebjis@1910",
+          "mk-6cFebjis@1915",
+          "mk-6cFebjis@1918"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p068",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A major advantage of character-based tokenization is that it uses a very small vocabulary and solves the out-of-vocabulary problem.",
+        "line_ids": [
+          "mk-6cFebjis@1929",
+          "mk-6cFebjis@1931",
+          "mk-6cFebjis@1933",
+          "mk-6cFebjis@1935",
+          "mk-6cFebjis@1937",
+          "mk-6cFebjis@1939",
+          "mk-6cFebjis@1941",
+          "mk-6cFebjis@1944",
+          "mk-6cFebjis@1946",
+          "mk-6cFebjis@1949",
+          "mk-6cFebjis@1951",
+          "mk-6cFebjis@1953",
+          "mk-6cFebjis@1955",
+          "mk-6cFebjis@1957"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p069",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The number of characters in English is around 256, so character-based tokenization uses a very small vocabulary.",
+        "line_ids": [
+          "mk-6cFebjis@1937",
+          "mk-6cFebjis@1939",
+          "mk-6cFebjis@1941",
+          "mk-6cFebjis@1944",
+          "mk-6cFebjis@1946",
+          "mk-6cFebjis@1949",
+          "mk-6cFebjis@1951"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p070",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In character-level tokenization, the meaning carried by words and their shared roots is lost because words are broken into individual characters.",
+        "line_ids": [
+          "mk-6cFebjis@1959",
+          "mk-6cFebjis@1962",
+          "mk-6cFebjis@1964",
+          "mk-6cFebjis@1966",
+          "mk-6cFebjis@1969",
+          "mk-6cFebjis@1972",
+          "mk-6cFebjis@1974",
+          "mk-6cFebjis@1976",
+          "mk-6cFebjis@1978",
+          "mk-6cFebjis@1979",
+          "mk-6cFebjis@1982",
+          "mk-6cFebjis@1984",
+          "mk-6cFebjis@1987",
+          "mk-6cFebjis@1988",
+          "mk-6cFebjis@1991",
+          "mk-6cFebjis@1994"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p071",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Character-level tokenization produces token sequences that are much longer than the original raw text, such as one word becoming multiple character tokens.",
+        "line_ids": [
+          "mk-6cFebjis@1994",
+          "mk-6cFebjis@1996",
+          "mk-6cFebjis@1998",
+          "mk-6cFebjis@2001",
+          "mk-6cFebjis@2003",
+          "mk-6cFebjis@2005",
+          "mk-6cFebjis@2007",
+          "mk-6cFebjis@2015",
+          "mk-6cFebjis@2017",
+          "mk-6cFebjis@2019",
+          "mk-6cFebjis@2022",
+          "mk-6cFebjis@2025"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p072",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The main problem with word-based tokenization is the large vocabulary it needs, while the main problem with character-based tokenization is that meaning is completely lost.",
+        "line_ids": [
+          "mk-6cFebjis@2030",
+          "mk-6cFebjis@2033",
+          "mk-6cFebjis@2034",
+          "mk-6cFebjis@2037",
+          "mk-6cFebjis@2038",
+          "mk-6cFebjis@2040"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p073",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Subword-based tokenization uses subwords as tokens rather than full words or full characters.",
+        "line_ids": [
+          "mk-6cFebjis@2042",
+          "mk-6cFebjis@2045",
+          "mk-6cFebjis@2047",
+          "mk-6cFebjis@2050",
+          "mk-6cFebjis@2051",
+          "mk-6cFebjis@2054",
+          "mk-6cFebjis@2057",
+          "mk-6cFebjis@2059",
+          "mk-6cFebjis@2061",
+          "mk-6cFebjis@2064",
+          "mk-6cFebjis@2066",
+          "mk-6cFebjis@2068",
+          "mk-6cFebjis@2070"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p074",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Byte pair encoding, which GPT models use, is a subword-based tokenization method.",
+        "line_ids": [
+          "mk-6cFebjis@2050",
+          "mk-6cFebjis@2051",
+          "mk-6cFebjis@2054",
+          "mk-6cFebjis@2057",
+          "mk-6cFebjis@2059"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p075",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "A rule of subword-based tokenization is to keep frequently used words as whole tokens and split rare words into smaller meaningful subwords.",
+        "line_ids": [
+          "mk-6cFebjis@2070",
+          "mk-6cFebjis@2073",
+          "mk-6cFebjis@2075",
+          "mk-6cFebjis@2078",
+          "mk-6cFebjis@2081",
+          "mk-6cFebjis@2083",
+          "mk-6cFebjis@2085"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p076",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "For example, a frequent word like \"boy\" can remain one token, while a rarer related word like \"boys\" can be split into \"boy\" and \"s\".",
+        "line_ids": [
+          "mk-6cFebjis@2087",
+          "mk-6cFebjis@2090",
+          "mk-6cFebjis@2092",
+          "mk-6cFebjis@2094",
+          "mk-6cFebjis@2098",
+          "mk-6cFebjis@2102",
+          "mk-6cFebjis@2106",
+          "mk-6cFebjis@2108",
+          "mk-6cFebjis@2111",
+          "mk-6cFebjis@2112",
+          "mk-6cFebjis@2115"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p077",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Subword-based tokenization retains root words, so related words can share a common token and preserve similarity in meaning.",
+        "line_ids": [
+          "mk-6cFebjis@2115",
+          "mk-6cFebjis@2118",
+          "mk-6cFebjis@2120",
+          "mk-6cFebjis@2123",
+          "mk-6cFebjis@2125",
+          "mk-6cFebjis@2128",
+          "mk-6cFebjis@2131",
+          "mk-6cFebjis@2133",
+          "mk-6cFebjis@2135",
+          "mk-6cFebjis@2138",
+          "mk-6cFebjis@2139",
+          "mk-6cFebjis@2142",
+          "mk-6cFebjis@2144",
+          "mk-6cFebjis@2146",
+          "mk-6cFebjis@2149"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p078",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Subword splitting helps the model learn that different words with the same root, such as \"tokens\" and \"tokenizing,\" are similar in meaning.",
+        "line_ids": [
+          "mk-6cFebjis@2152",
+          "mk-6cFebjis@2155",
+          "mk-6cFebjis@2157",
+          "mk-6cFebjis@2161",
+          "mk-6cFebjis@2163",
+          "mk-6cFebjis@2165",
+          "mk-6cFebjis@2167",
+          "mk-6cFebjis@2169",
+          "mk-6cFebjis@2171",
+          "mk-6cFebjis@2173",
+          "mk-6cFebjis@2176",
+          "mk-6cFebjis@2178",
+          "mk-6cFebjis@2180",
+          "mk-6cFebjis@2182"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p079",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Byte pair encoding is an algorithm used to implement subword-based tokenization.",
+        "line_ids": [
+          "mk-6cFebjis@2183",
+          "mk-6cFebjis@2185",
+          "mk-6cFebjis@2188",
+          "mk-6cFebjis@2190",
+          "mk-6cFebjis@2192",
+          "mk-6cFebjis@2194"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p080",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Byte pair encoding was developed in 1994 and its original purpose was data compression.",
+        "line_ids": [
+          "mk-6cFebjis@2192",
+          "mk-6cFebjis@2194",
+          "mk-6cFebjis@2197",
+          "mk-6cFebjis@2200"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p081",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In byte pair encoding for compression, you repeatedly find the byte pair that occurs most often and replace it with a new variable not already present in the data.",
+        "line_ids": [
+          "mk-6cFebjis@2206",
+          "mk-6cFebjis@2208",
+          "mk-6cFebjis@2210",
+          "mk-6cFebjis@2213",
+          "mk-6cFebjis@2215",
+          "mk-6cFebjis@2217",
+          "mk-6cFebjis@2220",
+          "mk-6cFebjis@2222",
+          "mk-6cFebjis@2224",
+          "mk-6cFebjis@2226",
+          "mk-6cFebjis@2229",
+          "mk-6cFebjis@2230",
+          "mk-6cFebjis@2232",
+          "mk-6cFebjis@2235",
+          "mk-6cFebjis@2238",
+          "mk-6cFebjis@2241",
+          "mk-6cFebjis@2243",
+          "mk-6cFebjis@2246",
+          "mk-6cFebjis@2249",
+          "mk-6cFebjis@2251",
+          "mk-6cFebjis@2253",
+          "mk-6cFebjis@2255",
+          "mk-6cFebjis@2257",
+          "mk-6cFebjis@2259",
+          "mk-6cFebjis@2262",
+          "mk-6cFebjis@2264",
+          "mk-6cFebjis@2266",
+          "mk-6cFebjis@2268"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p082",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "When byte pair encoding is applied to vocabulary or sentences, it achieves the subword-tokenization goal of keeping common words as single tokens and breaking rare words into subword tokens.",
+        "line_ids": [
+          "mk-6cFebjis@2272",
+          "mk-6cFebjis@2274",
+          "mk-6cFebjis@2277",
+          "mk-6cFebjis@2279",
+          "mk-6cFebjis@2283",
+          "mk-6cFebjis@2286",
+          "mk-6cFebjis@2289",
+          "mk-6cFebjis@2291",
+          "mk-6cFebjis@2293",
+          "mk-6cFebjis@2295",
+          "mk-6cFebjis@2297",
+          "mk-6cFebjis@2299"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p083",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "In the practical byte pair encoding setup for words, an end-of-word token is added after each word to mark where the word ends.",
+        "line_ids": [
+          "mk-6cFebjis@2301",
+          "mk-6cFebjis@2304",
+          "mk-6cFebjis@2305",
+          "mk-6cFebjis@2307",
+          "mk-6cFebjis@2310",
+          "mk-6cFebjis@2313",
+          "mk-6cFebjis@2316",
+          "mk-6cFebjis@2318",
+          "mk-6cFebjis@2320",
+          "mk-6cFebjis@2323",
+          "mk-6cFebjis@2325",
+          "mk-6cFebjis@2328"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p084",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To build subword tokens with byte pair encoding, words are first split into character-level tokens with frequencies, then the most common adjacent token pair is repeatedly merged into a new token.",
+        "line_ids": [
+          "mk-6cFebjis@2330",
+          "mk-6cFebjis@2333",
+          "mk-6cFebjis@2335",
+          "mk-6cFebjis@2337",
+          "mk-6cFebjis@2339",
+          "mk-6cFebjis@2341",
+          "mk-6cFebjis@2344",
+          "mk-6cFebjis@2346",
+          "mk-6cFebjis@2348",
+          "mk-6cFebjis@2350",
+          "mk-6cFebjis@2352",
+          "mk-6cFebjis@2355",
+          "mk-6cFebjis@2357"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p085",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "visual_ref",
+        "importance": 2,
+        "text": "In the example vocabulary shown, the lecturer identifies \"e\" followed by \"s\" as the most common pair, merges it into \"es,\" and then continues with later merges such as \"est.\"",
+        "line_ids": [
+          "mk-6cFebjis@2360",
+          "mk-6cFebjis@2362",
+          "mk-6cFebjis@2365",
+          "mk-6cFebjis@2367",
+          "mk-6cFebjis@2371",
+          "mk-6cFebjis@2373",
+          "mk-6cFebjis@2375",
+          "mk-6cFebjis@2376",
+          "mk-6cFebjis@2379",
+          "mk-6cFebjis@2381",
+          "mk-6cFebjis@2383",
+          "mk-6cFebjis@2385",
+          "mk-6cFebjis@2388",
+          "mk-6cFebjis@2391",
+          "mk-6cFebjis@2394"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p086",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "visual_ref",
+        "importance": 2,
+        "text": "After several iterations of merging the most common pairs, the final token list shown contains a mixture of characters, subwords, and whole words.",
+        "line_ids": [
+          "mk-6cFebjis@2399",
+          "mk-6cFebjis@2401",
+          "mk-6cFebjis@2404",
+          "mk-6cFebjis@2407",
+          "mk-6cFebjis@2409",
+          "mk-6cFebjis@2412",
+          "mk-6cFebjis@2414",
+          "mk-6cFebjis@2417",
+          "mk-6cFebjis@2418",
+          "mk-6cFebjis@2420",
+          "mk-6cFebjis@2423",
+          "mk-6cFebjis@2425",
+          "mk-6cFebjis@2427",
+          "mk-6cFebjis@2429",
+          "mk-6cFebjis@2432",
+          "mk-6cFebjis@2433",
+          "mk-6cFebjis@2435"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p087",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The resulting subword vocabulary retains root patterns such as \"est\" across words and \"old\" within both \"old\" and \"older,\" unlike word-based or character-based tokenization.",
+        "line_ids": [
+          "mk-6cFebjis@2438",
+          "mk-6cFebjis@2439",
+          "mk-6cFebjis@2442",
+          "mk-6cFebjis@2444",
+          "mk-6cFebjis@2448",
+          "mk-6cFebjis@2451",
+          "mk-6cFebjis@2454",
+          "mk-6cFebjis@2456",
+          "mk-6cFebjis@2458",
+          "mk-6cFebjis@2461",
+          "mk-6cFebjis@2464",
+          "mk-6cFebjis@2465",
+          "mk-6cFebjis@2468",
+          "mk-6cFebjis@2471",
+          "mk-6cFebjis@2474",
+          "mk-6cFebjis@2476",
+          "mk-6cFebjis@2480",
+          "mk-6cFebjis@2483",
+          "mk-6cFebjis@2485",
+          "mk-6cFebjis@2489"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p088",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Because subword tokenization is not fully word-based, it does not require as many vocabulary tokens.",
+        "line_ids": [
+          "mk-6cFebjis@2480",
+          "mk-6cFebjis@2483",
+          "mk-6cFebjis@2485",
+          "mk-6cFebjis@2489"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p089",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 2,
+        "text": "The byte pair encoding merging process stops when a preset maximum token count is reached or when a preset maximum number of iterations has been completed.",
+        "line_ids": [
+          "mk-6cFebjis@2498",
+          "mk-6cFebjis@2500",
+          "mk-6cFebjis@2502",
+          "mk-6cFebjis@2505",
+          "mk-6cFebjis@2507",
+          "mk-6cFebjis@2508",
+          "mk-6cFebjis@2510"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p090",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "GPT uses byte pair encoding because it avoids the very large vocabulary of word-based tokenization while retaining some root-word meaning.",
+        "line_ids": [
+          "mk-6cFebjis@2527",
+          "mk-6cFebjis@2529",
+          "mk-6cFebjis@2532",
+          "mk-6cFebjis@2535",
+          "mk-6cFebjis@2537",
+          "mk-6cFebjis@2539",
+          "mk-6cFebjis@2540",
+          "mk-6cFebjis@2543",
+          "mk-6cFebjis@2546",
+          "mk-6cFebjis@2548",
+          "mk-6cFebjis@2550",
+          "mk-6cFebjis@2552",
+          "mk-6cFebjis@2554",
+          "mk-6cFebjis@2555",
+          "mk-6cFebjis@2558",
+          "mk-6cFebjis@2561",
+          "mk-6cFebjis@2563"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p091",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Byte pair encoding is presented as the best of both worlds because it has an efficient vocabulary size and also retains meaning.",
+        "line_ids": [
+          "mk-6cFebjis@2555",
+          "mk-6cFebjis@2558",
+          "mk-6cFebjis@2561",
+          "mk-6cFebjis@2563"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p092",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "code",
+        "importance": 2,
+        "text": "The lecturer uses the Python library tiktoken, which is the byte pair encoding tokenizer used in OpenAI models, and creates a tokenizer with the same encodings used in GPT-2.",
+        "line_ids": [
+          "mk-6cFebjis@2570",
+          "mk-6cFebjis@2572",
+          "mk-6cFebjis@2574",
+          "mk-6cFebjis@2577",
+          "mk-6cFebjis@2578",
+          "mk-6cFebjis@2581",
+          "mk-6cFebjis@2584",
+          "mk-6cFebjis@2586",
+          "mk-6cFebjis@2588",
+          "mk-6cFebjis@2590",
+          "mk-6cFebjis@2592",
+          "mk-6cFebjis@2595",
+          "mk-6cFebjis@2598",
+          "mk-6cFebjis@2599",
+          "mk-6cFebjis@2602",
+          "mk-6cFebjis@2605"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p093",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "code",
+        "importance": 1,
+        "text": "The lecturer notes that this tokenizer has encode and decode methods similar to the previous tokenizer class.",
+        "line_ids": [
+          "mk-6cFebjis@2605",
+          "mk-6cFebjis@2608",
+          "mk-6cFebjis@2610",
+          "mk-6cFebjis@2613"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p094",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "code",
+        "importance": 2,
+        "text": "When the lecturer encodes a text containing an unknown word with the byte pair encoding tokenizer, no error occurs even though a word-level tokenizer would ideally fail on such a word.",
+        "line_ids": [
+          "mk-6cFebjis@2615",
+          "mk-6cFebjis@2617",
+          "mk-6cFebjis@2618",
+          "mk-6cFebjis@2621",
+          "mk-6cFebjis@2623",
+          "mk-6cFebjis@2626",
+          "mk-6cFebjis@2627",
+          "mk-6cFebjis@2630",
+          "mk-6cFebjis@2632",
+          "mk-6cFebjis@2634",
+          "mk-6cFebjis@2637",
+          "mk-6cFebjis@2639",
+          "mk-6cFebjis@2641",
+          "mk-6cFebjis@2643",
+          "mk-6cFebjis@2646",
+          "mk-6cFebjis@2649",
+          "mk-6cFebjis@2651",
+          "mk-6cFebjis@2653"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p095",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The byte pair encoding tokenizer can handle unknown words because, as a subword tokenizer, it can represent them using characters or subwords already in the vocabulary.",
+        "line_ids": [
+          "mk-6cFebjis@2653",
+          "mk-6cFebjis@2656",
+          "mk-6cFebjis@2658",
+          "mk-6cFebjis@2660",
+          "mk-6cFebjis@2663",
+          "mk-6cFebjis@2665",
+          "mk-6cFebjis@2667",
+          "mk-6cFebjis@2669",
+          "mk-6cFebjis@2671",
+          "mk-6cFebjis@2674",
+          "mk-6cFebjis@2675",
+          "mk-6cFebjis@2678",
+          "mk-6cFebjis@2680",
+          "mk-6cFebjis@2683",
+          "mk-6cFebjis@2686",
+          "mk-6cFebjis@2688"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p096",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "An advantage of byte pair encoding is that it does not require a special unknown token to deal with unseen words.",
+        "line_ids": [
+          "mk-6cFebjis@2674",
+          "mk-6cFebjis@2675",
+          "mk-6cFebjis@2678",
+          "mk-6cFebjis@2680",
+          "mk-6cFebjis@2683",
+          "mk-6cFebjis@2686",
+          "mk-6cFebjis@2688"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p097",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The lecturer summarizes three advantages of byte pair encoding: the vocabulary size is not too high, it retains the meaning of root words, and it automatically deals with unknown words.",
+        "line_ids": [
+          "mk-6cFebjis@2690",
+          "mk-6cFebjis@2693",
+          "mk-6cFebjis@2694",
+          "mk-6cFebjis@2698",
+          "mk-6cFebjis@2700",
+          "mk-6cFebjis@2702"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p098",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The vocabulary size of the byte pair encoder used in GPT-2 was around 50,000, which is much smaller than the total number of English words that a word-based tokenizer might require.",
+        "line_ids": [
+          "mk-6cFebjis@2702",
+          "mk-6cFebjis@2705",
+          "mk-6cFebjis@2708",
+          "mk-6cFebjis@2711",
+          "mk-6cFebjis@2712",
+          "mk-6cFebjis@2714",
+          "mk-6cFebjis@2716"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p099",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The GPT-2 tokenizer has a vocabulary size of about 50,000 tokens.",
+        "line_ids": [
+          "mk-6cFebjis@2721",
+          "mk-6cFebjis@2729",
+          "mk-6cFebjis@2736",
+          "mk-6cFebjis@2740"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p100",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A byte pair encoding tokenizer can encode and decode text without needing a special unknown token, and the decoder can reconstruct the original sentence correctly.",
+        "line_ids": [
+          "mk-6cFebjis@2743",
+          "mk-6cFebjis@2745",
+          "mk-6cFebjis@2748",
+          "mk-6cFebjis@2751",
+          "mk-6cFebjis@2755"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p101",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Subword-based tokenization using byte pair encoding works better than a word-based tokenizer, and it is available through the tiktoken library.",
+        "line_ids": [
+          "mk-6cFebjis@2757",
+          "mk-6cFebjis@2759",
+          "mk-6cFebjis@2762",
+          "mk-6cFebjis@2764",
+          "mk-6cFebjis@2766",
+          "mk-6cFebjis@2768"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p102",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "code",
+        "importance": 2,
+        "text": "The tokenizer is created with tiktoken.get_encoding, and its encode and decode methods are tested.",
+        "line_ids": [
+          "mk-6cFebjis@2768",
+          "mk-6cFebjis@2772",
+          "mk-6cFebjis@2775",
+          "mk-6cFebjis@2777"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p103",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A byte pair encoding tokenizer can handle unknown words correctly by breaking words that are not in the predefined vocabulary into smaller subword units or individual characters.",
+        "line_ids": [
+          "mk-6cFebjis@2779",
+          "mk-6cFebjis@2782",
+          "mk-6cFebjis@2785",
+          "mk-6cFebjis@2787",
+          "mk-6cFebjis@2792",
+          "mk-6cFebjis@2794",
+          "mk-6cFebjis@2796",
+          "mk-6cFebjis@2798",
+          "mk-6cFebjis@2800",
+          "mk-6cFebjis@2802",
+          "mk-6cFebjis@2805"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p104",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A word-based tokenizer fails on out-of-vocabulary words, but a byte pair encoding tokenizer still produces token IDs for them.",
+        "line_ids": [
+          "mk-6cFebjis@2807",
+          "mk-6cFebjis@2810",
+          "mk-6cFebjis@2812",
+          "mk-6cFebjis@2814",
+          "mk-6cFebjis@2817",
+          "mk-6cFebjis@2820"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p105",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "visual_ref",
+        "importance": 2,
+        "text": "The screenshot shows that byte pair encoding represents a new unknown word as tokens made of subwords or characters, which is why decoding can recover the same sentence.",
+        "line_ids": [
+          "mk-6cFebjis@2822",
+          "mk-6cFebjis@2824",
+          "mk-6cFebjis@2827",
+          "mk-6cFebjis@2829",
+          "mk-6cFebjis@2831",
+          "mk-6cFebjis@2833",
+          "mk-6cFebjis@2837",
+          "mk-6cFebjis@2839",
+          "mk-6cFebjis@2840",
+          "mk-6cFebjis@2843",
+          "mk-6cFebjis@2845",
+          "mk-6cFebjis@2849",
+          "mk-6cFebjis@2851",
+          "mk-6cFebjis@2854"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p106",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The vocabulary sizes associated with GPT tokenizers increase for later models such as GPT-3 and GPT-4.",
+        "line_ids": [
+          "mk-6cFebjis@2857",
+          "mk-6cFebjis@2860",
+          "mk-6cFebjis@2862",
+          "mk-6cFebjis@2865",
+          "mk-6cFebjis@2867",
+          "mk-6cFebjis@2869",
+          "mk-6cFebjis@2872",
+          "mk-6cFebjis@2874",
+          "mk-6cFebjis@2876"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p107",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Character-level encoding is not generally used in large-scale LLMs.",
+        "line_ids": [
+          "mk-6cFebjis@2878",
+          "mk-6cFebjis@2880",
+          "mk-6cFebjis@2883",
+          "mk-6cFebjis@2885",
+          "mk-6cFebjis@2887",
+          "mk-6cFebjis@2890"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p108",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "After tokenization and token IDs, the next preprocessing steps are token embeddings and positional embeddings.",
+        "line_ids": [
+          "mk-6cFebjis@2903",
+          "mk-6cFebjis@2905",
+          "mk-6cFebjis@2907",
+          "mk-6cFebjis@2911",
+          "mk-6cFebjis@2912",
+          "mk-6cFebjis@2914",
+          "mk-6cFebjis@2917",
+          "mk-6cFebjis@2920",
+          "mk-6cFebjis@2921",
+          "mk-6cFebjis@2923",
+          "mk-6cFebjis@2925"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p109",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Token embeddings are higher-dimensional vector representations of token IDs, and positional embeddings are added to token embeddings to create input embeddings for the large language model.",
+        "line_ids": [
+          "mk-6cFebjis@2944",
+          "mk-6cFebjis@2947",
+          "mk-6cFebjis@2950",
+          "mk-6cFebjis@2953",
+          "mk-6cFebjis@2954",
+          "mk-6cFebjis@2956",
+          "mk-6cFebjis@2958",
+          "mk-6cFebjis@2961"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p110",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Creating input-target pairs is an important part of realistic data preprocessing for large language models.",
+        "line_ids": [
+          "mk-6cFebjis@2977",
+          "mk-6cFebjis@2979",
+          "mk-6cFebjis@2982",
+          "mk-6cFebjis@2983",
+          "mk-6cFebjis@2985",
+          "mk-6cFebjis@2987",
+          "mk-6cFebjis@2990",
+          "mk-6cFebjis@2993",
+          "mk-6cFebjis@2995",
+          "mk-6cFebjis@2997",
+          "mk-6cFebjis@3001",
+          "mk-6cFebjis@3003",
+          "mk-6cFebjis@3005"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p111",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Large language models are trained to predict the next word from the preceding words.",
+        "line_ids": [
+          "mk-6cFebjis@3010",
+          "mk-6cFebjis@3012",
+          "mk-6cFebjis@3014",
+          "mk-6cFebjis@3017",
+          "mk-6cFebjis@3019",
+          "mk-6cFebjis@3021",
+          "mk-6cFebjis@3023",
+          "mk-6cFebjis@3026",
+          "mk-6cFebjis@3028",
+          "mk-6cFebjis@3030",
+          "mk-6cFebjis@3032",
+          "mk-6cFebjis@3034"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p112",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Context size is the maximum length of the input that the large language model sees at one time, meaning the number of tokens it processes to predict the next word.",
+        "line_ids": [
+          "mk-6cFebjis@3043",
+          "mk-6cFebjis@3046",
+          "mk-6cFebjis@3048",
+          "mk-6cFebjis@3050",
+          "mk-6cFebjis@3053",
+          "mk-6cFebjis@3055",
+          "mk-6cFebjis@3057"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p113",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Large models usually use a fairly large context size, often more than 150 or 200 tokens and sometimes around 500, although the example here uses a context size of four.",
+        "line_ids": [
+          "mk-6cFebjis@3057",
+          "mk-6cFebjis@3060",
+          "mk-6cFebjis@3063",
+          "mk-6cFebjis@3065",
+          "mk-6cFebjis@3067",
+          "mk-6cFebjis@3070",
+          "mk-6cFebjis@3072",
+          "mk-6cFebjis@3075",
+          "mk-6cFebjis@3077"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p114",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "Input-output pairs are constructed based on the context size so that each input sequence is paired with the next tokens the model should predict.",
+        "line_ids": [
+          "mk-6cFebjis@3077",
+          "mk-6cFebjis@3080",
+          "mk-6cFebjis@3083",
+          "mk-6cFebjis@3085",
+          "mk-6cFebjis@3087",
+          "mk-6cFebjis@3089",
+          "mk-6cFebjis@3092",
+          "mk-6cFebjis@3095",
+          "mk-6cFebjis@3096",
+          "mk-6cFebjis@3099",
+          "mk-6cFebjis@3102",
+          "mk-6cFebjis@3105",
+          "mk-6cFebjis@3107",
+          "mk-6cFebjis@3111",
+          "mk-6cFebjis@3112",
+          "mk-6cFebjis@3114",
+          "mk-6cFebjis@3117"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p115",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "One input-output pair actually contains multiple prediction tasks, one for each position in the context.",
+        "line_ids": [
+          "mk-6cFebjis@3117",
+          "mk-6cFebjis@3119",
+          "mk-6cFebjis@3121",
+          "mk-6cFebjis@3123",
+          "mk-6cFebjis@3125",
+          "mk-6cFebjis@3127",
+          "mk-6cFebjis@3129",
+          "mk-6cFebjis@3131",
+          "mk-6cFebjis@3133",
+          "mk-6cFebjis@3136",
+          "mk-6cFebjis@3138",
+          "mk-6cFebjis@3140"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p116",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To prepare training data, a text sample must be broken down into input-output pairs according to the chosen context size.",
+        "line_ids": [
+          "mk-6cFebjis@3142",
+          "mk-6cFebjis@3145",
+          "mk-6cFebjis@3148",
+          "mk-6cFebjis@3150",
+          "mk-6cFebjis@3153",
+          "mk-6cFebjis@3156",
+          "mk-6cFebjis@3158",
+          "mk-6cFebjis@3161",
+          "mk-6cFebjis@3163"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p117",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A PyTorch data loader can be used to create the input-target pairs, and the lecturer uses a sliding window approach to do this.",
+        "line_ids": [
+          "mk-6cFebjis@3166",
+          "mk-6cFebjis@3169",
+          "mk-6cFebjis@3171",
+          "mk-6cFebjis@3173",
+          "mk-6cFebjis@3175",
+          "mk-6cFebjis@3178",
+          "mk-6cFebjis@3180",
+          "mk-6cFebjis@3182",
+          "mk-6cFebjis@3185",
+          "mk-6cFebjis@3187",
+          "mk-6cFebjis@3189",
+          "mk-6cFebjis@3192",
+          "mk-6cFebjis@3193",
+          "mk-6cFebjis@3196",
+          "mk-6cFebjis@3198",
+          "mk-6cFebjis@3199",
+          "mk-6cFebjis@3201"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p118",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 3,
+        "text": "In this setup, each row of the input tensor is one input to the large language model and the corresponding row of the target tensor is the matching output, so corresponding rows form input-output pairs.",
+        "line_ids": [
+          "mk-6cFebjis@3213",
+          "mk-6cFebjis@3216",
+          "mk-6cFebjis@3219",
+          "mk-6cFebjis@3221",
+          "mk-6cFebjis@3223",
+          "mk-6cFebjis@3226",
+          "mk-6cFebjis@3229",
+          "mk-6cFebjis@3233",
+          "mk-6cFebjis@3235",
+          "mk-6cFebjis@3237",
+          "mk-6cFebjis@3240",
+          "mk-6cFebjis@3243",
+          "mk-6cFebjis@3246",
+          "mk-6cFebjis@3249",
+          "mk-6cFebjis@3251",
+          "mk-6cFebjis@3253",
+          "mk-6cFebjis@3254"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p119",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The target tensor is the input tensor shifted by one word because the model is trained to predict the next word.",
+        "line_ids": [
+          "mk-6cFebjis@3257",
+          "mk-6cFebjis@3261",
+          "mk-6cFebjis@3263",
+          "mk-6cFebjis@3265",
+          "mk-6cFebjis@3268",
+          "mk-6cFebjis@3271",
+          "mk-6cFebjis@3273",
+          "mk-6cFebjis@3275",
+          "mk-6cFebjis@3278",
+          "mk-6cFebjis@3281",
+          "mk-6cFebjis@3283",
+          "mk-6cFebjis@3286",
+          "mk-6cFebjis@3288",
+          "mk-6cFebjis@3290",
+          "mk-6cFebjis@3292"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p120",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "code",
+        "importance": 2,
+        "text": "The code reads the raw text, encodes it with the byte pair tokenizer from tiktoken, and prints that the encoded training set has length 5145 tokens.",
+        "line_ids": [
+          "mk-6cFebjis@3306",
+          "mk-6cFebjis@3308",
+          "mk-6cFebjis@3310",
+          "mk-6cFebjis@3313",
+          "mk-6cFebjis@3317",
+          "mk-6cFebjis@3319",
+          "mk-6cFebjis@3321",
+          "mk-6cFebjis@3323",
+          "mk-6cFebjis@3325",
+          "mk-6cFebjis@3328",
+          "mk-6cFebjis@3331",
+          "mk-6cFebjis@3333",
+          "mk-6cFebjis@3336",
+          "mk-6cFebjis@3338",
+          "mk-6cFebjis@3340",
+          "mk-6cFebjis@3344",
+          "mk-6cFebjis@3346"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p121",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The same input-output pairs can be viewed either as token ID sequences or as textual sequences showing the next-word prediction targets.",
+        "line_ids": [
+          "mk-6cFebjis@3349",
+          "mk-6cFebjis@3351",
+          "mk-6cFebjis@3353",
+          "mk-6cFebjis@3357",
+          "mk-6cFebjis@3359",
+          "mk-6cFebjis@3363",
+          "mk-6cFebjis@3366",
+          "mk-6cFebjis@3368",
+          "mk-6cFebjis@3370",
+          "mk-6cFebjis@3372",
+          "mk-6cFebjis@3374",
+          "mk-6cFebjis@3374b",
+          "mk-6cFebjis@3378",
+          "mk-6cFebjis@3380",
+          "mk-6cFebjis@3382",
+          "mk-6cFebjis@3384",
+          "mk-6cFebjis@3387",
+          "mk-6cFebjis@3389",
+          "mk-6cFebjis@3392",
+          "mk-6cFebjis@3395"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p122",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To build the data loader, first encode the entire text into token IDs and then chunk the text into overlapping sequences.",
+        "line_ids": [
+          "mk-6cFebjis@3397",
+          "mk-6cFebjis@3400",
+          "mk-6cFebjis@3401",
+          "mk-6cFebjis@3404",
+          "mk-6cFebjis@3406",
+          "mk-6cFebjis@3409",
+          "mk-6cFebjis@3411"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p123",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Stride is how many positions the input window moves to create the next input sequence.",
+        "line_ids": [
+          "mk-6cFebjis@3414",
+          "mk-6cFebjis@3416",
+          "mk-6cFebjis@3417",
+          "mk-6cFebjis@3419",
+          "mk-6cFebjis@3422",
+          "mk-6cFebjis@3425",
+          "mk-6cFebjis@3428",
+          "mk-6cFebjis@3431",
+          "mk-6cFebjis@3441",
+          "mk-6cFebjis@3444",
+          "mk-6cFebjis@3446",
+          "mk-6cFebjis@3448",
+          "mk-6cFebjis@3451",
+          "mk-6cFebjis@3453",
+          "mk-6cFebjis@3455",
+          "mk-6cFebjis@3457",
+          "mk-6cFebjis@3461",
+          "mk-6cFebjis@3463",
+          "mk-6cFebjis@3465",
+          "mk-6cFebjis@3468"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p124",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "When the stride equals four, consecutive inputs do not overlap, but when the stride equals one, consecutive inputs overlap.",
+        "line_ids": [
+          "mk-6cFebjis@3468",
+          "mk-6cFebjis@3472",
+          "mk-6cFebjis@3474",
+          "mk-6cFebjis@3476",
+          "mk-6cFebjis@3478",
+          "mk-6cFebjis@3481",
+          "mk-6cFebjis@3483",
+          "mk-6cFebjis@3485",
+          "mk-6cFebjis@3488",
+          "mk-6cFebjis@3489",
+          "mk-6cFebjis@3491",
+          "mk-6cFebjis@3494",
+          "mk-6cFebjis@3497"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p125",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 2,
+        "text": "The sliding window approach is named because the input window slides by the stride amount to produce the next input sequence.",
+        "line_ids": [
+          "mk-6cFebjis@3497",
+          "mk-6cFebjis@3500",
+          "mk-6cFebjis@3502",
+          "mk-6cFebjis@3505",
+          "mk-6cFebjis@3507",
+          "mk-6cFebjis@3509",
+          "mk-6cFebjis@3511",
+          "mk-6cFebjis@3513",
+          "mk-6cFebjis@3516",
+          "mk-6cFebjis@3518",
+          "mk-6cFebjis@3521"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p126",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The final tensors created by this process are input IDs and target IDs.",
+        "line_ids": [
+          "mk-6cFebjis@3523",
+          "mk-6cFebjis@3526",
+          "mk-6cFebjis@3528",
+          "mk-6cFebjis@3531",
+          "mk-6cFebjis@3533",
+          "mk-6cFebjis@3536",
+          "mk-6cFebjis@3537",
+          "mk-6cFebjis@3540",
+          "mk-6cFebjis@3542"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p127",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To construct the tensors, loop over the token IDs using the context length and stride, append each input chunk to the input ID tensor, and append the corresponding target chunk to the target ID tensor.",
+        "line_ids": [
+          "mk-6cFebjis@3542",
+          "mk-6cFebjis@3544",
+          "mk-6cFebjis@3547",
+          "mk-6cFebjis@3550",
+          "mk-6cFebjis@3552",
+          "mk-6cFebjis@3554",
+          "mk-6cFebjis@3557",
+          "mk-6cFebjis@3560",
+          "mk-6cFebjis@3562",
+          "mk-6cFebjis@3565"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p128",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 3,
+        "text": "An input chunk is the group of token IDs in one context window, and the target chunk is that same chunk shifted by one position.",
+        "line_ids": [
+          "mk-6cFebjis@3565",
+          "mk-6cFebjis@3567",
+          "mk-6cFebjis@3569",
+          "mk-6cFebjis@3571",
+          "mk-6cFebjis@3573"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p129",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "As the code runs, each iteration appends one row to the input tensor and the corresponding row to the target tensor, and looping over the whole text produces all training inputs and outputs.",
+        "line_ids": [
+          "mk-6cFebjis@3576",
+          "mk-6cFebjis@3578",
+          "mk-6cFebjis@3582",
+          "mk-6cFebjis@3584",
+          "mk-6cFebjis@3587",
+          "mk-6cFebjis@3588",
+          "mk-6cFebjis@3591",
+          "mk-6cFebjis@3592",
+          "mk-6cFebjis@3594",
+          "mk-6cFebjis@3597",
+          "mk-6cFebjis@3600",
+          "mk-6cFebjis@3602",
+          "mk-6cFebjis@3605",
+          "mk-6cFebjis@3607",
+          "mk-6cFebjis@3610"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p130",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 1,
+        "text": "This part of the data loader is detailed but very important.",
+        "line_ids": [
+          "mk-6cFebjis@3610",
+          "mk-6cFebjis@3614",
+          "mk-6cFebjis@3615",
+          "mk-6cFebjis@3618"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p131",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "After creating input-output pairs, the dataset is passed to a data loader, which processes the dataset and generates input-output batches from the input and output tensors.",
+        "line_ids": [
+          "mk-6cFebjis@3645",
+          "mk-6cFebjis@3647",
+          "mk-6cFebjis@3695",
+          "mk-6cFebjis@3697",
+          "mk-6cFebjis@3703",
+          "mk-6cFebjis@3710"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p132",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Batch size is how many input-output pairs are processed at one time before updating the parameters, which is the same notion of batch size used in other machine learning frameworks.",
+        "line_ids": [
+          "mk-6cFebjis@3652",
+          "mk-6cFebjis@3654",
+          "mk-6cFebjis@3656",
+          "mk-6cFebjis@3665",
+          "mk-6cFebjis@3666"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p133",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "A batch size of one means one input-output pair is processed before a parameter update, while a batch size of four means four input-output pairs are processed before updating the parameters.",
+        "line_ids": [
+          "mk-6cFebjis@3668",
+          "mk-6cFebjis@3670",
+          "mk-6cFebjis@3673",
+          "mk-6cFebjis@3675",
+          "mk-6cFebjis@3679"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p134",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 2,
+        "text": "The number of workers specifies how many CPU threads are used to split the code for parallel processing.",
+        "line_ids": [
+          "mk-6cFebjis@3682",
+          "mk-6cFebjis@3683",
+          "mk-6cFebjis@3686",
+          "mk-6cFebjis@3690"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p135",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "With a batch size of eight, the language model parameters are updated only after the entire batch is processed.",
+        "line_ids": [
+          "mk-6cFebjis@3729",
+          "mk-6cFebjis@3731",
+          "mk-6cFebjis@3737",
+          "mk-6cFebjis@3742",
+          "mk-6cFebjis@3744"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p136",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In the shown batch example, the input has eight inputs and the output has eight rows, where each row corresponds to an input-output pair.",
+        "line_ids": [
+          "mk-6cFebjis@3746",
+          "mk-6cFebjis@3749",
+          "mk-6cFebjis@3751",
+          "mk-6cFebjis@3755"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p137",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Each input-output pair in the example contains four words in the input and four next-word prediction targets in the output, so each pair has four prediction tasks.",
+        "line_ids": [
+          "mk-6cFebjis@3757",
+          "mk-6cFebjis@3760",
+          "mk-6cFebjis@3761",
+          "mk-6cFebjis@3763",
+          "mk-6cFebjis@3766"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p138",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Before introducing token embeddings or positional embeddings, it is important to understand how data is loaded and how inputs and outputs are given to the language model, including the importance of context size and stride.",
+        "line_ids": [
+          "mk-6cFebjis@3783",
+          "mk-6cFebjis@3787",
+          "mk-6cFebjis@3790",
+          "mk-6cFebjis@3792",
+          "mk-6cFebjis@3795",
+          "mk-6cFebjis@3800"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p139",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 1,
+        "text": "Understanding datasets and data loaders is not strictly required before understanding token embeddings.",
+        "line_ids": [
+          "mk-6cFebjis@3802",
+          "mk-6cFebjis@3805",
+          "mk-6cFebjis@3807",
+          "mk-6cFebjis@3816",
+          "mk-6cFebjis@3819",
+          "mk-6cFebjis@3822"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p140",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Token embeddings are needed because token IDs alone are not sufficient as inputs.",
+        "line_ids": [
+          "mk-6cFebjis@3856",
+          "mk-6cFebjis@3858",
+          "mk-6cFebjis@3860",
+          "mk-6cFebjis@3863",
+          "mk-6cFebjis@3866",
+          "mk-6cFebjis@3875"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p141",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Computers require numerical representations of words.",
+        "line_ids": [
+          "mk-6cFebjis@3882",
+          "mk-6cFebjis@3885",
+          "mk-6cFebjis@3887"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p142",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Assigning token IDs or random numbers to words does not capture semantic relationships between related words such as cat and kitten.",
+        "line_ids": [
+          "mk-6cFebjis@3892",
+          "mk-6cFebjis@3896",
+          "mk-6cFebjis@3901",
+          "mk-6cFebjis@3913",
+          "mk-6cFebjis@3917",
+          "mk-6cFebjis@3926"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p143",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "One-hot encoding also fails to capture semantic relationships between words such as dog and puppy.",
+        "line_ids": [
+          "mk-6cFebjis@3941",
+          "mk-6cFebjis@3943",
+          "mk-6cFebjis@3949",
+          "mk-6cFebjis@3957",
+          "mk-6cFebjis@3966",
+          "mk-6cFebjis@3978"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p144",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "A word can be represented as a vector whose dimensions correspond to properties such as having a tail, being eatable, having four legs, making sound, or being a pet.",
+        "line_ids": [
+          "mk-6cFebjis@3985",
+          "mk-6cFebjis@3987",
+          "mk-6cFebjis@3989",
+          "mk-6cFebjis@3996",
+          "mk-6cFebjis@3998",
+          "mk-6cFebjis@4006"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p145",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "If related words such as dog and cat have similar values in the same vector dimensions, their vectors are similar and encode semantic meaning.",
+        "line_ids": [
+          "mk-6cFebjis@4009",
+          "mk-6cFebjis@4015",
+          "mk-6cFebjis@4021",
+          "mk-6cFebjis@4028",
+          "mk-6cFebjis@4030",
+          "mk-6cFebjis@4046"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p146",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Words like apple and banana can have vectors that are close to each other, while words like dog and apple can be far apart, reflecting their semantic differences.",
+        "line_ids": [
+          "mk-6cFebjis@4063",
+          "mk-6cFebjis@4066",
+          "mk-6cFebjis@4071",
+          "mk-6cFebjis@4074",
+          "mk-6cFebjis@4080",
+          "mk-6cFebjis@4089"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p147",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Embedding words as vectors allows semantic relationships or meanings between words to be captured or retained.",
+        "line_ids": [
+          "mk-6cFebjis@4092",
+          "mk-6cFebjis@4097",
+          "mk-6cFebjis@4100",
+          "mk-6cFebjis@4102"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p148",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Feeding semantically meaningful vector embeddings to a language model leads to more successful models than feeding random token IDs.",
+        "line_ids": [
+          "mk-6cFebjis@4110",
+          "mk-6cFebjis@4113",
+          "mk-6cFebjis@4115",
+          "mk-6cFebjis@4120",
+          "mk-6cFebjis@4122",
+          "mk-6cFebjis@4127"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p149",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The main idea behind token embedding or vector embedding is that vectors can capture semantic meaning.",
+        "line_ids": [
+          "mk-6cFebjis@4127",
+          "mk-6cFebjis@4130",
+          "mk-6cFebjis@4132",
+          "mk-6cFebjis@4134"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p150",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "To obtain embedding vectors, a neural network must be trained to create them.",
+        "line_ids": [
+          "mk-6cFebjis@4136",
+          "mk-6cFebjis@4139",
+          "mk-6cFebjis@4144",
+          "mk-6cFebjis@4148",
+          "mk-6cFebjis@4150"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p151",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "In GPT, every word is converted into a vector in a high-dimensional space, and a neural network is trained to generate those vectors.",
+        "line_ids": [
+          "mk-6cFebjis@4153",
+          "mk-6cFebjis@4155",
+          "mk-6cFebjis@4157",
+          "mk-6cFebjis@4160",
+          "mk-6cFebjis@4162",
+          "mk-6cFebjis@4168"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p152",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To create token embeddings for a large language model, start from the vocabulary and convert every token ID into a vector.",
+        "line_ids": [
+          "mk-6cFebjis@4186",
+          "mk-6cFebjis@4189",
+          "mk-6cFebjis@4191",
+          "mk-6cFebjis@4197",
+          "mk-6cFebjis@4200",
+          "mk-6cFebjis@4203"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p153",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 3,
+        "text": "The embedding layer weight matrix is a matrix that stores a vector for each token ID.",
+        "line_ids": [
+          "mk-6cFebjis@4203",
+          "mk-6cFebjis@4205",
+          "mk-6cFebjis@4208",
+          "mk-6cFebjis@4210",
+          "mk-6cFebjis@4212",
+          "mk-6cFebjis@4226"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p154",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "For GPT-2, token IDs range up to 50257, and if the vector dimension is 256, then each token ID is represented by a 256-dimensional vector.",
+        "line_ids": [
+          "mk-6cFebjis@4215",
+          "mk-6cFebjis@4217",
+          "mk-6cFebjis@4221",
+          "mk-6cFebjis@4226",
+          "mk-6cFebjis@4228",
+          "mk-6cFebjis@4245"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p155",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "With 50257 token IDs and a vector dimension of 256, the embedding layer weight matrix has 50257 rows and 256 columns.",
+        "line_ids": [
+          "mk-6cFebjis@4254",
+          "mk-6cFebjis@4256",
+          "mk-6cFebjis@4260",
+          "mk-6cFebjis@4262",
+          "mk-6cFebjis@4266",
+          "mk-6cFebjis@4268"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p156",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To fetch the embedding vector for a particular token ID, look up the row of the embedding matrix corresponding to that ID, using zero indexing.",
+        "line_ids": [
+          "mk-6cFebjis@4270",
+          "mk-6cFebjis@4273",
+          "mk-6cFebjis@4275",
+          "mk-6cFebjis@4280",
+          "mk-6cFebjis@4283",
+          "mk-6cFebjis@4290"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p157",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "The embedding layer matrix can be understood as a lookup table that returns the corresponding embedding vector when given a token ID.",
+        "line_ids": [
+          "mk-6cFebjis@4492",
+          "mk-6cFebjis@4495",
+          "mk-6cFebjis@4496",
+          "mk-6cFebjis@4499",
+          "mk-6cFebjis@4501"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p158",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "visual_ref",
+        "importance": 2,
+        "text": "For simplicity, the lecturer shows an example with a vocabulary size of six and a vector dimension of three, using input IDs 2, 3, 5, and 1.",
+        "line_ids": [
+          "mk-6cFebjis@4303",
+          "mk-6cFebjis@4306",
+          "mk-6cFebjis@4308",
+          "mk-6cFebjis@4311",
+          "mk-6cFebjis@4325",
+          "mk-6cFebjis@4328"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p159",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In the simplified example, the embedding layer has six rows because there are six token IDs and three columns because each token ID is represented by a three-dimensional vector.",
+        "line_ids": [
+          "mk-6cFebjis@4330",
+          "mk-6cFebjis@4335",
+          "mk-6cFebjis@4343",
+          "mk-6cFebjis@4348",
+          "mk-6cFebjis@4355",
+          "mk-6cFebjis@4376"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p160",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "code",
+        "importance": 3,
+        "text": "In Python, the embedding layer is created using torch.nn.Embedding by specifying the vocabulary size as the number of rows and the embedding dimension as the number of columns.",
+        "line_ids": [
+          "mk-6cFebjis@4379",
+          "mk-6cFebjis@4381",
+          "mk-6cFebjis@4385",
+          "mk-6cFebjis@4387",
+          "mk-6cFebjis@4389",
+          "mk-6cFebjis@4404"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p161",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "When the embedding layer is created, it initially contains randomly assigned values.",
+        "line_ids": [
+          "mk-6cFebjis@4406",
+          "mk-6cFebjis@4408",
+          "mk-6cFebjis@4410",
+          "mk-6cFebjis@4413",
+          "mk-6cFebjis@4415",
+          "mk-6cFebjis@4420"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p162",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The initial embedding values are random because the ideal token embeddings are not yet known and must be learned during training.",
+        "line_ids": [
+          "mk-6cFebjis@4435",
+          "mk-6cFebjis@4437",
+          "mk-6cFebjis@4441",
+          "mk-6cFebjis@4443",
+          "mk-6cFebjis@4450",
+          "mk-6cFebjis@4452"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p163",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Token embeddings are trained along with the next-word prediction task in GPT.",
+        "line_ids": [
+          "mk-6cFebjis@4455",
+          "mk-6cFebjis@4457",
+          "mk-6cFebjis@4459",
+          "mk-6cFebjis@4462",
+          "mk-6cFebjis@4464",
+          "mk-6cFebjis@4466"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p164",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "code",
+        "importance": 2,
+        "text": "If you pass a single token ID such as 3 into the embedding layer, it returns the embedding vector for that ID, which corresponds to the appropriate row of the matrix.",
+        "line_ids": [
+          "mk-6cFebjis@4473",
+          "mk-6cFebjis@4474",
+          "mk-6cFebjis@4477",
+          "mk-6cFebjis@4480",
+          "mk-6cFebjis@4483",
+          "mk-6cFebjis@4492"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p165",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "code",
+        "importance": 2,
+        "text": "If you pass multiple input IDs into the embedding layer at once, it returns the token embedding vectors for all those input IDs based on the embedding layer weight matrix.",
+        "line_ids": [
+          "mk-6cFebjis@4508",
+          "mk-6cFebjis@4511",
+          "mk-6cFebjis@4513",
+          "mk-6cFebjis@4515",
+          "mk-6cFebjis@4517",
+          "mk-6cFebjis@4522"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p166",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 3,
+        "text": "A token embedding converts each token ID into an embedding vector.",
+        "line_ids": [
+          "mk-6cFebjis@4527",
+          "mk-6cFebjis@4530",
+          "mk-6cFebjis@4533",
+          "mk-6cFebjis@4536"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p167",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "In PyTorch, creating an embedding layer requires specifying the vocabulary size and the vector dimension.",
+        "line_ids": [
+          "mk-6cFebjis@4539",
+          "mk-6cFebjis@4541",
+          "mk-6cFebjis@4544",
+          "mk-6cFebjis@4546",
+          "mk-6cFebjis@4548",
+          "mk-6cFebjis@4550",
+          "mk-6cFebjis@4552"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p168",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "In the embedding layer, the number of rows equals the vocabulary size and the number of columns equals the vector dimension.",
+        "line_ids": [
+          "mk-6cFebjis@4555",
+          "mk-6cFebjis@4559",
+          "mk-6cFebjis@4561",
+          "mk-6cFebjis@4563",
+          "mk-6cFebjis@4565",
+          "mk-6cFebjis@4567"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p169",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The embedding layer weight matrix is optimized during LLM training, so its parameters are also learned.",
+        "line_ids": [
+          "mk-6cFebjis@4570",
+          "mk-6cFebjis@4573",
+          "mk-6cFebjis@4575",
+          "mk-6cFebjis@4577",
+          "mk-6cFebjis@4579",
+          "mk-6cFebjis@4581"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p170",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 3,
+        "text": "An embedding layer is basically a lookup operation that retrieves rows from the embedding weight matrix using a token ID.",
+        "line_ids": [
+          "mk-6cFebjis@4583",
+          "mk-6cFebjis@4585",
+          "mk-6cFebjis@4587",
+          "mk-6cFebjis@4589",
+          "mk-6cFebjis@4591",
+          "mk-6cFebjis@4593",
+          "mk-6cFebjis@4595"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p171",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "code",
+        "importance": 2,
+        "text": "The lecturer constructs a practical token embedding layer using GPT-2's vocabulary size of 50257 and an embedding dimension of 256.",
+        "line_ids": [
+          "mk-6cFebjis@4598",
+          "mk-6cFebjis@4601",
+          "mk-6cFebjis@4605",
+          "mk-6cFebjis@4609",
+          "mk-6cFebjis@4612",
+          "mk-6cFebjis@4615",
+          "mk-6cFebjis@4618",
+          "mk-6cFebjis@4620"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p172",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "code",
+        "importance": 3,
+        "text": "The lecturer creates an embedding layer with 50257 rows and 256-dimensional vectors using torch.nn.Embedding.",
+        "line_ids": [
+          "mk-6cFebjis@4641",
+          "mk-6cFebjis@4643",
+          "mk-6cFebjis@4645",
+          "mk-6cFebjis@4650",
+          "mk-6cFebjis@4652",
+          "mk-6cFebjis@4654",
+          "mk-6cFebjis@4656",
+          "mk-6cFebjis@4658",
+          "mk-6cFebjis@4661",
+          "mk-6cFebjis@4664",
+          "mk-6cFebjis@4666",
+          "mk-6cFebjis@4668",
+          "mk-6cFebjis@4670",
+          "mk-6cFebjis@4672"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p173",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "To obtain token embeddings, the input token IDs from the data loader are passed into the embedding layer to get the corresponding embedding vectors.",
+        "line_ids": [
+          "mk-6cFebjis@4674",
+          "mk-6cFebjis@4676",
+          "mk-6cFebjis@4680",
+          "mk-6cFebjis@4683",
+          "mk-6cFebjis@4686",
+          "mk-6cFebjis@4689",
+          "mk-6cFebjis@4692",
+          "mk-6cFebjis@4694"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p174",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The input data is arranged in batches of eight with a context length of four, so each batch contains eight sequences of four tokens each.",
+        "line_ids": [
+          "mk-6cFebjis@4714",
+          "mk-6cFebjis@4716",
+          "mk-6cFebjis@4719",
+          "mk-6cFebjis@4723",
+          "mk-6cFebjis@4725",
+          "mk-6cFebjis@4727",
+          "mk-6cFebjis@4729"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p175",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "visual_ref",
+        "importance": 2,
+        "text": "The lecturer points out that in the shown batch, each row is one input sequence of four token IDs, and there are eight rows in total.",
+        "line_ids": [
+          "mk-6cFebjis@4732",
+          "mk-6cFebjis@4734",
+          "mk-6cFebjis@4738",
+          "mk-6cFebjis@4740",
+          "mk-6cFebjis@4741",
+          "mk-6cFebjis@4744",
+          "mk-6cFebjis@4746",
+          "mk-6cFebjis@4749",
+          "mk-6cFebjis@4752",
+          "mk-6cFebjis@4753"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p176",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "If the input token ID matrix has shape 8 by 4 and each token ID is converted to a 256-dimensional vector, the embedding output has shape 8 by 4 by 256.",
+        "line_ids": [
+          "mk-6cFebjis@4808",
+          "mk-6cFebjis@4810",
+          "mk-6cFebjis@4813",
+          "mk-6cFebjis@4816",
+          "mk-6cFebjis@4820",
+          "mk-6cFebjis@4823",
+          "mk-6cFebjis@4825",
+          "mk-6cFebjis@4827",
+          "mk-6cFebjis@4830",
+          "mk-6cFebjis@4846",
+          "mk-6cFebjis@4848",
+          "mk-6cFebjis@4851",
+          "mk-6cFebjis@4876",
+          "mk-6cFebjis@4882",
+          "mk-6cFebjis@4886",
+          "mk-6cFebjis@4888",
+          "mk-6cFebjis@4891",
+          "mk-6cFebjis@4894",
+          "mk-6cFebjis@4895",
+          "mk-6cFebjis@4897"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p177",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "code",
+        "importance": 3,
+        "text": "The lecturer passes the input IDs into the token embedding layer, producing token embeddings with shape 8 by 4 by 256.",
+        "line_ids": [
+          "mk-6cFebjis@4901",
+          "mk-6cFebjis@4903",
+          "mk-6cFebjis@4905",
+          "mk-6cFebjis@4908",
+          "mk-6cFebjis@4911",
+          "mk-6cFebjis@4913",
+          "mk-6cFebjis@4915",
+          "mk-6cFebjis@4918",
+          "mk-6cFebjis@4920",
+          "mk-6cFebjis@4922",
+          "mk-6cFebjis@4925",
+          "mk-6cFebjis@4926"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p178",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The token embeddings for one batch are combined with positional embeddings, and that sum becomes the input to the large language model.",
+        "line_ids": [
+          "mk-6cFebjis@4926",
+          "mk-6cFebjis@4928",
+          "mk-6cFebjis@4930",
+          "mk-6cFebjis@4933",
+          "mk-6cFebjis@4936"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p179",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 1,
+        "text": "Positional embedding and positional encoding are used interchangeably in this lecture.",
+        "line_ids": [
+          "mk-6cFebjis@4938",
+          "mk-6cFebjis@4940",
+          "mk-6cFebjis@4942",
+          "mk-6cFebjis@4944"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p180",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The problem with token embeddings alone is that they do not include any information about token position.",
+        "line_ids": [
+          "mk-6cFebjis@4972",
+          "mk-6cFebjis@4974",
+          "mk-6cFebjis@4976",
+          "mk-6cFebjis@4979",
+          "mk-6cFebjis@4982",
+          "mk-6cFebjis@4983",
+          "mk-6cFebjis@4986",
+          "mk-6cFebjis@4987"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p181",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "In the sentences \"the cat sat on the mat\" and \"on the mat the cat sat,\" the word \"cat\" would have the same token embedding even though it appears in different positions.",
+        "line_ids": [
+          "mk-6cFebjis@4990",
+          "mk-6cFebjis@4992",
+          "mk-6cFebjis@4994",
+          "mk-6cFebjis@4997",
+          "mk-6cFebjis@4999",
+          "mk-6cFebjis@5001",
+          "mk-6cFebjis@5004",
+          "mk-6cFebjis@5006",
+          "mk-6cFebjis@5008",
+          "mk-6cFebjis@5010"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p182",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "A word's position matters for understanding sentence context, so it is advantageous to encode positional information along with semantic meaning.",
+        "line_ids": [
+          "mk-6cFebjis@5010",
+          "mk-6cFebjis@5012",
+          "mk-6cFebjis@5015",
+          "mk-6cFebjis@5016",
+          "mk-6cFebjis@5019",
+          "mk-6cFebjis@5021",
+          "mk-6cFebjis@5023",
+          "mk-6cFebjis@5025",
+          "mk-6cFebjis@5028",
+          "mk-6cFebjis@5031"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p183",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The main purpose of positional encoding is to inject positional information that token embeddings alone do not provide.",
+        "line_ids": [
+          "mk-6cFebjis@5033",
+          "mk-6cFebjis@5035",
+          "mk-6cFebjis@5038",
+          "mk-6cFebjis@5041",
+          "mk-6cFebjis@5043",
+          "mk-6cFebjis@5045",
+          "mk-6cFebjis@5047"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p184",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 3,
+        "text": "There are two types of positional encoding: absolute positional encoding and relative positional encoding.",
+        "line_ids": [
+          "mk-6cFebjis@5050",
+          "mk-6cFebjis@5052",
+          "mk-6cFebjis@5054",
+          "mk-6cFebjis@5057",
+          "mk-6cFebjis@5058"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p185",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 3,
+        "text": "In absolute positional encoding, each position in the input sequence has a unique positional embedding vector that is added to the token embedding.",
+        "line_ids": [
+          "mk-6cFebjis@5058",
+          "mk-6cFebjis@5060",
+          "mk-6cFebjis@5062",
+          "mk-6cFebjis@5065",
+          "mk-6cFebjis@5067"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p186",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "analogy",
+        "importance": 2,
+        "text": "In the absolute positional encoding example, different tokens receive different positional vectors based on whether they are in the first, second, third, or fourth position, and adding these to the token embeddings produces the final input embeddings.",
+        "line_ids": [
+          "mk-6cFebjis@5070",
+          "mk-6cFebjis@5072",
+          "mk-6cFebjis@5076",
+          "mk-6cFebjis@5079",
+          "mk-6cFebjis@5081",
+          "mk-6cFebjis@5085",
+          "mk-6cFebjis@5089",
+          "mk-6cFebjis@5091",
+          "mk-6cFebjis@5093",
+          "mk-6cFebjis@5095",
+          "mk-6cFebjis@5097",
+          "mk-6cFebjis@5101",
+          "mk-6cFebjis@5103",
+          "mk-6cFebjis@5105",
+          "mk-6cFebjis@5107",
+          "mk-6cFebjis@5109",
+          "mk-6cFebjis@5111",
+          "mk-6cFebjis@5114",
+          "mk-6cFebjis@5116",
+          "mk-6cFebjis@5117",
+          "mk-6cFebjis@5119",
+          "mk-6cFebjis@5122",
+          "mk-6cFebjis@5125",
+          "mk-6cFebjis@5128",
+          "mk-6cFebjis@5132",
+          "mk-6cFebjis@5134",
+          "mk-6cFebjis@5137",
+          "mk-6cFebjis@5139",
+          "mk-6cFebjis@5141",
+          "mk-6cFebjis@5144",
+          "mk-6cFebjis@5147",
+          "mk-6cFebjis@5151",
+          "mk-6cFebjis@5155",
+          "mk-6cFebjis@5158",
+          "mk-6cFebjis@5160"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p187",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Because position is encoded, the final input embeddings can differ even when the token embeddings are similar.",
+        "line_ids": [
+          "mk-6cFebjis@5162",
+          "mk-6cFebjis@5164",
+          "mk-6cFebjis@5165",
+          "mk-6cFebjis@5167"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p188",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The input embeddings for \"cat sat on the mat\" will differ from those for \"the mat the cat sat on\" because positional information is taken into account.",
+        "line_ids": [
+          "mk-6cFebjis@5170",
+          "mk-6cFebjis@5172",
+          "mk-6cFebjis@5175",
+          "mk-6cFebjis@5177"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p189",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Positional embedding vectors must have the same dimension as token embeddings because the two vectors are added together.",
+        "line_ids": [
+          "mk-6cFebjis@5177",
+          "mk-6cFebjis@5180",
+          "mk-6cFebjis@5182",
+          "mk-6cFebjis@5183",
+          "mk-6cFebjis@5185"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p190",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Relative positional encoding focuses on the relative positions or distances between tokens rather than their exact positions.",
+        "line_ids": [
+          "mk-6cFebjis@5188",
+          "mk-6cFebjis@5190",
+          "mk-6cFebjis@5193",
+          "mk-6cFebjis@5194",
+          "mk-6cFebjis@5197",
+          "mk-6cFebjis@5200",
+          "mk-6cFebjis@5203",
+          "mk-6cFebjis@5205",
+          "mk-6cFebjis@5207"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p191",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Absolute positional encoding is well suited when the fixed order of tokens is crucial, such as in sequence generation.",
+        "line_ids": [
+          "mk-6cFebjis@5215",
+          "mk-6cFebjis@5217",
+          "mk-6cFebjis@5219",
+          "mk-6cFebjis@5222"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p192",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "GPT uses absolute positional encoding, and absolute positional encoding is more commonly used than relative positional encoding.",
+        "line_ids": [
+          "mk-6cFebjis@5222",
+          "mk-6cFebjis@5225",
+          "mk-6cFebjis@5226",
+          "mk-6cFebjis@5229"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p193",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "Relative positional encoding is suitable for tasks like language modeling or long sequences where the same phrase can appear in different parts of the sequence.",
+        "line_ids": [
+          "mk-6cFebjis@5231",
+          "mk-6cFebjis@5233",
+          "mk-6cFebjis@5235",
+          "mk-6cFebjis@5238",
+          "mk-6cFebjis@5240",
+          "mk-6cFebjis@5241",
+          "mk-6cFebjis@5244"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p194",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "At this stage, the token embeddings form a tensor of shape 8 by 4 by 256.",
+        "line_ids": [
+          "mk-6cFebjis@5250",
+          "mk-6cFebjis@5253",
+          "mk-6cFebjis@5256",
+          "mk-6cFebjis@5259"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p195",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The next step is to create a separate embedding layer for positional embeddings.",
+        "line_ids": [
+          "mk-6cFebjis@5259",
+          "mk-6cFebjis@5262",
+          "mk-6cFebjis@5264",
+          "mk-6cFebjis@5266"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p196",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "When creating the positional embedding matrix, the relevant number of positions is determined by the context length.",
+        "line_ids": [
+          "mk-6cFebjis@5269",
+          "mk-6cFebjis@5270",
+          "mk-6cFebjis@5274",
+          "mk-6cFebjis@5277",
+          "mk-6cFebjis@5278",
+          "mk-6cFebjis@5280"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p197",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The positional embedding dimension is 256, matching the token embedding dimension, because the positional and token vectors must be added.",
+        "line_ids": [
+          "mk-6cFebjis@5280",
+          "mk-6cFebjis@5282",
+          "mk-6cFebjis@5285",
+          "mk-6cFebjis@5287",
+          "mk-6cFebjis@5289",
+          "mk-6cFebjis@5291",
+          "mk-6cFebjis@5294"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p198",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "With a context length of four, only four positional vectors are needed, one for each possible token position.",
+        "line_ids": [
+          "mk-6cFebjis@5294",
+          "mk-6cFebjis@5296",
+          "mk-6cFebjis@5299",
+          "mk-6cFebjis@5301",
+          "mk-6cFebjis@5303",
+          "mk-6cFebjis@5306",
+          "mk-6cFebjis@5307",
+          "mk-6cFebjis@5309",
+          "mk-6cFebjis@5312"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p199",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Therefore, the positional embedding matrix has shape 4 by 256.",
+        "line_ids": [
+          "mk-6cFebjis@5312",
+          "mk-6cFebjis@5314",
+          "mk-6cFebjis@5316",
+          "mk-6cFebjis@5319",
+          "mk-6cFebjis@5321",
+          "mk-6cFebjis@5325",
+          "mk-6cFebjis@5328"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p200",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The same four positional vectors are added to each input sequence in the batch.",
+        "line_ids": [
+          "mk-6cFebjis@5333",
+          "mk-6cFebjis@5336",
+          "mk-6cFebjis@5338",
+          "mk-6cFebjis@5340",
+          "mk-6cFebjis@5343",
+          "mk-6cFebjis@5345",
+          "mk-6cFebjis@5348"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p201",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 1,
+        "text": "The lecturer uses the terms positional embedding and positional encoding interchangeably.",
+        "line_ids": [
+          "mk-6cFebjis@5357",
+          "mk-6cFebjis@5358",
+          "mk-6cFebjis@5360",
+          "mk-6cFebjis@5363",
+          "mk-6cFebjis@5366",
+          "mk-6cFebjis@5368",
+          "mk-6cFebjis@5370"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p202",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "code",
+        "importance": 3,
+        "text": "The lecturer creates a positional embedding layer with four rows and 256 columns, then obtains the four positional vectors from it.",
+        "line_ids": [
+          "mk-6cFebjis@5370",
+          "mk-6cFebjis@5374",
+          "mk-6cFebjis@5376",
+          "mk-6cFebjis@5378",
+          "mk-6cFebjis@5381",
+          "mk-6cFebjis@5383",
+          "mk-6cFebjis@5386",
+          "mk-6cFebjis@5387",
+          "mk-6cFebjis@5390",
+          "mk-6cFebjis@5392",
+          "mk-6cFebjis@5395",
+          "mk-6cFebjis@5397"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p203",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "After creating the positional embeddings, they are added to the token embeddings.",
+        "line_ids": [
+          "mk-6cFebjis@5400",
+          "mk-6cFebjis@5401",
+          "mk-6cFebjis@5404",
+          "mk-6cFebjis@5406",
+          "mk-6cFebjis@5407"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p204",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "When adding token embeddings of shape 8 by 4 by 256 and positional embeddings of shape 4 by 256 in Python, broadcasting duplicates the positional embeddings across the batch dimension to make the addition possible.",
+        "line_ids": [
+          "mk-6cFebjis@5409",
+          "mk-6cFebjis@5413",
+          "mk-6cFebjis@5416",
+          "mk-6cFebjis@5418",
+          "mk-6cFebjis@5420",
+          "mk-6cFebjis@5421",
+          "mk-6cFebjis@5424",
+          "mk-6cFebjis@5426",
+          "mk-6cFebjis@5429"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p205",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The input embedding matrix is constructed by adding the positional embedding vectors to each row of the token embedding matrix to produce the corresponding rows of the input embeddings.",
+        "line_ids": [
+          "mk-6cFebjis@5436",
+          "mk-6cFebjis@5439",
+          "mk-6cFebjis@5441",
+          "mk-6cFebjis@5443",
+          "mk-6cFebjis@5446",
+          "mk-6cFebjis@5450",
+          "mk-6cFebjis@5452",
+          "mk-6cFebjis@5455",
+          "mk-6cFebjis@5457",
+          "mk-6cFebjis@5460",
+          "mk-6cFebjis@5462",
+          "mk-6cFebjis@5464",
+          "mk-6cFebjis@5466",
+          "mk-6cFebjis@5468",
+          "mk-6cFebjis@5470",
+          "mk-6cFebjis@5472",
+          "mk-6cFebjis@5474",
+          "mk-6cFebjis@5476",
+          "mk-6cFebjis@5478",
+          "mk-6cFebjis@5480",
+          "mk-6cFebjis@5482",
+          "mk-6cFebjis@5484"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p206",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Input embeddings are the sum of token embeddings and positional embeddings.",
+        "line_ids": [
+          "mk-6cFebjis@5476",
+          "mk-6cFebjis@5478",
+          "mk-6cFebjis@5480",
+          "mk-6cFebjis@5482",
+          "mk-6cFebjis@5484"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p207",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The positional embedding matrix is initialized randomly, similar to the token embedding matrix.",
+        "line_ids": [
+          "mk-6cFebjis@5486",
+          "mk-6cFebjis@5488",
+          "mk-6cFebjis@5491",
+          "mk-6cFebjis@5493",
+          "mk-6cFebjis@5496",
+          "mk-6cFebjis@5501",
+          "mk-6cFebjis@5503",
+          "mk-6cFebjis@5506",
+          "mk-6cFebjis@5508",
+          "mk-6cFebjis@5510",
+          "mk-6cFebjis@5512"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p208",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "The values in the positional embedding layer, like those in the token embedding layer, must be optimized during training.",
+        "line_ids": [
+          "mk-6cFebjis@5512",
+          "mk-6cFebjis@5515",
+          "mk-6cFebjis@5516",
+          "mk-6cFebjis@5518",
+          "mk-6cFebjis@5520",
+          "mk-6cFebjis@5522",
+          "mk-6cFebjis@5523",
+          "mk-6cFebjis@5525",
+          "mk-6cFebjis@5527",
+          "mk-6cFebjis@5529",
+          "mk-6cFebjis@5530",
+          "mk-6cFebjis@5532",
+          "mk-6cFebjis@5535"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p209",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The lecture covered tokenization, including word-based, subword-based, and character-based tokenizers.",
+        "line_ids": [
+          "mk-6cFebjis@5547",
+          "mk-6cFebjis@5549",
+          "mk-6cFebjis@5551",
+          "mk-6cFebjis@5553",
+          "mk-6cFebjis@5555",
+          "mk-6cFebjis@5557"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p210",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 2,
+        "text": "The lecture covered the byte pair encoding tokenizer, which is used by GPT.",
+        "line_ids": [
+          "mk-6cFebjis@5560",
+          "mk-6cFebjis@5562",
+          "mk-6cFebjis@5564"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p211",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "definition",
+        "importance": 3,
+        "text": "Token embeddings convert token IDs into vectors.",
+        "line_ids": [
+          "mk-6cFebjis@5564",
+          "mk-6cFebjis@5566",
+          "mk-6cFebjis@5568"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p212",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "Positional embeddings are also needed because they encode information about position.",
+        "line_ids": [
+          "mk-6cFebjis@5570",
+          "mk-6cFebjis@5572",
+          "mk-6cFebjis@5574",
+          "mk-6cFebjis@5575",
+          "mk-6cFebjis@5578",
+          "mk-6cFebjis@5580"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p213",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "procedure",
+        "importance": 3,
+        "text": "The data preprocessing pipeline proceeds from tokenization to token IDs to token embeddings to positional embeddings and finally to input embeddings.",
+        "line_ids": [
+          "mk-6cFebjis@5587",
+          "mk-6cFebjis@5590",
+          "mk-6cFebjis@5592",
+          "mk-6cFebjis@5594",
+          "mk-6cFebjis@5596",
+          "mk-6cFebjis@5599",
+          "mk-6cFebjis@5602",
+          "mk-6cFebjis@5604",
+          "mk-6cFebjis@5606"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p214",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 3,
+        "text": "This preprocessing pipeline makes the data ready to be fed into the LLM architecture or the LLM pre-training process.",
+        "line_ids": [
+          "mk-6cFebjis@5606",
+          "mk-6cFebjis@5608",
+          "mk-6cFebjis@5610",
+          "mk-6cFebjis@5614"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p215",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The lecture was designed as a condensed overview of the full LLM data preprocessing pipeline.",
+        "line_ids": [
+          "mk-6cFebjis@5542",
+          "mk-6cFebjis@5545",
+          "mk-6cFebjis@5547",
+          "mk-6cFebjis@5549",
+          "mk-6cFebjis@5551",
+          "mk-6cFebjis@5616",
+          "mk-6cFebjis@5619",
+          "mk-6cFebjis@5621",
+          "mk-6cFebjis@5623"
+        ]
+      },
+      {
+        "id": "mk-6cFebjis:p216",
+        "video_id": "mk-6cFebjis",
+        "lecture": 12,
+        "kind": "claim",
+        "importance": 1,
+        "text": "The teaching approach combines whiteboard explanation with coding in Google Colab to strengthen both theoretical and coding foundations.",
+        "line_ids": [
+          "mk-6cFebjis@5626",
+          "mk-6cFebjis@5627",
+          "mk-6cFebjis@5630",
+          "mk-6cFebjis@5632",
+          "mk-6cFebjis@5635"
+        ]
+      }
+    ],
+    "inventory": [
+      {
+        "chunk": "mk-6cFebjis@0-910",
+        "start": 0,
+        "end": 910,
+        "points": 30,
+        "core_points": 19,
+        "flag": null
+      },
+      {
+        "chunk": "mk-6cFebjis@908-1816",
+        "start": 908,
+        "end": 1816,
+        "points": 33,
+        "core_points": 17,
+        "flag": null
+      },
+      {
+        "chunk": "mk-6cFebjis@1814-2721",
+        "start": 1814,
+        "end": 2721,
+        "points": 35,
+        "core_points": 20,
+        "flag": null
+      },
+      {
+        "chunk": "mk-6cFebjis@2718-3625",
+        "start": 2718,
+        "end": 3625,
+        "points": 32,
+        "core_points": 20,
+        "flag": null
+      },
+      {
+        "chunk": "mk-6cFebjis@3623-4530",
+        "start": 3623,
+        "end": 4530,
+        "points": 35,
+        "core_points": 18,
+        "flag": null
+      },
+      {
+        "chunk": "mk-6cFebjis@4527-5439",
+        "start": 4527,
+        "end": 5439,
+        "points": 39,
+        "core_points": 27,
+        "flag": null
+      },
+      {
+        "chunk": "mk-6cFebjis@5436-5652",
+        "start": 5436,
+        "end": 5652,
+        "points": 12,
+        "core_points": 7,
+        "flag": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch04.s09.p02.09",
+  "inputs_hash": "3edc6a0f3b9c3b92a7dff6c1c2b6256b6d915499c0834aa08eec38ac71733163",
+  "output_hash": "ffa0959a8966f7b0eee20e5ee51ec45779ab0dc6fb17bf28236ba5b74a5a0e41",
+  "output": {
+    "decision": "note",
+    "note": "The reference code example uses a 2×6 input batch; this lecture example illustrates a smaller 2×4 input/target batch.",
+    "reason": "The captions explicitly support a two-sample input and target with four tokens per sample, so the difference appears to be a different illustrative example.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "b58387004bec1ea3debb6325dd7bd691c8c4d8f0df7178c3978396731eba4e12"
+  }
+}

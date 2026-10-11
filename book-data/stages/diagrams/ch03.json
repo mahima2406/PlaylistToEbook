@@ -1,0 +1,389 @@
+{
+  "stage": "diagrams",
+  "item": "ch03",
+  "inputs_hash": "4161faddd9134b38636d68aea63ecc0f608dfd33b72c79876c23eb76e92931d7",
+  "output_hash": "24073f6cb00b06c5316ce474c7624d9f108a64e354b34c04fb7cf01d7dc4e2e5",
+  "output": {
+    "chapter": "ch03",
+    "diagrams": [
+      {
+        "id": "ch03.fig1",
+        "after_paragraph": "ch03.s01.p03",
+        "title": "From embeddings to context vectors",
+        "caption": "Attention transforms token embeddings into one context vector per token, enriching each vector with relational information used by the model.",
+        "mermaid": "flowchart LR\n  A[\"Input embeddings\"] -->|\"attention transforms\"| B[\"Context vectors\"]\n  B -->|\"used as inputs to the model\"| C[\"Model\"]",
+        "claims": [
+          {
+            "id": "ch03.fig1.c1",
+            "type": "F",
+            "text": "Attention transforms input embeddings for tokens into context vectors.",
+            "sentences": [
+              "ch03.s01.p03.02",
+              "ch03.s01.p03.06"
+            ],
+            "cites": [
+              "eSRhpYLerw4@305",
+              "eSRhpYLerw4@307",
+              "eSRhpYLerw4@309",
+              "eSRhpYLerw4@312",
+              "eSRhpYLerw4@315",
+              "eSRhpYLerw4@317",
+              "eSRhpYLerw4@360",
+              "eSRhpYLerw4@362",
+              "eSRhpYLerw4@364",
+              "eSRhpYLerw4@366",
+              "eSRhpYLerw4@369",
+              "eSRhpYLerw4@371",
+              "eSRhpYLerw4@373",
+              "eSRhpYLerw4@375",
+              "eSRhpYLerw4@378",
+              "eSRhpYLerw4@380",
+              "eSRhpYLerw4@382",
+              "h94TQOK7NRA@184",
+              "h94TQOK7NRA@187",
+              "h94TQOK7NRA@189",
+              "h94TQOK7NRA@191",
+              "h94TQOK7NRA@194"
+            ],
+            "verdict": "supported",
+            "confidence": 0.96,
+            "reason": ""
+          },
+          {
+            "id": "ch03.fig1.c2",
+            "type": "F",
+            "text": "Attention produces one context vector for each input embedding vector.",
+            "sentences": [
+              "ch03.s01.p03.05"
+            ],
+            "cites": [
+              "eSRhpYLerw4@346",
+              "eSRhpYLerw4@348",
+              "eSRhpYLerw4@351",
+              "eSRhpYLerw4@355",
+              "eSRhpYLerw4@357",
+              "eSRhpYLerw4@359",
+              "eSRhpYLerw4@457",
+              "eSRhpYLerw4@460"
+            ],
+            "verdict": "supported",
+            "confidence": 0.95,
+            "reason": ""
+          },
+          {
+            "id": "ch03.fig1.c3",
+            "type": "F",
+            "text": "Context vectors are used as inputs to the model.",
+            "sentences": [
+              "ch03.s01.p03.06"
+            ],
+            "cites": [
+              "eSRhpYLerw4@360",
+              "eSRhpYLerw4@362",
+              "eSRhpYLerw4@364",
+              "eSRhpYLerw4@366",
+              "eSRhpYLerw4@369",
+              "eSRhpYLerw4@371",
+              "eSRhpYLerw4@373",
+              "eSRhpYLerw4@375",
+              "eSRhpYLerw4@378",
+              "eSRhpYLerw4@380",
+              "eSRhpYLerw4@382"
+            ],
+            "verdict": "supported",
+            "confidence": 0.9,
+            "reason": ""
+          }
+        ],
+        "passed": true
+      },
+      {
+        "id": "ch03.fig2",
+        "after_paragraph": "ch03.s05.p04",
+        "title": "Computing all context vectors at once",
+        "caption": "The full set of context vectors can be computed in one matrix multiplication by multiplying the attention weight matrix by the input matrix.",
+        "mermaid": "flowchart LR\n  A[\"Attention weight matrix 6 x 6\"] -->|\"multiply by\"| B[\"Input matrix 6 x 3\"]\n  B --> C[\"Context matrix 6 x 3\"]",
+        "claims": [
+          {
+            "id": "ch03.fig2.c1",
+            "type": "F",
+            "text": "The attention weight matrix is multiplied by the input matrix.",
+            "sentences": [
+              "ch03.s05.p04.03",
+              "ch03.s05.p04.09"
+            ],
+            "cites": [
+              "eSRhpYLerw4@3947",
+              "eSRhpYLerw4@3951",
+              "eSRhpYLerw4@3956",
+              "eSRhpYLerw4@3958",
+              "eSRhpYLerw4@3969",
+              "eSRhpYLerw4@3972",
+              "eSRhpYLerw4@3974",
+              "eSRhpYLerw4@3976",
+              "eSRhpYLerw4@4331",
+              "eSRhpYLerw4@4333",
+              "eSRhpYLerw4@4336",
+              "eSRhpYLerw4@4338",
+              "eSRhpYLerw4@4340",
+              "eSRhpYLerw4@4342",
+              "eSRhpYLerw4@4345"
+            ],
+            "verdict": "supported",
+            "confidence": 0.97,
+            "reason": ""
+          },
+          {
+            "id": "ch03.fig2.c2",
+            "type": "F",
+            "text": "With attention weights of shape 6 x 6 and inputs of shape 6 x 3, the multiplication produces a 6 x 3 context matrix.",
+            "sentences": [
+              "ch03.s05.p04.05"
+            ],
+            "cites": [
+              "eSRhpYLerw4@4021",
+              "eSRhpYLerw4@4024",
+              "eSRhpYLerw4@4027",
+              "eSRhpYLerw4@4029",
+              "eSRhpYLerw4@4050",
+              "eSRhpYLerw4@4053",
+              "eSRhpYLerw4@4055",
+              "eSRhpYLerw4@4082",
+              "eSRhpYLerw4@4085",
+              "eSRhpYLerw4@4089",
+              "eSRhpYLerw4@4091",
+              "eSRhpYLerw4@4093"
+            ],
+            "verdict": "supported",
+            "confidence": 0.98,
+            "reason": ""
+          },
+          {
+            "id": "ch03.fig2.c3",
+            "type": "F",
+            "text": "That product gives the context vectors for all six tokens.",
+            "sentences": [
+              "ch03.s05.p04.04"
+            ],
+            "cites": [
+              "eSRhpYLerw4@3981",
+              "eSRhpYLerw4@3983",
+              "eSRhpYLerw4@3985",
+              "eSRhpYLerw4@3987",
+              "eSRhpYLerw4@3989",
+              "eSRhpYLerw4@3991",
+              "eSRhpYLerw4@3993",
+              "eSRhpYLerw4@3995",
+              "eSRhpYLerw4@3996",
+              "eSRhpYLerw4@3999"
+            ],
+            "verdict": "supported",
+            "confidence": 0.96,
+            "reason": ""
+          }
+        ],
+        "passed": true
+      },
+      {
+        "id": "ch03.fig3",
+        "after_paragraph": "ch03.s06.p04",
+        "title": "Query key value attention pipeline",
+        "caption": "Trainable query, key, and value projections produce attention scores, convert them into attention weights, and combine values into context vectors.",
+        "mermaid": "flowchart LR\n  A[\"Input matrix\"] -->|\"multiply by query weights\"| B[\"Queries matrix\"]\n  A -->|\"multiply by key weights\"| C[\"Keys matrix\"]\n  A -->|\"multiply by value weights\"| D[\"Values matrix\"]\n  B -->|\"multiply by keys transpose\"| E[\"Attention score matrix\"]\n  C -->|\"transpose for score computation\"| E\n  E -->|\"divide by square root of key dimension and apply softmax\"| F[\"Attention weight matrix\"]\n  F -->|\"multiply by\"| G[\"Context vector matrix\"]\n  D -->|\"provide values\"| G",
+        "claims": [
+          {
+            "id": "ch03.fig3.c1",
+            "type": "F",
+            "text": "The input matrix is multiplied by the query weight matrix to produce the queries matrix.",
+            "sentences": [
+              "ch03.s06.p04.r02"
+            ],
+            "cites": [
+              "h94TQOK7NRA@1012",
+              "h94TQOK7NRA@1015",
+              "h94TQOK7NRA@1017",
+              "h94TQOK7NRA@1020",
+              "h94TQOK7NRA@1022",
+              "h94TQOK7NRA@1024",
+              "h94TQOK7NRA@1026",
+              "h94TQOK7NRA@278",
+              "h94TQOK7NRA@280",
+              "h94TQOK7NRA@282",
+              "h94TQOK7NRA@286",
+              "h94TQOK7NRA@288",
+              "h94TQOK7NRA@293",
+              "h94TQOK7NRA@297",
+              "h94TQOK7NRA@299",
+              "h94TQOK7NRA@301",
+              "h94TQOK7NRA@303",
+              "h94TQOK7NRA@306",
+              "h94TQOK7NRA@308",
+              "h94TQOK7NRA@310",
+              "h94TQOK7NRA@314"
+            ],
+            "verdict": "supported",
+            "confidence": 0.96,
+            "reason": ""
+          },
+          {
+            "id": "ch03.fig3.c2",
+            "type": "F",
+            "text": "The input matrix is multiplied by the key weight matrix to produce the keys matrix.",
+            "sentences": [
+              "ch03.s06.p04.r02"
+            ],
+            "cites": [
+              "h94TQOK7NRA@1012",
+              "h94TQOK7NRA@1015",
+              "h94TQOK7NRA@1017",
+              "h94TQOK7NRA@1020",
+              "h94TQOK7NRA@1022",
+              "h94TQOK7NRA@1024",
+              "h94TQOK7NRA@1026",
+              "h94TQOK7NRA@278",
+              "h94TQOK7NRA@280",
+              "h94TQOK7NRA@282",
+              "h94TQOK7NRA@286",
+              "h94TQOK7NRA@288",
+              "h94TQOK7NRA@293",
+              "h94TQOK7NRA@297",
+              "h94TQOK7NRA@299",
+              "h94TQOK7NRA@301",
+              "h94TQOK7NRA@303",
+              "h94TQOK7NRA@306",
+              "h94TQOK7NRA@308",
+              "h94TQOK7NRA@310",
+              "h94TQOK7NRA@314"
+            ],
+            "verdict": "supported",
+            "confidence": 0.96,
+            "reason": ""
+          },
+          {
+            "id": "ch03.fig3.c3",
+            "type": "F",
+            "text": "The input matrix is multiplied by the value weight matrix to produce the values matrix.",
+            "sentences": [
+              "ch03.s06.p04.r02"
+            ],
+            "cites": [
+              "h94TQOK7NRA@1012",
+              "h94TQOK7NRA@1015",
+              "h94TQOK7NRA@1017",
+              "h94TQOK7NRA@1020",
+              "h94TQOK7NRA@1022",
+              "h94TQOK7NRA@1024",
+              "h94TQOK7NRA@1026",
+              "h94TQOK7NRA@278",
+              "h94TQOK7NRA@280",
+              "h94TQOK7NRA@282",
+              "h94TQOK7NRA@286",
+              "h94TQOK7NRA@288",
+              "h94TQOK7NRA@293",
+              "h94TQOK7NRA@297",
+              "h94TQOK7NRA@299",
+              "h94TQOK7NRA@301",
+              "h94TQOK7NRA@303",
+              "h94TQOK7NRA@306",
+              "h94TQOK7NRA@308",
+              "h94TQOK7NRA@310",
+              "h94TQOK7NRA@314"
+            ],
+            "verdict": "supported",
+            "confidence": 0.96,
+            "reason": ""
+          },
+          {
+            "id": "ch03.fig3.c4",
+            "type": "F",
+            "text": "Attention scores are computed by multiplying the queries matrix by the transpose of the keys matrix.",
+            "sentences": [
+              "ch03.s06.p04.r04"
+            ],
+            "cites": [
+              "h94TQOK7NRA@353",
+              "h94TQOK7NRA@355",
+              "h94TQOK7NRA@358",
+              "h94TQOK7NRA@360",
+              "h94TQOK7NRA@362",
+              "h94TQOK7NRA@364",
+              "h94TQOK7NRA@970",
+              "h94TQOK7NRA@972",
+              "h94TQOK7NRA@974"
+            ],
+            "verdict": "supported",
+            "confidence": 0.97,
+            "reason": ""
+          },
+          {
+            "id": "ch03.fig3.c5",
+            "type": "F",
+            "text": "The scores are converted into attention weights by dividing by the square root of the key dimension and then applying softmax.",
+            "sentences": [
+              "ch03.s06.p04.r06"
+            ],
+            "cites": [
+              "h94TQOK7NRA@447",
+              "h94TQOK7NRA@449",
+              "h94TQOK7NRA@452",
+              "h94TQOK7NRA@453",
+              "h94TQOK7NRA@455",
+              "h94TQOK7NRA@469",
+              "h94TQOK7NRA@978",
+              "h94TQOK7NRA@980"
+            ],
+            "verdict": "supported",
+            "confidence": 0.96,
+            "reason": ""
+          },
+          {
+            "id": "ch03.fig3.c6",
+            "type": "F",
+            "text": "The final context vectors are obtained by multiplying the attention weight matrix by the values matrix.",
+            "sentences": [
+              "ch03.s06.p04.r08"
+            ],
+            "cites": [
+              "h94TQOK7NRA@500",
+              "h94TQOK7NRA@502",
+              "h94TQOK7NRA@504",
+              "h94TQOK7NRA@510",
+              "h94TQOK7NRA@512",
+              "h94TQOK7NRA@514",
+              "h94TQOK7NRA@980",
+              "h94TQOK7NRA@982",
+              "h94TQOK7NRA@984"
+            ],
+            "verdict": "supported",
+            "confidence": 0.97,
+            "reason": ""
+          },
+          {
+            "id": "ch03.fig3.c7",
+            "type": "F",
+            "text": "Each row of the resulting context vector matrix is the context vector for the corresponding token.",
+            "sentences": [
+              "ch03.s06.p04.r09"
+            ],
+            "cites": [
+              "h94TQOK7NRA@516",
+              "h94TQOK7NRA@518",
+              "h94TQOK7NRA@520",
+              "h94TQOK7NRA@523",
+              "h94TQOK7NRA@525",
+              "h94TQOK7NRA@527",
+              "h94TQOK7NRA@529",
+              "h94TQOK7NRA@530",
+              "h94TQOK7NRA@532"
+            ],
+            "verdict": "supported",
+            "confidence": 0.97,
+            "reason": ""
+          }
+        ],
+        "passed": true
+      }
+    ],
+    "dropped": []
+  }
+}

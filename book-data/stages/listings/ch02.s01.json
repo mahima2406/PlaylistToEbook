@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch02.s01",
+  "inputs_hash": "96b4b387acc023fe178aa900d9f370b7186898e28369d09cdd2027ea53a1078f",
+  "output_hash": "040f4f3ca1b3c766cd8af864754b3c05fc40917cb9c7c9cd2d66b2093b1a292b",
+  "output": {
+    "section_id": "ch02.s01",
+    "listings": [
+      {
+        "id": "ch02.s01.code1",
+        "ref": "ref:ch02/01_main-chapter-code/ch02.ipynb#cell130",
+        "path": "ch02/01_main-chapter-code/ch02.ipynb",
+        "caption": "This code passes token ID inputs through a token embedding layer and prints the resulting token embedding tensor shape.",
+        "code": "token_embeddings = token_embedding_layer(inputs)\nprint(token_embeddings.shape)\n\n# uncomment & execute the following line to see how the embeddings look like\n# print(token_embeddings)",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The section describes converting token IDs into token embeddings as a core preprocessing step. The code takes token ID inputs (`inputs`) and passes them through a token embedding layer, then prints the resulting embedding tensor shape, which directly demonstrates that step. The caption accurately describes what the code does."
+      },
+      {
+        "id": "ch02.s01.code2",
+        "ref": "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135",
+        "path": "ch02/01_main-chapter-code/ch02.ipynb",
+        "caption": "This code creates input embeddings by adding token embeddings and positional embeddings and then prints the resulting tensor shape.",
+        "code": "input_embeddings = token_embeddings + pos_embeddings\nprint(input_embeddings.shape)\n\n# uncomment & execute the following line to see how the embeddings look like\n# print(input_embeddings)",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The section explains that input embeddings are formed by combining token embeddings with positional embeddings. The code does exactly that by adding `token_embeddings` and `pos_embeddings` to create `input_embeddings` and prints the resulting tensor shape, which matches the caption."
+      }
+    ],
+    "rejected": []
+  }
+}

@@ -1,0 +1,463 @@
+{
+  "stage": "verify",
+  "item": "ch03.s04",
+  "inputs_hash": "b47a8a7790e8ae02b375327011006fe1fccc7f43078d18609f4eb2d562bae6e8",
+  "output_hash": "c8cd4e6c3152c948c83ab10e616fbf05e2acf71a676eb13f915d8d6d5f960483",
+  "output": {
+    "section_id": "ch03.s04",
+    "paragraphs": [
+      {
+        "id": "ch03.s04.p01",
+        "sentences": [
+          {
+            "id": "ch03.s04.p01.01",
+            "text": "How do the normalized attention weights turn into the actual representation the model will use for a token?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s04.p01.02",
+            "text": "After computing the attention weights, the next and final step is to compute the context vector.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2575",
+              "eSRhpYLerw4@2582",
+              "eSRhpYLerw4@2584",
+              "eSRhpYLerw4@2593",
+              "eSRhpYLerw4@2596",
+              "eSRhpYLerw4@2598"
+            ]
+          },
+          {
+            "id": "ch03.s04.p01.03",
+            "text": "Up to this point, the process is to take an input query, compute attention scores by dot products with the embedding vectors, and normalize those scores into attention weights that sum to one.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2606",
+              "eSRhpYLerw4@2609",
+              "eSRhpYLerw4@2612",
+              "eSRhpYLerw4@2614",
+              "eSRhpYLerw4@2616",
+              "eSRhpYLerw4@2618",
+              "eSRhpYLerw4@2620",
+              "eSRhpYLerw4@2622"
+            ]
+          },
+          {
+            "id": "ch03.s04.p01.04",
+            "text": "With those weights in hand, the remaining task is straightforward.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s04.p01.05",
+            "text": "To compute a context vector, multiply each input embedding vector by its corresponding attention weight and then sum the resulting vectors.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2739",
+              "eSRhpYLerw4@2741",
+              "eSRhpYLerw4@2742",
+              "eSRhpYLerw4@2748",
+              "eSRhpYLerw4@2749",
+              "eSRhpYLerw4@2752",
+              "eSRhpYLerw4@2774",
+              "eSRhpYLerw4@2776",
+              "eSRhpYLerw4@2779",
+              "eSRhpYLerw4@2783",
+              "eSRhpYLerw4@2943",
+              "eSRhpYLerw4@2945",
+              "eSRhpYLerw4@2947",
+              "eSRhpYLerw4@2949"
+            ]
+          },
+          {
+            "id": "ch03.s04.p01.06",
+            "text": "Multiplying each embedding by its attention weight can be understood as scaling down the vector in the vector representation.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2692",
+              "eSRhpYLerw4@2695",
+              "eSRhpYLerw4@2698",
+              "eSRhpYLerw4@2993",
+              "eSRhpYLerw4@2995"
+            ]
+          },
+          {
+            "id": "ch03.s04.p01.07",
+            "text": "More important vectors are scaled less, and less important vectors are scaled down more.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2684",
+              "eSRhpYLerw4@2686",
+              "eSRhpYLerw4@2705",
+              "eSRhpYLerw4@2707",
+              "eSRhpYLerw4@2714",
+              "eSRhpYLerw4@2716",
+              "eSRhpYLerw4@2720",
+              "eSRhpYLerw4@2722",
+              "eSRhpYLerw4@2725"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s04.p02",
+        "sentences": [
+          {
+            "id": "ch03.s04.p02.r01",
+            "text": "For the token \"journey,\" the context vector is denoted as \"z2.\"",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2930",
+              "eSRhpYLerw4@2931"
+            ]
+          },
+          {
+            "id": "ch03.s04.p02.r02",
+            "text": "To compute the context vector for \"journey,\" multiply every input token embedding by the corresponding attention weight and sum all the resulting vectors.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2931",
+              "eSRhpYLerw4@2934",
+              "eSRhpYLerw4@2937",
+              "eSRhpYLerw4@2943",
+              "eSRhpYLerw4@2945",
+              "eSRhpYLerw4@2949",
+              "eSRhpYLerw4@2951",
+              "eSRhpYLerw4@2954"
+            ]
+          },
+          {
+            "id": "ch03.s04.p02.r03",
+            "text": "The resulting summed vector is the context vector for the token being considered, here \"journey.\"",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2752",
+              "eSRhpYLerw4@2753",
+              "eSRhpYLerw4@2756",
+              "eSRhpYLerw4@2760",
+              "eSRhpYLerw4@2793",
+              "eSRhpYLerw4@2796"
+            ]
+          },
+          {
+            "id": "ch03.s04.p02.r04",
+            "text": "That vector has contributions from all the input vectors, so it is an enriched embedding vector.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2800",
+              "eSRhpYLerw4@2802",
+              "eSRhpYLerw4@2804",
+              "eSRhpYLerw4@2807",
+              "eSRhpYLerw4@2810",
+              "eSRhpYLerw4@2847",
+              "eSRhpYLerw4@2849"
+            ]
+          },
+          {
+            "id": "ch03.s04.p02.r05",
+            "text": "For example, a token with attention weight 0.2 contributes about 20% to the context vector, while a token with attention weight 0.1 contributes only about 10%.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2820",
+              "eSRhpYLerw4@2823",
+              "eSRhpYLerw4@2826",
+              "eSRhpYLerw4@2829",
+              "eSRhpYLerw4@2831",
+              "eSRhpYLerw4@2834"
+            ]
+          },
+          {
+            "id": "ch03.s04.p02.r06",
+            "text": "In modern large language models such as GPT, context vectors carry the same meaning: they are enriched embedding vectors.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2841",
+              "eSRhpYLerw4@2844",
+              "eSRhpYLerw4@2847",
+              "eSRhpYLerw4@2849"
+            ]
+          },
+          {
+            "id": "ch03.s04.p02.r07",
+            "text": "The attention mechanism is what makes it possible to obtain context vectors rather than being limited to the original embedding vectors.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2880",
+              "eSRhpYLerw4@2883",
+              "eSRhpYLerw4@2885",
+              "eSRhpYLerw4@2887",
+              "eSRhpYLerw4@2889",
+              "eSRhpYLerw4@2891",
+              "eSRhpYLerw4@2893",
+              "eSRhpYLerw4@2895"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s04.p03",
+        "sentences": [
+          {
+            "id": "ch03.s04.p03.01",
+            "text": "The Python implementation follows the same idea directly.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s04.p03.02",
+            "text": "It uses the query for \"journey,\" initializes a context vector tensor for token two, loops through all inputs, scales each input by the corresponding attention weight, and adds the scaled vectors together.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@3022",
+              "eSRhpYLerw4@3024",
+              "eSRhpYLerw4@3026",
+              "eSRhpYLerw4@3028",
+              "eSRhpYLerw4@3031",
+              "eSRhpYLerw4@3033",
+              "eSRhpYLerw4@3036",
+              "eSRhpYLerw4@3038",
+              "eSRhpYLerw4@3043",
+              "eSRhpYLerw4@3045",
+              "eSRhpYLerw4@3049",
+              "eSRhpYLerw4@3052",
+              "eSRhpYLerw4@3054",
+              "eSRhpYLerw4@3056"
+            ]
+          },
+          {
+            "id": "ch03.s04.p03.03",
+            "text": "Concretely, the first input embedding is multiplied by the first attention weight, the second input embedding by the second attention weight, and the same pattern continues through the last input vector.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2973",
+              "eSRhpYLerw4@2976",
+              "eSRhpYLerw4@2978",
+              "eSRhpYLerw4@2980",
+              "eSRhpYLerw4@2982",
+              "eSRhpYLerw4@2984",
+              "eSRhpYLerw4@2987",
+              "eSRhpYLerw4@2989",
+              "eSRhpYLerw4@2992",
+              "eSRhpYLerw4@2993",
+              "eSRhpYLerw4@3060",
+              "eSRhpYLerw4@3063",
+              "eSRhpYLerw4@3064",
+              "eSRhpYLerw4@3066",
+              "eSRhpYLerw4@3068",
+              "eSRhpYLerw4@3070",
+              "eSRhpYLerw4@3072"
+            ]
+          },
+          {
+            "id": "ch03.s04.p03.04",
+            "text": "Once those scaled vectors are added together, the result is the final context vector for \"journey.\"",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2997",
+              "eSRhpYLerw4@2999",
+              "eSRhpYLerw4@3002",
+              "eSRhpYLerw4@3003",
+              "eSRhpYLerw4@3006",
+              "eSRhpYLerw4@3054",
+              "eSRhpYLerw4@3056"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch03.s04.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch03.s04.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s04.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s04.p01.04": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s04.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s04.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s04.p01.07": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch03.s04.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch03.s04.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s04.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s04.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s04.p02.r01": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s04.p02.r02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s04.p02.r03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s04.p02.r04": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s04.p02.r05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s04.p02.r06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s04.p02.r07": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch03.s04.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch03.s04.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s04.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s04.p01.04": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s04.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s04.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s04.p01.07": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch03.s04.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s04.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s04.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s04.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s04.p02.05": {
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "the cited lines explain that contributions symbolize how much importance is given to other vectors, but they do not explicitly state that this contribution is determined by the attention weight (that link appears only in surrounding context lines, not the cited lines themselves)"
+      },
+      "ch03.s04.p02.06": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s04.p02.07": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s04.p02.08": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s04.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch03.s04.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s04.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s04.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "ch03.s04.p02"
+    ],
+    "queue": []
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "stage": "triage",
+  "item": "ch02.s08.p03.r05",
+  "inputs_hash": "d420e83e3525ca8e3f2d268484208d68c6773c6031372ea3bc2fca604a387315",
+  "output_hash": "8a4d6f53d36ab23d1da5016f6edb6dce0374f5cf353047db795f84d7872c28cd",
+  "output": {
+    "decision": "accept",
+    "reason": "The captions directly say ES appears 13 times and discuss updating counts after adding ES, which supports the sentence as written.",
+    "risk": "low",
+    "kind": "queue",
+    "sentence_hash": "3310d8cc904d4741990134523b83b5a1f4e1c279e364f49f70686a1906e20922"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "stage": "listings",
+  "item": "ch06.s10",
+  "inputs_hash": "a8034152d66f2d2dd53a835281c399880361b61cedc2c8aa375609b6def83c20",
+  "output_hash": "14d63155789f1b74b35b0a64c7c3a1d5bb94ba8d21294ad0bfa556569ce0d27b",
+  "output": {
+    "section_id": "ch06.s10",
+    "listings": [
+      {
+        "id": "ch06.s10.code2",
+        "ref": "ref:ch07/01_main-chapter-code/ch07.ipynb#cell80",
+        "path": "ch07/01_main-chapter-code/ch07.ipynb",
+        "caption": "This code extracts the generated response by slicing off the original input text, removing the response marker, stripping whitespace, and printing the result.",
+        "code": "response_text = (\n    generated_text[len(input_text):]\n    .replace(\"### Response:\", \"\")\n    .strip()\n)\nprint(response_text)",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The snippet demonstrates printing only the model’s response by slicing off the input portion of the generated text (using len(input_text)) and then cleaning the remaining text by removing the response marker and stripping whitespace before printing. This aligns with the section’s instruction to extract the response by subtracting the input length, and the caption accurately describes the operations performed."
+      }
+    ],
+    "rejected": [
+      {
+        "id": "ch06.s10.code1",
+        "ref": "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+        "path": "ch07/01_main-chapter-code/ch07.ipynb",
+        "caption": "This code generates up to 35 new tokens from the input text with the pretrained model using the configured context length and converts the resulting token IDs back into text.",
+        "code": "from previous_chapters import (\n    generate,\n    text_to_token_ids,\n    token_ids_to_text\n)\n# Alternatively:\n# from llms_from_scratch.ch05 import (\n#    generate,\n#    text_to_token_ids,\n#    token_ids_to_text\n# )\n\n\ntoken_ids = generate(\n    model=model,\n    idx=text_to_token_ids(input_text, tokenizer),\n    max_new_tokens=35,\n    context_size=BASE_CONFIG[\"context_length\"],\n    eos_id=50256,\n)\ngenerated_text = token_ids_to_text(token_ids, tokenizer)",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The code matches the caption: it uses a pretrained model to generate up to 35 new tokens with a configured context length and converts token IDs back into text. However, it does not demonstrate the section’s additional taught step of printing only the response by slicing off the input instruction length from the generated text, nor does it show comparing the output to an expected validation response."
+      }
+    ]
+  }
+}

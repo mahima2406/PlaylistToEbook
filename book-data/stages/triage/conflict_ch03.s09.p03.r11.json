@@ -1,0 +1,14 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch03.s09.p03.r11",
+  "inputs_hash": "468ab7b9eaf0aeee6faf1011b07bbc5312b78f16cb8eb01d9ed06f5d3faa4b6e",
+  "output_hash": "2d83ecd75429db9426c4d4d29e037cf9d01e25dad19a955323c40af999940aa7",
+  "output": {
+    "decision": "note",
+    "note": "Here, concatenating 2 heads of size 3 gives 6; elsewhere, a different example sets d_out=2, and some MultiHeadAttention implementations keep the final output dimension fixed.",
+    "reason": "The cited captions support the lecture’s arithmetic, while the reference describes a different parameter setting and implementation detail.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "adf7f6a76aab6d98f69e62e4e9c0bda0b0efff1d1b1a0348c687420e1b689d1d"
+  }
+}

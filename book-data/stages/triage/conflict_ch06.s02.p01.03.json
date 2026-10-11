@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch06.s02.p01.03",
+  "inputs_hash": "34d3f595b1b02b1e060908414b6ddacad646782ab207418546c02938f2573b93",
+  "output_hash": "d4ae4d2dc3135b8c1200f7a80d1db606f143eca3e9624d7dafa6ab28bf148279",
+  "output": {
+    "decision": "edit",
+    "text": "In this prompt style, the prompt starts with a fixed introductory instruction: \"Below is an instruction that describes a task. Write a response that appropriately completes the request.\"",
+    "reason": "The lecture quotes a broader Alpaca-style template, but the chapter’s actual format_input intro is the shorter fixed string shown in the reference code.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.94,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "a8fbf23b8250e2a67c4c4e2f7d5a5af36d0aaed628f67485e126c0c10db4dc26"
+  }
+}

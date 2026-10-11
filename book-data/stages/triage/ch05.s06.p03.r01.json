@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch05.s06.p03.r01",
+  "inputs_hash": "7d5274675709f898fb33261c1cb58a856f3cf073a66245a0ac6930faa7af72db",
+  "output_hash": "8a75d26d953ba9f6b14be9e987bd75472fe26e13b449664669fc73ca5dda52a8",
+  "output": {
+    "decision": "edit",
+    "text": "That freedom also extends to the model itself.",
+    "reason": "The context supports that the model architecture can be changed, but without citations there is no support for the contrastive phrase about sampling settings.",
+    "risk": "high",
+    "check": {
+      "verdict": "claim_in_connective",
+      "confidence": 0.74,
+      "reason": "Asserts a factual relationship (that some previously mentioned freedom extends to the model itself) rather than serving purely as a transition, and provides no citation to support it."
+    },
+    "kind": "queue",
+    "sentence_hash": "6d04c7ae3b4e9a9122fbd1aabb092d15d592b0a590770ded4d3d737d0762df07"
+  }
+}

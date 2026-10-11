@@ -1,0 +1,144 @@
+{
+  "stage": "checks",
+  "item": "ch04.s02.code1",
+  "inputs_hash": "7bc3cb06fb1d85c8dbd52bf7e744560b83d5b0b0855f87b8eb1bee40f4ee124f",
+  "output_hash": "5ae31c390665bca4510964d2a17ea7deb9998bb69611d47671660e95480f692b",
+  "output": [
+    {
+      "sentence_id": "ch04.s02.p01.r04",
+      "expected": 50257,
+      "expression": "GPT_CONFIG_124M['vocab_size']",
+      "tolerance": 0,
+      "check_id": "ch04.s02.code1.chk1",
+      "sentence_text": "GPT-2 has a vocabulary of size 50,257."
+    },
+    {
+      "sentence_id": "ch04.s02.p01.r06",
+      "expected": 50257,
+      "expression": "GPT_CONFIG_124M['vocab_size']",
+      "tolerance": 0,
+      "check_id": "ch04.s02.code1.chk2",
+      "sentence_text": "The constructed model uses the same vocabulary size, 50,257."
+    },
+    {
+      "sentence_id": "ch04.s02.p02.r04",
+      "expected": 1024,
+      "expression": "GPT_CONFIG_124M['context_length']",
+      "tolerance": 0,
+      "check_id": "ch04.s02.code1.chk3",
+      "sentence_text": "GPT-2 used a context length of 1024."
+    },
+    {
+      "sentence_id": "ch04.s02.p03.r01",
+      "expected": 50257,
+      "expression": "GPT_CONFIG_124M['vocab_size']",
+      "tolerance": 0,
+      "check_id": "ch04.s02.code1.chk4",
+      "sentence_text": "The GPT-2 configuration shown in code sets vocabulary size to 50257, context length to 1024, embedding dimension to 768, number of attention heads to 12, number of transformer blocks to 12, dropout rate to 0.1, and query-key-value bias to false."
+    },
+    {
+      "sentence_id": "ch04.s02.p03.r01",
+      "expected": 1024,
+      "expression": "GPT_CONFIG_124M['context_length']",
+      "tolerance": 0,
+      "check_id": "ch04.s02.code1.chk5",
+      "sentence_text": "The GPT-2 configuration shown in code sets vocabulary size to 50257, context length to 1024, embedding dimension to 768, number of attention heads to 12, number of transformer blocks to 12, dropout rate to 0.1, and query-key-value bias to false."
+    },
+    {
+      "sentence_id": "ch04.s02.p03.r01",
+      "expected": 768,
+      "expression": "GPT_CONFIG_124M['emb_dim']",
+      "tolerance": 0,
+      "check_id": "ch04.s02.code1.chk6",
+      "sentence_text": "The GPT-2 configuration shown in code sets vocabulary size to 50257, context length to 1024, embedding dimension to 768, number of attention heads to 12, number of transformer blocks to 12, dropout rate to 0.1, and query-key-value bias to false."
+    },
+    {
+      "sentence_id": "ch04.s02.p03.r01",
+      "expected": 12,
+      "expression": "GPT_CONFIG_124M['n_heads']",
+      "tolerance": 0,
+      "check_id": "ch04.s02.code1.chk7",
+      "sentence_text": "The GPT-2 configuration shown in code sets vocabulary size to 50257, context length to 1024, embedding dimension to 768, number of attention heads to 12, number of transformer blocks to 12, dropout rate to 0.1, and query-key-value bias to false."
+    },
+    {
+      "sentence_id": "ch04.s02.p03.r01",
+      "expected": 12,
+      "expression": "GPT_CONFIG_124M['n_layers']",
+      "tolerance": 0,
+      "check_id": "ch04.s02.code1.chk8",
+      "sentence_text": "The GPT-2 configuration shown in code sets vocabulary size to 50257, context length to 1024, embedding dimension to 768, number of attention heads to 12, number of transformer blocks to 12, dropout rate to 0.1, and query-key-value bias to false."
+    },
+    {
+      "sentence_id": "ch04.s02.p03.r01",
+      "expected": 0.1,
+      "expression": "GPT_CONFIG_124M['drop_rate']",
+      "tolerance": 0,
+      "check_id": "ch04.s02.code1.chk9",
+      "sentence_text": "The GPT-2 configuration shown in code sets vocabulary size to 50257, context length to 1024, embedding dimension to 768, number of attention heads to 12, number of transformer blocks to 12, dropout rate to 0.1, and query-key-value bias to false."
+    },
+    {
+      "sentence_id": "ch04.s02.p03.r02",
+      "expected": 50257,
+      "expression": "GPT_CONFIG_124M['vocab_size']",
+      "tolerance": 0,
+      "check_id": "ch04.s02.code1.chk10",
+      "sentence_text": "The configuration used for the model here keeps vocabulary size 50257, embedding dimension 768, 12 attention heads, 12 transformer layers, dropout 0.1, and query-key-value bias false, while reducing context length to 256."
+    },
+    {
+      "sentence_id": "ch04.s02.p03.r02",
+      "expected": 768,
+      "expression": "GPT_CONFIG_124M['emb_dim']",
+      "tolerance": 0,
+      "check_id": "ch04.s02.code1.chk11",
+      "sentence_text": "The configuration used for the model here keeps vocabulary size 50257, embedding dimension 768, 12 attention heads, 12 transformer layers, dropout 0.1, and query-key-value bias false, while reducing context length to 256."
+    },
+    {
+      "sentence_id": "ch04.s02.p03.r02",
+      "expected": 12,
+      "expression": "GPT_CONFIG_124M['n_heads']",
+      "tolerance": 0,
+      "check_id": "ch04.s02.code1.chk12",
+      "sentence_text": "The configuration used for the model here keeps vocabulary size 50257, embedding dimension 768, 12 attention heads, 12 transformer layers, dropout 0.1, and query-key-value bias false, while reducing context length to 256."
+    },
+    {
+      "sentence_id": "ch04.s02.p03.r02",
+      "expected": 12,
+      "expression": "GPT_CONFIG_124M['n_layers']",
+      "tolerance": 0,
+      "check_id": "ch04.s02.code1.chk13",
+      "sentence_text": "The configuration used for the model here keeps vocabulary size 50257, embedding dimension 768, 12 attention heads, 12 transformer layers, dropout 0.1, and query-key-value bias false, while reducing context length to 256."
+    },
+    {
+      "sentence_id": "ch04.s02.p03.r02",
+      "expected": 0.1,
+      "expression": "GPT_CONFIG_124M['drop_rate']",
+      "tolerance": 0,
+      "check_id": "ch04.s02.code1.chk14",
+      "sentence_text": "The configuration used for the model here keeps vocabulary size 50257, embedding dimension 768, 12 attention heads, 12 transformer layers, dropout 0.1, and query-key-value bias false, while reducing context length to 256."
+    },
+    {
+      "sentence_id": "ch04.s02.p03.r04",
+      "expected": 768,
+      "expression": "GPT_CONFIG_124M['emb_dim']",
+      "tolerance": 0,
+      "check_id": "ch04.s02.code1.chk15",
+      "sentence_text": "Here that embedding dimension is 768, because the inputs are projected into a 768-dimensional space."
+    },
+    {
+      "sentence_id": "ch04.s02.p03.r07",
+      "expected": 12,
+      "expression": "GPT_CONFIG_124M['n_layers']",
+      "tolerance": 0,
+      "check_id": "ch04.s02.code1.chk16",
+      "sentence_text": "In GPT-2, 12 transformer blocks are used, and each transformer's multi-head attention module uses 12 attention heads."
+    },
+    {
+      "sentence_id": "ch04.s02.p03.r07",
+      "expected": 12,
+      "expression": "GPT_CONFIG_124M['n_heads']",
+      "tolerance": 0,
+      "check_id": "ch04.s02.code1.chk17",
+      "sentence_text": "In GPT-2, 12 transformer blocks are used, and each transformer's multi-head attention module uses 12 attention heads."
+    }
+  ]
+}

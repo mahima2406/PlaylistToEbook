@@ -1,0 +1,1698 @@
+{
+  "id": "PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu",
+  "title": "Building LLMs from scratch",
+  "availability": "public",
+  "channel_follower_count": null,
+  "description": "In this playlist, we will learn about the entire process of building a Large Language Model (LLM) from scratch. Nothing will be assumed. Everything will be spelled out.",
+  "tags": [],
+  "thumbnails": [
+    {
+      "url": "https://i.ytimg.com/vi/Xpr8D6LeAtw/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&rs=AOn4CLCMBDfa4heoSkRR23pX-FZrU5Ixdg",
+      "height": 94,
+      "width": 168,
+      "id": "0",
+      "resolution": "168x94"
+    },
+    {
+      "url": "https://i.ytimg.com/vi/Xpr8D6LeAtw/hqdefault.jpg?sqp=-oaymwEWCMQBEG5IWvKriqkDCQgBFQAAiEIYAQ==&rs=AOn4CLD--NSpdRS8wHafpfYMa0Y-TWjFKA",
+      "height": 110,
+      "width": 196,
+      "id": "1",
+      "resolution": "196x110"
+    },
+    {
+      "url": "https://i.ytimg.com/vi/Xpr8D6LeAtw/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBiZYueqZLFGB0BHkofSQha6nrJCg",
+      "height": 138,
+      "width": 246,
+      "id": "2",
+      "resolution": "246x138"
+    },
+    {
+      "url": "https://i.ytimg.com/vi/Xpr8D6LeAtw/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCGwzepBLhQEnhgUvAXkQ3k4hSoUA",
+      "height": 188,
+      "width": 336,
+      "id": "3",
+      "resolution": "336x188"
+    }
+  ],
+  "modified_date": "20241112",
+  "view_count": 1888486,
+  "playlist_count": 43,
+  "channel": "Vizuara",
+  "channel_id": "UCdEov4L0bpJ_h6W3sJxkfUA",
+  "uploader_id": "@vizuara",
+  "uploader": "Vizuara",
+  "channel_url": "https://www.youtube.com/channel/UCdEov4L0bpJ_h6W3sJxkfUA",
+  "uploader_url": "https://www.youtube.com/@vizuara",
+  "_type": "playlist",
+  "entries": [
+    {
+      "title": "Lecture 1: Building LLMs from scratch: Series introduction",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/Xpr8D6LeAtw/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAZ7sH7dp2tLX1QcmAw-eXeX-9Nzg",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/Xpr8D6LeAtw/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDNdRDWAutxXc9o-eMKloFjyJzijQ",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/Xpr8D6LeAtw/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB1s8ThCRz0BAeqY-zSZcasmbueGg",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/Xpr8D6LeAtw/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAvIlK8Ln2Tpg0bEdouaxidTcTlMg",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 968,
+      "view_count": 804000,
+      "timestamp": null,
+      "live_status": null,
+      "availability": null,
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "Xpr8D6LeAtw",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=Xpr8D6LeAtw",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Lecture 2: Large Language Models (LLM) Basics",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/3dWzNZXA8DY/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBGl0OzyBU2f5BVVabS783q2RiD3Q",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/3dWzNZXA8DY/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLARg18Nm_SaX-OHxrehs4ZpP6A-vA",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/3dWzNZXA8DY/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAusJ5X-XvQfycZ0SRuUHy8skbKKQ",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/3dWzNZXA8DY/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAqJvXmBvOrTzlzwZzxlKy--tSnLg",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 2022,
+      "view_count": 275000,
+      "timestamp": null,
+      "live_status": null,
+      "availability": null,
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "3dWzNZXA8DY",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=3dWzNZXA8DY",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Lecture 3: Pretraining LLMs vs Finetuning LLMs",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/-bsa3fCNGg4/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCB-T0RBsuUQa4YNtg_Jggfgy7s0A",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/-bsa3fCNGg4/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDcu5D1xDXFaSgiEIiLysUbKA_SNQ",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/-bsa3fCNGg4/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDL-j_eh8cxQg5O3TElFurZVDTdrw",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/-bsa3fCNGg4/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDBIdH82y9Qg_9LHZrnPO7NK4s5-A",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 1692,
+      "view_count": null,
+      "timestamp": null,
+      "live_status": null,
+      "availability": "subscriber_only",
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "-bsa3fCNGg4",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=-bsa3fCNGg4",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Lecture 4: What are transformers?",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/NLn4eetGmf8/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLD8OyxXV7R_tI7xZrALYod8zfDjVQ",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/NLn4eetGmf8/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCEy3SbF53Bhjn3dXnLM-06DxUV2A",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/NLn4eetGmf8/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAKfZUCnOMtaa2xgd7AxJzi3Fy9Lw",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/NLn4eetGmf8/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBQ9vjbD3w8TNKjaXNEAGGVBHShyA",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 2440,
+      "view_count": 175000,
+      "timestamp": null,
+      "live_status": null,
+      "availability": null,
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "NLn4eetGmf8",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=NLn4eetGmf8",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Lecture 5: How does GPT-3 really work?",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/xbaYCf2FHSY/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAdB3yzlTyFhOmumrY1WuIBf4aEUA",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/xbaYCf2FHSY/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDptODFtY2c_IYBasZn0XGmylMHYA",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/xbaYCf2FHSY/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLA3rWAmAARjEQB-BdaJu61Nv33y-A",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/xbaYCf2FHSY/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAsgTgA4NDiNJhWzBHlDiCYkhKcmQ",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 2885,
+      "view_count": null,
+      "timestamp": null,
+      "live_status": null,
+      "availability": "subscriber_only",
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "xbaYCf2FHSY",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=xbaYCf2FHSY",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Lecture 6: Stages of building an LLM from Scratch",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/z9fgKz1Drlc/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLB-8xfOZS1fi9Hkehmk5LhBZldQyQ",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/z9fgKz1Drlc/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLByn8s4ULGF2qdApz6c4r4QoNUaIg",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/z9fgKz1Drlc/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCYucoHFa8PRxXzgVNNYw3sGwHkIw",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/z9fgKz1Drlc/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBlb-7Pd83PveNmK_je8v8Mk43DwQ",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 1215,
+      "view_count": 95000,
+      "timestamp": null,
+      "live_status": null,
+      "availability": null,
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "z9fgKz1Drlc",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=z9fgKz1Drlc",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Lecture 7: Code an LLM Tokenizer from Scratch in Python",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/rsy5Ragmso8/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBLBzA4NqXJATLpxj-oUR6dDtRs_g",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/rsy5Ragmso8/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDfxK8QnY5wd8UV6lfcrH3KTZJYNw",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/rsy5Ragmso8/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD5LZ7tZ4L_EgewtNPFrVpxXZOYdw",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/rsy5Ragmso8/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLA5VTNIwrodCJRdkGbbM5ZGqqgyoQ",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 4184,
+      "view_count": null,
+      "timestamp": null,
+      "live_status": null,
+      "availability": "subscriber_only",
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "rsy5Ragmso8",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=rsy5Ragmso8",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Lecture 8: The GPT Tokenizer: Byte Pair Encoding",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/fKd8s29e-l4/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCFixh_kLUC589MP7EZyhDnOJQ7dg",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/fKd8s29e-l4/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBhHmxdWw7pVx7NCbbfx9JNXz805w",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/fKd8s29e-l4/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBTOI5mfCWVIlUMkLgyGaTubeKTrg",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/fKd8s29e-l4/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCuqH61fbmw0y-PB3A3h9iU_bfJWw",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 3215,
+      "view_count": 99000,
+      "timestamp": null,
+      "live_status": null,
+      "availability": null,
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "fKd8s29e-l4",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=fKd8s29e-l4",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Lecture 9: Creating Input-Target data pairs using Python DataLoader",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/iQZFH8dr2yI/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBrUzNks0w-Ca9TuuyGFNW96RKNhw",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/iQZFH8dr2yI/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCfZHTC6siZUc8Er-hCCsPYWyUj9w",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/iQZFH8dr2yI/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAWeeePPGgW7zeddMKNNOUDaEYL5Q",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/iQZFH8dr2yI/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAIoUJqcrilJyB4k-3wHlPkEQW0Ow",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 3345,
+      "view_count": null,
+      "timestamp": null,
+      "live_status": null,
+      "availability": "subscriber_only",
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "iQZFH8dr2yI",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=iQZFH8dr2yI",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Lecture 10: What are token embeddings?",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/ghCSGRgVB_o/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLD5KEkRrgowYxMJ3esJJCvBHUUZzA",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/ghCSGRgVB_o/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBm_DsEsVSc0kKF3sbLokqWFv1dVQ",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/ghCSGRgVB_o/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDb9xEnD5DdlVzpoJF2uBYryfSgqw",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/ghCSGRgVB_o/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLA-m0yT__tPNSul-k_u5CtA08Q8RA",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 3652,
+      "view_count": 70000,
+      "timestamp": null,
+      "live_status": null,
+      "availability": null,
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "ghCSGRgVB_o",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=ghCSGRgVB_o",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Lecture 11: The importance of Positional Embeddings",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/ufrPLpKnapU/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLB1Xia1bhdiIQ7PfJAC3oYSFBptVw",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/ufrPLpKnapU/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDCaJcv99tA_9d764aiSHjbmItXTg",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/ufrPLpKnapU/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAWPuJmDtgt5pSPVUD_baqRwA52yQ",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/ufrPLpKnapU/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCRox0lNpwffE8ITjc1d1dPT1V2tg",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 2932,
+      "view_count": null,
+      "timestamp": null,
+      "live_status": null,
+      "availability": "subscriber_only",
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "ufrPLpKnapU",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=ufrPLpKnapU",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Lecture 12: The entire Data Preprocessing Pipeline of Large Language Models (LLMs)",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/mk-6cFebjis/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBrhHFKmxOzfvLpGIWit9JR-lzuzQ",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/mk-6cFebjis/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCbjBmzkZvFd-cDj0-yg3DRGjpBdw",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/mk-6cFebjis/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBkpkXeBaI4_NH_k95WJ-iyOjkYfA",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/mk-6cFebjis/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBqIgwUB720NXXBmVfRtuLH5DzRnw",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 5655,
+      "view_count": 54000,
+      "timestamp": null,
+      "live_status": null,
+      "availability": null,
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "mk-6cFebjis",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=mk-6cFebjis",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Lecture 13: Introduction to the Attention Mechanism in Large Language Models (LLMs)",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/XN7sevVxyUM/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCHSMxF6tztjO96Ilcl1Lv_Y7pN0Q",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/XN7sevVxyUM/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCDud0S4c5tRtIRfj5fLvWfc7DYEQ",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/XN7sevVxyUM/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB2JGVyR3S7amBXr2tFFf-j536n9Q",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/XN7sevVxyUM/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAeZbqcyxUfh1E5KLjwanheDUYRMQ",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 3085,
+      "view_count": null,
+      "timestamp": null,
+      "live_status": null,
+      "availability": "subscriber_only",
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "XN7sevVxyUM",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=XN7sevVxyUM",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Lecture 14: Simplified Attention Mechanism  - Coded from scratch in Python | No trainable weights",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/eSRhpYLerw4/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBDKwG1-QcoYw48pEMTXeflou0Lbw",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/eSRhpYLerw4/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAjTdgLoHMFGTGM9MB9u2mfq9C2Aw",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/eSRhpYLerw4/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCqyHdIV2hiIYOt2nqu9ReQzo1gug",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/eSRhpYLerw4/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAJXnexg_Y2WSfhf0uSF4RcfSwC-A",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 4762,
+      "view_count": 57000,
+      "timestamp": null,
+      "live_status": null,
+      "availability": null,
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "eSRhpYLerw4",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=eSRhpYLerw4",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Lecture 15: Coding the self attention mechanism with key, query and value matrices",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/UjdRN80c6p8/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLD9iNhSjIyAlGfS2-PnCPuq1OxAag",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/UjdRN80c6p8/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAeMmnMQEc3WJi0hn-HJ_qVH_Ed9g",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/UjdRN80c6p8/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBOrhSvks9_kuo5Gsu0lfg198u3rA",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/UjdRN80c6p8/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLADcjHQ9XKYUQomlNS8D_EPGJhsYQ",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 4748,
+      "view_count": null,
+      "timestamp": null,
+      "live_status": null,
+      "availability": "subscriber_only",
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "UjdRN80c6p8",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=UjdRN80c6p8",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Lecture 16: Causal Self Attention Mechanism  | Coded from scratch in Python",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/h94TQOK7NRA/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLB3ffAcxjUSPSxK8OgyAsr3Zq6jjg",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/h94TQOK7NRA/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCiq-nYHUdUS3SNlweQ2ex1LqJvyA",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/h94TQOK7NRA/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDoIbxXvcF7RUDfp82zbEPeeoX4ig",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/h94TQOK7NRA/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLA6VcOOvjgBMuE4DF9ApzklcGgnPg",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 3355,
+      "view_count": 34000,
+      "timestamp": null,
+      "live_status": null,
+      "availability": null,
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "h94TQOK7NRA",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=h94TQOK7NRA",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Lecture 17: Multi Head Attention Part 1 - Basics and Python code",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/cPaBCoNdCtE/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDGWDcyDRRz51XB7PSc4XKxzpTDeQ",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/cPaBCoNdCtE/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCNsrwB7cX2XdgkEtNkDF1U814ULw",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/cPaBCoNdCtE/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDVb2QsavyOsSPFfqicoogRErYhfA",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/cPaBCoNdCtE/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLA70Rg1EZmwgfeHR1qjpkQlIFdXAg",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 1939,
+      "view_count": null,
+      "timestamp": null,
+      "live_status": null,
+      "availability": "subscriber_only",
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "cPaBCoNdCtE",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=cPaBCoNdCtE",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Lecture 18: Multi Head Attention Part 2 - Entire mathematics explained",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/K5u9eEaoxFg/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAKtbfnMkeVsEEomEWS9RqvBXgzmQ",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/K5u9eEaoxFg/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLC5LU_0MkZsIjtZ4oMYGqS78uvIvA",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/K5u9eEaoxFg/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDSbqeMdG9MRHuKT6tgTbyIft1ENg",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/K5u9eEaoxFg/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBat0DRTn3LQkrDLrxwdxlo9an_4A",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 3673,
+      "view_count": 31000,
+      "timestamp": null,
+      "live_status": null,
+      "availability": null,
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "K5u9eEaoxFg",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=K5u9eEaoxFg",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Lecture 19: Birds Eye View of the LLM Architecture",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/4i23dYoXp-A/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAprLxHdkohVe-SuOfOag2qMw2rlg",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/4i23dYoXp-A/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBRPVEX1iRPvPSF1NWVG4gCenffqw",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/4i23dYoXp-A/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBi1wGSM97F2A7YgSYehbtqr0ensw",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/4i23dYoXp-A/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLA0ESVLiBc3o6ACi2ss-ejIM7tFMw",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 2931,
+      "view_count": null,
+      "timestamp": null,
+      "live_status": null,
+      "availability": "subscriber_only",
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "4i23dYoXp-A",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=4i23dYoXp-A",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Lecture 20: Layer Normalization in the LLM Architecture",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/G3W-LT79LSI/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDfKf5GxHZnLT3WOHPC3kmD5z4T0g",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/G3W-LT79LSI/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCyMu6uOzZ3qVoVovgfiUcaHC8VrQ",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/G3W-LT79LSI/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCBZcP86amIqv8WjceXBAiyz0gkug",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/G3W-LT79LSI/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAN0pm0pBOvp8Q6B8WiOAq2HGhxAA",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 2337,
+      "view_count": 25000,
+      "timestamp": null,
+      "live_status": null,
+      "availability": null,
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "G3W-LT79LSI",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=G3W-LT79LSI",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "GELU Activation Function in the LLM Architecture",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/d_PiwZe8UF4/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCSRQYlQXWfK9AwKmtwR648uj3zLQ",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/d_PiwZe8UF4/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDcoNHB_QHiHRoo3GavsmDUCi9CTQ",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/d_PiwZe8UF4/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDx3wX-zX2dIX2bx9uo58LJvA1cXA",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/d_PiwZe8UF4/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAWdANWIrsbnMsBELjoyWbotwSNJw",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 1677,
+      "view_count": null,
+      "timestamp": null,
+      "live_status": null,
+      "availability": "subscriber_only",
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "d_PiwZe8UF4",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=d_PiwZe8UF4",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Shortcut connections in the LLM Architecture",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/2r0QahNdwMw/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBNaeV1d_kvx0Vqil9jhmK2ZjElcw",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/2r0QahNdwMw/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLB0dYRWUo8GB8IzkhlczDejdoH5NA",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/2r0QahNdwMw/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB-VngMYWHfFMJPFDXL_IUtbM1Pdg",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/2r0QahNdwMw/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDxkfpQUkXIiCgORISIi4WVQlKRdw",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 1966,
+      "view_count": 17000,
+      "timestamp": null,
+      "live_status": null,
+      "availability": null,
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "2r0QahNdwMw",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=2r0QahNdwMw",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Coding the entire LLM Transformer Block",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/dvH6lFGhFrs/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLClr7-ZKkHLQHg6uGwfb2pbcD_upw",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/dvH6lFGhFrs/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCZCJGsPDVdZc2LqGwdhc7PtV4fzg",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/dvH6lFGhFrs/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDHXjZA0dxqYbT0zi4hTyW1FgE7Eg",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/dvH6lFGhFrs/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCn8852Zuv9BW1B7Gfg1r-tut_Byw",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 2706,
+      "view_count": null,
+      "timestamp": null,
+      "live_status": null,
+      "availability": "subscriber_only",
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "dvH6lFGhFrs",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=dvH6lFGhFrs",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Coding the 124 million parameter GPT-2 model",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/G3-JgHckzjw/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDMnaLqLr4QxNV49ay3zXdtsXvV9g",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/G3-JgHckzjw/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLC-52nJV2forX89sHnxrviS8KeDmA",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/G3-JgHckzjw/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCZLgoqdj-H8ab142d1Rs9T7V-8Xg",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/G3-JgHckzjw/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAMdbTiG8X6-IlVODFjfOalPTvE1g",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 3693,
+      "view_count": 24000,
+      "timestamp": null,
+      "live_status": null,
+      "availability": null,
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "G3-JgHckzjw",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=G3-JgHckzjw",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Coding GPT-2 to predict the next token",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/F1Sm7z2R96w/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCPbNPpmDLjYIjeKT5jvKzJR3gctA",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/F1Sm7z2R96w/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDkeTG-YUf2glJCLXFxFDfJNdLcfw",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/F1Sm7z2R96w/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBDT6HeCBFnaf-JBHFU_-GQPi3dig",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/F1Sm7z2R96w/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDITzOfTLvaArG-_BbTQj3OFLtHvA",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 2459,
+      "view_count": null,
+      "timestamp": null,
+      "live_status": null,
+      "availability": "subscriber_only",
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "F1Sm7z2R96w",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=F1Sm7z2R96w",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Measuring the LLM loss function",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/7TKCrt--bWI/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDyyjDehSyiB3T2aJDlZwNmZdWR4Q",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/7TKCrt--bWI/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBwyavw3snajQrnfkI3-cohg7w2EA",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/7TKCrt--bWI/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC1dLNIbtWG357jVMpJH3ptzgaqCQ",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/7TKCrt--bWI/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBUwheEN4WA_h6FxU1VhCyyL4ZgQw",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 3374,
+      "view_count": 20000,
+      "timestamp": null,
+      "live_status": null,
+      "availability": null,
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "7TKCrt--bWI",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=7TKCrt--bWI",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Evaluating LLM performance on real dataset | Hands on project | Book data",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/zuj_NJNouAA/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAqcfc-__2g57fKpZod4Njb7GAHvg",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/zuj_NJNouAA/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLA_SamOr1k6kQ1oTM76EJDXQqjG6A",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/zuj_NJNouAA/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCEwAOtCFAlQzmBcaTN8RysHdisIA",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/zuj_NJNouAA/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBtK5GdBuqr7JFf-7ZmklK0r3Y08g",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 3516,
+      "view_count": null,
+      "timestamp": null,
+      "live_status": null,
+      "availability": "subscriber_only",
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "zuj_NJNouAA",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=zuj_NJNouAA",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Coding the entire LLM Pre-training Loop",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/Zxf-34voZss/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCU2sWOEAtWTGeCDx10Su8_W-sCYw",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/Zxf-34voZss/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDrYn6Vn1-qN2sYkRzPm4XwcpNG1g",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/Zxf-34voZss/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD7zLpbzz1VLnnC4kHsYOA5W0uf7Q",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/Zxf-34voZss/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC46GLnEjD9vPX9R2JgIdDR3QqpOA",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 2601,
+      "view_count": 18000,
+      "timestamp": null,
+      "live_status": null,
+      "availability": null,
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "Zxf-34voZss",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=Zxf-34voZss",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Temperature Scaling in Large Language Models (LLMs)",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/oG1FPVnY0pI/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAwJey73FD-gRO2GWephBvjJlKKFQ",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/oG1FPVnY0pI/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDa8QX7LKiNnFbFDAQfEjoTVyF4Zg",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/oG1FPVnY0pI/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCwOfTXchJ2MjLapH2OCc8kqFKArA",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/oG1FPVnY0pI/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAGfH41I8XZdhvRVTdE3bp0z0fq0g",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 1592,
+      "view_count": null,
+      "timestamp": null,
+      "live_status": null,
+      "availability": "subscriber_only",
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "oG1FPVnY0pI",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=oG1FPVnY0pI",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Top-k sampling in Large Language Models",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/EhU32O7DkA4/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBv9bdX6KsW2f2D8zPoQwN5UVAGbQ",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/EhU32O7DkA4/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBgBmhG6yjpyf4bnCHDpX4RjdFkvg",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/EhU32O7DkA4/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBBuPr0ksfGMTHFM2SCNitSf9BL6g",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/EhU32O7DkA4/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAu9F_zWWENYirh7bwdx6wxiQCyqg",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 1414,
+      "view_count": 11000,
+      "timestamp": null,
+      "live_status": null,
+      "availability": null,
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "EhU32O7DkA4",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=EhU32O7DkA4",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Saving and loading LLM model weights using PyTorch",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/Bc-9sf0VihQ/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCKnUpD9d_T9b79PrAmXS2jh0TEyg",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/Bc-9sf0VihQ/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCC4kI4p5p1Q4MOQAxZVfFBwoxRMg",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/Bc-9sf0VihQ/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAw-kLba_XMIAc3LXfIJPD3gDpNlQ",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/Bc-9sf0VihQ/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC6u3z8JR6Tdzklw6dpBcrb-gtfHQ",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 746,
+      "view_count": null,
+      "timestamp": null,
+      "live_status": null,
+      "availability": "subscriber_only",
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "Bc-9sf0VihQ",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=Bc-9sf0VihQ",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Loading pre-trained weights from OpenAI GPT-2",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/yXrGeDNuymY/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLB4JlJ41EQ39sYK7A9Gowvm--_Tzg",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/yXrGeDNuymY/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBgZ7dZRCM0-faTzYXTb3fIxd3xxQ",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/yXrGeDNuymY/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLA74anIgH57OUwnDS-p37sywOE6OA",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/yXrGeDNuymY/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDmNNJ3ByQ-agIx0vLHTJ1cE9D-5Q",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 3021,
+      "view_count": 16000,
+      "timestamp": null,
+      "live_status": null,
+      "availability": null,
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "yXrGeDNuymY",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=yXrGeDNuymY",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Introduction to LLM Finetuning | Python Coding with hands-on-example",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/yZpy_hsC1bE/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLA6pUzkc4tOSZX02t_50LmVAkMUog",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/yZpy_hsC1bE/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAXnj0prJ_cQhUJut5NTYW0lR4xAA",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/yZpy_hsC1bE/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAWKWXomA07nGOUrja4gxc92tVdsA",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/yZpy_hsC1bE/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCDgmgTSZ-pNGeNhHK-G8effyUhIA",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 1644,
+      "view_count": null,
+      "timestamp": null,
+      "live_status": null,
+      "availability": "subscriber_only",
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "yZpy_hsC1bE",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=yZpy_hsC1bE",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Dataloaders in LLM Classification Finetuning | Python Coding | Hands on LLM project",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/f6zqClXOh7Y/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCnLQJotfoyjffVfa9zPOtZHymbVw",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/f6zqClXOh7Y/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLApUZNTJPYuHn58T9tup74P635Y1g",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/f6zqClXOh7Y/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDQlenuoQI7QrdMzhohrkl4iPrIHw",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/f6zqClXOh7Y/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBLZGVka9LLypTBW0qhC26GxL0_hg",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 1863,
+      "view_count": 12000,
+      "timestamp": null,
+      "live_status": null,
+      "availability": null,
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "f6zqClXOh7Y",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=f6zqClXOh7Y",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Coding the model architecture for LLM classification fine-tuning",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/izyxvl-2JlM/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLA2ifWGUs01wBS3mkzVBD-hukUoHw",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/izyxvl-2JlM/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCZv-6j6dWzXNzoCmo9goNNeHUBWw",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/izyxvl-2JlM/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC8CHvb6qTCTdwa3JI08UR9Dx2RuA",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/izyxvl-2JlM/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD2fX8redtCSSmfP3Rqhl0xax3pww",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 2084,
+      "view_count": null,
+      "timestamp": null,
+      "live_status": null,
+      "availability": "subscriber_only",
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "izyxvl-2JlM",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=izyxvl-2JlM",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Coding a fine-tuned LLM spam classification model | From Scratch",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/0PpxZ3kNPWo/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLB9YBl5SMvhov4EuoULmREBGY5sEA",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/0PpxZ3kNPWo/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBXT25_jysiZiiQLdgzLtEaACw5bQ",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/0PpxZ3kNPWo/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDqnn1Ood6Zd0L7H5fcZqSURTZwLA",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/0PpxZ3kNPWo/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDXYAygQiQ8T7RVaqTKIcZanIpY0g",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 2979,
+      "view_count": 13000,
+      "timestamp": null,
+      "live_status": null,
+      "availability": null,
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "0PpxZ3kNPWo",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=0PpxZ3kNPWo",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Introduction to LLM Instruction Fine-tuning | Loading Dataset | Alpaca Prompt format",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/1bLhvqZzdaQ/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDYO0u4PMfRLzKSDAo0dZp1yujhJA",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/1bLhvqZzdaQ/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBGGfVknTWun4DTHUSSIncWB5ZutA",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/1bLhvqZzdaQ/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB80HPMaaxbdOmrHKmEKyRMxCfoAg",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/1bLhvqZzdaQ/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCdb4-gYPGu606ef4dDIBQmYNY4Xw",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 1532,
+      "view_count": null,
+      "timestamp": null,
+      "live_status": null,
+      "availability": "subscriber_only",
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "1bLhvqZzdaQ",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=1bLhvqZzdaQ",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Data Batching in LLM instruction fine-tuning | Hands on project | Live Python coding",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/bkUkcyL_Xxc/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBcoomwSkk351SjDPPuzgdD1KFhuw",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/bkUkcyL_Xxc/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLARrDYjjrg0rzPZJED8PzyRu0oj2g",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/bkUkcyL_Xxc/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBcsbuDs41Hr6B3e6QlFzjSQwrYyA",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/bkUkcyL_Xxc/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBI2xLdD-kccJF6CoNQPOliXWuwig",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 3122,
+      "view_count": 11000,
+      "timestamp": null,
+      "live_status": null,
+      "availability": null,
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "bkUkcyL_Xxc",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=bkUkcyL_Xxc",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Dataloaders in Instruction Fine-tuning",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/egFqsJQ9kuY/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAiJq1EwcllT2gyX8iVFrPSonVDjg",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/egFqsJQ9kuY/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLD3ct4zR3EmXjB-u4USfdWXAxLTcg",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/egFqsJQ9kuY/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBFFUw3cPAb8MFx2_UlQwWC5oDEyQ",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/egFqsJQ9kuY/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAYMYqe0BibZF_XQ9mD4XpYdFrPMw",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 1465,
+      "view_count": null,
+      "timestamp": null,
+      "live_status": null,
+      "availability": "subscriber_only",
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "egFqsJQ9kuY",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=egFqsJQ9kuY",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Instruction fine-tuning: Loading pre-trained LLM weights",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/__OiQznq4ao/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBmlo1kn-9g3Nmh33T_fFp_lE1x0g",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/__OiQznq4ao/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBqG1WC5AN7-WN9qfqNMv-aAj309w",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/__OiQznq4ao/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB1w2yKokH7hYV5YwW2WdAOkrKIHw",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/__OiQznq4ao/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBVaAlkm-wnczlLZ-KyXWt_rtGQvQ",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 1169,
+      "view_count": 11000,
+      "timestamp": null,
+      "live_status": null,
+      "availability": null,
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "__OiQznq4ao",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=__OiQznq4ao",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "LLM fine-tuning training loop | Coded from scratch",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/r7unILsP0Es/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCLaDa3qvGml7zg2GJLcZgC6_j8fg",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/r7unILsP0Es/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBB_aTrG3QMnp4WCu3qoWeHGb6_1A",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/r7unILsP0Es/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCjAJ4zH1YFNdoMHbL6RHjXKhKFSg",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/r7unILsP0Es/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAKgF08ip1okVOdANiqwpRReKW8ng",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 1427,
+      "view_count": null,
+      "timestamp": null,
+      "live_status": null,
+      "availability": "subscriber_only",
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "r7unILsP0Es",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=r7unILsP0Es",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Evaluating fine-tuned LLM using Ollama",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/7m2jV7BOFkA/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDfxbCCheit2G2INZBXpaNNuNRdmQ",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/7m2jV7BOFkA/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAVgq3zFXJboDos8a-Eq03TpPyQOw",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/7m2jV7BOFkA/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBCaVbm223k0NbaYcgrCgJrRcoGZw",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/7m2jV7BOFkA/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAfCuhPAlnyHIkv0r6BhvX555lgxA",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 3178,
+      "view_count": 27000,
+      "timestamp": null,
+      "live_status": null,
+      "availability": null,
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "7m2jV7BOFkA",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=7m2jV7BOFkA",
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "title": "Build LLMs from scratch 20 minutes summary",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/_xH-jXNFRjA/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCfcdmTfHbFNUwqUDqJbETXbo9G2Q",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/_xH-jXNFRjA/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAhygTPe16zJ_iVY9cXa6dGrfBdtw",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/_xH-jXNFRjA/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAnRUAd0_wSYuFZyR2XapOs0XjCAw",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/_xH-jXNFRjA/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD4-aM3HmLsU8Tw3EzOOpsVC8N_yQ",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "duration": 1158,
+      "view_count": null,
+      "timestamp": null,
+      "live_status": null,
+      "availability": "subscriber_only",
+      "channel_url": null,
+      "uploader_url": null,
+      "creators": null,
+      "ie_key": "Youtube",
+      "id": "_xH-jXNFRjA",
+      "_type": "url",
+      "url": "https://www.youtube.com/watch?v=_xH-jXNFRjA",
+      "__x_forwarded_for_ip": null
+    }
+  ],
+  "extractor_key": "YoutubeTab",
+  "extractor": "youtube:tab",
+  "webpage_url": "https://www.youtube.com/playlist?list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu",
+  "original_url": "https://www.youtube.com/playlist?list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu",
+  "webpage_url_basename": "playlist",
+  "webpage_url_domain": "youtube.com",
+  "release_year": null,
+  "epoch": 1791712692,
+  "_version": {
+    "version": "2026.08.19",
+    "current_git_head": null,
+    "release_git_head": "594bd50c2c78ac432f81600d309fdc4e0a92d82c",
+    "repository": "yt-dlp/yt-dlp"
+  }
+}

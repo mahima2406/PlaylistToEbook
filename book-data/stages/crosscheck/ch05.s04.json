@@ -1,0 +1,516 @@
+{
+  "stage": "crosscheck",
+  "item": "ch05.s04",
+  "inputs_hash": "f3daf68d244be21f161fee97d8d75085852ebe3f87d608419d8d4d3ecf1826b2",
+  "output_hash": "9a871ea9b23a803e0e4af0916588c9743d6dd7de6b031cd6226372b407e8be3a",
+  "output": {
+    "section_id": "ch05.s04",
+    "checked": 42,
+    "counts": {
+      "agrees": 11,
+      "contradicts": 0,
+      "not_covered": 31
+    },
+    "results": [
+      {
+        "sentence_id": "ch05.s04.p01.02",
+        "text": "The loading code takes the TensorFlow checkpoint path together with the settings dictionary and uses them to load parameters into a special dictionary called \"params\".",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell135",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell128"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention downloading and loading TensorFlow weights and show printing params.keys(), but do not show that the loading code takes a TF checkpoint path plus a settings dict and loads into a dict named params."
+      },
+      {
+        "sentence_id": "ch05.s04.p01.03",
+        "text": "When this function finishes, it returns two things: the settings dictionary and the \"params\" dictionary.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell135",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell109",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell113"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the cited passages state that a function returns (settings, params) as a pair; they only show params.keys() being printed and unrelated content about other functions."
+      },
+      {
+        "sentence_id": "ch05.s04.p01.04",
+        "text": "After execution, the parameter dictionary contains five keys: \"wte\", \"wpe\", \"blocks\", final normalization scale, and final normalization shift.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell135",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell18",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The print statement reference does not include the actual key list, and the other references discuss LayerNorm conceptually without mapping to params keys; thus the five specific keys are not confirmed."
+      },
+      {
+        "sentence_id": "ch05.s04.p01.05",
+        "text": "The printed keys are described as \"blocks\", \"b\", \"g\", \"wpe\", and \"wte\", which are the same five components in dictionary form.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell11",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell135",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not show the printed keys or describe them as exactly 'blocks', 'b', 'g', 'wpe', 'wte'."
+      },
+      {
+        "sentence_id": "ch05.s04.p01.06",
+        "text": "This correspondence is important because wherever the model has trainable parameters, the parameter dictionary includes matching keys.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell135"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Only params.keys() is referenced; there is no statement establishing the general principle that every trainable parameter location has matching keys in the parameter dictionary."
+      },
+      {
+        "sentence_id": "ch05.s04.p02.r02",
+        "text": "Input token IDs are first converted into token embeddings using trainable parameters, then positional embeddings, which are also trainable parameters, are added to form the input embeddings passed to the Transformer block.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references explicitly state positional embeddings are combined with token embedding vectors, and show code adding token_embeddings + pos_embeddings to form input_embeddings, consistent with passing these onward into the model/Transformer blocks."
+      },
+      {
+        "sentence_id": "ch05.s04.p02.r03",
+        "text": "The first key is for token embedding parameters, and the wp key is for positional embedding parameters.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell132"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the course references discuss positional embeddings and show a pos_embedding_layer, they do not establish that the first key is token embeddings nor that 'wp' (as phrased) corresponds to positional embeddings; the params-key mapping is not shown."
+      },
+      {
+        "sentence_id": "ch05.s04.p02.r04",
+        "text": "The token embedding matrix has shape 50257 by 768 because the vocabulary size is 50257 and each token has a 768-dimensional vector.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell125",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell126",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references state vocab size is 50,257 and that the token embedding layer projects to a 768-dimensional embedding representation (for GPT-2 small), implying an embedding matrix of shape 50257×768."
+      },
+      {
+        "sentence_id": "ch05.s04.p02.r05",
+        "text": "For the smallest GPT-2 model considered here, the positional embedding matrix has one embedding for each of 1024 positions, and each embedding also has dimension 768.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell120",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell132"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages do not mention GPT-2 small positional embedding size 1024 or embedding dimension 768 for positional embeddings; they only show a generic pos_embedding_layer = Embedding(context_length, output_dim)."
+      },
+      {
+        "sentence_id": "ch05.s04.p02.r06",
+        "text": "Token embeddings and positional embeddings must have the same vector dimension so they can be added, which is why both use 768 here.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references show token and positional embeddings are added; addition requires matching embedding dimensions, which supports the statement (though '768 here' is not explicitly stated in the cited addition cell)."
+      },
+      {
+        "sentence_id": "ch05.s04.p02.r07",
+        "text": "The \"wte\" key stores the token embedding matrix values, and the \"wpe\" key stores the positional embedding matrix values.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell77",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell115",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No cited passage maps parameter-dictionary keys 'wte' and 'wpe' to the token and positional embedding matrices; the references discuss embeddings generally but not these key names."
+      },
+      {
+        "sentence_id": "ch05.s04.p02.r08",
+        "text": "The dropout layer has no trainable weights, so it has no corresponding parameter-dictionary keys.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell135",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell7"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not discuss dropout having no trainable weights nor relate dropout to parameter-dictionary keys; params.keys() alone is insufficient to establish this."
+      },
+      {
+        "sentence_id": "ch05.s04.p03.r01",
+        "text": "Within a Transformer block, trainable weights appear in the multi-head attention layer, the feed-forward neural network, and layer normalization.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell21"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs describe trainable weights in attention and feed-forward parts, and explain LayerNorm is applied in multiple places, but do not explicitly state within the transformer block that LayerNorm has trainable parameters (scale/shift) in the cited transformer-block context."
+      },
+      {
+        "sentence_id": "ch05.s04.p03.r02",
+        "text": "The multi-head attention layer contains trainable query, key, and value weight matrices.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell130",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell129",
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell8"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference explicitly states MultiHeadAttention creates single W_query, W_key, and W_value matrices (trainable) that are split across heads."
+      },
+      {
+        "sentence_id": "ch05.s04.p03.r03",
+        "text": "The feed-forward neural network has an input, a hidden layer with four times the input dimension, and a final output layer that projects back to the original size.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell21",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell38"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided refs discuss output/embedding projections and mention implementing a feed-forward network, but do not state the FFN hidden size is 4× the input dimension and then projects back to the original size."
+      },
+      {
+        "sentence_id": "ch05.s04.p03.r04",
+        "text": "In that feed-forward network, the first layer is the fully connected layer, and the second is an output projection layer called \"P\", and both have trainable weights.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell53",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell112"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference passage defines an FFN with a second output projection layer named \"P\"; the shown ExampleDeepNeuralNetwork uses multiple Linear layers but does not match the specific two-layer FC+\"P\" description."
+      },
+      {
+        "sentence_id": "ch05.s04.p03.r05",
+        "text": "Layer normalization here includes a trainable scale parameter and a trainable shift parameter in addition to subtracting the mean and dividing by the square root of the variance.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference states LayerNorm includes two trainable parameters, scale and shift, in addition to mean/variance normalization."
+      },
+      {
+        "sentence_id": "ch05.s04.p03.r06",
+        "text": "These trainable scale and shift parameters are said to make a big difference.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Reference explains scale/shift are trainable and can be adjusted for performance, but does not claim they \"make a big difference\" (no magnitude/impact assertion provided)."
+      },
+      {
+        "sentence_id": "ch05.s04.p03.r07",
+        "text": "Layer normalization 1, layer normalization 2, and the final normalization layer all belong to the trainable-parameter category.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell18",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell21",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference establishes LayerNorm includes trainable scale/shift parameters and that LayerNorm is applied before/after attention and before the final output, implying those LayerNorm instances have trainable parameters."
+      },
+      {
+        "sentence_id": "ch05.s04.p03.r08",
+        "text": "The top-level \"blocks\" key corresponds to all trainable weights and parameters inside the Transformer block, while top-level \"g\" and \"b\" correspond to the trainable parameters in the final layer normalization.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell108",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell104",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell58"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference passage defines a parameter dictionary with top-level keys \"blocks\", \"g\", and \"b\" corresponding to transformer-block weights and final LayerNorm parameters; cited cells are about sampling and finetuning scope."
+      },
+      {
+        "sentence_id": "ch05.s04.p04.r02",
+        "text": "GPT-2 has 12 Transformer blocks, so the same parameter structure is repeated from \"h0\" through \"h11\".",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell143",
+          "ref:ch05/01_main-chapter-code/gpt_generate.py"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference states GPT-2 small repeats the transformer block 12 times; loading code iterates over params[\"blocks\"], consistent with repeating the same parameter structure across blocks."
+      },
+      {
+        "sentence_id": "ch05.s04.p04.r03",
+        "text": "For attention, GPT-2 releases the query, key, and value matrices fused into one large matrix, which must later be split into separate query, key, and value trainable matrices.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell70",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell69"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs provided explain separate Wq/Wk/Wv matrices and computations, but do not state GPT-2 releases them fused into one matrix that must be split (no mention of fused c_attn in the cited refs for this sentence)."
+      },
+      {
+        "sentence_id": "ch05.s04.p04.r04",
+        "text": "To access the fused attention weights for the first block, follow the nested keys \"blocks\", \"transformer\", \"h0\", and \"atn\", then the fused query-key-value entry and its weights.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell70",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell69",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference shows the nested key path \"blocks\"→\"transformer\"→\"h0\"→\"atn\" (nor that spelling) for accessing fused QKV weights."
+      },
+      {
+        "sentence_id": "ch05.s04.p04.r05",
+        "text": "The same nested access pattern is used for the fused attention biases, and it is repeated for every block from \"h0\" to \"h11\".",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference describes a nested access pattern for fused attention biases repeated for blocks \"h0\" to \"h11\"."
+      },
+      {
+        "sentence_id": "ch05.s04.p04.r06",
+        "text": "The feed-forward network inside each block has two layers, a fully connected layer and a projection layer, and both layers have weights and biases.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell59",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited transformer-block description mentions combining attention with linear layers and an FFN, but does not specify the FFN has exactly two layers nor that both have weights and biases."
+      },
+      {
+        "sentence_id": "ch05.s04.p04.r07",
+        "text": "To access the fully connected layer for the first block, use the nested keys \"transformer\", \"h0\", and \"mlp\", and then access that layer's weights and biases.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell58",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the provided references describe a parameter dictionary/key path like \"transformer\" -> \"h0\" -> \"mlp\" or how to access weights/biases for the first block’s fully connected layer."
+      },
+      {
+        "sentence_id": "ch05.s04.p04.r08",
+        "text": "To access the projection layer in the feed-forward network, use the \"c_proj\" key and then access its weights and biases.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell38",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell45",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell134"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention a projection layer conceptually (e.g., out_proj in attention) but do not state that the FFN projection layer is accessed via a \"c_proj\" key or that its weights/biases are stored under that name."
+      },
+      {
+        "sentence_id": "ch05.s04.p04.r09",
+        "text": "The attention mechanism also has an output projection layer with associated weights.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell18",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell134",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell38"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly states MultiHeadAttention includes a linear projection layer (self.out_proj), which implies an output projection with associated weights."
+      },
+      {
+        "sentence_id": "ch05.s04.p04.r10",
+        "text": "To access that attention output projection layer, go through \"transformer\", \"hn\", and then \"atn\" \"c_proj\" to obtain the weights, and repeat this across all 12 blocks.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell44",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell134"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the references note a projection layer exists and that the transformer block is repeated 12 times, they do not specify a parameter-dictionary access path like \"transformer\" -> \"hn\" -> \"atn\" -> \"c_proj\" for weights."
+      },
+      {
+        "sentence_id": "ch05.s04.p05.r01",
+        "text": "Each Transformer block has layer normalization 1 and layer normalization 2, and both have trainable scale and shift parameters.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell18",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell21"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference says LayerNorm is applied both before and after the multi-head attention module within the transformer block (consistent with two LayerNorms), and LayerNorm includes trainable scale and shift parameters."
+      },
+      {
+        "sentence_id": "ch05.s04.p05.r02",
+        "text": "To access the parameters of layer normalization 1 or layer normalization 2 inside a block, use that block's keys and then \"g\" for scale and \"b\" for shift.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell18",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell21"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss LayerNorm having trainable scale and shift, but do not define parameter keys named \"g\" and \"b\" or how to access them inside a block via dictionary keys."
+      },
+      {
+        "sentence_id": "ch05.s04.p05.r03",
+        "text": "Within the \"blocks\" dictionary, the stored parameters cover attention weights, feed-forward network weights, output projection weights, and layer normalization weights, which together account for all trainable parameters inside a Transformer block.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell37",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell58",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not describe a \"blocks\" dictionary layout or enumerate exactly which stored parameters it contains for a transformer block."
+      },
+      {
+        "sentence_id": "ch05.s04.p05.r04",
+        "text": "Outside the blocks, the final layer normalization has separate top-level keys, with \"g\" for scale and \"b\" for shift.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell18",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell108"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Although LayerNorm’s trainable scale/shift are described, the references do not specify that the final LayerNorm is stored under separate top-level keys nor that they are named \"g\" and \"b\"."
+      },
+      {
+        "sentence_id": "ch05.s04.p05.r05",
+        "text": "Using \"params\" with key \"b\" returns the final normalization shift parameters, and using \"params\" with key \"g\" returns the final normalization scale parameters.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell74",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell78",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No provided passage defines a \"params\" dictionary interface where key \"b\" returns final-norm shift and \"g\" returns final-norm scale."
+      },
+      {
+        "sentence_id": "ch05.s04.p05.r06",
+        "text": "To access attention weights from the parameter dictionary in code, use \"params\", then \"blocks\", then the block number, then \"atn\", then \"c_atn\", and then \"w\".",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell120",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell101",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell116"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references shown do not document accessing attention parameters from a parameter dictionary via the specific key path \"params\" -> \"blocks\" -> block number -> \"atn\" -> \"c_atn\" -> \"w\"."
+      },
+      {
+        "sentence_id": "ch05.s04.p06.r01",
+        "text": "It begins by defining an empty \"params\" dictionary, creating the \"blocks\" key, and filling it with the attention layers, feed-forward network, and output projection parameters taken from the checkpoint and placed into the appropriate dictionary locations.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell38",
+          "ref:ch05/01_main-chapter-code/gpt_generate.py",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided excerpts do not show code that constructs an empty \"params\" dictionary, creates \"blocks\", and fills it with checkpoint parameters in the described way."
+      },
+      {
+        "sentence_id": "ch05.s04.p06.r02",
+        "text": "The code then augments \"params\" with the other keys \"wte\", \"wpe\", \"g\", and \"b\" from the checkpoint data.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell136",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell135",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell109"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited cells show printing params.keys() and params['wte']/its shape, but they do not show or describe code that augments params with additional keys (wpe, g, b) from checkpoint data."
+      },
+      {
+        "sentence_id": "ch05.s04.p06.r03",
+        "text": "After the loading code runs, you can inspect the settings dictionary and the parameter dictionary keys instead of printing all parameter values.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell135",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell72"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly shows printing the parameter dictionary keys (params.keys()), supporting the idea of inspecting keys rather than printing all parameter values; no reference contradicts inspecting settings as well."
+      },
+      {
+        "sentence_id": "ch05.s04.p06.r04",
+        "text": "At this point, the GPT-2 architecture and its parameters have been loaded onto the laptop, and the parameters appear to be loaded correctly.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell64",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell70",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell144"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference mentions an optional check that data was loaded correctly and then using the loaded model to generate text if loaded correctly, which is consistent with the claim that the architecture/parameters are loaded and appear correct (the 'onto the laptop' phrasing is not contradicted)."
+      },
+      {
+        "sentence_id": "ch05.s04.p06.r05",
+        "text": "The \"wte\" entry can then be inspected directly, and it is the token embedding matrix with shape 50257 by 768, matching the expected dimensions.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell136",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference shows inspecting params['wte'] and printing its shape, but does not provide or confirm the specific dimensions 50257×768 in the cited excerpts."
+      },
+      {
+        "sentence_id": "ch05.s04.p06.r06",
+        "text": "Those token embedding values are optimized values, so each embedding dimension encodes some semantic meaning.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell111",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell132"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss embedding layers and dimensions/weights but do not state that each embedding dimension encodes semantic meaning or that the shown token embeddings are optimized in that sense."
+      },
+      {
+        "sentence_id": "ch05.s04.p06.r07",
+        "text": "Understanding the released weight format and how to convert it into the parameter dictionary matters for research work with large language models.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell58",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell6",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell8"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references discuss finetuning choices and model/embedding sizing, but do not address understanding released weight formats or converting them into a parameter dictionary as being important for research."
+      }
+    ],
+    "conflicts": []
+  }
+}

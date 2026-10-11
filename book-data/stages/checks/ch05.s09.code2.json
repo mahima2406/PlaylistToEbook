@@ -1,0 +1,48 @@
+{
+  "stage": "checks",
+  "item": "ch05.s09.code2",
+  "inputs_hash": "5e22f55fb7a8f585a8df9a5264a61b9b03982ecef7b711912692b44054b2efed",
+  "output_hash": "42eb245f786b8b5266fb1608644587c82c60506d528229f7d49bb86b7ee00ce9",
+  "output": [
+    {
+      "sentence_id": "ch05.s09.p02.r03",
+      "expected": 8,
+      "expression": "input_batch.shape[0]",
+      "tolerance": 0,
+      "check_id": "ch05.s09.code2.chk1",
+      "sentence_text": "The input batch dimension is 8 by 120, and the label batch dimension is size 8."
+    },
+    {
+      "sentence_id": "ch05.s09.p02.r03",
+      "expected": 120,
+      "expression": "input_batch.shape[1]",
+      "tolerance": 0,
+      "check_id": "ch05.s09.code2.chk2",
+      "sentence_text": "The input batch dimension is 8 by 120, and the label batch dimension is size 8."
+    },
+    {
+      "sentence_id": "ch05.s09.p02.r03",
+      "expected": 8,
+      "expression": "target_batch.shape[0]",
+      "tolerance": 0,
+      "check_id": "ch05.s09.code2.chk3",
+      "sentence_text": "The input batch dimension is 8 by 120, and the label batch dimension is size 8."
+    },
+    {
+      "sentence_id": "ch05.s09.p02.r04",
+      "expected": 120,
+      "expression": "input_batch.shape[1]",
+      "tolerance": 0,
+      "check_id": "ch05.s09.code2.chk4",
+      "sentence_text": "In the training dataloader, each input batch therefore contains eight samples and 120 token ID positions per sample."
+    },
+    {
+      "sentence_id": "ch05.s09.p02.r05",
+      "expected": 8,
+      "expression": "target_batch.shape[0]",
+      "tolerance": 0,
+      "check_id": "ch05.s09.code2.chk5",
+      "sentence_text": "A label tensor of size 8 means there are 8 labels in the batch, and each label is either 0 or 1."
+    }
+  ]
+}

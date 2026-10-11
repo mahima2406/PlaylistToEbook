@@ -1,0 +1,205 @@
+{
+  "stage": "write",
+  "item": "ch06.s09",
+  "inputs_hash": "c05dd22380bf99da8f30ca0bc65d7fd7503d15b784a55853efc390d82f7000bc",
+  "output_hash": "2b48015b158f865f5ee0bbd3fa995b312df48c34844f98c38ebf6124b3a52697",
+  "output": {
+    "section_id": "ch06.s09",
+    "paragraphs": [
+      {
+        "id": "ch06.s09.p01",
+        "sentences": [
+          {
+            "id": "ch06.s09.p01.01",
+            "text": "How do the downloaded GPT-2 checkpoint files become weights that a GPT implementation can actually use?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s09.p01.02",
+            "text": "The \"download_and_load_gpt2\" function accesses a URL, downloads seven files onto the local machine, and then preprocesses them.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@481",
+              "__OiQznq4ao@484",
+              "__OiQznq4ao@487",
+              "__OiQznq4ao@501",
+              "__OiQznq4ao@503",
+              "__OiQznq4ao@505"
+            ]
+          },
+          {
+            "id": "ch06.s09.p01.03",
+            "text": "Simply downloading the seven files is not enough, because the downloaded parameters must be converted from the TensorFlow checkpoint into a specific dictionary.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@501",
+              "__OiQznq4ao@503",
+              "__OiQznq4ao@510",
+              "__OiQznq4ao@513",
+              "__OiQznq4ao@518",
+              "__OiQznq4ao@520"
+            ]
+          },
+          {
+            "id": "ch06.s09.p01.04",
+            "text": "That dictionary makes the parameters much easier to handle and access.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@520",
+              "__OiQznq4ao@522",
+              "__OiQznq4ao@524"
+            ]
+          },
+          {
+            "id": "ch06.s09.p01.05",
+            "text": "This conversion matters because directly using only the seven downloaded files makes it difficult to integrate those parameters with the GPT code written earlier.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@562",
+              "__OiQznq4ao@564",
+              "__OiQznq4ao@567",
+              "__OiQznq4ao@568",
+              "__OiQznq4ao@570",
+              "__OiQznq4ao@573",
+              "__OiQznq4ao@576"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s09.p02",
+        "sentences": [
+          {
+            "id": "ch06.s09.p02.01",
+            "text": "Once that setup is clear, the code can be read as a two-stage loading process.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s09.p02.02",
+            "text": "Running the download code creates a folder called \"355 million\", downloads the seven files, and returns a \"params\" dictionary.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@538",
+              "__OiQznq4ao@540",
+              "__OiQznq4ao@542",
+              "__OiQznq4ao@545",
+              "__OiQznq4ao@548",
+              "__OiQznq4ao@550"
+            ]
+          },
+          {
+            "id": "ch06.s09.p02.03",
+            "text": "This \"params\" dictionary consists of transformer block parameters, token embeddings, positional embeddings, and final normalization layer parameters in an accessible form.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@550",
+              "__OiQznq4ao@552",
+              "__OiQznq4ao@554",
+              "__OiQznq4ao@556",
+              "__OiQznq4ao@557",
+              "__OiQznq4ao@560"
+            ]
+          },
+          {
+            "id": "ch06.s09.p02.04",
+            "text": "The code first imports the \"download_and_load_gpt2\" function from the \"GPT_download3.py\" file and stores the results in \"settings\" and \"params\".",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@586",
+              "__OiQznq4ao@588",
+              "__OiQznq4ao@593",
+              "__OiQznq4ao@595",
+              "__OiQznq4ao@598",
+              "__OiQznq4ao@599",
+              "__OiQznq4ao@602",
+              "__OiQznq4ao@604",
+              "__OiQznq4ao@606",
+              "__OiQznq4ao@608"
+            ]
+          },
+          {
+            "id": "ch06.s09.p02.05",
+            "text": "For the shown model, the download is 1.42 GB, so it can take a long time if the internet connection is weak, and it helps to have enough memory on the device.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@611",
+              "__OiQznq4ao@614",
+              "__OiQznq4ao@617",
+              "__OiQznq4ao@620",
+              "__OiQznq4ao@621",
+              "__OiQznq4ao@623",
+              "__OiQznq4ao@626",
+              "__OiQznq4ao@628",
+              "__OiQznq4ao@630",
+              "__OiQznq4ao@632",
+              "__OiQznq4ao@635",
+              "__OiQznq4ao@639"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s09.p03",
+        "sentences": [
+          {
+            "id": "ch06.s09.p03.01",
+            "text": "After the files have been downloaded and organized, the next job is to place those values into the model itself.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s09.p03.02",
+            "text": "The \"load_weights_into_gpt\" function maps the downloaded parameters from the \"params\" dictionary into the corresponding trainable parts of the GPT architecture.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@645",
+              "__OiQznq4ao@646",
+              "__OiQznq4ao@649",
+              "__OiQznq4ao@652",
+              "__OiQznq4ao@654",
+              "__OiQznq4ao@656",
+              "__OiQznq4ao@658",
+              "__OiQznq4ao@661",
+              "__OiQznq4ao@673",
+              "__OiQznq4ao@675",
+              "__OiQznq4ao@678",
+              "__OiQznq4ao@699",
+              "__OiQznq4ao@700",
+              "__OiQznq4ao@703",
+              "__OiQznq4ao@705",
+              "__OiQznq4ao@707"
+            ]
+          },
+          {
+            "id": "ch06.s09.p03.03",
+            "text": "You can think of this whole loading block as an assignment step that assigns the downloaded parameters to the model.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@707",
+              "__OiQznq4ao@709",
+              "__OiQznq4ao@711",
+              "__OiQznq4ao@713"
+            ]
+          },
+          {
+            "id": "ch06.s09.p03.04",
+            "text": "After running \"settings, params = download_and_load_gpt2\", the next step is to run \"load_weights_into_gpt\" to load the downloaded weights from the 355 million model into the GPT architecture, and then set the model to evaluation mode.",
+            "type": "F",
+            "cites": [
+              "__OiQznq4ao@725",
+              "__OiQznq4ao@727",
+              "__OiQznq4ao@728",
+              "__OiQznq4ao@731",
+              "__OiQznq4ao@733",
+              "__OiQznq4ao@736",
+              "__OiQznq4ao@738"
+            ]
+          }
+        ]
+      }
+    ],
+    "invalid_citation_sentences": 0
+  }
+}

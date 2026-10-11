@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch04.s08.p02.r04",
+  "inputs_hash": "6067158dfdb02e432fded799b7db754a101ec1330a96edbae294e355391d6442",
+  "output_hash": "6826d98d6845593074d3f1902dd81a4da2f474208bcb0e885675e7eceb5ffb16",
+  "output": {
+    "decision": "edit",
+    "text": "The training goal is to make the selected target probabilities as large as possible, increasing the average log probability so the highest-probability output indices line up with the target indices.",
+    "reason": "The captions support raising the target probabilities and aligning argmax outputs with targets, while this wording avoids the incorrect implication that each probability can independently approach one.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.78,
+      "reason": "Cited lines support that the training goal is to push the target probabilities close to 1 so the max-probability output indices align with the target indices. However, they do not mention 'increasing the average log probability' (log/average log likelihood is not stated)."
+    },
+    "kind": "conflict",
+    "sentence_hash": "c071652da7b7c945bbf6a8f4881ede3992c2fa072af3f5a0e261716bcb520321"
+  }
+}

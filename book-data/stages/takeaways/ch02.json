@@ -1,0 +1,377 @@
+{
+  "stage": "takeaways",
+  "item": "ch02",
+  "inputs_hash": "eded126059f9d7591e1da641a8296c3f9f0b5e7516a860ba2b32186668f5d019",
+  "output_hash": "fed6cef39a8a32676a280cf29dba33114896c7d325eae287ec0d868a38ad8e17",
+  "output": {
+    "section_id": "ch02.take",
+    "paragraphs": [
+      {
+        "id": "ch02.take.p01",
+        "sentences": [
+          {
+            "id": "ch02.take.p01.01",
+            "text": "Text has to be preprocessed before a large language model can use it, and the overall pipeline goes from tokenization to token IDs to token embeddings to positional embeddings and finally to input embeddings.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@63",
+              "mk-6cFebjis@66",
+              "mk-6cFebjis@70",
+              "mk-6cFebjis@72",
+              "mk-6cFebjis@92",
+              "mk-6cFebjis@94",
+              "mk-6cFebjis@98",
+              "mk-6cFebjis@101",
+              "mk-6cFebjis@104",
+              "mk-6cFebjis@107",
+              "mk-6cFebjis@110",
+              "mk-6cFebjis@112",
+              "mk-6cFebjis@115",
+              "mk-6cFebjis@117",
+              "mk-6cFebjis@5594",
+              "mk-6cFebjis@5596",
+              "mk-6cFebjis@5599",
+              "mk-6cFebjis@5602",
+              "mk-6cFebjis@5604",
+              "mk-6cFebjis@5606"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.take.p02",
+        "sentences": [
+          {
+            "id": "ch02.take.p02.01",
+            "text": "Tokenization turns text into tokens, and a simple word-based tokenizer treats each word and some punctuation marks as tokens, builds a sorted vocabulary, and assigns each token a numerical token ID.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@81",
+              "fKd8s29e-l4@83",
+              "fKd8s29e-l4@86",
+              "fKd8s29e-l4@93",
+              "fKd8s29e-l4@95",
+              "fKd8s29e-l4@98",
+              "fKd8s29e-l4@100",
+              "fKd8s29e-l4@104",
+              "fKd8s29e-l4@106",
+              "fKd8s29e-l4@177",
+              "fKd8s29e-l4@179",
+              "fKd8s29e-l4@182",
+              "fKd8s29e-l4@185",
+              "fKd8s29e-l4@188",
+              "fKd8s29e-l4@191",
+              "mk-6cFebjis@142",
+              "mk-6cFebjis@144",
+              "mk-6cFebjis@147",
+              "mk-6cFebjis@150",
+              "fKd8s29e-l4@328",
+              "fKd8s29e-l4@330",
+              "fKd8s29e-l4@333",
+              "fKd8s29e-l4@335",
+              "fKd8s29e-l4@337"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.take.p03",
+        "sentences": [
+          {
+            "id": "ch02.take.p03.r01",
+            "text": "Word-based tokenization can fail on out-of-vocabulary words, treats related words as separate tokens, and needs a very large vocabulary.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@250",
+              "fKd8s29e-l4@252",
+              "fKd8s29e-l4@272",
+              "fKd8s29e-l4@274",
+              "fKd8s29e-l4@277",
+              "fKd8s29e-l4@341",
+              "fKd8s29e-l4@344",
+              "fKd8s29e-l4@361",
+              "fKd8s29e-l4@366",
+              "fKd8s29e-l4@375",
+              "fKd8s29e-l4@377",
+              "fKd8s29e-l4@379",
+              "mk-6cFebjis@1843",
+              "mk-6cFebjis@1845",
+              "mk-6cFebjis@1858",
+              "mk-6cFebjis@1860",
+              "mk-6cFebjis@1868",
+              "mk-6cFebjis@1870",
+              "mk-6cFebjis@1883",
+              "mk-6cFebjis@1885"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.take.p04",
+        "sentences": [
+          {
+            "id": "ch02.take.p04.r01",
+            "text": "Character-based tokenization avoids out-of-vocabulary words and keeps the vocabulary small, but it loses the meaning associated with words and makes tokenized sequences much longer, while subword tokenization keeps frequently used words whole and splits rare words into smaller meaningful subwords.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@481",
+              "fKd8s29e-l4@482",
+              "fKd8s29e-l4@484",
+              "fKd8s29e-l4@489",
+              "fKd8s29e-l4@499",
+              "fKd8s29e-l4@502",
+              "fKd8s29e-l4@520",
+              "fKd8s29e-l4@527",
+              "fKd8s29e-l4@531",
+              "fKd8s29e-l4@553",
+              "fKd8s29e-l4@555",
+              "fKd8s29e-l4@557",
+              "fKd8s29e-l4@579",
+              "fKd8s29e-l4@581",
+              "fKd8s29e-l4@620",
+              "fKd8s29e-l4@622",
+              "fKd8s29e-l4@741",
+              "fKd8s29e-l4@743",
+              "fKd8s29e-l4@747",
+              "fKd8s29e-l4@750",
+              "fKd8s29e-l4@752",
+              "fKd8s29e-l4@754",
+              "fKd8s29e-l4@761",
+              "fKd8s29e-l4@763",
+              "fKd8s29e-l4@766",
+              "fKd8s29e-l4@768",
+              "fKd8s29e-l4@770"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.take.p05",
+        "sentences": [
+          {
+            "id": "ch02.take.p05.01",
+            "text": "Modern LLMs commonly use byte pair encoding, a subword method that helps keep vocabulary size manageable, preserves useful root information, and can still encode unseen words without a special unknown token.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@33",
+              "fKd8s29e-l4@36",
+              "fKd8s29e-l4@41",
+              "fKd8s29e-l4@45",
+              "fKd8s29e-l4@983",
+              "fKd8s29e-l4@986",
+              "fKd8s29e-l4@971",
+              "fKd8s29e-l4@975",
+              "mk-6cFebjis@150",
+              "mk-6cFebjis@152",
+              "mk-6cFebjis@155",
+              "mk-6cFebjis@159",
+              "mk-6cFebjis@2483",
+              "mk-6cFebjis@2485",
+              "mk-6cFebjis@2532",
+              "mk-6cFebjis@2535",
+              "mk-6cFebjis@2537",
+              "mk-6cFebjis@2540",
+              "mk-6cFebjis@2543",
+              "mk-6cFebjis@2546",
+              "mk-6cFebjis@2555",
+              "mk-6cFebjis@2558",
+              "mk-6cFebjis@2561",
+              "mk-6cFebjis@2563",
+              "mk-6cFebjis@2674",
+              "mk-6cFebjis@2675",
+              "mk-6cFebjis@2678",
+              "mk-6cFebjis@2680",
+              "mk-6cFebjis@2683",
+              "mk-6cFebjis@2686",
+              "mk-6cFebjis@2688"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.take.p06",
+        "sentences": [
+          {
+            "id": "ch02.take.p06.01",
+            "text": "Token embeddings convert token IDs into vectors that can preserve semantic meaning, positional embeddings add word-order information, and adding them together produces the input embeddings that are fed to the model.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@163",
+              "mk-6cFebjis@165",
+              "ghCSGRgVB_o@729",
+              "ghCSGRgVB_o@732",
+              "ghCSGRgVB_o@736",
+              "ghCSGRgVB_o@738",
+              "ghCSGRgVB_o@742",
+              "ghCSGRgVB_o@745",
+              "ghCSGRgVB_o@747",
+              "ghCSGRgVB_o@750",
+              "ghCSGRgVB_o@753",
+              "ghCSGRgVB_o@755",
+              "ghCSGRgVB_o@758",
+              "ghCSGRgVB_o@778",
+              "ghCSGRgVB_o@780",
+              "ghCSGRgVB_o@782",
+              "ghCSGRgVB_o@784",
+              "mk-6cFebjis@4092",
+              "mk-6cFebjis@4097",
+              "mk-6cFebjis@4100",
+              "mk-6cFebjis@4102",
+              "mk-6cFebjis@5031",
+              "mk-6cFebjis@5033",
+              "mk-6cFebjis@5035",
+              "mk-6cFebjis@5038",
+              "mk-6cFebjis@5041",
+              "mk-6cFebjis@5043",
+              "mk-6cFebjis@5045",
+              "mk-6cFebjis@5047",
+              "mk-6cFebjis@168",
+              "mk-6cFebjis@170",
+              "mk-6cFebjis@2954",
+              "mk-6cFebjis@2956",
+              "mk-6cFebjis@2958",
+              "mk-6cFebjis@2961",
+              "mk-6cFebjis@125",
+              "mk-6cFebjis@128",
+              "mk-6cFebjis@130",
+              "mk-6cFebjis@136",
+              "mk-6cFebjis@138"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.take.p07",
+        "sentences": [
+          {
+            "id": "ch02.take.p07.01",
+            "text": "For next-word training, preprocessing turns tokenized text into input-target pairs with a chosen context size and stride, where each target sequence is the input sequence shifted by one token, and batches group many such pairs together.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3014",
+              "mk-6cFebjis@3017",
+              "mk-6cFebjis@3019",
+              "mk-6cFebjis@3046",
+              "mk-6cFebjis@3048",
+              "mk-6cFebjis@3050",
+              "mk-6cFebjis@3053",
+              "mk-6cFebjis@3055",
+              "mk-6cFebjis@3166",
+              "mk-6cFebjis@3169",
+              "mk-6cFebjis@3171",
+              "mk-6cFebjis@3185",
+              "mk-6cFebjis@3192",
+              "mk-6cFebjis@3193",
+              "mk-6cFebjis@3196",
+              "mk-6cFebjis@3198",
+              "mk-6cFebjis@3448",
+              "mk-6cFebjis@3451",
+              "mk-6cFebjis@3497",
+              "mk-6cFebjis@3500",
+              "mk-6cFebjis@3502",
+              "mk-6cFebjis@3263",
+              "mk-6cFebjis@3265",
+              "mk-6cFebjis@3268",
+              "mk-6cFebjis@3271",
+              "mk-6cFebjis@3273",
+              "mk-6cFebjis@3275",
+              "mk-6cFebjis@3278",
+              "mk-6cFebjis@3283",
+              "mk-6cFebjis@3286",
+              "mk-6cFebjis@3288",
+              "mk-6cFebjis@3290",
+              "mk-6cFebjis@3292",
+              "mk-6cFebjis@3652",
+              "mk-6cFebjis@3654",
+              "mk-6cFebjis@3656",
+              "mk-6cFebjis@3658",
+              "mk-6cFebjis@3661",
+              "mk-6cFebjis@3662",
+              "mk-6cFebjis@3665",
+              "mk-6cFebjis@3666"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch02.take.p01.01": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch02.take.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch02.take.p05.01": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch02.take.p06.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.take.p07.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.take.p03.r01": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch02.take.p04.r01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch02.take.p01.01": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch02.take.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch02.take.p03.01": {
+        "verdict": "partial",
+        "confidence": 0.78,
+        "reason": "The cited lines support OOV failures, treating related words (boy/boys) as separate tokens, and requiring a large vocabulary, but they do not state that word-based tokenization has (advantage of) short sequences."
+      },
+      "ch02.take.p04.01": {
+        "verdict": "partial",
+        "confidence": 0.74,
+        "reason": "Character-level claims (no OOV, small vocabulary, meaning lost, longer sequences) are supported, and subword rules about keeping frequent words whole and splitting rare words into meaningful subwords are supported, but the sentence’s specific example 'such as byte pair encoding' is not stated in the cited subword-rule lines."
+      },
+      "ch02.take.p05.01": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch02.take.p06.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.take.p07.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "ch02.take.p03",
+      "ch02.take.p04"
+    ],
+    "queue": []
+  }
+}

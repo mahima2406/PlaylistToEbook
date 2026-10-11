@@ -1,0 +1,33 @@
+{
+  "stage": "listings",
+  "item": "ch01.s07",
+  "inputs_hash": "78d5db334d5362edcee7d41f71a78ac1f658bf3ce0aa8525588d125a0b466d11",
+  "output_hash": "3a8f7d28664f032e35f701cfbb07c1d9828c2125c415c24209791f7e3a149063",
+  "output": {
+    "section_id": "ch01.s07",
+    "listings": [
+      {
+        "id": "ch01.s07.code1",
+        "ref": "ref:ch02/01_main-chapter-code/ch02.ipynb#cell37",
+        "path": "ch02/01_main-chapter-code/ch02.ipynb",
+        "caption": "This code builds a vocabulary dictionary that assigns each token in `all_words` a unique integer ID using `enumerate`.",
+        "code": "vocab = {token:integer for integer,token in enumerate(all_words)}",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The section explains assigning unique numerical IDs to tokens as part of tokenization. The code builds a vocabulary mapping each token in `all_words` to a unique integer ID using `enumerate`, which directly demonstrates that concept, and the caption accurately describes it."
+      }
+    ],
+    "rejected": [
+      {
+        "id": "ch01.s07.code2",
+        "ref": "ref:ch02/01_main-chapter-code/ch02.ipynb#cell130",
+        "path": "ch02/01_main-chapter-code/ch02.ipynb",
+        "caption": "This code passes `inputs` through `token_embedding_layer` to create token embeddings and prints the resulting tensor shape.",
+        "code": "token_embeddings = token_embedding_layer(inputs)\nprint(token_embeddings.shape)\n\n# uncomment & execute the following line to see how the embeddings look like\n# print(token_embeddings)",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The code demonstrates the step where token IDs (`inputs`) are passed through an embedding layer to produce token embeddings, which relates to the section’s simplified workflow (token IDs → encoder/embeddings). However, it does not demonstrate tokenization itself (breaking text into tokens and assigning IDs), which is a major focus of the section. The caption accurately describes what the code does."
+      }
+    ]
+  }
+}

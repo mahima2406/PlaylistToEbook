@@ -1,0 +1,1326 @@
+{
+  "stage": "verify",
+  "item": "ch03.s08",
+  "inputs_hash": "c3b0779d44c27369c10be1cae50cefb4acc9ff6593373710403fd562f756a12c",
+  "output_hash": "8dc625cb63c8e547ce229ac9d4c908fd28e9960a823d3f36a91015dd329b13c4",
+  "output": {
+    "section_id": "ch03.s08",
+    "paragraphs": [
+      {
+        "id": "ch03.s08.p01",
+        "sentences": [
+          {
+            "id": "ch03.s08.p01.r01",
+            "text": "How does causal attention become robust enough for training and flexible enough to process more than one sequence at a time?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s08.p01.r02",
+            "text": "Dropout is a deep learning technique where you take a neural network and randomly switch neurons in different layers to zero.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@1974",
+              "h94TQOK7NRA@1976",
+              "h94TQOK7NRA@1978",
+              "h94TQOK7NRA@1980",
+              "h94TQOK7NRA@1981"
+            ]
+          },
+          {
+            "id": "ch03.s08.p01.r03",
+            "text": "A simple way to think about dropout is that it prevents a lazy-neuron or codependency problem: if one neuron relies on others to do most of the work, switching those others off forces it to participate.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@1984",
+              "h94TQOK7NRA@1986",
+              "h94TQOK7NRA@1989",
+              "h94TQOK7NRA@1991",
+              "h94TQOK7NRA@1999",
+              "h94TQOK7NRA@2001",
+              "h94TQOK7NRA@2004",
+              "h94TQOK7NRA@2006"
+            ]
+          },
+          {
+            "id": "ch03.s08.p01.r04",
+            "text": "By randomly turning neurons off, dropout helps all neurons participate, prevents overfitting, and improves generalization performance, including on test data.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2011",
+              "h94TQOK7NRA@2013",
+              "h94TQOK7NRA@2015",
+              "h94TQOK7NRA@2019",
+              "h94TQOK7NRA@2021",
+              "h94TQOK7NRA@2023",
+              "h94TQOK7NRA@2027",
+              "h94TQOK7NRA@2029"
+            ]
+          },
+          {
+            "id": "ch03.s08.p01.r05",
+            "text": "In transformer architectures, including GPT, dropout in the attention mechanism is usually applied either after calculating attention scores or after applying attention weights to the value vectors.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2030",
+              "h94TQOK7NRA@2033",
+              "h94TQOK7NRA@2035",
+              "h94TQOK7NRA@2037",
+              "h94TQOK7NRA@2039",
+              "h94TQOK7NRA@2042",
+              "h94TQOK7NRA@2044",
+              "h94TQOK7NRA@2047"
+            ]
+          },
+          {
+            "id": "ch03.s08.p01.r06",
+            "text": "A more common choice is to apply dropout after calculating the attention weights or attention scores rather than after forming the context vector.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2057",
+              "h94TQOK7NRA@2059",
+              "h94TQOK7NRA@2061",
+              "h94TQOK7NRA@2062",
+              "h94TQOK7NRA@2065",
+              "h94TQOK7NRA@2069",
+              "h94TQOK7NRA@2071"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s08.p02",
+        "sentences": [
+          {
+            "id": "ch03.s08.p02.r01",
+            "text": "For causal attention, dropout is applied by first creating a dropout mask that specifies what neurons need to be randomly turned off.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2075",
+              "h94TQOK7NRA@2077",
+              "h94TQOK7NRA@2084",
+              "h94TQOK7NRA@2086",
+              "h94TQOK7NRA@2089"
+            ]
+          },
+          {
+            "id": "ch03.s08.p02.r02",
+            "text": "With dropout probability 0.5, on average 50% of the attention weights in each row are turned off.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2091",
+              "h94TQOK7NRA@2093",
+              "h94TQOK7NRA@2096",
+              "h94TQOK7NRA@2099"
+            ]
+          },
+          {
+            "id": "ch03.s08.p02.r03",
+            "text": "This operates row by row by randomly zeroing out some elements with the chosen probability.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2114",
+              "h94TQOK7NRA@2117",
+              "h94TQOK7NRA@2162",
+              "h94TQOK7NRA@2164",
+              "h94TQOK7NRA@2166",
+              "h94TQOK7NRA@2169",
+              "h94TQOK7NRA@2171"
+            ]
+          },
+          {
+            "id": "ch03.s08.p02.r04",
+            "text": "To illustrate this in Python, PyTorch dropout with rate 0.5 is first applied to a 6 by 6 tensor of ones before it is applied to the attention weight matrix.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2175",
+              "h94TQOK7NRA@2179",
+              "h94TQOK7NRA@2180",
+              "h94TQOK7NRA@2182",
+              "h94TQOK7NRA@2197",
+              "h94TQOK7NRA@2200",
+              "h94TQOK7NRA@2202",
+              "h94TQOK7NRA@2204",
+              "h94TQOK7NRA@2208",
+              "h94TQOK7NRA@2211",
+              "h94TQOK7NRA@2225",
+              "h94TQOK7NRA@2227",
+              "h94TQOK7NRA@2230"
+            ]
+          },
+          {
+            "id": "ch03.s08.p02.r05",
+            "text": "When dropout with rate 0.5 is applied, the weights that are not switched off are rescaled by a factor of two.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2241",
+              "h94TQOK7NRA@2243",
+              "h94TQOK7NRA@2245",
+              "h94TQOK7NRA@2247",
+              "h94TQOK7NRA@2250",
+              "h94TQOK7NRA@2251",
+              "h94TQOK7NRA@2253"
+            ]
+          },
+          {
+            "id": "ch03.s08.p02.r06",
+            "text": "Because dropout is probabilistic, an exact number of weights need not be switched off in every row, but over many rows the average matches the dropout rate.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2256",
+              "h94TQOK7NRA@2258",
+              "h94TQOK7NRA@2260",
+              "h94TQOK7NRA@2262",
+              "h94TQOK7NRA@2263",
+              "h94TQOK7NRA@2265",
+              "h94TQOK7NRA@2266",
+              "h94TQOK7NRA@2269",
+              "h94TQOK7NRA@2273",
+              "h94TQOK7NRA@2275",
+              "h94TQOK7NRA@2278",
+              "h94TQOK7NRA@2281",
+              "h94TQOK7NRA@2282",
+              "h94TQOK7NRA@2285",
+              "h94TQOK7NRA@2287",
+              "h94TQOK7NRA@2289"
+            ]
+          },
+          {
+            "id": "ch03.s08.p02.r07",
+            "text": "Applied to an attention weight matrix at rate 50%, dropout randomly sets about half of the elements to zero and scales the remaining elements up by a factor of two.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2291",
+              "h94TQOK7NRA@2293",
+              "h94TQOK7NRA@2295",
+              "h94TQOK7NRA@2297",
+              "h94TQOK7NRA@2299",
+              "h94TQOK7NRA@2301",
+              "h94TQOK7NRA@2303",
+              "h94TQOK7NRA@2305"
+            ]
+          },
+          {
+            "id": "ch03.s08.p02.r08",
+            "text": "In PyTorch dropout, outputs are scaled by a factor of 1 divided by 1 minus p.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2323",
+              "h94TQOK7NRA@2326",
+              "h94TQOK7NRA@2328",
+              "h94TQOK7NRA@2330"
+            ]
+          },
+          {
+            "id": "ch03.s08.p02.r09",
+            "text": "That scaling maintains the overall balance of the attention weights so that the average influence of the attention mechanism remains consistent during training and inference.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2333",
+              "h94TQOK7NRA@2337",
+              "h94TQOK7NRA@2339",
+              "h94TQOK7NRA@2341",
+              "h94TQOK7NRA@2344",
+              "h94TQOK7NRA@2346"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s08.p03",
+        "sentences": [
+          {
+            "id": "ch03.s08.p03.01",
+            "text": "The same dropout layer can then be applied directly to the final attention weight matrix by creating a dropout class instance with input argument 0.5 and applying it to that matrix.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2351",
+              "h94TQOK7NRA@2352",
+              "h94TQOK7NRA@2354",
+              "h94TQOK7NRA@2356",
+              "h94TQOK7NRA@2359",
+              "h94TQOK7NRA@2362",
+              "h94TQOK7NRA@2364",
+              "h94TQOK7NRA@2366",
+              "h94TQOK7NRA@2368",
+              "h94TQOK7NRA@2371"
+            ]
+          },
+          {
+            "id": "ch03.s08.p03.02",
+            "text": "After dropout is applied, some attention weights are randomly set to zero and the remaining weights are scaled up.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2377",
+              "h94TQOK7NRA@2378",
+              "h94TQOK7NRA@2380",
+              "h94TQOK7NRA@2382",
+              "h94TQOK7NRA@2384",
+              "h94TQOK7NRA@2385",
+              "h94TQOK7NRA@2412",
+              "h94TQOK7NRA@2414",
+              "h94TQOK7NRA@2416",
+              "h94TQOK7NRA@2418",
+              "h94TQOK7NRA@2422",
+              "h94TQOK7NRA@2424",
+              "h94TQOK7NRA@2426"
+            ]
+          },
+          {
+            "id": "ch03.s08.p03.03",
+            "text": "The causal attention class follows the earlier self-attention structure but adds causal masking and dropout.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2450",
+              "h94TQOK7NRA@2452",
+              "h94TQOK7NRA@2455",
+              "h94TQOK7NRA@2465",
+              "h94TQOK7NRA@2467",
+              "h94TQOK7NRA@2469",
+              "h94TQOK7NRA@2470",
+              "h94TQOK7NRA@2632",
+              "h94TQOK7NRA@2635",
+              "h94TQOK7NRA@2637",
+              "h94TQOK7NRA@2639",
+              "h94TQOK7NRA@2641",
+              "h94TQOK7NRA@2642"
+            ]
+          },
+          {
+            "id": "ch03.s08.p03.04",
+            "text": "Its computation is: multiply the inputs by the query, key, and value weight matrices to obtain queries, keys, and values; multiply queries by keys transpose to get attention scores; replace elements above the diagonal with negative infinity; scale by the square root of the dimension; apply dropout and softmax to obtain attention weights; and multiply those attention weights by the values to get the context vector matrix.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2472",
+              "h94TQOK7NRA@2475",
+              "h94TQOK7NRA@2477",
+              "h94TQOK7NRA@2479",
+              "h94TQOK7NRA@2482",
+              "h94TQOK7NRA@2485",
+              "h94TQOK7NRA@2486",
+              "h94TQOK7NRA@2489",
+              "h94TQOK7NRA@2490",
+              "h94TQOK7NRA@2494",
+              "h94TQOK7NRA@2496",
+              "h94TQOK7NRA@2497",
+              "h94TQOK7NRA@2499",
+              "h94TQOK7NRA@2502",
+              "h94TQOK7NRA@2504",
+              "h94TQOK7NRA@2506",
+              "h94TQOK7NRA@2521",
+              "h94TQOK7NRA@2523",
+              "h94TQOK7NRA@2524"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s08.p04",
+        "sentences": [
+          {
+            "id": "ch03.s08.p04.01",
+            "text": "The class also needs to handle multiple sentences at once as batches.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2531",
+              "h94TQOK7NRA@2533",
+              "h94TQOK7NRA@2535",
+              "h94TQOK7NRA@2542",
+              "h94TQOK7NRA@2544",
+              "h94TQOK7NRA@2546",
+              "h94TQOK7NRA@2560",
+              "h94TQOK7NRA@2564",
+              "h94TQOK7NRA@2566",
+              "h94TQOK7NRA@2574",
+              "h94TQOK7NRA@2576"
+            ]
+          },
+          {
+            "id": "ch03.s08.p04.02",
+            "text": "A simple batch is formed with two inputs so that the model receives a tensor containing two sequences, each of shape 6 by 3.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2581",
+              "h94TQOK7NRA@2583",
+              "h94TQOK7NRA@2585",
+              "h94TQOK7NRA@2587",
+              "h94TQOK7NRA@2589",
+              "h94TQOK7NRA@2592",
+              "h94TQOK7NRA@2594",
+              "h94TQOK7NRA@2597",
+              "h94TQOK7NRA@2601",
+              "h94TQOK7NRA@2604"
+            ]
+          },
+          {
+            "id": "ch03.s08.p04.03",
+            "text": "This batched input is a 3D tensor of two input texts with six tokens each, where each token has a three-dimensional embedding vector.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2606",
+              "h94TQOK7NRA@2608",
+              "h94TQOK7NRA@2610",
+              "h94TQOK7NRA@2625",
+              "h94TQOK7NRA@2628",
+              "h94TQOK7NRA@2631"
+            ]
+          },
+          {
+            "id": "ch03.s08.p04.04",
+            "text": "With batching, the input shape becomes batch size by number of tokens by embedding dimension, unlike the earlier self-attention version without batches.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2648",
+              "h94TQOK7NRA@2650",
+              "h94TQOK7NRA@2652",
+              "h94TQOK7NRA@2654",
+              "h94TQOK7NRA@2662",
+              "h94TQOK7NRA@2664",
+              "h94TQOK7NRA@2666",
+              "h94TQOK7NRA@2668",
+              "h94TQOK7NRA@2670",
+              "h94TQOK7NRA@2671",
+              "h94TQOK7NRA@2674",
+              "h94TQOK7NRA@2677",
+              "h94TQOK7NRA@2678",
+              "h94TQOK7NRA@2681",
+              "h94TQOK7NRA@2685"
+            ]
+          },
+          {
+            "id": "ch03.s08.p04.05",
+            "text": "The batched computation still multiplies the input by the key, query, and value weight matrices to obtain keys, queries, and values, and then multiplies queries by the transpose of keys.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2690",
+              "h94TQOK7NRA@2693",
+              "h94TQOK7NRA@2695",
+              "h94TQOK7NRA@2696",
+              "h94TQOK7NRA@2698",
+              "h94TQOK7NRA@2701",
+              "h94TQOK7NRA@2703",
+              "h94TQOK7NRA@2705"
+            ]
+          },
+          {
+            "id": "ch03.s08.p04.06",
+            "text": "In the transpose operation with dimensions 1 and 2, the focus is on the token dimensions inside each batch.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2707",
+              "h94TQOK7NRA@2709",
+              "h94TQOK7NRA@2711",
+              "h94TQOK7NRA@2713",
+              "h94TQOK7NRA@2716",
+              "h94TQOK7NRA@2721",
+              "h94TQOK7NRA@2723",
+              "h94TQOK7NRA@2725",
+              "h94TQOK7NRA@2726",
+              "h94TQOK7NRA@2728"
+            ]
+          },
+          {
+            "id": "ch03.s08.p04.07",
+            "text": "Using \"keys.transpose(1, 2)\" makes the matrix multiplication possible within each batch.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2730",
+              "h94TQOK7NRA@2732",
+              "h94TQOK7NRA@2734",
+              "h94TQOK7NRA@2737",
+              "h94TQOK7NRA@2771",
+              "h94TQOK7NRA@2774",
+              "h94TQOK7NRA@2775",
+              "h94TQOK7NRA@2777",
+              "h94TQOK7NRA@2779",
+              "h94TQOK7NRA@2783",
+              "h94TQOK7NRA@2786"
+            ]
+          },
+          {
+            "id": "ch03.s08.p04.08",
+            "text": "This transpose preserves the batch rows while transposing the matrix inside each batch.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2787",
+              "h94TQOK7NRA@2789",
+              "h94TQOK7NRA@2793",
+              "h94TQOK7NRA@2795",
+              "h94TQOK7NRA@2798",
+              "h94TQOK7NRA@2804",
+              "h94TQOK7NRA@2807",
+              "h94TQOK7NRA@2810",
+              "h94TQOK7NRA@2812",
+              "h94TQOK7NRA@2815"
+            ]
+          },
+          {
+            "id": "ch03.s08.p04.09",
+            "text": "When queries are multiplied by the transposed keys, each batch is processed separately and the resulting attention score matrices are stacked together.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2817",
+              "h94TQOK7NRA@2818",
+              "h94TQOK7NRA@2821",
+              "h94TQOK7NRA@2823",
+              "h94TQOK7NRA@2825",
+              "h94TQOK7NRA@2828",
+              "h94TQOK7NRA@2830",
+              "h94TQOK7NRA@2833",
+              "h94TQOK7NRA@2835",
+              "h94TQOK7NRA@2837",
+              "h94TQOK7NRA@2841",
+              "h94TQOK7NRA@2843"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s08.p05",
+        "sentences": [
+          {
+            "id": "ch03.s08.p05.r01",
+            "text": "Once batching is in place, the masking and normalization steps are the same idea as before.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s08.p05.r02",
+            "text": "Here, the upper triangular mask has ones above the diagonal and zeros below the diagonal.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2866",
+              "h94TQOK7NRA@2876",
+              "h94TQOK7NRA@2878",
+              "h94TQOK7NRA@2880"
+            ]
+          },
+          {
+            "id": "ch03.s08.p05.r03",
+            "text": "In causal attention, positions marked by ones in that upper triangular mask are replaced with negative infinity in the attention scores matrix.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2882",
+              "h94TQOK7NRA@2884",
+              "h94TQOK7NRA@2887"
+            ]
+          },
+          {
+            "id": "ch03.s08.p05.r04",
+            "text": "After masking, the scores are divided by the square root of the key dimension and softmax is applied to obtain the attention weight matrix.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2890",
+              "h94TQOK7NRA@2892",
+              "h94TQOK7NRA@2894",
+              "h94TQOK7NRA@2896",
+              "h94TQOK7NRA@2899"
+            ]
+          },
+          {
+            "id": "ch03.s08.p05.r05",
+            "text": "After softmax, the rows of the attention weight matrix sum to one with the causal mask applied.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2899",
+              "h94TQOK7NRA@2901",
+              "h94TQOK7NRA@2903"
+            ]
+          },
+          {
+            "id": "ch03.s08.p05.r06",
+            "text": "Then dropout is applied to the attention weights, the context vector is computed as attention weights multiplied by values, and that context vector is returned.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2905",
+              "h94TQOK7NRA@2908",
+              "h94TQOK7NRA@2910",
+              "h94TQOK7NRA@2912",
+              "h94TQOK7NRA@2914",
+              "h94TQOK7NRA@2916",
+              "h94TQOK7NRA@2918",
+              "h94TQOK7NRA@2921",
+              "h94TQOK7NRA@2922",
+              "h94TQOK7NRA@2924",
+              "h94TQOK7NRA@2926"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s08.p06",
+        "sentences": [
+          {
+            "id": "ch03.s08.p06.r01",
+            "text": "In the worked example, the context length is taken as batch.shape[1], which is 6 for the given batch.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2932",
+              "h94TQOK7NRA@2935",
+              "h94TQOK7NRA@2937",
+              "h94TQOK7NRA@2940"
+            ]
+          },
+          {
+            "id": "ch03.s08.p06.r02",
+            "text": "The causal attention class is instantiated with input dimension D_in = 3, output dimension D_out = 2, context length 6, and dropout rate 0.0.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2942",
+              "h94TQOK7NRA@2944",
+              "h94TQOK7NRA@2946",
+              "h94TQOK7NRA@2956",
+              "h94TQOK7NRA@2960",
+              "h94TQOK7NRA@2962",
+              "h94TQOK7NRA@2969",
+              "h94TQOK7NRA@2971",
+              "h94TQOK7NRA@2973",
+              "h94TQOK7NRA@2976",
+              "h94TQOK7NRA@2978",
+              "h94TQOK7NRA@2981",
+              "h94TQOK7NRA@2982",
+              "h94TQOK7NRA@2985"
+            ]
+          },
+          {
+            "id": "ch03.s08.p06.r03",
+            "text": "Passing the stacked batch into this class produces a 3D output tensor of shape 2 × 6 × 2, because each of the two inputs yields a 6 × 2 context vector matrix.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@2987",
+              "h94TQOK7NRA@2989",
+              "h94TQOK7NRA@2992",
+              "h94TQOK7NRA@2995",
+              "h94TQOK7NRA@2997",
+              "h94TQOK7NRA@2999",
+              "h94TQOK7NRA@3001",
+              "h94TQOK7NRA@3003",
+              "h94TQOK7NRA@3005",
+              "h94TQOK7NRA@3007",
+              "h94TQOK7NRA@3009",
+              "h94TQOK7NRA@3010",
+              "h94TQOK7NRA@3013",
+              "h94TQOK7NRA@3014",
+              "h94TQOK7NRA@3019",
+              "h94TQOK7NRA@3021",
+              "h94TQOK7NRA@3023",
+              "h94TQOK7NRA@3027",
+              "h94TQOK7NRA@3028",
+              "h94TQOK7NRA@3030",
+              "h94TQOK7NRA@3033",
+              "h94TQOK7NRA@3046",
+              "h94TQOK7NRA@3047",
+              "h94TQOK7NRA@3050",
+              "h94TQOK7NRA@3052",
+              "h94TQOK7NRA@3054"
+            ]
+          },
+          {
+            "id": "ch03.s08.p06.r04",
+            "text": "Printing the context vectors shows that the first 6 × 2 matrix corresponds to the first input and the second 6 × 2 matrix corresponds to the second input, stacked together.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@3058",
+              "h94TQOK7NRA@3061",
+              "h94TQOK7NRA@3064",
+              "h94TQOK7NRA@3067",
+              "h94TQOK7NRA@3069",
+              "h94TQOK7NRA@3071",
+              "h94TQOK7NRA@3074",
+              "h94TQOK7NRA@3076",
+              "h94TQOK7NRA@3078",
+              "h94TQOK7NRA@3079"
+            ]
+          },
+          {
+            "id": "ch03.s08.p06.r05",
+            "text": "That confirms that the implemented causal attention class can handle batches.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@3082",
+              "h94TQOK7NRA@3084",
+              "h94TQOK7NRA@3086"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.s08.p07",
+        "sentences": [
+          {
+            "id": "ch03.s08.p07.01",
+            "text": "A few implementation details make this class easier to use correctly.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch03.s08.p07.02",
+            "text": "A buffer is useful for fixed tensors such as the causal mask that do not need to be trained.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@3088",
+              "h94TQOK7NRA@3089",
+              "h94TQOK7NRA@3092",
+              "h94TQOK7NRA@3112",
+              "h94TQOK7NRA@3114",
+              "h94TQOK7NRA@3117",
+              "h94TQOK7NRA@3123"
+            ]
+          },
+          {
+            "id": "ch03.s08.p07.03",
+            "text": "Using \"register_buffer\" for fixed matrices like the mask causes them to move automatically with the model to the appropriate device, such as CPU or GPU.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@3100",
+              "h94TQOK7NRA@3101",
+              "h94TQOK7NRA@3103",
+              "h94TQOK7NRA@3105",
+              "h94TQOK7NRA@3125",
+              "h94TQOK7NRA@3127",
+              "h94TQOK7NRA@3131",
+              "h94TQOK7NRA@3133",
+              "h94TQOK7NRA@3162",
+              "h94TQOK7NRA@3163"
+            ]
+          },
+          {
+            "id": "ch03.s08.p07.04",
+            "text": "Defining fixed, untrained tensors with \"register_buffer\" is more convenient because it avoids manually ensuring that they are on the same device as the model parameters and helps prevent device mismatch errors.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@3134",
+              "h94TQOK7NRA@3137",
+              "h94TQOK7NRA@3140",
+              "h94TQOK7NRA@3142",
+              "h94TQOK7NRA@3144",
+              "h94TQOK7NRA@3146",
+              "h94TQOK7NRA@3157",
+              "h94TQOK7NRA@3159",
+              "h94TQOK7NRA@3163",
+              "h94TQOK7NRA@3166",
+              "h94TQOK7NRA@3167",
+              "h94TQOK7NRA@3169"
+            ]
+          },
+          {
+            "id": "ch03.s08.p07.05",
+            "text": "Slicing the mask by the number of tokens ensures that if a batch has fewer tokens than the supported context size, the mask is created only up to the actual number of tokens.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@3171",
+              "h94TQOK7NRA@3173",
+              "h94TQOK7NRA@3177",
+              "h94TQOK7NRA@3179",
+              "h94TQOK7NRA@3181",
+              "h94TQOK7NRA@3183",
+              "h94TQOK7NRA@3188",
+              "h94TQOK7NRA@3190",
+              "h94TQOK7NRA@3192"
+            ]
+          },
+          {
+            "id": "ch03.s08.p07.06",
+            "text": "Taken together, this class applies a causal attention mask so that elements above the diagonal are set to zero, uses softmax so each row of attention weights sums to one, and includes dropout for generalizability and to prevent overfitting.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@3206",
+              "h94TQOK7NRA@3208",
+              "h94TQOK7NRA@3211",
+              "h94TQOK7NRA@3213",
+              "h94TQOK7NRA@3215",
+              "h94TQOK7NRA@3218",
+              "h94TQOK7NRA@3219",
+              "h94TQOK7NRA@3222",
+              "h94TQOK7NRA@3224",
+              "h94TQOK7NRA@3227"
+            ]
+          },
+          {
+            "id": "ch03.s08.p07.07",
+            "text": "Stacking multiple causal attention heads together leads to multi-head attention, which is what GPT implements.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@3236",
+              "h94TQOK7NRA@3238",
+              "h94TQOK7NRA@3240",
+              "h94TQOK7NRA@3247",
+              "h94TQOK7NRA@3250",
+              "h94TQOK7NRA@3252",
+              "h94TQOK7NRA@3265",
+              "h94TQOK7NRA@3267",
+              "h94TQOK7NRA@3269",
+              "h94TQOK7NRA@3270",
+              "h94TQOK7NRA@3272"
+            ]
+          },
+          {
+            "id": "ch03.s08.p07.08",
+            "text": "To understand multi-head attention, it is necessary first to understand causal attention, and causal attention in turn depends on understanding keys, queries, and values.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@3277",
+              "h94TQOK7NRA@3278",
+              "h94TQOK7NRA@3281",
+              "h94TQOK7NRA@3283",
+              "h94TQOK7NRA@3285",
+              "h94TQOK7NRA@3287"
+            ]
+          },
+          {
+            "id": "ch03.s08.p07.09",
+            "text": "Understanding dimensions, batches, three-dimensional tensors, matrices, and linear algebra fundamentals is therefore important for understanding how attention works.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@3313",
+              "h94TQOK7NRA@3315",
+              "h94TQOK7NRA@3317",
+              "h94TQOK7NRA@3319",
+              "h94TQOK7NRA@3322",
+              "h94TQOK7NRA@3323",
+              "h94TQOK7NRA@3325",
+              "h94TQOK7NRA@3327",
+              "h94TQOK7NRA@3330",
+              "h94TQOK7NRA@3331"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch03.s08.p03.01": {
+        "verdict": "supported",
+        "confidence": 0.91,
+        "reason": ""
+      },
+      "ch03.s08.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch03.s08.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s08.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s08.p04.01": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s08.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s08.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s08.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s08.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s08.p04.06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s08.p04.07": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s08.p04.08": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s08.p04.09": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s08.p07.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s08.p07.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s08.p07.03": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s08.p07.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s08.p07.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s08.p07.06": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s08.p07.07": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s08.p07.08": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s08.p07.09": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch03.s08.p01.r01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s08.p01.r02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s08.p01.r03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s08.p01.r04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s08.p01.r05": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s08.p01.r06": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s08.p02.r01": {
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "Cited lines clearly say they first create a dropout mask and that it specifies which neurons are randomly turned off, but they do not explicitly tie this procedure specifically to 'causal attention' (that link is only in surrounding context)."
+      },
+      "ch03.s08.p02.r02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s08.p02.r03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s08.p02.r04": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s08.p02.r05": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s08.p02.r06": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s08.p02.r07": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s08.p02.r08": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s08.p02.r09": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s08.p05.r01": {
+        "verdict": "ok",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch03.s08.p05.r02": {
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "The cited lines state ones above the diagonal and imply everything below is different, but they do not explicitly say the below-diagonal entries are zeros; context even mentions 'diagonal is zero' rather than 'below the diagonal is zero'."
+      },
+      "ch03.s08.p05.r03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s08.p05.r04": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s08.p05.r05": {
+        "verdict": "supported",
+        "confidence": 0.87,
+        "reason": ""
+      },
+      "ch03.s08.p05.r06": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s08.p06.r01": {
+        "verdict": "unsupported",
+        "confidence": 0.67,
+        "reason": "The cited lines say the context length is taken as batch.shape[1] and that batch.shape[1] is 6, but they justify it by saying batch size is 6 (which would correspond to shape[0], not shape[1]). The sentence’s linkage to 'context length = batch.shape[1]' is stated, but the explanation and mapping to 6 for the given batch is internally inconsistent in the source."
+      },
+      "ch03.s08.p06.r02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s08.p06.r03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s08.p06.r04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s08.p06.r05": {
+        "verdict": "supported",
+        "confidence": 0.84,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch03.s08.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s08.p01.02": {
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "Cited lines describe randomly switching neurons in different layers to zero, but do not explicitly state this is done by setting them to zero (though implied)."
+      },
+      "ch03.s08.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s08.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s08.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s08.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s08.p02.01": {
+        "verdict": "partial",
+        "confidence": 0.7,
+        "reason": "Lines support creating a dropout mask that specifies what neurons are turned off, but they do not explicitly say it specifies which attention weights will be turned off."
+      },
+      "ch03.s08.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s08.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s08.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s08.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s08.p02.06": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s08.p02.07": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s08.p02.08": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s08.p02.09": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s08.p03.01": {
+        "verdict": "supported",
+        "confidence": 0.91,
+        "reason": ""
+      },
+      "ch03.s08.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch03.s08.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s08.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s08.p04.01": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s08.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s08.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s08.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      "ch03.s08.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s08.p04.06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s08.p04.07": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s08.p04.08": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s08.p04.09": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s08.p05.01": {
+        "verdict": "ok",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch03.s08.p05.02": {
+        "verdict": "partial",
+        "confidence": 0.74,
+        "reason": "cited lines support ones above the diagonal and (in context) zeros below, but the sentence defines an upper triangular matrix generally; the captions describe an upper triangular mask and do not explicitly state the diagonal entries’ value (only above-diagonal and below-diagonal)."
+      },
+      "ch03.s08.p05.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s08.p05.04": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s08.p05.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s08.p05.06": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s08.p06.01": {
+        "verdict": "partial",
+        "confidence": 0.62,
+        "reason": "The lines support that context length is taken as batch.shape[1] and equals 6, but they attribute the 6 to 'batch size of six', which is inconsistent/misexplained; the sentence’s 'for the given batch' is fine, but the cited support for why it is 6 is muddled."
+      },
+      "ch03.s08.p06.02": {
+        "verdict": "supported",
+        "confidence": 0.87,
+        "reason": ""
+      },
+      "ch03.s08.p06.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s08.p06.04": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch03.s08.p06.05": {
+        "verdict": "supported",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch03.s08.p07.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s08.p07.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.s08.p07.03": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.s08.p07.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s08.p07.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s08.p07.06": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch03.s08.p07.07": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch03.s08.p07.08": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch03.s08.p07.09": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "ch03.s08.p01",
+      "ch03.s08.p02",
+      "ch03.s08.p05",
+      "ch03.s08.p06"
+    ],
+    "queue": [
+      {
+        "sentence_id": "ch03.s08.p02.r01",
+        "text": "For causal attention, dropout is applied by first creating a dropout mask that specifies what neurons need to be randomly turned off.",
+        "cites": [
+          "h94TQOK7NRA@2075",
+          "h94TQOK7NRA@2077",
+          "h94TQOK7NRA@2084",
+          "h94TQOK7NRA@2086",
+          "h94TQOK7NRA@2089"
+        ],
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "Cited lines clearly say they first create a dropout mask and that it specifies which neurons are randomly turned off, but they do not explicitly tie this procedure specifically to 'causal attention' (that link is only in surrounding context).",
+        "status": "open"
+      },
+      {
+        "sentence_id": "ch03.s08.p05.r02",
+        "text": "Here, the upper triangular mask has ones above the diagonal and zeros below the diagonal.",
+        "cites": [
+          "h94TQOK7NRA@2866",
+          "h94TQOK7NRA@2876",
+          "h94TQOK7NRA@2878",
+          "h94TQOK7NRA@2880"
+        ],
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "The cited lines state ones above the diagonal and imply everything below is different, but they do not explicitly say the below-diagonal entries are zeros; context even mentions 'diagonal is zero' rather than 'below the diagonal is zero'.",
+        "status": "open"
+      },
+      {
+        "sentence_id": "ch03.s08.p06.r01",
+        "text": "In the worked example, the context length is taken as batch.shape[1], which is 6 for the given batch.",
+        "cites": [
+          "h94TQOK7NRA@2932",
+          "h94TQOK7NRA@2935",
+          "h94TQOK7NRA@2937",
+          "h94TQOK7NRA@2940"
+        ],
+        "verdict": "unsupported",
+        "confidence": 0.67,
+        "reason": "The cited lines say the context length is taken as batch.shape[1] and that batch.shape[1] is 6, but they justify it by saying batch size is 6 (which would correspond to shape[0], not shape[1]). The sentence’s linkage to 'context length = batch.shape[1]' is stated, but the explanation and mapping to 6 for the given batch is internally inconsistent in the source.",
+        "status": "open"
+      }
+    ]
+  }
+}

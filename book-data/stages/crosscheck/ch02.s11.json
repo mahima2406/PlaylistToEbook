@@ -1,0 +1,337 @@
+{
+  "stage": "crosscheck",
+  "item": "ch02.s11",
+  "inputs_hash": "09f0c08208a8ca97b74a2d0d308ce3c25bd0dab82ab42b418d2f54dea7083a49",
+  "output_hash": "a795052f0edda26b312ca8944a1529918d2191a28079a13ea207621b416f4a68",
+  "output": {
+    "section_id": "ch02.s11",
+    "checked": 27,
+    "counts": {
+      "agrees": 1,
+      "contradicts": 0,
+      "not_covered": 26
+    },
+    "results": [
+      {
+        "sentence_id": "ch02.s11.p01.03",
+        "text": "Text has a similar kind of structure to exploit: words carry meanings, and some words are closer in meaning to other words.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell36",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell52"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References discuss vocabulary size, special tokens, and perplexity, but do not address semantic similarity between words or that some words are closer in meaning."
+      },
+      {
+        "sentence_id": "ch02.s11.p01.04",
+        "text": "Examples such as \"cat\" and \"kitten\" or \"dog\" and \"puppy\" show the kind of semantic closeness that should be represented.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell25"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Reference describes embedding tensor shapes and attention score computation, not examples of semantic closeness like cat/kitten or dog/puppy."
+      },
+      {
+        "sentence_id": "ch02.s11.p01.05",
+        "text": "Token embeddings, also called vector embeddings, represent words or tokens as vectors in a way that preserves semantic relationships.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell103",
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell6"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs show creation and use of token + positional embeddings, but do not state that embeddings preserve semantic relationships."
+      },
+      {
+        "sentence_id": "ch02.s11.p02.02",
+        "text": "To obtain vector or token embeddings, a neural network has to be trained to create them from text.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell130",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell46"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs show how an embedding layer converts token IDs to vectors and that embeddings are part of the model, but they do not explicitly state that a neural network must be trained to obtain embeddings from text."
+      },
+      {
+        "sentence_id": "ch02.s11.p02.03",
+        "text": "The training signal comes from sentences in textual documents, because they reveal which words are closer or more similar and therefore should have similar vectors.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell31",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs mention batching/padding and perplexity, but do not describe the training signal as coming from sentences revealing word similarity for embedding learning."
+      },
+      {
+        "sentence_id": "ch02.s11.p02.04",
+        "text": "Creating the right embeddings is not easy.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell103",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell107",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell111"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs introduce creating token embeddings and show embedding weights, but do not claim that creating the right embeddings is not easy."
+      },
+      {
+        "sentence_id": "ch02.s11.p02.05",
+        "text": "It is also computationally expensive, because a model may need vectors for a very large vocabulary; GPT-2 is described as having a vocabulary of about 50,000 words, and creating embeddings for that many words is one reason training GPT takes a huge amount of time.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell108",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell117"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs mention a small toy vocabulary, GPT-2 endoftext token usage, and that LLM training is computationally expensive, but do not connect embedding creation for ~50k vocab to training time as stated."
+      },
+      {
+        "sentence_id": "ch02.s11.p02.06",
+        "text": "In GPT, every word is converted into a vector in a high-dimensional space, and a neural network is trained to generate those vectors.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell10",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell9"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs state LLMs use high-dimensional embeddings and show converting token IDs to vectors, but do not state that a neural network is trained specifically to generate those vectors for every word as phrased."
+      },
+      {
+        "sentence_id": "ch02.s11.p02.07",
+        "text": "Those embeddings are not taken from a separate pre-trained dataset in large language models, but are trained along with the model itself, including the next-word prediction task.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell104",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell8"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference states embedding layers are usually part of the LLM itself and are updated (trained) during model training, consistent with embeddings being trained along with the next-word prediction model rather than sourced separately."
+      },
+      {
+        "sentence_id": "ch02.s11.p03.02",
+        "text": "Many large companies, including Google, already provide pre-trained token embeddings.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell8",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell103",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell130"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs do not mention companies like Google providing pre-trained token embeddings."
+      },
+      {
+        "sentence_id": "ch02.s11.p03.04",
+        "text": "In this name, \"300\" is the embedding dimension: each word is mapped into a 300-dimensional vector space.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell127",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell10"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs discuss embedding dimensions in examples (e.g., 256, 4) but do not explain a name where '300' denotes embedding dimension or that words map to 300-D space."
+      },
+      {
+        "sentence_id": "ch02.s11.p03.05",
+        "text": "A five-dimensional space is described as not really enough to capture all meaning, which motivates using higher-dimensional embeddings such as 300 dimensions.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell10",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs note LLM embeddings are high-dimensional (e.g., 768) and give examples with 2D/3D, but do not state that 5D is insufficient or motivate specifically 300D embeddings on that basis."
+      },
+      {
+        "sentence_id": "ch02.s11.p03.06",
+        "text": "A pre-trained Word2Vec model can take a word as input and convert it into a 300-dimensional vector.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell121",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell125"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss embedding layers mapping token IDs to vectors and give example dimensions (3, 256), but do not mention a pre-trained Word2Vec model or specifically 300-dimensional vectors."
+      },
+      {
+        "sentence_id": "ch02.s11.p03.07",
+        "text": "In code, the model is assigned to a dictionary called \"word_vectors\", where each word is associated with its embedding vector.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell121",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No provided passage shows code assigning a model to a dictionary named \"word_vectors\" or mapping words to vectors; the refs focus on embeddings/LLM data prep."
+      },
+      {
+        "sentence_id": "ch02.s11.p03.08",
+        "text": "Looking up the vector for \"computer\" and printing its shape shows a 300-dimensional vector, illustrating that every word is encoded into a 300-dimensional vector.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell125"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not show looking up \"computer\", printing its vector shape, or any statement that vectors are 300-dimensional; they only include toy dimensions (e.g., 3) and a hypothetical 256-d setup."
+      },
+      {
+        "sentence_id": "ch02.s11.p04.03",
+        "text": "To test this, the vectors for \"king\" and \"woman\" are added, the vector for \"man\" is subtracted, and then the most similar words to the resulting vector are printed.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell38"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages are about self-attention/context vectors, not Word2Vec-style vector arithmetic (king + woman − man) or printing most similar words."
+      },
+      {
+        "sentence_id": "ch02.s11.p04.04",
+        "text": "The top result is \"queen\", with a reported score of around 71%, which is presented as evidence that the vectors encode semantic information.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell108",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell26",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell104"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the provided references report a \"queen\" top result with ~71% score or discuss Word2Vec analogy outcomes; the refs shown are about top-k sampling logits and tokenization."
+      },
+      {
+        "sentence_id": "ch02.s11.p04.05",
+        "text": "The explanation given is that these vectors capture semantic properties such as masculinity and femininity, and that related pairs such as \"king\" and \"queen\" or \"man\" and \"woman\" are closer to each other.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell97",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell34"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages do not discuss semantic axes like masculinity/femininity or that pairs like king/queen or man/woman are closer in embedding space."
+      },
+      {
+        "sentence_id": "ch02.s11.p04.06",
+        "text": "When embeddings are trained well, as in the Word2Vec Google News model, they can encode meaning in the vectors.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell8"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention embeddings in general and show combining token and positional embeddings, but do not mention Word2Vec Google News or the claim about well-trained embeddings encoding meaning in that specific way."
+      },
+      {
+        "sentence_id": "ch02.s11.p05.r02",
+        "text": "Related pairs such as \"woman\" and \"man\", \"king\" and \"queen\", \"uncle\" and \"aunt\", \"boy\" and \"girl\", and \"nephew\" and \"niece\" are expected to have similar embeddings.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell66",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell108",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not state expectations about specific related word pairs (uncle/aunt, etc.) having similar embeddings; they only describe embedding construction in general."
+      },
+      {
+        "sentence_id": "ch02.s11.p05.r03",
+        "text": "To check relatedness in the embedding space, words are converted into vectors and their similarity is tested, described here as finding the distance between vectors.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell23"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages relate to attention and embedded input examples, not to converting words to vectors and computing distances/similarities between word embeddings."
+      },
+      {
+        "sentence_id": "ch02.s11.p05.r04",
+        "text": "The code uses \"word_vectors.similarity\" on pairs such as \"woman\" and \"man\" to compute similarity scores between word vectors.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell27",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell69",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell54"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference shows use of a \"word_vectors.similarity\" method or computing similarity scores for word pairs like woman/man."
+      },
+      {
+        "sentence_id": "ch02.s11.p05.r05",
+        "text": "The reported similarity scores are high for the related pairs and low for \"paper\" and \"water\", because the related vectors are closer to each other while the unrelated ones are far apart.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not provide any reported similarity scores for related vs unrelated pairs (e.g., paper/water) or an explanation based on closeness in embedding space."
+      },
+      {
+        "sentence_id": "ch02.s11.p05.r06",
+        "text": "Embeddings can also be used to find words similar to a given word; for \"tower\", the shown similar words include \"scraper\", \"tower\", and \"spire\".",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell31",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell99"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the provided references show a nearest-neighbor query for \"tower\" or list similar words like \"scraper\"/\"spire\"; the refs instead discuss padding, perplexity, and plotting loss."
+      },
+      {
+        "sentence_id": "ch02.s11.p05.r07",
+        "text": "Another check computes the norm of the difference between two word vectors with \"np.linalg.norm\" to measure how far apart their embeddings are.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell130",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell16"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The referenced cells show how token and positional embeddings are created and summed, but do not show a check computing a norm of a difference between two word vectors using np.linalg.norm."
+      },
+      {
+        "sentence_id": "ch02.s11.p05.r08",
+        "text": "The magnitude of that difference is presented as an indication of how close or far the meanings of the corresponding words are.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss loss/perplexity and model logits/probabilities, not interpreting embedding-vector distance as semantic similarity or meaning closeness."
+      },
+      {
+        "sentence_id": "ch02.s11.p05.r09",
+        "text": "Words with similar meanings therefore have embeddings that are closer together in space, so the magnitude of the difference between their vectors is smaller than for unrelated words.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell108",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages do not cover the claim that semantically similar words have closer embeddings (smaller vector differences); they cover perplexity/loss and a toy vocabulary mention without stating this relationship."
+      }
+    ],
+    "conflicts": []
+  }
+}

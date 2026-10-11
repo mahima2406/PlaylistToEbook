@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch01.s10.p03.r06",
+  "inputs_hash": "e3b25fe991e48059b2603558f47530db32d678595256fddceec1442692fbcab1",
+  "output_hash": "66074ff4a56e1da0c6eb5e00211b2bc598c1d41429bb634c8c780f0ae63068ba",
+  "output": {
+    "decision": "edit",
+    "text": "Saving and loading weights saves a lot of computational cost.",
+    "reason": "The captions support computational cost savings, but they do not clearly support a separate claim that saving/loading weights saves memory.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.96,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "c328880190c8a963fe3df292749a94073ec571e527519f826e632caa259815d8"
+  }
+}

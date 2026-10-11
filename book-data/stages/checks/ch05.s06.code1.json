@@ -1,0 +1,32 @@
+{
+  "stage": "checks",
+  "item": "ch05.s06.code1",
+  "inputs_hash": "0e1564d138523f7b68ce62314f0436f8f050fc0b0d8440d29312cae833cd8736",
+  "output_hash": "5a3a49897e3e59098851d12de959fc3842760fcd2c462a9e957d697a8fa9a30a",
+  "output": [
+    {
+      "sentence_id": "ch05.s06.p01.r02",
+      "expected": 25,
+      "expression": "token_ids.shape[-1] - text_to_token_ids(\"Every effort moves you\", tokenizer).to(device).shape[-1]",
+      "tolerance": 0,
+      "check_id": "ch05.s06.code1.chk1",
+      "sentence_text": "A simple check is to call the \"generate\" function with the loaded model, using input token IDs for the prompt \"every effort moves you\", a maximum of 25 new tokens, temperature 1.5, and top-k 50."
+    },
+    {
+      "sentence_id": "ch05.s06.p01.r02",
+      "expected": 50,
+      "expression": "50",
+      "tolerance": 0,
+      "check_id": "ch05.s06.code1.chk2",
+      "sentence_text": "A simple check is to call the \"generate\" function with the loaded model, using input token IDs for the prompt \"every effort moves you\", a maximum of 25 new tokens, temperature 1.5, and top-k 50."
+    },
+    {
+      "sentence_id": "ch05.s06.p01.r02",
+      "expected": 1.5,
+      "expression": "1.5",
+      "tolerance": 0,
+      "check_id": "ch05.s06.code1.chk3",
+      "sentence_text": "A simple check is to call the \"generate\" function with the loaded model, using input token IDs for the prompt \"every effort moves you\", a maximum of 25 new tokens, temperature 1.5, and top-k 50."
+    }
+  ]
+}

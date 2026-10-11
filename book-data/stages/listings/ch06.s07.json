@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch06.s07",
+  "inputs_hash": "177c3edd5493bb8a53ab1593ed4f472560da38101b77d219a5e0cdb4257c9c96",
+  "output_hash": "72ffd7c9f5f83b225b52f5e8423c7a47ccefc052029bae2e845623d2c0cbb373",
+  "output": {
+    "section_id": "ch06.s07",
+    "listings": [],
+    "rejected": [
+      {
+        "id": "ch06.s07.code1",
+        "ref": "ref:ch07/01_main-chapter-code/ch07.ipynb#cell35",
+        "path": "ch07/01_main-chapter-code/ch07.ipynb",
+        "caption": "This collate function appends token 50256 to each sequence, pads all sequences in a batch to the same length, removes the final extra pad from the inputs, and stacks the results into a tensor on the target device.",
+        "code": "def custom_collate_draft_1(\n    batch,\n    pad_token_id=50256,\n    device=\"cpu\"\n):\n    # Find the longest sequence in the batch\n    # and increase the max length by +1, which will add one extra\n    # padding token below\n    batch_max_length = max(len(item)+1 for item in batch)\n\n    # Pad and prepare inputs\n    inputs_lst = []\n\n    for item in batch:\n        new_item = item.copy()\n        # Add an <|endoftext|> token\n        new_item += [pad_token_id]\n        # Pad sequences to batch_max_length\n        padded = (\n            new_item + [pad_token_id] *\n            (batch_max_length - len(new_item))\n        )\n        # Via padded[:-1], we remove the extra padded token\n        # that has been added via the +1 setting in batch_max_length\n        # (the extra padding token will be relevant in later codes)\n        inputs = torch.tensor(padded[:-1])\n        inputs_lst.append(inputs)\n\n    # Convert list of inputs to tensor and transfer to target device\n    inputs_tensor = torch.stack(inputs_lst).to(device)",
+        "truncated": true,
+        "check": "partial",
+        "reason": "The code matches only part of the section: it appends 50256, pads sequences within a batch to the same length, removes the extra final pad from inputs, and stacks to a tensor, which aligns with the padding/batching mechanics described in the caption. However, the section also teaches creating target token IDs by shifting inputs and masking padding tokens (replacing 50256 with -100 except the first/end-of-text), and masking targets with -100. This excerpt does not create targets or apply any -100 masking, so it does not directly implement the full five-step batching process described."
+      },
+      {
+        "id": "ch06.s07.code2",
+        "ref": "ref:ch02/01_main-chapter-code/ch02.ipynb#cell93",
+        "path": "ch02/01_main-chapter-code/ch02.ipynb",
+        "caption": "This dataset class tokenizes text and creates input and target sequences by taking overlapping windows and shifting the target tokens one position to the right of the inputs.",
+        "code": "from torch.utils.data import Dataset, DataLoader\n\n\nclass GPTDatasetV1(Dataset):\n    def __init__(self, txt, tokenizer, max_length, stride):\n        self.input_ids = []\n        self.target_ids = []\n\n        # Tokenize the entire text\n        token_ids = tokenizer.encode(txt, allowed_special={\"<|endoftext|>\"})\n        assert len(token_ids) > max_length, \"Number of tokenized inputs must at least be equal to max_length+1\"\n\n        # Use a sliding window to chunk the book into overlapping sequences of max_length\n        for i in range(0, len(token_ids) - max_length, stride):\n            input_chunk = token_ids[i:i + max_length]\n            target_chunk = token_ids[i + 1: i + max_length + 1]\n            self.input_ids.append(torch.tensor(input_chunk))\n            self.target_ids.append(torch.tensor(target_chunk))\n\n    def __len__(self):\n        return len(self.input_ids)\n\n    def __getitem__(self, idx):\n        return self.input_ids[idx], self.target_ids[idx]\n\ndef create_dataloader_v1(txt, batch_size=4, max_length=256, \n                         stride=128, shuffle=True, drop_last=True,\n                         num_workers=0):\n\n    # Initialize the tokenizer",
+        "truncated": true,
+        "check": "no",
+        "reason": "The section is about batching for instruction fine-tuning using the Alpaca prompt template, per-batch padding with token 50256, creating targets by shifting, and masking padding/target tokens with -100. The code defines a Dataset that chunks a single long text into overlapping windows and creates input/target pairs by shifting by one, but it does not implement batching steps (no padding to longest in batch, no 50256 padding, no -100 masking, no Alpaca prompt formatting). The caption accurately describes the sliding-window shifting behavior, but that behavior is not what the section teaches."
+      }
+    ]
+  }
+}

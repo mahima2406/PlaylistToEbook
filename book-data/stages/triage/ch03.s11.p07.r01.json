@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch03.s11.p07.r01",
+  "inputs_hash": "bbead12ffb8d679461b1bc5ee8dec1819e89ef3d0ff5c4533d5234d5cbef542f",
+  "output_hash": "0b274ef39f1cff422ac98c64c44e745adee16db02006e153449263bf20a11449",
+  "output": {
+    "decision": "edit",
+    "text": "The mean gradient becomes much smaller in earlier layers, illustrating the vanishing gradient problem.",
+    "reason": "The captions support the shrinking gradients and vanishing-gradient interpretation, but not the explicit tie to the no-shortcut case in this sentence alone.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.95,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "ee12b35349e83aa1bd5c65179fe1f43befec1e138014017fa6297fbe526b2841"
+  }
+}

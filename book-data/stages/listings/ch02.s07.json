@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch02.s07",
+  "inputs_hash": "5c8894409ecb195583bd55397f9e38c75dab2569045e08ee88465001063899a8",
+  "output_hash": "7bdd9f02a4102bfafd6ad0047f30f65341a97ed003ce677a55c81b9012dee3d7",
+  "output": {
+    "section_id": "ch02.s07",
+    "listings": [],
+    "rejected": [
+      {
+        "id": "ch02.s07.code1",
+        "ref": "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73",
+        "path": "ch02/01_main-chapter-code/ch02.ipynb",
+        "caption": "This code gets the GPT-2 encoding object from the tiktoken library and stores it in tokenizer.",
+        "code": "tokenizer = tiktoken.get_encoding(\"gpt2\")\n\ntext = (\n    \"Hello, do you like tea? <|endoftext|> In the sunlit terraces\"\n     \"of someunknownPlace.\"\n)\n\nintegers = tokenizer.encode(text, allowed_special={\"<|endoftext|>\"})\n\nprint(integers)\n\nstrings = tokenizer.decode(integers)\n\nprint(strings)",
+        "truncated": false,
+        "check": "no",
+        "reason": "The section teaches byte pair encoding for compression (iteratively replacing the most frequent byte pairs with unused bytes). The code instead uses tiktoken to load the GPT-2 tokenizer and encode/decode a text string, including a special token. It does not implement or demonstrate the described BPE byte-pair replacement procedure, and the caption is about tokenizer retrieval rather than BPE compression."
+      },
+      {
+        "id": "ch02.s07.code2",
+        "ref": "ref:ch02/01_main-chapter-code/ch02.ipynb#cell74",
+        "path": "ch02/01_main-chapter-code/ch02.ipynb",
+        "caption": "This code defines a text string, encodes it with the tokenizer while allowing the <|endoftext|> special token, and prints the resulting integer token IDs.",
+        "code": "text = (\n    \"Hello, do you like tea? <|endoftext|> In the sunlit terraces\"\n     \"of someunknownPlace.\"\n)\n\nintegers = tokenizer.encode(text, allowed_special={\"<|endoftext|>\"})\n\nprint(integers)\n\nstrings = tokenizer.decode(integers)\n\nprint(strings)",
+        "truncated": false,
+        "check": "no",
+        "reason": "The section teaches the byte pair encoding (BPE) compression procedure: iteratively finding the most frequent byte pair and replacing it with an unused byte until no pair repeats. The code instead uses an existing tokenizer to encode/decode a text string with an allowed special token and prints token IDs/decoded text. It does not implement or demonstrate scanning for frequent byte pairs, replacement with unused bytes, or the iterative BPE process described."
+      }
+    ]
+  }
+}

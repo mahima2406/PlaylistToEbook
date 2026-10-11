@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch02.s03",
+  "inputs_hash": "3e2bdd3a0754958555c32397dc2e9f34d2e242b23aeb48a16809ac38e161f74e",
+  "output_hash": "577892bb392db765e4cb2607e97b26989ce959f41a6c5e88a4dedc1021d16765",
+  "output": {
+    "section_id": "ch02.s03",
+    "listings": [
+      {
+        "id": "ch02.s03.code1",
+        "ref": "ref:ch02/01_main-chapter-code/ch02.ipynb#cell37",
+        "path": "ch02/01_main-chapter-code/ch02.ipynb",
+        "caption": "This code builds a vocabulary dictionary by assigning each token in `all_words` an integer ID using `enumerate`.",
+        "code": "vocab = {token:integer for integer,token in enumerate(all_words)}",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The section describes creating token IDs by sorting unique tokens and assigning IDs with Python’s enumerate, resulting in a token-to-integer vocabulary mapping. The code uses enumerate to build such a token→ID dictionary from `all_words`, which aligns with that step (assuming `all_words` contains the intended token list). The caption accurately states what the snippet does."
+      },
+      {
+        "id": "ch02.s03.code2",
+        "ref": "ref:ch02/01_main-chapter-code/ch02.ipynb#cell50",
+        "path": "ch02/01_main-chapter-code/ch02.ipynb",
+        "caption": "This code encodes `text` into token IDs with `tokenizer.encode` and immediately decodes those IDs back into text with `tokenizer.decode`.",
+        "code": "tokenizer.decode(tokenizer.encode(text))",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The section teaches that a tokenizer class provides encode (text→token IDs) and decode (token IDs→text), and demonstrates verifying round-trip correctness by encoding then decoding a sample text. The snippet directly performs that round trip, and the caption accurately describes it."
+      }
+    ],
+    "rejected": []
+  }
+}

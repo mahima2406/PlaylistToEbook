@@ -1,0 +1,33 @@
+{
+  "stage": "listings",
+  "item": "ch02.s14",
+  "inputs_hash": "8d71c16cfbc5f0694a909260c3d91260bce1e43da2f3e8c802fed5b0944b85cd",
+  "output_hash": "05f70cc7f93125d1fc130f6f28d89d4f875533dfcf88d52b6978947cb3fb6d32",
+  "output": {
+    "section_id": "ch02.s14",
+    "listings": [
+      {
+        "id": "ch02.s14.code2",
+        "ref": "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135",
+        "path": "ch02/01_main-chapter-code/ch02.ipynb",
+        "caption": "This code adds the positional embeddings to the token embeddings to form input embeddings and prints the resulting tensor shape.",
+        "code": "input_embeddings = token_embeddings + pos_embeddings\nprint(input_embeddings.shape)\n\n# uncomment & execute the following line to see how the embeddings look like\n# print(input_embeddings)",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The code directly demonstrates the taught step of forming input embeddings by adding positional embeddings to token embeddings, and it prints the resulting shape as the caption states. While it doesn’t show creating the positional embedding layer or the shared four positional vectors across the batch, it correctly implements the key addition operation described."
+      }
+    ],
+    "rejected": [
+      {
+        "id": "ch02.s14.code1",
+        "ref": "ref:ch02/01_main-chapter-code/ch02.ipynb#cell130",
+        "path": "ch02/01_main-chapter-code/ch02.ipynb",
+        "caption": "This code applies the token embedding layer to the input token IDs and prints the resulting token embedding tensor shape.",
+        "code": "token_embeddings = token_embedding_layer(inputs)\nprint(token_embeddings.shape)\n\n# uncomment & execute the following line to see how the embeddings look like\n# print(token_embeddings)",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The code does apply a token embedding layer to input token IDs and prints the resulting tensor shape, matching the caption. However, the section is primarily about constructing input embeddings by adding positional embeddings to token embeddings (including creating a positional embedding layer and summing), which this excerpt does not demonstrate."
+      }
+    ]
+  }
+}

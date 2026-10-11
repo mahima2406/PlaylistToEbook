@@ -1,0 +1,413 @@
+{
+  "stage": "crosscheck",
+  "item": "ch01.s06",
+  "inputs_hash": "46e102026478e8d0635fc2ef18108c64d8cba9df566226ad6dfb494e739c22c1",
+  "output_hash": "ed0ce1ade5dd27f936a214cd72650f7e3bf4b37376d0ad191467f57c9c89ccab",
+  "output": {
+    "section_id": "ch01.s06",
+    "checked": 33,
+    "counts": {
+      "agrees": 12,
+      "contradicts": 0,
+      "not_covered": 21
+    },
+    "results": [
+      {
+        "sentence_id": "ch01.s06.p01.02",
+        "text": "The specific secret sauce behind large language models is the Transformer architecture.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell58",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell6"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss GPT/Llama being based on the decoder part of the transformer and repeating transformer blocks, but they do not claim that the Transformer is the unique/specific “secret sauce” behind LLMs."
+      },
+      {
+        "sentence_id": "ch01.s06.p01.03",
+        "text": "People often use the terms large language models and transformers interchangeably, so it is important to separate what is shared from what is different.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell63",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell58"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages talk about finetuning choices and changed output dimensions, but do not address people using “LLM” and “transformer” interchangeably or the need to separate shared vs different aspects."
+      },
+      {
+        "sentence_id": "ch01.s06.p01.04",
+        "text": "Most modern large language models rely on the Transformer architecture.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell58",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell6",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell6"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly ties GPT and Llama (LLMs) to the decoder part of the original transformer architecture and discusses transformer components as central to popular LLMs."
+      },
+      {
+        "sentence_id": "ch01.s06.p01.05",
+        "text": "A Transformer is a deep neural network architecture introduced in the 2017 paper \"Attention Is All You Need.\"",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss implementing self-attention and transformer blocks but do not mention the 2017 paper title or that it introduced the Transformer."
+      },
+      {
+        "sentence_id": "ch01.s06.p01.07",
+        "text": "\"Attention Is All You Need\" is a dense paper, and understanding it takes a great deal of time and effort.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell6",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell77",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell103"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No provided reference comments on the density of the “Attention Is All You Need” paper or the time/effort required to understand it."
+      },
+      {
+        "sentence_id": "ch01.s06.p02.01",
+        "text": "The original Transformer and GPT are closely related, but they are not the same architecture.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell6",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states GPT-like models are based on the decoder part of the original transformer architecture, implying a close relationship but not identical architecture."
+      },
+      {
+        "sentence_id": "ch01.s06.p02.02",
+        "text": "The GPT architecture that underlies ChatGPT originated from the ideas in \"Attention Is All You Need,\" but GPT is not exactly the same as the original Transformer architecture.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell86",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references connect GPT to mechanisms used in the original transformer architecture (self-attention) while also indicating GPT uses the decoder part, supporting that it originated from transformer ideas but differs from the full original transformer."
+      },
+      {
+        "sentence_id": "ch01.s06.p02.04",
+        "text": "A Transformer architecture predominantly consists of two main blocks: an encoder block and a decoder block.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell64",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references shown focus on a transformer block (attention + feedforward etc.) and do not state that a Transformer architecture consists of two main blocks (encoder and decoder)."
+      },
+      {
+        "sentence_id": "ch01.s06.p02.05",
+        "text": "The original Transformer has both an encoder and a decoder, whereas GPT uses only the decoder and not the encoder.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell10",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell6",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell125"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference says GPT and Llama are based on the decoder part of the original transformer architecture (decoder-like), consistent with the original transformer having encoder+decoder and GPT using only the decoder portion."
+      },
+      {
+        "sentence_id": "ch01.s06.p02.06",
+        "text": "The Transformer paper came in 2017 with an encoder plus decoder, and GPT came in 2018 with only the decoder architecture.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell6",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell10",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not provide dates (2017/2018) for the Transformer paper or GPT release; they only discuss architectural relationships (decoder-like)."
+      },
+      {
+        "sentence_id": "ch01.s06.p02.07",
+        "text": "The source also states that even GPT-4 uses only the decoder and not an encoder.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell10",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell6"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not mention GPT-4 or state whether it uses only a decoder without an encoder."
+      },
+      {
+        "sentence_id": "ch01.s06.p02.08",
+        "text": "It further places GPT in a short timeline: GPT arrived in 2018, GPT-2 in 2019, and GPT-3 in 2020 with 175 billion parameters, which changed the field because models of that size had not been seen before.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell66",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell10",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell9"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the cited passages provide the GPT/GPT-2/GPT-3 timeline, dates, parameter count (175B), or the claim about field-changing scale."
+      },
+      {
+        "sentence_id": "ch01.s06.p03.r02",
+        "text": "The encoder is one of the most important building blocks of the Transformer architecture.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell10",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss transformer blocks, self-attention, and that GPT uses the decoder part of the original Transformer, but they do not state that the encoder is one of the most important building blocks of the Transformer architecture."
+      },
+      {
+        "sentence_id": "ch01.s06.p03.r03",
+        "text": "The encoder takes preprocessed tokens and performs vector embedding.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell29",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell125",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell31"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show token preprocessing and describe encoding tokens into vector representations (embeddings), but they do not specifically attribute embedding to a Transformer 'encoder' component."
+      },
+      {
+        "sentence_id": "ch01.s06.p03.r04",
+        "text": "The main purpose of the encoder is to take input text or tokens and convert them into vector embeddings.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell135"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references explain how token IDs are converted to embeddings and how input embeddings are formed, but they do not define the main purpose of a Transformer encoder as converting tokens into vector embeddings."
+      },
+      {
+        "sentence_id": "ch01.s06.p03.r05",
+        "text": "Vector embedding represents tokens in a way that captures semantic meaning between words by converting words into vectorized representations.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell36",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell37",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell32"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages cover building a vocabulary and converting tokens to IDs, but do not discuss embeddings capturing semantic meaning between words."
+      },
+      {
+        "sentence_id": "ch01.s06.p03.r06",
+        "text": "For example, tokenization may assign random IDs to \"dog\" and \"puppy\", but embeddings aim to encode that these words are related.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell27",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell108"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention token IDs after tokenization and constructing embeddings, but do not state that token IDs are random nor give the 'dog'/'puppy' relatedness example."
+      },
+      {
+        "sentence_id": "ch01.s06.p03.r07",
+        "text": "On the left side, these four steps take the input sentences and convert them into vector embeddings so that semantic meaning is captured between the words.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell115"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show how to embed input IDs using an embedding matrix, but they do not describe a four-step left-side pipeline or claim those steps capture semantic meaning between words."
+      },
+      {
+        "sentence_id": "ch01.s06.p04.r01",
+        "text": "These embeddings are fed into the decoder on the right-hand side of the Transformer architecture.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell6",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell8"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references note GPT-style LLMs are based on the decoder part of the Transformer and discuss plugging transformer blocks into a GPT architecture, but they do not describe an encoder-to-decoder handoff of embeddings in a full encoder-decoder Transformer."
+      },
+      {
+        "sentence_id": "ch01.s06.p04.r02",
+        "text": "The main purpose of the decoder is to generate output text from the embedding vectors and from the partial output it has received.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell79",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell65",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss generation functions and that for each input token there is one output vector, but they do not explicitly define the decoder’s main purpose as generating text from embedding vectors plus partial output."
+      },
+      {
+        "sentence_id": "ch01.s06.p04.r03",
+        "text": "The model generates its output one word at a time.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell83",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell77"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references explicitly state that GPT/LLMs are used/trained to generate one word at a time."
+      },
+      {
+        "sentence_id": "ch01.s06.p04.r04",
+        "text": "During decoding, the model has access to the partial output text that it has already generated.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell16",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell63",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell87"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss decoding and generation strategies, but do not explicitly state that during decoding the model has access to the partial output text it has already generated."
+      },
+      {
+        "sentence_id": "ch01.s06.p04.r05",
+        "text": "In the translation example, the partial output is described as \"Das s\", and that partial text is available to the model before it predicts the next word.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell61",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell94",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell85"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the cited passages mention a translation example with partial output 'Das s'."
+      },
+      {
+        "sentence_id": "ch01.s06.p04.r06",
+        "text": "The decoder receives both the vector embeddings and the partial output text, and it predicts the next word based on that information.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell90"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references cover creating input embeddings and next-token prediction training (targets shifted by one), but they do not state that a decoder receives both vector embeddings and partial output text to predict the next word."
+      },
+      {
+        "sentence_id": "ch01.s06.p04.r07",
+        "text": "It generates the translated text one word at a time until the final output is produced.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell83",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell88",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs explicitly state GPT-like LLMs generate iteratively one word/token at a time."
+      },
+      {
+        "sentence_id": "ch01.s06.p04.r08",
+        "text": "A Transformer can be viewed as a neural network trained with a loss function and optimized parameters, including feed-forward layers with weights and parameters.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell38",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell43"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs describe transformer blocks as neural network modules combining attention with linear/feed-forward layers (with weights/parameters) as part of the GPT architecture; consistent with being trained/optimized with a loss."
+      },
+      {
+        "sentence_id": "ch01.s06.p05.r01",
+        "text": "The key idea behind the Transformer architecture is the attention mechanism.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell126"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs focus on implementing (self-)attention as a core mechanism used in the original Transformer architecture and GPT-style models, consistent with attention being the key idea."
+      },
+      {
+        "sentence_id": "ch01.s06.p05.r02",
+        "text": "Self-attention is the heart of why Transformers work so well, which is why the paper is called \"Attention Is All You Need.\"",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell97"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs explain self-attention and note simplified vs real variants, but do not make the evaluative claim that it is 'the heart' nor connect it to the paper title rationale."
+      },
+      {
+        "sentence_id": "ch01.s06.p05.r03",
+        "text": "In a nutshell, the attention mechanism gives an LLM selective access to the whole input sequence when generating output one word at a time.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell83",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell88"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs separately state generation is one token at a time, but do not state that attention gives selective access to the whole input sequence during generation."
+      },
+      {
+        "sentence_id": "ch01.s06.p05.r04",
+        "text": "It allows the model to weigh the importance of different words relative to each other and capture long-range dependencies.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell15",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell12"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs state self-attention enables each position to engage with and determine relevance of every other position, aligning with weighing importance and capturing dependencies (including long-range)."
+      },
+      {
+        "sentence_id": "ch01.s06.p05.r05",
+        "text": "When predicting the next word, self-attention lets the model look at past context and weigh which words matter more for the prediction.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell95",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell137",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs describe causal self-attention: next-word prediction depends only on preceding tokens and uses masking, matching looking at past context and weighting which words matter."
+      },
+      {
+        "sentence_id": "ch01.s06.p05.r06",
+        "text": "The attention mechanism also lets an LLM determine the importance of words not only in the current sentence but also in previous sentences, because context matters for predicting the next word.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell95",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell67",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs state causal mask lets a token attend to current and previous positions; this includes earlier parts of the context window (which can span multiple sentences), consistent with using previous sentences when present in context."
+      },
+      {
+        "sentence_id": "ch01.s06.p05.r07",
+        "text": "More generally, attention allows an LLM to access the entire context and assign weight to the words that are important for predicting the next word.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell92"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs describe causal masking to prevent using future tokens while computing context vectors via attention weights, consistent with using (available) context and weighting important words for next-token prediction."
+      }
+    ],
+    "conflicts": []
+  }
+}

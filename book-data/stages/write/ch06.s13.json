@@ -1,0 +1,690 @@
+{
+  "stage": "write",
+  "item": "ch06.s13",
+  "inputs_hash": "c8c081696f0c5496dd476f6b059df505e2dc40274ba3b9970d77fa872eaa4492",
+  "output_hash": "f8d96845a9af50ffc0a672f9ab7e6f0417e9d15f872455747c72518dfdc306eb",
+  "output": {
+    "section_id": "ch06.s13",
+    "paragraphs": [
+      {
+        "id": "ch06.s13.p01",
+        "sentences": [
+          {
+            "id": "ch06.s13.p01.01",
+            "text": "How can a local model be turned into an automatic evaluator for instruction-following outputs, and why is that useful here?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s13.p01.02",
+            "text": "Ollama is software, or an application, for efficiently running large language models on a laptop.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1475",
+              "7m2jV7BOFkA@1479",
+              "7m2jV7BOFkA@1496",
+              "7m2jV7BOFkA@1498",
+              "7m2jV7BOFkA@1500"
+            ]
+          },
+          {
+            "id": "ch06.s13.p01.03",
+            "text": "It lets you run local models such as Llama 3, Phi-3, Mistral, and Gemma 2 on a PC or laptop.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1503",
+              "7m2jV7BOFkA@1505",
+              "7m2jV7BOFkA@1507",
+              "7m2jV7BOFkA@1511",
+              "7m2jV7BOFkA@1513",
+              "7m2jV7BOFkA@1516",
+              "7m2jV7BOFkA@1830",
+              "7m2jV7BOFkA@1834",
+              "7m2jV7BOFkA@1837",
+              "7m2jV7BOFkA@1840"
+            ]
+          },
+          {
+            "id": "ch06.s13.p01.04",
+            "text": "Ollama is used for inference only, not for pre-training.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1518",
+              "7m2jV7BOFkA@1521",
+              "7m2jV7BOFkA@1522",
+              "7m2jV7BOFkA@1531",
+              "7m2jV7BOFkA@1534",
+              "7m2jV7BOFkA@1536"
+            ]
+          },
+          {
+            "id": "ch06.s13.p01.05",
+            "text": "It is only a tool for generating text with LLM inference and does not support training or fine-tuning.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1634",
+              "7m2jV7BOFkA@1637",
+              "7m2jV7BOFkA@1639",
+              "7m2jV7BOFkA@1641"
+            ]
+          },
+          {
+            "id": "ch06.s13.p01.06",
+            "text": "It is also described as a very commonly used LLM inference application.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1623",
+              "7m2jV7BOFkA@1626",
+              "7m2jV7BOFkA@1628",
+              "7m2jV7BOFkA@1631"
+            ]
+          },
+          {
+            "id": "ch06.s13.p01.07",
+            "text": "The evaluation setup uses an instruction-fine-tuned Llama 3 model with 8 billion parameters, accessed through Ollama.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1540",
+              "7m2jV7BOFkA@1544",
+              "7m2jV7BOFkA@1546",
+              "7m2jV7BOFkA@1550",
+              "7m2jV7BOFkA@1554",
+              "7m2jV7BOFkA@1556"
+            ]
+          },
+          {
+            "id": "ch06.s13.p01.08",
+            "text": "That model is chosen because it has already been fine-tuned on many instructions and is already trained to follow instructions well.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1559",
+              "7m2jV7BOFkA@1562",
+              "7m2jV7BOFkA@1564",
+              "7m2jV7BOFkA@1566",
+              "7m2jV7BOFkA@1572",
+              "7m2jV7BOFkA@1576",
+              "7m2jV7BOFkA@1579",
+              "7m2jV7BOFkA@1581",
+              "7m2jV7BOFkA@2076",
+              "7m2jV7BOFkA@2078",
+              "7m2jV7BOFkA@2079",
+              "7m2jV7BOFkA@2082",
+              "7m2jV7BOFkA@2084"
+            ]
+          },
+          {
+            "id": "ch06.s13.p01.09",
+            "text": "The idea is to use one large language model, Llama 3 8B, to evaluate another fine-tuned large language model by comparing the correct output with the model response and assigning a score.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1585",
+              "7m2jV7BOFkA@1588",
+              "7m2jV7BOFkA@1592",
+              "7m2jV7BOFkA@1594",
+              "7m2jV7BOFkA@1596",
+              "7m2jV7BOFkA@1599",
+              "7m2jV7BOFkA@1897",
+              "7m2jV7BOFkA@1900",
+              "7m2jV7BOFkA@1903",
+              "7m2jV7BOFkA@2239",
+              "7m2jV7BOFkA@2244",
+              "7m2jV7BOFkA@2247",
+              "7m2jV7BOFkA@2249"
+            ]
+          },
+          {
+            "id": "ch06.s13.p01.10",
+            "text": "Because the evaluator model is already trained to follow instructions, it is expected to do a great job on the new instruction of producing an evaluation score.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1601",
+              "7m2jV7BOFkA@1605",
+              "7m2jV7BOFkA@1607",
+              "7m2jV7BOFkA@1608",
+              "7m2jV7BOFkA@1610",
+              "7m2jV7BOFkA@1613",
+              "7m2jV7BOFkA@1615",
+              "7m2jV7BOFkA@1617",
+              "7m2jV7BOFkA@1620",
+              "7m2jV7BOFkA@1621"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s13.p02",
+        "sentences": [
+          {
+            "id": "ch06.s13.p02.01",
+            "text": "To install Ollama, go to \"ollama.com\", click download, choose the version for your operating system, and follow the installation steps.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1663",
+              "7m2jV7BOFkA@1666",
+              "7m2jV7BOFkA@1668",
+              "7m2jV7BOFkA@1671",
+              "7m2jV7BOFkA@1674",
+              "7m2jV7BOFkA@1676",
+              "7m2jV7BOFkA@1691",
+              "7m2jV7BOFkA@1693",
+              "7m2jV7BOFkA@1696"
+            ]
+          },
+          {
+            "id": "ch06.s13.p02.02",
+            "text": "After installation, open a terminal and run \"ollama run llama3\".",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1703",
+              "7m2jV7BOFkA@1706",
+              "7m2jV7BOFkA@1712",
+              "7m2jV7BOFkA@1714",
+              "7m2jV7BOFkA@1717",
+              "7m2jV7BOFkA@1725",
+              "7m2jV7BOFkA@1728"
+            ]
+          },
+          {
+            "id": "ch06.s13.p02.03",
+            "text": "On Windows, first run \"ollama serve\" and then run \"ollama run llama3\".",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1733",
+              "7m2jV7BOFkA@1736",
+              "7m2jV7BOFkA@1740",
+              "7m2jV7BOFkA@1742",
+              "7m2jV7BOFkA@1744"
+            ]
+          },
+          {
+            "id": "ch06.s13.p02.04",
+            "text": "Running Llama 3 this way downloads files of about 4.7 GB, and the model takes substantial space and memory because it has 8 billion parameters.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1770",
+              "7m2jV7BOFkA@1775",
+              "7m2jV7BOFkA@1777",
+              "7m2jV7BOFkA@1780",
+              "7m2jV7BOFkA@1783"
+            ]
+          },
+          {
+            "id": "ch06.s13.p02.05",
+            "text": "During the download, instructions are printed in the terminal, and after success, right-side arrows appear to show that Llama 3 is loaded and ready.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1791",
+              "7m2jV7BOFkA@1793",
+              "7m2jV7BOFkA@1795",
+              "7m2jV7BOFkA@1797",
+              "7m2jV7BOFkA@1799",
+              "7m2jV7BOFkA@1801",
+              "7m2jV7BOFkA@1803"
+            ]
+          },
+          {
+            "id": "ch06.s13.p02.06",
+            "text": "Once it is loaded, you can interact with Llama 3 by asking questions.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1803",
+              "7m2jV7BOFkA@1805",
+              "7m2jV7BOFkA@1807"
+            ]
+          },
+          {
+            "id": "ch06.s13.p02.07",
+            "text": "A simple check is to ask a question and confirm that a response comes back.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1863",
+              "7m2jV7BOFkA@1865",
+              "7m2jV7BOFkA@1868",
+              "7m2jV7BOFkA@1869",
+              "7m2jV7BOFkA@1871"
+            ]
+          },
+          {
+            "id": "ch06.s13.p02.08",
+            "text": "You must keep Ollama running while executing the later code, because if you shut down the terminal, Ollama stops and the code will not execute.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1852",
+              "7m2jV7BOFkA@1854",
+              "7m2jV7BOFkA@1857",
+              "7m2jV7BOFkA@1859",
+              "7m2jV7BOFkA@1860",
+              "7m2jV7BOFkA@1863"
+            ]
+          },
+          {
+            "id": "ch06.s13.p02.09",
+            "text": "Before using Ollama to evaluate test responses, run the verification code and confirm that it prints \"Ollama running = true\"; if it prints false, Ollama is not running successfully.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1888",
+              "7m2jV7BOFkA@1890",
+              "7m2jV7BOFkA@1892",
+              "7m2jV7BOFkA@1906",
+              "7m2jV7BOFkA@1907",
+              "7m2jV7BOFkA@1909",
+              "7m2jV7BOFkA@1912",
+              "7m2jV7BOFkA@1914",
+              "7m2jV7BOFkA@1916"
+            ]
+          },
+          {
+            "id": "ch06.s13.p02.10",
+            "text": "Before later code cells, check again that Ollama is still active by confirming that the earlier test prints \"Ollama running = True\".",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2025",
+              "7m2jV7BOFkA@2028",
+              "7m2jV7BOFkA@2029",
+              "7m2jV7BOFkA@2031",
+              "7m2jV7BOFkA@2034",
+              "7m2jV7BOFkA@2036",
+              "7m2jV7BOFkA@2039",
+              "7m2jV7BOFkA@2041"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s13.p03",
+        "sentences": [
+          {
+            "id": "ch06.s13.p03.01",
+            "text": "Using the terminal directly is enough to start the model, but Python code can make repeated evaluation much easier.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s13.p03.02",
+            "text": "A function named \"query_model\" can be used from Python to interact with a Llama model through the API instead of repeatedly running \"ollama run llama3\" in the terminal.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1919",
+              "7m2jV7BOFkA@1923",
+              "7m2jV7BOFkA@1925",
+              "7m2jV7BOFkA@1927",
+              "7m2jV7BOFkA@1929",
+              "7m2jV7BOFkA@1931",
+              "7m2jV7BOFkA@1973",
+              "7m2jV7BOFkA@1978",
+              "7m2jV7BOFkA@1979",
+              "7m2jV7BOFkA@1982"
+            ]
+          },
+          {
+            "id": "ch06.s13.p03.03",
+            "text": "The \"query_model\" function takes a prompt and a model, sends an API request to that model based on the prompt, and returns the generated response.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@1933",
+              "7m2jV7BOFkA@1935",
+              "7m2jV7BOFkA@1940",
+              "7m2jV7BOFkA@1942",
+              "7m2jV7BOFkA@1949",
+              "7m2jV7BOFkA@1950",
+              "7m2jV7BOFkA@1953",
+              "7m2jV7BOFkA@1954",
+              "7m2jV7BOFkA@1955",
+              "7m2jV7BOFkA@1958",
+              "7m2jV7BOFkA@1960",
+              "7m2jV7BOFkA@1963",
+              "7m2jV7BOFkA@1965",
+              "7m2jV7BOFkA@1967",
+              "7m2jV7BOFkA@1997",
+              "7m2jV7BOFkA@1999",
+              "7m2jV7BOFkA@2002",
+              "7m2jV7BOFkA@2004",
+              "7m2jV7BOFkA@2006"
+            ]
+          },
+          {
+            "id": "ch06.s13.p03.04",
+            "text": "In a simple demo, \"query_model\" is called with a prompt such as \"what do llamas eat\" and a model such as Llama 3, and then the response is printed.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2043",
+              "7m2jV7BOFkA@2045",
+              "7m2jV7BOFkA@2048",
+              "7m2jV7BOFkA@2051",
+              "7m2jV7BOFkA@2053",
+              "7m2jV7BOFkA@2055",
+              "7m2jV7BOFkA@2085",
+              "7m2jV7BOFkA@2089",
+              "7m2jV7BOFkA@2091",
+              "7m2jV7BOFkA@2093",
+              "7m2jV7BOFkA@2095"
+            ]
+          },
+          {
+            "id": "ch06.s13.p03.05",
+            "text": "If no model is specified, \"query_model\" uses Llama 3 by default.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2253",
+              "7m2jV7BOFkA@2255",
+              "7m2jV7BOFkA@2258",
+              "7m2jV7BOFkA@2260",
+              "7m2jV7BOFkA@2262"
+            ]
+          },
+          {
+            "id": "ch06.s13.p03.06",
+            "text": "Querying local models this way can require substantial compute and memory, can be slow on CPU, and may require freeing 15 to 20 GB of memory for the code to run.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2097",
+              "7m2jV7BOFkA@2100",
+              "7m2jV7BOFkA@2103",
+              "7m2jV7BOFkA@2105",
+              "7m2jV7BOFkA@2108",
+              "7m2jV7BOFkA@2113",
+              "7m2jV7BOFkA@2117",
+              "7m2jV7BOFkA@2119",
+              "7m2jV7BOFkA@2121",
+              "7m2jV7BOFkA@2124"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s13.p04",
+        "sentences": [
+          {
+            "id": "ch06.s13.p04.01",
+            "text": "With that interface in place, the evaluator can be prompted like any other model.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s13.p04.02",
+            "text": "In this setup, the prompt sent through \"query_model\" asks the evaluator model to compare the output and the model response and assign a score.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2008",
+              "7m2jV7BOFkA@2010",
+              "7m2jV7BOFkA@2012",
+              "7m2jV7BOFkA@2014",
+              "7m2jV7BOFkA@2017",
+              "7m2jV7BOFkA@2018",
+              "7m2jV7BOFkA@2020",
+              "7m2jV7BOFkA@2022",
+              "7m2jV7BOFkA@2023"
+            ]
+          },
+          {
+            "id": "ch06.s13.p04.03",
+            "text": "To evaluate fine-tuned responses, prompt Llama 3 to rate the fine-tuned model's response against the given test response on a scale from 0 to 100.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2157",
+              "7m2jV7BOFkA@2159",
+              "7m2jV7BOFkA@2161",
+              "7m2jV7BOFkA@2164",
+              "7m2jV7BOFkA@2166",
+              "7m2jV7BOFkA@2168",
+              "7m2jV7BOFkA@2221",
+              "7m2jV7BOFkA@2224"
+            ]
+          },
+          {
+            "id": "ch06.s13.p04.04",
+            "text": "The evaluation prompt includes the instruction and input, the correct output, and the model response, and asks for a score where 100 is the best score.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2177",
+              "7m2jV7BOFkA@2179",
+              "7m2jV7BOFkA@2188",
+              "7m2jV7BOFkA@2190",
+              "7m2jV7BOFkA@2192",
+              "7m2jV7BOFkA@2195",
+              "7m2jV7BOFkA@2200",
+              "7m2jV7BOFkA@2202",
+              "7m2jV7BOFkA@2207",
+              "7m2jV7BOFkA@2210",
+              "7m2jV7BOFkA@2213",
+              "7m2jV7BOFkA@2215",
+              "7m2jV7BOFkA@2217",
+              "7m2jV7BOFkA@2221",
+              "7m2jV7BOFkA@2224"
+            ]
+          },
+          {
+            "id": "ch06.s13.p04.05",
+            "text": "The example evaluation code tests three data points and prints each model response together with the score assigned by Llama 3.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2281",
+              "7m2jV7BOFkA@2283",
+              "7m2jV7BOFkA@2285",
+              "7m2jV7BOFkA@2288",
+              "7m2jV7BOFkA@2289",
+              "7m2jV7BOFkA@2292"
+            ]
+          },
+          {
+            "id": "ch06.s13.p04.06",
+            "text": "In the first example, the evaluator gives 85 out of 100 because the response uses a simile correctly and captures the intended meaning, even though it is less vivid than the reference answer.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2320",
+              "7m2jV7BOFkA@2322",
+              "7m2jV7BOFkA@2326",
+              "7m2jV7BOFkA@2330",
+              "7m2jV7BOFkA@2332",
+              "7m2jV7BOFkA@2337",
+              "7m2jV7BOFkA@2339",
+              "7m2jV7BOFkA@2342",
+              "7m2jV7BOFkA@2344",
+              "7m2jV7BOFkA@2346",
+              "7m2jV7BOFkA@2352",
+              "7m2jV7BOFkA@2355",
+              "7m2jV7BOFkA@2359",
+              "7m2jV7BOFkA@2360",
+              "7m2jV7BOFkA@2362",
+              "7m2jV7BOFkA@2366",
+              "7m2jV7BOFkA@2368",
+              "7m2jV7BOFkA@2370",
+              "7m2jV7BOFkA@2381",
+              "7m2jV7BOFkA@2384",
+              "7m2jV7BOFkA@2388",
+              "7m2jV7BOFkA@2390"
+            ]
+          },
+          {
+            "id": "ch06.s13.p04.07",
+            "text": "In the second example, the evaluator gives 20 out of 100 because the response does not directly answer the question, is largely irrelevant, and contains inaccuracies.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2393",
+              "7m2jV7BOFkA@2395",
+              "7m2jV7BOFkA@2401",
+              "7m2jV7BOFkA@2404",
+              "7m2jV7BOFkA@2406",
+              "7m2jV7BOFkA@2409",
+              "7m2jV7BOFkA@2412",
+              "7m2jV7BOFkA@2414",
+              "7m2jV7BOFkA@2416",
+              "7m2jV7BOFkA@2417",
+              "7m2jV7BOFkA@2419",
+              "7m2jV7BOFkA@2421",
+              "7m2jV7BOFkA@2423",
+              "7m2jV7BOFkA@2425",
+              "7m2jV7BOFkA@2427",
+              "7m2jV7BOFkA@2429",
+              "7m2jV7BOFkA@2431",
+              "7m2jV7BOFkA@2433",
+              "7m2jV7BOFkA@2435",
+              "7m2jV7BOFkA@2437",
+              "7m2jV7BOFkA@2439"
+            ]
+          },
+          {
+            "id": "ch06.s13.p04.08",
+            "text": "In the third example, the evaluator gives 0 out of 100 because the answer is factually incorrect and irrelevant.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2439",
+              "7m2jV7BOFkA@2442",
+              "7m2jV7BOFkA@2444",
+              "7m2jV7BOFkA@2446",
+              "7m2jV7BOFkA@2448",
+              "7m2jV7BOFkA@2451",
+              "7m2jV7BOFkA@2453",
+              "7m2jV7BOFkA@2459",
+              "7m2jV7BOFkA@2461",
+              "7m2jV7BOFkA@2463"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s13.p05",
+        "sentences": [
+          {
+            "id": "ch06.s13.p05.01",
+            "text": "These examples show what this style of model-based evaluation can and cannot provide.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s13.p05.02",
+            "text": "Llama 3 is judged to be strong at qualitative evaluation, and its quantitative scores are treated as generally sensible enough to trust.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2465",
+              "7m2jV7BOFkA@2467",
+              "7m2jV7BOFkA@2469",
+              "7m2jV7BOFkA@2471",
+              "7m2jV7BOFkA@2515",
+              "7m2jV7BOFkA@2518",
+              "7m2jV7BOFkA@2520",
+              "7m2jV7BOFkA@2522",
+              "7m2jV7BOFkA@2525",
+              "7m2jV7BOFkA@2527",
+              "7m2jV7BOFkA@2530",
+              "7m2jV7BOFkA@2532",
+              "7m2jV7BOFkA@2534",
+              "7m2jV7BOFkA@2535",
+              "7m2jV7BOFkA@2538",
+              "7m2jV7BOFkA@2539",
+              "7m2jV7BOFkA@2542",
+              "7m2jV7BOFkA@2543",
+              "7m2jV7BOFkA@2545"
+            ]
+          },
+          {
+            "id": "ch06.s13.p05.03",
+            "text": "It can provide reasonable evaluations and assign partial credit as well as zero when an answer is incorrect.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2551",
+              "7m2jV7BOFkA@2553",
+              "7m2jV7BOFkA@2555",
+              "7m2jV7BOFkA@2557",
+              "7m2jV7BOFkA@2559",
+              "7m2jV7BOFkA@2562"
+            ]
+          },
+          {
+            "id": "ch06.s13.p05.04",
+            "text": "If you want only a numeric metric instead of a qualitative explanation, change the prompt so the evaluator responds with an integer number only.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2564",
+              "7m2jV7BOFkA@2566",
+              "7m2jV7BOFkA@2568",
+              "7m2jV7BOFkA@2570",
+              "7m2jV7BOFkA@2573",
+              "7m2jV7BOFkA@2575",
+              "7m2jV7BOFkA@2577",
+              "7m2jV7BOFkA@2580"
+            ]
+          },
+          {
+            "id": "ch06.s13.p05.05",
+            "text": "A function is also available that iterates over the entire test set, computes this kind of score for every instruction, and then calculates an average score.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2661",
+              "7m2jV7BOFkA@2663",
+              "7m2jV7BOFkA@2665",
+              "7m2jV7BOFkA@2667",
+              "7m2jV7BOFkA@2669",
+              "7m2jV7BOFkA@2672",
+              "7m2jV7BOFkA@2675"
+            ]
+          },
+          {
+            "id": "ch06.s13.p05.06",
+            "text": "That full-test-set function is not run on the shown machine because of hardware limitations, while faster hardware such as an M3 MacBook Air or a GPU can run it much more quickly.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2678",
+              "7m2jV7BOFkA@2680",
+              "7m2jV7BOFkA@2682",
+              "7m2jV7BOFkA@2685",
+              "7m2jV7BOFkA@2688",
+              "7m2jV7BOFkA@2690",
+              "7m2jV7BOFkA@2693",
+              "7m2jV7BOFkA@2694"
+            ]
+          },
+          {
+            "id": "ch06.s13.p05.07",
+            "text": "Ollama is not entirely deterministic, so your scores may differ slightly, but the method still provides a framework for quantitative evaluation.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2708",
+              "7m2jV7BOFkA@2710",
+              "7m2jV7BOFkA@2713",
+              "7m2jV7BOFkA@2715",
+              "7m2jV7BOFkA@2717",
+              "7m2jV7BOFkA@2718",
+              "7m2jV7BOFkA@2721"
+            ]
+          },
+          {
+            "id": "ch06.s13.p05.08",
+            "text": "When the full evaluation is run, the fine-tuned model achieves an average score above 50, which can be used as a benchmark for comparing other models or training configurations.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2694",
+              "7m2jV7BOFkA@2696",
+              "7m2jV7BOFkA@2699",
+              "7m2jV7BOFkA@2701",
+              "7m2jV7BOFkA@2703",
+              "7m2jV7BOFkA@2705",
+              "7m2jV7BOFkA@2707"
+            ]
+          },
+          {
+            "id": "ch06.s13.p05.09",
+            "text": "That average is described as just above 50, around 55%, and not very good, because some answers are correct and some are wrong.",
+            "type": "F",
+            "cites": [
+              "7m2jV7BOFkA@2731",
+              "7m2jV7BOFkA@2733",
+              "7m2jV7BOFkA@2734",
+              "7m2jV7BOFkA@2737",
+              "7m2jV7BOFkA@2748",
+              "7m2jV7BOFkA@2750",
+              "7m2jV7BOFkA@2752",
+              "7m2jV7BOFkA@2776",
+              "7m2jV7BOFkA@2777",
+              "7m2jV7BOFkA@2779",
+              "7m2jV7BOFkA@2781",
+              "7m2jV7BOFkA@2783",
+              "7m2jV7BOFkA@2784"
+            ]
+          }
+        ]
+      }
+    ],
+    "invalid_citation_sentences": 0
+  }
+}

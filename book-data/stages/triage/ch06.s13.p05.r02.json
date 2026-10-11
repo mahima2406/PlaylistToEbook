@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch06.s13.p05.r02",
+  "inputs_hash": "1e10d7e06acf6cb4330249bc2c7cf71a2a34213880bd71d6e7358da5142cd440",
+  "output_hash": "f21d707e0e976c0c361720ca578b90171ce8ef6ab83864a2a8de5bfe73bc2959",
+  "output": {
+    "decision": "edit",
+    "text": "The evaluator is described as doing an awesome job at qualitative evaluation, and its quantitative scores kind of make sense even if the exact numbers are not fully clear.",
+    "reason": "The cited captions support the praise and the uncertainty about specific scores, but they do not identify the model as Llama 3 in these lines.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "0447d44c7862ce0da5397f6c34331719d07e7089bbbb2fd51d47cc269f866d8b"
+  }
+}

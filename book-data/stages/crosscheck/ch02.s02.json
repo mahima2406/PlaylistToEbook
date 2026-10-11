@@ -1,0 +1,196 @@
+{
+  "stage": "crosscheck",
+  "item": "ch02.s02",
+  "inputs_hash": "151481931d31a82c3d4407b3bf5c691de578bb9cb22691f1fad95dd186774860",
+  "output_hash": "98349a85929e35a00a579daa6714febb7928bcef919c17eb0dfb01008597bd1a",
+  "output": {
+    "section_id": "ch02.s02",
+    "checked": 14,
+    "counts": {
+      "agrees": 5,
+      "contradicts": 1,
+      "not_covered": 8
+    },
+    "results": [
+      {
+        "sentence_id": "ch02.s02.p01.02",
+        "text": "A simple tokenization scheme takes sentences, converts them into tokens, arranges the tokens in ascending order as a vocabulary, and assigns each token a numerical token ID.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell40",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell32",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell35"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References describe building a vocabulary from unique tokens and converting tokens to IDs, but do not state that tokens are arranged in ascending order as a vocabulary, nor that tokenization starts from sentences specifically."
+      },
+      {
+        "sentence_id": "ch02.s02.p01.03",
+        "text": "In that simple tokenizer, every word is treated as a unique token, along with special characters such as commas, full stops, and exclamation marks.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell57",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell58",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell68"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The SimpleTokenizerV1 example encodes text containing words and punctuation (e.g., comma, period, question mark, dashes), consistent with treating words and punctuation marks as tokens in the simple tokenizer scheme."
+      },
+      {
+        "sentence_id": "ch02.s02.p01.04",
+        "text": "More generally, tokenization can be broken down into three types: word-based tokenization, subword-based tokenization, and character-based tokenization.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell40",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell27"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided references do not enumerate tokenization into exactly three types (word/subword/character)."
+      },
+      {
+        "sentence_id": "ch02.s02.p02.01",
+        "text": "To start with the simplest case, word-based tokenization converts the dataset into chunks of words.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell92",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell40"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References mention extracting chunks from an input text dataset, but do not define word-based tokenization as converting a dataset into chunks of words."
+      },
+      {
+        "sentence_id": "ch02.s02.p02.02",
+        "text": "At the sentence level, word-based tokenization means breaking a sentence down into individual words.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell13",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell76"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference explicitly defines tokenizing as breaking text into smaller units such as individual words and punctuation characters, consistent with breaking a sentence into individual words at the word level."
+      },
+      {
+        "sentence_id": "ch02.s02.p02.03",
+        "text": "In a word-based tokenizer, each word in a sentence is usually one token.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell120",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell6",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References discuss next-word prediction and other topics but do not state that in a word-based tokenizer each word is usually one token."
+      },
+      {
+        "sentence_id": "ch02.s02.p02.04",
+        "text": "For example, if the sentence is \"my hobby is playing cricket\" and the tokens are the individual words \"my\", \"hobby\", \"is\", \"playing\", and \"cricket\", that is a word-based tokenizer.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference passage defines this specific example or explicitly labels it as word-based tokenization."
+      },
+      {
+        "sentence_id": "ch02.s02.p02.05",
+        "text": "The same idea appears in the sentence \"the fox chased the dog\", where the tokens are \"the\", \"fox\", \"chased\", \"the\", and \"dog\", so every word is one token.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell90"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference passage supports the specific example sentence and claim that every word is one token in that example."
+      },
+      {
+        "sentence_id": "ch02.s02.p02.06",
+        "text": "In this word-based example, tokens also include special symbols such as commas, exclamation marks, full stops, and quotation marks.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell25",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References discuss handling punctuation (periods, question marks, etc.), consistent with including punctuation symbols as tokens in the tokenization approach."
+      },
+      {
+        "sentence_id": "ch02.s02.p03.02",
+        "text": "A vocabulary is a dictionary containing a collection of tokens arranged in ascending order, and every token corresponds to a token ID.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell91",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell92"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The code shows vocabularies as Python dictionaries mapping tokens to IDs, but does not support the claim that tokens are arranged in ascending order; dictionary order is not inherently an ordered ascending arrangement of tokens."
+      },
+      {
+        "sentence_id": "ch02.s02.p03.03",
+        "text": "Equivalently, the vocabulary is a dictionary in which every unique token is mapped to a unique integer called the token ID.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell35",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell37",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference constructs vocab = {token: integer for integer, token in enumerate(all_words)} and describes vocabulary as consisting of unique tokens, matching the idea of mapping each unique token to a unique integer ID."
+      },
+      {
+        "sentence_id": "ch02.s02.p03.04",
+        "text": "Each token is associated with an integer token ID.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell37",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell92"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference code maps tokens to integer IDs via enumerate and uses token IDs in later steps, consistent with each token being associated with an integer token ID."
+      },
+      {
+        "sentence_id": "ch02.s02.p03.05",
+        "text": "The tokens are sorted in ascending order before token IDs are assigned.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell38",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell49",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell32"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The referenced notebook cells show example vocabulary entries and decoding token IDs back to tokens, but they do not state that tokens are sorted in ascending order before IDs are assigned, nor do they show the ID-assignment procedure."
+      },
+      {
+        "sentence_id": "ch02.s02.p03.06",
+        "text": "In the example shown, the first token receives token ID 0, the second receives token ID 1, and this continues through the vocabulary.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell92",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss token IDs (e.g., an example token with id 3, using argmax to select a token ID, and sampling a next_token_id), but they do not describe the vocabulary construction rule that the first token is assigned ID 0, the second ID 1, etc."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch02.s02.p03.02",
+        "text": "A vocabulary is a dictionary containing a collection of tokens arranged in ascending order, and every token corresponds to a token ID.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell91",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell92"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The code shows vocabularies as Python dictionaries mapping tokens to IDs, but does not support the claim that tokens are arranged in ascending order; dictionary order is not inherently an ordered ascending arrangement of tokens."
+      }
+    ]
+  }
+}

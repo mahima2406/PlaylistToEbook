@@ -1,0 +1,281 @@
+{
+  "stage": "verify",
+  "item": "ch01.s05",
+  "inputs_hash": "dc3cfccf883357d8fc8757c432554c0c83bb52615af6e8de7ed85169d9b3f3bd",
+  "output_hash": "507961ed77f19c0f0697a95d27ac057310b2607da20c3cf7e70e28266d88bc58",
+  "output": {
+    "section_id": "ch01.s05",
+    "paragraphs": [
+      {
+        "id": "ch01.s05.p01",
+        "sentences": [
+          {
+            "id": "ch01.s05.p01.01",
+            "text": "Why does the distinction between open-source and closed-source models matter for learning large language models now?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s05.p01.02",
+            "text": "An open-source model is one whose architecture is available to the public, so anyone can see the architecture.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@405",
+              "Xpr8D6LeAtw@407",
+              "Xpr8D6LeAtw@409",
+              "Xpr8D6LeAtw@412",
+              "Xpr8D6LeAtw@414"
+            ]
+          },
+          {
+            "id": "ch01.s05.p01.03",
+            "text": "By contrast, models released by OpenAI are described here as usually closed source.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@417"
+            ]
+          },
+          {
+            "id": "ch01.s05.p01.04",
+            "text": "A closed-source model is one for which the weights, the architecture, and many other details about the model itself are not released publicly.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@420",
+              "Xpr8D6LeAtw@422",
+              "Xpr8D6LeAtw@425"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s05.p02",
+        "sentences": [
+          {
+            "id": "ch01.s05.p02.01",
+            "text": "This distinction matters because access affects what can be inspected and studied directly.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s05.p02.02",
+            "text": "The comparison described for 2022 says that, when the field of large language models was booming, most things were pretty closed source.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@430",
+              "Xpr8D6LeAtw@433",
+              "Xpr8D6LeAtw@435",
+              "Xpr8D6LeAtw@437"
+            ]
+          },
+          {
+            "id": "ch01.s05.p02.03",
+            "text": "GPT-4 is presented as a closed-source model released in 2023.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@437",
+              "Xpr8D6LeAtw@439",
+              "Xpr8D6LeAtw@448"
+            ]
+          },
+          {
+            "id": "ch01.s05.p02.04",
+            "text": "In the 2024 comparison, the gap between open-source and closed-source models is described as slowly decreasing.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@451",
+              "Xpr8D6LeAtw@454",
+              "Xpr8D6LeAtw@456"
+            ]
+          },
+          {
+            "id": "ch01.s05.p02.05",
+            "text": "When Llama 3.1 is released in that comparison, it is shown as performing at the same level as GPT-4.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@456",
+              "Xpr8D6LeAtw@459",
+              "Xpr8D6LeAtw@461"
+            ]
+          },
+          {
+            "id": "ch01.s05.p02.06",
+            "text": "The point drawn from this comparison is that the information needed to learn is available right now through open-source models.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@465",
+              "Xpr8D6LeAtw@467",
+              "Xpr8D6LeAtw@469"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s05.p03",
+        "sentences": [
+          {
+            "id": "ch01.s05.p03.01",
+            "text": "That makes the learning path less dependent on access to closed systems.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s05.p03.02",
+            "text": "A strong reference for learning large language models is Sebastian Raschka’s book, which is described as one of the best books on the topic.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@741",
+              "Xpr8D6LeAtw@743",
+              "Xpr8D6LeAtw@746",
+              "Xpr8D6LeAtw@747"
+            ]
+          },
+          {
+            "id": "ch01.s05.p03.03",
+            "text": "That book is also used as the reference material for this course.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@750",
+              "Xpr8D6LeAtw@752"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch01.s05.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s05.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch01.s05.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s05.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s05.p02.01": {
+        "verdict": "ok",
+        "confidence": 0.85,
+        "reason": ""
+      },
+      "ch01.s05.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s05.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s05.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch01.s05.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s05.p02.06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s05.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.8,
+        "reason": ""
+      },
+      "ch01.s05.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.s05.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch01.s05.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s05.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch01.s05.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s05.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s05.p02.01": {
+        "verdict": "ok",
+        "confidence": 0.85,
+        "reason": ""
+      },
+      "ch01.s05.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s05.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s05.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch01.s05.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s05.p02.06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch01.s05.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.8,
+        "reason": ""
+      },
+      "ch01.s05.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch01.s05.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      }
+    },
+    "rewritten": [],
+    "queue": []
+  }
+}

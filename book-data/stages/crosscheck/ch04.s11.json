@@ -1,0 +1,417 @@
+{
+  "stage": "crosscheck",
+  "item": "ch04.s11",
+  "inputs_hash": "913973c6bf4f56a64130e9e178634ca032c4b0d8d3290c30c63686bf56519820",
+  "output_hash": "6f9ee18e062d6e8b1a005a9161c6ac7e67677a5659e85e4de29936bb20856f77",
+  "output": {
+    "section_id": "ch04.s11",
+    "checked": 31,
+    "counts": {
+      "agrees": 7,
+      "contradicts": 3,
+      "not_covered": 21
+    },
+    "results": [
+      {
+        "sentence_id": "ch04.s11.p01.02",
+        "text": "After the parameters are updated, the loop prints the training and validation losses, inspects the LLM output, moves to the next batch, resets the previous batch’s gradients to zero, and repeats this process for all batches and then for multiple epochs.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell51",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references discuss data loaders/batching and loss setup, but do not show the specific training-loop order (printing losses, inspecting outputs, zeroing gradients, iterating batches/epochs) after parameter updates."
+      },
+      {
+        "sentence_id": "ch04.s11.p01.03",
+        "text": "An \"evaluate_model\" function is used during training to compute the training loss and validation loss and print them as training proceeds.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell85",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell99",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell88"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention computing initial losses with calc_loss_loader and plotting losses, but do not mention an evaluate_model function being used during training to compute/print losses as training proceeds."
+      },
+      {
+        "sentence_id": "ch04.s11.p01.04",
+        "text": "This function uses the previously defined loss-calculation functions to compute loss for the training loader and the validation loader over the entire dataset.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell89",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell86",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell83"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "In the shown code, calc_loss_loader is called with num_batches=5 (a subset), not over the entire dataset; thus it does not compute loss over the full training/validation loaders."
+      },
+      {
+        "sentence_id": "ch04.s11.p01.07",
+        "text": "When evaluating, the model is put in evaluation mode with gradient tracking disabled and dropout disabled, because evaluation only calculates loss through a forward pass.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell8",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell89",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell103"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference shows torch.no_grad() for evaluation loss computation, but does not show setting model.eval() nor explicitly connect this to disabling dropout in the provided passages."
+      },
+      {
+        "sentence_id": "ch04.s11.p02.02",
+        "text": "A \"generate_and_print_sample\" function is used after each epoch as a convenience function for tracking whether the model improves during training by showing generated text.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell13",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell85"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference explicitly says that in chapter 6 they calculate accuracy after each epoch instead of printing a sample text after each epoch, which conflicts with claiming generate_and_print_sample is used after each epoch in that training setup."
+      },
+      {
+        "sentence_id": "ch04.s11.p02.03",
+        "text": "It prints 50 newly predicted tokens so the output can be inspected for whether it makes sense.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell122",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No provided reference states that 50 newly predicted tokens are printed for inspection; the cited cells discuss argmax/vocab size and optimizers, not a 50-token printout."
+      },
+      {
+        "sentence_id": "ch04.s11.p02.04",
+        "text": "The function takes a starting text snippet, called start context, converts it into token IDs, and feeds it to the LLM to generate a text sample at the current point in training.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell46",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell13"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references show taking an input text, converting it to token IDs (text_to_token_ids), feeding it into the model via generate/generate_text_simple, and converting back to text (token_ids_to_text)."
+      },
+      {
+        "sentence_id": "ch04.s11.p02.05",
+        "text": "The initial prompt is \"every effort moves you,\" and an initial text is required so the function can print what the LLM predicts next.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell103",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell91",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell85"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references use/assume the prompt \"every effort moves you\" as an example input for next-token prediction and generation, implying an initial text prompt is needed to generate/inspect what comes next."
+      },
+      {
+        "sentence_id": "ch04.s11.p02.06",
+        "text": "The loop also tracks tokens seen, meaning the number of tokens consumed from input batches up to that point.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell67",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell35"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references show counting tokens via input_batch.numel() over loaders, and note that pretraining tracked tokens seen (contrasted with chapter 6 tracking examples_seen)."
+      },
+      {
+        "sentence_id": "ch04.s11.p02.07",
+        "text": "With a dataset of around 5,000 tokens and 10 epochs, the total tokens seen should be on the order of 50,000.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell57",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While total token counts are computed in one cell, the references do not state a ~5,000-token dataset and do not connect it to 10 epochs yielding ~50,000 tokens seen."
+      },
+      {
+        "sentence_id": "ch04.s11.p02.08",
+        "text": "In the run shown, training completed in 6.6 minutes on a laptop while optimizing about 160 million parameters for 10 epochs.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell87",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell97",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention different parameter counts (124M vs 355M) and provide rough runtimes (e.g., ~5 minutes on an M3 MacBook Air), but do not state a 6.6-minute run on a laptop optimizing ~160M parameters for 10 epochs."
+      },
+      {
+        "sentence_id": "ch04.s11.p03.r02",
+        "text": "The training loss decreased substantially during training, from about 9.781 to about 3.91.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell122",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell85",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell84"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not include the specific training-loss values (9.781 down to 3.91); they only generally discuss loss minimization and dropout behavior."
+      },
+      {
+        "sentence_id": "ch04.s11.p03.r03",
+        "text": "The validation loss started around 9.933 and then stagnated around 6.4 to 6.2, which is presented as a classic sign of overfitting.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell92",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell85"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention loss decreasing early and slight overfitting around ~1 epoch, but they do not provide the specific initial validation loss (~9.933), the stagnation range (6.4 to 6.2), or explicitly label that pattern as a classic sign of overfitting."
+      },
+      {
+        "sentence_id": "ch04.s11.p03.r04",
+        "text": "After the first epoch, the generated output was mostly commas, showing that the model had not yet learned meaningful text generation.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell79",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell92"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages discuss how `generate` returns combined input+output and how training functions differ, plus a general statement about loss/overfitting timing; they do not describe generated output after the first epoch or that it was mostly commas."
+      },
+      {
+        "sentence_id": "ch04.s11.p03.r05",
+        "text": "After the second epoch, the output was still incoherent, repeating tokens such as commas and \"and.\"",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell98",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell92"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the provided references describe the specific generated text after the second epoch or mention repetition of commas and the token \"and.\""
+      },
+      {
+        "sentence_id": "ch04.s11.p03.r06",
+        "text": "As training continued, the model began to use words from the training text in its generated samples.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell85",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell99"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references explain next-token prediction and generation mechanics, but they do not state that during training the model began using words from the training text in generated samples."
+      },
+      {
+        "sentence_id": "ch04.s11.p03.r07",
+        "text": "By later epochs, the generated text made sense but directly recycled text from the training data, which is another sign of overfitting.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell79",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell59",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell58"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited chapter-7 cells concern isolating the generated response and data-collation/device transfer, and the token-count note; they do not state that later-epoch generations recycled training text as an overfitting sign."
+      },
+      {
+        "sentence_id": "ch04.s11.p03.r08",
+        "text": "The model’s language skills improved during training, progressing from repeated commas to grammatically correct text.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell122"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The only reference (dropout applied only during training) does not address any progression in generated text quality from repeated commas to grammatical text."
+      },
+      {
+        "sentence_id": "ch04.s11.p03.r09",
+        "text": "Producing words that make sense instead of completely random output is evidence that training is helping the model learn.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell94",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell80",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references state the untrained model produces random output and that after training it moves from incomprehensible strings to more grammatically correct sentences, supporting that meaningful words vs random output indicates training is helping."
+      },
+      {
+        "sentence_id": "ch04.s11.p04.r02",
+        "text": "A plot is shown in which the blue training-loss line keeps decreasing, while the validation-loss line decreases and then becomes flat.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell47",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell99",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell52"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided cells show loss computations and mention plotting losses, but they do not describe the specific plot behavior (training loss steadily decreasing while validation loss flattens)."
+      },
+      {
+        "sentence_id": "ch04.s11.p04.r03",
+        "text": "The validation loss decreases during training but never becomes as small as the training loss, and after 10 epochs it stagnates around 6.37.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell85",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell52",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell92"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references do not provide the numerical claim that validation loss stagnates around 6.37 after 10 epochs, nor the stated relationship that it never becomes as small as training loss."
+      },
+      {
+        "sentence_id": "ch04.s11.p04.r04",
+        "text": "The plot also tracks tokens seen, and as the number of tokens seen increases, the training loss decreases a lot while the validation loss stagnates.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell79",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell100"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The plotting code shows a secondary x-axis for tokens/examples seen exists, but the references do not state the described trend (training loss decreases a lot while validation loss stagnates as tokens increase)."
+      },
+      {
+        "sentence_id": "ch04.s11.p04.r05",
+        "text": "Both training and validation loss improve after the first epoch, but they begin to diverge after the second epoch.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell92",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell90"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference says slight overfitting sets in at around 1 training epoch, which conflicts with the sentence’s claim that divergence begins after the second epoch."
+      },
+      {
+        "sentence_id": "ch04.s11.p04.r06",
+        "text": "When the validation loss is much larger than the training loss and the two losses diverge, the model is overfitting to the training data.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell85",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell51",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell99"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages do not explicitly state the general rule that a much larger validation loss than training loss (divergence) indicates overfitting; they mainly discuss calculating/plotting losses without defining this criterion."
+      },
+      {
+        "sentence_id": "ch04.s11.p04.r07",
+        "text": "The model is memorizing the training data, as shown by generated text that exactly matches phrases in the dataset, and this memorization is a classic sign of overfitting.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell86",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell80",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The chapter 5 text explicitly says training/validation losses indicate overfitting and that late generated passages can be found verbatim in the training set (memorization), which is consistent with describing memorization as a sign of overfitting."
+      },
+      {
+        "sentence_id": "ch04.s11.p05.02",
+        "text": "This memorization is expected because the training dataset is very small and the model is trained for multiple epochs.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell63",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell29"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references note the dataset is very small, but they do not state that memorization is expected specifically because of small dataset size plus training for multiple epochs."
+      },
+      {
+        "sentence_id": "ch04.s11.p05.03",
+        "text": "Common practice is to train on a much larger dataset for only one epoch.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell54"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided reference passage discusses masking instruction tokens; it does not address the common practice of using one epoch on much larger datasets."
+      },
+      {
+        "sentence_id": "ch04.s11.p05.04",
+        "text": "The dataset used here has about 5,000 tokens and 20,000 characters, whereas real training uses datasets with millions of tokens.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell57"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference shows code that prints character and token counts but does not provide the actual numbers (e.g., ~5,000 tokens, ~20,000 characters) nor compare to “millions of tokens.”"
+      },
+      {
+        "sentence_id": "ch04.s11.p05.05",
+        "text": "Large datasets reduce overfitting because they contain much more variability, whereas a small dataset lets the model get away with memorizing pieces of data.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell63"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference mentions the dataset is very small but does not explain overfitting reduction via larger dataset variability vs memorization on small datasets."
+      },
+      {
+        "sentence_id": "ch04.s11.p05.06",
+        "text": "It is useful to vary hyperparameters such as learning rate, weight decay, and number of epochs to observe how the code and training behavior change.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell106",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell74",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell52"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Chapter 6 notes hyperparameters (learning rate, weight decay, dropout) were tweaked and changing weight decay/dropout could reduce the gap, supporting the usefulness of varying such hyperparameters to observe training behavior."
+      },
+      {
+        "sentence_id": "ch04.s11.p05.07",
+        "text": "Even with overfitting, the loop successfully minimizes the loss and shows that the large language model is learning.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell92",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell86"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Chapter 7 states loss decreases sharply early (model learning) and that slight overfitting begins around 1 epoch, consistent with learning/minimizing loss despite overfitting."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch04.s11.p01.04",
+        "text": "This function uses the previously defined loss-calculation functions to compute loss for the training loader and the validation loader over the entire dataset.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell89",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell86",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell83"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "In the shown code, calc_loss_loader is called with num_batches=5 (a subset), not over the entire dataset; thus it does not compute loss over the full training/validation loaders."
+      },
+      {
+        "sentence_id": "ch04.s11.p02.02",
+        "text": "A \"generate_and_print_sample\" function is used after each epoch as a convenience function for tracking whether the model improves during training by showing generated text.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell13",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell85"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference explicitly says that in chapter 6 they calculate accuracy after each epoch instead of printing a sample text after each epoch, which conflicts with claiming generate_and_print_sample is used after each epoch in that training setup."
+      },
+      {
+        "sentence_id": "ch04.s11.p04.r05",
+        "text": "Both training and validation loss improve after the first epoch, but they begin to diverge after the second epoch.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell92",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell90"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference says slight overfitting sets in at around 1 training epoch, which conflicts with the sentence’s claim that divergence begins after the second epoch."
+      }
+    ]
+  }
+}

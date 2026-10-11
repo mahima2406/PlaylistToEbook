@@ -1,0 +1,409 @@
+{
+  "stage": "crosscheck",
+  "item": "ch03.s03",
+  "inputs_hash": "7386673fcd0c1b499d761886c572d4156032310af301834b91178134ebe116d9",
+  "output_hash": "d86afc4f2f0efe1317ee85122ce229c3aebc28fa9eeb97c9f592b4bb640fdc96",
+  "output": {
+    "section_id": "ch03.s03",
+    "checked": 33,
+    "counts": {
+      "agrees": 14,
+      "contradicts": 1,
+      "not_covered": 18
+    },
+    "results": [
+      {
+        "sentence_id": "ch03.s03.p01.r02",
+        "text": "Normalization is needed for interpretability, because it lets us express attention in terms of percentages.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell36"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited reference is about layer normalization variance not being exactly 1 due to eps, not about attention normalization for interpretability/percentages."
+      },
+      {
+        "sentence_id": "ch03.s03.p01.r03",
+        "text": "To express attention in percentages, the values must sum to one, and unnormalized attention scores do not necessarily do that.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell21",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell31",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly distinguishes unnormalized attention scores from normalized attention weights that sum to 1, and notes this convention is useful for interpretation."
+      },
+      {
+        "sentence_id": "ch03.s03.p01.r04",
+        "text": "A second reason for normalization is training stability: values between zero and one generally help during backpropagation and gradient descent.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell34"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states softmax normalization is recommended due to better handling of extreme values and more desirable gradient properties during training, aligning with a training-stability motivation for normalization."
+      },
+      {
+        "sentence_id": "ch03.s03.p01.r05",
+        "text": "The simplest normalization is to sum the attention scores and divide each element by that total.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell21"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The passages shown emphasize using softmax for normalized attention weights; they do not describe the 'simplest normalization' as dividing by the plain sum (except indirectly as an earlier simplified step, which is not included in the provided refs)."
+      },
+      {
+        "sentence_id": "ch03.s03.p01.r06",
+        "text": "That procedure makes the normalized values sum to one.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell52",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell53",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference verifies that normalized attention weights (per row) indeed sum to 1."
+      },
+      {
+        "sentence_id": "ch03.s03.p01.r07",
+        "text": "In code, a separate tensor called attention weights is created by dividing the attention scores by their total sum, and the resulting values sum to one.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell38",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell21"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references describe computing attention weights via softmax (and scaling by sqrt(d_k)), but do not show code that creates attention weights specifically by dividing attention scores by their total sum."
+      },
+      {
+        "sentence_id": "ch03.s03.p01.r08",
+        "text": "Attention scores and attention weights mean the same thing intuitively, but attention weights are the normalized version whose elements sum to one.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell21",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell44",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference defines attention scores as unnormalized and attention weights as the normalized version summing to 1, and describes the workflow of normalizing scores into weights."
+      },
+      {
+        "sentence_id": "ch03.s03.p02.02",
+        "text": "In machine learning, it is more common and advisable to use the softmax function than plain summation-based normalization.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell34",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell95",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell25"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly says using softmax for normalization is common and recommended compared to simpler alternatives."
+      },
+      {
+        "sentence_id": "ch03.s03.p02.03",
+        "text": "The reason becomes clear in an extreme example such as the values 1, 2, 3, and 400.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell34"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference mentions softmax handling extreme values but does not present or discuss the specific extreme example values 1, 2, 3, and 400."
+      },
+      {
+        "sentence_id": "ch03.s03.p02.04",
+        "text": "If these values are normalized by dividing each one by their sum, the denominator is 406, so the largest value becomes 400 divided by 406 while the others remain small but nonzero fractions.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell77"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference passages do not compute or discuss sum-normalization for the specific numbers (sum 406, 400/406, etc.)."
+      },
+      {
+        "sentence_id": "ch03.s03.p02.05",
+        "text": "When one value is extremely large, the desired behavior is for the small values to be close to zero and the extreme value to be close to one.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell85",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell112",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell119"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the provided passages state this desired near-one/near-zero behavior for extreme values in the context of attention normalization."
+      },
+      {
+        "sentence_id": "ch03.s03.p02.06",
+        "text": "Summation-based normalization does not achieve that behavior well enough.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell102"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided reference about training/validation loss does not address summation-based normalization versus softmax or whether sum-normalization achieves the desired extreme-value behavior."
+      },
+      {
+        "sentence_id": "ch03.s03.p02.07",
+        "text": "Values that are not exactly zero can confuse the optimizer during backpropagation and gradient descent, because some weight may still be assigned to values that should be neglected.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell36",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell43",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell122"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss eps in normalization, ReLU/GELU behavior, and dropout timing, but do not state that nonzero values confuse the optimizer because weights may be assigned to values that should be neglected."
+      },
+      {
+        "sentence_id": "ch03.s03.p03.r01",
+        "text": "Softmax takes the exponent of each element and divides it by the sum of the exponents of all elements.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell103"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The passages describe softmax producing a probability distribution and (in context) softmax normalization; this is consistent with the standard definition exp(x_i)/sum_j exp(x_j)."
+      },
+      {
+        "sentence_id": "ch03.s03.p03.r02",
+        "text": "Its outputs sum to one.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell64",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell53",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell85"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly notes softmax outputs sum to 1 (e.g., discussion of masking after softmax disrupting the probability distribution) and shows row sums of attention weights."
+      },
+      {
+        "sentence_id": "ch03.s03.p03.r04",
+        "text": "That is why softmax is especially preferable for extreme values that may appear in large-scale models such as LLMs.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell34",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states softmax is better at handling extreme values and has desirable gradient properties, matching the claim about preference for extreme values in large-scale models."
+      },
+      {
+        "sentence_id": "ch03.s03.p03.r06",
+        "text": "A naive softmax implementation computes the exponent of each attention score and divides by the sum of those exponents.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell35",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell34",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference shows a naive softmax implementation computing exp(x) and dividing by the sum of exp(x)."
+      },
+      {
+        "sentence_id": "ch03.s03.p03.r07",
+        "text": "In that implementation, the sum uses dimension 0 because the code is summing all entries in one row.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell53",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell52"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "In the shown naive softmax code, sum(dim=0) sums down dimension 0 (i.e., across rows/over the first axis), not 'all entries in one row' (which would correspond to summing across the last dimension for row-wise normalization)."
+      },
+      {
+        "sentence_id": "ch03.s03.p03.r08",
+        "text": "These naive softmax attention weights differ from the values produced by simple summation-based normalization, but they still sum to one.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell35",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell34",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell37"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference shows naive softmax weights (and torch.softmax) and prints their sum as 1; it is consistent that they can differ from other normalizations yet still sum to 1."
+      },
+      {
+        "sentence_id": "ch03.s03.p03.r09",
+        "text": "Softmax attention weights are always positive because they are produced through the exponential operation.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell44",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell21"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While softmax positivity follows from the exponential, the provided passages do not explicitly state that attention weights are always positive because of the exponential."
+      },
+      {
+        "sentence_id": "ch03.s03.p03.r10",
+        "text": "That positivity matters for interpretability, because attention can then be read as positive percentages assigned to tokens.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell46",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell101",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell44"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss attention weights summing to 1 and masking, but do not make the interpretability claim about reading attention as positive percentages."
+      },
+      {
+        "sentence_id": "ch03.s03.p04.r02",
+        "text": "PyTorch implements softmax by subtracting the maximum input value from each value before applying the exponential and normalization.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell118",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell70",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not describe PyTorch softmax implementation details such as subtracting the maximum for numerical stability."
+      },
+      {
+        "sentence_id": "ch03.s03.p04.r04",
+        "text": "It is done to avoid numerical instability such as overflow when the inputs are very large or very small.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell36"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly states the naive implementation can have overflow/underflow numerical instability for large/small values."
+      },
+      {
+        "sentence_id": "ch03.s03.p04.r05",
+        "text": "So although the naive softmax formula is theoretically fine, in Python it is better to subtract the maximum value to prevent overflow problems.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell35",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell36",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell34"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention numerical instability and recommend PyTorch softmax, but do not specifically mention subtracting the maximum value as the remedy."
+      },
+      {
+        "sentence_id": "ch03.s03.p04.r06",
+        "text": "Both the naive softmax and the PyTorch softmax are implemented in code.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell35",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell103",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell34"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference shows a naive softmax implementation in code and discusses using PyTorch’s softmax in practice, implying both are implemented/used in the notebook context."
+      },
+      {
+        "sentence_id": "ch03.s03.p04.r07",
+        "text": "The PyTorch version is computed with a single call to \"torch.softmax\" on the attention score tensor.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell90",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell3",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell3"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided references only show version checks; they do not show computing softmax via a single torch.softmax call on attention scores."
+      },
+      {
+        "sentence_id": "ch03.s03.p04.r08",
+        "text": "That call uses the numerically stable form that subtracts the maximum value before exponentiation.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell11"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference passage describes PyTorch softmax’s numerically stable max-subtraction implementation."
+      },
+      {
+        "sentence_id": "ch03.s03.p04.r09",
+        "text": "A naive softmax implementation may suffer from numerical instability, including overflow for very large values and underflow for very small values, so in practice the PyTorch implementation is preferable.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell36",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell34",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell35"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Cell36 explicitly states naive softmax can overflow/underflow and recommends using PyTorch’s softmax instead."
+      },
+      {
+        "sentence_id": "ch03.s03.p04.r10",
+        "text": "When no very large or very small values are present, the naive softmax and the PyTorch softmax produce the same attention weight tensor.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell35",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell36",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell103"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References mention instability of the naive version but do not state or demonstrate that the naive and PyTorch softmax match when values are not extreme."
+      },
+      {
+        "sentence_id": "ch03.s03.p04.r11",
+        "text": "PyTorch softmax is still preferred because later computations may involve very large parameters, where numerical instability matters.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell36"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Reference recommends PyTorch softmax due to numerical instability/optimization, but does not specifically justify it by “later computations may involve very large parameters.”"
+      },
+      {
+        "sentence_id": "ch03.s03.p05.02",
+        "text": "Attention weights make attention interpretable because they can be read as percentages assigned to words.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell104",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell21",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell90"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References define attention weights as normalized scores summing to 1, but do not make the interpretability/percentage-to-words claim."
+      },
+      {
+        "sentence_id": "ch03.s03.p05.03",
+        "text": "For example, weights around 0.13, 0.23, 0.23, 0.12, 0.10, and 0.15 can be read as about 13% attention to \"your\", about 23% to \"journey\", about 23% to \"starts\", 12% to \"with\", 10% to \"one\", and 15% to \"step\".",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell24"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Only the token/word input list is shown; no attention weight values around 0.13, 0.23, etc. are provided in the references."
+      },
+      {
+        "sentence_id": "ch03.s03.p05.04",
+        "text": "Because attention weights sum to one, it becomes easy to say that some words receive higher attention and others lower attention in percentage terms.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell21",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell104",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell109"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References state attention weights are normalized to sum to 1 (and show renormalization), supporting interpreting higher/lower weights in proportional (percentage) terms."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch03.s03.p03.r07",
+        "text": "In that implementation, the sum uses dimension 0 because the code is summing all entries in one row.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell53",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell52"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "In the shown naive softmax code, sum(dim=0) sums down dimension 0 (i.e., across rows/over the first axis), not 'all entries in one row' (which would correspond to summing across the last dimension for row-wise normalization)."
+      }
+    ]
+  }
+}

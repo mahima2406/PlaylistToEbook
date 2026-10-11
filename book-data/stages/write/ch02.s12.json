@@ -1,0 +1,842 @@
+{
+  "stage": "write",
+  "item": "ch02.s12",
+  "inputs_hash": "f0b6a35824ccd0139fa8d15641e196c1ea255328a8a97e41cbac745757020ec9",
+  "output_hash": "8cbaa904686c744481224e5c0b7f5d0e9989ff83767d653e9e73e31e64daa7bf",
+  "output": {
+    "section_id": "ch02.s12",
+    "paragraphs": [
+      {
+        "id": "ch02.s12.p01",
+        "sentences": [
+          {
+            "id": "ch02.s12.p01.01",
+            "text": "How does a model turn token IDs into the vectors it will actually train on, and what exactly is stored in the embedding layer?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s12.p01.02",
+            "text": "To create token embeddings for a large language model, start with the vocabulary, assign token IDs to the tokens, and convert each token ID into an embedding vector.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1593",
+              "ghCSGRgVB_o@1599",
+              "ghCSGRgVB_o@1601",
+              "ghCSGRgVB_o@1605",
+              "ghCSGRgVB_o@1608",
+              "ghCSGRgVB_o@1616",
+              "ghCSGRgVB_o@1618",
+              "ghCSGRgVB_o@1622",
+              "mk-6cFebjis@4189",
+              "mk-6cFebjis@4194",
+              "mk-6cFebjis@4200"
+            ]
+          },
+          {
+            "id": "ch02.s12.p01.03",
+            "text": "A token embedding converts each token ID into an embedding vector, and the matrix that stores these vectors is also called the embedding layer weight matrix.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1627",
+              "ghCSGRgVB_o@1629",
+              "mk-6cFebjis@4205",
+              "mk-6cFebjis@4208",
+              "mk-6cFebjis@4210",
+              "mk-6cFebjis@4530",
+              "mk-6cFebjis@4533",
+              "mk-6cFebjis@4536"
+            ]
+          },
+          {
+            "id": "ch02.s12.p01.04",
+            "text": "To construct this matrix, two dimensions matter: the vocabulary size and the vector dimension.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1634",
+              "ghCSGRgVB_o@1637",
+              "ghCSGRgVB_o@1639",
+              "ghCSGRgVB_o@1641",
+              "ghCSGRgVB_o@1643",
+              "ghCSGRgVB_o@1646",
+              "ghCSGRgVB_o@1996",
+              "ghCSGRgVB_o@1998",
+              "ghCSGRgVB_o@2002",
+              "mk-6cFebjis@4541",
+              "mk-6cFebjis@4544",
+              "mk-6cFebjis@4546",
+              "mk-6cFebjis@4548",
+              "mk-6cFebjis@4550",
+              "mk-6cFebjis@4552"
+            ]
+          },
+          {
+            "id": "ch02.s12.p01.05",
+            "text": "Together, these two parameters determine the size of the embedding matrix: the number of rows equals the vocabulary size, and the number of columns equals the vector dimension.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@2002",
+              "ghCSGRgVB_o@2005",
+              "ghCSGRgVB_o@2007",
+              "mk-6cFebjis@4555",
+              "mk-6cFebjis@4559",
+              "mk-6cFebjis@4561",
+              "mk-6cFebjis@4563",
+              "mk-6cFebjis@4565",
+              "mk-6cFebjis@4567"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s12.p02",
+        "sentences": [
+          {
+            "id": "ch02.s12.p02.01",
+            "text": "GPT-2 provides a concrete example.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s12.p02.02",
+            "text": "For GPT-2, the vocabulary size is stated as 50,257 and the embedding dimension as 768 for the smallest model.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1689",
+              "ghCSGRgVB_o@1692",
+              "ghCSGRgVB_o@1697",
+              "ghCSGRgVB_o@1700",
+              "ghCSGRgVB_o@1703",
+              "ghCSGRgVB_o@3423",
+              "ghCSGRgVB_o@3426",
+              "ghCSGRgVB_o@3427"
+            ]
+          },
+          {
+            "id": "ch02.s12.p02.03",
+            "text": "Its vocabulary consists of 50,257 subword tokens made through byte pair encoding, with corresponding token IDs.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1709",
+              "ghCSGRgVB_o@1711",
+              "ghCSGRgVB_o@1714",
+              "ghCSGRgVB_o@1717",
+              "ghCSGRgVB_o@1718"
+            ]
+          },
+          {
+            "id": "ch02.s12.p02.04",
+            "text": "For each token ID, there is a corresponding vector of 768 values.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1733",
+              "ghCSGRgVB_o@1736",
+              "ghCSGRgVB_o@1738",
+              "ghCSGRgVB_o@1740",
+              "ghCSGRgVB_o@1742",
+              "ghCSGRgVB_o@1759",
+              "ghCSGRgVB_o@1762",
+              "ghCSGRgVB_o@2011",
+              "ghCSGRgVB_o@2013"
+            ]
+          },
+          {
+            "id": "ch02.s12.p02.05",
+            "text": "That means the embedding layer weight matrix has 50,257 rows and 768 columns.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1841",
+              "ghCSGRgVB_o@1844",
+              "ghCSGRgVB_o@1848",
+              "ghCSGRgVB_o@2005",
+              "ghCSGRgVB_o@2007",
+              "ghCSGRgVB_o@2011",
+              "ghCSGRgVB_o@3427",
+              "ghCSGRgVB_o@3430",
+              "ghCSGRgVB_o@3432",
+              "ghCSGRgVB_o@3436"
+            ]
+          },
+          {
+            "id": "ch02.s12.p02.06",
+            "text": "The number of weights is the vocabulary size multiplied by the embedding dimension, written here as 50,257 times 768.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1768",
+              "ghCSGRgVB_o@1772",
+              "ghCSGRgVB_o@1775",
+              "ghCSGRgVB_o@1780",
+              "ghCSGRgVB_o@1785",
+              "ghCSGRgVB_o@1788",
+              "ghCSGRgVB_o@1791",
+              "ghCSGRgVB_o@1793",
+              "ghCSGRgVB_o@1795"
+            ]
+          },
+          {
+            "id": "ch02.s12.p02.07",
+            "text": "This matrix is called the embedding layer weight matrix and is extremely important.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1800",
+              "ghCSGRgVB_o@1805",
+              "ghCSGRgVB_o@1806"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s12.p03",
+        "sentences": [
+          {
+            "id": "ch02.s12.p03.01",
+            "text": "The key point is that the shape is known before training, but the values are not.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s12.p03.02",
+            "text": "When training GPT-2, you know that the embedding layer weight matrix must have 50,257 rows and 768 columns, but you do not know the actual weight values in advance.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1834",
+              "ghCSGRgVB_o@1836",
+              "ghCSGRgVB_o@1838",
+              "ghCSGRgVB_o@1841",
+              "ghCSGRgVB_o@1842",
+              "ghCSGRgVB_o@1844",
+              "ghCSGRgVB_o@1848",
+              "ghCSGRgVB_o@1850"
+            ]
+          },
+          {
+            "id": "ch02.s12.p03.03",
+            "text": "The first step is to initialize all embedding layer weights randomly.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1853",
+              "ghCSGRgVB_o@1855",
+              "ghCSGRgVB_o@1857",
+              "ghCSGRgVB_o@1860",
+              "ghCSGRgVB_o@1863",
+              "ghCSGRgVB_o@3442",
+              "ghCSGRgVB_o@3446",
+              "ghCSGRgVB_o@3447"
+            ]
+          },
+          {
+            "id": "ch02.s12.p03.04",
+            "text": "This random initialization is the starting point for learning, and the embedding layer weights are then optimized during LLM training.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1865",
+              "ghCSGRgVB_o@1867",
+              "ghCSGRgVB_o@1873",
+              "ghCSGRgVB_o@1875",
+              "ghCSGRgVB_o@1878",
+              "ghCSGRgVB_o@1893",
+              "ghCSGRgVB_o@1894",
+              "ghCSGRgVB_o@1896",
+              "mk-6cFebjis@4573",
+              "mk-6cFebjis@4575",
+              "mk-6cFebjis@4577",
+              "mk-6cFebjis@4579"
+            ]
+          },
+          {
+            "id": "ch02.s12.p03.05",
+            "text": "This optimization process is how token embeddings are created.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1894",
+              "ghCSGRgVB_o@1896",
+              "ghCSGRgVB_o@1899",
+              "ghCSGRgVB_o@1901"
+            ]
+          },
+          {
+            "id": "ch02.s12.p03.06",
+            "text": "Training data provides information about which words are closer to each other and which are farther apart, and that information is used to modify the embedding parameters.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1903",
+              "ghCSGRgVB_o@1906",
+              "ghCSGRgVB_o@1907",
+              "ghCSGRgVB_o@1909",
+              "ghCSGRgVB_o@1920",
+              "ghCSGRgVB_o@1922",
+              "ghCSGRgVB_o@1925",
+              "ghCSGRgVB_o@1928"
+            ]
+          },
+          {
+            "id": "ch02.s12.p03.07",
+            "text": "Backpropagation is used to optimize the weights of the embedding layer weight matrix.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1932",
+              "ghCSGRgVB_o@1934",
+              "ghCSGRgVB_o@1936",
+              "ghCSGRgVB_o@1938",
+              "ghCSGRgVB_o@1940",
+              "ghCSGRgVB_o@2015",
+              "ghCSGRgVB_o@2017",
+              "ghCSGRgVB_o@2024",
+              "ghCSGRgVB_o@2026"
+            ]
+          },
+          {
+            "id": "ch02.s12.p03.08",
+            "text": "A large language model is a giant neural network, and training the embedding layer weight matrix is one part of that network’s training.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1948",
+              "ghCSGRgVB_o@1950",
+              "ghCSGRgVB_o@1952",
+              "ghCSGRgVB_o@1955",
+              "ghCSGRgVB_o@1956"
+            ]
+          },
+          {
+            "id": "ch02.s12.p03.09",
+            "text": "During GPT training, the model learns the embeddings while also training to predict the next word.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1968",
+              "ghCSGRgVB_o@1971",
+              "ghCSGRgVB_o@1973",
+              "ghCSGRgVB_o@1976",
+              "ghCSGRgVB_o@1978",
+              "ghCSGRgVB_o@1980",
+              "ghCSGRgVB_o@1981",
+              "ghCSGRgVB_o@1983",
+              "mk-6cFebjis@4457",
+              "mk-6cFebjis@4459",
+              "mk-6cFebjis@4462",
+              "mk-6cFebjis@4464"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s12.p04",
+        "sentences": [
+          {
+            "id": "ch02.s12.p04.01",
+            "text": "A small example makes the matrix shape and the lookup behavior easier to see.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s12.p04.02",
+            "text": "In a simplified example, the vocabulary size is 6 and the embedding dimension is 3, so each token is converted into a three-dimensional vector.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@2210",
+              "ghCSGRgVB_o@2213",
+              "ghCSGRgVB_o@2221",
+              "ghCSGRgVB_o@2227",
+              "ghCSGRgVB_o@2229",
+              "ghCSGRgVB_o@2241",
+              "ghCSGRgVB_o@2243",
+              "ghCSGRgVB_o@2246",
+              "ghCSGRgVB_o@2257",
+              "ghCSGRgVB_o@2258",
+              "ghCSGRgVB_o@2261",
+              "ghCSGRgVB_o@2274",
+              "ghCSGRgVB_o@2277",
+              "ghCSGRgVB_o@2279",
+              "mk-6cFebjis@4303",
+              "mk-6cFebjis@4308",
+              "mk-6cFebjis@4311"
+            ]
+          },
+          {
+            "id": "ch02.s12.p04.03",
+            "text": "In PyTorch, an embedding layer is created with \"torch.nn.Embedding\" by specifying the vocabulary size and the vector dimension.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@2282",
+              "ghCSGRgVB_o@2284",
+              "ghCSGRgVB_o@2287",
+              "ghCSGRgVB_o@2291",
+              "ghCSGRgVB_o@2293",
+              "ghCSGRgVB_o@2298",
+              "ghCSGRgVB_o@2299",
+              "mk-6cFebjis@4379",
+              "mk-6cFebjis@4381",
+              "mk-6cFebjis@4385",
+              "mk-6cFebjis@4387",
+              "mk-6cFebjis@4389",
+              "mk-6cFebjis@4400",
+              "mk-6cFebjis@4402"
+            ]
+          },
+          {
+            "id": "ch02.s12.p04.04",
+            "text": "PyTorch describes the embedding as a simple lookup table that stores embeddings of a fixed dictionary and size.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@2310",
+              "ghCSGRgVB_o@2312",
+              "ghCSGRgVB_o@2314",
+              "ghCSGRgVB_o@2316"
+            ]
+          },
+          {
+            "id": "ch02.s12.p04.05",
+            "text": "Using \"torch.nn.Embedding\" initializes the embedding matrix with random values.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@2334",
+              "ghCSGRgVB_o@2336",
+              "ghCSGRgVB_o@2338",
+              "ghCSGRgVB_o@2341",
+              "ghCSGRgVB_o@2343",
+              "mk-6cFebjis@4404",
+              "mk-6cFebjis@4406"
+            ]
+          },
+          {
+            "id": "ch02.s12.p04.06",
+            "text": "With six token IDs and three-dimensional vectors, the embedding layer weight matrix has six rows and three columns, and each row corresponds to one token ID’s vector.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@2355",
+              "ghCSGRgVB_o@2357",
+              "ghCSGRgVB_o@2367",
+              "ghCSGRgVB_o@2381",
+              "ghCSGRgVB_o@2383",
+              "ghCSGRgVB_o@2385",
+              "ghCSGRgVB_o@2403",
+              "ghCSGRgVB_o@2405",
+              "ghCSGRgVB_o@2407",
+              "ghCSGRgVB_o@2412",
+              "ghCSGRgVB_o@2414",
+              "ghCSGRgVB_o@2417",
+              "ghCSGRgVB_o@2420",
+              "ghCSGRgVB_o@2422",
+              "ghCSGRgVB_o@2471",
+              "ghCSGRgVB_o@2473",
+              "ghCSGRgVB_o@2478",
+              "ghCSGRgVB_o@2481",
+              "mk-6cFebjis@4351",
+              "mk-6cFebjis@4355",
+              "mk-6cFebjis@4370",
+              "mk-6cFebjis@4372",
+              "mk-6cFebjis@4374"
+            ]
+          },
+          {
+            "id": "ch02.s12.p04.07",
+            "text": "Accessing \"embedding_layer.weight\" returns all the weights of the embedding layer, and printing them shows a randomly initialized matrix with the expected shape.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@2390",
+              "ghCSGRgVB_o@2392",
+              "ghCSGRgVB_o@2395",
+              "ghCSGRgVB_o@2396",
+              "ghCSGRgVB_o@2398",
+              "ghCSGRgVB_o@2401",
+              "ghCSGRgVB_o@2403",
+              "ghCSGRgVB_o@2430",
+              "ghCSGRgVB_o@2431",
+              "ghCSGRgVB_o@2435",
+              "ghCSGRgVB_o@2437",
+              "mk-6cFebjis@4410",
+              "mk-6cFebjis@4411",
+              "mk-6cFebjis@4413",
+              "mk-6cFebjis@4466",
+              "mk-6cFebjis@4469",
+              "mk-6cFebjis@4470"
+            ]
+          },
+          {
+            "id": "ch02.s12.p04.08",
+            "text": "These initial weights are small random values that are later optimized during LLM training, partly so the embeddings can capture meaning.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@2431",
+              "ghCSGRgVB_o@2433",
+              "ghCSGRgVB_o@2435",
+              "ghCSGRgVB_o@2437",
+              "ghCSGRgVB_o@2439",
+              "ghCSGRgVB_o@2442",
+              "ghCSGRgVB_o@2444",
+              "ghCSGRgVB_o@2796",
+              "ghCSGRgVB_o@2799",
+              "ghCSGRgVB_o@2803",
+              "ghCSGRgVB_o@2805"
+            ]
+          },
+          {
+            "id": "ch02.s12.p04.09",
+            "text": "At a broad level, LLM optimization includes optimizing the embedding layer weights and also other weights used later to predict the next word.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@2448",
+              "ghCSGRgVB_o@2450",
+              "ghCSGRgVB_o@2452",
+              "ghCSGRgVB_o@2454",
+              "ghCSGRgVB_o@2458",
+              "ghCSGRgVB_o@2461"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s12.p05",
+        "sentences": [
+          {
+            "id": "ch02.s12.p05.01",
+            "text": "Once the matrix exists, using it is just row lookup.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s12.p05.02",
+            "text": "Each row of the embedding weight matrix is the vector embedding for one token or token ID.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@2478",
+              "ghCSGRgVB_o@2481",
+              "ghCSGRgVB_o@2483"
+            ]
+          },
+          {
+            "id": "ch02.s12.p05.03",
+            "text": "To get the vector for a specific token ID, look up the corresponding row in the embedding weight matrix using zero indexing.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@2497",
+              "ghCSGRgVB_o@2499",
+              "ghCSGRgVB_o@2501",
+              "ghCSGRgVB_o@2504",
+              "ghCSGRgVB_o@2519",
+              "ghCSGRgVB_o@2521",
+              "ghCSGRgVB_o@2526",
+              "ghCSGRgVB_o@2529",
+              "mk-6cFebjis@4273",
+              "mk-6cFebjis@4275",
+              "mk-6cFebjis@4280",
+              "mk-6cFebjis@4283",
+              "mk-6cFebjis@4285",
+              "mk-6cFebjis@4288"
+            ]
+          },
+          {
+            "id": "ch02.s12.p05.04",
+            "text": "For example, the vector returned for token ID 3 is identical to the fourth row of the matrix because the IDs are zero-indexed.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@2550",
+              "ghCSGRgVB_o@2552",
+              "ghCSGRgVB_o@2560",
+              "ghCSGRgVB_o@2564",
+              "ghCSGRgVB_o@2566",
+              "ghCSGRgVB_o@2569",
+              "ghCSGRgVB_o@2571",
+              "ghCSGRgVB_o@2573",
+              "ghCSGRgVB_o@2583",
+              "ghCSGRgVB_o@2586",
+              "ghCSGRgVB_o@2589",
+              "ghCSGRgVB_o@2591",
+              "mk-6cFebjis@4477",
+              "mk-6cFebjis@4478",
+              "mk-6cFebjis@4480",
+              "mk-6cFebjis@4483",
+              "mk-6cFebjis@4488",
+              "mk-6cFebjis@4490",
+              "mk-6cFebjis@4492"
+            ]
+          },
+          {
+            "id": "ch02.s12.p05.05",
+            "text": "An embedding layer is essentially a lookup operation that retrieves rows from the embedding layer’s weight matrix using a token ID.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@2597",
+              "ghCSGRgVB_o@2600",
+              "ghCSGRgVB_o@2602",
+              "ghCSGRgVB_o@2604",
+              "ghCSGRgVB_o@2607",
+              "ghCSGRgVB_o@2610",
+              "ghCSGRgVB_o@2611",
+              "ghCSGRgVB_o@2614",
+              "ghCSGRgVB_o@2616",
+              "ghCSGRgVB_o@2618",
+              "mk-6cFebjis@4583",
+              "mk-6cFebjis@4585",
+              "mk-6cFebjis@4587",
+              "mk-6cFebjis@4589",
+              "mk-6cFebjis@4591",
+              "mk-6cFebjis@4593",
+              "mk-6cFebjis@4595"
+            ]
+          },
+          {
+            "id": "ch02.s12.p05.06",
+            "text": "A useful way to think about it is as a lookup table: go to the row number associated with the token ID and retrieve that vector.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@2531",
+              "ghCSGRgVB_o@2534",
+              "ghCSGRgVB_o@2536",
+              "ghCSGRgVB_o@2539",
+              "ghCSGRgVB_o@2542",
+              "ghCSGRgVB_o@2614",
+              "ghCSGRgVB_o@2616",
+              "ghCSGRgVB_o@2618",
+              "ghCSGRgVB_o@2621",
+              "ghCSGRgVB_o@2623",
+              "ghCSGRgVB_o@2626",
+              "ghCSGRgVB_o@2628",
+              "ghCSGRgVB_o@2636",
+              "ghCSGRgVB_o@2638",
+              "ghCSGRgVB_o@2643",
+              "ghCSGRgVB_o@2646"
+            ]
+          },
+          {
+            "id": "ch02.s12.p05.07",
+            "text": "The same matrix is therefore both a matrix of embedding weights and a lookup table for the exact vector representation of a token ID.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@2648",
+              "ghCSGRgVB_o@2650",
+              "ghCSGRgVB_o@2653",
+              "ghCSGRgVB_o@2655",
+              "ghCSGRgVB_o@2657",
+              "ghCSGRgVB_o@2660",
+              "ghCSGRgVB_o@2662"
+            ]
+          },
+          {
+            "id": "ch02.s12.p05.08",
+            "text": "If someone asks what an embedding layer is, a precise answer is that it is a simple lookup operation that retrieves the vector for a particular token ID.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@2902",
+              "ghCSGRgVB_o@2905",
+              "ghCSGRgVB_o@2907",
+              "ghCSGRgVB_o@2909",
+              "ghCSGRgVB_o@2912"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s12.p06",
+        "sentences": [
+          {
+            "id": "ch02.s12.p06.01",
+            "text": "The same lookup works for one ID or for many IDs at once.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s12.p06.02",
+            "text": "When input IDs are passed into the embedding layer, it goes through each ID, looks up the corresponding row in the embedding matrix, and returns those rows as the output embeddings.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@2721",
+              "ghCSGRgVB_o@2724",
+              "ghCSGRgVB_o@2726",
+              "ghCSGRgVB_o@2731",
+              "ghCSGRgVB_o@2733",
+              "ghCSGRgVB_o@2735",
+              "ghCSGRgVB_o@2740",
+              "ghCSGRgVB_o@2741",
+              "ghCSGRgVB_o@2744",
+              "ghCSGRgVB_o@2747",
+              "ghCSGRgVB_o@2765",
+              "ghCSGRgVB_o@2768",
+              "ghCSGRgVB_o@2770",
+              "mk-6cFebjis@4511",
+              "mk-6cFebjis@4513",
+              "mk-6cFebjis@4515",
+              "mk-6cFebjis@4517",
+              "mk-6cFebjis@4520"
+            ]
+          },
+          {
+            "id": "ch02.s12.p06.03",
+            "text": "You can pass either a single token ID or multiple token IDs to the embedding layer and get the corresponding vectors in one operation.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@2774",
+              "ghCSGRgVB_o@2776",
+              "ghCSGRgVB_o@2778",
+              "ghCSGRgVB_o@2781",
+              "ghCSGRgVB_o@2783",
+              "ghCSGRgVB_o@2785",
+              "ghCSGRgVB_o@2787",
+              "mk-6cFebjis@4508",
+              "mk-6cFebjis@4511",
+              "mk-6cFebjis@4513",
+              "mk-6cFebjis@4515"
+            ]
+          },
+          {
+            "id": "ch02.s12.p06.04",
+            "text": "In another small example, if the vocabulary size is 4 and the embedding dimension is 5, the embedding matrix has 4 rows and 5 columns, and each token ID gets a five-dimensional vector.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@2937",
+              "ghCSGRgVB_o@2939",
+              "ghCSGRgVB_o@2952",
+              "ghCSGRgVB_o@2954",
+              "ghCSGRgVB_o@2956",
+              "ghCSGRgVB_o@2960",
+              "ghCSGRgVB_o@2963",
+              "ghCSGRgVB_o@2967",
+              "ghCSGRgVB_o@2969",
+              "ghCSGRgVB_o@2972",
+              "ghCSGRgVB_o@2974",
+              "ghCSGRgVB_o@2977",
+              "ghCSGRgVB_o@2982",
+              "ghCSGRgVB_o@2984",
+              "ghCSGRgVB_o@2988",
+              "ghCSGRgVB_o@2991",
+              "ghCSGRgVB_o@3007",
+              "ghCSGRgVB_o@3010",
+              "ghCSGRgVB_o@3012",
+              "ghCSGRgVB_o@3014"
+            ]
+          },
+          {
+            "id": "ch02.s12.p06.05",
+            "text": "If only certain IDs are needed, passing those IDs to the embedding layer extracts only the corresponding rows from the embedding matrix.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@3019",
+              "ghCSGRgVB_o@3022",
+              "ghCSGRgVB_o@3025",
+              "ghCSGRgVB_o@3027",
+              "ghCSGRgVB_o@3030",
+              "ghCSGRgVB_o@3033",
+              "ghCSGRgVB_o@3036",
+              "ghCSGRgVB_o@3038",
+              "ghCSGRgVB_o@3041",
+              "ghCSGRgVB_o@3043"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s12.p07",
+        "sentences": [
+          {
+            "id": "ch02.s12.p07.01",
+            "text": "The practical GPT-style code example uses the same idea at a larger scale.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s12.p07.02",
+            "text": "A practical embedding layer is created with \"torch.nn.Embedding\" using GPT-2’s vocabulary size of 50,257 and a vector dimension of 256, giving a matrix with 50,257 rows and 256 columns.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@4601",
+              "mk-6cFebjis@4605",
+              "mk-6cFebjis@4609",
+              "mk-6cFebjis@4612",
+              "mk-6cFebjis@4643",
+              "mk-6cFebjis@4645",
+              "mk-6cFebjis@4650",
+              "mk-6cFebjis@4654",
+              "mk-6cFebjis@4656",
+              "mk-6cFebjis@4658",
+              "mk-6cFebjis@4661",
+              "mk-6cFebjis@4664",
+              "mk-6cFebjis@4666",
+              "mk-6cFebjis@4668",
+              "mk-6cFebjis@4670",
+              "mk-6cFebjis@4260",
+              "mk-6cFebjis@4262",
+              "mk-6cFebjis@4266",
+              "mk-6cFebjis@4268"
+            ]
+          },
+          {
+            "id": "ch02.s12.p07.03",
+            "text": "Here each token ID is associated with a vector containing 256 values.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@4226",
+              "mk-6cFebjis@4228",
+              "mk-6cFebjis@4235",
+              "mk-6cFebjis@4238",
+              "mk-6cFebjis@4241",
+              "mk-6cFebjis@4245",
+              "mk-6cFebjis@4250",
+              "mk-6cFebjis@4254",
+              "mk-6cFebjis@4256",
+              "mk-6cFebjis@4656",
+              "mk-6cFebjis@4658"
+            ]
+          },
+          {
+            "id": "ch02.s12.p07.04",
+            "text": "The input token IDs from the data loader are passed into this token embedding layer to obtain the corresponding embedding vectors.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@4674",
+              "mk-6cFebjis@4676",
+              "mk-6cFebjis@4683",
+              "mk-6cFebjis@4686",
+              "mk-6cFebjis@4689",
+              "mk-6cFebjis@4692",
+              "mk-6cFebjis@4901",
+              "mk-6cFebjis@4903",
+              "mk-6cFebjis@4905",
+              "mk-6cFebjis@4908"
+            ]
+          },
+          {
+            "id": "ch02.s12.p07.05",
+            "text": "If the input ID matrix has shape 8 by 4 and each token ID is converted into a 256-dimensional vector, the embedding output has shape 8 by 4 by 256.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@4784",
+              "mk-6cFebjis@4786",
+              "mk-6cFebjis@4799",
+              "mk-6cFebjis@4801",
+              "mk-6cFebjis@4803",
+              "mk-6cFebjis@4805",
+              "mk-6cFebjis@4810",
+              "mk-6cFebjis@4813",
+              "mk-6cFebjis@4816",
+              "mk-6cFebjis@4820",
+              "mk-6cFebjis@4846",
+              "mk-6cFebjis@4848",
+              "mk-6cFebjis@4873",
+              "mk-6cFebjis@4876",
+              "mk-6cFebjis@4876",
+              "mk-6cFebjis@4882",
+              "mk-6cFebjis@4886",
+              "mk-6cFebjis@4888",
+              "mk-6cFebjis@4891",
+              "mk-6cFebjis@4894",
+              "mk-6cFebjis@4897",
+              "mk-6cFebjis@4911",
+              "mk-6cFebjis@4913",
+              "mk-6cFebjis@4915"
+            ]
+          },
+          {
+            "id": "ch02.s12.p07.06",
+            "text": "This example also leaves a gap to keep in mind: the token vocabulary is described as coming from byte pair encoding, but the mechanics of how those subword tokens are built are not developed here.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1711",
+              "ghCSGRgVB_o@1714",
+              "ghCSGRgVB_o@1717",
+              "ghCSGRgVB_o@1718"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

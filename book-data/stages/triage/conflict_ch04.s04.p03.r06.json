@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch04.s04.p03.r06",
+  "inputs_hash": "64190e6fe38466510520299606420d6b82da466bf689c362500844d5067474f0",
+  "output_hash": "710b3416a62ff9be43b1c2b9975635955e9621308ca7c1b03da75e3cc9398eda",
+  "output": {
+    "decision": "edit",
+    "text": "In that second layer normalization, each token’s values are normalized by subtracting the mean and dividing by the square root of the variance.",
+    "reason": "The captions support the normalization step itself, but the claim about the final mean being 0 and variance being 1 overgeneralizes once LayerNorm’s trainable scale and shift are included.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.97,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "70d7e142fb4a0e0d8072dc150fab80d0fff2b1a20e23f5db52003c0c21ce2a89"
+  }
+}

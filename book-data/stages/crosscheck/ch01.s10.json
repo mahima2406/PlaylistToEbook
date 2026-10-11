@@ -1,0 +1,416 @@
+{
+  "stage": "crosscheck",
+  "item": "ch01.s10",
+  "inputs_hash": "49b1212dd24a0dfee1954530cdfe879dbce47b1dce530ca059273f9a277490fc",
+  "output_hash": "809916f66c2204cdb2280923d3f6fdb59c40f70517b2344feaf13692007ba378",
+  "output": {
+    "section_id": "ch01.s10",
+    "checked": 32,
+    "counts": {
+      "agrees": 19,
+      "contradicts": 2,
+      "not_covered": 11
+    },
+    "results": [
+      {
+        "sentence_id": "ch01.s10.p01.02",
+        "text": "The roadmap is divided into three stages: stage one, stage two, and stage three.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference discusses three weight matrices (Wq, Wk, Wv) for self-attention, not a roadmap divided into three stages."
+      },
+      {
+        "sentence_id": "ch01.s10.p01.03",
+        "text": "Stage one focuses on the building blocks needed before training a large language model: data preprocessing and sampling, the attention mechanism, and the LLM architecture.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell85",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell76",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references cover dataset splitting/loading, validation tasks, and loss calculation, but do not describe a 'stage one' that includes data preprocessing/sampling, attention mechanism, and LLM architecture as a roadmap item."
+      },
+      {
+        "sentence_id": "ch01.s10.p01.04",
+        "text": "In this first stage, data is collected from different datasets, processed, and sampled.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell81",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell5",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell94"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References show sampling tokens from probabilities and working with multiple datasets, but they do not state that in 'first stage' data is collected from different datasets, processed, and sampled."
+      },
+      {
+        "sentence_id": "ch01.s10.p01.05",
+        "text": "The attention mechanism is built from scratch in Python, including key, query, value, attention scores, positional encoding, and vector embeddings.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell134",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs cover positional embeddings combined with token embeddings and step-by-step self-attention with Q/K/V projections; this supports building key/query/value and embeddings/positional embeddings from scratch (positional encoding via embeddings is covered)."
+      },
+      {
+        "sentence_id": "ch01.s10.p01.06",
+        "text": "Stage one also covers the LLM architecture: how to stack layers and where the attention head goes, with the goal of understanding the basic mechanism behind a large language model.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell126",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The chapter 3 references explicitly describe stacking single-head modules into multi-head attention and explain the self-attention mechanism used in GPT/transformers, consistent with covering architecture/layer stacking and where attention heads fit conceptually."
+      },
+      {
+        "sentence_id": "ch01.s10.p01.07",
+        "text": "The Transformer attention mechanism is further broken into parts such as multi-head attention, positional encoding, input embedding, and output embedding.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell8",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell133"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References cover multi-head attention and output dimensions; they do not explicitly break the transformer into positional encoding plus input and output embeddings as stated."
+      },
+      {
+        "sentence_id": "ch01.s10.p02.r01",
+        "text": "A next-word prediction task gives a bunch of words and predicts the next word.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell120",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell88",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs state that targets are inputs shifted by one and the next word in a sequence is the target to predict, matching the next-word prediction description."
+      },
+      {
+        "sentence_id": "ch01.s10.p02.r02",
+        "text": "Context means how many words should be taken for training to predict the next output.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref describes setting max_length equal to the context length supported by the LLM when preparing inputs for next-token prediction; this is consistent with context being how many tokens/words are used as input to predict the next output token."
+      },
+      {
+        "sentence_id": "ch01.s10.p02.r03",
+        "text": "The data preparation work includes constructing batches from a large dataset and feeding those batches to the large language model.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell87",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell26",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell4"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs indicate chapters cover data preparation to get data ready for the LLM and show iterating over a data_loader yielding input/target batches used to compute loss with the model, consistent with constructing batches and feeding them to the LLM."
+      },
+      {
+        "sentence_id": "ch01.s10.p02.r04",
+        "text": "Batching the data into different sets makes computation much more efficient.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell28",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell16"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References mention batching steps but do not state that batching makes computation more efficient."
+      },
+      {
+        "sentence_id": "ch01.s10.p02.r05",
+        "text": "A data batching sequence is implemented before the dataset is given to the large language model for pre-training.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell29",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell29",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell28"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs describe implementing dataset classes and tackling batching steps before training/using the model, consistent with batching being implemented prior to giving data to the LLM."
+      },
+      {
+        "sentence_id": "ch01.s10.p03.r01",
+        "text": "Stage two is pre-training: after assembling the data and constructing the LLM architecture, code is written to train the model on the underlying dataset.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell70",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs describe pretraining in chapter 5 (train_model_simple) and training code that loads data to device and trains; this matches the idea that after assembling data and architecture, code is written to train the model on the dataset."
+      },
+      {
+        "sentence_id": "ch01.s10.p03.r02",
+        "text": "Pre-training builds a foundational model on unlabeled data.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell1",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell5",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell91"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Chapter 5 is explicitly about \"Pretraining on Unlabeled Data,\" which is consistent with pre-training building a foundational model from unlabeled text."
+      },
+      {
+        "sentence_id": "ch01.s10.p03.r03",
+        "text": "The training procedure breaks the training dataset into epochs, computes the gradient of the loss in each epoch, updates the parameters, and generates sample text for visual inspection.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference states that the fine-tuning training function differs from the pretraining one in that it calculates accuracy each epoch instead of printing sample text after each epoch, contradicting the claim that the procedure generates sample text each epoch (as stated for the described procedure)."
+      },
+      {
+        "sentence_id": "ch01.s10.p03.r04",
+        "text": "The process also includes model evaluation and loading pretrained weights.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell71",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell125",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell116"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references include sections on loading/saving weights (5.4), loading pretrained weights from OpenAI (5.5), and loading a pretrained LLM (7.5), and Chapter 5 mentions implementing basic model evaluation."
+      },
+      {
+        "sentence_id": "ch01.s10.p03.r05",
+        "text": "Functions are implemented to save and load large language model weights so the model can be reused or training can continue later.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell117",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell120",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell118"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly motivates and shows saving/loading weights via PyTorch state_dict so training can be resumed or reused."
+      },
+      {
+        "sentence_id": "ch01.s10.p03.r06",
+        "text": "Saving and loading weights saves a lot of computational cost and memory.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell116",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell120",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell119"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference supports computational cost savings (\"Training LLMs is computationally expensive...\") but does not claim saving/loading weights saves memory; saving weights typically requires storage. The added claim about saving memory is not supported and is misleading."
+      },
+      {
+        "sentence_id": "ch01.s10.p03.r07",
+        "text": "The model also loads pretrained weights from OpenAI into its own large language model.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell125",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell3",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell41"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Chapter 5 states they load openly available pretrained weights from OpenAI into their model, and Chapter 6 also discusses initializing with pretrained weights."
+      },
+      {
+        "sentence_id": "ch01.s10.p03.r08",
+        "text": "Taken together, stage two consists of the training loop, model evaluation, and loading pretrained weights to build a foundational model.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell71",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell3",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell116"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Chapter 5 states it implements the training loop and basic model evaluation for pretraining and also loads pretrained weights from OpenAI, aligning with the described bundle of components for building a foundational model."
+      },
+      {
+        "sentence_id": "ch01.s10.p04.r01",
+        "text": "Modern large language models are trained in two main steps: first we pre-train on unlabeled data to create a foundational model, and then we fine-tune it.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell1",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell58",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell5"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The course structure covers pretraining on unlabeled data (Ch. 5) and finetuning on supervised data (Ch. 6), consistent with the two-step description."
+      },
+      {
+        "sentence_id": "ch01.s10.p04.r02",
+        "text": "Pre-training requires very large datasets, typically billions of words, and it is expensive.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell117",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell80"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention that training is computationally expensive but do not state typical dataset sizes (e.g., billions of words)."
+      },
+      {
+        "sentence_id": "ch01.s10.p04.r03",
+        "text": "One stated example is that pre-training GPT-3 cost about 4.6 million dollars.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell49"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No provided reference passage mentions GPT-3 costing about $4.6M to pretrain."
+      },
+      {
+        "sentence_id": "ch01.s10.p04.r04",
+        "text": "In pre-training, the dataset is unlabeled and autoregressive because the sentence structure itself creates the labels by predicting the next word.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell20",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell81"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explains next-word prediction with targets shifted by one position, which supports the idea that unlabeled text becomes supervised via autoregressive next-token prediction."
+      },
+      {
+        "sentence_id": "ch01.s10.p04.r06",
+        "text": "In fine-tuning, a labeled dataset is used, such as labels for spam versus not spam or good versus bad answers.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell20",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell107",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell16"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Chapter 6 uses labeled data with class labels ham/not-spam vs spam, matching the statement about labeled datasets in fine-tuning/classification."
+      },
+      {
+        "sentence_id": "ch01.s10.p05.r02",
+        "text": "Two fine-tuned applications are built: a classifier and a personal assistant.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell115",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell107"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show a fine-tuned spam/review classifier being saved and a section about using the LLM as a spam classifier, but they do not show building a second fine-tuned application described as a personal assistant/chatbot."
+      },
+      {
+        "sentence_id": "ch01.s10.p05.r03",
+        "text": "A classifier can label emails such as \"you are a winner you have been specially selected to receive th000 cash now\" as spam and \"hey just wanted to check if we are still on for dinner tonight let me know\" as not spam.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell113",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell112",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell48"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The referenced cells define example texts matching the described spam-like and ham-like emails and run them through a classification function, consistent with labeling the first as spam and the second as not spam."
+      },
+      {
+        "sentence_id": "ch01.s10.p05.r04",
+        "text": "A pretrained foundational model alone is not enough for spam classification, because the model must be trained with labeled data.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell8",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell41"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference notes the pretrained model is not good at following instructions and discusses classification finetuning with explicit class labels (spam/not spam), implying labeled data is needed for reliable spam classification."
+      },
+      {
+        "sentence_id": "ch01.s10.p05.r05",
+        "text": "To build an email classification application, the foundational model is given additional labeled data that marks examples as spam or not spam.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell8",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell107",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell16"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference describes classification finetuning with labels such as spam and not spam and mentions dataset class distribution containing ham and spam, consistent with providing labeled examples to the foundational model."
+      },
+      {
+        "sentence_id": "ch01.s10.p05.r06",
+        "text": "Another fine-tuned application is a chatbot that takes an instruction and an input and produces an output.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell73",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell56",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell18"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference shows formatting an instruction dataset with explicit Instruction and optional Input fields to elicit a response, consistent with a chatbot-style instruction+input→output setup (instruction finetuning context)."
+      },
+      {
+        "sentence_id": "ch01.s10.p06.r03",
+        "text": "When companies deploy LLMs into production level, they fine-tune the pre-trained LLM; nobody deploys the pre-trained one directly.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell29"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No provided reference passage makes the production claim that nobody deploys pretrained models directly; the cited cell only discusses implementing a dataset class."
+      },
+      {
+        "sentence_id": "ch01.s10.p06.r05",
+        "text": "Fine-tuned LLMs can outperform only pretrained LLMs on specific tasks.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell76",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell8"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the references discuss evaluating a model before finetuning and explain what classification finetuning is, they do not explicitly state that fine-tuned LLMs can outperform pretrained-only LLMs on specific tasks."
+      },
+      {
+        "sentence_id": "ch01.s10.p06.r06",
+        "text": "If you want to build a specific application on your own dataset and take it to production level, fine-tuning is needed.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell44"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference discusses limiting sample length for working with custom datasets, but does not state that fine-tuning is needed to build a specific application on one’s own dataset and take it to production."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch01.s10.p03.r03",
+        "text": "The training procedure breaks the training dataset into epochs, computes the gradient of the loss in each epoch, updates the parameters, and generates sample text for visual inspection.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference states that the fine-tuning training function differs from the pretraining one in that it calculates accuracy each epoch instead of printing sample text after each epoch, contradicting the claim that the procedure generates sample text each epoch (as stated for the described procedure)."
+      },
+      {
+        "sentence_id": "ch01.s10.p03.r06",
+        "text": "Saving and loading weights saves a lot of computational cost and memory.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell116",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell120",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell119"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference supports computational cost savings (\"Training LLMs is computationally expensive...\") but does not claim saving/loading weights saves memory; saving weights typically requires storage. The added claim about saving memory is not supported and is misleading."
+      }
+    ]
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "stage": "crosscheck",
+  "item": "ch06.s07",
+  "inputs_hash": "ce7789b547f82d5e4df33cdb38b0ec09f4e429df0cb7ceba7b408b6dd84667c0",
+  "output_hash": "344fc51099bf4b51e711dd54d688f252172e6e7cd8c722958992244eddbb4e1c",
+  "output": {
+    "section_id": "ch06.s07",
+    "checked": 17,
+    "counts": {
+      "agrees": 9,
+      "contradicts": 0,
+      "not_covered": 8
+    },
+    "results": [
+      {
+        "sentence_id": "ch06.s07.p01.02",
+        "text": "Creating batches for instruction fine-tuning is very important because the process includes specific details such as padding tokens, using \"-100\", and creating target token IDs by shifting the input token IDs to the right by one.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell107",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell116",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references show token IDs, embeddings, and text generation, but do not describe instruction fine-tuning batch construction details like padding, using -100, and creating targets by shifting."
+      },
+      {
+        "sentence_id": "ch06.s07.p01.03",
+        "text": "Batching the dataset involves five detailed steps.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell28",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell62"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference states batching is done in several steps but does not confirm there are exactly five steps."
+      },
+      {
+        "sentence_id": "ch06.s07.p01.04",
+        "text": "First, the data is formatted with the prompt template, and for instruction fine-tuning that template is the Alpaca prompt template.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell17"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly says the chapter uses Alpaca-style prompt formatting as the original prompt template for instruction finetuning."
+      },
+      {
+        "sentence_id": "ch06.s07.p01.05",
+        "text": "Next, the formatted prompt is converted into token IDs.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell33",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell32",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell49"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference describes converting tokens/text into token IDs for processing via embedding layers."
+      },
+      {
+        "sentence_id": "ch06.s07.p01.06",
+        "text": "Because tokenized samples do not all have equal length, each batch is padded with token \"50256\" so that every sample in that batch has the same length as the longest sample in the batch.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell26",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell35",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references explain padding variable-length samples to the longest length and show using <|endoftext|> as padding with pad_token_id=50256 in the custom collate function."
+      },
+      {
+        "sentence_id": "ch06.s07.p01.07",
+        "text": "After that, target token IDs are created by shifting the input token IDs to the right by one.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell26",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell46"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states that for LLM training the targets are the inputs shifted by 1 position (i.e., next-token prediction)."
+      },
+      {
+        "sentence_id": "ch06.s07.p01.08",
+        "text": "Finally, all \"50256\" tokens except the first are replaced with \"-100\".",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell38",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell60",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell67"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explains using -100 (ignore_index) to ignore additional end-of-text/padding tokens and explicitly notes not wanting to ignore the first end-of-text token, implying subsequent padding tokens are set to -100."
+      },
+      {
+        "sentence_id": "ch06.s07.p01.09",
+        "text": "The first \"50256\" is kept because it indicates end of text, while the other replaced positions are excluded from the training loss because PyTorch cross-entropy loss uses an ignore index of \"-100\".",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell48",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell52"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states PyTorch cross_entropy ignores label -100 by default (ignore_index=-100) and notes the first end-of-text token should not be ignored while additional padding tokens can be ignored."
+      },
+      {
+        "sentence_id": "ch06.s07.p02.02",
+        "text": "Some researchers also mask the target token IDs so that only the response part matters during training.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell122",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell54",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference says it is common to mask out target token IDs corresponding to the instruction so only the response part matters."
+      },
+      {
+        "sentence_id": "ch06.s07.p02.03",
+        "text": "Here, masking the target token IDs means masking out the target token IDs that correspond to the instructions.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell54",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell93"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly defines the practice as masking out target token IDs that correspond to the instruction."
+      },
+      {
+        "sentence_id": "ch06.s07.p02.04",
+        "text": "This masking is implemented by replacing those target token IDs with \"-100\".",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell111",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell93"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the reference mentions masking out instruction targets, the provided passages do not state the implementation detail that this masking is done by replacing those target IDs with -100."
+      },
+      {
+        "sentence_id": "ch06.s07.p02.05",
+        "text": "When the non-response parts of the target are replaced with \"-100\", those tokens are ignored in the loss calculation.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell17",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell46"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explains that labels set to -100 are ignored by PyTorch cross_entropy via ignore_index=-100, so masked-out (non-response) target tokens would be excluded from loss."
+      },
+      {
+        "sentence_id": "ch06.s07.p02.06",
+        "text": "If the target token IDs corresponding to the instruction are masked out, the LLM cross-entropy loss is calculated only for the generated response target IDs.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell31",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell26",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell18"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references describe inputs/targets being shifted and show how token IDs are obtained, but they do not mention masking out instruction tokens or that cross-entropy loss is computed only on response target IDs when instruction IDs are masked."
+      },
+      {
+        "sentence_id": "ch06.s07.p02.07",
+        "text": "Masking out instruction tokens trains the model to focus on generating accurate responses rather than memorizing instructions, which can help reduce overfitting.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell82",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell117",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell90"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited cells discuss text generation and observed training/validation loss behavior, but they do not state that masking instruction tokens reduces overfitting or shifts learning away from memorizing instructions toward response accuracy."
+      },
+      {
+        "sentence_id": "ch06.s07.p03.02",
+        "text": "It is not yet confirmed which approach works best, and researchers are divided on whether masking instructions is universally beneficial during instruction fine-tuning.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell81",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell122"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show that a pretrained (not instruction-finetuned) model cannot yet follow instructions, but they do not discuss research disagreement or whether instruction masking is universally beneficial."
+      },
+      {
+        "sentence_id": "ch06.s07.p03.03",
+        "text": "A recent paper titled \"instruction tuning with loss over instructions\" reported that not masking the instruction benefits LLM performance.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell82",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell18"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show how instruction inputs are formatted and discuss instruction finetuning generally, but they do not mention any paper titled \"instruction tuning with loss over instructions\" nor claim that not masking the instruction improves performance."
+      },
+      {
+        "sentence_id": "ch06.s07.p03.04",
+        "text": "So the choice between masking and not masking is still an open research question.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell111",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell116"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references are about dropout/masking attention weights, not about an open research question regarding masking vs not masking instruction tokens in instruction fine-tuning."
+      }
+    ],
+    "conflicts": []
+  }
+}

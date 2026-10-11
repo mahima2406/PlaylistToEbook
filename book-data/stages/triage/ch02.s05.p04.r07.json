@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch02.s05.p04.r07",
+  "inputs_hash": "aa63ecb53f27485abbd63c4f1a48eba8dec23be1a8df32b27e5126ec957e3b3c",
+  "output_hash": "3a27d1eae4bef69cda9e777b392dd02df7258084805fdeefc1e4ec555636080d",
+  "output": {
+    "decision": "edit",
+    "text": "Here, both \"hello\" and \"palace\" are treated as unknown words, and augmenting the vocabulary with the additional tokens allows encoding and decoding even unknown words successfully.",
+    "reason": "The captions support that both words are unknown and that the added tokens enable successful encoding and decoding of unknown words, but not the specific explanation that both are unknown because they are not in the data set.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "7f705b5f23a4ff09aa89371d3c35c29f3a1fc6e34db0108861ac86d46974e95a"
+  }
+}

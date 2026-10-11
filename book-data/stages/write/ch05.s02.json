@@ -1,0 +1,357 @@
+{
+  "stage": "write",
+  "item": "ch05.s02",
+  "inputs_hash": "e019b95a89f0fc8c8b178922faaf0036300ef1d702f7eb391d5e1395a66c672d",
+  "output_hash": "314a916f803098f6bb1e49c6cf473b6e1115baa29798771880a2a0ebca667668",
+  "output": {
+    "section_id": "ch05.s02",
+    "paragraphs": [
+      {
+        "id": "ch05.s02.p01",
+        "sentences": [
+          {
+            "id": "ch05.s02.p01.01",
+            "text": "How do the released GPT-2 files become something a PyTorch-based setup can actually use, and what needs to be installed first?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s02.p01.02",
+            "text": "Because the GPT-2 weights were originally saved via TensorFlow while the code used so far is in PyTorch, this setup installs TensorFlow and the \"tqdm\" library.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@260",
+              "yXrGeDNuymY@262",
+              "yXrGeDNuymY@265",
+              "yXrGeDNuymY@267",
+              "yXrGeDNuymY@269",
+              "yXrGeDNuymY@272",
+              "yXrGeDNuymY@275"
+            ]
+          },
+          {
+            "id": "ch05.s02.p01.03",
+            "text": "TensorFlow should be version 2.15 or higher, and \"tqdm\" should be version 4.66 or higher.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@286",
+              "yXrGeDNuymY@288",
+              "yXrGeDNuymY@291",
+              "yXrGeDNuymY@293",
+              "yXrGeDNuymY@294"
+            ]
+          },
+          {
+            "id": "ch05.s02.p01.04",
+            "text": "After importing both libraries, the code prints the installed TensorFlow version and the installed \"tqdm\" version on the system.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@297",
+              "yXrGeDNuymY@299",
+              "yXrGeDNuymY@301"
+            ]
+          },
+          {
+            "id": "ch05.s02.p01.05",
+            "text": "The download itself matters because the released GPT-2 package consists of about seven files totaling about 500 megabytes, and downloading them is only the beginning.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@332",
+              "yXrGeDNuymY@334",
+              "yXrGeDNuymY@337",
+              "yXrGeDNuymY@338",
+              "yXrGeDNuymY@340"
+            ]
+          },
+          {
+            "id": "ch05.s02.p01.06",
+            "text": "Before the weights can be integrated with the GPT architecture, a number of preprocessing steps are still required.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@343",
+              "yXrGeDNuymY@344",
+              "yXrGeDNuymY@347"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s02.p02",
+        "sentences": [
+          {
+            "id": "ch05.s02.p02.01",
+            "text": "The released models also come in several sizes, which determines which set of files and settings you load.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s02.p02.02",
+            "text": "OpenAI made GPT-2 weights public for models with 124 million, 355 million, 774 million, and 1558 million parameters.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@687",
+              "yXrGeDNuymY@691",
+              "yXrGeDNuymY@694",
+              "yXrGeDNuymY@697",
+              "yXrGeDNuymY@701"
+            ]
+          },
+          {
+            "id": "ch05.s02.p02.03",
+            "text": "The settings shown here correspond to the smallest GPT-2 model.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@677",
+              "yXrGeDNuymY@680",
+              "yXrGeDNuymY@682"
+            ]
+          },
+          {
+            "id": "ch05.s02.p02.04",
+            "text": "For simplicity, the model loaded here is the 124 million parameter version rather than the larger 355 million, 774 million, or 1.5 billion parameter releases.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@703",
+              "yXrGeDNuymY@705",
+              "yXrGeDNuymY@1948",
+              "yXrGeDNuymY@1950",
+              "yXrGeDNuymY@1953",
+              "yXrGeDNuymY@1957",
+              "yXrGeDNuymY@1959"
+            ]
+          },
+          {
+            "id": "ch05.s02.p02.05",
+            "text": "This 124 million parameter model has 12 transformer blocks.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@705",
+              "yXrGeDNuymY@707"
+            ]
+          },
+          {
+            "id": "ch05.s02.p02.06",
+            "text": "As GPT-2 models become more complex, the number of transformer blocks increases.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@709",
+              "yXrGeDNuymY@711",
+              "yXrGeDNuymY@713"
+            ]
+          },
+          {
+            "id": "ch05.s02.p02.07",
+            "text": "The same loading code can also be run for the larger GPT-2 architectures.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@716",
+              "yXrGeDNuymY@718",
+              "yXrGeDNuymY@720"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s02.p03",
+        "sentences": [
+          {
+            "id": "ch05.s02.p03.01",
+            "text": "To handle those files, the loader is organized around one main function and a small set of helpers.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s02.p03.02",
+            "text": "The file \"gpt_download3.py\" contains three functions: the main function \"download_and_load_gpt2\" and the helper functions \"download_file\" and \"load_gpt2_params_from_tf_checkpoint\".",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@380",
+              "yXrGeDNuymY@385",
+              "yXrGeDNuymY@386",
+              "yXrGeDNuymY@388",
+              "yXrGeDNuymY@390",
+              "yXrGeDNuymY@392",
+              "yXrGeDNuymY@395",
+              "yXrGeDNuymY@398",
+              "yXrGeDNuymY@400",
+              "yXrGeDNuymY@403"
+            ]
+          },
+          {
+            "id": "ch05.s02.p03.03",
+            "text": "The main function performs two jobs: it first downloads the seven GPT-2 files to the local computer, and then it calls the TensorFlow checkpoint-loading function.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@405",
+              "yXrGeDNuymY@407",
+              "yXrGeDNuymY@409",
+              "yXrGeDNuymY@412",
+              "yXrGeDNuymY@416",
+              "yXrGeDNuymY@418",
+              "yXrGeDNuymY@422",
+              "yXrGeDNuymY@424",
+              "yXrGeDNuymY@426",
+              "yXrGeDNuymY@428",
+              "yXrGeDNuymY@430"
+            ]
+          },
+          {
+            "id": "ch05.s02.p03.04",
+            "text": "That second step stores the extracted parameters in a dictionary called \"params\".",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@436",
+              "yXrGeDNuymY@438",
+              "yXrGeDNuymY@442",
+              "yXrGeDNuymY@444"
+            ]
+          },
+          {
+            "id": "ch05.s02.p03.05",
+            "text": "In the download step, the code specifies a URL, calls the download function, fetches the seven files, and saves them on the local machine.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@733",
+              "yXrGeDNuymY@736",
+              "yXrGeDNuymY@739",
+              "yXrGeDNuymY@741",
+              "yXrGeDNuymY@745",
+              "yXrGeDNuymY@751",
+              "yXrGeDNuymY@752"
+            ]
+          },
+          {
+            "id": "ch05.s02.p03.06",
+            "text": "The \"checkpoint\" file defines the model checkpoint path, meaning the path where the current GPT-2 parameters and weights are stored.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@498",
+              "yXrGeDNuymY@501",
+              "yXrGeDNuymY@503",
+              "yXrGeDNuymY@505",
+              "yXrGeDNuymY@507",
+              "yXrGeDNuymY@510",
+              "yXrGeDNuymY@524",
+              "yXrGeDNuymY@527",
+              "yXrGeDNuymY@529"
+            ]
+          },
+          {
+            "id": "ch05.s02.p03.07",
+            "text": "After downloading, the code uses TensorFlow's latest checkpoint utility to search the model directory, find the checkpoint entry, and identify where the model parameters are stored.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@757",
+              "yXrGeDNuymY@760",
+              "yXrGeDNuymY@762",
+              "yXrGeDNuymY@765",
+              "yXrGeDNuymY@767",
+              "yXrGeDNuymY@769",
+              "yXrGeDNuymY@772",
+              "yXrGeDNuymY@774",
+              "yXrGeDNuymY@776",
+              "yXrGeDNuymY@778",
+              "yXrGeDNuymY@779",
+              "yXrGeDNuymY@781",
+              "yXrGeDNuymY@784"
+            ]
+          },
+          {
+            "id": "ch05.s02.p03.08",
+            "text": "The purpose of \"load_gpt2_params_from_tf_checkpoint\" is to extract parameter values from the TensorFlow checkpoint and convert them into the \"params\" dictionary.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1584",
+              "yXrGeDNuymY@1586",
+              "yXrGeDNuymY@1590",
+              "yXrGeDNuymY@1592",
+              "yXrGeDNuymY@1595",
+              "yXrGeDNuymY@1598",
+              "yXrGeDNuymY@1600"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.s02.p04",
+        "sentences": [
+          {
+            "id": "ch05.s02.p04.01",
+            "text": "Once the loader exists in a Python file, using it from a notebook is straightforward.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch05.s02.p04.02",
+            "text": "The notebook imports \"download_and_load_gpt2\" from the Python file and then runs that function.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1723",
+              "yXrGeDNuymY@1724",
+              "yXrGeDNuymY@1727",
+              "yXrGeDNuymY@1729",
+              "yXrGeDNuymY@1731",
+              "yXrGeDNuymY@1733",
+              "yXrGeDNuymY@1735"
+            ]
+          },
+          {
+            "id": "ch05.s02.p04.03",
+            "text": "Running it requires two arguments: the model size and the directory.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1735",
+              "yXrGeDNuymY@1737",
+              "yXrGeDNuymY@1749",
+              "yXrGeDNuymY@1751"
+            ]
+          },
+          {
+            "id": "ch05.s02.p04.04",
+            "text": "The model size can also be set to 355 million, 774 million, or 1558 million, and experimentation with these options is encouraged.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1737",
+              "yXrGeDNuymY@1739",
+              "yXrGeDNuymY@1741",
+              "yXrGeDNuymY@1744",
+              "yXrGeDNuymY@1747"
+            ]
+          },
+          {
+            "id": "ch05.s02.p04.05",
+            "text": "After the function runs, it returns both the \"settings\" dictionary and the \"params\" dictionary.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1762",
+              "yXrGeDNuymY@1764",
+              "yXrGeDNuymY@1766",
+              "yXrGeDNuymY@1767"
+            ]
+          },
+          {
+            "id": "ch05.s02.p04.06",
+            "text": "This download-and-load stage is the most time-consuming part, taking about 5 to 10 minutes for roughly 500 megabytes in the example, and better internet connectivity helps the process complete smoothly.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@1772",
+              "yXrGeDNuymY@1774",
+              "yXrGeDNuymY@1777",
+              "yXrGeDNuymY@1781",
+              "yXrGeDNuymY@1784",
+              "yXrGeDNuymY@1787",
+              "yXrGeDNuymY@1793",
+              "yXrGeDNuymY@1795",
+              "yXrGeDNuymY@1798",
+              "yXrGeDNuymY@1803",
+              "yXrGeDNuymY@1805",
+              "yXrGeDNuymY@1807",
+              "yXrGeDNuymY@1809"
+            ]
+          }
+        ]
+      }
+    ],
+    "invalid_citation_sentences": 0
+  }
+}

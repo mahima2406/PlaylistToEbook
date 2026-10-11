@@ -1,0 +1,601 @@
+{
+  "stage": "crosscheck",
+  "item": "ch05.s08",
+  "inputs_hash": "516160107a0853c375fb02ed529e2e73c4484825ff45f81cc191bee54bf0a792",
+  "output_hash": "aa7dd98afde9f3f8358499316bdfc80455392fba0b36f9db6db27540b0280cb9",
+  "output": {
+    "section_id": "ch05.s08",
+    "checked": 48,
+    "counts": {
+      "agrees": 32,
+      "contradicts": 1,
+      "not_covered": 15
+    },
+    "results": [
+      {
+        "sentence_id": "ch05.s08.p01.r02",
+        "text": "The purpose of the data loader is to manage input-target pairs more effectively.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell69",
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell4",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell87"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited code uses a data_loader to iterate over (input_batch, target_batch) pairs for loss computation, but it does not state the purpose of a data loader or discuss managing input-target pairs more effectively."
+      },
+      {
+        "sentence_id": "ch05.s08.p01.r03",
+        "text": "In PyTorch, \"Dataset\" and \"DataLoader\" can be used with a custom dataset to give easy access to samples, run batches on the data, and even do parallel processing.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell57",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell33",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell29"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references describe using a custom Dataset (InstructionDataset) and DataLoader with a custom collate function to access samples and run batches; this is consistent with PyTorch Dataset/DataLoader usage (including typical DataLoader features like multiprocessing, though parallel processing is not explicitly shown here)."
+      },
+      {
+        "sentence_id": "ch05.s08.p01.r04",
+        "text": "For this classification task, the goal is to convert each email into tokens and make every email in a batch have the same token length, producing an input tensor together with a target tensor of labels \"0\" or \"1\".",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell127",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell47"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention padding and a 2-class (0/1) classification example, but they do not explicitly state that the task is emails nor that each batch produces an input tensor plus a target tensor of labels 0/1 for that email classification task."
+      },
+      {
+        "sentence_id": "ch05.s08.p01.r05",
+        "text": "A key difficulty is that email texts have varying lengths, while batching requires every row in the batch to have the same number of columns.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell33",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell26",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell76"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References explicitly note that texts have different lengths and batching requires truncation or padding so sequences in a batch align in length."
+      },
+      {
+        "sentence_id": "ch05.s08.p01.r06",
+        "text": "One possible way to equalize lengths is to find the shortest email and truncate every longer email to that length.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell26",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell37"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly lists truncating all messages to the length of the shortest message (in dataset or batch) as one option."
+      },
+      {
+        "sentence_id": "ch05.s08.p01.r07",
+        "text": "That approach is not recommended because information from the longer texts would be lost.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell146",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss padding vs truncation options and special PAD tokens, but do not explicitly judge truncating-to-shortest as not recommended due to losing information."
+      },
+      {
+        "sentence_id": "ch05.s08.p02.01",
+        "text": "A better strategy is to use the longest email length and pad every shorter email until it reaches that length.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell110",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell32",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell26"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states they choose option 2: pad all messages to the longest message in the dataset (and also pad validation/test to longest training sequence), matching the described strategy."
+      },
+      {
+        "sentence_id": "ch05.s08.p02.02",
+        "text": "The first preprocessing step is to tokenize each text message.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell73",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell61",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell26"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references discuss padding and attention steps but do not explicitly state that the first preprocessing step is tokenization."
+      },
+      {
+        "sentence_id": "ch05.s08.p02.03",
+        "text": "The tokenizer used here is the byte pair encoder tokenizer that GPT models use.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell70"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References state GPT-2 uses BytePair encoding and show using tiktoken.get_encoding(\"gpt2\"), consistent with using the BPE tokenizer used by GPT models."
+      },
+      {
+        "sentence_id": "ch05.s08.p02.04",
+        "text": "The \"tiktoken\" library is the tokenizer library used by OpenAI, and it converts a sentence into token IDs.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell2",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell2",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell128"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references list tiktoken as a tokenizer dependency but do not state it is used by OpenAI nor explicitly describe converting a sentence into token IDs."
+      },
+      {
+        "sentence_id": "ch05.s08.p02.05",
+        "text": "Byte pair encoding is a subword tokenizer, so a word is not necessarily equal to one token.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell71"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the references mention BPE and that it breaks words into subword units, the provided snippets do not explicitly state the general claim that a word is not necessarily equal to one token."
+      },
+      {
+        "sentence_id": "ch05.s08.p02.06",
+        "text": "After tokenization, shorter token sequences are padded with token \"50256\" until all sequences have the same length.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell7",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell35"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The custom collate function pads sequences using pad_token_id=50256 (<|endoftext|>) so that sequences in the batch reach the same length."
+      },
+      {
+        "sentence_id": "ch05.s08.p02.07",
+        "text": "In the GPT-2 vocabulary, token \"50256\" is the end-of-text token.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell46"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference uses eos_id=50256 for generation stopping and discusses <|endoftext|> as GPT-2’s end-of-text token, consistent with token ID 50256."
+      },
+      {
+        "sentence_id": "ch05.s08.p02.08",
+        "text": "A vocabulary maps tokens to token IDs.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell49",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell32"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references discuss converting tokens to token IDs (encoding) and back (decoding), which implies a mapping from tokens to token IDs."
+      },
+      {
+        "sentence_id": "ch05.s08.p02.09",
+        "text": "It is helpful to think of the vocabulary like a dictionary: instead of words with meanings, it provides words with associated token IDs.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell36"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references treat the vocabulary as the set of tokens and discuss whether a word is contained in the vocabulary, consistent with the idea of a dictionary-like mapping to token IDs."
+      },
+      {
+        "sentence_id": "ch05.s08.p02.10",
+        "text": "The end-of-text token signifies that the end of a document or sentence has been reached, and it is used during GPT training to distinguish between separate document sources.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell55",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell59",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references state <|endoftext|> denotes end of a text in GPT-2 training and is used between concatenated/independent text sources."
+      },
+      {
+        "sentence_id": "ch05.s08.p02.11",
+        "text": "Although any token could be used for padding, using the end-of-text token makes symbolic sense because it indicates that there is no additional text and avoids confusing the model with a random word.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell85",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell53",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell46"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention using <|endoftext|> as a padding token and ignoring extra padding positions via ignore_index, but they do not justify it as ‘symbolic sense’ or contrast it with using a random word."
+      },
+      {
+        "sentence_id": "ch05.s08.p03.02",
+        "text": "The overall workflow is to take the train, validation, and test CSV text, tokenize it into token IDs, find the longest email, and pad all messages with end-of-text token \"50256\" to that same length.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell26",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell46"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references cover padding to the longest message and using <|endoftext|> as padding, but they do not describe the full workflow specifically as ‘train/validation/test CSV text’ tokenized then finding the longest email across them and padding all with token 50256 (the CSV + longest-email-across-splits detail isn’t established here)."
+      },
+      {
+        "sentence_id": "ch05.s08.p03.03",
+        "text": "Before a \"DataLoader\" can be instantiated, a PyTorch \"Dataset\" must be implemented to specify how the data is loaded and processed.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell4",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell23",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell63"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The code shows a Dataset (InstructionDataset) being instantiated and then passed into a DataLoader, consistent with implementing/using a Dataset before creating a DataLoader."
+      },
+      {
+        "sentence_id": "ch05.s08.p03.04",
+        "text": "The dataset defines how data is loaded and what the input-target pairs are, and only after that is defined is the data loader instantiated.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell65",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell54",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell11"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While DataLoader usage with a Dataset is shown, the provided references do not explicitly state that the Dataset defines input-target pairs and that only after defining that is the DataLoader instantiated."
+      },
+      {
+        "sentence_id": "ch05.s08.p03.05",
+        "text": "The \"SpamDataset\" class identifies the longest sequence in the training set, converts each text message into token IDs, and pads the other sequences to match the longest sequence.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell29",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell32",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell26"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references explicitly state SpamDataset finds the longest training sequence, pads others to that length, and tokenizes texts; it also notes padding val/test to the longest training length."
+      },
+      {
+        "sentence_id": "ch05.s08.p03.06",
+        "text": "To create an instance of \"SpamDataset\", you specify the CSV file and the tokenizer being used.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell33",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell31",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell12"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The code constructs SpamDataset by passing csv_file and tokenizer (and max_length), consistent with the sentence."
+      },
+      {
+        "sentence_id": "ch05.s08.p03.07",
+        "text": "The CSV file is read with pandas into a data object, and then each email or text message in that data is converted into token IDs.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell14",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell44",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell33"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references state the dataset is loaded into a pandas DataFrame and that encoding converts text into token IDs, consistent with reading via pandas and converting messages to token IDs."
+      },
+      {
+        "sentence_id": "ch05.s08.p03.08",
+        "text": "If no maximum length is specified, the maximum length is taken from the longest encoded text in the dataset.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell30",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell110",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell32"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "SpamDataset sets self.max_length to the longest encoded length when max_length is None, as shown in the code."
+      },
+      {
+        "sentence_id": "ch05.s08.p03.09",
+        "text": "The \"longest_encoded_length\" function finds the lengths of all text messages and returns the maximum length among them.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell26",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell30",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell79"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "In SpamDataset.__init__, when max_length is None it sets self.max_length = self._longest_encoded_length(). The surrounding text explains padding to the longest message in the dataset, consistent with computing the maximum encoded length across messages."
+      },
+      {
+        "sentence_id": "ch05.s08.p03.10",
+        "text": "If the user specifies a maximum length, that user-defined value is used instead.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell76"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "SpamDataset.__init__ uses the user-provided max_length when it is not None (else branch: self.max_length = max_length)."
+      },
+      {
+        "sentence_id": "ch05.s08.p04.02",
+        "text": "If some sequences are longer than the maximum length, they must be truncated so that their length equals the maximum length.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell110",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell44",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell32"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references describe/implement truncation of sequences longer than a maximum: classify_review truncates input_ids to min(max_length, supported_context_length), and the chapter text notes validation/test samples longer than self.max_length are truncated via encoded_text[:self.max_length]."
+      },
+      {
+        "sentence_id": "ch05.s08.p04.03",
+        "text": "If the maximum length is selected from the data itself, sequences longer than that maximum length do not arise.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell44",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell110",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell32"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The references explicitly state that when max_length is based on the longest training sequence, validation/test sequences can still be longer and are then truncated (i.e., sequences longer than that selected max length can arise)."
+      },
+      {
+        "sentence_id": "ch05.s08.p04.04",
+        "text": "The pad token ID is \"50256\", and texts shorter than the maximum length are padded with this token ID.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell35",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell92"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Pad token id 50256 is used (default pad_token_id=50256), and the collate code pads shorter sequences by appending pad_token_id until reaching the batch max length."
+      },
+      {
+        "sentence_id": "ch05.s08.p04.05",
+        "text": "For each text message, pad token IDs are appended until the message reaches the maximum length, so all text messages have the same size.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell26",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell46",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The chapter text states they pad all messages to the longest message, and the collate function shows pad_token_id appended to make sequences equal length for batching."
+      },
+      {
+        "sentence_id": "ch05.s08.p04.06",
+        "text": "The dataset creates two tensors named \"encoded\" and \"label\".",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell90",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell30",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell78"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided SpamDataset snippet shows stored fields like self.encoded_texts and self.max_length, but does not show __getitem__ returning tensors named \"encoded\" and \"label\". Other references show variables named encoded/label in different contexts, not as dataset-returned tensors."
+      },
+      {
+        "sentence_id": "ch05.s08.p04.07",
+        "text": "The \"encoded\" tensor is the tensor of token-ID encodings for the text messages.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell90",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell26",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference shows \"encoded\" as the result of tokenizer.encode(...) and then turned into a tensor (encoded_tensor), consistent with \"encoded\" representing token-ID encodings of text."
+      },
+      {
+        "sentence_id": "ch05.s08.p04.08",
+        "text": "The \"label\" tensor contains the labels for the examples, and those labels are zeros or ones.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell20",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell72",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell78"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The chapter text says string labels \"ham\" and \"spam\" are converted to integer class labels 0 and 1, consistent with labels being zeros/ones."
+      },
+      {
+        "sentence_id": "ch05.s08.p04.09",
+        "text": "The dataset’s main function is \"getitem\", and calling it converts the dataset into the \"encoded\" tensor and the labeled tensor.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell90",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell10"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No referenced code shows the dataset’s main function being __getitem__ (\"getitem\") nor that calling it produces tensors named \"encoded\" and a labeled tensor; the dataset implementation details are not included in the provided passages."
+      },
+      {
+        "sentence_id": "ch05.s08.p04.10",
+        "text": "The \"encoded\" tensor ensures that every sentence has been converted into token IDs and that all sentences have equal length so they can be batched together.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell42",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell90",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell33"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While references discuss tokenization and padding to equal length for batching, they do not establish that an object specifically named the \"encoded\" tensor both tokenizes all sentences and pads them to equal length; \"encoded\" in the reference is just a single example encoding."
+      },
+      {
+        "sentence_id": "ch05.s08.p04.11",
+        "text": "For this classification setup, the input-target pairs differ from language-model training because the targets are zeros and ones rather than token IDs shifted by one position.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell82",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell18",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references cover LM training targets being token IDs shifted by one position, and separately cover classification labels being 0/1, but they do not explicitly compare input-target pairs for classification vs LM training in the way the sentence states."
+      },
+      {
+        "sentence_id": "ch05.s08.p05.r02",
+        "text": "The \"SpamDataset\" class loads data from CSV files, tokenizes the text using the GPT-2 tokenizer from \"tiktoken\", and pads or truncates sequences to a uniform length defined either by the longest sequence or by a predefined maximum length.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell33",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell29",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell31"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs describe SpamDataset loading from CSV, using a tokenizer (tiktoken/GPT-2 is used in the chapter codebase), computing max_length from longest training sequence when None, and padding shorter sequences; cell32 notes truncation via encoded_text[:self.max_length] when a max_length is set."
+      },
+      {
+        "sentence_id": "ch05.s08.p05.r03",
+        "text": "An instance of \"SpamDataset\" is created with the \"train.csv\" file, and if no maximum length is passed, that maximum length is computed from the training dataset itself.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell33",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell31",
+          "ref:ch06/01_main-chapter-code/gpt_class_finetune.py"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Cell31 shows SpamDataset(csv_file='train.csv', max_length=None, tokenizer=tokenizer) and cell29 explains that in this case it identifies the longest training sequence (i.e., computes max_length) and pads to that length."
+      },
+      {
+        "sentence_id": "ch05.s08.p05.r04",
+        "text": "In this example, the computed maximum length is \"120\".",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell37",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell56"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Cell37 states that each training example consists of 120 tokens, consistent with the computed/padded length being 120 in this example."
+      },
+      {
+        "sentence_id": "ch05.s08.p05.r05",
+        "text": "GPT-2 can handle sequences up to \"1024\" tokens because its context length is \"1024\", so the maximum length passed here can be at most \"1024\".",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell12",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell110",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell44"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ch05 notes original GPT-2 used 1024 context length; ch07 mentions 1024 token context size supported by GPT-2; ch06 classify_review limits by supported_context_length from pos_emb, consistent with max usable length being capped by the model’s context length."
+      },
+      {
+        "sentence_id": "ch05.s08.p05.r06",
+        "text": "The validation and test datasets are padded to match the length of the longest training sequence.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell32",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell29",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Cell32 explicitly says validation and test are padded to the longest training sequence and longer samples are truncated to self.max_length."
+      },
+      {
+        "sentence_id": "ch05.s08.p05.r07",
+        "text": "Validation and test samples that exceed the length of the longest training examples are truncated.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell32",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell104"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Cell32 explicitly states validation/test samples longer than the longest training example are truncated via encoded_text[:self.max_length]."
+      },
+      {
+        "sentence_id": "ch05.s08.p05.r08",
+        "text": "When creating the validation and test dataset instances, the maximum length is passed in as \"120\", the maximum length from the training dataset.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell33",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell32"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Cell33 passes max_length=train_dataset.max_length into val/test datasets, and cell37 indicates that length is 120 in this run."
+      },
+      {
+        "sentence_id": "ch05.s08.p05.r09",
+        "text": "When a maximum length has been defined for validation and test data, sequences in those sets that are longer than that maximum length must be truncated.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell32",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell25",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell44"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Cell32 states that when max_length is set, longer validation/test samples are truncated via encoded_text[:self.max_length]."
+      },
+      {
+        "sentence_id": "ch05.s08.p05.r10",
+        "text": "There is no requirement that the maximum length for validation and test must equal the maximum length from training, and it can also be set to none.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell32",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell25"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Cell32 says the described truncation/padding choice is optional and it would also work well to set max_length=None for validation and test, implying it need not equal training’s max_length."
+      },
+      {
+        "sentence_id": "ch05.s08.p05.r11",
+        "text": "If the user-defined maximum length \"120\" is passed for validation or test data, printing the maximum length shows \"120\".",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell25",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided refs do not show code/output where a validation/test dataset’s max_length attribute is printed after passing 120, so this specific claim about printing is not evidenced."
+      },
+      {
+        "sentence_id": "ch05.s08.p05.r12",
+        "text": "The dataset serves as the input to the data loader, so the dataset is implemented first and then passed into a data loader.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell4",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell29",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell36"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Cell36 shows DataLoader instantiated with dataset=train_dataset/val_dataset/test_dataset, matching the statement that the dataset is implemented/created first and then passed into a DataLoader."
+      },
+      {
+        "sentence_id": "ch05.s08.p05.r13",
+        "text": "Data preprocessing, data cleaning, datasets, and data loaders are usually very important before model training begins.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell25",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell34",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell57"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The refs show sections about creating data loaders and using datasets, but they do not explicitly assert the general claim that preprocessing/cleaning/datasets/loaders are usually very important before training."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch05.s08.p04.03",
+        "text": "If the maximum length is selected from the data itself, sequences longer than that maximum length do not arise.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell44",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell110",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell32"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The references explicitly state that when max_length is based on the longest training sequence, validation/test sequences can still be longer and are then truncated (i.e., sequences longer than that selected max length can arise)."
+      }
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "stage": "listings",
+  "item": "ch04.s02",
+  "inputs_hash": "a56e3933cea103d627e57ff90a560fbedb554ea7f06e7a8a758f6949aba474f7",
+  "output_hash": "46aa50c632c8c7555df389024cc8cd56932d6fe724b665525601d0f5d28c9b96",
+  "output": {
+    "section_id": "ch04.s02",
+    "listings": [
+      {
+        "id": "ch04.s02.code1",
+        "ref": "ref:ch04/01_main-chapter-code/ch04.ipynb#cell10",
+        "path": "ch04/01_main-chapter-code/ch04.ipynb",
+        "caption": "This code defines the GPT-2 124M configuration dictionary with vocabulary size 50257, context length 1024, embedding dimension 768, 12 attention heads, 12 layers, dropout 0.1, and qkv bias disabled.",
+        "code": "GPT_CONFIG_124M = {\n    \"vocab_size\": 50257,    # Vocabulary size\n    \"context_length\": 1024, # Context length\n    \"emb_dim\": 768,         # Embedding dimension\n    \"n_heads\": 12,          # Number of attention heads\n    \"n_layers\": 12,         # Number of layers\n    \"drop_rate\": 0.1,       # Dropout rate\n    \"qkv_bias\": False       # Query-Key-Value bias\n}",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The code defines a GPT-2 124M configuration dictionary with exactly the parameters and values listed in the section (vocab_size 50257, context_length 1024, emb_dim 768, n_heads 12, n_layers 12, drop_rate 0.1, qkv_bias False), and the caption accurately describes what the code contains."
+      }
+    ],
+    "rejected": [
+      {
+        "id": "ch04.s02.code2",
+        "ref": "ref:ch05/01_main-chapter-code/gpt_generate.py",
+        "path": "ch05/01_main-chapter-code/gpt_generate.py",
+        "caption": "This code imports tiktoken and defines helper functions that encode text into token ID tensors and decode token ID tensors back into text using a tokenizer.",
+        "code": "# Copyright (c) Sebastian Raschka under Apache License 2.0 (see LICENSE.txt).\n# Source for \"Build a Large Language Model From Scratch\"\n#   - https://www.manning.com/books/build-a-large-language-model-from-scratch\n# Code: https://github.com/rasbt/LLMs-from-scratch\n\nimport argparse\nimport json\nimport numpy as np\nimport os\n\nimport requests\nimport tensorflow as tf\nimport tiktoken\nimport torch\nfrom tqdm import tqdm\n\n# Import from local files\nfrom previous_chapters import GPTModel\n\n\ndef text_to_token_ids(text, tokenizer):\n    encoded = tokenizer.encode(text)\n    encoded_tensor = torch.tensor(encoded).unsqueeze(0)  # add batch dimension\n    return encoded_tensor\n\n\ndef token_ids_to_text(token_ids, tokenizer):\n    flat = token_ids.squeeze(0)  # remove batch dimension\n    return tokenizer.decode(flat.tolist())\n",
+        "truncated": true,
+        "check": "no",
+        "reason": "The section is about specific GPT‑2 configuration hyperparameters (vocab size, context length, embedding dim, heads, blocks, dropout, QKV bias). The code instead defines tokenizer helper functions for encoding/decoding text to token IDs using tiktoken and torch tensors, and does not set or demonstrate any GPT‑2 configuration values. The caption accurately describes the code, but the code does not match the section’s teaching."
+      }
+    ]
+  }
+}

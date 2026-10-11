@@ -1,0 +1,582 @@
+{
+  "stage": "plants",
+  "item": "ch03",
+  "inputs_hash": "d923c9bfe14970da564d53eca1ca0bf60f9d23a4d5f1cc0061a7d976cae64e7f",
+  "output_hash": "d818a716fa839476c870ecc48fb52ca592b332b3c43b88015d93403e2b1c5b96",
+  "output": {
+    "chapter": "ch03",
+    "plants": [
+      {
+        "id": "ch03.plant1",
+        "type": "number",
+        "text": "An instance of the layer normalization class is created by passing in the embedding dimension, which is set to six for the batch example.",
+        "type_requested": "number",
+        "cites": [
+          "G3W-LT79LSI@2030",
+          "G3W-LT79LSI@2032",
+          "G3W-LT79LSI@2034",
+          "G3W-LT79LSI@2037",
+          "G3W-LT79LSI@2039",
+          "G3W-LT79LSI@2041",
+          "G3W-LT79LSI@2044"
+        ],
+        "original_id": "ch03.s10.p09.02",
+        "verdict": "unsupported",
+        "confidence": 0.9,
+        "reason": "The cited lines say the embedding dimension passed in is equal to five, not six.",
+        "caught": true
+      },
+      {
+        "id": "ch03.plant2",
+        "type": "term_swap",
+        "text": "To compute a context vector, multiply each input embedding vector by its corresponding positional encoding and then sum the resulting vectors.",
+        "type_requested": "term_swap",
+        "cites": [
+          "eSRhpYLerw4@2739",
+          "eSRhpYLerw4@2741",
+          "eSRhpYLerw4@2742",
+          "eSRhpYLerw4@2748",
+          "eSRhpYLerw4@2749",
+          "eSRhpYLerw4@2752",
+          "eSRhpYLerw4@2774",
+          "eSRhpYLerw4@2776",
+          "eSRhpYLerw4@2779",
+          "eSRhpYLerw4@2783",
+          "eSRhpYLerw4@2943",
+          "eSRhpYLerw4@2945",
+          "eSRhpYLerw4@2947",
+          "eSRhpYLerw4@2949"
+        ],
+        "original_id": "ch03.s04.p01.05",
+        "verdict": "unsupported",
+        "confidence": 0.88,
+        "reason": "The cited lines describe multiplying input embedding vectors by attention weights and summing; they do not mention positional encodings.",
+        "caught": true
+      },
+      {
+        "id": "ch03.plant3",
+        "type": "reversed_cause",
+        "text": "Understanding how attention works is therefore important for understanding dimensions, batches, three-dimensional tensors, matrices, and linear algebra fundamentals.",
+        "type_requested": "reversed_cause",
+        "cites": [
+          "h94TQOK7NRA@3313",
+          "h94TQOK7NRA@3315",
+          "h94TQOK7NRA@3317",
+          "h94TQOK7NRA@3319",
+          "h94TQOK7NRA@3322",
+          "h94TQOK7NRA@3323",
+          "h94TQOK7NRA@3325",
+          "h94TQOK7NRA@3327",
+          "h94TQOK7NRA@3330",
+          "h94TQOK7NRA@3331"
+        ],
+        "original_id": "ch03.s08.p07.09",
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": "",
+        "caught": false
+      },
+      {
+        "id": "ch03.plant4",
+        "type": "unsupported_addition",
+        "text": "To illustrate layer normalization in code, the implementation is first applied to a simple neural network and then turned into a separate layer normalization class for integration into the GPT architecture, using a ReLU activation in the example network.",
+        "type_requested": "unsupported_addition",
+        "cites": [
+          "G3W-LT79LSI@981",
+          "G3W-LT79LSI@982",
+          "G3W-LT79LSI@984",
+          "G3W-LT79LSI@986",
+          "G3W-LT79LSI@988",
+          "G3W-LT79LSI@990",
+          "G3W-LT79LSI@992",
+          "G3W-LT79LSI@994",
+          "G3W-LT79LSI@1004",
+          "G3W-LT79LSI@1006",
+          "G3W-LT79LSI@1008",
+          "G3W-LT79LSI@1011",
+          "G3W-LT79LSI@1014",
+          "G3W-LT79LSI@1016"
+        ],
+        "original_id": "ch03.s10.p05.02",
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "The lines support implementing layer normalization first on a simple neural network and then as a separate class for GPT integration, but they do not mention using a ReLU activation in the example network.",
+        "caught": true
+      },
+      {
+        "id": "ch03.plant5",
+        "type": "wrong_attribution",
+        "text": "The tokenizer also needs to handle multiple sentences at once as batches.",
+        "type_requested": "wrong_attribution",
+        "cites": [
+          "h94TQOK7NRA@2531",
+          "h94TQOK7NRA@2533",
+          "h94TQOK7NRA@2535",
+          "h94TQOK7NRA@2542",
+          "h94TQOK7NRA@2544",
+          "h94TQOK7NRA@2546",
+          "h94TQOK7NRA@2560",
+          "h94TQOK7NRA@2564",
+          "h94TQOK7NRA@2566",
+          "h94TQOK7NRA@2574",
+          "h94TQOK7NRA@2576"
+        ],
+        "original_id": "ch03.s08.p04.01",
+        "verdict": "partial",
+        "confidence": 0.75,
+        "reason": "Lines support handling multiple sentences at once as batches, but they refer to developing the attention class/code to handle batches, not explicitly the tokenizer.",
+        "caught": true
+      },
+      {
+        "id": "ch03.plant6",
+        "type": "number",
+        "text": "In machine learning, it is 10 times more common and advisable to use the softmax function than plain summation-based normalization.",
+        "type_requested": "number",
+        "cites": [
+          "eSRhpYLerw4@1811",
+          "eSRhpYLerw4@1814",
+          "eSRhpYLerw4@1823",
+          "eSRhpYLerw4@1826",
+          "eSRhpYLerw4@1828",
+          "eSRhpYLerw4@1830"
+        ],
+        "original_id": "ch03.s03.p02.02",
+        "verdict": "unsupported",
+        "confidence": 0.86,
+        "reason": "Lines say softmax is more common and advisable in ML context, but do not support the quantitative claim '10 times more common'.",
+        "caught": true
+      },
+      {
+        "id": "ch03.plant7",
+        "type": "term_swap",
+        "text": "Softmax also handles extreme cases better, because after normalization a very large value becomes dominant, making its normalized result very close to one and the smaller values very close to zero.",
+        "type_requested": "term_swap",
+        "cites": [
+          "eSRhpYLerw4@2103",
+          "eSRhpYLerw4@2104",
+          "eSRhpYLerw4@2107",
+          "eSRhpYLerw4@2111",
+          "eSRhpYLerw4@2114",
+          "eSRhpYLerw4@2116",
+          "eSRhpYLerw4@2119",
+          "eSRhpYLerw4@2121"
+        ],
+        "original_id": "ch03.s03.p03.r03",
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": "",
+        "caught": false
+      },
+      {
+        "id": "ch03.plant8",
+        "type": "reversed_cause",
+        "text": "Each row of the final 6x3 matrix is the context vector for the opposite token: the first row for the sixth token, the second row for the fifth token, and so on through the sixth row.",
+        "type_requested": "reversed_cause",
+        "cites": [
+          "eSRhpYLerw4@4055",
+          "eSRhpYLerw4@4058",
+          "eSRhpYLerw4@4061",
+          "eSRhpYLerw4@4063",
+          "eSRhpYLerw4@4065",
+          "eSRhpYLerw4@4287",
+          "eSRhpYLerw4@4289",
+          "eSRhpYLerw4@4292",
+          "eSRhpYLerw4@4295",
+          "eSRhpYLerw4@4298",
+          "eSRhpYLerw4@4300",
+          "eSRhpYLerw4@4302",
+          "eSRhpYLerw4@4304",
+          "eSRhpYLerw4@4306",
+          "eSRhpYLerw4@4308"
+        ],
+        "original_id": "ch03.s05.p04.06",
+        "verdict": "unsupported",
+        "confidence": 0.92,
+        "reason": "Cited lines say row 1 corresponds to the first word/token, row 2 to the second, ... row 6 to the final token; they do not say rows correspond to the opposite token (reversed order).",
+        "caught": true
+      },
+      {
+        "id": "ch03.plant9",
+        "type": "unsupported_addition",
+        "text": "In a Transformer block, the plus symbols and their associated arrows represent shortcut connections, and they are followed by dropout during training.",
+        "type_requested": "unsupported_addition",
+        "cites": [
+          "2r0QahNdwMw@117",
+          "2r0QahNdwMw@122",
+          "2r0QahNdwMw@124",
+          "2r0QahNdwMw@130",
+          "2r0QahNdwMw@132",
+          "2r0QahNdwMw@1877",
+          "2r0QahNdwMw@1879"
+        ],
+        "original_id": "ch03.s11.p01.03",
+        "verdict": "partial",
+        "confidence": 0.78,
+        "reason": "The cited lines support that the plus symbols and arrows indicate shortcut connections, but they do not mention dropout or that dropout follows these connections during training.",
+        "caught": true
+      },
+      {
+        "id": "ch03.plant10",
+        "type": "wrong_attribution",
+        "text": "The reason becomes clear in an extreme example such as the values produced by the softmax function, 1, 2, 3, and 400.",
+        "type_requested": "wrong_attribution",
+        "cites": [
+          "eSRhpYLerw4@1844",
+          "eSRhpYLerw4@1845",
+          "eSRhpYLerw4@1847",
+          "eSRhpYLerw4@1857",
+          "eSRhpYLerw4@1860",
+          "eSRhpYLerw4@1868",
+          "eSRhpYLerw4@1873"
+        ],
+        "original_id": "ch03.s03.p02.03",
+        "verdict": "unsupported",
+        "confidence": 0.8,
+        "reason": "The example numbers appear (1, 2, 3, 400), but the lines do not state these are values produced by the softmax function.",
+        "caught": true
+      },
+      {
+        "id": "ch03.plant11",
+        "type": "number",
+        "text": "The attention weights have the same dimensions as the attention scores: batch size, number of heads, number of tokens, and three tokens.",
+        "type_requested": "number",
+        "cites": [
+          "K5u9eEaoxFg@2385",
+          "K5u9eEaoxFg@2387",
+          "K5u9eEaoxFg@2389",
+          "K5u9eEaoxFg@2391",
+          "K5u9eEaoxFg@2394",
+          "K5u9eEaoxFg@2397",
+          "K5u9eEaoxFg@2399",
+          "K5u9eEaoxFg@2402",
+          "K5u9eEaoxFg@2406"
+        ],
+        "original_id": "ch03.s09.p08.r09",
+        "verdict": "partial",
+        "confidence": 0.74,
+        "reason": "The lines support that attention weights have the same dimensions as attention scores: batch size, number of heads, number of tokens, and number of tokens. They do not support the specific claim 'and three tokens'.",
+        "caught": true
+      },
+      {
+        "id": "ch03.plant12",
+        "type": "term_swap",
+        "text": "The final context vector matrix therefore has shape batch size, number of heads, \"D_out\".",
+        "type_requested": "term_swap",
+        "cites": [
+          "K5u9eEaoxFg@3167",
+          "K5u9eEaoxFg@3171",
+          "K5u9eEaoxFg@3174",
+          "K5u9eEaoxFg@3177"
+        ],
+        "original_id": "ch03.s09.p10.r08",
+        "verdict": "partial",
+        "confidence": 0.66,
+        "reason": "Cited lines give the shape as B, number of tokens, D_out (and note heads are merged into D_out), not batch size, number of heads, D_out.",
+        "caught": true
+      },
+      {
+        "id": "ch03.plant13",
+        "type": "reversed_cause",
+        "text": "Because y_(l+1) = f(y_l) + y_l, the derivative of y_(l+1) with respect to y_l excludes the derivative of f(y_l) and keeps only 1.",
+        "type_requested": "reversed_cause",
+        "cites": [
+          "2r0QahNdwMw@739",
+          "2r0QahNdwMw@741",
+          "2r0QahNdwMw@743",
+          "2r0QahNdwMw@746",
+          "2r0QahNdwMw@748"
+        ],
+        "original_id": "ch03.s11.p03.r06",
+        "verdict": "unsupported",
+        "confidence": 0.9,
+        "reason": "Cited lines say the derivative is (∂f(y_l)/∂y_l) + 1, not that it excludes the derivative of f(y_l) and keeps only 1.",
+        "caught": true
+      },
+      {
+        "id": "ch03.plant14",
+        "type": "unsupported_addition",
+        "text": "The same procedure can be summarized simply as subtracting the mean from each layer output and dividing by the square root of the variance, with a momentum term added for stability.",
+        "type_requested": "unsupported_addition",
+        "cites": [
+          "G3W-LT79LSI@954",
+          "G3W-LT79LSI@956",
+          "G3W-LT79LSI@958",
+          "G3W-LT79LSI@960"
+        ],
+        "original_id": "ch03.s10.p04.07",
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "Subtracting mean and dividing by sqrt(variance) is supported, but the cited lines do not mention adding a momentum term for stability.",
+        "caught": true
+      },
+      {
+        "id": "ch03.plant15",
+        "type": "wrong_attribution",
+        "text": "The backward method takes an input tensor \"X\" and ultimately computes a context vector for every input token embedding.",
+        "type_requested": "wrong_attribution",
+        "cites": [
+          "K5u9eEaoxFg@582",
+          "K5u9eEaoxFg@584",
+          "K5u9eEaoxFg@586",
+          "K5u9eEaoxFg@589",
+          "K5u9eEaoxFg@723",
+          "K5u9eEaoxFg@726"
+        ],
+        "original_id": "ch03.s09.p03.r02",
+        "verdict": "unsupported",
+        "confidence": 0.85,
+        "reason": "Cited lines discuss the forward method taking input X and producing a context vector per token; they do not mention the backward method.",
+        "caught": true
+      },
+      {
+        "id": "ch03.plant16",
+        "type": "number",
+        "text": "These naive softmax attention weights differ from the values produced by simple summation-based normalization, but they still sum to two.",
+        "type_requested": "number",
+        "cites": [
+          "eSRhpYLerw4@2330",
+          "eSRhpYLerw4@2334",
+          "eSRhpYLerw4@2337",
+          "eSRhpYLerw4@2339",
+          "eSRhpYLerw4@2341",
+          "eSRhpYLerw4@2343"
+        ],
+        "original_id": "ch03.s03.p03.r08",
+        "verdict": "partial",
+        "confidence": 0.85,
+        "reason": "The lines support that softmax-based weights differ from summation-based normalization and that they sum to one, not two.",
+        "caught": true
+      },
+      {
+        "id": "ch03.plant17",
+        "type": "term_swap",
+        "text": "The head dimension is \"D_in\" divided by the number of heads, so here it is \"6 / 2 = 3\".",
+        "type_requested": "term_swap",
+        "cites": [
+          "K5u9eEaoxFg@802",
+          "K5u9eEaoxFg@805",
+          "K5u9eEaoxFg@808",
+          "K5u9eEaoxFg@813"
+        ],
+        "original_id": "ch03.s09.p03.r10",
+        "verdict": "partial",
+        "confidence": 0.64,
+        "reason": "Cited lines define head dimension as D_out/num_heads = 6/2=3, not D_in/num_heads.",
+        "caught": true
+      },
+      {
+        "id": "ch03.plant18",
+        "type": "reversed_cause",
+        "text": "That product is obtained from the context vectors for all six tokens.",
+        "type_requested": "reversed_cause",
+        "cites": [
+          "eSRhpYLerw4@3981",
+          "eSRhpYLerw4@3983",
+          "eSRhpYLerw4@3985",
+          "eSRhpYLerw4@3987",
+          "eSRhpYLerw4@3989",
+          "eSRhpYLerw4@3991",
+          "eSRhpYLerw4@3993",
+          "eSRhpYLerw4@3995",
+          "eSRhpYLerw4@3996",
+          "eSRhpYLerw4@3999"
+        ],
+        "original_id": "ch03.s05.p04.04",
+        "verdict": "unsupported",
+        "confidence": 0.76,
+        "reason": "The cited lines say the product (attention weights matrix × input matrix) gives six context vectors; they do not say the product is obtained from context vectors.",
+        "caught": true
+      },
+      {
+        "id": "ch03.plant19",
+        "type": "unsupported_addition",
+        "text": "Since each head has dimension 3 and there are 2 heads, the total \"D_out\" is 6, which also matches the embedding dimension used by the feed-forward network.",
+        "type_requested": "unsupported_addition",
+        "cites": [
+          "K5u9eEaoxFg@813",
+          "K5u9eEaoxFg@816",
+          "K5u9eEaoxFg@818",
+          "K5u9eEaoxFg@820"
+        ],
+        "original_id": "ch03.s09.p03.r11",
+        "verdict": "partial",
+        "confidence": 0.78,
+        "reason": "Supported: each head dimension 3, two heads, total D_out = 6. Not supported: that this also matches the embedding dimension used by the feed-forward network.",
+        "caught": true
+      },
+      {
+        "id": "ch03.plant20",
+        "type": "wrong_attribution",
+        "text": "In code, this split is done with \"transpose\" on the keys, queries, and values, replacing the last dimension by number of heads and head dimension and turning three-dimensional tensors into four-dimensional tensors.",
+        "type_requested": "wrong_attribution",
+        "cites": [
+          "K5u9eEaoxFg@1386",
+          "K5u9eEaoxFg@1389",
+          "K5u9eEaoxFg@1391",
+          "K5u9eEaoxFg@1394",
+          "K5u9eEaoxFg@1397",
+          "K5u9eEaoxFg@1398",
+          "K5u9eEaoxFg@1401",
+          "K5u9eEaoxFg@1403",
+          "K5u9eEaoxFg@1406",
+          "K5u9eEaoxFg@1411",
+          "K5u9eEaoxFg@1413",
+          "K5u9eEaoxFg@1415",
+          "K5u9eEaoxFg@1417"
+        ],
+        "original_id": "ch03.s09.p05.08",
+        "verdict": "partial",
+        "confidence": 0.7,
+        "reason": "Lines support unrolling the last dimension into (num_heads, head_dim) and converting 3D tensors to 4D via a view operation, but they do not state this is done with transpose on keys/queries/values.",
+        "caught": true
+      }
+    ],
+    "by_type": {
+      "number": {
+        "planted": 4,
+        "caught": 4
+      },
+      "term_swap": {
+        "planted": 4,
+        "caught": 3
+      },
+      "reversed_cause": {
+        "planted": 4,
+        "caught": 3
+      },
+      "unsupported_addition": {
+        "planted": 4,
+        "caught": 4
+      },
+      "wrong_attribution": {
+        "planted": 4,
+        "caught": 4
+      }
+    },
+    "caught": 18,
+    "planted": 20,
+    "decoys": [
+      {
+        "id": "ch03.s11.p02.01",
+        "verdict": "supported",
+        "confidence": 0.99,
+        "reason": ""
+      },
+      {
+        "id": "ch03.s08.p02.r07",
+        "verdict": "supported",
+        "confidence": 0.99,
+        "reason": ""
+      },
+      {
+        "id": "ch03.s01.p03.03",
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      {
+        "id": "ch03.s05.p02.r03",
+        "verdict": "supported",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      {
+        "id": "ch03.s11.p02.02",
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      {
+        "id": "ch03.s06.p02.r02",
+        "verdict": "supported",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      {
+        "id": "ch03.s02.p01.r02",
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      {
+        "id": "ch03.s05.p03.03",
+        "verdict": "supported",
+        "confidence": 0.99,
+        "reason": ""
+      },
+      {
+        "id": "ch03.s05.p03.06",
+        "verdict": "supported",
+        "confidence": 0.99,
+        "reason": ""
+      },
+      {
+        "id": "ch03.s09.p02.r06",
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      {
+        "id": "ch03.s10.p03.05",
+        "verdict": "supported",
+        "confidence": 0.99,
+        "reason": ""
+      },
+      {
+        "id": "ch03.s09.p10.r02",
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      {
+        "id": "ch03.s10.p07.r06",
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      {
+        "id": "ch03.s11.p02.06",
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      {
+        "id": "ch03.s08.p07.05",
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      {
+        "id": "ch03.s11.p08.02",
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      {
+        "id": "ch03.s07.p03.r03",
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      {
+        "id": "ch03.s09.p01.r08",
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      {
+        "id": "ch03.s10.p06.r06",
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      {
+        "id": "ch03.s07.p01.08",
+        "verdict": "supported",
+        "confidence": 0.99,
+        "reason": ""
+      }
+    ],
+    "decoys_flagged": 0
+  }
+}

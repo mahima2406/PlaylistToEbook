@@ -1,0 +1,161 @@
+{
+  "stage": "write",
+  "item": "ch01.s11",
+  "inputs_hash": "6a1178290a07c009dcd18bbe4df9da58a063336ec709ca26287fc7c80237dc05",
+  "output_hash": "c34aaad5d2f0d8e1f8d1e05c66f4e38fae95f5ca05549db91d83e3be6e806cd1",
+  "output": {
+    "section_id": "ch01.s11",
+    "paragraphs": [
+      {
+        "id": "ch01.s11.p01",
+        "sentences": [
+          {
+            "id": "ch01.s11.p01.01",
+            "text": "What background do you need before the material turns to implementation, and how will the teaching move from concepts into code?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s11.p01.02",
+            "text": "A lack of familiarity with ChatGPT is not a problem, because the playlist builds its own GPT and explains it along the way.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@370",
+              "Xpr8D6LeAtw@372",
+              "Xpr8D6LeAtw@373",
+              "Xpr8D6LeAtw@376"
+            ]
+          },
+          {
+            "id": "ch01.s11.p01.03",
+            "text": "The reference book is used as course material, and the plan is to convert every aspect of its 48 pages into videos.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@750",
+              "Xpr8D6LeAtw@755",
+              "Xpr8D6LeAtw@757",
+              "Xpr8D6LeAtw@759"
+            ]
+          },
+          {
+            "id": "ch01.s11.p01.04",
+            "text": "The playlist is expected to contain about 35, 40, or maybe 50 videos.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@762",
+              "Xpr8D6LeAtw@765"
+            ]
+          },
+          {
+            "id": "ch01.s11.p01.05",
+            "text": "To teach from the book in detail, detailed whiteboard notes are being prepared from the book so that understanding can be transferred in an interesting and fundamental way.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@779",
+              "Xpr8D6LeAtw@781",
+              "Xpr8D6LeAtw@790",
+              "Xpr8D6LeAtw@792",
+              "Xpr8D6LeAtw@796",
+              "Xpr8D6LeAtw@798",
+              "Xpr8D6LeAtw@799",
+              "Xpr8D6LeAtw@802",
+              "Xpr8D6LeAtw@804"
+            ]
+          },
+          {
+            "id": "ch01.s11.p01.06",
+            "text": "LangChain is described as a tool that helps build LLM apps.",
+            "type": "F",
+            "cites": [
+              "Xpr8D6LeAtw@856",
+              "Xpr8D6LeAtw@858",
+              "Xpr8D6LeAtw@860",
+              "Xpr8D6LeAtw@862"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s11.p02",
+        "sentences": [
+          {
+            "id": "ch01.s11.p02.01",
+            "text": "That teaching plan also explains the pacing of the early part of the series.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s11.p02.02",
+            "text": "The first six lectures are introductory and are meant to give a feel for the whole series while building conceptual understanding at a fundamental level.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@1157",
+              "z9fgKz1Drlc@1160",
+              "z9fgKz1Drlc@1163",
+              "z9fgKz1Drlc@1164",
+              "z9fgKz1Drlc@1166"
+            ]
+          },
+          {
+            "id": "ch01.s11.p02.03",
+            "text": "From lecture 7 onward, the material moves deeply into code and begins stage one.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@1168",
+              "z9fgKz1Drlc@1170"
+            ]
+          },
+          {
+            "id": "ch01.s11.p02.04",
+            "text": "The approach combines whiteboard explanation with coding so that details and code are learned together, because theory and practical implementation are both treated as important.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@1173",
+              "z9fgKz1Drlc@1176",
+              "z9fgKz1Drlc@1178",
+              "z9fgKz1Drlc@1180",
+              "z9fgKz1Drlc@1183",
+              "z9fgKz1Drlc@1184",
+              "z9fgKz1Drlc@1187"
+            ]
+          },
+          {
+            "id": "ch01.s11.p02.05",
+            "text": "The next stage starts with data preparation and sampling.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@1126",
+              "z9fgKz1Drlc@1129",
+              "z9fgKz1Drlc@1131",
+              "z9fgKz1Drlc@1133",
+              "z9fgKz1Drlc@1135"
+            ]
+          },
+          {
+            "id": "ch01.s11.p02.06",
+            "text": "It begins by working with text data, including looking at datasets, loading a dataset, counting characters, and breaking data into tokens.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@1135",
+              "z9fgKz1Drlc@1138",
+              "z9fgKz1Drlc@1140",
+              "z9fgKz1Drlc@1143",
+              "z9fgKz1Drlc@1145",
+              "z9fgKz1Drlc@1147"
+            ]
+          },
+          {
+            "id": "ch01.s11.p02.07",
+            "text": "Jupyter notebooks are to be shared from that point onward so coding can begin in parallel with the explanations.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@1147",
+              "z9fgKz1Drlc@1150",
+              "z9fgKz1Drlc@1152"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

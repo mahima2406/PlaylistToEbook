@@ -1,0 +1,395 @@
+{
+  "playlist_url": "https://www.youtube.com/playlist?list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu",
+  "title": "Building LLMs from scratch",
+  "source_snapshot": "raw/playlist/10e94960191d96822d37d7d8cff493427f2c27c6f7105bc3115284e4f89a4d08.json",
+  "source_hash": "10e94960191d96822d37d7d8cff493427f2c27c6f7105bc3115284e4f89a4d08",
+  "entries": [
+    {
+      "playlist_index": 1,
+      "video_id": "Xpr8D6LeAtw",
+      "title": "Lecture 1: Building LLMs from scratch: Series introduction",
+      "duration": 968,
+      "access": "unprobed",
+      "availability": null,
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 2,
+      "video_id": "3dWzNZXA8DY",
+      "title": "Lecture 2: Large Language Models (LLM) Basics",
+      "duration": 2022,
+      "access": "unprobed",
+      "availability": null,
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 3,
+      "video_id": "-bsa3fCNGg4",
+      "title": "Lecture 3: Pretraining LLMs vs Finetuning LLMs",
+      "duration": 1692,
+      "access": "unprobed",
+      "availability": "subscriber_only",
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 4,
+      "video_id": "NLn4eetGmf8",
+      "title": "Lecture 4: What are transformers?",
+      "duration": 2440,
+      "access": "unprobed",
+      "availability": null,
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 5,
+      "video_id": "xbaYCf2FHSY",
+      "title": "Lecture 5: How does GPT-3 really work?",
+      "duration": 2885,
+      "access": "unprobed",
+      "availability": "subscriber_only",
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 6,
+      "video_id": "z9fgKz1Drlc",
+      "title": "Lecture 6: Stages of building an LLM from Scratch",
+      "duration": 1215,
+      "access": "unprobed",
+      "availability": null,
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 7,
+      "video_id": "rsy5Ragmso8",
+      "title": "Lecture 7: Code an LLM Tokenizer from Scratch in Python",
+      "duration": 4184,
+      "access": "unprobed",
+      "availability": "subscriber_only",
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 8,
+      "video_id": "fKd8s29e-l4",
+      "title": "Lecture 8: The GPT Tokenizer: Byte Pair Encoding",
+      "duration": 3215,
+      "access": "unprobed",
+      "availability": null,
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 9,
+      "video_id": "iQZFH8dr2yI",
+      "title": "Lecture 9: Creating Input-Target data pairs using Python DataLoader",
+      "duration": 3345,
+      "access": "unprobed",
+      "availability": "subscriber_only",
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 10,
+      "video_id": "ghCSGRgVB_o",
+      "title": "Lecture 10: What are token embeddings?",
+      "duration": 3652,
+      "access": "unprobed",
+      "availability": null,
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 11,
+      "video_id": "ufrPLpKnapU",
+      "title": "Lecture 11: The importance of Positional Embeddings",
+      "duration": 2932,
+      "access": "unprobed",
+      "availability": "subscriber_only",
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 12,
+      "video_id": "mk-6cFebjis",
+      "title": "Lecture 12: The entire Data Preprocessing Pipeline of Large Language Models (LLMs)",
+      "duration": 5655,
+      "access": "unprobed",
+      "availability": null,
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 13,
+      "video_id": "XN7sevVxyUM",
+      "title": "Lecture 13: Introduction to the Attention Mechanism in Large Language Models (LLMs)",
+      "duration": 3085,
+      "access": "unprobed",
+      "availability": "subscriber_only",
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 14,
+      "video_id": "eSRhpYLerw4",
+      "title": "Lecture 14: Simplified Attention Mechanism  - Coded from scratch in Python | No trainable weights",
+      "duration": 4762,
+      "access": "unprobed",
+      "availability": null,
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 15,
+      "video_id": "UjdRN80c6p8",
+      "title": "Lecture 15: Coding the self attention mechanism with key, query and value matrices",
+      "duration": 4748,
+      "access": "unprobed",
+      "availability": "subscriber_only",
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 16,
+      "video_id": "h94TQOK7NRA",
+      "title": "Lecture 16: Causal Self Attention Mechanism  | Coded from scratch in Python",
+      "duration": 3355,
+      "access": "unprobed",
+      "availability": null,
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 17,
+      "video_id": "cPaBCoNdCtE",
+      "title": "Lecture 17: Multi Head Attention Part 1 - Basics and Python code",
+      "duration": 1939,
+      "access": "unprobed",
+      "availability": "subscriber_only",
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 18,
+      "video_id": "K5u9eEaoxFg",
+      "title": "Lecture 18: Multi Head Attention Part 2 - Entire mathematics explained",
+      "duration": 3673,
+      "access": "unprobed",
+      "availability": null,
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 19,
+      "video_id": "4i23dYoXp-A",
+      "title": "Lecture 19: Birds Eye View of the LLM Architecture",
+      "duration": 2931,
+      "access": "unprobed",
+      "availability": "subscriber_only",
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 20,
+      "video_id": "G3W-LT79LSI",
+      "title": "Lecture 20: Layer Normalization in the LLM Architecture",
+      "duration": 2337,
+      "access": "unprobed",
+      "availability": null,
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 21,
+      "video_id": "d_PiwZe8UF4",
+      "title": "GELU Activation Function in the LLM Architecture",
+      "duration": 1677,
+      "access": "unprobed",
+      "availability": "subscriber_only",
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 22,
+      "video_id": "2r0QahNdwMw",
+      "title": "Shortcut connections in the LLM Architecture",
+      "duration": 1966,
+      "access": "unprobed",
+      "availability": null,
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 23,
+      "video_id": "dvH6lFGhFrs",
+      "title": "Coding the entire LLM Transformer Block",
+      "duration": 2706,
+      "access": "unprobed",
+      "availability": "subscriber_only",
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 24,
+      "video_id": "G3-JgHckzjw",
+      "title": "Coding the 124 million parameter GPT-2 model",
+      "duration": 3693,
+      "access": "unprobed",
+      "availability": null,
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 25,
+      "video_id": "F1Sm7z2R96w",
+      "title": "Coding GPT-2 to predict the next token",
+      "duration": 2459,
+      "access": "unprobed",
+      "availability": "subscriber_only",
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 26,
+      "video_id": "7TKCrt--bWI",
+      "title": "Measuring the LLM loss function",
+      "duration": 3374,
+      "access": "unprobed",
+      "availability": null,
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 27,
+      "video_id": "zuj_NJNouAA",
+      "title": "Evaluating LLM performance on real dataset | Hands on project | Book data",
+      "duration": 3516,
+      "access": "unprobed",
+      "availability": "subscriber_only",
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 28,
+      "video_id": "Zxf-34voZss",
+      "title": "Coding the entire LLM Pre-training Loop",
+      "duration": 2601,
+      "access": "unprobed",
+      "availability": null,
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 29,
+      "video_id": "oG1FPVnY0pI",
+      "title": "Temperature Scaling in Large Language Models (LLMs)",
+      "duration": 1592,
+      "access": "unprobed",
+      "availability": "subscriber_only",
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 30,
+      "video_id": "EhU32O7DkA4",
+      "title": "Top-k sampling in Large Language Models",
+      "duration": 1414,
+      "access": "unprobed",
+      "availability": null,
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 31,
+      "video_id": "Bc-9sf0VihQ",
+      "title": "Saving and loading LLM model weights using PyTorch",
+      "duration": 746,
+      "access": "unprobed",
+      "availability": "subscriber_only",
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 32,
+      "video_id": "yXrGeDNuymY",
+      "title": "Loading pre-trained weights from OpenAI GPT-2",
+      "duration": 3021,
+      "access": "unprobed",
+      "availability": null,
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 33,
+      "video_id": "yZpy_hsC1bE",
+      "title": "Introduction to LLM Finetuning | Python Coding with hands-on-example",
+      "duration": 1644,
+      "access": "unprobed",
+      "availability": "subscriber_only",
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 34,
+      "video_id": "f6zqClXOh7Y",
+      "title": "Dataloaders in LLM Classification Finetuning | Python Coding | Hands on LLM project",
+      "duration": 1863,
+      "access": "unprobed",
+      "availability": null,
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 35,
+      "video_id": "izyxvl-2JlM",
+      "title": "Coding the model architecture for LLM classification fine-tuning",
+      "duration": 2084,
+      "access": "unprobed",
+      "availability": "subscriber_only",
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 36,
+      "video_id": "0PpxZ3kNPWo",
+      "title": "Coding a fine-tuned LLM spam classification model | From Scratch",
+      "duration": 2979,
+      "access": "unprobed",
+      "availability": null,
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 37,
+      "video_id": "1bLhvqZzdaQ",
+      "title": "Introduction to LLM Instruction Fine-tuning | Loading Dataset | Alpaca Prompt format",
+      "duration": 1532,
+      "access": "unprobed",
+      "availability": "subscriber_only",
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 38,
+      "video_id": "bkUkcyL_Xxc",
+      "title": "Data Batching in LLM instruction fine-tuning | Hands on project | Live Python coding",
+      "duration": 3122,
+      "access": "unprobed",
+      "availability": null,
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 39,
+      "video_id": "egFqsJQ9kuY",
+      "title": "Dataloaders in Instruction Fine-tuning",
+      "duration": 1465,
+      "access": "unprobed",
+      "availability": "subscriber_only",
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 40,
+      "video_id": "__OiQznq4ao",
+      "title": "Instruction fine-tuning: Loading pre-trained LLM weights",
+      "duration": 1169,
+      "access": "unprobed",
+      "availability": null,
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 41,
+      "video_id": "r7unILsP0Es",
+      "title": "LLM fine-tuning training loop | Coded from scratch",
+      "duration": 1427,
+      "access": "unprobed",
+      "availability": "subscriber_only",
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 42,
+      "video_id": "7m2jV7BOFkA",
+      "title": "Evaluating fine-tuned LLM using Ollama",
+      "duration": 3178,
+      "access": "unprobed",
+      "availability": null,
+      "reuse_permission": "not_established"
+    },
+    {
+      "playlist_index": 43,
+      "video_id": "_xH-jXNFRjA",
+      "title": "Build LLMs from scratch 20 minutes summary",
+      "duration": 1158,
+      "access": "unprobed",
+      "availability": "subscriber_only",
+      "reuse_permission": "not_established"
+    }
+  ]
+}

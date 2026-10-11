@@ -1,0 +1,211 @@
+{
+  "stage": "write",
+  "item": "ch02.s02",
+  "inputs_hash": "44d48504b72c2a63e58cfc4595c5fcbcce84aad0f1f1c4c33dde281cf489028b",
+  "output_hash": "5dbf0ceb411e4900e710bf1d2858215a89cee65a84d97e28350779a5a07ff1ba",
+  "output": {
+    "section_id": "ch02.s02",
+    "paragraphs": [
+      {
+        "id": "ch02.s02.p01",
+        "sentences": [
+          {
+            "id": "ch02.s02.p01.01",
+            "text": "How does a simple tokenizer turn raw sentences into the numbered symbols a model can use?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s02.p01.02",
+            "text": "A simple tokenization scheme takes sentences, converts them into tokens, arranges the tokens in ascending order as a vocabulary, and assigns each token a numerical token ID.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@81",
+              "fKd8s29e-l4@83",
+              "fKd8s29e-l4@86",
+              "fKd8s29e-l4@93",
+              "fKd8s29e-l4@95",
+              "fKd8s29e-l4@98"
+            ]
+          },
+          {
+            "id": "ch02.s02.p01.03",
+            "text": "In that simple tokenizer, every word is treated as a unique token, along with special characters such as commas, full stops, and exclamation marks.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@100",
+              "fKd8s29e-l4@104",
+              "fKd8s29e-l4@106"
+            ]
+          },
+          {
+            "id": "ch02.s02.p01.04",
+            "text": "More generally, tokenization can be broken down into three types: word-based tokenization, subword-based tokenization, and character-based tokenization.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@177",
+              "fKd8s29e-l4@179",
+              "fKd8s29e-l4@182",
+              "fKd8s29e-l4@185",
+              "fKd8s29e-l4@188",
+              "fKd8s29e-l4@191",
+              "mk-6cFebjis@142",
+              "mk-6cFebjis@144",
+              "mk-6cFebjis@147",
+              "mk-6cFebjis@150"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s02.p02",
+        "sentences": [
+          {
+            "id": "ch02.s02.p02.01",
+            "text": "To start with the simplest case, word-based tokenization converts the dataset into chunks of words.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@240",
+              "mk-6cFebjis@243",
+              "mk-6cFebjis@245",
+              "mk-6cFebjis@247",
+              "mk-6cFebjis@249"
+            ]
+          },
+          {
+            "id": "ch02.s02.p02.02",
+            "text": "At the sentence level, word-based tokenization means breaking a sentence down into individual words.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@1787",
+              "mk-6cFebjis@1789",
+              "mk-6cFebjis@1791"
+            ]
+          },
+          {
+            "id": "ch02.s02.p02.03",
+            "text": "In a word-based tokenizer, each word in a sentence is usually one token.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@196",
+              "fKd8s29e-l4@198",
+              "fKd8s29e-l4@201"
+            ]
+          },
+          {
+            "id": "ch02.s02.p02.04",
+            "text": "For example, if the sentence is \"my hobby is playing cricket\" and the tokens are the individual words \"my\", \"hobby\", \"is\", \"playing\", and \"cricket\", that is a word-based tokenizer.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@222",
+              "fKd8s29e-l4@226",
+              "fKd8s29e-l4@228",
+              "fKd8s29e-l4@230",
+              "fKd8s29e-l4@233",
+              "fKd8s29e-l4@236",
+              "fKd8s29e-l4@239"
+            ]
+          },
+          {
+            "id": "ch02.s02.p02.05",
+            "text": "The same idea appears in the sentence \"the fox chased the dog\", where the tokens are \"the\", \"fox\", \"chased\", \"the\", and \"dog\", so every word is one token.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@204",
+              "fKd8s29e-l4@206",
+              "fKd8s29e-l4@210",
+              "fKd8s29e-l4@213",
+              "fKd8s29e-l4@217",
+              "fKd8s29e-l4@219"
+            ]
+          },
+          {
+            "id": "ch02.s02.p02.06",
+            "text": "In this word-based example, tokens also include special symbols such as commas, exclamation marks, full stops, and quotation marks.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@765",
+              "mk-6cFebjis@767",
+              "mk-6cFebjis@769",
+              "mk-6cFebjis@771",
+              "mk-6cFebjis@774",
+              "mk-6cFebjis@777"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s02.p03",
+        "sentences": [
+          {
+            "id": "ch02.s02.p03.01",
+            "text": "Once tokens have been identified, they need a lookup structure.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s02.p03.02",
+            "text": "A vocabulary is a dictionary containing a collection of tokens arranged in ascending order, and every token corresponds to a token ID.",
+            "type": "F",
+            "cites": [
+              "fKd8s29e-l4@328",
+              "fKd8s29e-l4@330",
+              "fKd8s29e-l4@333",
+              "fKd8s29e-l4@335",
+              "fKd8s29e-l4@337"
+            ]
+          },
+          {
+            "id": "ch02.s02.p03.03",
+            "text": "Equivalently, the vocabulary is a dictionary in which every unique token is mapped to a unique integer called the token ID.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@859",
+              "mk-6cFebjis@862",
+              "mk-6cFebjis@866",
+              "mk-6cFebjis@869",
+              "mk-6cFebjis@871"
+            ]
+          },
+          {
+            "id": "ch02.s02.p03.04",
+            "text": "Each token is associated with an integer token ID.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@933",
+              "mk-6cFebjis@936",
+              "mk-6cFebjis@939",
+              "mk-6cFebjis@941",
+              "mk-6cFebjis@943"
+            ]
+          },
+          {
+            "id": "ch02.s02.p03.05",
+            "text": "The tokens are sorted in ascending order before token IDs are assigned.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@908",
+              "mk-6cFebjis@910",
+              "mk-6cFebjis@920",
+              "mk-6cFebjis@922",
+              "mk-6cFebjis@924"
+            ]
+          },
+          {
+            "id": "ch02.s02.p03.06",
+            "text": "In the example shown, the first token receives token ID 0, the second receives token ID 1, and this continues through the vocabulary.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@845",
+              "mk-6cFebjis@849",
+              "mk-6cFebjis@850",
+              "mk-6cFebjis@853",
+              "mk-6cFebjis@855",
+              "mk-6cFebjis@857"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

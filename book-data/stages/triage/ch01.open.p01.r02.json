@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch01.open.p01.r02",
+  "inputs_hash": "1e1d066fb672eca4a6ea35f441bbdb644215e01bbf0470b8ae6dd1b8c87e2717",
+  "output_hash": "ced52394443be123d94b399b0c71af7ae6e26f08f9a62778b1bbca7bfe59941c",
+  "output": {
+    "decision": "edit",
+    "text": "That emphasis matters because many learners jump straight to applications, Colab notebooks, copied code, or LLM app tools, even though real depth is what builds confidence, helps you answer detailed interview questions, and prevents knowledge from remaining superficial.",
+    "reason": "The captions support that foundations and depth build confidence, help with detailed questions, and that without understanding the concepts knowledge remains superficial; this wording makes that link without overclaiming.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.78,
+      "reason": "Supported: many learners jump straight to applications/Colab notebooks/videos, download/clone and run code, and use LLM app tools like LangChain; the speaker stresses foundations/depth to feel confident and answer detailed interview questions, and warns knowledge can be superficial otherwise. Not supported: the causal claim that depth is what 'prevents knowledge from remaining superficial' (captions link superficiality to not understanding concepts, but do not explicitly say depth prevents it), and the added idea that this emphasis is the reason ('That emphasis matters because...') is only implied."
+    },
+    "kind": "queue",
+    "sentence_hash": "b0e65b9f2ba99de312e6d7823dbed93988f5b8be79af34050e051a19e77edb45"
+  }
+}

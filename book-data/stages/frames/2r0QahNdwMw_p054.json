@@ -1,0 +1,68 @@
+{
+  "stage": "frames",
+  "item": "2r0QahNdwMw:p054",
+  "inputs_hash": "1d935d7919f94607ceeaa2b159789adbf5fecf974afb78385a5bffe589e2cd47",
+  "output_hash": "af339ce0f9cc0e020fe20200e908f1d5916fd2798e4cc21a2192b2025d6902f2",
+  "output": {
+    "point_id": "2r0QahNdwMw:p054",
+    "video_id": "2r0QahNdwMw",
+    "seconds": 1856,
+    "frame_sha256": "125d6a65f0490a275ede7505568b73f486b2f78025973d2f048c0dce942fde8d",
+    "status": "kept",
+    "kind": "diagram",
+    "title": "Mathematical understanding of a shortcut connection",
+    "caption": "A residual-style block where the input from Layer 1 goes through a function F and is also added directly via a shortcut, producing f(x_l)+x_l; below it, derivative expressions indicate the gradient includes an added 1 term.",
+    "mermaid": "flowchart LR\n  A[\"Layer 1\"] --> B[\"F\"]\n  A -->|\"shortcut\"| C[\"+\"]\n  B -->|\"f(x_l)\"| C\n  C --> D[\"f(x_l) + x_l\"]\n  D --> E[\"L\"]",
+    "latex": "",
+    "claims": [
+      {
+        "text": "The input from Layer 1 is sent into a function block F.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "The diagram shows an input from layer 1 (x_l) entering a block labeled F."
+      },
+      {
+        "text": "The input from Layer 1 also bypasses F through a shortcut path.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "A bypass arrow routes x_l around F directly to the addition node."
+      },
+      {
+        "text": "The shortcut path and the output of F are added together.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "The output of F and the shortcut path meet at a plus/addition point."
+      },
+      {
+        "text": "The result after addition is labeled f(x_l) + x_l.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "The post-addition output is annotated as f(x_l) + x_l (written near the output of the add block)."
+      },
+      {
+        "text": "The combined output f(x_l) + x_l feeds into L.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "An arrow from the summed output points to L, indicating it feeds into L."
+      },
+      {
+        "text": "The diagram expresses a shortcut connection from an earlier layer to a later point after F.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "The structure explicitly depicts a residual/shortcut connection from the earlier layer input to a later point after F (the add node)."
+      },
+      {
+        "text": "The derivative notes indicate that when differentiating through the residual connection, an added 1 term appears.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "The derivative working shows terms like ∂f(x_l)/∂x_l + 1, indicating the added 1 from the shortcut when differentiating."
+      },
+      {
+        "text": "The gradient with respect to the earlier layer includes both the derivative through f(x_l) and the direct shortcut contribution.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "The gradient expression includes both the path through f(x_l) (a derivative term) and the direct shortcut contribution (+1 term), matching residual backprop."
+      }
+    ]
+  }
+}

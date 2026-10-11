@@ -1,0 +1,596 @@
+{
+  "stage": "write",
+  "item": "ch01.s06",
+  "inputs_hash": "4eaaf67c8740e1c823097fad0e83b1688b6635762e7bae0ef3070893033769e7",
+  "output_hash": "c8470404d0527f17a40d394800c8eb7f25d898a31ae4a358ae868093daa074b5",
+  "output": {
+    "section_id": "ch01.s06",
+    "paragraphs": [
+      {
+        "id": "ch01.s06.p01",
+        "sentences": [
+          {
+            "id": "ch01.s06.p01.01",
+            "text": "What makes large language models work so well, and why does that matter before looking at tokens and embeddings?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s06.p01.02",
+            "text": "The specific secret sauce behind large language models is the Transformer architecture.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@881",
+              "3dWzNZXA8DY@883",
+              "3dWzNZXA8DY@894",
+              "NLn4eetGmf8@127",
+              "NLn4eetGmf8@130",
+              "NLn4eetGmf8@136",
+              "z9fgKz1Drlc@954",
+              "z9fgKz1Drlc@955",
+              "z9fgKz1Drlc@957"
+            ]
+          },
+          {
+            "id": "ch01.s06.p01.03",
+            "text": "People often use the terms large language models and transformers interchangeably, so it is important to separate what is shared from what is different.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@96",
+              "NLn4eetGmf8@99",
+              "NLn4eetGmf8@102",
+              "NLn4eetGmf8@104",
+              "NLn4eetGmf8@106",
+              "NLn4eetGmf8@108"
+            ]
+          },
+          {
+            "id": "ch01.s06.p01.04",
+            "text": "Most modern large language models rely on the Transformer architecture.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@139",
+              "NLn4eetGmf8@141",
+              "NLn4eetGmf8@144",
+              "NLn4eetGmf8@146",
+              "NLn4eetGmf8@2158",
+              "NLn4eetGmf8@2160"
+            ]
+          },
+          {
+            "id": "ch01.s06.p01.05",
+            "text": "A Transformer is a deep neural network architecture introduced in the 2017 paper \"Attention Is All You Need.\"",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@959",
+              "3dWzNZXA8DY@962",
+              "3dWzNZXA8DY@966",
+              "3dWzNZXA8DY@972",
+              "3dWzNZXA8DY@976",
+              "NLn4eetGmf8@147",
+              "NLn4eetGmf8@149",
+              "NLn4eetGmf8@152",
+              "NLn4eetGmf8@154",
+              "NLn4eetGmf8@159",
+              "NLn4eetGmf8@161",
+              "NLn4eetGmf8@2163",
+              "NLn4eetGmf8@2166",
+              "NLn4eetGmf8@2168",
+              "NLn4eetGmf8@2170",
+              "NLn4eetGmf8@2172"
+            ]
+          },
+          {
+            "id": "ch01.s06.p01.06",
+            "text": "That paper has more than 100,000 citations, described as occurring in about five years and also in six to seven years, because it led to many later breakthroughs.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@986",
+              "3dWzNZXA8DY@990",
+              "NLn4eetGmf8@175",
+              "NLn4eetGmf8@178",
+              "NLn4eetGmf8@181",
+              "NLn4eetGmf8@185"
+            ]
+          },
+          {
+            "id": "ch01.s06.p01.07",
+            "text": "\"Attention Is All You Need\" is a dense paper, and understanding it takes a great deal of time and effort.",
+            "type": "F",
+            "cites": [
+              "3dWzNZXA8DY@1009",
+              "3dWzNZXA8DY@1012",
+              "3dWzNZXA8DY@1015",
+              "3dWzNZXA8DY@1017",
+              "NLn4eetGmf8@256",
+              "NLn4eetGmf8@260",
+              "NLn4eetGmf8@261",
+              "NLn4eetGmf8@263"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s06.p02",
+        "sentences": [
+          {
+            "id": "ch01.s06.p02.01",
+            "text": "The original Transformer and GPT are closely related, but they are not the same architecture.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@187",
+              "NLn4eetGmf8@189",
+              "NLn4eetGmf8@191",
+              "NLn4eetGmf8@194",
+              "NLn4eetGmf8@197",
+              "NLn4eetGmf8@199",
+              "NLn4eetGmf8@201",
+              "z9fgKz1Drlc@1040",
+              "z9fgKz1Drlc@1042",
+              "z9fgKz1Drlc@1044",
+              "z9fgKz1Drlc@1047",
+              "z9fgKz1Drlc@1049"
+            ]
+          },
+          {
+            "id": "ch01.s06.p02.02",
+            "text": "The GPT architecture that underlies ChatGPT originated from the ideas in \"Attention Is All You Need,\" but GPT is not exactly the same as the original Transformer architecture.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@187",
+              "NLn4eetGmf8@189",
+              "NLn4eetGmf8@191",
+              "NLn4eetGmf8@194",
+              "NLn4eetGmf8@197",
+              "NLn4eetGmf8@199",
+              "NLn4eetGmf8@201",
+              "NLn4eetGmf8@204"
+            ]
+          },
+          {
+            "id": "ch01.s06.p02.03",
+            "text": "The original Transformer was proposed for machine translation rather than text completion, especially for translating English text into German and French.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@274",
+              "NLn4eetGmf8@276",
+              "NLn4eetGmf8@278",
+              "NLn4eetGmf8@281",
+              "NLn4eetGmf8@284",
+              "NLn4eetGmf8@286",
+              "NLn4eetGmf8@289",
+              "NLn4eetGmf8@292",
+              "NLn4eetGmf8@321",
+              "NLn4eetGmf8@324",
+              "NLn4eetGmf8@326",
+              "NLn4eetGmf8@328",
+              "NLn4eetGmf8@332",
+              "NLn4eetGmf8@2174",
+              "NLn4eetGmf8@2177",
+              "NLn4eetGmf8@2179",
+              "NLn4eetGmf8@2181"
+            ]
+          },
+          {
+            "id": "ch01.s06.p02.04",
+            "text": "A Transformer architecture predominantly consists of two main blocks: an encoder block and a decoder block.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1199",
+              "NLn4eetGmf8@1202",
+              "NLn4eetGmf8@1205",
+              "NLn4eetGmf8@1208",
+              "NLn4eetGmf8@1210",
+              "NLn4eetGmf8@2214",
+              "NLn4eetGmf8@2216",
+              "NLn4eetGmf8@2218"
+            ]
+          },
+          {
+            "id": "ch01.s06.p02.05",
+            "text": "The original Transformer has both an encoder and a decoder, whereas GPT uses only the decoder and not the encoder.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1237",
+              "NLn4eetGmf8@1239",
+              "NLn4eetGmf8@1241",
+              "NLn4eetGmf8@1243",
+              "NLn4eetGmf8@1245",
+              "NLn4eetGmf8@1247",
+              "NLn4eetGmf8@1252",
+              "NLn4eetGmf8@1253",
+              "NLn4eetGmf8@2220",
+              "NLn4eetGmf8@2223",
+              "NLn4eetGmf8@2225",
+              "NLn4eetGmf8@2226",
+              "z9fgKz1Drlc@1022",
+              "z9fgKz1Drlc@1024",
+              "z9fgKz1Drlc@1027",
+              "z9fgKz1Drlc@1030",
+              "z9fgKz1Drlc@1031",
+              "z9fgKz1Drlc@1035",
+              "z9fgKz1Drlc@1037"
+            ]
+          },
+          {
+            "id": "ch01.s06.p02.06",
+            "text": "The Transformer paper came in 2017 with an encoder plus decoder, and GPT came in 2018 with only the decoder architecture.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@1040",
+              "z9fgKz1Drlc@1042",
+              "z9fgKz1Drlc@1044",
+              "z9fgKz1Drlc@1047",
+              "z9fgKz1Drlc@1049"
+            ]
+          },
+          {
+            "id": "ch01.s06.p02.07",
+            "text": "The source also states that even GPT-4 uses only the decoder and not an encoder.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@1052",
+              "z9fgKz1Drlc@1054"
+            ]
+          },
+          {
+            "id": "ch01.s06.p02.08",
+            "text": "It further places GPT in a short timeline: GPT arrived in 2018, GPT-2 in 2019, and GPT-3 in 2020 with 175 billion parameters, which changed the field because models of that size had not been seen before.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@1054",
+              "z9fgKz1Drlc@1058",
+              "z9fgKz1Drlc@1060",
+              "z9fgKz1Drlc@1063",
+              "z9fgKz1Drlc@1067",
+              "z9fgKz1Drlc@1069",
+              "z9fgKz1Drlc@1071"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s06.p03",
+        "sentences": [
+          {
+            "id": "ch01.s06.p03.01",
+            "text": "To see how this architecture works, start with the encoder side.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s06.p03.02",
+            "text": "The encoder is one of the most important building blocks of the Transformer architecture.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@540",
+              "NLn4eetGmf8@543",
+              "NLn4eetGmf8@545"
+            ]
+          },
+          {
+            "id": "ch01.s06.p03.03",
+            "text": "The encoder takes preprocessed tokens and performs vector embedding.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@547",
+              "NLn4eetGmf8@551",
+              "NLn4eetGmf8@552",
+              "NLn4eetGmf8@556",
+              "NLn4eetGmf8@558",
+              "NLn4eetGmf8@570",
+              "NLn4eetGmf8@573"
+            ]
+          },
+          {
+            "id": "ch01.s06.p03.04",
+            "text": "The main purpose of the encoder is to take input text or tokens and convert them into vector embeddings.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@722",
+              "NLn4eetGmf8@725",
+              "NLn4eetGmf8@727",
+              "NLn4eetGmf8@730",
+              "NLn4eetGmf8@733",
+              "NLn4eetGmf8@736",
+              "NLn4eetGmf8@1215",
+              "NLn4eetGmf8@1218",
+              "NLn4eetGmf8@1221",
+              "NLn4eetGmf8@2194",
+              "NLn4eetGmf8@2196",
+              "NLn4eetGmf8@2198"
+            ]
+          },
+          {
+            "id": "ch01.s06.p03.05",
+            "text": "Vector embedding represents tokens in a way that captures semantic meaning between words by converting words into vectorized representations.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@589",
+              "NLn4eetGmf8@592",
+              "NLn4eetGmf8@612",
+              "NLn4eetGmf8@615",
+              "NLn4eetGmf8@617",
+              "NLn4eetGmf8@620",
+              "NLn4eetGmf8@623",
+              "NLn4eetGmf8@625",
+              "NLn4eetGmf8@627",
+              "NLn4eetGmf8@629",
+              "NLn4eetGmf8@631"
+            ]
+          },
+          {
+            "id": "ch01.s06.p03.06",
+            "text": "For example, tokenization may assign random IDs to \"dog\" and \"puppy\", but embeddings aim to encode that these words are related.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@594",
+              "NLn4eetGmf8@596",
+              "NLn4eetGmf8@599",
+              "NLn4eetGmf8@601",
+              "NLn4eetGmf8@603",
+              "NLn4eetGmf8@606",
+              "NLn4eetGmf8@609"
+            ]
+          },
+          {
+            "id": "ch01.s06.p03.07",
+            "text": "On the left side of the Transformer architecture, the first four steps take input sentences and convert them into vector embeddings in a high-dimensional space so that semantic meaning is captured between words.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@741",
+              "NLn4eetGmf8@744",
+              "NLn4eetGmf8@746",
+              "NLn4eetGmf8@749",
+              "NLn4eetGmf8@753",
+              "NLn4eetGmf8@755",
+              "NLn4eetGmf8@757",
+              "NLn4eetGmf8@760",
+              "NLn4eetGmf8@762",
+              "NLn4eetGmf8@765",
+              "NLn4eetGmf8@768",
+              "NLn4eetGmf8@770",
+              "NLn4eetGmf8@773",
+              "NLn4eetGmf8@813",
+              "NLn4eetGmf8@815",
+              "NLn4eetGmf8@818",
+              "NLn4eetGmf8@821",
+              "NLn4eetGmf8@823",
+              "NLn4eetGmf8@826"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s06.p04",
+        "sentences": [
+          {
+            "id": "ch01.s06.p04.01",
+            "text": "Those embeddings are then passed to the decoder, where output is generated.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s06.p04.02",
+            "text": "These embeddings are fed into the decoder on the right-hand side of the Transformer architecture.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@831",
+              "NLn4eetGmf8@833",
+              "NLn4eetGmf8@836",
+              "NLn4eetGmf8@838",
+              "NLn4eetGmf8@2198",
+              "NLn4eetGmf8@2201"
+            ]
+          },
+          {
+            "id": "ch01.s06.p04.03",
+            "text": "The main purpose of the decoder is to generate output text from the embedding vectors and from the partial output it has received.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1223",
+              "NLn4eetGmf8@1225",
+              "NLn4eetGmf8@1228",
+              "NLn4eetGmf8@1231"
+            ]
+          },
+          {
+            "id": "ch01.s06.p04.04",
+            "text": "The model generates its output one word at a time.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@852",
+              "NLn4eetGmf8@856",
+              "NLn4eetGmf8@875",
+              "NLn4eetGmf8@878",
+              "NLn4eetGmf8@893",
+              "NLn4eetGmf8@895",
+              "NLn4eetGmf8@898",
+              "NLn4eetGmf8@982",
+              "NLn4eetGmf8@985",
+              "NLn4eetGmf8@988",
+              "NLn4eetGmf8@996",
+              "NLn4eetGmf8@999",
+              "NLn4eetGmf8@2205",
+              "NLn4eetGmf8@2208"
+            ]
+          },
+          {
+            "id": "ch01.s06.p04.05",
+            "text": "During decoding, the model has access to the partial output text that it has already generated.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@870",
+              "NLn4eetGmf8@872",
+              "NLn4eetGmf8@875",
+              "NLn4eetGmf8@878",
+              "NLn4eetGmf8@900",
+              "NLn4eetGmf8@903",
+              "NLn4eetGmf8@906"
+            ]
+          },
+          {
+            "id": "ch01.s06.p04.06",
+            "text": "In the translation example, the partial output is described as \"Das s\", and that partial text is available to the model before it predicts the next word.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@856",
+              "NLn4eetGmf8@859",
+              "NLn4eetGmf8@862",
+              "NLn4eetGmf8@872",
+              "NLn4eetGmf8@875",
+              "NLn4eetGmf8@878"
+            ]
+          },
+          {
+            "id": "ch01.s06.p04.07",
+            "text": "The decoder receives both the vector embeddings and the partial output text, and it predicts the next word based on that information.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@925",
+              "NLn4eetGmf8@928",
+              "NLn4eetGmf8@931",
+              "NLn4eetGmf8@933",
+              "NLn4eetGmf8@939",
+              "NLn4eetGmf8@942",
+              "NLn4eetGmf8@945",
+              "NLn4eetGmf8@948"
+            ]
+          },
+          {
+            "id": "ch01.s06.p04.08",
+            "text": "It generates the translated text one word at a time until the final output is produced.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@982",
+              "NLn4eetGmf8@985",
+              "NLn4eetGmf8@988",
+              "NLn4eetGmf8@989",
+              "NLn4eetGmf8@991",
+              "NLn4eetGmf8@993",
+              "NLn4eetGmf8@996",
+              "NLn4eetGmf8@999"
+            ]
+          },
+          {
+            "id": "ch01.s06.p04.09",
+            "text": "A Transformer can be viewed as a neural network trained with a loss function and optimized parameters, including feed-forward layers with weights and parameters.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1001",
+              "NLn4eetGmf8@1003",
+              "NLn4eetGmf8@1006",
+              "NLn4eetGmf8@1008",
+              "NLn4eetGmf8@1010",
+              "NLn4eetGmf8@1011",
+              "NLn4eetGmf8@1013",
+              "NLn4eetGmf8@1015",
+              "NLn4eetGmf8@1019",
+              "NLn4eetGmf8@1031",
+              "NLn4eetGmf8@1033",
+              "NLn4eetGmf8@1035",
+              "NLn4eetGmf8@1037"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch01.s06.p05",
+        "sentences": [
+          {
+            "id": "ch01.s06.p05.01",
+            "text": "The key idea that makes this architecture powerful is attention, especially self-attention.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch01.s06.p05.02",
+            "text": "The key idea behind the Transformer architecture is the attention mechanism.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@959",
+              "z9fgKz1Drlc@962"
+            ]
+          },
+          {
+            "id": "ch01.s06.p05.03",
+            "text": "Self-attention is the heart of why Transformers work so well, which is why the paper is called \"Attention Is All You Need.\"",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@1256",
+              "NLn4eetGmf8@1259",
+              "NLn4eetGmf8@1261",
+              "NLn4eetGmf8@2228",
+              "NLn4eetGmf8@2231",
+              "NLn4eetGmf8@2232",
+              "NLn4eetGmf8@2235",
+              "NLn4eetGmf8@2236"
+            ]
+          },
+          {
+            "id": "ch01.s06.p05.04",
+            "text": "In a nutshell, the attention mechanism gives an LLM selective access to the whole input sequence when generating output one word at a time.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@981",
+              "z9fgKz1Drlc@984",
+              "z9fgKz1Drlc@986",
+              "z9fgKz1Drlc@988"
+            ]
+          },
+          {
+            "id": "ch01.s06.p05.05",
+            "text": "It allows the model to weigh the importance of different words relative to each other and capture long-range dependencies.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@2238",
+              "NLn4eetGmf8@2241",
+              "NLn4eetGmf8@2243",
+              "NLn4eetGmf8@2245"
+            ]
+          },
+          {
+            "id": "ch01.s06.p05.06",
+            "text": "When predicting the next word, self-attention lets the model look at past context and weigh which words matter more for the prediction.",
+            "type": "F",
+            "cites": [
+              "NLn4eetGmf8@2247",
+              "NLn4eetGmf8@2250",
+              "NLn4eetGmf8@2252",
+              "NLn4eetGmf8@2255",
+              "NLn4eetGmf8@2257"
+            ]
+          },
+          {
+            "id": "ch01.s06.p05.07",
+            "text": "The attention mechanism also lets an LLM determine the importance of words not only in the current sentence but also in previous sentences, because context matters for predicting the next word.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@991",
+              "z9fgKz1Drlc@993",
+              "z9fgKz1Drlc@996",
+              "z9fgKz1Drlc@999",
+              "z9fgKz1Drlc@1001",
+              "z9fgKz1Drlc@1002",
+              "z9fgKz1Drlc@1005",
+              "z9fgKz1Drlc@1007",
+              "z9fgKz1Drlc@1008"
+            ]
+          },
+          {
+            "id": "ch01.s06.p05.08",
+            "text": "More generally, attention allows an LLM to access the entire context and assign weight to the words that are important for predicting the next word.",
+            "type": "F",
+            "cites": [
+              "z9fgKz1Drlc@1008",
+              "z9fgKz1Drlc@1011",
+              "z9fgKz1Drlc@1013",
+              "z9fgKz1Drlc@1015",
+              "z9fgKz1Drlc@1017"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

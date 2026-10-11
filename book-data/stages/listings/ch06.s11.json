@@ -1,0 +1,22 @@
+{
+  "stage": "listings",
+  "item": "ch06.s11",
+  "inputs_hash": "a9433fffb3092560b152dcd898874497976956d23574bbf4c1d27b49893a07ce",
+  "output_hash": "9cce04adf7578464cc966c58675b3130a97500ca4e590f532439dc074334df20",
+  "output": {
+    "section_id": "ch06.s11",
+    "listings": [
+      {
+        "id": "ch06.s11.code1",
+        "ref": "ref:ch07/01_main-chapter-code/ch07.ipynb#cell98",
+        "path": "ch07/01_main-chapter-code/ch07.ipynb",
+        "caption": "This code loops over the test data, formats each prompt, generates text with the model, strips the prompt and response marker from the generated text, stores the result in each test entry, and writes the augmented test data to instruction-data-with-response.json.",
+        "code": "from tqdm import tqdm\n\nfor i, entry in tqdm(enumerate(test_data), total=len(test_data)):\n\n    input_text = format_input(entry)\n\n    token_ids = generate(\n        model=model,\n        idx=text_to_token_ids(input_text, tokenizer).to(device),\n        max_new_tokens=256,\n        context_size=BASE_CONFIG[\"context_length\"],\n        eos_id=50256\n    )\n    generated_text = token_ids_to_text(token_ids, tokenizer)\n    response_text = generated_text[len(input_text):].replace(\"### Response:\", \"\").strip()\n\n    test_data[i][\"model_response\"] = response_text\n\n\nwith open(\"instruction-data-with-response.json\", \"w\") as file:\n    json.dump(test_data, file, indent=4)  # \"indent\" for pretty-printing",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The excerpt iterates over all test entries, formats each prompt, generates a completion with the (fine-tuned) model, decodes token IDs to text, strips the prompt and the \"### Response:\" marker, stores the result back into each test entry under \"model_response\", and writes the augmented test set to \"instruction-data-with-response.json\". This directly aligns with the section’s evaluation-preparation step of collecting model responses for the full test set and saving them to a separate file, and the caption accurately describes what the code does. (It does not cover the separate described step of saving/loading the model, but the excerpt itself matches the caption and the relevant part of the section.)"
+      }
+    ],
+    "rejected": []
+  }
+}

@@ -1,0 +1,376 @@
+{
+  "stage": "takeaways",
+  "item": "ch05",
+  "inputs_hash": "e009f6f582d8ca0d80fba13812cf29458866d13c7401635d2cf6efd84ab6fe16",
+  "output_hash": "e368b21080c18d3826115d550c997b634d49c3655bbecc1fc6b45c47ba22d0dc",
+  "output": {
+    "section_id": "ch05.take",
+    "paragraphs": [
+      {
+        "id": "ch05.take.p01",
+        "sentences": [
+          {
+            "id": "ch05.take.p01.01",
+            "text": "Training a GPT model from scratch did not produce sensible text, but loading pretrained GPT-2 weights into the same architecture made generation coherent enough that the words made sense.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@93",
+              "yXrGeDNuymY@99",
+              "yXrGeDNuymY@105",
+              "yXrGeDNuymY@107",
+              "yXrGeDNuymY@110",
+              "yXrGeDNuymY@2643",
+              "yXrGeDNuymY@2646",
+              "yXrGeDNuymY@2648",
+              "yXrGeDNuymY@2650",
+              "yXrGeDNuymY@2652",
+              "yXrGeDNuymY@2933",
+              "yXrGeDNuymY@2936",
+              "yXrGeDNuymY@2937",
+              "yXrGeDNuymY@2939"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.take.p02",
+        "sentences": [
+          {
+            "id": "ch05.take.p02.01",
+            "text": "Fine-tuning means starting from pretrained GPT-2 weights and training the same GPT model again on task-specific data, with classification fine-tuning and instruction fine-tuning presented as two main types.",
+            "type": "F",
+            "cites": [
+              "yXrGeDNuymY@2947",
+              "yXrGeDNuymY@2948",
+              "yXrGeDNuymY@2949",
+              "yXrGeDNuymY@2952",
+              "yXrGeDNuymY@2955",
+              "yXrGeDNuymY@2963",
+              "yXrGeDNuymY@2965",
+              "yXrGeDNuymY@2967",
+              "yXrGeDNuymY@2968",
+              "yXrGeDNuymY@2973",
+              "yXrGeDNuymY@2975",
+              "yXrGeDNuymY@2976",
+              "yXrGeDNuymY@2978",
+              "yXrGeDNuymY@2980",
+              "yXrGeDNuymY@2982",
+              "f6zqClXOh7Y@12",
+              "f6zqClXOh7Y@16",
+              "f6zqClXOh7Y@19",
+              "f6zqClXOh7Y@21",
+              "f6zqClXOh7Y@24",
+              "f6zqClXOh7Y@27",
+              "0PpxZ3kNPWo@2759",
+              "0PpxZ3kNPWo@2761",
+              "0PpxZ3kNPWo@2764",
+              "0PpxZ3kNPWo@2900",
+              "0PpxZ3kNPWo@2902",
+              "0PpxZ3kNPWo@2904",
+              "0PpxZ3kNPWo@2906",
+              "f6zqClXOh7Y@31",
+              "f6zqClXOh7Y@32",
+              "f6zqClXOh7Y@34",
+              "f6zqClXOh7Y@37",
+              "f6zqClXOh7Y@39",
+              "0PpxZ3kNPWo@2910",
+              "0PpxZ3kNPWo@2911",
+              "0PpxZ3kNPWo@2914",
+              "0PpxZ3kNPWo@2916",
+              "0PpxZ3kNPWo@2918"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.take.p03",
+        "sentences": [
+          {
+            "id": "ch05.take.p03.r01",
+            "text": "The classification project fine-tunes the model to classify emails as spam or not spam, using the SMS Spam Collection dataset, balancing the classes, encoding ham as 0 and spam as 1, and splitting the data into training, validation, and test sets.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@43",
+              "f6zqClXOh7Y@46",
+              "f6zqClXOh7Y@48",
+              "f6zqClXOh7Y@51",
+              "f6zqClXOh7Y@55",
+              "f6zqClXOh7Y@57",
+              "f6zqClXOh7Y@60",
+              "f6zqClXOh7Y@63",
+              "f6zqClXOh7Y@64",
+              "f6zqClXOh7Y@67",
+              "0PpxZ3kNPWo@75",
+              "0PpxZ3kNPWo@78",
+              "0PpxZ3kNPWo@80",
+              "f6zqClXOh7Y@141",
+              "f6zqClXOh7Y@144",
+              "f6zqClXOh7Y@147",
+              "f6zqClXOh7Y@150",
+              "f6zqClXOh7Y@152",
+              "f6zqClXOh7Y@154",
+              "f6zqClXOh7Y@157",
+              "f6zqClXOh7Y@160",
+              "f6zqClXOh7Y@163",
+              "f6zqClXOh7Y@165",
+              "f6zqClXOh7Y@168",
+              "f6zqClXOh7Y@171",
+              "f6zqClXOh7Y@174"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.take.p04",
+        "sentences": [
+          {
+            "id": "ch05.take.p04.r01",
+            "text": "To prepare batches, the messages are tokenized with a byte-pair encoder tokenizer and padded with token 50256, the end-of-text token, so every encoded input has the same length for batching.",
+            "type": "F",
+            "cites": [
+              "f6zqClXOh7Y@529",
+              "f6zqClXOh7Y@539",
+              "f6zqClXOh7Y@545",
+              "f6zqClXOh7Y@558",
+              "f6zqClXOh7Y@583",
+              "f6zqClXOh7Y@585",
+              "f6zqClXOh7Y@587",
+              "f6zqClXOh7Y@590",
+              "f6zqClXOh7Y@611",
+              "f6zqClXOh7Y@613",
+              "f6zqClXOh7Y@616",
+              "f6zqClXOh7Y@618",
+              "f6zqClXOh7Y@656",
+              "f6zqClXOh7Y@659",
+              "f6zqClXOh7Y@660",
+              "f6zqClXOh7Y@662",
+              "f6zqClXOh7Y@1174",
+              "f6zqClXOh7Y@1176",
+              "f6zqClXOh7Y@1178",
+              "f6zqClXOh7Y@1181",
+              "f6zqClXOh7Y@1183"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.take.p05",
+        "sentences": [
+          {
+            "id": "ch05.take.p05.01",
+            "text": "For classification, the GPT output layer is replaced with a two-class head, and the prediction comes from the last token’s two logits using argmax, with softmax needed only if you want probabilities.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@221",
+              "0PpxZ3kNPWo@224",
+              "0PpxZ3kNPWo@225",
+              "0PpxZ3kNPWo@228",
+              "0PpxZ3kNPWo@231",
+              "0PpxZ3kNPWo@234",
+              "0PpxZ3kNPWo@238",
+              "0PpxZ3kNPWo@240",
+              "0PpxZ3kNPWo@242",
+              "0PpxZ3kNPWo@244",
+              "0PpxZ3kNPWo@2733",
+              "0PpxZ3kNPWo@2735",
+              "0PpxZ3kNPWo@2740",
+              "0PpxZ3kNPWo@2742",
+              "0PpxZ3kNPWo@288",
+              "0PpxZ3kNPWo@290",
+              "0PpxZ3kNPWo@292",
+              "0PpxZ3kNPWo@294",
+              "0PpxZ3kNPWo@296",
+              "0PpxZ3kNPWo@298",
+              "0PpxZ3kNPWo@301",
+              "0PpxZ3kNPWo@338",
+              "0PpxZ3kNPWo@339",
+              "0PpxZ3kNPWo@342",
+              "0PpxZ3kNPWo@344",
+              "0PpxZ3kNPWo@347",
+              "0PpxZ3kNPWo@400",
+              "0PpxZ3kNPWo@402",
+              "0PpxZ3kNPWo@413",
+              "0PpxZ3kNPWo@415",
+              "0PpxZ3kNPWo@417",
+              "0PpxZ3kNPWo@423",
+              "0PpxZ3kNPWo@426",
+              "0PpxZ3kNPWo@468",
+              "0PpxZ3kNPWo@469",
+              "0PpxZ3kNPWo@472",
+              "0PpxZ3kNPWo@475",
+              "0PpxZ3kNPWo@477",
+              "0PpxZ3kNPWo@480",
+              "0PpxZ3kNPWo@483",
+              "0PpxZ3kNPWo@485",
+              "0PpxZ3kNPWo@545",
+              "0PpxZ3kNPWo@548",
+              "0PpxZ3kNPWo@550",
+              "0PpxZ3kNPWo@551"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch05.take.p06",
+        "sentences": [
+          {
+            "id": "ch05.take.p06.01",
+            "text": "Before training, accuracy is poor, but fine-tuning with cross-entropy loss and backpropagation greatly improves results, reaching about 97% training accuracy, 97% validation accuracy, and 95% test accuracy on the full datasets.",
+            "type": "F",
+            "cites": [
+              "0PpxZ3kNPWo@900",
+              "0PpxZ3kNPWo@902",
+              "0PpxZ3kNPWo@905",
+              "0PpxZ3kNPWo@907",
+              "0PpxZ3kNPWo@909",
+              "0PpxZ3kNPWo@912",
+              "0PpxZ3kNPWo@1023",
+              "0PpxZ3kNPWo@1026",
+              "0PpxZ3kNPWo@1030",
+              "0PpxZ3kNPWo@1034",
+              "0PpxZ3kNPWo@1036",
+              "0PpxZ3kNPWo@1208",
+              "0PpxZ3kNPWo@1211",
+              "0PpxZ3kNPWo@1212",
+              "0PpxZ3kNPWo@1221",
+              "0PpxZ3kNPWo@1224",
+              "0PpxZ3kNPWo@1225",
+              "0PpxZ3kNPWo@1227",
+              "0PpxZ3kNPWo@1229",
+              "0PpxZ3kNPWo@1232",
+              "0PpxZ3kNPWo@1233",
+              "0PpxZ3kNPWo@1236",
+              "0PpxZ3kNPWo@1238",
+              "0PpxZ3kNPWo@1469",
+              "0PpxZ3kNPWo@1472",
+              "0PpxZ3kNPWo@1475",
+              "0PpxZ3kNPWo@1478",
+              "0PpxZ3kNPWo@1480",
+              "0PpxZ3kNPWo@1636",
+              "0PpxZ3kNPWo@1637",
+              "0PpxZ3kNPWo@1639",
+              "0PpxZ3kNPWo@1642",
+              "0PpxZ3kNPWo@1644",
+              "0PpxZ3kNPWo@1646",
+              "0PpxZ3kNPWo@1647",
+              "0PpxZ3kNPWo@1650",
+              "0PpxZ3kNPWo@2193",
+              "0PpxZ3kNPWo@2195",
+              "0PpxZ3kNPWo@2197",
+              "0PpxZ3kNPWo@2198",
+              "0PpxZ3kNPWo@2200",
+              "0PpxZ3kNPWo@2204",
+              "0PpxZ3kNPWo@2205"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch05.take.p01.01": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch05.take.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.take.p05.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.take.p06.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.take.p03.r01": {
+        "verdict": "partial",
+        "confidence": 0.78,
+        "reason": "Supported: fine-tuning for classifying messages/emails as spam vs not spam; using the SMS Spam Collection dataset; balancing to 747 each class; encoding ham=0 and spam=1; splitting into training/validation/test (70/10/20). Not fully supported: the dataset is described as consisting of text messages, not emails, so claiming the project uses it to classify emails is not directly stated."
+      },
+      "ch05.take.p04.r01": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch05.take.p01.01": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch05.take.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch05.take.p03.01": {
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "Cited lines support spam vs not-spam classification on an SMS dataset, balancing, label encoding (ham=0, spam=1), and train/val/test split, but they describe classifying emails while using an SMS spam dataset; they do not explicitly say the project labels messages (as opposed to emails) as spam/not spam."
+      },
+      "ch05.take.p04.01": {
+        "verdict": "partial",
+        "confidence": 0.7,
+        "reason": "The lines support byte-pair tokenization (tiktoken, GPT-style BPE), padding with token 50256 (end-of-text) to equalize lengths for batching, but they do not explicitly identify the tokenizer as GPT-2’s byte-pair tokenizer (only 'GPT models use')."
+      },
+      "ch05.take.p05.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch05.take.p06.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "ch05.take.p03",
+      "ch05.take.p04"
+    ],
+    "queue": [
+      {
+        "sentence_id": "ch05.take.p03.r01",
+        "text": "The classification project fine-tunes the model to classify emails as spam or not spam, using the SMS Spam Collection dataset, balancing the classes, encoding ham as 0 and spam as 1, and splitting the data into training, validation, and test sets.",
+        "cites": [
+          "f6zqClXOh7Y@43",
+          "f6zqClXOh7Y@46",
+          "f6zqClXOh7Y@48",
+          "f6zqClXOh7Y@51",
+          "f6zqClXOh7Y@55",
+          "f6zqClXOh7Y@57",
+          "f6zqClXOh7Y@60",
+          "f6zqClXOh7Y@63",
+          "f6zqClXOh7Y@64",
+          "f6zqClXOh7Y@67",
+          "0PpxZ3kNPWo@75",
+          "0PpxZ3kNPWo@78",
+          "0PpxZ3kNPWo@80",
+          "f6zqClXOh7Y@141",
+          "f6zqClXOh7Y@144",
+          "f6zqClXOh7Y@147",
+          "f6zqClXOh7Y@150",
+          "f6zqClXOh7Y@152",
+          "f6zqClXOh7Y@154",
+          "f6zqClXOh7Y@157",
+          "f6zqClXOh7Y@160",
+          "f6zqClXOh7Y@163",
+          "f6zqClXOh7Y@165",
+          "f6zqClXOh7Y@168",
+          "f6zqClXOh7Y@171",
+          "f6zqClXOh7Y@174"
+        ],
+        "verdict": "partial",
+        "confidence": 0.78,
+        "reason": "Supported: fine-tuning for classifying messages/emails as spam vs not spam; using the SMS Spam Collection dataset; balancing to 747 each class; encoding ham=0 and spam=1; splitting into training/validation/test (70/10/20). Not fully supported: the dataset is described as consisting of text messages, not emails, so claiming the project uses it to classify emails is not directly stated.",
+        "status": "open"
+      }
+    ]
+  }
+}

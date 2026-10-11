@@ -1,0 +1,528 @@
+{
+  "stage": "write",
+  "item": "ch02.s14",
+  "inputs_hash": "d6d544dc7c666b8b1a9a04a133566e5029a3d0095e03a1aeba0c5962df26c366",
+  "output_hash": "59881853fb129dbde34cc2759e204f821f6d67184d6a1c667a7f0ff87500afd9",
+  "output": {
+    "section_id": "ch02.s14",
+    "paragraphs": [
+      {
+        "id": "ch02.s14.p01",
+        "sentences": [
+          {
+            "id": "ch02.s14.p01.01",
+            "text": "How do token IDs become the actual vectors a large language model receives, and why is position part of that transformation?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s14.p01.02",
+            "text": "After tokenization and token IDs, the next preprocessing steps are token embeddings and positional embeddings.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@2920",
+              "mk-6cFebjis@2923",
+              "mk-6cFebjis@2925"
+            ]
+          },
+          {
+            "id": "ch02.s14.p01.03",
+            "text": "Token embeddings convert token IDs into vectors, and these token IDs are encoded into a higher-dimensional vector space.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@163",
+              "mk-6cFebjis@165",
+              "mk-6cFebjis@2944",
+              "mk-6cFebjis@2947",
+              "mk-6cFebjis@2950",
+              "mk-6cFebjis@2953"
+            ]
+          },
+          {
+            "id": "ch02.s14.p01.04",
+            "text": "Positional embeddings encode information about the position.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@168",
+              "mk-6cFebjis@170",
+              "mk-6cFebjis@5574",
+              "mk-6cFebjis@5578",
+              "mk-6cFebjis@5580"
+            ]
+          },
+          {
+            "id": "ch02.s14.p01.05",
+            "text": "They are needed in addition to token embeddings because token embeddings alone do not include positional information, and that additional positional information is helpful for large language models.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@5033",
+              "mk-6cFebjis@5038",
+              "mk-6cFebjis@5041",
+              "mk-6cFebjis@5043",
+              "mk-6cFebjis@5045",
+              "mk-6cFebjis@5570",
+              "mk-6cFebjis@5572",
+              "mk-6cFebjis@5574"
+            ]
+          },
+          {
+            "id": "ch02.s14.p01.06",
+            "text": "To create input embeddings, positional embeddings are added to token embeddings, and those input embeddings are the final input to the large language model.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@2954",
+              "mk-6cFebjis@2956",
+              "mk-6cFebjis@2958",
+              "mk-6cFebjis@2961",
+              "mk-6cFebjis@125",
+              "mk-6cFebjis@128",
+              "mk-6cFebjis@130",
+              "mk-6cFebjis@136",
+              "mk-6cFebjis@138"
+            ]
+          },
+          {
+            "id": "ch02.s14.p01.07",
+            "text": "In short, input embeddings are the sum of token embeddings and positional embeddings.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@125",
+              "mk-6cFebjis@128",
+              "mk-6cFebjis@130",
+              "mk-6cFebjis@136",
+              "mk-6cFebjis@138",
+              "mk-6cFebjis@5480",
+              "mk-6cFebjis@5482"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s14.p02",
+        "sentences": [
+          {
+            "id": "ch02.s14.p02.01",
+            "text": "Before constructing those vectors in code, it helps to distinguish the main kinds of positional information.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s14.p02.02",
+            "text": "The terms positional embedding and positional encoding are used interchangeably here.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@4938",
+              "mk-6cFebjis@4940",
+              "mk-6cFebjis@4942",
+              "mk-6cFebjis@5366",
+              "mk-6cFebjis@5368",
+              "mk-6cFebjis@5370"
+            ]
+          },
+          {
+            "id": "ch02.s14.p02.03",
+            "text": "There are two types of positional encoding: absolute positional encoding and relative positional encoding.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@5050",
+              "mk-6cFebjis@5052",
+              "mk-6cFebjis@5054",
+              "mk-6cFebjis@5057"
+            ]
+          },
+          {
+            "id": "ch02.s14.p02.04",
+            "text": "In absolute positional encoding, each position in the input sequence has a unique positional embedding vector that is added to the token embedding.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@5058",
+              "mk-6cFebjis@5060",
+              "mk-6cFebjis@5062",
+              "mk-6cFebjis@5065",
+              "mk-6cFebjis@5067"
+            ]
+          },
+          {
+            "id": "ch02.s14.p02.05",
+            "text": "For example, with the tokens \"cat\", \"sat\", \"on\", and \"the\", each token can start from a similar token embedding, but the first, second, third, and fourth positions receive different positional embedding vectors.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@5072",
+              "mk-6cFebjis@5076",
+              "mk-6cFebjis@5079",
+              "mk-6cFebjis@5081",
+              "mk-6cFebjis@5085",
+              "mk-6cFebjis@5089",
+              "mk-6cFebjis@5091",
+              "mk-6cFebjis@5093",
+              "mk-6cFebjis@5095",
+              "mk-6cFebjis@5101",
+              "mk-6cFebjis@5103",
+              "mk-6cFebjis@5105",
+              "mk-6cFebjis@5107",
+              "mk-6cFebjis@5109",
+              "mk-6cFebjis@5111",
+              "mk-6cFebjis@5114",
+              "mk-6cFebjis@5116",
+              "mk-6cFebjis@5117"
+            ]
+          },
+          {
+            "id": "ch02.s14.p02.06",
+            "text": "Adding those positional vectors to the token embeddings produces the final input embeddings.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@5134",
+              "mk-6cFebjis@5137",
+              "mk-6cFebjis@5139",
+              "mk-6cFebjis@5141",
+              "mk-6cFebjis@5155",
+              "mk-6cFebjis@5158",
+              "mk-6cFebjis@5160"
+            ]
+          },
+          {
+            "id": "ch02.s14.p02.07",
+            "text": "Because position is encoded, the final input embeddings can differ even when the token embeddings are similar.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@5162",
+              "mk-6cFebjis@5164",
+              "mk-6cFebjis@5165",
+              "mk-6cFebjis@5167"
+            ]
+          },
+          {
+            "id": "ch02.s14.p02.08",
+            "text": "For the same reason, the input embeddings for \"cat sat on the mat\" differ from those for \"the mat the cat sat on\" when position is taken into account.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@5170",
+              "mk-6cFebjis@5172",
+              "mk-6cFebjis@5175",
+              "mk-6cFebjis@5177"
+            ]
+          },
+          {
+            "id": "ch02.s14.p02.09",
+            "text": "The positional embedding vectors must have the same dimension as the token embeddings because the two vectors are added together.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@5177",
+              "mk-6cFebjis@5180",
+              "mk-6cFebjis@5182",
+              "mk-6cFebjis@5183",
+              "mk-6cFebjis@5185"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s14.p03",
+        "sentences": [
+          {
+            "id": "ch02.s14.p03.01",
+            "text": "Relative positional encoding emphasizes a different notion of position.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s14.p03.02",
+            "text": "Relative positional encoding focuses on the relative positions or distances between tokens rather than their exact positions.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@5188",
+              "mk-6cFebjis@5190",
+              "mk-6cFebjis@5193",
+              "mk-6cFebjis@5194",
+              "mk-6cFebjis@5197",
+              "mk-6cFebjis@5200",
+              "mk-6cFebjis@5203",
+              "mk-6cFebjis@5205",
+              "mk-6cFebjis@5207"
+            ]
+          },
+          {
+            "id": "ch02.s14.p03.03",
+            "text": "Absolute positional encoding is well suited when the fixed order of tokens is crucial, such as sequence generation.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@5215",
+              "mk-6cFebjis@5217",
+              "mk-6cFebjis@5219",
+              "mk-6cFebjis@5222"
+            ]
+          },
+          {
+            "id": "ch02.s14.p03.04",
+            "text": "GPT uses absolute positional encoding, and absolute positional encoding is more commonly used than relative positional encoding.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@5222",
+              "mk-6cFebjis@5225",
+              "mk-6cFebjis@5226"
+            ]
+          },
+          {
+            "id": "ch02.s14.p03.05",
+            "text": "Relative positional encoding is suitable for tasks like language modeling or long sequences where the same phrase can appear in different parts of the sequence.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@5231",
+              "mk-6cFebjis@5233",
+              "mk-6cFebjis@5235",
+              "mk-6cFebjis@5238",
+              "mk-6cFebjis@5240",
+              "mk-6cFebjis@5241",
+              "mk-6cFebjis@5244"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s14.p04",
+        "sentences": [
+          {
+            "id": "ch02.s14.p04.01",
+            "text": "With those definitions in place, the practical construction is straightforward.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s14.p04.02",
+            "text": "For a batch size of eight, a context length of four, and an embedding dimension of 256, the token embedding layer produces token embeddings with shape 8 by 4 by 256.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@4903",
+              "mk-6cFebjis@4905",
+              "mk-6cFebjis@4908",
+              "mk-6cFebjis@4911",
+              "mk-6cFebjis@4913",
+              "mk-6cFebjis@4918",
+              "mk-6cFebjis@4920",
+              "mk-6cFebjis@4922",
+              "mk-6cFebjis@4925"
+            ]
+          },
+          {
+            "id": "ch02.s14.p04.03",
+            "text": "The token embeddings for one batch are then combined with positional embeddings, and that sum becomes the input to the large language model.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@4926",
+              "mk-6cFebjis@4928",
+              "mk-6cFebjis@4930",
+              "mk-6cFebjis@4933",
+              "mk-6cFebjis@4936"
+            ]
+          },
+          {
+            "id": "ch02.s14.p04.04",
+            "text": "The next step is to create a separate embedding layer for positional embeddings.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@5250",
+              "mk-6cFebjis@5253",
+              "mk-6cFebjis@5256",
+              "mk-6cFebjis@5262",
+              "mk-6cFebjis@5264",
+              "mk-6cFebjis@5266"
+            ]
+          },
+          {
+            "id": "ch02.s14.p04.05",
+            "text": "When creating the positional embedding matrix, the relevant number of positions is determined by the context length.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@5270",
+              "mk-6cFebjis@5274",
+              "mk-6cFebjis@5277",
+              "mk-6cFebjis@5278",
+              "mk-6cFebjis@5294",
+              "mk-6cFebjis@5296",
+              "mk-6cFebjis@5299"
+            ]
+          },
+          {
+            "id": "ch02.s14.p04.06",
+            "text": "Here the positional embedding dimension is 256, matching the token embedding dimension, because the positional and token vectors must be added.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@5280",
+              "mk-6cFebjis@5282",
+              "mk-6cFebjis@5285",
+              "mk-6cFebjis@5287",
+              "mk-6cFebjis@5289",
+              "mk-6cFebjis@5291"
+            ]
+          },
+          {
+            "id": "ch02.s14.p04.07",
+            "text": "With a context length of four, only four positional vectors are needed, one for each possible token position.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@5294",
+              "mk-6cFebjis@5296",
+              "mk-6cFebjis@5299",
+              "mk-6cFebjis@5301",
+              "mk-6cFebjis@5303",
+              "mk-6cFebjis@5306",
+              "mk-6cFebjis@5307",
+              "mk-6cFebjis@5309",
+              "mk-6cFebjis@5312"
+            ]
+          },
+          {
+            "id": "ch02.s14.p04.08",
+            "text": "Therefore, the positional embedding matrix has shape 4 by 256.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@5312",
+              "mk-6cFebjis@5314",
+              "mk-6cFebjis@5316",
+              "mk-6cFebjis@5319",
+              "mk-6cFebjis@5321",
+              "mk-6cFebjis@5325",
+              "mk-6cFebjis@5328"
+            ]
+          },
+          {
+            "id": "ch02.s14.p04.09",
+            "text": "In code, the positional embedding layer is created with four rows and 256 columns, and the four positional vectors are obtained from it.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@5358",
+              "mk-6cFebjis@5360",
+              "mk-6cFebjis@5363",
+              "mk-6cFebjis@5374",
+              "mk-6cFebjis@5376",
+              "mk-6cFebjis@5378",
+              "mk-6cFebjis@5381",
+              "mk-6cFebjis@5383",
+              "mk-6cFebjis@5386",
+              "mk-6cFebjis@5387",
+              "mk-6cFebjis@5390",
+              "mk-6cFebjis@5392",
+              "mk-6cFebjis@5395",
+              "mk-6cFebjis@5397"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s14.p05",
+        "sentences": [
+          {
+            "id": "ch02.s14.p05.01",
+            "text": "The final step is the addition itself.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s14.p05.02",
+            "text": "The same four positional vectors are added to each input sequence in the batch.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@5330",
+              "mk-6cFebjis@5333",
+              "mk-6cFebjis@5336",
+              "mk-6cFebjis@5338",
+              "mk-6cFebjis@5343",
+              "mk-6cFebjis@5345",
+              "mk-6cFebjis@5348",
+              "mk-6cFebjis@5452",
+              "mk-6cFebjis@5455",
+              "mk-6cFebjis@5464",
+              "mk-6cFebjis@5466"
+            ]
+          },
+          {
+            "id": "ch02.s14.p05.03",
+            "text": "After creating the positional embeddings, they are added to the token embeddings.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@5400",
+              "mk-6cFebjis@5401",
+              "mk-6cFebjis@5404",
+              "mk-6cFebjis@5406",
+              "mk-6cFebjis@5407"
+            ]
+          },
+          {
+            "id": "ch02.s14.p05.04",
+            "text": "When adding token embeddings of shape 8 by 4 by 256 and positional embeddings of shape 4 by 256 in Python, broadcasting duplicates the positional embeddings across the batch dimension to make the addition possible.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@5409",
+              "mk-6cFebjis@5413",
+              "mk-6cFebjis@5416",
+              "mk-6cFebjis@5418",
+              "mk-6cFebjis@5420",
+              "mk-6cFebjis@5421",
+              "mk-6cFebjis@5424",
+              "mk-6cFebjis@5426",
+              "mk-6cFebjis@5429"
+            ]
+          },
+          {
+            "id": "ch02.s14.p05.05",
+            "text": "The input embedding matrix is constructed by adding the positional embedding vectors to each row of the token embedding matrix to produce the corresponding rows of the input embeddings.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@5431",
+              "mk-6cFebjis@5433",
+              "mk-6cFebjis@5436",
+              "mk-6cFebjis@5439",
+              "mk-6cFebjis@5441",
+              "mk-6cFebjis@5443",
+              "mk-6cFebjis@5446",
+              "mk-6cFebjis@5450",
+              "mk-6cFebjis@5452",
+              "mk-6cFebjis@5455",
+              "mk-6cFebjis@5457",
+              "mk-6cFebjis@5460",
+              "mk-6cFebjis@5462",
+              "mk-6cFebjis@5464",
+              "mk-6cFebjis@5466",
+              "mk-6cFebjis@5468",
+              "mk-6cFebjis@5470",
+              "mk-6cFebjis@5472",
+              "mk-6cFebjis@5474"
+            ]
+          },
+          {
+            "id": "ch02.s14.p05.06",
+            "text": "The positional embedding matrix is initialized randomly, similar to the token embedding matrix.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@5486",
+              "mk-6cFebjis@5488",
+              "mk-6cFebjis@5491",
+              "mk-6cFebjis@5493",
+              "mk-6cFebjis@5503",
+              "mk-6cFebjis@5506",
+              "mk-6cFebjis@5508",
+              "mk-6cFebjis@5510",
+              "mk-6cFebjis@5512"
+            ]
+          },
+          {
+            "id": "ch02.s14.p05.07",
+            "text": "Like the values in the token embedding layer, the values in the positional embedding layer must be optimized during training.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@5512",
+              "mk-6cFebjis@5515",
+              "mk-6cFebjis@5516",
+              "mk-6cFebjis@5518",
+              "mk-6cFebjis@5527",
+              "mk-6cFebjis@5529",
+              "mk-6cFebjis@5530",
+              "mk-6cFebjis@5532"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

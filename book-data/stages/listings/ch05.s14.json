@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch05.s14",
+  "inputs_hash": "fb6c9f58f73612295e1ec67c98c1c6e0ceb3b0635739b9749516246e8f0dc2b7",
+  "output_hash": "7f2fac0e5e6563b1dbc5bde4f71bb1f514260f8b6310c9830ebbc119afd6ee9f",
+  "output": {
+    "section_id": "ch05.s14",
+    "listings": [],
+    "rejected": [
+      {
+        "id": "ch05.s14.code1",
+        "ref": "ref:ch06/01_main-chapter-code/ch06.ipynb#cell110",
+        "path": "ch06/01_main-chapter-code/ch06.ipynb",
+        "caption": "Defines a classify_review function that encodes input text, checks the model context length, truncates and pads token IDs, and prepares them for model inference.",
+        "code": "def classify_review(text, model, tokenizer, device, max_length=None, pad_token_id=50256):\n    model.eval()\n\n    # Prepare inputs to the model\n    input_ids = tokenizer.encode(text)\n    supported_context_length = model.pos_emb.weight.shape[0]\n    # Note: In the book, this was originally written as pos_emb.weight.shape[1] by mistake\n    # It didn't break the code but would have caused unnecessary truncation (to 768 instead of 1024)\n\n    # Truncate sequences if they too long\n    input_ids = input_ids[:min(max_length, supported_context_length)]\n    assert max_length is not None, (\n        \"max_length must be specified. If you want to use the full model context, \"\n        \"pass max_length=model.pos_emb.weight.shape[0].\"\n    )\n    assert max_length <= supported_context_length, (\n        f\"max_length ({max_length}) exceeds model's supported context length ({supported_context_length}).\"\n    )    \n    # Alternatively, a more robust version is the following one, which handles the max_length=None case better\n    # max_len = min(max_length,supported_context_length) if max_length else supported_context_length\n    # input_ids = input_ids[:max_len]\n    \n    # Pad sequences to the longest sequence\n    input_ids += [pad_token_id] * (max_length - len(input_ids))\n    input_tensor = torch.tensor(input_ids, device=device).unsqueeze(0) # add batch dimension\n\n    # Model inference\n    with torch.no_grad():\n        logits = model(input_tensor)[:, -1, :]  # Logits of the last output token\n    predicted_label = torch.argmax(logits, dim=-1).item()",
+        "truncated": true,
+        "check": "partial",
+        "reason": "The code does define classify_review, encodes text to token IDs, checks supported context length from pos_emb, truncates and pads with token 50256, converts to a tensor, adds a batch dimension, runs inference, takes last-token logits, and argmaxes a label—matching much of the section and caption. However, it does not implement the section’s logic of comparing the training-set maximum token length with the model context length and using the smaller as the working max; instead it requires an explicit max_length and asserts it is <= supported_context_length. Also, it truncates using min(max_length, supported_context_length) before asserting max_length is not None, and it doesn’t map the predicted label to “spam/not spam” or show the test messages or saving/loading with torch.save/torch.load."
+      },
+      {
+        "id": "ch05.s14.code2",
+        "ref": "ref:ch06/01_main-chapter-code/ch06.ipynb#cell112",
+        "path": "ch06/01_main-chapter-code/ch06.ipynb",
+        "caption": "Calls classify_review on a winner-and-cash message and prints the predicted class.",
+        "code": "text_1 = (\n    \"You are a winner you have been specially\"\n    \" selected to receive $1000 cash or a $2000 award.\"\n)\n\nprint(classify_review(\n    text_1, model, tokenizer, device, max_length=train_dataset.max_length\n))\n\ntext_2 = (\n    \"Hey, just wanted to check if we're still on\"\n    \" for dinner tonight? Let me know!\"\n)\n\nprint(classify_review(\n    text_2, model, tokenizer, device, max_length=train_dataset.max_length\n))",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The code matches the section’s testing of classify_review on a winner/cash message and a dinner-plans message by calling the function and printing predictions. However, the caption is incomplete/misleading because it says it calls classify_review only on the winner-and-cash message, while the excerpt also classifies a second (dinner) message."
+      }
+    ]
+  }
+}

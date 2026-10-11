@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch02.s08.p03.r01",
+  "inputs_hash": "020d2e5855cac5a81daba3f25052433585858036c639d5794c7d3fd23afc8070",
+  "output_hash": "4e9b82910578b3f09a86c13782615efdc636363d0fa4a19ba5d7d2b97953ff06",
+  "output": {
+    "decision": "edit",
+    "text": "The modified BPE procedure repeatedly finds the most frequent pairing in the dataset and merges that pair, then performs the same iteration again.",
+    "reason": "The captions support repeatedly finding the most frequent pairing, merging it, and iterating again, but not explicitly that the merge creates a new token in this segment.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "bb2dd1331075796208c0f3f751e4721019c4061872f15ca1926e89e78a7607df"
+  }
+}

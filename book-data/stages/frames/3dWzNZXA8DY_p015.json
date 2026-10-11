@@ -1,0 +1,104 @@
+{
+  "stage": "frames",
+  "item": "3dWzNZXA8DY:p015",
+  "inputs_hash": "f6c7d267ebc36d711dc073a62f3ff422feefd07152187a68bada260fccab71ee",
+  "output_hash": "788b6e6ce29ba27ea6e0d63610047b87cbf375d8cff764f13b64ec20dcec30fa",
+  "output": {
+    "point_id": "3dWzNZXA8DY:p015",
+    "video_id": "3dWzNZXA8DY",
+    "seconds": 542,
+    "frame_sha256": "5fc67a15695a31b39dd7de65207926b5ef8127c8510d96eeeec41eec2b024e0e",
+    "status": "kept",
+    "kind": "diagram",
+    "title": "Comparison of GPT-1, GPT-2, and GPT-3",
+    "caption": "Three increasing blocks compare GPT-1, GPT-2, and GPT-3 by parameter count, decoder count, and token size.",
+    "mermaid": "flowchart LR\n  A[\"GPT-1\\n117M\\n12 decoders\\n512 token size\"] -->|\"larger than\"| B[\"GPT-2\\n1.5B\\n48 decoders\\n1024 token size\"]\n  B -->|\"larger than\"| C[\"GPT-3\\n175B parameters\\n96 decoders\\n2048 token size\"]",
+    "latex": "",
+    "claims": [
+      {
+        "text": "GPT-1 is shown with 117M parameters.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Frame labels GPT-1 with '117M' above the small block; lecturer mentions GPT-1 around 100 million parameters (approximate)."
+      },
+      {
+        "text": "GPT-1 is shown with 12 decoders.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Left of GPT-1 block shows '12 decoders'; lecturer says GPT-1 had 12 decoders."
+      },
+      {
+        "text": "GPT-1 is shown with 512 token size.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Under GPT-1 block it reads '512 token size'; lecturer states GPT-1 token size 512."
+      },
+      {
+        "text": "GPT-2 is shown with 1.5B parameters.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "GPT-2 block is labeled '1.5B'; lecturer says GPT-2 had 1.5 billion parameters."
+      },
+      {
+        "text": "GPT-2 is shown with 48 decoders.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Next to GPT-2 block it shows '48 decoders'; lecturer says GPT-2 had 48 decoders."
+      },
+      {
+        "text": "GPT-2 is shown with 1024 token size.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Under GPT-2 block it reads '1024 token size'; lecturer says GPT-2 token size 1024."
+      },
+      {
+        "text": "GPT-3 is shown with 175B parameters.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Top/right text says '175B parameters' for GPT-3; lecturer says GPT-3 had 175 billion parameters."
+      },
+      {
+        "text": "GPT-3 is shown with 96 decoders.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Next to GPT-3 block it shows '96 decoders'; lecturer says GPT-3 had 96 decoders."
+      },
+      {
+        "text": "GPT-3 is shown with 2048 token size.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Under GPT-3 block it reads '2048 token size'; lecturer says GPT-3 token size 2048."
+      },
+      {
+        "text": "The diagram shows GPT-2 as larger than GPT-1.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "GPT-2 rectangle is visibly larger than GPT-1; lecturer describes increase from GPT-1 to GPT-2."
+      },
+      {
+        "text": "The diagram shows GPT-3 as larger than GPT-2.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "GPT-3 rectangle is visibly larger than GPT-2; lecturer describes increase from GPT-2 to GPT-3."
+      },
+      {
+        "text": "From GPT-1 to GPT-3, the parameter counts increase.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Parameter labels increase across GPT-1 (117M), GPT-2 (1.5B), GPT-3 (175B); lecturer states parameters increase."
+      },
+      {
+        "text": "From GPT-1 to GPT-3, the decoder counts increase.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Decoder counts increase 12 -> 48 -> 96 as labeled; lecturer states these decoder counts."
+      },
+      {
+        "text": "From GPT-1 to GPT-3, the token sizes increase.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Token sizes increase 512 -> 1024 -> 2048 as labeled; lecturer states these token sizes."
+      }
+    ]
+  }
+}

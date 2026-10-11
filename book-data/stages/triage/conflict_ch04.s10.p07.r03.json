@@ -1,0 +1,14 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch04.s10.p07.r03",
+  "inputs_hash": "417f2d00f0e600b0e4c327d4b01695e513391d531c3899d1efb334598f3a809f",
+  "output_hash": "71a121c0471b432a9eec5b63761815d7ef6740c276cbdf0098b03ba779261b2f",
+  "output": {
+    "decision": "note",
+    "note": "The reference’s classifier-training variant reports accuracy after each epoch; the lecture here describes the earlier text-generation training loop that prints a sample each epoch.",
+    "reason": "The cited captions support the sentence for the lecture’s context, but the reference describes a different training function variant.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "3ec2f8532828be511fee281874219b99a8e1533b2b9562aada58ae289422f625"
+  }
+}

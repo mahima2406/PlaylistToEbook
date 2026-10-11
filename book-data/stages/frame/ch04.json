@@ -1,0 +1,570 @@
+{
+  "stage": "frame",
+  "item": "ch04",
+  "inputs_hash": "46c64c02dc6ea835e5ff50769741fce6c1de40a23788e78e2d56a3d4aa0e7e49",
+  "output_hash": "098a417e8ac249977a7a438db91eeec692f8dab96789d96e506118b8e4e9ebe0",
+  "output": {
+    "section_id": "ch04.open",
+    "paragraphs": [
+      {
+        "id": "ch04.open.p01",
+        "sentences": [
+          {
+            "id": "ch04.open.p01.r01",
+            "text": "In the previous chapter, the transformer block brought together layer normalization, feed-forward layers, activation, and shortcut connections; here, those pieces are assembled into the full GPT pipeline that turns tokenized text into model outputs.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch04.open.p01.r02",
+            "text": "This matters because the aim is not just to study isolated parts, but to assemble a fully working version of the original 124 million parameter GPT-2 model and to see how text moves through tokenization, dropout, transformer blocks, another layer normalization, and the output head.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@380",
+              "G3-JgHckzjw@384",
+              "G3-JgHckzjw@388",
+              "G3-JgHckzjw@115",
+              "G3-JgHckzjw@119",
+              "G3-JgHckzjw@123",
+              "G3-JgHckzjw@125",
+              "G3-JgHckzjw@148",
+              "G3-JgHckzjw@150",
+              "G3-JgHckzjw@153",
+              "G3-JgHckzjw@3540",
+              "G3-JgHckzjw@3542",
+              "G3-JgHckzjw@3544",
+              "G3-JgHckzjw@3545"
+            ]
+          },
+          {
+            "id": "ch04.open.p01.r03",
+            "text": "It also marks the shift from architecture to training, because next-token predictions need training to make sense rather than remain random.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@234",
+              "G3-JgHckzjw@236",
+              "G3-JgHckzjw@239",
+              "G3-JgHckzjw@241",
+              "7TKCrt--bWI@158",
+              "7TKCrt--bWI@160",
+              "7TKCrt--bWI@169",
+              "7TKCrt--bWI@172",
+              "7TKCrt--bWI@174",
+              "7TKCrt--bWI@176"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.open.p02",
+        "sentences": [
+          {
+            "id": "ch04.open.p02.r01",
+            "text": "We begin with what the model is and how the full GPT pipeline is assembled, then review configuration, tokenization, vocabulary, inputs, batches, embeddings, dimensions, dropout, layer normalization, and transformer-block internals.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch04.open.p02.r02",
+            "text": "From there, the chapter stacks blocks into the final model, implements the code, counts parameters, defines next-token targets, introduces loss and perplexity, prepares data, and walks through the basic training loop with monitoring and evaluation mode.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch04.open.p02.r03",
+            "text": "It closes by turning logits into text with greedy, temperature, and top-k decoding, and by noting a small narrative gap in how decoding is positioned within the chapter.",
+            "type": "R",
+            "cites": []
+          }
+        ]
+      },
+      {
+        "id": "ch04.glance.p01",
+        "sentences": [
+          {
+            "id": "ch04.glance.p01.01",
+            "text": "The chapter’s central build target is a fully working version of the original 124 million parameter GPT-2 model.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@380",
+              "G3-JgHckzjw@384",
+              "G3-JgHckzjw@388"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.glance.p02",
+        "sentences": [
+          {
+            "id": "ch04.glance.p02.r01",
+            "text": "In the GPT architecture, text is tokenized, turned into embeddings, passed through dropout and transformer blocks, and then processed by a final layer normalization and linear output head to get logits.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@115",
+              "G3-JgHckzjw@119",
+              "G3-JgHckzjw@123",
+              "G3-JgHckzjw@125",
+              "G3-JgHckzjw@148",
+              "G3-JgHckzjw@150",
+              "G3-JgHckzjw@153",
+              "G3-JgHckzjw@3540",
+              "G3-JgHckzjw@3542",
+              "G3-JgHckzjw@3544",
+              "G3-JgHckzjw@3545",
+              "G3-JgHckzjw@3548"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.glance.p03",
+        "sentences": [
+          {
+            "id": "ch04.glance.p03.01",
+            "text": "Masked multi-head attention is the key part of a transformer block, and the transformer block is the key part of the overall GPT model.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@169",
+              "G3-JgHckzjw@171",
+              "G3-JgHckzjw@174",
+              "G3-JgHckzjw@177",
+              "G3-JgHckzjw@179"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.glance.p04",
+        "sentences": [
+          {
+            "id": "ch04.glance.p04.01",
+            "text": "GPT-2 uses a vocabulary of 50,257 tokens, and the model input is a tensor whose rows are batches and whose columns are token positions in the sequence.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@654",
+              "G3-JgHckzjw@658",
+              "G3-JgHckzjw@2804",
+              "G3-JgHckzjw@2806",
+              "G3-JgHckzjw@2809",
+              "G3-JgHckzjw@2810",
+              "G3-JgHckzjw@2814",
+              "G3-JgHckzjw@2816",
+              "G3-JgHckzjw@2819",
+              "G3-JgHckzjw@2821",
+              "7TKCrt--bWI@531",
+              "7TKCrt--bWI@533",
+              "7TKCrt--bWI@535",
+              "7TKCrt--bWI@538",
+              "7TKCrt--bWI@540",
+              "7TKCrt--bWI@542"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.glance.p05",
+        "sentences": [
+          {
+            "id": "ch04.glance.p05.r01",
+            "text": "Token and positional embeddings use 768-dimensional vectors in this GPT-2 example, and both are initialized randomly.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@742",
+              "G3-JgHckzjw@744",
+              "G3-JgHckzjw@752",
+              "G3-JgHckzjw@754",
+              "G3-JgHckzjw@757",
+              "G3-JgHckzjw@760",
+              "G3-JgHckzjw@763",
+              "G3-JgHckzjw@765",
+              "G3-JgHckzjw@768",
+              "G3-JgHckzjw@770",
+              "G3-JgHckzjw@780",
+              "G3-JgHckzjw@782",
+              "G3-JgHckzjw@873",
+              "G3-JgHckzjw@875",
+              "G3-JgHckzjw@876",
+              "G3-JgHckzjw@880",
+              "G3-JgHckzjw@882",
+              "G3-JgHckzjw@885",
+              "G3-JgHckzjw@887",
+              "G3-JgHckzjw@896",
+              "G3-JgHckzjw@898",
+              "G3-JgHckzjw@900"
+            ]
+          },
+          {
+            "id": "ch04.glance.p05.r02",
+            "text": "The token embedding parameters are learned during training.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@785",
+              "G3-JgHckzjw@787",
+              "G3-JgHckzjw@790",
+              "G3-JgHckzjw@792",
+              "G3-JgHckzjw@802",
+              "G3-JgHckzjw@804",
+              "G3-JgHckzjw@806"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch04.glance.p01.01": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.glance.p03.01": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.glance.p04.01": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch04.open.p01.r01": {
+        "verdict": "ok",
+        "confidence": 0.83,
+        "reason": ""
+      },
+      "ch04.open.p01.r02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.open.p01.r03": {
+        "verdict": "partial",
+        "confidence": 0.62,
+        "reason": "Cited lines support that next-token prediction requires training so predictions make sense, but they do not state this as a broader 'shift from architecture to training' (the shift framing is not explicitly supported)."
+      },
+      "ch04.open.p02.r01": {
+        "verdict": "ok",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.open.p02.r02": {
+        "verdict": "ok",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.open.p02.r03": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.glance.p02.r01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.glance.p05.r01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.glance.p05.r02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch04.open.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch04.open.p01.02": {
+        "verdict": "partial",
+        "confidence": 0.74,
+        "reason": "Cited lines support assembling a fully working original 124M-parameter GPT-2 and the pipeline components up through the final layer norm and linear output head, but they do not explicitly state that this produces logits (only 'output')."
+      },
+      "ch04.open.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.open.p02.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.open.p02.02": {
+        "verdict": "ok",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch04.open.p02.03": {
+        "verdict": "ok",
+        "confidence": 0.67,
+        "reason": ""
+      },
+      "ch04.glance.p01.01": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.glance.p02.01": {
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "The cited lines describe tokenization, embeddings, dropout, transformer blocks, final layer norm and linear output head, but they do not explicitly say these steps 'produce logits' (they say you get an output)."
+      },
+      "ch04.glance.p03.01": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.glance.p04.01": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch04.glance.p05.01": {
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "The lines support 768-dimensional token and positional embeddings and that both are initialized randomly, but they do not explicitly say positional embeddings are 'learned during training' (token embeddings are explicitly said to be learned; positional embeddings are only described as randomly initialized)."
+      }
+    },
+    "rewritten": [
+      "ch04.open.p01",
+      "ch04.open.p02",
+      "ch04.glance.p02",
+      "ch04.glance.p05"
+    ],
+    "queue": [
+      {
+        "sentence_id": "ch04.open.p01.r03",
+        "text": "It also marks the shift from architecture to training, because next-token predictions need training to make sense rather than remain random.",
+        "cites": [
+          "G3-JgHckzjw@234",
+          "G3-JgHckzjw@236",
+          "G3-JgHckzjw@239",
+          "G3-JgHckzjw@241",
+          "7TKCrt--bWI@158",
+          "7TKCrt--bWI@160",
+          "7TKCrt--bWI@169",
+          "7TKCrt--bWI@172",
+          "7TKCrt--bWI@174",
+          "7TKCrt--bWI@176"
+        ],
+        "verdict": "partial",
+        "confidence": 0.62,
+        "reason": "Cited lines support that next-token prediction requires training so predictions make sense, but they do not state this as a broader 'shift from architecture to training' (the shift framing is not explicitly supported).",
+        "status": "open"
+      }
+    ],
+    "opener": [
+      {
+        "id": "ch04.open.p01",
+        "sentences": [
+          {
+            "id": "ch04.open.p01.r01",
+            "text": "In the previous chapter, the transformer block brought together layer normalization, feed-forward layers, activation, and shortcut connections; here, those pieces are assembled into the full GPT pipeline that turns tokenized text into model outputs.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch04.open.p01.r02",
+            "text": "This matters because the aim is not just to study isolated parts, but to assemble a fully working version of the original 124 million parameter GPT-2 model and to see how text moves through tokenization, dropout, transformer blocks, another layer normalization, and the output head.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@380",
+              "G3-JgHckzjw@384",
+              "G3-JgHckzjw@388",
+              "G3-JgHckzjw@115",
+              "G3-JgHckzjw@119",
+              "G3-JgHckzjw@123",
+              "G3-JgHckzjw@125",
+              "G3-JgHckzjw@148",
+              "G3-JgHckzjw@150",
+              "G3-JgHckzjw@153",
+              "G3-JgHckzjw@3540",
+              "G3-JgHckzjw@3542",
+              "G3-JgHckzjw@3544",
+              "G3-JgHckzjw@3545"
+            ]
+          },
+          {
+            "id": "ch04.open.p01.r03",
+            "text": "It also marks the shift from architecture to training, because next-token predictions need training to make sense rather than remain random.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@234",
+              "G3-JgHckzjw@236",
+              "G3-JgHckzjw@239",
+              "G3-JgHckzjw@241",
+              "7TKCrt--bWI@158",
+              "7TKCrt--bWI@160",
+              "7TKCrt--bWI@169",
+              "7TKCrt--bWI@172",
+              "7TKCrt--bWI@174",
+              "7TKCrt--bWI@176"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.open.p02",
+        "sentences": [
+          {
+            "id": "ch04.open.p02.r01",
+            "text": "We begin with what the model is and how the full GPT pipeline is assembled, then review configuration, tokenization, vocabulary, inputs, batches, embeddings, dimensions, dropout, layer normalization, and transformer-block internals.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch04.open.p02.r02",
+            "text": "From there, the chapter stacks blocks into the final model, implements the code, counts parameters, defines next-token targets, introduces loss and perplexity, prepares data, and walks through the basic training loop with monitoring and evaluation mode.",
+            "type": "R",
+            "cites": []
+          },
+          {
+            "id": "ch04.open.p02.r03",
+            "text": "It closes by turning logits into text with greedy, temperature, and top-k decoding, and by noting a small narrative gap in how decoding is positioned within the chapter.",
+            "type": "R",
+            "cites": []
+          }
+        ]
+      }
+    ],
+    "at_a_glance": [
+      {
+        "id": "ch04.glance.p01",
+        "sentences": [
+          {
+            "id": "ch04.glance.p01.01",
+            "text": "The chapter’s central build target is a fully working version of the original 124 million parameter GPT-2 model.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@380",
+              "G3-JgHckzjw@384",
+              "G3-JgHckzjw@388"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.glance.p02",
+        "sentences": [
+          {
+            "id": "ch04.glance.p02.r01",
+            "text": "In the GPT architecture, text is tokenized, turned into embeddings, passed through dropout and transformer blocks, and then processed by a final layer normalization and linear output head to get logits.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@115",
+              "G3-JgHckzjw@119",
+              "G3-JgHckzjw@123",
+              "G3-JgHckzjw@125",
+              "G3-JgHckzjw@148",
+              "G3-JgHckzjw@150",
+              "G3-JgHckzjw@153",
+              "G3-JgHckzjw@3540",
+              "G3-JgHckzjw@3542",
+              "G3-JgHckzjw@3544",
+              "G3-JgHckzjw@3545",
+              "G3-JgHckzjw@3548"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.glance.p03",
+        "sentences": [
+          {
+            "id": "ch04.glance.p03.01",
+            "text": "Masked multi-head attention is the key part of a transformer block, and the transformer block is the key part of the overall GPT model.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@169",
+              "G3-JgHckzjw@171",
+              "G3-JgHckzjw@174",
+              "G3-JgHckzjw@177",
+              "G3-JgHckzjw@179"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.glance.p04",
+        "sentences": [
+          {
+            "id": "ch04.glance.p04.01",
+            "text": "GPT-2 uses a vocabulary of 50,257 tokens, and the model input is a tensor whose rows are batches and whose columns are token positions in the sequence.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@654",
+              "G3-JgHckzjw@658",
+              "G3-JgHckzjw@2804",
+              "G3-JgHckzjw@2806",
+              "G3-JgHckzjw@2809",
+              "G3-JgHckzjw@2810",
+              "G3-JgHckzjw@2814",
+              "G3-JgHckzjw@2816",
+              "G3-JgHckzjw@2819",
+              "G3-JgHckzjw@2821",
+              "7TKCrt--bWI@531",
+              "7TKCrt--bWI@533",
+              "7TKCrt--bWI@535",
+              "7TKCrt--bWI@538",
+              "7TKCrt--bWI@540",
+              "7TKCrt--bWI@542"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.glance.p05",
+        "sentences": [
+          {
+            "id": "ch04.glance.p05.r01",
+            "text": "Token and positional embeddings use 768-dimensional vectors in this GPT-2 example, and both are initialized randomly.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@742",
+              "G3-JgHckzjw@744",
+              "G3-JgHckzjw@752",
+              "G3-JgHckzjw@754",
+              "G3-JgHckzjw@757",
+              "G3-JgHckzjw@760",
+              "G3-JgHckzjw@763",
+              "G3-JgHckzjw@765",
+              "G3-JgHckzjw@768",
+              "G3-JgHckzjw@770",
+              "G3-JgHckzjw@780",
+              "G3-JgHckzjw@782",
+              "G3-JgHckzjw@873",
+              "G3-JgHckzjw@875",
+              "G3-JgHckzjw@876",
+              "G3-JgHckzjw@880",
+              "G3-JgHckzjw@882",
+              "G3-JgHckzjw@885",
+              "G3-JgHckzjw@887",
+              "G3-JgHckzjw@896",
+              "G3-JgHckzjw@898",
+              "G3-JgHckzjw@900"
+            ]
+          },
+          {
+            "id": "ch04.glance.p05.r02",
+            "text": "The token embedding parameters are learned during training.",
+            "type": "F",
+            "cites": [
+              "G3-JgHckzjw@785",
+              "G3-JgHckzjw@787",
+              "G3-JgHckzjw@790",
+              "G3-JgHckzjw@792",
+              "G3-JgHckzjw@802",
+              "G3-JgHckzjw@804",
+              "G3-JgHckzjw@806"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

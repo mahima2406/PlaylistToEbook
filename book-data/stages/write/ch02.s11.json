@@ -1,0 +1,542 @@
+{
+  "stage": "write",
+  "item": "ch02.s11",
+  "inputs_hash": "d7a7c80ac8c28af9bb901cb31f24d255ae968478af08bcfaac5df143ec6a1123",
+  "output_hash": "8e1e4fc774b696e77b44ce3e96e3c8d1f4f978e3250eeb04a64480d3b06649d5",
+  "output": {
+    "section_id": "ch02.s11",
+    "paragraphs": [
+      {
+        "id": "ch02.s11.p01",
+        "sentences": [
+          {
+            "id": "ch02.s11.p01.01",
+            "text": "How can a model use the meaning already present in words instead of treating them as unrelated IDs?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s11.p01.02",
+            "text": "A useful analogy comes from vision: convolutional neural networks work well because they exploit spatial relations between pixels in an image, such as parts that are close to each other, rather than only flattening pixel values into one input vector.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@379",
+              "ghCSGRgVB_o@384",
+              "ghCSGRgVB_o@389",
+              "ghCSGRgVB_o@391",
+              "ghCSGRgVB_o@402",
+              "ghCSGRgVB_o@406",
+              "ghCSGRgVB_o@437",
+              "ghCSGRgVB_o@439",
+              "ghCSGRgVB_o@444"
+            ]
+          },
+          {
+            "id": "ch02.s11.p01.03",
+            "text": "Text has a similar kind of structure to exploit: words carry meanings, and some words are closer in meaning to other words.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@452",
+              "ghCSGRgVB_o@456",
+              "ghCSGRgVB_o@459",
+              "ghCSGRgVB_o@462",
+              "ghCSGRgVB_o@465"
+            ]
+          },
+          {
+            "id": "ch02.s11.p01.04",
+            "text": "Examples such as \"cat\" and \"kitten\" or \"dog\" and \"puppy\" show the kind of semantic closeness that should be represented.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@467",
+              "ghCSGRgVB_o@469",
+              "ghCSGRgVB_o@471",
+              "ghCSGRgVB_o@474"
+            ]
+          },
+          {
+            "id": "ch02.s11.p01.05",
+            "text": "Token embeddings, also called vector embeddings, represent words or tokens as vectors in a way that preserves semantic relationships.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@818",
+              "ghCSGRgVB_o@820",
+              "ghCSGRgVB_o@834",
+              "ghCSGRgVB_o@836",
+              "ghCSGRgVB_o@973",
+              "ghCSGRgVB_o@975",
+              "ghCSGRgVB_o@977",
+              "ghCSGRgVB_o@980",
+              "ghCSGRgVB_o@982",
+              "ghCSGRgVB_o@3330",
+              "ghCSGRgVB_o@3332",
+              "ghCSGRgVB_o@3334",
+              "ghCSGRgVB_o@3336",
+              "mk-6cFebjis@4130",
+              "mk-6cFebjis@4132",
+              "mk-6cFebjis@4134"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s11.p02",
+        "sentences": [
+          {
+            "id": "ch02.s11.p02.01",
+            "text": "The central challenge is where these vectors come from.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s11.p02.02",
+            "text": "To obtain vector or token embeddings, a neural network has to be trained to create them from text.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@865",
+              "ghCSGRgVB_o@867",
+              "ghCSGRgVB_o@869",
+              "ghCSGRgVB_o@887",
+              "ghCSGRgVB_o@889",
+              "ghCSGRgVB_o@901",
+              "ghCSGRgVB_o@904",
+              "ghCSGRgVB_o@987",
+              "ghCSGRgVB_o@989",
+              "ghCSGRgVB_o@992",
+              "ghCSGRgVB_o@994",
+              "mk-6cFebjis@4144",
+              "mk-6cFebjis@4147",
+              "mk-6cFebjis@4148",
+              "mk-6cFebjis@4150"
+            ]
+          },
+          {
+            "id": "ch02.s11.p02.03",
+            "text": "The training signal comes from sentences in textual documents, because they reveal which words are closer or more similar and therefore should have similar vectors.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@889",
+              "ghCSGRgVB_o@892",
+              "ghCSGRgVB_o@894",
+              "ghCSGRgVB_o@896",
+              "ghCSGRgVB_o@898"
+            ]
+          },
+          {
+            "id": "ch02.s11.p02.04",
+            "text": "Creating the right embeddings is not easy.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@909",
+              "ghCSGRgVB_o@911",
+              "ghCSGRgVB_o@987",
+              "ghCSGRgVB_o@989",
+              "ghCSGRgVB_o@992",
+              "ghCSGRgVB_o@994"
+            ]
+          },
+          {
+            "id": "ch02.s11.p02.05",
+            "text": "It is also computationally expensive, because a model may need vectors for a very large vocabulary; GPT-2 is described as having a vocabulary of about 50,000 words, and creating embeddings for that many words is one reason training GPT takes a huge amount of time.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@915",
+              "ghCSGRgVB_o@917",
+              "ghCSGRgVB_o@920",
+              "ghCSGRgVB_o@923",
+              "ghCSGRgVB_o@929",
+              "ghCSGRgVB_o@932",
+              "ghCSGRgVB_o@935"
+            ]
+          },
+          {
+            "id": "ch02.s11.p02.06",
+            "text": "In GPT, every word is converted into a vector in a high-dimensional space, and a neural network is trained to generate those vectors.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@4153",
+              "mk-6cFebjis@4155",
+              "mk-6cFebjis@4157",
+              "mk-6cFebjis@4160",
+              "mk-6cFebjis@4162",
+              "mk-6cFebjis@4164"
+            ]
+          },
+          {
+            "id": "ch02.s11.p02.07",
+            "text": "Those embeddings are not taken from a separate pre-trained dataset in large language models, but are trained along with the model itself, including the next-word prediction task.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1112",
+              "ghCSGRgVB_o@1115",
+              "ghCSGRgVB_o@1118",
+              "ghCSGRgVB_o@1120",
+              "ghCSGRgVB_o@1123",
+              "mk-6cFebjis@4455",
+              "mk-6cFebjis@4457",
+              "mk-6cFebjis@4459",
+              "mk-6cFebjis@4462",
+              "mk-6cFebjis@4464",
+              "mk-6cFebjis@4466"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s11.p03",
+        "sentences": [
+          {
+            "id": "ch02.s11.p03.01",
+            "text": "Pre-trained embeddings make the idea easier to inspect directly.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s11.p03.02",
+            "text": "Many large companies, including Google, already provide pre-trained token embeddings.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1034",
+              "ghCSGRgVB_o@1037",
+              "ghCSGRgVB_o@1040"
+            ]
+          },
+          {
+            "id": "ch02.s11.p03.03",
+            "text": "One example is \"Word2Vec Google News 300\", which consists of pre-trained vectors learned from a Google News dataset of about 100 billion words.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1049",
+              "ghCSGRgVB_o@1051",
+              "ghCSGRgVB_o@1055",
+              "ghCSGRgVB_o@1057",
+              "ghCSGRgVB_o@1060",
+              "ghCSGRgVB_o@1067",
+              "ghCSGRgVB_o@1068"
+            ]
+          },
+          {
+            "id": "ch02.s11.p03.04",
+            "text": "In this name, \"300\" is the embedding dimension: each word is mapped into a 300-dimensional vector space.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1075",
+              "ghCSGRgVB_o@1078",
+              "ghCSGRgVB_o@1081",
+              "ghCSGRgVB_o@1083",
+              "ghCSGRgVB_o@1097",
+              "ghCSGRgVB_o@1101",
+              "ghCSGRgVB_o@1103"
+            ]
+          },
+          {
+            "id": "ch02.s11.p03.05",
+            "text": "A five-dimensional space is described as not really enough to capture all meaning, which motivates using higher-dimensional embeddings such as 300 dimensions.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1088",
+              "ghCSGRgVB_o@1090",
+              "ghCSGRgVB_o@1092",
+              "ghCSGRgVB_o@1094",
+              "ghCSGRgVB_o@1097"
+            ]
+          },
+          {
+            "id": "ch02.s11.p03.06",
+            "text": "A pre-trained Word2Vec model can take a word as input and convert it into a 300-dimensional vector.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1127",
+              "ghCSGRgVB_o@1129",
+              "ghCSGRgVB_o@1131",
+              "ghCSGRgVB_o@1134",
+              "ghCSGRgVB_o@1136",
+              "ghCSGRgVB_o@1139"
+            ]
+          },
+          {
+            "id": "ch02.s11.p03.07",
+            "text": "In code, the model is assigned to a dictionary called \"word_vectors\", where each word is associated with its embedding vector.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1144",
+              "ghCSGRgVB_o@1147",
+              "ghCSGRgVB_o@1150",
+              "ghCSGRgVB_o@1153",
+              "ghCSGRgVB_o@1156",
+              "ghCSGRgVB_o@1159",
+              "ghCSGRgVB_o@1161",
+              "ghCSGRgVB_o@1164",
+              "ghCSGRgVB_o@1166",
+              "ghCSGRgVB_o@1168"
+            ]
+          },
+          {
+            "id": "ch02.s11.p03.08",
+            "text": "Looking up the vector for \"computer\" and printing its shape shows a 300-dimensional vector, illustrating that every word is encoded into a 300-dimensional vector.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1170",
+              "ghCSGRgVB_o@1172",
+              "ghCSGRgVB_o@1174",
+              "ghCSGRgVB_o@1177",
+              "ghCSGRgVB_o@1181",
+              "ghCSGRgVB_o@1183",
+              "ghCSGRgVB_o@1186",
+              "ghCSGRgVB_o@1188"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s11.p04",
+        "sentences": [
+          {
+            "id": "ch02.s11.p04.01",
+            "text": "Once vectors are available, their structure can be tested.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s11.p04.02",
+            "text": "If embeddings really encode meaning, then vector arithmetic should preserve semantic relationships, and the example \"king\" plus \"woman\" minus \"man\" should produce something similar to \"queen\".",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1193",
+              "ghCSGRgVB_o@1196",
+              "ghCSGRgVB_o@1199",
+              "ghCSGRgVB_o@1202",
+              "ghCSGRgVB_o@1212",
+              "ghCSGRgVB_o@1215",
+              "ghCSGRgVB_o@1224",
+              "ghCSGRgVB_o@1226",
+              "ghCSGRgVB_o@1228",
+              "ghCSGRgVB_o@1235",
+              "ghCSGRgVB_o@1238",
+              "ghCSGRgVB_o@1250",
+              "ghCSGRgVB_o@1253",
+              "ghCSGRgVB_o@1263",
+              "ghCSGRgVB_o@1265",
+              "ghCSGRgVB_o@3348",
+              "ghCSGRgVB_o@3351",
+              "ghCSGRgVB_o@3353",
+              "ghCSGRgVB_o@3355",
+              "ghCSGRgVB_o@3357",
+              "ghCSGRgVB_o@3360",
+              "ghCSGRgVB_o@3362"
+            ]
+          },
+          {
+            "id": "ch02.s11.p04.03",
+            "text": "To test this, the vectors for \"king\" and \"woman\" are added, the vector for \"man\" is subtracted, and then the most similar words to the resulting vector are printed.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1274",
+              "ghCSGRgVB_o@1276",
+              "ghCSGRgVB_o@1279",
+              "ghCSGRgVB_o@1281",
+              "ghCSGRgVB_o@1284",
+              "ghCSGRgVB_o@1286"
+            ]
+          },
+          {
+            "id": "ch02.s11.p04.04",
+            "text": "The top result is \"queen\", with a reported score of around 71%, which is presented as evidence that the vectors encode semantic information.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1289",
+              "ghCSGRgVB_o@1290",
+              "ghCSGRgVB_o@1296",
+              "ghCSGRgVB_o@1298",
+              "ghCSGRgVB_o@1301",
+              "ghCSGRgVB_o@1305",
+              "ghCSGRgVB_o@1307",
+              "ghCSGRgVB_o@1309",
+              "ghCSGRgVB_o@1312",
+              "ghCSGRgVB_o@1314",
+              "ghCSGRgVB_o@1316",
+              "ghCSGRgVB_o@1318"
+            ]
+          },
+          {
+            "id": "ch02.s11.p04.05",
+            "text": "The explanation given is that these vectors capture semantic properties such as masculinity and femininity, and that related pairs such as \"king\" and \"queen\" or \"man\" and \"woman\" are closer to each other.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1322",
+              "ghCSGRgVB_o@1323",
+              "ghCSGRgVB_o@1326",
+              "ghCSGRgVB_o@1329",
+              "ghCSGRgVB_o@1332",
+              "ghCSGRgVB_o@1335",
+              "ghCSGRgVB_o@1337",
+              "ghCSGRgVB_o@1339"
+            ]
+          },
+          {
+            "id": "ch02.s11.p04.06",
+            "text": "When embeddings are trained well, as in the Word2Vec Google News model, they can encode meaning in the vectors.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1564",
+              "ghCSGRgVB_o@1567",
+              "ghCSGRgVB_o@1569",
+              "ghCSGRgVB_o@1572",
+              "ghCSGRgVB_o@1575",
+              "ghCSGRgVB_o@1585",
+              "ghCSGRgVB_o@1586"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s11.p05",
+        "sentences": [
+          {
+            "id": "ch02.s11.p05.01",
+            "text": "Semantic relationships also appear in similarity and distance measurements.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s11.p05.02",
+            "text": "Related pairs such as \"woman\" and \"man\", \"king\" and \"queen\", \"uncle\" and \"aunt\", \"boy\" and \"girl\", and \"nephew\" and \"niece\" are expected to have similar embeddings, while unrelated words such as \"paper\" and \"water\" are not.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1372",
+              "ghCSGRgVB_o@1374",
+              "ghCSGRgVB_o@1376",
+              "ghCSGRgVB_o@1379",
+              "ghCSGRgVB_o@1381",
+              "ghCSGRgVB_o@1383"
+            ]
+          },
+          {
+            "id": "ch02.s11.p05.03",
+            "text": "To check relatedness in the embedding space, words are converted into vectors and their similarity is tested, described here as finding the distance between vectors.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1386",
+              "ghCSGRgVB_o@1388",
+              "ghCSGRgVB_o@1390",
+              "ghCSGRgVB_o@1392",
+              "ghCSGRgVB_o@1394",
+              "ghCSGRgVB_o@1396",
+              "ghCSGRgVB_o@1399"
+            ]
+          },
+          {
+            "id": "ch02.s11.p05.04",
+            "text": "The code uses \"word_vectors.similarity\" on pairs such as \"woman\" and \"man\" to compute similarity scores between word vectors.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1401",
+              "ghCSGRgVB_o@1403",
+              "ghCSGRgVB_o@1405"
+            ]
+          },
+          {
+            "id": "ch02.s11.p05.05",
+            "text": "The reported similarity scores are high for the related pairs and low for \"paper\" and \"water\", because the related vectors are closer to each other while the unrelated ones are far apart.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1408",
+              "ghCSGRgVB_o@1410",
+              "ghCSGRgVB_o@1413",
+              "ghCSGRgVB_o@1415",
+              "ghCSGRgVB_o@1418",
+              "ghCSGRgVB_o@1420",
+              "ghCSGRgVB_o@1422",
+              "ghCSGRgVB_o@1424",
+              "ghCSGRgVB_o@1426",
+              "ghCSGRgVB_o@1431",
+              "ghCSGRgVB_o@1433",
+              "ghCSGRgVB_o@1435",
+              "ghCSGRgVB_o@1437",
+              "ghCSGRgVB_o@1442",
+              "ghCSGRgVB_o@1444",
+              "ghCSGRgVB_o@1446",
+              "ghCSGRgVB_o@1449",
+              "ghCSGRgVB_o@1451",
+              "ghCSGRgVB_o@1453",
+              "ghCSGRgVB_o@1455"
+            ]
+          },
+          {
+            "id": "ch02.s11.p05.06",
+            "text": "Embeddings can also be used to find words similar to a given word; for \"tower\", the shown similar words include \"scraper\", \"tower\", and \"spire\".",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1456",
+              "ghCSGRgVB_o@1459",
+              "ghCSGRgVB_o@1461",
+              "ghCSGRgVB_o@1464",
+              "ghCSGRgVB_o@1465",
+              "ghCSGRgVB_o@1468"
+            ]
+          },
+          {
+            "id": "ch02.s11.p05.07",
+            "text": "Another check computes the norm of the difference between two word vectors with \"np.linalg.norm\" to measure how far apart their embeddings are.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1480",
+              "ghCSGRgVB_o@1482",
+              "ghCSGRgVB_o@1484",
+              "ghCSGRgVB_o@1486",
+              "ghCSGRgVB_o@1488",
+              "ghCSGRgVB_o@1491"
+            ]
+          },
+          {
+            "id": "ch02.s11.p05.08",
+            "text": "The magnitude of that difference is presented as an indication of how close or far the meanings of the corresponding words are.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1493",
+              "ghCSGRgVB_o@1495",
+              "ghCSGRgVB_o@1507",
+              "ghCSGRgVB_o@1510",
+              "ghCSGRgVB_o@1512",
+              "ghCSGRgVB_o@1513",
+              "ghCSGRgVB_o@1515",
+              "ghCSGRgVB_o@1522",
+              "ghCSGRgVB_o@1524",
+              "ghCSGRgVB_o@1526",
+              "ghCSGRgVB_o@1529",
+              "ghCSGRgVB_o@3365",
+              "ghCSGRgVB_o@3368",
+              "ghCSGRgVB_o@3370",
+              "ghCSGRgVB_o@3372",
+              "ghCSGRgVB_o@3374",
+              "ghCSGRgVB_o@3376",
+              "ghCSGRgVB_o@3379",
+              "ghCSGRgVB_o@3381",
+              "ghCSGRgVB_o@3383"
+            ]
+          },
+          {
+            "id": "ch02.s11.p05.09",
+            "text": "Words with similar meanings therefore have embeddings that are closer together in space, so the magnitude of the difference between their vectors is smaller than for unrelated words.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@1512",
+              "ghCSGRgVB_o@1513",
+              "ghCSGRgVB_o@1515",
+              "ghCSGRgVB_o@1526",
+              "ghCSGRgVB_o@1529",
+              "ghCSGRgVB_o@3370",
+              "ghCSGRgVB_o@3372",
+              "ghCSGRgVB_o@3374",
+              "ghCSGRgVB_o@3379",
+              "ghCSGRgVB_o@3381",
+              "ghCSGRgVB_o@3383",
+              "ghCSGRgVB_o@3386",
+              "ghCSGRgVB_o@3388"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

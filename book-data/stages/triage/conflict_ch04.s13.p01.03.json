@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch04.s13.p01.03",
+  "inputs_hash": "133296733cc027368ba8f88ab86eab6fa185c0271526d9bbeaa491bb2914d829",
+  "output_hash": "c2a618c81d587b5dfec1849b106cb7277128a017343f59a317a9ccbfb02a61fe",
+  "output": {
+    "decision": "edit",
+    "text": "Temperature scaling helps make the distribution sharper or more uniform when sampling from a multinomial distribution.",
+    "reason": "The captions support sharpening or flattening the distribution, but the overfitting claim is not supported by the reference and overgeneralizes its role.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.9,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "1c6018d6c2fcda2fb76f0a9422702a54249b9e0fa029b9fc0f7efa6cad034e8c"
+  }
+}

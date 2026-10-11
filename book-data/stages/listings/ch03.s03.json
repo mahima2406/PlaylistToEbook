@@ -1,0 +1,33 @@
+{
+  "stage": "listings",
+  "item": "ch03.s03",
+  "inputs_hash": "f3b6046973eb460f5630f02b18be6c9d3c42320d9e029e80a8fb59a01b9cc85f",
+  "output_hash": "5ea1137f06c7008c6b71a054c4b0e9a4e8a4cebce69b8b462aff9e7fffc4ab7c",
+  "output": {
+    "section_id": "ch03.s03",
+    "listings": [
+      {
+        "id": "ch03.s03.code1",
+        "ref": "ref:ch03/01_main-chapter-code/ch03.ipynb#cell33",
+        "path": "ch03/01_main-chapter-code/ch03.ipynb",
+        "caption": "This code normalizes attention scores by dividing the tensor by its total sum and prints the resulting attention weights and their sum.",
+        "code": "attn_weights_2_tmp = attn_scores_2 / attn_scores_2.sum()\n\nprint(\"Attention weights:\", attn_weights_2_tmp)\nprint(\"Sum:\", attn_weights_2_tmp.sum())",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The excerpt directly implements the section’s first normalization method: dividing attention scores by their total sum to produce attention weights that sum to one, and it prints the weights and their sum. The caption accurately describes this. It does not cover softmax, but it matches the specific normalization point taught."
+      }
+    ],
+    "rejected": [
+      {
+        "id": "ch03.s03.code2",
+        "ref": "ref:ch03/01_main-chapter-code/ch03.ipynb#cell35",
+        "path": "ch03/01_main-chapter-code/ch03.ipynb",
+        "caption": "This code defines a naive softmax function using exponentials and a sum over dimension 0, applies it to attention scores, and prints the normalized weights and their sum.",
+        "code": "def softmax_naive(x):\n    return torch.exp(x) / torch.exp(x).sum(dim=0)\n\nattn_weights_2_naive = softmax_naive(attn_scores_2)\n\nprint(\"Attention weights:\", attn_weights_2_naive)\nprint(\"Sum:\", attn_weights_2_naive.sum())",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The code matches the section’s description of a naive softmax: it exponentiates the attention scores and normalizes by the sum of exponentials over dim=0, then prints the resulting weights and their total sum. However, the section also teaches creating attention weights by dividing raw attention scores by their total sum (non-softmax normalization) and demonstrates PyTorch’s numerically stable torch.softmax; neither of those is shown here, so the excerpt only covers part of what the section claims to implement."
+      }
+    ]
+  }
+}

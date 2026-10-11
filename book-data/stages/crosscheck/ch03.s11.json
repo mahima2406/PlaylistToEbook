@@ -1,0 +1,612 @@
+{
+  "stage": "crosscheck",
+  "item": "ch03.s11",
+  "inputs_hash": "f3fe216ebe41d553d97e3a532a995c755c4e393f92411b6e24dd97db746d8762",
+  "output_hash": "cef85377212877ba7babfdf4ec124dcf45ab407bd2ca0ebd9c5c49f625165dd5",
+  "output": {
+    "section_id": "ch03.s11",
+    "checked": 49,
+    "counts": {
+      "agrees": 25,
+      "contradicts": 1,
+      "not_covered": 23
+    },
+    "results": [
+      {
+        "sentence_id": "ch03.s11.p01.02",
+        "text": "Shortcut connections are an important building block of the GPT architecture alongside layer normalization, the GELU activation, and the feed-forward neural network.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell38",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell57",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states transformer blocks use shortcut connections in addition to other components (e.g., feed-forward network with GELU, and elsewhere layer norm is part of the block), consistent with calling shortcuts an important building block alongside those."
+      },
+      {
+        "sentence_id": "ch03.s11.p01.03",
+        "text": "In a Transformer block, the plus symbols and their associated arrows represent shortcut connections.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell50",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell56"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages mention shortcut connections in transformer blocks but do not describe a diagram where plus symbols/arrows denote them."
+      },
+      {
+        "sentence_id": "ch03.s11.p01.04",
+        "text": "Shortcut connections are also known as skip connections or residual connections.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell50",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell56",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell54"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly says shortcut connections are also called skip or residual connections."
+      },
+      {
+        "sentence_id": "ch03.s11.p01.05",
+        "text": "They were first proposed in computer vision to solve the vanishing gradient problem.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell51"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference says shortcut connections were originally proposed in deep computer-vision networks (ResNets) to mitigate vanishing gradients."
+      },
+      {
+        "sentence_id": "ch03.s11.p02.01",
+        "text": "The vanishing gradient problem is that gradients become progressively smaller as they are propagated backward through a neural network.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell21",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell51",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell43"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference mentions vanishing gradient problems but does not define them as progressively smaller gradients during backpropagation."
+      },
+      {
+        "sentence_id": "ch03.s11.p02.02",
+        "text": "During backpropagation, gradient flow goes from the output of the network to the input, so later-layer gradients are used to compute earlier-layer gradients.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell53",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell51",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The passages do not explain backpropagation directionality (output-to-input) or that later-layer gradients are used to compute earlier-layer gradients."
+      },
+      {
+        "sentence_id": "ch03.s11.p02.04",
+        "text": "When gradients become very small, weight updates are not made, learning becomes stagnant, convergence is delayed, and the language model does not learn well.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell102",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell146",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not connect small gradients to stagnant learning/convergence delay for a language model."
+      },
+      {
+        "sentence_id": "ch03.s11.p02.05",
+        "text": "The weight update rule is that the new weight equals the old weight minus the step size times the partial derivative of the loss with respect to the weight.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell67",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference passage states the gradient-descent weight update rule w_new = w_old - step_size * dL/dw."
+      },
+      {
+        "sentence_id": "ch03.s11.p02.06",
+        "text": "If the gradient of the loss with respect to a weight approaches zero, the weight is not updated, so the neural network is not learning.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell43",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell38"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss GELU vs ReLU gradients and loss conventions but do not state that near-zero gradients prevent weight updates and thus learning."
+      },
+      {
+        "sentence_id": "ch03.s11.p02.07",
+        "text": "This leads to stagnation, and shortcut connections solve that problem.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell50",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell56",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell54"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While shortcut connections are said to mitigate vanishing gradients, the passages do not explicitly claim they 'solve stagnation' as stated here."
+      },
+      {
+        "sentence_id": "ch03.s11.p03.r01",
+        "text": "A shortcut connection creates an alternative path for the gradient to flow by skipping one or more layers.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell51",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell56",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell54"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference says shortcut connections create an alternative shorter gradient path by adding one layer’s output to a later layer’s output, usually skipping one or more layers."
+      },
+      {
+        "sentence_id": "ch03.s11.p03.r02",
+        "text": "It is implemented by adding the output of one layer to the output of a later layer.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell53",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell65"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly states this is achieved by adding the output of one layer to the output of a later layer."
+      },
+      {
+        "sentence_id": "ch03.s11.p03.r03",
+        "text": "If the earlier output is y_l and the later layer computes f(y_l), then with a shortcut connection the later output becomes f(y_l) + y_l.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell58",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell51",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell53"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference explains shortcut/residual connections as adding the output of an earlier layer to a later layer’s output, consistent with y_{l+1}=f(y_l)+y_l."
+      },
+      {
+        "sentence_id": "ch03.s11.p03.r04",
+        "text": "To prevent vanishing gradients, the partial derivative of the loss with respect to the first-layer output should stay as large as possible so that the gradients with respect to the first-layer weights do not go to zero.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell58",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell37",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference notes that shortcuts prevent gradients from vanishing in early layers, but it does not state the specific objective about keeping ∂L/∂(first-layer output) as large as possible to prevent ∂L/∂W from going to zero."
+      },
+      {
+        "sentence_id": "ch03.s11.p03.r05",
+        "text": "Using the chain rule, the partial derivative of the loss with respect to y_l equals the partial derivative of the loss with respect to y_(l+1) multiplied by the partial derivative of y_(l+1) with respect to y_l.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell70",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell61",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the cited passages describe the chain rule relationship between layerwise derivatives; the mentions of Python’s functools.partial are unrelated."
+      },
+      {
+        "sentence_id": "ch03.s11.p03.r06",
+        "text": "Because y_(l+1) = f(y_l) + y_l, the derivative of y_(l+1) with respect to y_l includes the derivative of f(y_l) plus 1.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell70",
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell1",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference does not discuss the derivative of a residual form y_{l+1}=f(y_l)+y_l or the resulting '+1' term in the Jacobian."
+      },
+      {
+        "sentence_id": "ch03.s11.p03.r07",
+        "text": "That plus-one term keeps the gradient from vanishing even if the derivative through the main path becomes small.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell51",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell16",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell146"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference states shortcut connections mitigate vanishing gradients by creating an alternative shorter path for gradients; this is consistent with an identity/additive path helping preserve gradient flow."
+      },
+      {
+        "sentence_id": "ch03.s11.p03.r08",
+        "text": "Because the shortcut connection keeps gradients flowing, the loss gradients with respect to earlier-layer weights do not ultimately vanish, so we avoid stagnation in the weight updates.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell58",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell57",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell55"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference explicitly observes that shortcut connections prevent gradients from vanishing in early layers (towards layer.0), which supports the claim that earlier-layer weight gradients don’t vanish and updates don’t stagnate."
+      },
+      {
+        "sentence_id": "ch03.s11.p03.r09",
+        "text": "Shortcut connections therefore play a crucial role during backpropagation by preserving gradient flow through the network.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell56",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell54",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell51"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference describes shortcuts as creating a shorter path for gradients and demonstrates gradient values with/without shortcuts, supporting the backprop/gradient-flow role."
+      },
+      {
+        "sentence_id": "ch03.s11.p03.r10",
+        "text": "They also smooth the loss-function landscape and make gradient flow smoother.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell34",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell89"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited references do not discuss smoothing the loss landscape or making the loss surface/gradient flow smoother due to shortcut connections."
+      },
+      {
+        "sentence_id": "ch03.s11.p04.01",
+        "text": "A small code example makes this effect concrete by stacking multiple layers, optionally adding shortcut connections, and then comparing gradient-flow magnitudes with and without shortcuts.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell54",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell56",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell50"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Chapter 4 section shows a deep network example with optional shortcuts and prints/compares gradient values with and without shortcuts, matching the described code demonstration."
+      },
+      {
+        "sentence_id": "ch03.s11.p04.02",
+        "text": "The argument \"layer_sizes\" specifies how many neurons are in each layer.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell53",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell21",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell55"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "In the ExampleDeepNeuralNetwork code, layer_sizes is used as the in/out feature sizes for each Linear layer, i.e., the neuron counts per layer."
+      },
+      {
+        "sentence_id": "ch03.s11.p04.03",
+        "text": "If \"layer_sizes\" is \"3, 3, 3, 3, 1\", the network has five layers with three neurons and a final layer with one neuron.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell53",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell21"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference uses layer_sizes = [3, 3, 3, 3, 3, 1] (six entries) to build 5 Linear layers; the sentence’s example \"3, 3, 3, 3, 1\" (five entries) would not match the shown implementation and would not describe five 3-neuron layers plus a final 1-neuron layer in this code."
+      },
+      {
+        "sentence_id": "ch03.s11.p04.04",
+        "text": "The argument \"use_shortcut\" determines whether shortcut connections are used: \"false\" disables them and \"true\" enables them.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell50",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell57",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell56"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The code passes use_shortcut=False/True to construct models without/with shortcut connections, indicating the flag controls whether shortcuts are enabled."
+      },
+      {
+        "sentence_id": "ch03.s11.p04.05",
+        "text": "PyTorch's \"nn.Sequential\" module connects different neural network layers together.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell53",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell44",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell41"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference shows nn.Sequential used to combine multiple modules (e.g., Linear + GELU) into a single chained block, which is a way to connect layers/modules together."
+      },
+      {
+        "sentence_id": "ch03.s11.p04.06",
+        "text": "The network is constructed by chaining layers so that one entry of \"layer_sizes\" gives the input dimension, the next entry gives the output dimension, and each layer uses a GELU activation function.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell53",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell118"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "ExampleDeepNeuralNetwork builds successive Linear layers where each uses layer_sizes[i] as input dim and layer_sizes[i+1] as output dim, and each Sequential includes a GELU activation."
+      },
+      {
+        "sentence_id": "ch03.s11.p04.07",
+        "text": "For a layer, the input dimension is determined by the previous layer's output size and the output dimension is determined by the next layer's size.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell53",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The code sets each layer’s input size to the previous layer’s output size (layer_sizes[i] -> layer_sizes[i+1]), matching the statement."
+      },
+      {
+        "sentence_id": "ch03.s11.p04.08",
+        "text": "The code uses the GELU activation function.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell39",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell42",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell40"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The notebook defines a GELU module and uses it in the model (both in FeedForward and ExampleDeepNeuralNetwork)."
+      },
+      {
+        "sentence_id": "ch03.s11.p05.r02",
+        "text": "Without shortcut connections, the output of each layer is fed to the next layer until the final output is produced.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell54",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell56",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell58"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references mention printing gradients with/without shortcuts but do not show the forward-pass code demonstrating that without shortcuts x is simply passed layer-to-layer."
+      },
+      {
+        "sentence_id": "ch03.s11.p05.r03",
+        "text": "With shortcut connections, each step adds the current layer output to the running value from previous steps, so the final result accumulates all earlier shortcut additions.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell56",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell50",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell57"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references provided do not include the forward implementation that would show the exact residual accumulation behavior described."
+      },
+      {
+        "sentence_id": "ch03.s11.p05.r04",
+        "text": "The shortcut connection itself is implemented by a single line that updates \"x\" to \"x\" plus the layer output.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell58",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell57",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell51"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The supplied passages discuss the concept of shortcut connections but do not show the specific code line implementing x = x + layer_output."
+      },
+      {
+        "sentence_id": "ch03.s11.p05.r05",
+        "text": "The implemented deep neural network has five layers, each consisting of a linear layer and a GELU activation, and the forward pass optionally adds shortcut connections when the \"use_shortcut\" attribute is true.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell57",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell55",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell58"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the initialization code clearly defines five Sequential blocks (Linear+GELU), the provided references do not include the forward method verifying that shortcut connections are optionally applied when use_shortcut is true."
+      },
+      {
+        "sentence_id": "ch03.s11.p06.r01",
+        "text": "To inspect gradient flow, the example initializes a neural network without shortcut connections, uses layer sizes 3 3 3 3 3 1, takes a three-dimensional sample input with values 1, 0, and minus 1, and sets use shortcut to false.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell55",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell57",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell54"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Cell 55 shows layer_sizes = [3,3,3,3,3,1], sample_input = [[1,0,-1]], and constructing ExampleDeepNeuralNetwork(..., use_shortcut=False) for gradient inspection."
+      },
+      {
+        "sentence_id": "ch03.s11.p06.r02",
+        "text": "In layers with input dimension 3 and output dimension 3, each neuron has three weights, so the weight matrix is 3 by 3, while the final layer has a 3 by 1 weight matrix.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided reference snippets do not state the Linear layer weight matrix shapes or relate neuron weight counts to 3x3 and 3x1 matrices for this example."
+      },
+      {
+        "sentence_id": "ch03.s11.p06.r03",
+        "text": "To summarize gradient flow per layer, the backward pass computes gradients for all weights in a layer and then takes the mean of those values as that layer's mean gradient.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell53",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell24"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No provided reference shows the gradient summarization procedure (computing gradients then averaging per layer)."
+      },
+      {
+        "sentence_id": "ch03.s11.p06.r04",
+        "text": "The loss is defined as the squared difference between the model output y and the ground truth, for example (y - 0) squared when the ground truth is zero.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell86",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references do not define the loss for this example as squared error (y - target)^2 or give (y-0)^2 as an example."
+      },
+      {
+        "sentence_id": "ch03.s11.p06.r05",
+        "text": "In backpropagation, the partial derivatives of the loss are computed starting from the output layer and then moving backward through earlier layers until the first layer.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell53",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell56",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell58"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference discusses backpropagation/gradients and (via loss.backward usage in the notebook context) is consistent with computing gradients from the output backward through earlier layers."
+      },
+      {
+        "sentence_id": "ch03.s11.p06.r06",
+        "text": "The code sets the target to zero, computes the model output for x, uses a squared loss, calls loss.backward(), and prints a single gradient value per layer as the mean absolute gradient of that layer’s 3 by 3 values.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell53",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell89",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell90"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages do not show setting a target to zero, using squared loss, calling loss.backward(), nor printing mean absolute gradients of 3x3 values per layer."
+      },
+      {
+        "sentence_id": "ch03.s11.p06.r07",
+        "text": "In PyTorch, the backward method conveniently computes loss gradients during the backward pass.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell118"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited reference cell is about saving a state_dict and does not mention PyTorch's backward method computing gradients."
+      },
+      {
+        "sentence_id": "ch03.s11.p07.r01",
+        "text": "Without shortcut connections, the mean gradient becomes much smaller in earlier layers, illustrating the vanishing gradient problem.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell54",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell56",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell51"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference introduces printing gradients without/with shortcut connections and explains shortcuts mitigate vanishing gradients, consistent with earlier layers having much smaller gradients without shortcuts."
+      },
+      {
+        "sentence_id": "ch03.s11.p07.r02",
+        "text": "Adding shortcut connections creates alternative paths for gradients to flow between layers.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell50",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell51",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell56"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly states a shortcut connection creates an alternative shorter path for the gradient to flow through the network."
+      },
+      {
+        "sentence_id": "ch03.s11.p07.r03",
+        "text": "With shortcut connections, the earlier-layer gradients remain much larger and do not become negligible, showing that shortcut connections solve the vanishing gradient problem in this example.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell56",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell54",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell50"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states that shortcut connections prevent gradients from vanishing in early layers, consistent with earlier-layer gradients staying larger/non-negligible in that example."
+      },
+      {
+        "sentence_id": "ch03.s11.p07.r04",
+        "text": "With shortcut connections, the gradient values stabilize toward the first layer instead of shrinking to a vanishingly small value.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell54",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell56",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell51"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Printing gradients with vs. without shortcuts and the explanation that shortcuts prevent vanishing in early layers supports the claim that gradients stabilize toward the first layer instead of shrinking away."
+      },
+      {
+        "sentence_id": "ch03.s11.p07.r05",
+        "text": "Shortcut connections are an important way to overcome the vanishing gradient problem in deep neural networks.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell51",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell56",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell54"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference says shortcut (residual) connections were proposed to mitigate vanishing gradient problems, supporting their importance for overcoming vanishing gradients in deep networks."
+      },
+      {
+        "sentence_id": "ch03.s11.p07.r06",
+        "text": "They are a core building block of large language models and help training by ensuring consistent gradient flow across layers in GPT models.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell58",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell8",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages mention implementing GPT-2-like architecture and training/finetuning layers but do not state that shortcuts are a core LLM building block that ensure consistent gradient flow across GPT layers."
+      },
+      {
+        "sentence_id": "ch03.s11.p07.r07",
+        "text": "They help stabilize training.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell73"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited reference only shows a section header about training an LLM and does not discuss shortcuts (or anything else) stabilizing training."
+      },
+      {
+        "sentence_id": "ch03.s11.p08.02",
+        "text": "The arrows between layers are shortcut connections, and they provide an alternative path for gradients to flow.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell51",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell50",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell56"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explains shortcut connections (often shown as arrows) provide an alternative path for gradient flow, matching the sentence."
+      },
+      {
+        "sentence_id": "ch03.s11.p08.03",
+        "text": "A shortcut connection can be added between layers of the Transformer block to help solve the vanishing gradient problem.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell58",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell51"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference says shortcut connections prevent early-layer gradients from vanishing and that this concept will be used when implementing a transformer block, supporting the claim about adding them in Transformer blocks to help with vanishing gradients."
+      },
+      {
+        "sentence_id": "ch03.s11.p08.04",
+        "text": "Because backpropagation passes through the entire Transformer block from output to input, the architecture must ensure that gradients do not vanish so that learning remains stable.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell64"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references describe that a Transformer block includes dropout and shortcut (residual) connections and is repeated multiple times, but they do not state that these are specifically to prevent vanishing gradients or discuss gradient stability/backpropagation behavior."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch03.s11.p04.03",
+        "text": "If \"layer_sizes\" is \"3, 3, 3, 3, 1\", the network has five layers with three neurons and a final layer with one neuron.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell53",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell21"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference uses layer_sizes = [3, 3, 3, 3, 3, 1] (six entries) to build 5 Linear layers; the sentence’s example \"3, 3, 3, 3, 1\" (five entries) would not match the shown implementation and would not describe five 3-neuron layers plus a final 1-neuron layer in this code."
+      }
+    ]
+  }
+}

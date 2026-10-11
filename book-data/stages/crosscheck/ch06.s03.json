@@ -1,0 +1,229 @@
+{
+  "stage": "crosscheck",
+  "item": "ch06.s03",
+  "inputs_hash": "37d476b4808b1219ea8f5b40750b0e96dc393e04d64f1f96daa98f1034061c38",
+  "output_hash": "c4461048f025d3e1a577d0612ac962ccf317f1d53ffce0ef9406d3ac4f165687",
+  "output": {
+    "section_id": "ch06.s03",
+    "checked": 18,
+    "counts": {
+      "agrees": 11,
+      "contradicts": 1,
+      "not_covered": 6
+    },
+    "results": [
+      {
+        "sentence_id": "ch06.s03.p01.r02",
+        "text": "Batching the dataset means converting each prompt into a numerical representation so that each sample forms a row in a batch.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell127",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell28"
+        ],
+        "verdict": "contradicts",
+        "material": false,
+        "reason": "The references describe batching as grouping samples and (separately) embedding token IDs into vectors (e.g., 8×4×256). They do not define batching itself as converting prompts into numerical representations; that conversion is tokenization/embedding."
+      },
+      {
+        "sentence_id": "ch06.s03.p01.r03",
+        "text": "If a batch contains three samples, the first sample becomes the first row, the second sample becomes the second row, and the third sample becomes the third row after this numerical conversion.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell140",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell53",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided passages about attention-weight row normalization and tensor indexing do not address how dataset samples map to rows within a batch after conversion."
+      },
+      {
+        "sentence_id": "ch06.s03.p01.r04",
+        "text": "To place prompts together in one batch, the rows must have the same size.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell33"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explains that examples are padded so that training examples in each batch have the same length, implying consistent size within a batch."
+      },
+      {
+        "sentence_id": "ch06.s03.p01.r05",
+        "text": "Here, size means the number of columns in each row.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell39",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell25"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states the convention that training examples are rows and feature values are columns, so row size corresponds to the number of columns/features."
+      },
+      {
+        "sentence_id": "ch06.s03.p01.r07",
+        "text": "Different instruction-output pairs produce different prompts, and their lengths may differ as well.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell4"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited chapter 6 section heading does not state that different instruction-output pairs yield different prompt lengths."
+      },
+      {
+        "sentence_id": "ch06.s03.p02.01",
+        "text": "The first step in turning formatted data into a numerical representation is tokenization.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell40",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell21",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell61"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly illustrates tokenization as the step where text is broken into tokens before further processing."
+      },
+      {
+        "sentence_id": "ch06.s03.p02.02",
+        "text": "A tokenizer is used to convert each prompt into token IDs.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell49",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell33",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell50"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states that text tokens are converted into token IDs for processing, and shows encode/decode usage."
+      },
+      {
+        "sentence_id": "ch06.s03.p02.03",
+        "text": "The tokenizer used here is the byte pair encoder used by OpenAI, accessed through the tiktoken library.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell73",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell70"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference shows use of `tiktoken.get_encoding(\"gpt2\")` and describes GPT-2’s BytePair Encoding tokenizer from OpenAI."
+      },
+      {
+        "sentence_id": "ch06.s03.p02.04",
+        "text": "For example, after an instruction-input-output record is formatted in Alpaca style, the entire prompt is converted into a bunch of token IDs.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell17",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell21",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell54"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference discusses Alpaca-style prompt formatting and (in the workflow) tokenization into IDs is the standard next step for model input/targets."
+      },
+      {
+        "sentence_id": "ch06.s03.p02.05",
+        "text": "The same tokenization process is applied to every instruction-input-output example in the dataset.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell106",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell18",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell12"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references show tokenization applied to examples (input ids after tokenization) and formatting applied across dataset entries, consistent with applying the same tokenization process across the dataset."
+      },
+      {
+        "sentence_id": "ch06.s03.p02.07",
+        "text": "Because prompts can have different lengths, the number of token IDs differs across samples.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell33",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell26"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference notes padding per batch because examples can differ in length, which implies differing token-ID sequence lengths across samples prior to padding."
+      },
+      {
+        "sentence_id": "ch06.s03.p02.08",
+        "text": "In the example, the first prompt looks longer than the second prompt, so the first prompt has more token IDs than the second.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell140",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell17",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell98"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the cited passages provide an example comparing two specific prompts’ apparent lengths to their token-ID counts."
+      },
+      {
+        "sentence_id": "ch06.s03.p02.09",
+        "text": "But if two samples are placed in one batch, the number of token IDs for each sample must be the same.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell92",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell127",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell28"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference describes fixed-shape batches (e.g., batch size 8 with 4 tokens each gives an 8×4×256 tensor), which implies all samples in the same batch must have the same number of token IDs (via padding/truncation)."
+      },
+      {
+        "sentence_id": "ch06.s03.p03.r01",
+        "text": "After the full text in Alpaca format is created, the formatted data is tokenized by first defining an empty list.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell21"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference only mentions an example of a formatted response without an input field; it does not describe tokenization steps or defining an empty list first."
+      },
+      {
+        "sentence_id": "ch06.s03.p03.r02",
+        "text": "The token IDs for each prompt are then appended to that empty list.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell46",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell26"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References show generating token IDs from text and converting back, but do not describe appending each prompt’s token IDs to an initially empty list during dataset tokenization."
+      },
+      {
+        "sentence_id": "ch06.s03.p03.r03",
+        "text": "For every prompt corresponding to an input-output pair, this produces a list of token IDs.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell145",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell115",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell78"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References show that for a given prompt, `text_to_token_ids` plus `generate` produces `token_ids` (a sequence/list/tensor of token IDs) which can then be decoded; consistent with producing token IDs per prompt."
+      },
+      {
+        "sentence_id": "ch06.s03.p03.r04",
+        "text": "The tokenizer passed to the instruction dataset class is the tiktoken library.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell29",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell57",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell28"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference shows tiktoken being imported and used to create a GPT-2 tokenizer, and mentions implementing an InstructionDataset, but it does not explicitly state that the tokenizer passed to the InstructionDataset class is from tiktoken."
+      },
+      {
+        "sentence_id": "ch06.s03.p03.r05",
+        "text": "For more detail on this library, see the separate discussion of the byte pair encoder.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell69",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell125",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell71"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference includes a separate section on BytePair encoding and notes installing tiktoken, supporting the claim that more detail on the library is discussed in the byte pair encoder section."
+      }
+    ],
+    "conflicts": []
+  }
+}

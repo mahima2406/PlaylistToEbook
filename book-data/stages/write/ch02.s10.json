@@ -1,0 +1,581 @@
+{
+  "stage": "write",
+  "item": "ch02.s10",
+  "inputs_hash": "d8742cbf49db347ae518ef356e4175237871b997ecc7004671c483176882b29e",
+  "output_hash": "ff74f326a619e9e118b83dcbc7c1b9b78275c7af1073662ab15ac57fe79e0007",
+  "output": {
+    "section_id": "ch02.s10",
+    "paragraphs": [
+      {
+        "id": "ch02.s10.p01",
+        "sentences": [
+          {
+            "id": "ch02.s10.p01.01",
+            "text": "Why are token embeddings needed after tokenization has already turned text into token IDs?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s10.p01.02",
+            "text": "Token embeddings are also called vector embeddings, and they are sometimes called word embeddings, but \"word embeddings\" is not entirely accurate because tokens can be words, subwords, or even characters.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@25",
+              "ghCSGRgVB_o@28",
+              "ghCSGRgVB_o@30",
+              "ghCSGRgVB_o@32",
+              "ghCSGRgVB_o@36",
+              "ghCSGRgVB_o@41",
+              "ghCSGRgVB_o@44",
+              "ghCSGRgVB_o@47"
+            ]
+          },
+          {
+            "id": "ch02.s10.p01.03",
+            "text": "A word-based tokenizer makes each token one word, but GPT uses byte pair encoding as a subword tokenizer, so even parts of words or characters can be individual tokens.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@80",
+              "ghCSGRgVB_o@82",
+              "ghCSGRgVB_o@86",
+              "ghCSGRgVB_o@89",
+              "ghCSGRgVB_o@92",
+              "ghCSGRgVB_o@96",
+              "ghCSGRgVB_o@98",
+              "mk-6cFebjis@159",
+              "mk-6cFebjis@161"
+            ]
+          },
+          {
+            "id": "ch02.s10.p01.04",
+            "text": "Computers require numerical representations of words, because they cannot understand words directly as inputs to a machine learning model or a large language model.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@261",
+              "ghCSGRgVB_o@263",
+              "ghCSGRgVB_o@266",
+              "ghCSGRgVB_o@268",
+              "ghCSGRgVB_o@270",
+              "ghCSGRgVB_o@273",
+              "ghCSGRgVB_o@275",
+              "mk-6cFebjis@3882",
+              "mk-6cFebjis@3885",
+              "mk-6cFebjis@3887"
+            ]
+          },
+          {
+            "id": "ch02.s10.p01.05",
+            "text": "Token embeddings are the step that converts token IDs into vectors.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@163",
+              "mk-6cFebjis@165"
+            ]
+          },
+          {
+            "id": "ch02.s10.p01.06",
+            "text": "They are needed because token IDs alone are not sufficient as model inputs.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@306",
+              "ghCSGRgVB_o@308",
+              "ghCSGRgVB_o@310",
+              "ghCSGRgVB_o@319",
+              "ghCSGRgVB_o@322",
+              "ghCSGRgVB_o@326",
+              "mk-6cFebjis@3858",
+              "mk-6cFebjis@3860",
+              "mk-6cFebjis@3863",
+              "mk-6cFebjis@3866",
+              "mk-6cFebjis@3869",
+              "mk-6cFebjis@3870",
+              "mk-6cFebjis@3873",
+              "mk-6cFebjis@3875"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s10.p02",
+        "sentences": [
+          {
+            "id": "ch02.s10.p02.01",
+            "text": "The problem is not numbers by themselves, but what those numbers fail to represent.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s10.p02.02",
+            "text": "Assigning random numbers or token IDs to words does not capture semantic relationships between related words such as \"cat\" and \"kitten\".",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@329",
+              "ghCSGRgVB_o@331",
+              "ghCSGRgVB_o@334",
+              "ghCSGRgVB_o@337",
+              "ghCSGRgVB_o@339",
+              "ghCSGRgVB_o@342",
+              "ghCSGRgVB_o@346",
+              "ghCSGRgVB_o@348",
+              "ghCSGRgVB_o@351",
+              "ghCSGRgVB_o@353",
+              "ghCSGRgVB_o@356",
+              "ghCSGRgVB_o@360",
+              "ghCSGRgVB_o@363",
+              "ghCSGRgVB_o@366",
+              "mk-6cFebjis@3913",
+              "mk-6cFebjis@3915",
+              "mk-6cFebjis@3917",
+              "mk-6cFebjis@3919",
+              "mk-6cFebjis@3921",
+              "mk-6cFebjis@3924",
+              "mk-6cFebjis@3926",
+              "mk-6cFebjis@3929",
+              "mk-6cFebjis@3932",
+              "mk-6cFebjis@3934",
+              "mk-6cFebjis@3936",
+              "mk-6cFebjis@3939"
+            ]
+          },
+          {
+            "id": "ch02.s10.p02.03",
+            "text": "One-hot encoding has the same limitation: it does not capture semantic relationships between words such as \"dog\" and \"puppy\".",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@496",
+              "ghCSGRgVB_o@499",
+              "ghCSGRgVB_o@501",
+              "ghCSGRgVB_o@504",
+              "ghCSGRgVB_o@506",
+              "ghCSGRgVB_o@509",
+              "ghCSGRgVB_o@512",
+              "ghCSGRgVB_o@514",
+              "ghCSGRgVB_o@517",
+              "ghCSGRgVB_o@520",
+              "ghCSGRgVB_o@523",
+              "ghCSGRgVB_o@526",
+              "ghCSGRgVB_o@529",
+              "ghCSGRgVB_o@532",
+              "ghCSGRgVB_o@535",
+              "ghCSGRgVB_o@537",
+              "ghCSGRgVB_o@540",
+              "ghCSGRgVB_o@542",
+              "ghCSGRgVB_o@544",
+              "ghCSGRgVB_o@546",
+              "ghCSGRgVB_o@548",
+              "ghCSGRgVB_o@554",
+              "ghCSGRgVB_o@556",
+              "ghCSGRgVB_o@559",
+              "ghCSGRgVB_o@563",
+              "ghCSGRgVB_o@567",
+              "mk-6cFebjis@3941",
+              "mk-6cFebjis@3943",
+              "mk-6cFebjis@3945",
+              "mk-6cFebjis@3947",
+              "mk-6cFebjis@3949",
+              "mk-6cFebjis@3951",
+              "mk-6cFebjis@3954",
+              "mk-6cFebjis@3957",
+              "mk-6cFebjis@3961",
+              "mk-6cFebjis@3962",
+              "mk-6cFebjis@3963",
+              "mk-6cFebjis@3966",
+              "mk-6cFebjis@3969",
+              "mk-6cFebjis@3971",
+              "mk-6cFebjis@3974",
+              "mk-6cFebjis@3976",
+              "mk-6cFebjis@3978",
+              "mk-6cFebjis@3980",
+              "mk-6cFebjis@3982"
+            ]
+          },
+          {
+            "id": "ch02.s10.p02.04",
+            "text": "Words carry meaning, so inputs to a large language model should exploit that meaning rather than discard it.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@484",
+              "ghCSGRgVB_o@487",
+              "ghCSGRgVB_o@490",
+              "ghCSGRgVB_o@492",
+              "ghCSGRgVB_o@493",
+              "ghCSGRgVB_o@548",
+              "ghCSGRgVB_o@551",
+              "ghCSGRgVB_o@553",
+              "ghCSGRgVB_o@554",
+              "ghCSGRgVB_o@556",
+              "ghCSGRgVB_o@940",
+              "ghCSGRgVB_o@944",
+              "ghCSGRgVB_o@948",
+              "ghCSGRgVB_o@950",
+              "ghCSGRgVB_o@952",
+              "ghCSGRgVB_o@956",
+              "ghCSGRgVB_o@958",
+              "ghCSGRgVB_o@960"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s10.p03",
+        "sentences": [
+          {
+            "id": "ch02.s10.p03.01",
+            "text": "A more useful numerical representation is to encode each token as a vector whose dimensions correspond to features.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@571",
+              "ghCSGRgVB_o@573",
+              "ghCSGRgVB_o@575",
+              "ghCSGRgVB_o@578",
+              "ghCSGRgVB_o@581",
+              "ghCSGRgVB_o@593",
+              "ghCSGRgVB_o@596",
+              "ghCSGRgVB_o@598",
+              "ghCSGRgVB_o@604",
+              "ghCSGRgVB_o@608",
+              "ghCSGRgVB_o@610",
+              "mk-6cFebjis@3985",
+              "mk-6cFebjis@3987",
+              "mk-6cFebjis@3989",
+              "mk-6cFebjis@3993",
+              "mk-6cFebjis@3996",
+              "mk-6cFebjis@3998"
+            ]
+          },
+          {
+            "id": "ch02.s10.p03.02",
+            "text": "For example, a vector can use features such as \"has a tail\", \"is eatable\", \"has four legs\", \"makes sound\", and \"is a pet\", with high values when a feature applies.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@615",
+              "ghCSGRgVB_o@618",
+              "ghCSGRgVB_o@621",
+              "ghCSGRgVB_o@626",
+              "ghCSGRgVB_o@629",
+              "ghCSGRgVB_o@631",
+              "ghCSGRgVB_o@633",
+              "ghCSGRgVB_o@636",
+              "ghCSGRgVB_o@639",
+              "ghCSGRgVB_o@641",
+              "ghCSGRgVB_o@643",
+              "ghCSGRgVB_o@646",
+              "ghCSGRgVB_o@648",
+              "mk-6cFebjis@4000",
+              "mk-6cFebjis@4003",
+              "mk-6cFebjis@4006",
+              "mk-6cFebjis@4009",
+              "mk-6cFebjis@4011",
+              "mk-6cFebjis@4013",
+              "mk-6cFebjis@4015",
+              "mk-6cFebjis@4018"
+            ]
+          },
+          {
+            "id": "ch02.s10.p03.03",
+            "text": "With this kind of representation, \"dog\" and \"cat\" are close to each other because similar dimensions have high or low values in both vectors.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@657",
+              "ghCSGRgVB_o@659",
+              "ghCSGRgVB_o@662",
+              "ghCSGRgVB_o@664",
+              "ghCSGRgVB_o@667",
+              "ghCSGRgVB_o@670",
+              "ghCSGRgVB_o@673",
+              "ghCSGRgVB_o@675",
+              "ghCSGRgVB_o@678",
+              "ghCSGRgVB_o@680",
+              "ghCSGRgVB_o@682",
+              "ghCSGRgVB_o@685",
+              "ghCSGRgVB_o@688",
+              "ghCSGRgVB_o@690",
+              "ghCSGRgVB_o@692",
+              "ghCSGRgVB_o@695",
+              "ghCSGRgVB_o@697",
+              "mk-6cFebjis@4021",
+              "mk-6cFebjis@4023",
+              "mk-6cFebjis@4026",
+              "mk-6cFebjis@4028",
+              "mk-6cFebjis@4030",
+              "mk-6cFebjis@4032",
+              "mk-6cFebjis@4034",
+              "mk-6cFebjis@4036",
+              "mk-6cFebjis@4038",
+              "mk-6cFebjis@4041",
+              "mk-6cFebjis@4043",
+              "mk-6cFebjis@4044",
+              "mk-6cFebjis@4046",
+              "mk-6cFebjis@4048",
+              "mk-6cFebjis@4050",
+              "mk-6cFebjis@4052",
+              "mk-6cFebjis@4054",
+              "mk-6cFebjis@4056",
+              "mk-6cFebjis@4058",
+              "mk-6cFebjis@4060",
+              "mk-6cFebjis@4062",
+              "mk-6cFebjis@4063"
+            ]
+          },
+          {
+            "id": "ch02.s10.p03.04",
+            "text": "\"Apple\" and \"banana\" are also close to each other, while \"dog\" and \"apple\" can be far apart, because their feature values differ.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@702",
+              "ghCSGRgVB_o@705",
+              "ghCSGRgVB_o@707",
+              "ghCSGRgVB_o@711",
+              "ghCSGRgVB_o@714",
+              "ghCSGRgVB_o@716",
+              "ghCSGRgVB_o@719",
+              "ghCSGRgVB_o@721",
+              "ghCSGRgVB_o@724",
+              "ghCSGRgVB_o@727",
+              "ghCSGRgVB_o@760",
+              "ghCSGRgVB_o@762",
+              "ghCSGRgVB_o@764",
+              "ghCSGRgVB_o@766",
+              "ghCSGRgVB_o@768",
+              "ghCSGRgVB_o@770",
+              "ghCSGRgVB_o@773",
+              "ghCSGRgVB_o@775",
+              "ghCSGRgVB_o@778",
+              "ghCSGRgVB_o@780",
+              "ghCSGRgVB_o@782",
+              "ghCSGRgVB_o@784",
+              "mk-6cFebjis@4066",
+              "mk-6cFebjis@4069",
+              "mk-6cFebjis@4071",
+              "mk-6cFebjis@4074",
+              "mk-6cFebjis@4077",
+              "mk-6cFebjis@4078",
+              "mk-6cFebjis@4080",
+              "mk-6cFebjis@4083",
+              "mk-6cFebjis@4084",
+              "mk-6cFebjis@4086",
+              "mk-6cFebjis@4089"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s10.p04",
+        "sentences": [
+          {
+            "id": "ch02.s10.p04.01",
+            "text": "This is the central idea behind embeddings.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s10.p04.02",
+            "text": "Representing words as vectors can capture semantic meaning, allowing similar words to be grouped together and dissimilar words to be farther apart.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@729",
+              "ghCSGRgVB_o@732",
+              "ghCSGRgVB_o@736",
+              "ghCSGRgVB_o@738",
+              "ghCSGRgVB_o@742",
+              "ghCSGRgVB_o@745",
+              "ghCSGRgVB_o@747",
+              "ghCSGRgVB_o@750",
+              "ghCSGRgVB_o@753",
+              "ghCSGRgVB_o@755",
+              "ghCSGRgVB_o@758",
+              "ghCSGRgVB_o@778",
+              "ghCSGRgVB_o@780",
+              "ghCSGRgVB_o@782",
+              "ghCSGRgVB_o@784",
+              "mk-6cFebjis@4092",
+              "mk-6cFebjis@4097",
+              "mk-6cFebjis@4100",
+              "mk-6cFebjis@4102"
+            ]
+          },
+          {
+            "id": "ch02.s10.p04.03",
+            "text": "These vectors are called vector embeddings or token embeddings because each token is converted into a vector embedding.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@812",
+              "ghCSGRgVB_o@815",
+              "ghCSGRgVB_o@818",
+              "ghCSGRgVB_o@820",
+              "ghCSGRgVB_o@822",
+              "ghCSGRgVB_o@827"
+            ]
+          },
+          {
+            "id": "ch02.s10.p04.04",
+            "text": "Representing words as vectors so that semantic relationships are preserved is called vector embedding, and it is also called token embedding.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@973",
+              "ghCSGRgVB_o@975",
+              "ghCSGRgVB_o@977",
+              "ghCSGRgVB_o@980",
+              "ghCSGRgVB_o@982",
+              "mk-6cFebjis@4127",
+              "mk-6cFebjis@4130",
+              "mk-6cFebjis@4132",
+              "mk-6cFebjis@4134"
+            ]
+          },
+          {
+            "id": "ch02.s10.p04.05",
+            "text": "If token embeddings are trained properly, those vectors can carry meaning.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@987",
+              "ghCSGRgVB_o@989",
+              "ghCSGRgVB_o@992",
+              "ghCSGRgVB_o@994",
+              "ghCSGRgVB_o@997",
+              "ghCSGRgVB_o@3330",
+              "ghCSGRgVB_o@3332",
+              "ghCSGRgVB_o@3334",
+              "ghCSGRgVB_o@3336",
+              "ghCSGRgVB_o@3338",
+              "ghCSGRgVB_o@3341",
+              "ghCSGRgVB_o@3343",
+              "ghCSGRgVB_o@3346"
+            ]
+          },
+          {
+            "id": "ch02.s10.p04.06",
+            "text": "The key takeaway is that vectors can capture semantic meaning.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@830",
+              "ghCSGRgVB_o@834",
+              "ghCSGRgVB_o@836",
+              "mk-6cFebjis@4130",
+              "mk-6cFebjis@4132",
+              "mk-6cFebjis@4134"
+            ]
+          },
+          {
+            "id": "ch02.s10.p04.07",
+            "text": "Because these embeddings retain the meaning of words, feeding them into a large language model makes a huge difference compared with feeding one-hot encodings or random token IDs.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@940",
+              "ghCSGRgVB_o@944",
+              "ghCSGRgVB_o@948",
+              "ghCSGRgVB_o@950",
+              "ghCSGRgVB_o@952",
+              "ghCSGRgVB_o@956",
+              "ghCSGRgVB_o@958",
+              "ghCSGRgVB_o@960",
+              "ghCSGRgVB_o@963",
+              "ghCSGRgVB_o@965",
+              "ghCSGRgVB_o@968",
+              "ghCSGRgVB_o@971",
+              "ghCSGRgVB_o@1535",
+              "ghCSGRgVB_o@1537",
+              "ghCSGRgVB_o@1539",
+              "ghCSGRgVB_o@1542",
+              "ghCSGRgVB_o@1546",
+              "ghCSGRgVB_o@1548",
+              "ghCSGRgVB_o@1551",
+              "ghCSGRgVB_o@1552",
+              "mk-6cFebjis@4110",
+              "mk-6cFebjis@4113",
+              "mk-6cFebjis@4115",
+              "mk-6cFebjis@4118",
+              "mk-6cFebjis@4120",
+              "mk-6cFebjis@4122",
+              "mk-6cFebjis@4125"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s10.p05",
+        "sentences": [
+          {
+            "id": "ch02.s10.p05.01",
+            "text": "Semantic meaning is not the whole story, however.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s10.p05.02",
+            "text": "The vector embeddings discussed so far do not encode the position of a word in a sentence.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@3571",
+              "ghCSGRgVB_o@3572",
+              "ghCSGRgVB_o@3574",
+              "mk-6cFebjis@4983",
+              "mk-6cFebjis@4986",
+              "mk-6cFebjis@4987",
+              "mk-6cFebjis@5001",
+              "mk-6cFebjis@5004",
+              "mk-6cFebjis@5006"
+            ]
+          },
+          {
+            "id": "ch02.s10.p05.03",
+            "text": "A word’s position also matters for understanding sentence context.",
+            "type": "F",
+            "cites": [
+              "ghCSGRgVB_o@3554",
+              "ghCSGRgVB_o@3556",
+              "ghCSGRgVB_o@3559",
+              "ghCSGRgVB_o@3561",
+              "ghCSGRgVB_o@3564",
+              "ghCSGRgVB_o@3566",
+              "ghCSGRgVB_o@3595",
+              "ghCSGRgVB_o@3597",
+              "ghCSGRgVB_o@3600",
+              "mk-6cFebjis@4990",
+              "mk-6cFebjis@4992",
+              "mk-6cFebjis@4994",
+              "mk-6cFebjis@4997",
+              "mk-6cFebjis@4999",
+              "mk-6cFebjis@5001",
+              "mk-6cFebjis@5008",
+              "mk-6cFebjis@5010",
+              "mk-6cFebjis@5012",
+              "mk-6cFebjis@5015",
+              "mk-6cFebjis@5016"
+            ]
+          },
+          {
+            "id": "ch02.s10.p05.04",
+            "text": "That is why it is advantageous to encode positional information along with semantic meaning.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@5019",
+              "mk-6cFebjis@5021",
+              "mk-6cFebjis@5023",
+              "mk-6cFebjis@5025",
+              "mk-6cFebjis@5028"
+            ]
+          },
+          {
+            "id": "ch02.s10.p05.05",
+            "text": "The main purpose of positional encoding is to inject positional information that token embeddings alone do not provide.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@5031",
+              "mk-6cFebjis@5033",
+              "mk-6cFebjis@5035",
+              "mk-6cFebjis@5038",
+              "mk-6cFebjis@5041",
+              "mk-6cFebjis@5043",
+              "mk-6cFebjis@5045",
+              "mk-6cFebjis@5047",
+              "mk-6cFebjis@168",
+              "mk-6cFebjis@170"
+            ]
+          }
+        ]
+      }
+    ],
+    "invalid_citation_sentences": 0
+  }
+}

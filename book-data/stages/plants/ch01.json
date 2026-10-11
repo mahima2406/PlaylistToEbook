@@ -1,0 +1,551 @@
+{
+  "stage": "plants",
+  "item": "ch01",
+  "inputs_hash": "38561e38a723b701b4e2147ebb1193f109efd90aec3a46619aca1e6934fe150a",
+  "output_hash": "f82002575cb355d07b862682f9c8f19704fe8c56d702d63ee28a9b2ba1f7307e",
+  "output": {
+    "chapter": "ch01",
+    "plants": [
+      {
+        "id": "ch01.plant1",
+        "type": "number",
+        "text": "Deep learning is therefore a subset of machine learning because machine learning includes neural network methods and also 3 methods like decision trees that are not neural networks.",
+        "type_requested": "number",
+        "cites": [
+          "3dWzNZXA8DY@1396",
+          "3dWzNZXA8DY@1398",
+          "3dWzNZXA8DY@1400",
+          "3dWzNZXA8DY@1403",
+          "3dWzNZXA8DY@1405",
+          "3dWzNZXA8DY@1407"
+        ],
+        "original_id": "ch01.s02.p05.06",
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": "",
+        "caught": false
+      },
+      {
+        "id": "ch01.plant2",
+        "type": "term_swap",
+        "text": "For example, given \"this is an example of how llm can Dash\", the decoder predicts the unknown character \"perform\" to produce \"this is an example of how llm can perform\".",
+        "type_requested": "term_swap",
+        "cites": [
+          "NLn4eetGmf8@1692",
+          "NLn4eetGmf8@1694",
+          "NLn4eetGmf8@1714",
+          "NLn4eetGmf8@1716",
+          "NLn4eetGmf8@1719",
+          "NLn4eetGmf8@1722"
+        ],
+        "original_id": "ch01.s09.p03.03",
+        "verdict": "partial",
+        "confidence": 0.74,
+        "reason": "Supported: given 'this is an example of how llm can —', the decoder predicts the unknown word 'perform' to produce the completed sentence. Not supported: calling it an 'unknown character' (they say word) and that 'the next 2 words are unknown' (not stated).",
+        "caught": true
+      },
+      {
+        "id": "ch01.plant3",
+        "type": "reversed_cause",
+        "text": "Stage one focuses on the building blocks needed after training a large language model: data preprocessing and sampling, the attention mechanism, and the LLM architecture.",
+        "type_requested": "reversed_cause",
+        "cites": [
+          "z9fgKz1Drlc@201",
+          "z9fgKz1Drlc@209",
+          "z9fgKz1Drlc@211",
+          "z9fgKz1Drlc@214",
+          "z9fgKz1Drlc@216",
+          "z9fgKz1Drlc@220",
+          "z9fgKz1Drlc@222",
+          "z9fgKz1Drlc@224",
+          "z9fgKz1Drlc@226"
+        ],
+        "original_id": "ch01.s10.p01.03",
+        "verdict": "unsupported",
+        "confidence": 0.88,
+        "reason": "The cited lines say these building blocks are necessary *before* training a large language model, but the sentence says 'needed after training'.",
+        "caught": true
+      },
+      {
+        "id": "ch01.plant4",
+        "type": "unsupported_addition",
+        "text": "The name \"neural network\" comes from the idea that these neurons represent the circuitry in the brain in a very symbolic sense, and the term was first coined in the 1980s.",
+        "type_requested": "unsupported_addition",
+        "cites": [
+          "3dWzNZXA8DY@201",
+          "3dWzNZXA8DY@204",
+          "3dWzNZXA8DY@206",
+          "3dWzNZXA8DY@210"
+        ],
+        "original_id": "ch01.s02.p02.03",
+        "verdict": "partial",
+        "confidence": 0.78,
+        "reason": "Supported: the name comes from neurons representing brain circuitry in a symbolic sense. Not supported: that the term was first coined in the 1980s (no date/decade mentioned).",
+        "caught": true
+      },
+      {
+        "id": "ch01.plant5",
+        "type": "wrong_attribution",
+        "text": "In this first stage, the attention mechanism collects data from different datasets, processes it, and samples it.",
+        "type_requested": "wrong_attribution",
+        "cites": [
+          "z9fgKz1Drlc@229",
+          "z9fgKz1Drlc@231",
+          "z9fgKz1Drlc@234"
+        ],
+        "original_id": "ch01.s10.p01.04",
+        "verdict": "unsupported",
+        "confidence": 0.8,
+        "reason": "The cited lines describe stage one as focusing on how data is collected, processed, and sampled; they do not say the attention mechanism performs these tasks, and attention is mentioned as a subsequent topic.",
+        "caught": true
+      },
+      {
+        "id": "ch01.plant6",
+        "type": "number",
+        "text": "GPT receives incomplete text where the next 2 words are unknown, pre-processes it into token IDs, and uses a decoder-only model to predict that next word.",
+        "type_requested": "number",
+        "cites": [
+          "NLn4eetGmf8@1692",
+          "NLn4eetGmf8@1694",
+          "NLn4eetGmf8@1697",
+          "NLn4eetGmf8@1700",
+          "NLn4eetGmf8@1704",
+          "NLn4eetGmf8@1707",
+          "NLn4eetGmf8@1709",
+          "NLn4eetGmf8@1711",
+          "NLn4eetGmf8@1714"
+        ],
+        "original_id": "ch01.s09.p03.02",
+        "verdict": "partial",
+        "confidence": 0.73,
+        "reason": "Supported: GPT receives incomplete text, preprocesses to token IDs, uses decoder-only (no encoder) to predict the next word. Not supported: 'next 2 words are unknown' (only one missing/next word is discussed).",
+        "caught": true
+      },
+      {
+        "id": "ch01.plant7",
+        "type": "term_swap",
+        "text": "GPT is a right-to-left model: it uses the information on the left and predicts the rightmost unknown token or next word.",
+        "type_requested": "term_swap",
+        "cites": [
+          "NLn4eetGmf8@1731",
+          "NLn4eetGmf8@1733",
+          "NLn4eetGmf8@1736",
+          "NLn4eetGmf8@1738",
+          "NLn4eetGmf8@2335",
+          "NLn4eetGmf8@2337",
+          "NLn4eetGmf8@2339",
+          "NLn4eetGmf8@2341"
+        ],
+        "original_id": "ch01.s09.p03.05",
+        "verdict": "unsupported",
+        "confidence": 0.9,
+        "reason": "The cited lines say GPT is left-to-right (not right-to-left). The rest about using left information to predict the rightmost/next word is supported, but the direction is wrong so the sentence as a whole is contradicted.",
+        "caught": true
+      },
+      {
+        "id": "ch01.plant8",
+        "type": "reversed_cause",
+        "text": "A decision tree used to predict heart disease from patient data is an example of deep learning but not machine learning because it does use neural networks.",
+        "type_requested": "reversed_cause",
+        "cites": [
+          "3dWzNZXA8DY@1257",
+          "3dWzNZXA8DY@1259",
+          "3dWzNZXA8DY@1261",
+          "3dWzNZXA8DY@1263",
+          "3dWzNZXA8DY@1266",
+          "3dWzNZXA8DY@1270",
+          "3dWzNZXA8DY@1272",
+          "3dWzNZXA8DY@1274",
+          "3dWzNZXA8DY@1276",
+          "3dWzNZXA8DY@1279",
+          "3dWzNZXA8DY@1281",
+          "3dWzNZXA8DY@1283",
+          "3dWzNZXA8DY@1285"
+        ],
+        "original_id": "ch01.s02.p05.03",
+        "verdict": "unsupported",
+        "confidence": 0.97,
+        "reason": "Cited lines say a decision tree has no neural networks and is not deep learning but is machine learning; the sentence claims the opposite (deep learning but not ML, and that it uses neural networks).",
+        "caught": true
+      },
+      {
+        "id": "ch01.plant9",
+        "type": "unsupported_addition",
+        "text": "Many courses focus on building LLM apps or on large language model concepts, but they do not teach how to build a large language model from scratch, and most of them also skip transformer fine-tuning entirely.",
+        "type_requested": "unsupported_addition",
+        "cites": [
+          "Xpr8D6LeAtw@628",
+          "Xpr8D6LeAtw@629",
+          "Xpr8D6LeAtw@632",
+          "Xpr8D6LeAtw@633",
+          "Xpr8D6LeAtw@638",
+          "Xpr8D6LeAtw@640",
+          "Xpr8D6LeAtw@642",
+          "Xpr8D6LeAtw@644"
+        ],
+        "original_id": "ch01.s01.p02.r01",
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "Lines support that many courses focus on LLM apps or concepts and do not teach building an LLM from scratch, but do not mention 'most of them also skip transformer fine-tuning entirely'.",
+        "caught": true
+      },
+      {
+        "id": "ch01.plant10",
+        "type": "wrong_attribution",
+        "text": "In one application, selecting the MCQ generator, entering a topic such as \"gravity\", and clicking generate causes the decoder-only model powering the application to produce multiple-choice questions within seconds.",
+        "type_requested": "wrong_attribution",
+        "cites": [
+          "Xpr8D6LeAtw@546",
+          "Xpr8D6LeAtw@548",
+          "Xpr8D6LeAtw@549",
+          "Xpr8D6LeAtw@552",
+          "Xpr8D6LeAtw@555",
+          "Xpr8D6LeAtw@558",
+          "Xpr8D6LeAtw@560",
+          "Xpr8D6LeAtw@562",
+          "Xpr8D6LeAtw@564",
+          "Xpr8D6LeAtw@566"
+        ],
+        "original_id": "ch01.s04.p05.r02",
+        "verdict": "partial",
+        "confidence": 0.76,
+        "reason": "The lines support the MCQ generator workflow and that an LLM generates MCQs within seconds, but they do not say the model is 'decoder-only'.",
+        "caught": true
+      },
+      {
+        "id": "ch01.plant11",
+        "type": "number",
+        "text": "All 3 of BERT and GPT are based on the Transformer architecture.",
+        "type_requested": "number",
+        "cites": [
+          "NLn4eetGmf8@1855",
+          "NLn4eetGmf8@1857",
+          "NLn4eetGmf8@1859",
+          "NLn4eetGmf8@1861"
+        ],
+        "original_id": "ch01.s09.p01.06",
+        "verdict": "unsupported",
+        "confidence": 0.83,
+        "reason": "The cited lines refer to 'both of these' originating from the Transformer architecture (likely BERT and GPT), but the sentence claims 'All 3 of BERT and GPT' (an unsupported/incorrect quantifier/third item).",
+        "caught": true
+      },
+      {
+        "id": "ch01.plant12",
+        "type": "term_swap",
+        "text": "In pre-training, the dataset is unlabeled and supervised because the sentence structure itself creates the labels by predicting the next word.",
+        "type_requested": "term_swap",
+        "cites": [
+          "z9fgKz1Drlc@871",
+          "z9fgKz1Drlc@873",
+          "z9fgKz1Drlc@875",
+          "z9fgKz1Drlc@877",
+          "z9fgKz1Drlc@879"
+        ],
+        "original_id": "ch01.s10.p04.r04",
+        "verdict": "partial",
+        "confidence": 0.74,
+        "reason": "The lines support that pre-training data is unlabeled and that sentence structure creates labels for next-word prediction, but they do not state it is 'supervised' (they say 'unlabeled' and 'auto regressive').",
+        "caught": true
+      },
+      {
+        "id": "ch01.plant13",
+        "type": "reversed_cause",
+        "text": "That is why BERT does very poorly in sentiment analysis and is very rarely used for it.",
+        "type_requested": "reversed_cause",
+        "cites": [
+          "NLn4eetGmf8@1748",
+          "NLn4eetGmf8@1750",
+          "NLn4eetGmf8@1816",
+          "NLn4eetGmf8@1818",
+          "NLn4eetGmf8@1820",
+          "NLn4eetGmf8@2321",
+          "NLn4eetGmf8@2324"
+        ],
+        "original_id": "ch01.s09.p04.r06",
+        "verdict": "unsupported",
+        "confidence": 0.95,
+        "reason": "Cited lines state the opposite: BERT does very well in sentiment analysis and is commonly used for it, not poorly/rarely.",
+        "caught": true
+      },
+      {
+        "id": "ch01.plant14",
+        "type": "unsupported_addition",
+        "text": "The reference book is used as course material, and the plan is to convert every aspect of its 48 pages into videos, with one video dedicated to each page.",
+        "type_requested": "unsupported_addition",
+        "cites": [
+          "Xpr8D6LeAtw@750",
+          "Xpr8D6LeAtw@755",
+          "Xpr8D6LeAtw@757",
+          "Xpr8D6LeAtw@759"
+        ],
+        "original_id": "ch01.s11.p01.03",
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "Supported: it is 48 pages and they will convert every aspect into a set of videos; it is reference material for a course. Not supported: 'used as course material' (only 'reference material for our course') and 'one video dedicated to each page' (they instead estimate ~35–50 videos).",
+        "caught": true
+      },
+      {
+        "id": "ch01.plant15",
+        "type": "wrong_attribution",
+        "text": "\"BERT\" replies conversationally, asking whether the user prefers spending time outdoors, reading, yoga, or creative pursuits.",
+        "type_requested": "wrong_attribution",
+        "cites": [
+          "3dWzNZXA8DY@290",
+          "3dWzNZXA8DY@294",
+          "3dWzNZXA8DY@297",
+          "3dWzNZXA8DY@299",
+          "3dWzNZXA8DY@301",
+          "3dWzNZXA8DY@303",
+          "3dWzNZXA8DY@306",
+          "3dWzNZXA8DY@308"
+        ],
+        "original_id": "ch01.s04.p02.r03",
+        "verdict": "unsupported",
+        "confidence": 0.9,
+        "reason": "The cited lines describe ChatGPT responding conversationally; they do not attribute this to BERT.",
+        "caught": true
+      },
+      {
+        "id": "ch01.plant16",
+        "type": "number",
+        "text": "The same 3 wrong patterns appear when students become fascinated by applications, download code, run it, make small changes, and then write on a resume that they know about LLMs.",
+        "type_requested": "number",
+        "cites": [
+          "3dWzNZXA8DY@1900",
+          "3dWzNZXA8DY@1903",
+          "3dWzNZXA8DY@1904",
+          "3dWzNZXA8DY@1907",
+          "3dWzNZXA8DY@1908",
+          "3dWzNZXA8DY@1910"
+        ],
+        "original_id": "ch01.s01.p01.06",
+        "verdict": "partial",
+        "confidence": 0.75,
+        "reason": "Supported: students get fascinated by applications, download code, run it, make changes, and write on their resume they know about LLMs. Not supported: that these are the 'same 3 wrong patterns' (no number/count given).",
+        "caught": true
+      },
+      {
+        "id": "ch01.plant17",
+        "type": "term_swap",
+        "text": "The approach combines whiteboard explanation with debugging so that details and code are learned together, because theory and practical implementation are both treated as important.",
+        "type_requested": "term_swap",
+        "cites": [
+          "z9fgKz1Drlc@1173",
+          "z9fgKz1Drlc@1176",
+          "z9fgKz1Drlc@1178",
+          "z9fgKz1Drlc@1180",
+          "z9fgKz1Drlc@1183",
+          "z9fgKz1Drlc@1184",
+          "z9fgKz1Drlc@1187"
+        ],
+        "original_id": "ch01.s11.p02.r04",
+        "verdict": "partial",
+        "confidence": 0.78,
+        "reason": "Whiteboard explanation plus coding to learn details and code together is supported, and that theory plus practical implementation are important is supported; however, 'debugging' is not mentioned.",
+        "caught": true
+      },
+      {
+        "id": "ch01.plant18",
+        "type": "reversed_cause",
+        "text": "When predicting the next word, self-attention prevents the model from looking at past context and ignores which words matter more for the prediction.",
+        "type_requested": "reversed_cause",
+        "cites": [
+          "NLn4eetGmf8@2247",
+          "NLn4eetGmf8@2250",
+          "NLn4eetGmf8@2252",
+          "NLn4eetGmf8@2255",
+          "NLn4eetGmf8@2257"
+        ],
+        "original_id": "ch01.s06.p05.r05",
+        "verdict": "unsupported",
+        "confidence": 0.96,
+        "reason": "Cited lines say we can look at all past context and weigh which words matter more; the sentence claims self-attention prevents looking at past context and ignores word importance (opposite).",
+        "caught": true
+      },
+      {
+        "id": "ch01.plant19",
+        "type": "unsupported_addition",
+        "text": "There is a detailed procedure for this, and neural networks are trained for the embedding step so that related words are closer than unrelated ones, with cosine similarity used as the default distance metric.",
+        "type_requested": "unsupported_addition",
+        "cites": [
+          "NLn4eetGmf8@705",
+          "NLn4eetGmf8@708",
+          "NLn4eetGmf8@710",
+          "NLn4eetGmf8@712",
+          "NLn4eetGmf8@715",
+          "NLn4eetGmf8@717",
+          "NLn4eetGmf8@719"
+        ],
+        "original_id": "ch01.s07.p03.r04",
+        "verdict": "partial",
+        "confidence": 0.7,
+        "reason": "Supported: there is a detailed procedure; embeddings are trained so related words (apple/banana/fruits) are closer than unrelated ones. Not supported: cosine similarity being the default distance metric (not mentioned).",
+        "caught": true
+      },
+      {
+        "id": "ch01.plant20",
+        "type": "wrong_attribution",
+        "text": "A data batching sequence is implemented before the decoder-only model is given to the large language model for pre-training.",
+        "type_requested": "wrong_attribution",
+        "cites": [
+          "z9fgKz1Drlc@396",
+          "z9fgKz1Drlc@398",
+          "z9fgKz1Drlc@401",
+          "z9fgKz1Drlc@404"
+        ],
+        "original_id": "ch01.s10.p02.r05",
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "Cited lines support implementing a data batching sequence before giving data to a large language model for pre-training, but they do not mention a decoder-only model being given.",
+        "caught": true
+      }
+    ],
+    "by_type": {
+      "number": {
+        "planted": 4,
+        "caught": 3
+      },
+      "term_swap": {
+        "planted": 4,
+        "caught": 4
+      },
+      "reversed_cause": {
+        "planted": 4,
+        "caught": 4
+      },
+      "unsupported_addition": {
+        "planted": 4,
+        "caught": 4
+      },
+      "wrong_attribution": {
+        "planted": 4,
+        "caught": 4
+      }
+    },
+    "caught": 19,
+    "planted": 20,
+    "decoys": [
+      {
+        "id": "ch01.s09.p05.r05",
+        "verdict": "supported",
+        "confidence": 0.83,
+        "reason": ""
+      },
+      {
+        "id": "ch01.s11.p02.r05",
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      {
+        "id": "ch01.s10.p06.r03",
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      {
+        "id": "ch01.s02.p03.r04",
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      {
+        "id": "ch01.s01.p04.r02",
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      {
+        "id": "ch01.s02.p02.05",
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      {
+        "id": "ch01.s06.p03.r02",
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      {
+        "id": "ch01.s06.p01.03",
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      {
+        "id": "ch01.s06.p02.05",
+        "verdict": "supported",
+        "confidence": 0.97,
+        "reason": ""
+      },
+      {
+        "id": "ch01.s09.p06.r09",
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      {
+        "id": "ch01.s09.p01.03",
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      {
+        "id": "ch01.s02.p01.03",
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      {
+        "id": "ch01.s09.p06.r06",
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      {
+        "id": "ch01.s03.p02.r04",
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      {
+        "id": "ch01.s09.p05.r06",
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      {
+        "id": "ch01.s02.p01.04",
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      {
+        "id": "ch01.s01.p03.03",
+        "verdict": "partial",
+        "confidence": 0.7,
+        "reason": "The cited lines say the playlist is comprehensive and shows everything about building an LLM 'from scratch', but they do not explicitly state 'the aim is a very comprehensive path' (wording adds 'aim'/'path' beyond what is said)."
+      },
+      {
+        "id": "ch01.s08.p03.05",
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      {
+        "id": "ch01.s04.p05.r01",
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      {
+        "id": "ch01.s10.p02.r03",
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      }
+    ],
+    "decoys_flagged": 1
+  }
+}

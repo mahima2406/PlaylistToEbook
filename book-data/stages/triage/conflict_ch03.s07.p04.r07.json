@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch03.s07.p04.r07",
+  "inputs_hash": "bc76f564afda7011ef1714f9e3186d2cd521e754eea7cdf871470c635cc711a6",
+  "output_hash": "e53e1b4afc3274fe3495deb7ef78ee460eb251ab90885657360b107115c5b48b",
+  "output": {
+    "decision": "edit",
+    "text": "The code constructs this mask as a matrix with ones above the diagonal and uses those ones as the positions to replace with negative infinity.",
+    "reason": "The captions support an upper-triangular mask with ones above the diagonal used for negative-infinity replacement, but not the specific claim that the code builds it from a 6×6 ones matrix.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "9ec47120f58bb66d4491b6248bc6e8cee01c697bba8e1d576e13eec56206b45d"
+  }
+}

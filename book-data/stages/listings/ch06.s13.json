@@ -1,0 +1,33 @@
+{
+  "stage": "listings",
+  "item": "ch06.s13",
+  "inputs_hash": "8e857ddc30236fe3920f89cb32499528572e6cc697e8895adc9496f9f42096d4",
+  "output_hash": "c2942f981498be395b819bd4eb6f9677f2c1e9fe48892d7161fc5beff2cb0a98",
+  "output": {
+    "section_id": "ch06.s13",
+    "listings": [
+      {
+        "id": "ch06.s13.code2",
+        "ref": "ref:ch07/01_main-chapter-code/ch07.ipynb#cell118",
+        "path": "ch07/01_main-chapter-code/ch07.ipynb",
+        "caption": "This loop builds an evaluation prompt from each test entry, prints the correct and model responses, and queries Llama 3 for a 0-to-100 score on the first three examples.",
+        "code": "for entry in test_data[:3]:\n    prompt = (\n        f\"Given the input `{format_input(entry)}` \"\n        f\"and correct output `{entry['output']}`, \"\n        f\"score the model response `{entry['model_response']}`\"\n        f\" on a scale from 0 to 100, where 100 is the best score. \"\n    )\n    print(\"\\nDataset response:\")\n    print(\">>\", entry['output'])\n    print(\"\\nModel response:\")\n    print(\">>\", entry[\"model_response\"])\n    print(\"\\nScore:\")\n    print(\">>\", query_model(prompt))\n    print(\"\\n-------------------------\")",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The code iterates over the first three test entries, constructs an evaluation prompt that includes the formatted input, correct output, and the model response, then prints the dataset and model responses and calls `query_model(prompt)` to obtain a 0–100 score. This directly demonstrates the section’s described evaluation loop and the caption accurately describes what the loop does."
+      }
+    ],
+    "rejected": [
+      {
+        "id": "ch06.s13.code1",
+        "ref": "ref:ch07/01_main-chapter-code/ch07.ipynb#cell112",
+        "path": "ch07/01_main-chapter-code/ch07.ipynb",
+        "caption": "This code checks whether an `ollama` process is running and prints the result or raises an error if it is not found.",
+        "code": "import psutil\n\ndef check_if_running(process_name):\n    running = False\n    for proc in psutil.process_iter([\"name\"]):\n        if process_name in proc.info[\"name\"]:\n            running = True\n            break\n    return running\n\nollama_running = check_if_running(\"ollama\")\n\nif not ollama_running:\n    raise RuntimeError(\"Ollama not running. Launch ollama before proceeding.\")\nprint(\"Ollama running:\", check_if_running(\"ollama\"))\n\n# This cell is optional; it allows you to restart the notebook\n# and only run section 7.7 without rerunning any of the previous code\nimport json\nfrom tqdm import tqdm\n\nfile_path = \"instruction-data-with-response.json\"\n\nwith open(file_path, \"r\") as file:\n    test_data = json.load(file)\n\n\ndef format_input(entry):\n    instruction_text = (\n        f\"Below is an instruction that describes a task. \"",
+        "truncated": true,
+        "check": "partial",
+        "reason": "The first part of the excerpt uses psutil to verify that an `ollama` process is running and raises an error otherwise, which aligns with the section’s guidance to verify Ollama is active before running later code. However, the caption overstates the behavior (“prints the result or raises an error”) because the code always raises if not found and otherwise prints (it doesn’t print a false result). Also, much of the excerpt (loading JSON test data and starting `format_input`) goes beyond the caption and the specific Ollama-check focus, and it does not demonstrate querying Llama 3 or scoring responses as described in the section."
+      }
+    ]
+  }
+}

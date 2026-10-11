@@ -1,0 +1,397 @@
+{
+  "stage": "takeaways",
+  "item": "ch03",
+  "inputs_hash": "5256b6d6a97d2c5f20c9a153a3752bd3d6d3f960ba6687a0f9125157b369939f",
+  "output_hash": "81327c7f08933b272fd5ef7da7e7cfab335b7dcd740659868ae386a8fe051799",
+  "output": {
+    "section_id": "ch03.take",
+    "paragraphs": [
+      {
+        "id": "ch03.take.p01",
+        "sentences": [
+          {
+            "id": "ch03.take.p01.01",
+            "text": "A language model pipeline turns words into tokens, tokens into token IDs, and token IDs into vector embeddings, and GPT uses byte pair encoding so tokens are not generally the same as words even though this chapter uses the terms interchangeably for simplicity.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@165",
+              "eSRhpYLerw4@170",
+              "eSRhpYLerw4@180",
+              "eSRhpYLerw4@183",
+              "eSRhpYLerw4@185",
+              "h94TQOK7NRA@117",
+              "h94TQOK7NRA@120",
+              "h94TQOK7NRA@122",
+              "h94TQOK7NRA@125",
+              "h94TQOK7NRA@128",
+              "eSRhpYLerw4@173",
+              "eSRhpYLerw4@176",
+              "h94TQOK7NRA@149",
+              "h94TQOK7NRA@153",
+              "h94TQOK7NRA@155",
+              "eSRhpYLerw4@420",
+              "eSRhpYLerw4@422",
+              "eSRhpYLerw4@425",
+              "eSRhpYLerw4@427",
+              "eSRhpYLerw4@430",
+              "eSRhpYLerw4@433",
+              "eSRhpYLerw4@436",
+              "h94TQOK7NRA@147",
+              "h94TQOK7NRA@149",
+              "h94TQOK7NRA@153",
+              "h94TQOK7NRA@155",
+              "h94TQOK7NRA@158",
+              "h94TQOK7NRA@159",
+              "h94TQOK7NRA@162"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.take.p02",
+        "sentences": [
+          {
+            "id": "ch03.take.p02.01",
+            "text": "Embedding vectors represent tokens in a high-dimensional space where semantically related words are closer together, but an input embedding by itself does not say how a word relates to other words in the sentence or how important those other words are for prediction.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@185",
+              "eSRhpYLerw4@188",
+              "eSRhpYLerw4@192",
+              "eSRhpYLerw4@193",
+              "eSRhpYLerw4@217",
+              "eSRhpYLerw4@219",
+              "eSRhpYLerw4@222",
+              "eSRhpYLerw4@224",
+              "eSRhpYLerw4@226",
+              "eSRhpYLerw4@229",
+              "eSRhpYLerw4@656",
+              "eSRhpYLerw4@658",
+              "eSRhpYLerw4@660",
+              "eSRhpYLerw4@662",
+              "eSRhpYLerw4@665",
+              "eSRhpYLerw4@242",
+              "eSRhpYLerw4@244",
+              "eSRhpYLerw4@246",
+              "eSRhpYLerw4@250",
+              "eSRhpYLerw4@253",
+              "eSRhpYLerw4@255",
+              "eSRhpYLerw4@272",
+              "eSRhpYLerw4@274",
+              "h94TQOK7NRA@205",
+              "h94TQOK7NRA@209",
+              "h94TQOK7NRA@212",
+              "h94TQOK7NRA@215",
+              "h94TQOK7NRA@218",
+              "h94TQOK7NRA@220",
+              "h94TQOK7NRA@233",
+              "h94TQOK7NRA@235",
+              "eSRhpYLerw4@277",
+              "eSRhpYLerw4@279",
+              "eSRhpYLerw4@282",
+              "eSRhpYLerw4@284",
+              "eSRhpYLerw4@286",
+              "eSRhpYLerw4@295",
+              "eSRhpYLerw4@298",
+              "h94TQOK7NRA@255",
+              "h94TQOK7NRA@257",
+              "h94TQOK7NRA@259",
+              "h94TQOK7NRA@261",
+              "h94TQOK7NRA@264",
+              "h94TQOK7NRA@267",
+              "h94TQOK7NRA@269",
+              "h94TQOK7NRA@271"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.take.p03",
+        "sentences": [
+          {
+            "id": "ch03.take.p03.01",
+            "text": "Attention transforms input embeddings into context vectors, which keep a token’s meaning while also adding information about its relationships to other tokens and how much attention they should receive, making next-word prediction better and more reliable.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@305",
+              "eSRhpYLerw4@307",
+              "eSRhpYLerw4@309",
+              "eSRhpYLerw4@312",
+              "eSRhpYLerw4@315",
+              "eSRhpYLerw4@317",
+              "h94TQOK7NRA@184",
+              "h94TQOK7NRA@187",
+              "h94TQOK7NRA@189",
+              "h94TQOK7NRA@191",
+              "h94TQOK7NRA@194",
+              "eSRhpYLerw4@319",
+              "eSRhpYLerw4@322",
+              "eSRhpYLerw4@324",
+              "eSRhpYLerw4@325",
+              "eSRhpYLerw4@328",
+              "eSRhpYLerw4@329",
+              "eSRhpYLerw4@331",
+              "eSRhpYLerw4@334",
+              "eSRhpYLerw4@337",
+              "h94TQOK7NRA@235",
+              "h94TQOK7NRA@238",
+              "h94TQOK7NRA@240",
+              "h94TQOK7NRA@242",
+              "h94TQOK7NRA@244",
+              "h94TQOK7NRA@247",
+              "h94TQOK7NRA@267",
+              "h94TQOK7NRA@269",
+              "eSRhpYLerw4@337",
+              "eSRhpYLerw4@339",
+              "eSRhpYLerw4@342",
+              "eSRhpYLerw4@344",
+              "h94TQOK7NRA@257",
+              "h94TQOK7NRA@259",
+              "h94TQOK7NRA@261",
+              "h94TQOK7NRA@264"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.take.p04",
+        "sentences": [
+          {
+            "id": "ch03.take.p04.01",
+            "text": "To build a context vector for a query token such as \"journey,\" attention uses dot products with all input vectors to get attention scores, larger scores mean stronger alignment and higher attention, and the scores are normalized into attention weights with softmax so they are positive and sum to one.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@799",
+              "eSRhpYLerw4@802",
+              "eSRhpYLerw4@804",
+              "eSRhpYLerw4@807",
+              "eSRhpYLerw4@876",
+              "eSRhpYLerw4@878",
+              "eSRhpYLerw4@881",
+              "eSRhpYLerw4@884",
+              "eSRhpYLerw4@888",
+              "eSRhpYLerw4@890",
+              "eSRhpYLerw4@893",
+              "eSRhpYLerw4@1265",
+              "eSRhpYLerw4@1268",
+              "eSRhpYLerw4@1270",
+              "eSRhpYLerw4@1273",
+              "eSRhpYLerw4@1275",
+              "eSRhpYLerw4@1278",
+              "eSRhpYLerw4@1280",
+              "eSRhpYLerw4@1281",
+              "eSRhpYLerw4@1290",
+              "eSRhpYLerw4@1293",
+              "eSRhpYLerw4@1295",
+              "eSRhpYLerw4@1297",
+              "eSRhpYLerw4@1304",
+              "eSRhpYLerw4@1307",
+              "eSRhpYLerw4@1309",
+              "eSRhpYLerw4@1315",
+              "eSRhpYLerw4@1317",
+              "eSRhpYLerw4@1319",
+              "eSRhpYLerw4@1323",
+              "eSRhpYLerw4@1326",
+              "eSRhpYLerw4@1329",
+              "eSRhpYLerw4@1331",
+              "eSRhpYLerw4@1334",
+              "eSRhpYLerw4@1335",
+              "eSRhpYLerw4@1337",
+              "eSRhpYLerw4@1811",
+              "eSRhpYLerw4@1814",
+              "eSRhpYLerw4@1823",
+              "eSRhpYLerw4@1826",
+              "eSRhpYLerw4@1828",
+              "eSRhpYLerw4@1830",
+              "eSRhpYLerw4@2065",
+              "eSRhpYLerw4@2068",
+              "eSRhpYLerw4@2070",
+              "eSRhpYLerw4@2073",
+              "eSRhpYLerw4@2076",
+              "eSRhpYLerw4@2080",
+              "eSRhpYLerw4@2084",
+              "eSRhpYLerw4@2086",
+              "eSRhpYLerw4@2089",
+              "eSRhpYLerw4@2092",
+              "eSRhpYLerw4@2094",
+              "eSRhpYLerw4@2097",
+              "eSRhpYLerw4@2099",
+              "eSRhpYLerw4@2100",
+              "eSRhpYLerw4@2351",
+              "eSRhpYLerw4@2354",
+              "eSRhpYLerw4@2356",
+              "eSRhpYLerw4@2359",
+              "eSRhpYLerw4@2361"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.take.p05",
+        "sentences": [
+          {
+            "id": "ch03.take.p05.01",
+            "text": "The context vector is computed by scaling each input embedding by its attention weight and summing them, and for all tokens at once this becomes matrix multiplication of the attention weight matrix by the input matrix.",
+            "type": "F",
+            "cites": [
+              "eSRhpYLerw4@2739",
+              "eSRhpYLerw4@2741",
+              "eSRhpYLerw4@2742",
+              "eSRhpYLerw4@2748",
+              "eSRhpYLerw4@2749",
+              "eSRhpYLerw4@2752",
+              "eSRhpYLerw4@2774",
+              "eSRhpYLerw4@2776",
+              "eSRhpYLerw4@2779",
+              "eSRhpYLerw4@2783",
+              "eSRhpYLerw4@2943",
+              "eSRhpYLerw4@2945",
+              "eSRhpYLerw4@2947",
+              "eSRhpYLerw4@2949",
+              "eSRhpYLerw4@3930",
+              "eSRhpYLerw4@3933",
+              "eSRhpYLerw4@3935",
+              "eSRhpYLerw4@3937",
+              "eSRhpYLerw4@3940",
+              "eSRhpYLerw4@3942",
+              "eSRhpYLerw4@3943",
+              "eSRhpYLerw4@3947",
+              "eSRhpYLerw4@3951",
+              "eSRhpYLerw4@3956",
+              "eSRhpYLerw4@3958",
+              "eSRhpYLerw4@3969",
+              "eSRhpYLerw4@3972",
+              "eSRhpYLerw4@3974",
+              "eSRhpYLerw4@3976",
+              "eSRhpYLerw4@3981",
+              "eSRhpYLerw4@3983",
+              "eSRhpYLerw4@3985",
+              "eSRhpYLerw4@3987",
+              "eSRhpYLerw4@3989",
+              "eSRhpYLerw4@3991",
+              "eSRhpYLerw4@3993",
+              "eSRhpYLerw4@3995",
+              "eSRhpYLerw4@3996",
+              "eSRhpYLerw4@3999"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch03.take.p06",
+        "sentences": [
+          {
+            "id": "ch03.take.p06.r01",
+            "text": "Modern transformers add trainable query, key, and value weights, use causal masking so a token can attend only to itself and earlier tokens, apply dropout in the attention mechanism, and place the attention module inside a transformer block with layer normalization and shortcut connections.",
+            "type": "F",
+            "cites": [
+              "h94TQOK7NRA@278",
+              "h94TQOK7NRA@280",
+              "h94TQOK7NRA@282",
+              "h94TQOK7NRA@293",
+              "h94TQOK7NRA@297",
+              "h94TQOK7NRA@299",
+              "h94TQOK7NRA@301",
+              "h94TQOK7NRA@303",
+              "h94TQOK7NRA@306",
+              "h94TQOK7NRA@308",
+              "h94TQOK7NRA@310",
+              "h94TQOK7NRA@314",
+              "h94TQOK7NRA@570",
+              "h94TQOK7NRA@576",
+              "h94TQOK7NRA@585",
+              "h94TQOK7NRA@590",
+              "h94TQOK7NRA@592",
+              "h94TQOK7NRA@596",
+              "h94TQOK7NRA@598",
+              "h94TQOK7NRA@2033",
+              "h94TQOK7NRA@2035",
+              "h94TQOK7NRA@2037",
+              "h94TQOK7NRA@2039",
+              "h94TQOK7NRA@2042",
+              "h94TQOK7NRA@2044",
+              "h94TQOK7NRA@2047",
+              "G3W-LT79LSI@66",
+              "G3W-LT79LSI@68",
+              "G3W-LT79LSI@72",
+              "G3W-LT79LSI@75",
+              "G3W-LT79LSI@77",
+              "G3W-LT79LSI@80",
+              "G3W-LT79LSI@81",
+              "G3W-LT79LSI@83",
+              "G3W-LT79LSI@86"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch03.take.p01.01": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.take.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.take.p03.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.take.p04.01": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch03.take.p05.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.take.p06.r01": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch03.take.p01.01": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch03.take.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.take.p03.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.take.p04.01": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch03.take.p05.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch03.take.p06.01": {
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "Cited lines support trainable Q/K/V matrices, causal (masked) attention restricting to previous/current tokens, dropout in attention, and transformer blocks containing layer norm, masked multi-head attention, dropout, and shortcut connections; however the specific claim that layer normalization and shortcut connections are placed there 'to help training stay stable' is only directly stated for layer normalization (improves stability/efficiency), while shortcut connections are tied to vanishing gradients/gradient flow rather than stability in the cited lines."
+      }
+    },
+    "rewritten": [
+      "ch03.take.p06"
+    ],
+    "queue": []
+  }
+}

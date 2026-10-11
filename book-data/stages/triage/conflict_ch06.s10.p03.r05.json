@@ -1,0 +1,13 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch06.s10.p03.r05",
+  "inputs_hash": "f12e66bd2c79645265a54fe12e89632295cba82072c8dad2915383840631f89b",
+  "output_hash": "4b4a056db07fd97969711f195f41c0b60e382b7feacd15f637d256f4ae6996ce",
+  "output": {
+    "decision": "keep",
+    "reason": "The cited captions explicitly support the 774 million parameter example and the claim about incoherent responses without fine-tuning, while the reference discusses different GPT-2 sizes for a separate setup.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "da2c45349b63bfe876207efe74bc7f6a6139b6b649a260fd6f68ae0f2e577b17"
+  }
+}

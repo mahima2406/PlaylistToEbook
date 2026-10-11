@@ -1,0 +1,33 @@
+{
+  "stage": "listings",
+  "item": "ch06.s12",
+  "inputs_hash": "3bdfddb8ce341d252d25642902e863248237b9c520ce7de6dbcbb1e47a1ddc34",
+  "output_hash": "80819bced6ed4c613b0e8de55424e35a659040abe7641be878387f6f9fff140c",
+  "output": {
+    "section_id": "ch06.s12",
+    "listings": [
+      {
+        "id": "ch06.s12.code1",
+        "ref": "ref:ch07/01_main-chapter-code/ch07.ipynb#cell118",
+        "path": "ch07/01_main-chapter-code/ch07.ipynb",
+        "caption": "This loop builds a prompt containing the input, the correct output, and the model response, then asks another model to score the response for a few test entries and prints the results.",
+        "code": "for entry in test_data[:3]:\n    prompt = (\n        f\"Given the input `{format_input(entry)}` \"\n        f\"and correct output `{entry['output']}`, \"\n        f\"score the model response `{entry['model_response']}`\"\n        f\" on a scale from 0 to 100, where 100 is the best score. \"\n    )\n    print(\"\\nDataset response:\")\n    print(\">>\", entry['output'])\n    print(\"\\nModel response:\")\n    print(\">>\", entry[\"model_response\"])\n    print(\"\\nScore:\")\n    print(\">>\", query_model(prompt))\n    print(\"\\n-------------------------\")",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The section describes using an LLM-as-judge by providing the input, the true output, and the model response, then asking another model to score it. The code iterates over a few test entries, constructs exactly such a prompt, calls another model via `query_model(prompt)` to get a score, and prints the dataset output, model response, and score. The caption accurately summarizes this behavior."
+      }
+    ],
+    "rejected": [
+      {
+        "id": "ch06.s12.code2",
+        "ref": "ref:ch07/01_main-chapter-code/ch07.ipynb#cell121",
+        "path": "ch07/01_main-chapter-code/ch07.ipynb",
+        "caption": "This function iterates over the dataset, sends each input, reference output, and saved model response to another model for integer scoring, and computes summary score statistics.",
+        "code": "def generate_model_scores(json_data, json_key, model=\"llama3\"):\n    scores = []\n    for entry in tqdm(json_data, desc=\"Scoring entries\"):\n        prompt = (\n            f\"Given the input `{format_input(entry)}` \"\n            f\"and correct output `{entry['output']}`, \"\n            f\"score the model response `{entry[json_key]}`\"\n            f\" on a scale from 0 to 100, where 100 is the best score. \"\n            f\"Respond with the integer number only.\"\n        )\n        score = query_model(prompt, model)\n        try:\n            scores.append(int(score))\n        except ValueError:\n            print(f\"Could not convert score: {score}\")\n            continue\n\n    return scores\n\n\nscores = generate_model_scores(test_data, \"model_response\")\nprint(f\"Number of scores: {len(scores)} of {len(test_data)}\")\nprint(f\"Average score: {sum(scores)/len(scores):.2f}\\n\")",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The code does implement the section’s evaluation method: it feeds an LLM the input, the true output, and the saved model response, asks for an integer score, and aggregates results (count and average). However, the caption overstates what the code computes: it does not compute broader “summary score statistics” beyond the average (and count printed outside the function), and it doesn’t explicitly ensure the responses being scored are from a fine-tuned LLM (it just uses a provided json_key)."
+      }
+    ]
+  }
+}

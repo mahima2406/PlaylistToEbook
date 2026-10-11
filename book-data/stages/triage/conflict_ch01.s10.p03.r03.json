@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch01.s10.p03.r03",
+  "inputs_hash": "54bef78d587d497c5a2d3cbaae4e02e8d7cb8e3893166c94eec0af38093fdd22",
+  "output_hash": "08f287f79e4a30593d86b20f03b4f407aa631f4e19e82d52e6d00e09985a6096",
+  "output": {
+    "decision": "edit",
+    "text": "The training procedure breaks the training dataset into epochs, computes the gradient of the loss in each epoch, updates the parameters, and calculates accuracy after each epoch.",
+    "reason": "The cited captions support the epoch/gradient/update flow, but the reference shows this classifier training uses accuracy each epoch rather than sample-text generation.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.72,
+      "reason": "Cited lines support breaking the dataset into epochs, computing the gradient of the loss each epoch, and updating parameters. They mention generating sample text and doing model evaluation, but do not specifically state calculating accuracy after each epoch."
+    },
+    "kind": "conflict",
+    "sentence_hash": "f0d99f80c7e43a28e2addab127ac76a137ecc3cd4179dad18c4a165334ef7b7e"
+  }
+}

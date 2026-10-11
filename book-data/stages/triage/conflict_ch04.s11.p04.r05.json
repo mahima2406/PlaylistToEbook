@@ -1,0 +1,14 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch04.s11.p04.r05",
+  "inputs_hash": "6daecd55cb8c407f5f5e528a0678e86f31ececf236db4bb7d848b0e443aa17a3",
+  "output_hash": "920b8b3d19b34a19034bd9a3bdad4422536c8ecd7417558725d4e0a7352d4de7",
+  "output": {
+    "decision": "note",
+    "note": "The reference says slight overfitting appears around 1 epoch; here the plotted losses are described as diverging after the second epoch.",
+    "reason": "The cited captions support the sentence, and the discrepancy is about when overfitting becomes noticeable rather than a clear factual error.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "c61d83709530e7e16b57dfeb00323cf5833efd1a83f47ac6724c1de51ab16ee8"
+  }
+}

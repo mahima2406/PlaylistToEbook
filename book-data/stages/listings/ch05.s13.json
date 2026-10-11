@@ -1,0 +1,22 @@
+{
+  "stage": "listings",
+  "item": "ch05.s13",
+  "inputs_hash": "d5af1e2a50b6fe6aa202b2c56e1c91bd3e64d0030cca5317d8b30047e88a1ad6",
+  "output_hash": "69870038d8dfd3d62720cc11317734f6937281a122e5c099b237ec7193ac838a",
+  "output": {
+    "section_id": "ch05.s13",
+    "listings": [
+      {
+        "id": "ch05.s13.code1",
+        "ref": "ref:ch06/01_main-chapter-code/ch06.ipynb#cell105",
+        "path": "ch06/01_main-chapter-code/ch06.ipynb",
+        "caption": "This code computes accuracy on the full training, validation, and test loaders with `calc_accuracy_loader` and prints the three percentages.",
+        "code": "train_accuracy = calc_accuracy_loader(train_loader, model, device)\nval_accuracy = calc_accuracy_loader(val_loader, model, device)\ntest_accuracy = calc_accuracy_loader(test_loader, model, device)\n\nprint(f\"Training accuracy: {train_accuracy*100:.2f}%\")\nprint(f\"Validation accuracy: {val_accuracy*100:.2f}%\")\nprint(f\"Test accuracy: {test_accuracy*100:.2f}%\")",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The code calls the accuracy function with the training, validation, and test data loaders along with the model and device, then prints each accuracy as a percentage. This directly demonstrates measuring performance on all three sets, and the caption accurately describes what the code does (aside from using the abbreviated name `calc_accuracy_loader` vs. `calculate_accuracy_loader`)."
+      }
+    ],
+    "rejected": []
+  }
+}

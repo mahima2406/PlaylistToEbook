@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch03.s08.p05.r02",
+  "inputs_hash": "c01badbef0baa263dc2aedaa03c6bef292b19e21cdca51e00b6b8a436880478a",
+  "output_hash": "054f33851bf6384bcc0ad78982cf2a7f72957da34bf5991ecd980109caec791f",
+  "output": {
+    "decision": "edit",
+    "text": "Here, the upper triangular mask has ones above the diagonal.",
+    "reason": "The captions explicitly support ones above the diagonal but do not fully show that the entries below the diagonal are zeros.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.94,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "0ec62e82997df42bc84ddf8bdca42ab2eb723ba33515b96be40b352f9ce2bd39"
+  }
+}

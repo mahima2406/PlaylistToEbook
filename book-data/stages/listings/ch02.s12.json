@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch02.s12",
+  "inputs_hash": "dfb0756d0cc2b5794fc76a091183df5159f693a9fb81b375a3482321794cea7d",
+  "output_hash": "06e3a45464e781ec25d21fa08bd73b06bd7584f68b22fb4a18cc06d6675e41c5",
+  "output": {
+    "section_id": "ch02.s12",
+    "listings": [
+      {
+        "id": "ch02.s12.code1",
+        "ref": "ref:ch02/01_main-chapter-code/ch02.ipynb#cell126",
+        "path": "ch02/01_main-chapter-code/ch02.ipynb",
+        "caption": "Creates a token embedding layer with a vocabulary size of 50257 and an embedding dimension of 256 using torch.nn.Embedding.",
+        "code": "vocab_size = 50257\noutput_dim = 256\n\ntoken_embedding_layer = torch.nn.Embedding(vocab_size, output_dim)",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The code uses torch.nn.Embedding(vocab_size, output_dim) with vocab_size=50257 and output_dim=256, exactly demonstrating creation of a token embedding layer as described in the section. The caption accurately describes what the code does."
+      },
+      {
+        "id": "ch02.s12.code2",
+        "ref": "ref:ch02/01_main-chapter-code/ch02.ipynb#cell116",
+        "path": "ch02/01_main-chapter-code/ch02.ipynb",
+        "caption": "Passes input token IDs to the embedding layer and prints the resulting embedding vectors.",
+        "code": "print(embedding_layer(input_ids))",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The section teaches that passing input token IDs into a torch.nn.Embedding layer returns the corresponding embedding vectors (rows from the embedding matrix). The code does exactly that and prints the resulting embeddings, matching the caption."
+      }
+    ],
+    "rejected": []
+  }
+}

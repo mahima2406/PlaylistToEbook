@@ -1,0 +1,13 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch06.s10.p01.04",
+  "inputs_hash": "530ee9a38b455ca7daaa8677bcac7f1c3445d4f9c87555bcfef136480aee887e",
+  "output_hash": "698d6300c602bcf54ad4c28ac1da078033952e5323e939fee143b6f3eb9ededa",
+  "output": {
+    "decision": "keep",
+    "reason": "The cited captions explicitly give this exact passive-voice output, and the reference uses an equally valid word order rather than a materially different answer.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "54f252429899163202320d881fa26f1d1309e76853641dbbc19864290026bd3c"
+  }
+}

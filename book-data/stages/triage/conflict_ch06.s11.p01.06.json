@@ -1,0 +1,14 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch06.s11.p01.06",
+  "inputs_hash": "7d45c93c126d107b3555a05736d0196a0d7050211a88f186e2cca4db722a4101",
+  "output_hash": "473757e2cca6a2d61e091a75a50f4641f5cedb1f700a8f05380c915d9fb62116",
+  "output": {
+    "decision": "note",
+    "note": "The lecture example says the model answered “prepared,” while the reference’s printed example shows the correct passive form “cooked every day by the chef.”",
+    "reason": "The cited captions support the sentence, but the reference presents a different example outcome for the same task.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "26e4ac5275552ee0ee155a804434bfc9063dbc429936676ce3787aec652b384c"
+  }
+}

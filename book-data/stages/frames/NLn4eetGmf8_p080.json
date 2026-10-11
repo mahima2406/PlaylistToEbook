@@ -1,0 +1,68 @@
+{
+  "stage": "frames",
+  "item": "NLn4eetGmf8:p080",
+  "inputs_hash": "4d6cae8559be8f46dba1973e247481878cdca2ec5e57bd3dc31357f27891c447",
+  "output_hash": "6887b5a983abd6f13af236106ff470481ae7c2fe74446ef7a54be9fe252a4826",
+  "output": {
+    "point_id": "NLn4eetGmf8:p080",
+    "video_id": "NLn4eetGmf8",
+    "seconds": 2014,
+    "frame_sha256": "5d9234b0599268f98dceb7072d06bac276313fb4957b1c13b717ba7d18ed58b2",
+    "status": "kept",
+    "kind": "diagram",
+    "title": "Timeline from Recurrent Neural Networks to Transformers",
+    "caption": "A three-step timeline shows Recurrent Neural Networks (1980), Long Short-Term Memory Networks (1997), and Transformers (2017), with dotted arrows progressing from left to right and annotations 'Bam!', 'Double Bam!!', and 'Triple Bam!!!'.",
+    "mermaid": "flowchart LR\n  A[\"Recurrent Neural Networks\\n1980\"] -->|\"Bam!\"| B[\"Long Short-Term Memory Networks\\n1997\"]\n  B -->|\"Double Bam!!\"| C[\"Transformers\\n2017\"]",
+    "latex": "",
+    "claims": [
+      {
+        "text": "Recurrent Neural Networks are placed at 1980.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "The leftmost stage is labeled 'Recurrent Neural Networks' with the year '1980' beneath it; lecturer says '1980 recurrent neural networks were introduced'."
+      },
+      {
+        "text": "Long Short-Term Memory Networks are placed at 1997.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "The middle stage is labeled 'Long Short-Term Memory Networks' with '1997' beneath; lecturer says 'in 1997 long short-term memory networks were introduced'."
+      },
+      {
+        "text": "Transformers are placed at 2017.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "The rightmost stage is labeled 'Transformers' with '2017' beneath; lecturer mentions Transformers came later but does not state a different year."
+      },
+      {
+        "text": "The diagram shows a progression from Recurrent Neural Networks to Long Short-Term Memory Networks.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "A dotted arrow goes from Recurrent Neural Networks to Long Short-Term Memory Networks, indicating progression; speech describes RNNs then LSTMs historically."
+      },
+      {
+        "text": "The diagram shows a progression from Long Short-Term Memory Networks to Transformers.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "A dotted arrow goes from Long Short-Term Memory Networks to Transformers, indicating progression; speech discusses that Transformers came into the picture after these."
+      },
+      {
+        "text": "The transition from Recurrent Neural Networks to Long Short-Term Memory Networks is labeled 'Bam!'.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Near the transition from RNNs toward LSTMs, the text 'Bam!' is shown; lecturer does not comment on this label."
+      },
+      {
+        "text": "The transition from Long Short-Term Memory Networks to Transformers is labeled 'Double Bam!!'.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Near the LSTM-to-Transformers transition, the text 'Double Bam!!' is shown; lecturer does not comment on this label."
+      },
+      {
+        "text": "The Transformers stage is additionally annotated with 'Triple Bam!!!'.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "Next to the Transformers stage, 'Triple Bam!!!' is shown; lecturer does not comment on this label."
+      }
+    ]
+  }
+}

@@ -1,0 +1,385 @@
+{
+  "stage": "verify",
+  "item": "ch04.s13",
+  "inputs_hash": "06670cc26a6b050541d18c280c55f37d44e1a66e130d26586923c74216971364",
+  "output_hash": "a20bfe665c4f0df1cd1ab6b0073d1e7b4a6ac02e7ebf3be25709d6bd52119526",
+  "output": {
+    "section_id": "ch04.s13",
+    "paragraphs": [
+      {
+        "id": "ch04.s13.p01",
+        "sentences": [
+          {
+            "id": "ch04.s13.p01.01",
+            "text": "Why combine top-k sampling with temperature scaling when decoding a GPT model’s next token?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s13.p01.02",
+            "text": "Top-k sampling is a decoding strategy for large language models, and it is used along with temperature scaling.",
+            "type": "F",
+            "cites": [
+              "EhU32O7DkA4@26",
+              "EhU32O7DkA4@29",
+              "EhU32O7DkA4@31",
+              "EhU32O7DkA4@33",
+              "EhU32O7DkA4@36"
+            ]
+          },
+          {
+            "id": "ch04.s13.p01.03",
+            "text": "Temperature scaling helps make the distribution sharper or more uniform, and it also helps prevent overfitting when sampling from a multinomial distribution.",
+            "type": "F",
+            "cites": [
+              "EhU32O7DkA4@1267",
+              "EhU32O7DkA4@1272",
+              "EhU32O7DkA4@1274",
+              "EhU32O7DkA4@1276",
+              "EhU32O7DkA4@1279"
+            ]
+          },
+          {
+            "id": "ch04.s13.p01.04",
+            "text": "Top-k sampling is paired with it because, after temperature scaling, random tokens can still have an opportunity to become the next token, whereas top-k sampling restricts sampling to the top-k most likely tokens.",
+            "type": "F",
+            "cites": [
+              "EhU32O7DkA4@1281",
+              "EhU32O7DkA4@1284",
+              "EhU32O7DkA4@1286",
+              "EhU32O7DkA4@1289",
+              "EhU32O7DkA4@1291",
+              "EhU32O7DkA4@1294",
+              "EhU32O7DkA4@1297"
+            ]
+          },
+          {
+            "id": "ch04.s13.p01.05",
+            "text": "In the stated workflow, the model first produces a logits tensor, then top-k sampling is applied, tokens outside the top k are replaced with negative infinity, temperature scaling is applied to the logits, softmax is applied, and the next token is finally sampled from the multinomial distribution.",
+            "type": "F",
+            "cites": [
+              "EhU32O7DkA4@1312",
+              "EhU32O7DkA4@1314",
+              "EhU32O7DkA4@1317",
+              "EhU32O7DkA4@1321",
+              "EhU32O7DkA4@1324",
+              "EhU32O7DkA4@1327",
+              "EhU32O7DkA4@1328",
+              "EhU32O7DkA4@1330",
+              "EhU32O7DkA4@1332",
+              "EhU32O7DkA4@1334",
+              "EhU32O7DkA4@1336"
+            ]
+          },
+          {
+            "id": "ch04.s13.p01.06",
+            "text": "That workflow is presented as a way to reduce or minimize overfitting.",
+            "type": "F",
+            "cites": [
+              "EhU32O7DkA4@1338",
+              "EhU32O7DkA4@1345",
+              "EhU32O7DkA4@1347"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s13.p02",
+        "sentences": [
+          {
+            "id": "ch04.s13.p02.01",
+            "text": "The decoding behavior is then interpreted in terms of overfitting.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s13.p02.02",
+            "text": "An earlier deterministic prediction setup is described as causing an overfitting problem, and the newer decoding strategy is described as solving that problem.",
+            "type": "F",
+            "cites": [
+              "EhU32O7DkA4@1153",
+              "EhU32O7DkA4@1155",
+              "EhU32O7DkA4@1156",
+              "EhU32O7DkA4@1158",
+              "EhU32O7DkA4@1160"
+            ]
+          },
+          {
+            "id": "ch04.s13.p02.03",
+            "text": "The explanation is that, under deterministic prediction, the next tokens were just being taken from the text already available.",
+            "type": "F",
+            "cites": [
+              "EhU32O7DkA4@1162",
+              "EhU32O7DkA4@1164",
+              "EhU32O7DkA4@1166",
+              "EhU32O7DkA4@1169"
+            ]
+          },
+          {
+            "id": "ch04.s13.p02.04",
+            "text": "Directly taking some next tokens from the source text is identified as a classic sign of overfitting.",
+            "type": "F",
+            "cites": [
+              "EhU32O7DkA4@1171",
+              "EhU32O7DkA4@1174",
+              "EhU32O7DkA4@1176",
+              "EhU32O7DkA4@1177"
+            ]
+          },
+          {
+            "id": "ch04.s13.p02.05",
+            "text": "By contrast, the implemented decoding strategies are described as probabilistic in nature, and that probabilistic sampling is presented as the reason the GPT model will not memorize the passage when predicting the next words.",
+            "type": "F",
+            "cites": [
+              "EhU32O7DkA4@1177",
+              "EhU32O7DkA4@1179",
+              "EhU32O7DkA4@1181",
+              "EhU32O7DkA4@1183",
+              "EhU32O7DkA4@1187",
+              "EhU32O7DkA4@1190",
+              "EhU32O7DkA4@1192"
+            ]
+          },
+          {
+            "id": "ch04.s13.p02.06",
+            "text": "The same idea is related to ChatGPT: it is said to give new output rather than memorizing what was written, because of decoding strategies such as top-k sampling and temperature scaling.",
+            "type": "F",
+            "cites": [
+              "EhU32O7DkA4@1195",
+              "EhU32O7DkA4@1197",
+              "EhU32O7DkA4@1199",
+              "EhU32O7DkA4@1201",
+              "EhU32O7DkA4@1203",
+              "EhU32O7DkA4@1205",
+              "EhU32O7DkA4@1207"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch04.s13.p03",
+        "sentences": [
+          {
+            "id": "ch04.s13.p03.r01",
+            "text": "The example output is used as evidence for that interpretation.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch04.s13.p03.r02",
+            "text": "The generated continuation includes words such as \"moves us stand to work on surprise,\" and these words are said not to be present in the original text.",
+            "type": "F",
+            "cites": [
+              "EhU32O7DkA4@1213",
+              "EhU32O7DkA4@1215",
+              "EhU32O7DkA4@1218",
+              "EhU32O7DkA4@1219"
+            ]
+          },
+          {
+            "id": "ch04.s13.p03.r03",
+            "text": "A search of the original text for \"moves you\" and for \"stand to work\" is reported as finding that those phrases are not there.",
+            "type": "F",
+            "cites": [
+              "EhU32O7DkA4@1225",
+              "EhU32O7DkA4@1228",
+              "EhU32O7DkA4@1230",
+              "EhU32O7DkA4@1232",
+              "EhU32O7DkA4@1236",
+              "EhU32O7DkA4@1239",
+              "EhU32O7DkA4@1242"
+            ]
+          },
+          {
+            "id": "ch04.s13.p03.r04",
+            "text": "From this, the generated next tokens are described as completely new, with the model generating new tokens and new sentences instead of just memorizing the original text.",
+            "type": "F",
+            "cites": [
+              "EhU32O7DkA4@1242",
+              "EhU32O7DkA4@1245",
+              "EhU32O7DkA4@1246",
+              "EhU32O7DkA4@1248",
+              "EhU32O7DkA4@1250",
+              "EhU32O7DkA4@1252",
+              "EhU32O7DkA4@1254",
+              "EhU32O7DkA4@1256"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch04.s13.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch04.s13.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch04.s13.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s13.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s13.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s13.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch04.s13.p02.01": {
+        "verdict": "ok",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s13.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.82,
+        "reason": ""
+      },
+      "ch04.s13.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.91,
+        "reason": ""
+      },
+      "ch04.s13.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s13.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s13.p02.06": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch04.s13.p03.r01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s13.p03.r02": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s13.p03.r03": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s13.p03.r04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch04.s13.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.98,
+        "reason": ""
+      },
+      "ch04.s13.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch04.s13.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s13.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s13.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s13.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch04.s13.p02.01": {
+        "verdict": "ok",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch04.s13.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.82,
+        "reason": ""
+      },
+      "ch04.s13.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.91,
+        "reason": ""
+      },
+      "ch04.s13.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s13.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch04.s13.p02.06": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch04.s13.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch04.s13.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.89,
+        "reason": ""
+      },
+      "ch04.s13.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch04.s13.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch04.s13.p03.05": {
+        "verdict": "partial",
+        "confidence": 0.62,
+        "reason": "The captions support that decoding strategies (probabilistic sampling, temperature scaling, top-k) help avoid/minimize overfitting, but they do not support the meta-claim that the narrative 'does not add further detail here beyond' those claims; that is an absence/scope judgment not stated in the cited lines."
+      }
+    },
+    "rewritten": [
+      "ch04.s13.p03"
+    ],
+    "queue": []
+  }
+}

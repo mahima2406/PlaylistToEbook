@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch04.s08",
+  "inputs_hash": "9ec5320e9cd57050decba2ac2a0c83972b6b0672d2b8e28a41bd3828844728d1",
+  "output_hash": "2bf460701719b6388a8302fd8acea4e49440b22e79e86c93bdfdea07a7b26d3f",
+  "output": {
+    "section_id": "ch04.s08",
+    "listings": [
+      {
+        "id": "ch04.s08.code1",
+        "ref": "ref:ch05/01_main-chapter-code/ch05.ipynb#cell45",
+        "path": "ch05/01_main-chapter-code/ch05.ipynb",
+        "caption": "This code flattens the logits across batch and token dimensions and flattens the target tensor into a single sequence, then prints their shapes.",
+        "code": "logits_flat = logits.flatten(0, 1)\ntargets_flat = targets.flatten()\n\nprint(\"Flattened logits:\", logits_flat.shape)\nprint(\"Flattened targets:\", targets_flat.shape)",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The section explicitly teaches flattening logits from (batch, tokens, vocab) to (batch*tokens, vocab) and flattening targets from (batch, tokens) to (batch*tokens) as the setup step before selecting target probabilities or calling torch.nn.functional.cross_entropy. The code does exactly this flattening and prints the resulting shapes, which the caption accurately describes."
+      },
+      {
+        "id": "ch04.s08.code2",
+        "ref": "ref:ch05/01_main-chapter-code/ch05.ipynb#cell47",
+        "path": "ch05/01_main-chapter-code/ch05.ipynb",
+        "caption": "This code computes the cross-entropy loss from the flattened logits and flattened targets and prints the resulting loss value.",
+        "code": "loss = torch.nn.functional.cross_entropy(logits_flat, targets_flat)\nprint(loss)",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The section explicitly teaches that flattening logits and targets and then calling torch.nn.functional.cross_entropy(logits_flat, targets_flat) computes the cross-entropy (negative log-likelihood averaged) by softmaxing logits, selecting probabilities at target indices, taking negative log, and averaging. The caption accurately states the code computes the cross-entropy loss from flattened logits/targets and prints it."
+      }
+    ],
+    "rejected": []
+  }
+}

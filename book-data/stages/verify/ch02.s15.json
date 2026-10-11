@@ -1,0 +1,969 @@
+{
+  "stage": "verify",
+  "item": "ch02.s15",
+  "inputs_hash": "008ec18102f1bccd6fc3eaa11393c67800e0b2b8533cbe9cc6cef1807a54a0df",
+  "output_hash": "f2014f47aba98ca0167ba52284f847b8723adb5a08d8a877d96f78f3752b7557",
+  "output": {
+    "section_id": "ch02.s15",
+    "paragraphs": [
+      {
+        "id": "ch02.s15.p01",
+        "sentences": [
+          {
+            "id": "ch02.s15.p01.01",
+            "text": "How does raw tokenized text become the concrete input and target sequences a language model trains on, and why does that matter before looking at embeddings?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch02.s15.p01.02",
+            "text": "Creating input-target pairs is an important part of realistic data preprocessing for large language models.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@2993",
+              "mk-6cFebjis@2998",
+              "mk-6cFebjis@3001",
+              "mk-6cFebjis@3003"
+            ]
+          },
+          {
+            "id": "ch02.s15.p01.03",
+            "text": "Large language models are trained to predict the next word from the preceding words.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3014",
+              "mk-6cFebjis@3017",
+              "mk-6cFebjis@3019"
+            ]
+          },
+          {
+            "id": "ch02.s15.p01.04",
+            "text": "For example, if the input is \"llm\", the next word is \"learn\"; if the input is \"llms learn\", the next word is \"to\"; if the input is \"llms learn to\", the next word is \"predict\"; and if the input is \"the llms learn to predict\", the next word is \"one\".",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3021",
+              "mk-6cFebjis@3023",
+              "mk-6cFebjis@3026",
+              "mk-6cFebjis@3028",
+              "mk-6cFebjis@3030",
+              "mk-6cFebjis@3032",
+              "mk-6cFebjis@3034"
+            ]
+          },
+          {
+            "id": "ch02.s15.p01.05",
+            "text": "To represent this numerically, the preprocessing first chooses a context size.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3037",
+              "mk-6cFebjis@3039",
+              "mk-6cFebjis@3041",
+              "mk-6cFebjis@3043",
+              "mk-6cFebjis@3046"
+            ]
+          },
+          {
+            "id": "ch02.s15.p01.06",
+            "text": "Context size is the maximum length of the input that the large language model sees at one time, meaning the number of tokens it processes to predict the next word.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3046",
+              "mk-6cFebjis@3048",
+              "mk-6cFebjis@3050",
+              "mk-6cFebjis@3053",
+              "mk-6cFebjis@3055"
+            ]
+          },
+          {
+            "id": "ch02.s15.p01.07",
+            "text": "The example here uses a context size of four, but large models usually use a much larger number of tokens, often more than 150 or 200 and sometimes around 500.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3057",
+              "mk-6cFebjis@3060",
+              "mk-6cFebjis@3063",
+              "mk-6cFebjis@3065",
+              "mk-6cFebjis@3067",
+              "mk-6cFebjis@3070",
+              "mk-6cFebjis@3072",
+              "mk-6cFebjis@3075"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s15.p02",
+        "sentences": [
+          {
+            "id": "ch02.s15.p02.r01",
+            "text": "Once the context size is fixed, the text sample is broken into input-output pairs based on that size.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3080",
+              "mk-6cFebjis@3083",
+              "mk-6cFebjis@3145",
+              "mk-6cFebjis@3148",
+              "mk-6cFebjis@3150",
+              "mk-6cFebjis@3153",
+              "mk-6cFebjis@3156",
+              "mk-6cFebjis@3161"
+            ]
+          },
+          {
+            "id": "ch02.s15.p02.r02",
+            "text": "With the sample sequence \"one word at a time\", the model should predict \"word\" from \"one\", then \"at\" from \"one word\", then \"a\" from \"one word at\", and then \"time\" from \"one word at a\".",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3087",
+              "mk-6cFebjis@3089",
+              "mk-6cFebjis@3092",
+              "mk-6cFebjis@3095",
+              "mk-6cFebjis@3096",
+              "mk-6cFebjis@3099",
+              "mk-6cFebjis@3102",
+              "mk-6cFebjis@3105",
+              "mk-6cFebjis@3107",
+              "mk-6cFebjis@3111",
+              "mk-6cFebjis@3112",
+              "mk-6cFebjis@3114"
+            ]
+          },
+          {
+            "id": "ch02.s15.p02.r03",
+            "text": "One input-output pair therefore contains multiple prediction tasks.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3117",
+              "mk-6cFebjis@3119",
+              "mk-6cFebjis@3121",
+              "mk-6cFebjis@3123"
+            ]
+          },
+          {
+            "id": "ch02.s15.p02.r04",
+            "text": "In the four-token example, each pair contains four prediction tasks.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3125",
+              "mk-6cFebjis@3127",
+              "mk-6cFebjis@3129",
+              "mk-6cFebjis@3131",
+              "mk-6cFebjis@3133",
+              "mk-6cFebjis@3136",
+              "mk-6cFebjis@3138"
+            ]
+          },
+          {
+            "id": "ch02.s15.p02.r05",
+            "text": "Before introducing token embeddings or positional embeddings, it is important to understand how data is loaded, how inputs and outputs are given to the model, and why context size and stride matter.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3779",
+              "mk-6cFebjis@3780",
+              "mk-6cFebjis@3783",
+              "mk-6cFebjis@3787",
+              "mk-6cFebjis@3788",
+              "mk-6cFebjis@3790",
+              "mk-6cFebjis@3792",
+              "mk-6cFebjis@3795",
+              "mk-6cFebjis@3798",
+              "mk-6cFebjis@3800"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s15.p03",
+        "sentences": [
+          {
+            "id": "ch02.s15.p03.r01",
+            "text": "A PyTorch data loader can be used to create these input-target pairs with a sliding window approach.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3166",
+              "mk-6cFebjis@3169",
+              "mk-6cFebjis@3171",
+              "mk-6cFebjis@3185",
+              "mk-6cFebjis@3192",
+              "mk-6cFebjis@3193",
+              "mk-6cFebjis@3196",
+              "mk-6cFebjis@3198"
+            ]
+          },
+          {
+            "id": "ch02.s15.p03.r02",
+            "text": "The code reads the raw text, encodes it with the byte pair tokenizer from tiktoken, and prints that the encoded text has length 5145 tokens.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3321",
+              "mk-6cFebjis@3323",
+              "mk-6cFebjis@3325",
+              "mk-6cFebjis@3328",
+              "mk-6cFebjis@3331",
+              "mk-6cFebjis@3336",
+              "mk-6cFebjis@3338",
+              "mk-6cFebjis@3340"
+            ]
+          },
+          {
+            "id": "ch02.s15.p03.r03",
+            "text": "The same input-output pairs can be viewed either as token ID sequences or as textual sequences that show the next-word targets.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3351",
+              "mk-6cFebjis@3353",
+              "mk-6cFebjis@3357",
+              "mk-6cFebjis@3359",
+              "mk-6cFebjis@3363",
+              "mk-6cFebjis@3366",
+              "mk-6cFebjis@3368",
+              "mk-6cFebjis@3374b",
+              "mk-6cFebjis@3378",
+              "mk-6cFebjis@3380",
+              "mk-6cFebjis@3382",
+              "mk-6cFebjis@3384",
+              "mk-6cFebjis@3387"
+            ]
+          },
+          {
+            "id": "ch02.s15.p03.r04",
+            "text": "For example, one ID-based pair is described as \"290\" to \"4920\", then \"290\" and \"4920\" to \"2241\", and the textual version is shown with inputs such as \"and\" paired with \"established\" and \"and established\" paired with \"himself\".",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3357",
+              "mk-6cFebjis@3359",
+              "mk-6cFebjis@3363",
+              "mk-6cFebjis@3366",
+              "mk-6cFebjis@3378",
+              "mk-6cFebjis@3380",
+              "mk-6cFebjis@3382",
+              "mk-6cFebjis@3384"
+            ]
+          },
+          {
+            "id": "ch02.s15.p03.r05",
+            "text": "To build the data loader, first encode the entire text into token IDs and then chunk the text into overlapping sequences.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3401",
+              "mk-6cFebjis@3404",
+              "mk-6cFebjis@3406",
+              "mk-6cFebjis@3409",
+              "mk-6cFebjis@3411"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s15.p04",
+        "sentences": [
+          {
+            "id": "ch02.s15.p04.r01",
+            "text": "Stride is how many positions the input window moves to create the next input sequence.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3448",
+              "mk-6cFebjis@3451",
+              "mk-6cFebjis@3497",
+              "mk-6cFebjis@3500",
+              "mk-6cFebjis@3502"
+            ]
+          },
+          {
+            "id": "ch02.s15.p04.r02",
+            "text": "When the stride is four, consecutive inputs do not overlap.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3448",
+              "mk-6cFebjis@3451",
+              "mk-6cFebjis@3472",
+              "mk-6cFebjis@3474"
+            ]
+          },
+          {
+            "id": "ch02.s15.p04.r03",
+            "text": "In that case, examples are described with a first input such as \"in the heart of\" and a second input such as \"the city stood the\".",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3425",
+              "mk-6cFebjis@3439",
+              "mk-6cFebjis@3441",
+              "mk-6cFebjis@3444"
+            ]
+          },
+          {
+            "id": "ch02.s15.p04.r04",
+            "text": "When the stride is one, consecutive inputs overlap, as in moving from \"in the heart of\" to \"the heart of the\".",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3476",
+              "mk-6cFebjis@3478",
+              "mk-6cFebjis@3481",
+              "mk-6cFebjis@3483",
+              "mk-6cFebjis@3485",
+              "mk-6cFebjis@3488",
+              "mk-6cFebjis@3489",
+              "mk-6cFebjis@3491"
+            ]
+          },
+          {
+            "id": "ch02.s15.p04.r05",
+            "text": "The method is called a sliding window approach because the input window slides by the stride amount to create the next input sequence.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3507",
+              "mk-6cFebjis@3509",
+              "mk-6cFebjis@3511",
+              "mk-6cFebjis@3513",
+              "mk-6cFebjis@3516",
+              "mk-6cFebjis@3518",
+              "mk-6cFebjis@3521"
+            ]
+          },
+          {
+            "id": "ch02.s15.p04.r06",
+            "text": "The final tensors created by this process are input IDs and target IDs.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3523",
+              "mk-6cFebjis@3526",
+              "mk-6cFebjis@3528",
+              "mk-6cFebjis@3537",
+              "mk-6cFebjis@3540",
+              "mk-6cFebjis@3542"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s15.p05",
+        "sentences": [
+          {
+            "id": "ch02.s15.p05.01",
+            "text": "In this setup, each row of the input tensor is one input to the large language model, and the corresponding row of the target tensor is the matching output.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3213",
+              "mk-6cFebjis@3216",
+              "mk-6cFebjis@3221",
+              "mk-6cFebjis@3223",
+              "mk-6cFebjis@3226",
+              "mk-6cFebjis@3229",
+              "mk-6cFebjis@3233",
+              "mk-6cFebjis@3235"
+            ]
+          },
+          {
+            "id": "ch02.s15.p05.02",
+            "text": "Corresponding rows therefore form input-output pairs: the first row of tensor \"X\" matches the first row of tensor \"Y\", the second row matches the second row, and so on.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3240",
+              "mk-6cFebjis@3243",
+              "mk-6cFebjis@3246",
+              "mk-6cFebjis@3249",
+              "mk-6cFebjis@3251",
+              "mk-6cFebjis@3253",
+              "mk-6cFebjis@3254"
+            ]
+          },
+          {
+            "id": "ch02.s15.p05.03",
+            "text": "The target tensor is the input tensor shifted by one word because the model is trained to predict the next word.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3263",
+              "mk-6cFebjis@3265",
+              "mk-6cFebjis@3268",
+              "mk-6cFebjis@3271",
+              "mk-6cFebjis@3273",
+              "mk-6cFebjis@3275",
+              "mk-6cFebjis@3278",
+              "mk-6cFebjis@3283",
+              "mk-6cFebjis@3286",
+              "mk-6cFebjis@3288",
+              "mk-6cFebjis@3290",
+              "mk-6cFebjis@3292"
+            ]
+          },
+          {
+            "id": "ch02.s15.p05.04",
+            "text": "To construct the tensors, the code loops over the token IDs using the context length and stride, appends each input chunk to the input ID tensor, and appends the corresponding target chunk to the target ID tensor.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3544",
+              "mk-6cFebjis@3547",
+              "mk-6cFebjis@3550",
+              "mk-6cFebjis@3552",
+              "mk-6cFebjis@3554",
+              "mk-6cFebjis@3557",
+              "mk-6cFebjis@3560",
+              "mk-6cFebjis@3562"
+            ]
+          },
+          {
+            "id": "ch02.s15.p05.05",
+            "text": "An input chunk is the group of token IDs in one context window, and a target chunk is that same chunk shifted by one position.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3565",
+              "mk-6cFebjis@3567",
+              "mk-6cFebjis@3569",
+              "mk-6cFebjis@3571",
+              "mk-6cFebjis@3573"
+            ]
+          },
+          {
+            "id": "ch02.s15.p05.06",
+            "text": "As the code runs, each iteration appends one row to the input tensor and the corresponding row to the target tensor, and looping over the whole text produces all training inputs and outputs.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3576",
+              "mk-6cFebjis@3578",
+              "mk-6cFebjis@3582",
+              "mk-6cFebjis@3584",
+              "mk-6cFebjis@3587",
+              "mk-6cFebjis@3588",
+              "mk-6cFebjis@3591",
+              "mk-6cFebjis@3592",
+              "mk-6cFebjis@3594",
+              "mk-6cFebjis@3597",
+              "mk-6cFebjis@3600",
+              "mk-6cFebjis@3602",
+              "mk-6cFebjis@3605",
+              "mk-6cFebjis@3607"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch02.s15.p06",
+        "sentences": [
+          {
+            "id": "ch02.s15.p06.01",
+            "text": "After the input-output pairs are created, the dataset is passed to a data loader, which processes the dataset and generates input-output batches from the input and output tensors.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3643",
+              "mk-6cFebjis@3645",
+              "mk-6cFebjis@3647",
+              "mk-6cFebjis@3650",
+              "mk-6cFebjis@3652",
+              "mk-6cFebjis@3695",
+              "mk-6cFebjis@3697",
+              "mk-6cFebjis@3699",
+              "mk-6cFebjis@3703",
+              "mk-6cFebjis@3705",
+              "mk-6cFebjis@3707",
+              "mk-6cFebjis@3710"
+            ]
+          },
+          {
+            "id": "ch02.s15.p06.02",
+            "text": "Batch size is how many input-output pairs are processed at one time before updating the parameters, which is the same notion of batch size used in other machine learning frameworks.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3652",
+              "mk-6cFebjis@3654",
+              "mk-6cFebjis@3656",
+              "mk-6cFebjis@3658",
+              "mk-6cFebjis@3661",
+              "mk-6cFebjis@3662",
+              "mk-6cFebjis@3665",
+              "mk-6cFebjis@3666"
+            ]
+          },
+          {
+            "id": "ch02.s15.p06.03",
+            "text": "A batch size of one means one input-output pair is processed before a parameter update, while a batch size of four means four input-output pairs are processed before updating the parameters.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3668",
+              "mk-6cFebjis@3670",
+              "mk-6cFebjis@3673",
+              "mk-6cFebjis@3675",
+              "mk-6cFebjis@3677",
+              "mk-6cFebjis@3679"
+            ]
+          },
+          {
+            "id": "ch02.s15.p06.04",
+            "text": "The number of workers specifies how many CPU threads are used to split the code for parallel processing.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3682",
+              "mk-6cFebjis@3683",
+              "mk-6cFebjis@3686",
+              "mk-6cFebjis@3688",
+              "mk-6cFebjis@3690"
+            ]
+          },
+          {
+            "id": "ch02.s15.p06.05",
+            "text": "With a batch size of eight, the model parameters are updated only after the entire batch is processed.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3729",
+              "mk-6cFebjis@3731",
+              "mk-6cFebjis@3733",
+              "mk-6cFebjis@3737",
+              "mk-6cFebjis@3740",
+              "mk-6cFebjis@3742",
+              "mk-6cFebjis@3744"
+            ]
+          },
+          {
+            "id": "ch02.s15.p06.06",
+            "text": "In the shown batch example, the input has eight inputs and the output has eight rows, where each row corresponds to an input-output pair.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3746",
+              "mk-6cFebjis@3749",
+              "mk-6cFebjis@3751",
+              "mk-6cFebjis@3753",
+              "mk-6cFebjis@3755"
+            ]
+          },
+          {
+            "id": "ch02.s15.p06.07",
+            "text": "The input data is arranged in batches of eight with a context length of four, so each batch contains eight sequences of four tokens each.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@4714",
+              "mk-6cFebjis@4716",
+              "mk-6cFebjis@4719",
+              "mk-6cFebjis@4723",
+              "mk-6cFebjis@4725",
+              "mk-6cFebjis@4727",
+              "mk-6cFebjis@4740",
+              "mk-6cFebjis@4741",
+              "mk-6cFebjis@4744"
+            ]
+          },
+          {
+            "id": "ch02.s15.p06.08",
+            "text": "Each input-output pair in that example contains four words in the input and four next-word prediction targets in the output, so each pair has four prediction tasks.",
+            "type": "F",
+            "cites": [
+              "mk-6cFebjis@3757",
+              "mk-6cFebjis@3758",
+              "mk-6cFebjis@3760",
+              "mk-6cFebjis@3761",
+              "mk-6cFebjis@3763",
+              "mk-6cFebjis@3766"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch02.s15.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s15.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.74,
+        "reason": ""
+      },
+      "ch02.s15.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s15.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch02.s15.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.84,
+        "reason": ""
+      },
+      "ch02.s15.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch02.s15.p01.07": {
+        "verdict": "supported",
+        "confidence": 0.84,
+        "reason": ""
+      },
+      "ch02.s15.p05.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s15.p05.02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch02.s15.p05.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch02.s15.p05.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch02.s15.p05.05": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch02.s15.p05.06": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch02.s15.p06.01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch02.s15.p06.02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch02.s15.p06.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch02.s15.p06.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch02.s15.p06.05": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch02.s15.p06.06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s15.p06.07": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s15.p06.08": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch02.s15.p02.r01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch02.s15.p02.r02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch02.s15.p02.r03": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch02.s15.p02.r04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s15.p02.r05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s15.p03.r01": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch02.s15.p03.r02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch02.s15.p03.r03": {
+        "verdict": "partial",
+        "confidence": 0.62,
+        "reason": "The captions support viewing pairs as token IDs and as textual format, but they do not state that the textual sequences specifically show “next-word” targets (only input/output examples are given)."
+      },
+      "ch02.s15.p03.r04": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch02.s15.p03.r05": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch02.s15.p04.r01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch02.s15.p04.r02": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s15.p04.r03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s15.p04.r04": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch02.s15.p04.r05": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch02.s15.p04.r06": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch02.s15.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s15.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.74,
+        "reason": ""
+      },
+      "ch02.s15.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s15.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch02.s15.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.84,
+        "reason": ""
+      },
+      "ch02.s15.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch02.s15.p01.07": {
+        "verdict": "supported",
+        "confidence": 0.84,
+        "reason": ""
+      },
+      "ch02.s15.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch02.s15.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch02.s15.p02.03": {
+        "verdict": "partial",
+        "confidence": 0.62,
+        "reason": "captions support that one input-output pair has multiple prediction tasks, but they do not explicitly state this is 'one for each position in the context' (that mapping is implied but not stated)"
+      },
+      "ch02.s15.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s15.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s15.p03.01": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch02.s15.p03.02": {
+        "verdict": "partial",
+        "confidence": 0.72,
+        "reason": "captions support reading raw text, encoding with a byte pair tokenizer from tiktoken, and that the encoded text length is 5145 tokens, but they do not explicitly say this is the 'encoded training set' (though 'training set' is mentioned nearby)"
+      },
+      "ch02.s15.p03.03": {
+        "verdict": "supported",
+        "confidence": 0.83,
+        "reason": ""
+      },
+      "ch02.s15.p03.04": {
+        "verdict": "partial",
+        "confidence": 0.74,
+        "reason": "the id examples are supported (290→4920 and 290 4920→2241) and the text examples show 'and'→'established' and 'and established'→'himself', but the sentence adds 'and established' then 'and est list himself' as specific inputs; the cited lines say 'and established is the input himself is the output' and separately 'if and EST list himself is the input in is the output', not that the inputs are exactly 'and', then 'and established', then 'and est list himself' each paired with the next output token in that sequence."
+      },
+      "ch02.s15.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch02.s15.p04.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.78,
+        "reason": "this connective sentence makes a factual claim about stride controlling overlap; no citation is provided for a connective."
+      },
+      "ch02.s15.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch02.s15.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch02.s15.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s15.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch02.s15.p04.06": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch02.s15.p04.07": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch02.s15.p05.01": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s15.p05.02": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch02.s15.p05.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch02.s15.p05.04": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch02.s15.p05.05": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch02.s15.p05.06": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch02.s15.p06.01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch02.s15.p06.02": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch02.s15.p06.03": {
+        "verdict": "supported",
+        "confidence": 0.96,
+        "reason": ""
+      },
+      "ch02.s15.p06.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch02.s15.p06.05": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch02.s15.p06.06": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s15.p06.07": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch02.s15.p06.08": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "ch02.s15.p02",
+      "ch02.s15.p03",
+      "ch02.s15.p04"
+    ],
+    "queue": [
+      {
+        "sentence_id": "ch02.s15.p03.r03",
+        "text": "The same input-output pairs can be viewed either as token ID sequences or as textual sequences that show the next-word targets.",
+        "cites": [
+          "mk-6cFebjis@3351",
+          "mk-6cFebjis@3353",
+          "mk-6cFebjis@3357",
+          "mk-6cFebjis@3359",
+          "mk-6cFebjis@3363",
+          "mk-6cFebjis@3366",
+          "mk-6cFebjis@3368",
+          "mk-6cFebjis@3374b",
+          "mk-6cFebjis@3378",
+          "mk-6cFebjis@3380",
+          "mk-6cFebjis@3382",
+          "mk-6cFebjis@3384",
+          "mk-6cFebjis@3387"
+        ],
+        "verdict": "partial",
+        "confidence": 0.62,
+        "reason": "The captions support viewing pairs as token IDs and as textual format, but they do not state that the textual sequences specifically show “next-word” targets (only input/output examples are given).",
+        "status": "open"
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "stage": "triage",
+  "item": "ch04.s06.p03.r06",
+  "inputs_hash": "c1335a63b4dd232df864c6e197376377ecec7db989fe674d2de5ea2f9df8bb2f",
+  "output_hash": "bcb82529143bc70ec59c3065df9aa1de146ccd77554c819f98a4d3d4b5453fc0",
+  "output": {
+    "decision": "accept",
+    "reason": "The captions explicitly mention query, key, and value trainable weights, three matrices, embedding dimension 768 for input and output, and the resulting 1.77 million parameters, which supports the sentence as written.",
+    "risk": "low",
+    "kind": "queue",
+    "sentence_hash": "defadc8a80f7ccf636e7bf1dc0f7f30d52798c507c974998f8a376f60a044c2e"
+  }
+}

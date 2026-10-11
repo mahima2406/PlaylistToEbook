@@ -1,0 +1,341 @@
+{
+  "stage": "crosscheck",
+  "item": "ch01.s02",
+  "inputs_hash": "713bf71934f1244e80b8482434f3b92b68929122e3e9177e21bb669542bca127",
+  "output_hash": "850f3804f2be913c2be2615e2f83d4c1ffc2b3f7ae3275ff8d86dd3b23d2be5f",
+  "output": {
+    "section_id": "ch01.s02",
+    "checked": 28,
+    "counts": {
+      "agrees": 5,
+      "contradicts": 0,
+      "not_covered": 23
+    },
+    "results": [
+      {
+        "sentence_id": "ch01.s02.p01.02",
+        "text": "Generative AI is broader than large language models, and it includes language, video, audio, and 3D models.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell7",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell58",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell8"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The referenced passages focus on evaluating/generating text with GPT-like models and finetuning layers; they do not discuss generative AI as a broader category including video, audio, or 3D models."
+      },
+      {
+        "sentence_id": "ch01.s02.p01.03",
+        "text": "Examples shown for generative AI include realistic videos that are made by artificial intelligence rather than shot on camera.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell7",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell87",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell5"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention generative text model evaluation and training runtimes/parameter counts, but do not provide examples of AI-generated realistic videos."
+      },
+      {
+        "sentence_id": "ch01.s02.p01.04",
+        "text": "A large language model, by contrast, is a neural network designed to understand, generate, and respond to human-like text.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell9",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell13",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell1"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The passages show using GPT to generate text and implementing a GPT model, but they do not explicitly define an LLM as a neural network designed to understand/generate/respond to human-like text."
+      },
+      {
+        "sentence_id": "ch01.s02.p01.05",
+        "text": "At the core, LLMs are neural networks built for generic text-related applications such as understanding, generating, and responding to human-like text.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell83",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell82",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell6"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference notes GPT-like LLMs generate text (one word at a time) but does not state the broader definition about generic text-related applications including understanding and responding."
+      },
+      {
+        "sentence_id": "ch01.s02.p01.06",
+        "text": "They can also be described as deep neural networks trained on massive amounts of data to do tasks such as understanding, generating, and responding to human-like text.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell82",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell97"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the material involves training/evaluating an LLM, the provided excerpts do not describe LLMs as deep neural networks trained on massive amounts of data or explicitly list understanding/generating/responding as tasks."
+      },
+      {
+        "sentence_id": "ch01.s02.p02.02",
+        "text": "A neural network takes input data, feeds it into a layer of neurons, stacks a number of these layers together, and produces an output layer.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell21",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell53"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference includes an example deep neural network composed of stacked layers (Linear + activation), consistent with the description of feeding inputs through layers to produce an output."
+      },
+      {
+        "sentence_id": "ch01.s02.p02.03",
+        "text": "The name \"neural network\" comes from the idea that these neurons represent the circuitry in the brain in a very symbolic sense.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell46",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell27"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages discuss cross-entropy and dataset preparation for next-token prediction, not the historical/etymological origin of the term \"neural network\"."
+      },
+      {
+        "sentence_id": "ch01.s02.p02.05",
+        "text": "LLMs are one specific application of these deep learning techniques, focused on processing and generating human-like text.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell83",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell82",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell6"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference characterizes LLMs (GPT-like) as generating words sequentially and being language-focused models, consistent with being a deep learning application focused on processing/generating text."
+      },
+      {
+        "sentence_id": "ch01.s02.p02.06",
+        "text": "They are called language models because they deal with language rather than other modalities such as images or video.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell8"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The excerpt discusses GPT-2 architecture and parameter counts but does not explain the term \"language model\" in contrast to other modalities like images or video."
+      },
+      {
+        "sentence_id": "ch01.s02.p03.r02",
+        "text": "In \"large language model,\" \"large\" refers to the number of parameters in the model.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell74",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell123",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell8"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references emphasize model size via parameter counts (e.g., 124M) and compute total parameters, consistent with \"large\" referring to number of parameters."
+      },
+      {
+        "sentence_id": "ch01.s02.p03.r03",
+        "text": "LLMs typically have billions of parameters, and some have trillions of parameters.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell74",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell76",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell108"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided excerpts compute parameter totals for a small GPT-2-like model but do not state that LLMs typically have billions of parameters or that some have trillions."
+      },
+      {
+        "sentence_id": "ch01.s02.p03.r04",
+        "text": "A table of GPT-3 model sizes ranges from 125 million parameters through 350 million, 760 million, 13 billion, and up to 175 billion parameters, and GPT-4 is said to have even more parameters.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell87",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell8"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention 124M and 355M parameter models used in the course, but do not provide the stated GPT-3 size table (125M to 175B) nor claims about GPT-4 having more parameters."
+      },
+      {
+        "sentence_id": "ch01.s02.p03.r05",
+        "text": "As models progress from GPT-1 to GPT-2 to GPT-3, they become better and their parameter counts increase tremendously.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell10",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell9",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell1"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided refs discuss implementing/initializing GPT models and mention GPT-2 parameter count, but do not compare GPT-1/2/3 trends in capability or parameter growth."
+      },
+      {
+        "sentence_id": "ch01.s02.p03.r06",
+        "text": "The same comparison also shows other quantities increasing as the models grow: GPT-1 has 12 decoders, GPT-2 has 48, GPT-3 has 96, and token size increases from 512 to 1024 to 2048.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell10",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell66",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell9"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs shown do not give decoder-layer counts for GPT-1/2/3 nor context length/token size progression 512/1024/2048."
+      },
+      {
+        "sentence_id": "ch01.s02.p03.r07",
+        "text": "A separate graph from 1950 to 2022 shows model parameter counts reaching around 100 million, 1 billion, and almost 1 trillion by around 2020, and the orange symbols have the largest number of parameters.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell74"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference only mentions choosing a 355M-parameter model instead of 124M; it does not describe a 1950–2022 graph, trillion-parameter milestones, or orange symbols."
+      },
+      {
+        "sentence_id": "ch01.s02.p03.r08",
+        "text": "These models are called large language models because we are living in an age of unprecedentedly huge parameter counts.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell6",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell58",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell8"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref states LLMs are larger than conventional deep learning models mainly due to vast numbers of parameters, aligning with the idea that 'large language models' reflects unprecedented parameter counts."
+      },
+      {
+        "sentence_id": "ch01.s02.p04.02",
+        "text": "Artificial intelligence is the broadest umbrella, machine learning is a subset of artificial intelligence, deep learning is a subset of machine learning, and large language models are a subset of deep learning.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell25",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell38",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell6"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs do not define the hierarchy AI ⊃ ML ⊃ DL ⊃ LLMs; they only mention conventions and that LLMs are large deep-learning models."
+      },
+      {
+        "sentence_id": "ch01.s02.p04.04",
+        "text": "A rule-based chatbot can be an example of artificial intelligence without being machine learning.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell8"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs provided do not discuss rule-based chatbots or distinguish AI systems that are not machine learning."
+      },
+      {
+        "sentence_id": "ch01.s02.p04.05",
+        "text": "It is not machine learning because it does not learn from user responses and behaves the same way for different users.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell18",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell8"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs do not address why a rule-based chatbot is not ML, learning from user responses, or user-dependent behavior."
+      },
+      {
+        "sentence_id": "ch01.s02.p05.02",
+        "text": "Deep learning usually involves neural networks, whereas machine learning includes neural networks and also methods that are not neural networks, such as decision trees.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell51"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs discuss neural-network concepts (e.g., residual connections) but do not compare deep learning vs machine learning or mention decision trees."
+      },
+      {
+        "sentence_id": "ch01.s02.p05.03",
+        "text": "A decision tree used to predict heart disease from patient data is an example of machine learning but not deep learning because it does not use neural networks.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell8",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell38",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell54"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs mention ML/DL contexts (e.g., convnets, cross-entropy) but do not discuss decision trees or the ML-not-DL distinction for them."
+      },
+      {
+        "sentence_id": "ch01.s02.p05.04",
+        "text": "A convolutional neural network for image detection is an example of deep learning because it uses a neural network to classify an input image.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell57",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell8",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell55"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Although refs mention convolutional networks as an example and show a deep neural network example, they do not explicitly state the general claim about CNNs for image detection being deep learning because they use neural networks to classify images."
+      },
+      {
+        "sentence_id": "ch01.s02.p05.05",
+        "text": "A neural network for handwritten digit classification is also an example of deep learning.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell8",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell57",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell39"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs discuss deep learning neural-network components and cite training a convolutional network to classify handwritten digits as an example in a machine-learning/deep-learning context, consistent with digit-classification neural networks being deep learning."
+      },
+      {
+        "sentence_id": "ch01.s02.p05.06",
+        "text": "Deep learning is therefore a subset of machine learning because machine learning includes neural network methods and also methods like decision trees that are not neural networks.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell25",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell6",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell39"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs do not state that ML includes non-neural methods like decision trees nor explicitly conclude DL is a subset of ML on that basis."
+      },
+      {
+        "sentence_id": "ch01.s02.p05.07",
+        "text": "Large language models are then a subset of deep learning because deep learning also includes image-based work, while LLMs deal only with text.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell38",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell6"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss LLMs (GPT/Llama) as decoder-like models and deep learning loss conventions, but do not state whether LLMs deal only with text or whether deep learning includes image-based work in contrast."
+      },
+      {
+        "sentence_id": "ch01.s02.p06.02",
+        "text": "Generative AI can be thought of as a mixture of large language models and deep learning because it handles multiple modalities such as image, sound, and video.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell7",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell97",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell38"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages focus on evaluating generative text models and loss conventions; they do not define generative AI as multimodal or as a mixture of LLMs and deep learning."
+      },
+      {
+        "sentence_id": "ch01.s02.p06.03",
+        "text": "More specifically, generative AI uses deep neural networks to create new content such as text, images, and other media, whereas LLMs deal only with text.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell7"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference only labels a section about evaluating generative text models and does not describe generative AI as creating text/images/other media or claim that LLMs deal only with text."
+      },
+      {
+        "sentence_id": "ch01.s02.p06.04",
+        "text": "So although the terms are often confused, LLMs are a specific text-focused application within deep learning, while generative AI extends across several media types.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell7",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell6"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references describe LLMs as decoder-like and larger than conventional deep learning models, but do not compare LLMs vs generative AI across media types or clarify terminology confusion."
+      }
+    ],
+    "conflicts": []
+  }
+}

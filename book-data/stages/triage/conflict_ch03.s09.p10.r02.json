@@ -1,0 +1,14 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch03.s09.p10.r02",
+  "inputs_hash": "9a58f10f905522e4186645cbc2878cce529655ad908535c9558e85f3b3da292c",
+  "output_hash": "71514556ad675e5b5dfeb47ec768d9fc8979a05c561b923d1f15a9aff4bb166c",
+  "output": {
+    "decision": "note",
+    "note": "Here, heads are merged to recover a D_out-sized output; in the reference, one wrapper returns d_out*num_heads, while MultiHeadAttention can keep output dimension at d_out.",
+    "reason": "The captions support this as the lecture’s goal for that implementation, but the reference documents another valid implementation choice.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "56c93e67b9cbd88438c9f19f78ff09aba637d760893660b25bfc616ba6b62236"
+  }
+}

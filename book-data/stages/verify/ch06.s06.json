@@ -1,0 +1,608 @@
+{
+  "stage": "verify",
+  "item": "ch06.s06",
+  "inputs_hash": "bc5d75c1f817b19e284be8b65611f241891c4a041c5a585f26337c66b04a0e57",
+  "output_hash": "559fb8bb0977c55bc5818f09b430800bcc1693df4575f81c0510df75203485f9",
+  "output": {
+    "section_id": "ch06.s06",
+    "paragraphs": [
+      {
+        "id": "ch06.s06.p01",
+        "sentences": [
+          {
+            "id": "ch06.s06.p01.01",
+            "text": "Why mark some target positions so the loss will skip them at all?",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s06.p01.02",
+            "text": "After creating the target token IDs by shifting the inputs and adding an additional padding token at the end, the remaining step is to replace padding tokens in the targets with placeholders.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1200",
+              "bkUkcyL_Xxc@1202",
+              "bkUkcyL_Xxc@1204",
+              "bkUkcyL_Xxc@1215",
+              "bkUkcyL_Xxc@1217",
+              "bkUkcyL_Xxc@1230",
+              "bkUkcyL_Xxc@1234"
+            ]
+          },
+          {
+            "id": "ch06.s06.p01.03",
+            "text": "The padding token ID here is \"50256\", but not every \"50256\" in the target should be replaced.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1241",
+              "bkUkcyL_Xxc@1244",
+              "bkUkcyL_Xxc@1277",
+              "bkUkcyL_Xxc@1279",
+              "bkUkcyL_Xxc@1282",
+              "bkUkcyL_Xxc@1284"
+            ]
+          },
+          {
+            "id": "ch06.s06.p01.04",
+            "text": "If a target contains several \"50256\" values, the first one is kept because it indicates the end of text, and all remaining \"50256\" values are replaced with \"-100\".",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1241",
+              "bkUkcyL_Xxc@1244",
+              "bkUkcyL_Xxc@1247",
+              "bkUkcyL_Xxc@1249",
+              "bkUkcyL_Xxc@1251",
+              "bkUkcyL_Xxc@1257",
+              "bkUkcyL_Xxc@1260",
+              "bkUkcyL_Xxc@1262",
+              "bkUkcyL_Xxc@1264",
+              "bkUkcyL_Xxc@1282",
+              "bkUkcyL_Xxc@1284"
+            ]
+          },
+          {
+            "id": "ch06.s06.p01.05",
+            "text": "If a target has only the end-of-text \"50256\", that first \"50256\" remains unchanged.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1268",
+              "bkUkcyL_Xxc@1270",
+              "bkUkcyL_Xxc@1273",
+              "bkUkcyL_Xxc@1275"
+            ]
+          },
+          {
+            "id": "ch06.s06.p01.06",
+            "text": "This keeps one end-of-text token while removing the extra end-of-text padding tokens from consideration.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1324",
+              "bkUkcyL_Xxc@1327",
+              "bkUkcyL_Xxc@1335",
+              "bkUkcyL_Xxc@1338",
+              "bkUkcyL_Xxc@2690",
+              "bkUkcyL_Xxc@2693",
+              "bkUkcyL_Xxc@2701",
+              "bkUkcyL_Xxc@2703",
+              "bkUkcyL_Xxc@2705",
+              "bkUkcyL_Xxc@2709"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s06.p02",
+        "sentences": [
+          {
+            "id": "ch06.s06.p02.01",
+            "text": "The choice of \"-100\" comes from PyTorch's cross-entropy loss.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1296",
+              "bkUkcyL_Xxc@1298",
+              "bkUkcyL_Xxc@1301",
+              "bkUkcyL_Xxc@1304",
+              "bkUkcyL_Xxc@1416",
+              "bkUkcyL_Xxc@1418",
+              "bkUkcyL_Xxc@1420",
+              "bkUkcyL_Xxc@1423"
+            ]
+          },
+          {
+            "id": "ch06.s06.p02.02",
+            "text": "Cross-entropy loss is calculated from a logits tensor of predictions and a target tensor of true answers.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2484",
+              "bkUkcyL_Xxc@2486",
+              "bkUkcyL_Xxc@2489",
+              "bkUkcyL_Xxc@2491",
+              "bkUkcyL_Xxc@2517",
+              "bkUkcyL_Xxc@2520",
+              "bkUkcyL_Xxc@2522",
+              "bkUkcyL_Xxc@2529"
+            ]
+          },
+          {
+            "id": "ch06.s06.p02.03",
+            "text": "In PyTorch, the default \"ignore_index\" for cross-entropy loss is \"-100\".",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1301",
+              "bkUkcyL_Xxc@1304",
+              "bkUkcyL_Xxc@1416",
+              "bkUkcyL_Xxc@1418",
+              "bkUkcyL_Xxc@1420",
+              "bkUkcyL_Xxc@2646",
+              "bkUkcyL_Xxc@2648",
+              "bkUkcyL_Xxc@2651",
+              "bkUkcyL_Xxc@2658",
+              "bkUkcyL_Xxc@2660",
+              "bkUkcyL_Xxc@2662"
+            ]
+          },
+          {
+            "id": "ch06.s06.p02.04",
+            "text": "That means any target entry labeled \"-100\" is ignored when the loss is computed.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2617",
+              "bkUkcyL_Xxc@2619",
+              "bkUkcyL_Xxc@2623",
+              "bkUkcyL_Xxc@2626",
+              "bkUkcyL_Xxc@2628",
+              "bkUkcyL_Xxc@2664",
+              "bkUkcyL_Xxc@2667",
+              "bkUkcyL_Xxc@2669",
+              "bkUkcyL_Xxc@2672",
+              "bkUkcyL_Xxc@2674",
+              "bkUkcyL_Xxc@2676",
+              "bkUkcyL_Xxc@2678"
+            ]
+          },
+          {
+            "id": "ch06.s06.p02.05",
+            "text": "This is why the extra padded target positions are changed to \"-100\": those added tokens do not matter and should be excluded from the training loss.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1306",
+              "bkUkcyL_Xxc@1309",
+              "bkUkcyL_Xxc@1311",
+              "bkUkcyL_Xxc@1315",
+              "bkUkcyL_Xxc@1317",
+              "bkUkcyL_Xxc@1412",
+              "bkUkcyL_Xxc@1414",
+              "bkUkcyL_Xxc@1416",
+              "bkUkcyL_Xxc@2222",
+              "bkUkcyL_Xxc@2224",
+              "bkUkcyL_Xxc@2226",
+              "bkUkcyL_Xxc@2678",
+              "bkUkcyL_Xxc@2681",
+              "bkUkcyL_Xxc@2682",
+              "bkUkcyL_Xxc@2684"
+            ]
+          },
+          {
+            "id": "ch06.s06.p02.06",
+            "text": "Excluding them makes training more efficient and avoids unnecessarily including tokens that are not important.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@1317",
+              "bkUkcyL_Xxc@1319",
+              "bkUkcyL_Xxc@1321",
+              "bkUkcyL_Xxc@1323"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s06.p03",
+        "sentences": [
+          {
+            "id": "ch06.s06.p03.r01",
+            "text": "A small loss example makes the effect clear.",
+            "type": "C",
+            "cites": []
+          },
+          {
+            "id": "ch06.s06.p03.r02",
+            "text": "With two examples, cross-entropy on the logits tensor and target tensor gives a loss of \"1.11269\".",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2491",
+              "bkUkcyL_Xxc@2494",
+              "bkUkcyL_Xxc@2500",
+              "bkUkcyL_Xxc@2502",
+              "bkUkcyL_Xxc@2506",
+              "bkUkcyL_Xxc@2510",
+              "bkUkcyL_Xxc@2512",
+              "bkUkcyL_Xxc@2520",
+              "bkUkcyL_Xxc@2522",
+              "bkUkcyL_Xxc@2531",
+              "bkUkcyL_Xxc@2532"
+            ]
+          },
+          {
+            "id": "ch06.s06.p03.r03",
+            "text": "Adding a third example changes the loss to \"7936\".",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2536",
+              "bkUkcyL_Xxc@2541",
+              "bkUkcyL_Xxc@2543",
+              "bkUkcyL_Xxc@2546",
+              "bkUkcyL_Xxc@2550",
+              "bkUkcyL_Xxc@2552",
+              "bkUkcyL_Xxc@2557",
+              "bkUkcyL_Xxc@2558",
+              "bkUkcyL_Xxc@2561",
+              "bkUkcyL_Xxc@2563"
+            ]
+          },
+          {
+            "id": "ch06.s06.p03.r04",
+            "text": "But if that third target is changed to \"-100\" while the predictions stay the same, the loss becomes the same as the first loss, as if the third example had no effect.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2566",
+              "bkUkcyL_Xxc@2568",
+              "bkUkcyL_Xxc@2570",
+              "bkUkcyL_Xxc@2573",
+              "bkUkcyL_Xxc@2576",
+              "bkUkcyL_Xxc@2578",
+              "bkUkcyL_Xxc@2580",
+              "bkUkcyL_Xxc@2586",
+              "bkUkcyL_Xxc@2588",
+              "bkUkcyL_Xxc@2590",
+              "bkUkcyL_Xxc@2593",
+              "bkUkcyL_Xxc@2596",
+              "bkUkcyL_Xxc@2598",
+              "bkUkcyL_Xxc@2600",
+              "bkUkcyL_Xxc@2602",
+              "bkUkcyL_Xxc@2606",
+              "bkUkcyL_Xxc@2608",
+              "bkUkcyL_Xxc@2611",
+              "bkUkcyL_Xxc@2613",
+              "bkUkcyL_Xxc@2617",
+              "bkUkcyL_Xxc@2619"
+            ]
+          },
+          {
+            "id": "ch06.s06.p03.r05",
+            "text": "The reason is that cross-entropy ignores the entry whose target value is \"-100\".",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2617",
+              "bkUkcyL_Xxc@2619",
+              "bkUkcyL_Xxc@2623",
+              "bkUkcyL_Xxc@2626",
+              "bkUkcyL_Xxc@2628"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ch06.s06.p04",
+        "sentences": [
+          {
+            "id": "ch06.s06.p04.r01",
+            "text": "The function takes a batch, a padding token ID, and an ignore index, which is \"-100\".",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2276",
+              "bkUkcyL_Xxc@2278",
+              "bkUkcyL_Xxc@2281",
+              "bkUkcyL_Xxc@2282"
+            ]
+          },
+          {
+            "id": "ch06.s06.p04.r02",
+            "text": "It first produces the input tensor and the target tensor as before, and then it modifies only the target tensor.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2285",
+              "bkUkcyL_Xxc@2288",
+              "bkUkcyL_Xxc@2290",
+              "bkUkcyL_Xxc@2317",
+              "bkUkcyL_Xxc@2321",
+              "bkUkcyL_Xxc@2324",
+              "bkUkcyL_Xxc@2326",
+              "bkUkcyL_Xxc@2399",
+              "bkUkcyL_Xxc@2402",
+              "bkUkcyL_Xxc@2417",
+              "bkUkcyL_Xxc@2419",
+              "bkUkcyL_Xxc@2421"
+            ]
+          },
+          {
+            "id": "ch06.s06.p04.r03",
+            "text": "To do that, it creates a mask over the target positions that contain the padding token ID, skips the first such position, and replaces the remaining padded target positions with the ignore index \"-100\".",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2290",
+              "bkUkcyL_Xxc@2292",
+              "bkUkcyL_Xxc@2296",
+              "bkUkcyL_Xxc@2299",
+              "bkUkcyL_Xxc@2302",
+              "bkUkcyL_Xxc@2304",
+              "bkUkcyL_Xxc@2306",
+              "bkUkcyL_Xxc@2308",
+              "bkUkcyL_Xxc@2311",
+              "bkUkcyL_Xxc@2313",
+              "bkUkcyL_Xxc@2314"
+            ]
+          },
+          {
+            "id": "ch06.s06.p04.r04",
+            "text": "With this modified collate function, the inputs stay unchanged, while in the targets every \"50256\" after the first one is replaced by \"-100\".",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2402",
+              "bkUkcyL_Xxc@2404",
+              "bkUkcyL_Xxc@2408",
+              "bkUkcyL_Xxc@2411",
+              "bkUkcyL_Xxc@2414",
+              "bkUkcyL_Xxc@2417",
+              "bkUkcyL_Xxc@2419",
+              "bkUkcyL_Xxc@2421",
+              "bkUkcyL_Xxc@2424",
+              "bkUkcyL_Xxc@2427",
+              "bkUkcyL_Xxc@2428"
+            ]
+          },
+          {
+            "id": "ch06.s06.p04.r05",
+            "text": "In that sense, the collate function implements the whole batching recipe on the whiteboard: padding, creating target token IDs, and replacing padded target tokens with the placeholder value \"-100\", also called the ignore index.",
+            "type": "F",
+            "cites": [
+              "bkUkcyL_Xxc@2436",
+              "bkUkcyL_Xxc@2438",
+              "bkUkcyL_Xxc@2440",
+              "bkUkcyL_Xxc@2442",
+              "bkUkcyL_Xxc@2451",
+              "bkUkcyL_Xxc@2454",
+              "bkUkcyL_Xxc@2456",
+              "bkUkcyL_Xxc@2458",
+              "bkUkcyL_Xxc@2460",
+              "bkUkcyL_Xxc@2462"
+            ]
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ch06.s06.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s06.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch06.s06.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s06.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s06.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.87,
+        "reason": ""
+      },
+      "ch06.s06.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.75,
+        "reason": ""
+      },
+      "ch06.s06.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch06.s06.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch06.s06.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s06.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s06.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch06.s06.p02.06": {
+        "verdict": "supported",
+        "confidence": 0.83,
+        "reason": ""
+      },
+      "ch06.s06.p03.r01": {
+        "verdict": "ok",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch06.s06.p03.r02": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch06.s06.p03.r03": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch06.s06.p03.r04": {
+        "verdict": "supported",
+        "confidence": 0.87,
+        "reason": ""
+      },
+      "ch06.s06.p03.r05": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s06.p04.r01": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s06.p04.r02": {
+        "verdict": "supported",
+        "confidence": 0.88,
+        "reason": ""
+      },
+      "ch06.s06.p04.r03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s06.p04.r04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s06.p04.r05": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      }
+    },
+    "first_pass": {
+      "ch06.s06.p01.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s06.p01.02": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch06.s06.p01.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s06.p01.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s06.p01.05": {
+        "verdict": "supported",
+        "confidence": 0.87,
+        "reason": ""
+      },
+      "ch06.s06.p01.06": {
+        "verdict": "supported",
+        "confidence": 0.75,
+        "reason": ""
+      },
+      "ch06.s06.p02.01": {
+        "verdict": "supported",
+        "confidence": 0.92,
+        "reason": ""
+      },
+      "ch06.s06.p02.02": {
+        "verdict": "supported",
+        "confidence": 0.78,
+        "reason": ""
+      },
+      "ch06.s06.p02.03": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s06.p02.04": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s06.p02.05": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reason": ""
+      },
+      "ch06.s06.p02.06": {
+        "verdict": "supported",
+        "confidence": 0.83,
+        "reason": ""
+      },
+      "ch06.s06.p03.01": {
+        "verdict": "ok",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s06.p03.02": {
+        "verdict": "supported",
+        "confidence": 0.84,
+        "reason": ""
+      },
+      "ch06.s06.p03.03": {
+        "verdict": "partial",
+        "confidence": 0.74,
+        "reason": "the captions support that adding one more example changes the loss to 7936 and that it differs because an example was added, but they do not explicitly support the causal phrasing that it changes specifically 'because there is now one more example contributing to it' (i.e., contribution/averaging mechanism is not stated)."
+      },
+      "ch06.s06.p03.04": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      },
+      "ch06.s06.p03.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s06.p04.01": {
+        "verdict": "claim_in_connective",
+        "confidence": 0.6,
+        "reason": "CONNECTIVE sentence asserts a fact about the implementation (that the rule is built into the final custom collate function) but provides no citation here."
+      },
+      "ch06.s06.p04.02": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reason": ""
+      },
+      "ch06.s06.p04.03": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s06.p04.04": {
+        "verdict": "supported",
+        "confidence": 0.9,
+        "reason": ""
+      },
+      "ch06.s06.p04.05": {
+        "verdict": "supported",
+        "confidence": 0.93,
+        "reason": ""
+      },
+      "ch06.s06.p04.06": {
+        "verdict": "supported",
+        "confidence": 0.94,
+        "reason": ""
+      }
+    },
+    "rewritten": [
+      "ch06.s06.p03",
+      "ch06.s06.p04"
+    ],
+    "queue": []
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch03.s08",
+  "inputs_hash": "60dd803e6635d61e333a64d5c83b1818b5d753cb50fd295833d7bd235a0c7a4c",
+  "output_hash": "92e029ee479e7c4a244e72c29966e804d3b0c68f03d4d0b0c0f60feea703bb3c",
+  "output": {
+    "section_id": "ch03.s08",
+    "listings": [],
+    "rejected": [
+      {
+        "id": "ch03.s08.code1",
+        "ref": "ref:ch03/01_main-chapter-code/ch03.ipynb#cell115",
+        "path": "ch03/01_main-chapter-code/ch03.ipynb",
+        "caption": "This code creates a PyTorch dropout layer with probability 0.5, applies it to a 6×6 tensor of ones, and prints the result.",
+        "code": "torch.manual_seed(123)\ndropout = torch.nn.Dropout(0.5) # dropout rate of 50%\nexample = torch.ones(6, 6) # create a matrix of ones\n\nprint(dropout(example))\n\ntorch.manual_seed(123)\nprint(dropout(attn_weights))",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The first part of the code matches the section and caption: it creates a `torch.nn.Dropout(0.5)`, applies it to a 6×6 tensor of ones, and prints the result (illustrating PyTorch dropout behavior). However, the excerpt also applies the same dropout layer to `attn_weights`, which is not mentioned in the caption and depends on external context not shown in this snippet. So the caption understates what the code does."
+      },
+      {
+        "id": "ch03.s08.code2",
+        "ref": "ref:ch03/01_main-chapter-code/ch03.ipynb#cell121",
+        "path": "ch03/01_main-chapter-code/ch03.ipynb",
+        "caption": "This class projects batched inputs into queries, keys, and values, computes masked causal attention scores with `keys.transpose(1, 2)`, applies softmax and dropout to the attention weights, and returns the resulting context vectors.",
+        "code": "class CausalAttention(nn.Module):\n\n    def __init__(self, d_in, d_out, context_length,\n                 dropout, qkv_bias=False):\n        super().__init__()\n        self.d_out = d_out\n        self.W_query = nn.Linear(d_in, d_out, bias=qkv_bias)\n        self.W_key   = nn.Linear(d_in, d_out, bias=qkv_bias)\n        self.W_value = nn.Linear(d_in, d_out, bias=qkv_bias)\n        self.dropout = nn.Dropout(dropout) # New\n        self.register_buffer('mask', torch.triu(torch.ones(context_length, context_length), diagonal=1)) # New\n\n    def forward(self, x):\n        b, num_tokens, d_in = x.shape # New batch dimension b\n        # For inputs where `num_tokens` exceeds `context_length`, this will result in errors\n        # in the mask creation further below.\n        # In practice, this is not a problem since the LLM (chapters 4-7) ensures that inputs  \n        # do not exceed `context_length` before reaching this forward method. \n        keys = self.W_key(x)\n        queries = self.W_query(x)\n        values = self.W_value(x)\n\n        attn_scores = queries @ keys.transpose(1, 2) # Changed transpose\n        attn_scores.masked_fill_(  # New, _ ops are in-place\n            self.mask.bool()[:num_tokens, :num_tokens], -torch.inf)  # `:num_tokens` to account for cases where the number of tokens in the batch is smaller than the supported context_size\n        attn_weights = torch.softmax(\n            attn_scores / keys.shape[-1]**0.5, dim=-1\n        )\n        attn_weights = self.dropout(attn_weights) # New\n",
+        "truncated": true,
+        "check": "partial",
+        "reason": "The code matches the section’s causal attention batching details: it projects batched inputs to Q/K/V, computes attention scores via `queries @ keys.transpose(1, 2)`, applies an upper-triangular causal mask with `-torch.inf`, scales by `sqrt(d_k)`, applies softmax, and applies a `nn.Dropout` layer to the attention weights. The caption accurately describes those steps.\n\nHowever, the excerpt is incomplete relative to the section: it does not show the final step of multiplying `attn_weights @ values` to produce and return the context vectors (and the method as shown has no return). Also, other taught items (the standalone 6×6 dropout-on-ones illustration, the explicit discussion of scaling by 1/(1-p), and the specific instantiation/example with dropout rate 0.0 and output shape 2×6×2) are not demonstrated in this excerpt."
+      }
+    ]
+  }
+}

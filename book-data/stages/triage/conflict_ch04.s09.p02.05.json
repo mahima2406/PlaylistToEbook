@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch04.s09.p02.05",
+  "inputs_hash": "d0160c97d01efb6c6369b1107f544f2b28dc1d6bf4799587bc85a87b25d6c7e4",
+  "output_hash": "f9957b0b8115ec00daed0c1535e8f83ee56a66a54611497317411374d4fa3c7c",
+  "output": {
+    "decision": "edit",
+    "text": "Input-target pairs are formed by shifting each input row by one position to create the corresponding target row.",
+    "reason": "The captions support only that the target row is a one-position shift of the corresponding input row, without resolving the directional wording that conflicts with next-token indexing.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.9,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "cdec1147b919562ee19c8d819590badaa4fc1092a2698ea53ffbc8cda3fe10be"
+  }
+}

@@ -1,0 +1,496 @@
+{
+  "stage": "crosscheck",
+  "item": "ch04.s04",
+  "inputs_hash": "1d0557c37a9de81fedc358ffbff267005f44262c4c93835ae7515c697bbbf16e",
+  "output_hash": "b3ce819df6ccc99d3dc0531c99fad06c754522c246114a74c9c3a88f91171f38",
+  "output": {
+    "section_id": "ch04.s04",
+    "checked": 36,
+    "counts": {
+      "agrees": 11,
+      "contradicts": 4,
+      "not_covered": 21
+    },
+    "results": [
+      {
+        "sentence_id": "ch04.s04.p01.02",
+        "text": "Before the Transformer block begins, the sequence goes through token embedding, positional embedding, input embedding by adding them together, and then dropout.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell66",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell116",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell132"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs show token and positional embedding layers separately but do not describe the full pre-block pipeline (token emb + pos emb added + dropout) or its ordering before entering a Transformer block."
+      },
+      {
+        "sentence_id": "ch04.s04.p01.03",
+        "text": "These embedding and dropout steps happen outside the Transformer block, and only after that does the model enter the block.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell59",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell64"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Ref states the transformer block itself uses dropout (as part of the block), so dropout is not only outside the block as the sentence claims."
+      },
+      {
+        "sentence_id": "ch04.s04.p01.04",
+        "text": "Dropout randomly turns some elements of each input embedding to zero according to the dropout rate.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell115",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell112",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell114"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The dropout example and description indicate random masking (setting some elements to 0) according to the dropout rate (with scaling of kept values)."
+      },
+      {
+        "sentence_id": "ch04.s04.p01.05",
+        "text": "For each token, the input embedding is a 768-dimensional vector, and dropout is applied to every token.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs include an illustrative 768-dim tensor shape in a transformer-block example, but they do not state that each token embedding is 768-dimensional at this stage nor that dropout is applied to every token embedding."
+      },
+      {
+        "sentence_id": "ch04.s04.p01.06",
+        "text": "If the dropout rate is 50%, then around 384 of the 768 elements in each embedding are turned off on average, not exactly half every time, because the process is probabilistic.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell36",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell114",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell112"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs say a 0.5 dropout rate randomly masks out half of the attention weights, but do not discuss expected counts like 384 of 768 elements or the probabilistic ‘not exactly half every time’ framing."
+      },
+      {
+        "sentence_id": "ch04.s04.p01.07",
+        "text": "Dropout is implemented to prevent overfitting and improve generalization.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell115",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell112"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref explicitly says dropout is applied to reduce overfitting during training, which aligns with improving generalization."
+      },
+      {
+        "sentence_id": "ch04.s04.p02.r01",
+        "text": "Once the block starts, the first operation is layer normalization.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell117",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell18"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Ref explains LayerNorm and notes it is applied before/after attention within a transformer block, but does not specify that the first operation inside the block is LayerNorm."
+      },
+      {
+        "sentence_id": "ch04.s04.p02.r02",
+        "text": "Layer normalization normalizes the values within each token embedding so that their mean is 0 and their variance is 1.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref states LayerNorm centers activations to mean 0 and normalizes variance to 1, consistent with normalizing within each token’s feature dimension."
+      },
+      {
+        "sentence_id": "ch04.s04.p02.r03",
+        "text": "It is performed separately for every single token to improve stability during training.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell122"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided ref is about dropout being applied only during training; it does not address LayerNorm being performed separately per token or its training-stability motivation."
+      },
+      {
+        "sentence_id": "ch04.s04.p02.r04",
+        "text": "For each token, layer normalization subtracts the mean from every value and divides by the square root of the variance.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref describes subtracting the mean and dividing by the square root of the variance (standard deviation) across the feature dimension."
+      },
+      {
+        "sentence_id": "ch04.s04.p02.r05",
+        "text": "In code, the layer normalization class does this for each token’s 768-dimensional representation and also includes trainable scale and shift parameters.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs mention scale/shift parameters for normalization and separately mention 768-dim embeddings, but do not show the LayerNorm class code doing this specifically for each token’s 768-dim representation."
+      },
+      {
+        "sentence_id": "ch04.s04.p02.r07",
+        "text": "Before attention is applied, each token vector contains meaning about itself, but it does not yet capture how much attention it should give to other words when predicting the next word.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell16",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell16"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs do not discuss the conceptual distinction that pre-attention embeddings contain only token-local meaning and not attention relationships for next-word prediction."
+      },
+      {
+        "sentence_id": "ch04.s04.p02.r08",
+        "text": "Masked multi-head attention converts embedding vectors into context vectors.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell8",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell124",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Chapter 3’s attention implementation describes computing context vectors from input token embeddings using (causal/masked) self-attention, including the multi-head extension."
+      },
+      {
+        "sentence_id": "ch04.s04.p02.r09",
+        "text": "A context vector keeps the token’s semantic meaning and also captures how much attention should be given to the other tokens in the sentence.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell67"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The references describe context vectors as weighted sums over value/input vectors and separately describe attention weights/masking as the mechanism that connects tokens; they do not define the context vector itself as ‘capturing how much attention should be given’ (that is captured by the attention weights)."
+      },
+      {
+        "sentence_id": "ch04.s04.p02.r10",
+        "text": "Attention is the most important step in the GPT model because it determines which words are important to look at and how different words relate to each other when predicting the next word.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell95"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references explain what self-attention/causal masking does, but they do not claim it is ‘the most important step’ in GPT."
+      },
+      {
+        "sentence_id": "ch04.s04.p02.r11",
+        "text": "After multi-head attention, the output size is still the same, so each token still has a 768-dimensional representation, now interpreted as a context vector.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell133",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell125"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The course notes indicate transformer-style attention typically returns an output with the model embedding dimension (e.g., 768 in GPT-2) and discusses output dimensions of multi-head attention; GPT uses 768-d representations throughout the block."
+      },
+      {
+        "sentence_id": "ch04.s04.p03.r01",
+        "text": "When embeddings enter the Transformer block, dimensionality is preserved, so each token is still represented by a 768-dimensional vector.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell63",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell113",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The transformer block description explicitly assumes 768-d token embeddings in and produces an output of similar size, indicating dimensionality is preserved through the block."
+      },
+      {
+        "sentence_id": "ch04.s04.p03.r02",
+        "text": "After multi-head attention there is another dropout layer that randomly turns some context vector values to zero.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell8",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell124",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell112"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference applies dropout to the attention weights (after computing them), not as a separate dropout layer applied after multi-head attention to the context vector values."
+      },
+      {
+        "sentence_id": "ch04.s04.p03.r03",
+        "text": "A shortcut connection adds the output of a layer back to the input that entered the Transformer block.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell58",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell58"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The shortcut/residual connection is described as adding a layer’s output to a later output (i.e., adding back to the main stream), matching the idea of adding a layer’s output to the input/residual path in a transformer block."
+      },
+      {
+        "sentence_id": "ch04.s04.p03.r04",
+        "text": "Shortcut connections provide another route for gradient flow and help prevent the vanishing gradient problem, which makes training proceed more smoothly.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell56",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell54",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell51"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states shortcut connections create an alternative shorter path for gradient flow and were proposed to mitigate vanishing gradients."
+      },
+      {
+        "sentence_id": "ch04.s04.p03.r05",
+        "text": "After this shortcut connection, another round of layer normalization is applied without changing the dimensions.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell55",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell58"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference says LayerNorm is applied both before and after the multi-head attention module within the transformer block; LayerNorm does not change dimensionality."
+      },
+      {
+        "sentence_id": "ch04.s04.p03.r06",
+        "text": "In that second layer normalization, each token’s values are again normalized by subtracting the mean and dividing by the square root of the variance so that the mean becomes 0 and the variance becomes 1.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference notes LayerNorm normalizes by subtracting the mean and dividing by the standard deviation, but also applies trainable scale and shift, so the post-LayerNorm outputs are not guaranteed to have mean 0 and variance 1."
+      },
+      {
+        "sentence_id": "ch04.s04.p03.r07",
+        "text": "The feed-forward neural network is an expansion-contraction network.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell38",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell45",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell43"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided passages introduce implementing a feed-forward module but do not explicitly characterize it as an ‘expansion-contraction network’ in the cited text."
+      },
+      {
+        "sentence_id": "ch04.s04.p03.r09",
+        "text": "Each token enters this network with embedding size 768, is projected into a hidden layer of size 4 times 768, and is then contracted back to the original dimension.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell63",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell11"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited passages specify emb_dim=768 but do not provide the feed-forward hidden dimension as 4×768 and the explicit project-expand-contract description in the referenced snippets."
+      },
+      {
+        "sentence_id": "ch04.s04.p03.r10",
+        "text": "The output of the feed-forward neural network has the same dimension as its input.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell38",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell45",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell43"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references mention implementing a FeedForward module and print the embedding dimension, but they do not state or show that the feed-forward network’s output dimension equals its input dimension."
+      },
+      {
+        "sentence_id": "ch04.s04.p03.r11",
+        "text": "This expansion and contraction allow a richer exploration of parameters and help the model predict the next word better.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell82",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references cover next-word prediction training targets (shifted inputs), but do not discuss FFN expansion/contraction or claim that it improves next-word prediction via richer parameter exploration."
+      },
+      {
+        "sentence_id": "ch04.s04.p03.r12",
+        "text": "Because the middle layer has 4 times the embedding dimension, it contains many parameters and provides a richer exploration space.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell132"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The passages do not state that the FFN middle layer is 4× the embedding dimension, nor that this implies many parameters or a richer exploration space."
+      },
+      {
+        "sentence_id": "ch04.s04.p03.r13",
+        "text": "After the feed-forward network there is another dropout layer that randomly sets certain values in every token to zero, and typically one dropout rate is specified at the start and used everywhere dropout layers are implemented.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell115",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell112",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell114"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references explain dropout in general and where it can be applied (e.g., in attention), but do not state that there is a dropout layer after the feed-forward network in the transformer block or that a single dropout rate is typically specified and reused everywhere."
+      },
+      {
+        "sentence_id": "ch04.s04.p04.r02",
+        "text": "The second shortcut connection adds the output after this dropout layer to the input of that sublayer.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell58",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell51",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references define shortcut/residual connections conceptually but do not specify a “second” shortcut connection in the transformer block that adds post-dropout output to that sublayer’s input."
+      },
+      {
+        "sentence_id": "ch04.s04.p04.r03",
+        "text": "The output after this second shortcut connection is the Transformer block output.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell58",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell64",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show that TransformerBlock maps an input tensor to an output tensor of the same shape, but they do not explicitly tie this to “the output after the second shortcut connection” being the block output."
+      },
+      {
+        "sentence_id": "ch04.s04.p04.r04",
+        "text": "A Transformer block preserves the token embedding dimension, so its output has the same dimensions as its input, with each token still represented by a 768-dimensional vector.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell63",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell65"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states that with input shape [batch_size, num_tokens, emb_dim] (e.g., 768) the transformer block produces an output of similar size, and the code example prints matching input/output shapes."
+      },
+      {
+        "sentence_id": "ch04.s04.p04.r06",
+        "text": "The Transformer block is the heart of the entire GPT architecture.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell67",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell64"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references say the transformer block is repeated multiple times and is plugged into the GPT architecture, but do not characterize it as “the heart” of GPT."
+      },
+      {
+        "sentence_id": "ch04.s04.p04.r07",
+        "text": "Its internal workflow can be read as eight steps in order: layer normalization, masked multi-head attention, dropout, a shortcut connection, another layer normalization, a feed-forward neural network, dropout, and a final shortcut connection to produce the block output.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell57",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell19",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell58"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While references mention layer norm placement and that transformer blocks use attention, FFN, dropout, and shortcuts, they do not enumerate an eight-step internal workflow in the specific order listed."
+      },
+      {
+        "sentence_id": "ch04.s04.p04.r08",
+        "text": "In the coded summary of the block, the steps are described as input embeddings going through dropout, layer normalization, masked multi-head attention, dropout, a shortcut connection, another layer normalization, a feed-forward neural network, dropout, and another shortcut connection.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell21",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell57",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell55"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided cited cells concern layer norm and shortcut examples, but do not show a coded summary describing the block as starting with dropout then layer norm, etc., in the stated order."
+      },
+      {
+        "sentence_id": "ch04.s04.p04.r09",
+        "text": "The coded feed-forward block takes the embedding dimension as input, expands to four times the embedding dimension, then contracts back to the embedding dimension, and uses a GELU activation function.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell92"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "None of the cited passages show the FeedForward code or specify the expand-to-4×-emb_dim then contract-back pattern with GELU."
+      },
+      {
+        "sentence_id": "ch04.s04.p04.r10",
+        "text": "GELU differs from ReLU because for negative inputs it is not zero and it is differentiable at zero, which is why GELU is generally used in LLM training.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell43",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell42",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell39"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references support that ReLU outputs zero for negative inputs and GELU is smooth with non-zero gradient for some negative values, but they do not state GELU is differentiable at zero nor that this is why GELU is generally used in LLM training."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch04.s04.p01.03",
+        "text": "These embedding and dropout steps happen outside the Transformer block, and only after that does the model enter the block.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell60",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell59",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell64"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Ref states the transformer block itself uses dropout (as part of the block), so dropout is not only outside the block as the sentence claims."
+      },
+      {
+        "sentence_id": "ch04.s04.p02.r09",
+        "text": "A context vector keeps the token’s semantic meaning and also captures how much attention should be given to the other tokens in the sentence.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell67"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The references describe context vectors as weighted sums over value/input vectors and separately describe attention weights/masking as the mechanism that connects tokens; they do not define the context vector itself as ‘capturing how much attention should be given’ (that is captured by the attention weights)."
+      },
+      {
+        "sentence_id": "ch04.s04.p03.r02",
+        "text": "After multi-head attention there is another dropout layer that randomly turns some context vector values to zero.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/multihead-attention.ipynb#cell8",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell124",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell112"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference applies dropout to the attention weights (after computing them), not as a separate dropout layer applied after multi-head attention to the context vector values."
+      },
+      {
+        "sentence_id": "ch04.s04.p03.r06",
+        "text": "In that second layer normalization, each token’s values are again normalized by subtracting the mean and dividing by the square root of the variance so that the mean becomes 0 and the variance becomes 1.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell33",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell23"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference notes LayerNorm normalizes by subtracting the mean and dividing by the standard deviation, but also applies trainable scale and shift, so the post-LayerNorm outputs are not guaranteed to have mean 0 and variance 1."
+      }
+    ]
+  }
+}

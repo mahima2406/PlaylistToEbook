@@ -1,0 +1,33 @@
+{
+  "stage": "listings",
+  "item": "ch06.s02",
+  "inputs_hash": "650cf5b4dbca5419e4f46de1161576b3123b4d9984818dfc225ea19b7d4ba999",
+  "output_hash": "1ff0e229fac53db70652e8b85a18d43b60ac15c0ce0f38a08493c6f778fbb3e0",
+  "output": {
+    "section_id": "ch06.s02",
+    "listings": [
+      {
+        "id": "ch06.s02.code2",
+        "ref": "ref:ch07/01_main-chapter-code/ch07.ipynb#cell30",
+        "path": "ch07/01_main-chapter-code/ch07.ipynb",
+        "caption": "Implements an InstructionDataset class that formats each data entry, appends a response section from the output field, and tokenizes the full text for storage.",
+        "code": "import torch\nfrom torch.utils.data import Dataset\n\n\nclass InstructionDataset(Dataset):\n    def __init__(self, data, tokenizer):\n        self.data = data\n\n        # Pre-tokenize texts\n        self.encoded_texts = []\n        for entry in data:\n            instruction_plus_input = format_input(entry)\n            response_text = f\"\\n\\n### Response:\\n{entry['output']}\"\n            full_text = instruction_plus_input + response_text\n            self.encoded_texts.append(\n                tokenizer.encode(full_text)\n            )\n\n    def __getitem__(self, index):\n        return self.encoded_texts[index]\n\n    def __len__(self):\n        return len(self.data)",
+        "truncated": false,
+        "check": "matches",
+        "reason": "The code defines an InstructionDataset class that, on initialization, iterates over instruction/input/output entries, uses format_input(entry) to build the Alpaca-style instruction+input portion, appends a \"### Response\" section using entry['output'], tokenizes the resulting full text via tokenizer.encode, and stores the token IDs. __getitem__ returns the stored token IDs and __len__ matches the dataset size. This directly demonstrates the section’s described next step and the caption accurately reflects the implementation."
+      }
+    ],
+    "rejected": [
+      {
+        "id": "ch06.s02.code1",
+        "ref": "ref:ch07/01_main-chapter-code/ch07.ipynb#cell18",
+        "path": "ch07/01_main-chapter-code/ch07.ipynb",
+        "caption": "Defines a format_input function that builds the Alpaca-style instruction text with a fixed intro, the entry's instruction, and an optional input section.",
+        "code": "def format_input(entry):\n    instruction_text = (\n        f\"Below is an instruction that describes a task. \"\n        f\"Write a response that appropriately completes the request.\"\n        f\"\\n\\n### Instruction:\\n{entry['instruction']}\"\n    )\n\n    input_text = f\"\\n\\n### Input:\\n{entry['input']}\" if entry[\"input\"] else \"\"\n\n    return instruction_text + input_text",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The code matches the section’s description of a format_input function that creates the Alpaca-style prompt prefix (fixed intro + instruction + optional input). The caption accurately describes that behavior. However, the section also teaches appending the dataset response/output and converting prompts to token IDs and using an instruction dataset class; this excerpt only formats the instruction/input portion and does not append the response or handle tokenization/class logic."
+      }
+    ]
+  }
+}

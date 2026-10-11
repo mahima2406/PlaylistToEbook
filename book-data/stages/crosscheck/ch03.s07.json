@@ -1,0 +1,448 @@
+{
+  "stage": "crosscheck",
+  "item": "ch03.s07",
+  "inputs_hash": "31accca1f158a0aad6ffec39ce7204df293b705826462d252074c82b1c974243",
+  "output_hash": "f8f9edeb4f9e6dc88279a8760893e30c9dc8cf68896d9cdcd300e74bc3f92796",
+  "output": {
+    "section_id": "ch03.s07",
+    "checked": 34,
+    "counts": {
+      "agrees": 20,
+      "contradicts": 2,
+      "not_covered": 12
+    },
+    "results": [
+      {
+        "sentence_id": "ch03.s07.p01.02",
+        "text": "Causal attention, also called masked attention, is a special form of self-attention.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell97",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell118",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell92"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference explicitly discusses and implements “causal self-attention” and describes it as masking in self-attention (masked attention)."
+      },
+      {
+        "sentence_id": "ch03.s07.p01.03",
+        "text": "It restricts the model to consider only the previous and current inputs in a sequence when processing a token, in contrast to ordinary self-attention, which allows access to the entire input sequence at once.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell67",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell95"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs state the causal mask lets a current token attend only to current and previous positions, unlike ordinary attention connecting each token to each other token."
+      },
+      {
+        "sentence_id": "ch03.s07.p01.04",
+        "text": "When computing attention for a query token, the model only factors in tokens that occur at or before that token in the sequence.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell67",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell95",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell41"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs say the causal mask lets a current token attend to current and previous token positions and masks out future tokens."
+      },
+      {
+        "sentence_id": "ch03.s07.p01.05",
+        "text": "In GPT-like language models, this is done by masking out the future tokens that come after the current token.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell95",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell67",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell92"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs explicitly describe masking out future tokens in GPT-like models / causal attention (above-diagonal masking)."
+      },
+      {
+        "sentence_id": "ch03.s07.p01.06",
+        "text": "The purpose of causal attention is to prevent future tokens from influencing the current token.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell92",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell91",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell95"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs state causal masking ensures the model cannot use future tokens when computing context vectors/predictions."
+      },
+      {
+        "sentence_id": "ch03.s07.p01.07",
+        "text": "The context size matters here because it specifies how many words the LLM can look at before predicting the next word.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell76",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell72"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided references do not define “context size” as how many words the LLM can look at before predicting the next word."
+      },
+      {
+        "sentence_id": "ch03.s07.p01.08",
+        "text": "In the running example, the context length is six because there are six tokens, which matches the six rows of the attention score or attention weight matrix.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell62",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell44",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell92"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs shown do not state that the running example has context length six or tie it to six tokens/rows in the attention matrix."
+      },
+      {
+        "sentence_id": "ch03.s07.p02.02",
+        "text": "The self-attention class initializes trainable query, key, and value weight matrices randomly, multiplies the inputs by them to get queries, keys, and values, computes attention scores as queries times keys transpose, scales by the square root of the key dimension, applies softmax to get attention weights, and multiplies the attention weights by the values to get the context vector matrix.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell98",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs describe Wq/Wk/Wv projections to queries/keys/values, compute scores as QK^T, scale by sqrt(d_k), softmax to weights, and use weights to form context vectors (weighted sum over values)."
+      },
+      {
+        "sentence_id": "ch03.s07.p02.03",
+        "text": "To begin causal attention from that code, first compute the queries and keys, then the attention scores as queries multiplied by keys transpose, divide by the square root of the key dimension, and apply softmax to get attention weights before masking.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell98",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell97"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs show computing Q, K, scores (QK^T), scaling, and softmax to get attention weights; causal section then proceeds to masking based on those scores/weights."
+      },
+      {
+        "sentence_id": "ch03.s07.p02.04",
+        "text": "At that point, the causal part begins by generating a mask whose entries above the diagonal are zero.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell101",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell99",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell106"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs describe creating a tril mask with ones on/below the diagonal and zeros above the diagonal (i.e., above-diagonal entries are zero)."
+      },
+      {
+        "sentence_id": "ch03.s07.p02.05",
+        "text": "Causal attention masks out the attention weights above the diagonal of the attention matrix, and the region above the diagonal is the causal attention mask.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell101",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell106",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell99"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs state attention weights above the diagonal are masked/zeroed (or scores set to -inf) using a tril mask; this corresponds to the causal mask region above the diagonal being masked out."
+      },
+      {
+        "sentence_id": "ch03.s07.p02.06",
+        "text": "One strategy is to compute the usual attention scores and attention weights, set the elements above the diagonal to zero, and then renormalize the remaining attention weights.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell101",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell99",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell21"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs describe an approach of zeroing out attention weights above the diagonal and renormalizing, contrasted with the more efficient -inf masking before softmax."
+      },
+      {
+        "sentence_id": "ch03.s07.p03.r02",
+        "text": "An upper triangular matrix has all elements below the diagonal equal to zero, and a lower triangular matrix has all elements above the diagonal equal to zero.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell46",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell99",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell101"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference describes a lower-triangular mask as having ones on/below the diagonal and zeros above, consistent with the standard definition of triangular matrices."
+      },
+      {
+        "sentence_id": "ch03.s07.p03.r03",
+        "text": "\"torch.triu\" produces an upper triangular matrix, while \"torch.tril\" produces a lower triangular matrix with all elements above the diagonal set to zero.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell99",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell46",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell115"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly states torch.tril creates a lower-triangular matrix with zeros above the diagonal; this is consistent with torch.triu producing an upper-triangular matrix."
+      },
+      {
+        "sentence_id": "ch03.s07.p03.r04",
+        "text": "To construct the causal mask with zeros above the diagonal, use a lower triangular matrix, so \"torch.tril\" is the right choice.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell99",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell106",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell101"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference says to mask future positions by using torch.tril so entries above the diagonal are zero."
+      },
+      {
+        "sentence_id": "ch03.s07.p03.r05",
+        "text": "The code builds this mask by applying \"torch.tril\" to a square matrix of ones with shape context length by context length, which sets all entries above the diagonal to zero.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell100",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell99",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell108"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The code shown constructs mask_simple = torch.tril(torch.ones(context_length, context_length)), yielding a square ones matrix with entries above the diagonal set to 0."
+      },
+      {
+        "sentence_id": "ch03.s07.p03.r06",
+        "text": "Multiplying the attention weights by this mask sets all elements above the diagonal in the attention weights to zero and produces a masked attention weight matrix.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell101",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell99",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell38"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference states that multiplying attention weights by the tril-based mask zeros out values above the diagonal, producing masked attention weights."
+      },
+      {
+        "sentence_id": "ch03.s07.p03.r07",
+        "text": "After masking, the result is not yet a valid attention weight matrix because each row no longer sums to one.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell110",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell105"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference shows that after applying the mask post-softmax, they compute row sums and renormalize, implying the masked rows no longer sum to 1 prior to renormalization."
+      },
+      {
+        "sentence_id": "ch03.s07.p03.r08",
+        "text": "To renormalize, compute the sum of each row and divide every element in that row by that row sum.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell53",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell52"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference demonstrates renormalization by computing row_sums = masked_simple.sum(...) and dividing masked_simple by row_sums."
+      },
+      {
+        "sentence_id": "ch03.s07.p03.r09",
+        "text": "After this renormalization, each row of the masked attention weight matrix sums to one.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell105",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell53"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference renormalizes masked weights by row sums and discusses/validates that rows sum to 1 after normalization."
+      },
+      {
+        "sentence_id": "ch03.s07.p03.r10",
+        "text": "Then multiply the renormalized attention weights by the values matrix to obtain the context vector matrix.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell101",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell77"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references discuss masking and (elsewhere) general matrix multiplication, but do not explicitly state in the cited passages that the renormalized masked attention weights are multiplied by the values matrix to obtain the context vectors."
+      },
+      {
+        "sentence_id": "ch03.s07.p04.r02",
+        "text": "If masking is done after softmax, future tokens have already influenced the earlier attention values because the softmax denominator includes all scores.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell103",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell92"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference notes masking after softmax disrupts the probability distribution and requires renormalization, but it does not state that earlier attention values are influenced via the softmax denominator including all (future) scores."
+      },
+      {
+        "sentence_id": "ch03.s07.p04.r03",
+        "text": "This creates a data leakage problem even if the future-token weights are later set to zero.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell92",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell7"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference states causal masking prevents using future tokens, but does not explicitly describe a 'data leakage' problem arising from applying the mask after softmax even if weights are later zeroed."
+      },
+      {
+        "sentence_id": "ch03.s07.p04.r04",
+        "text": "A better approach is to apply an upper triangular infinity mask to the attention scores before softmax and then apply softmax once.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell106",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell103",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell101"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference recommends masking unnormalized attention scores above the diagonal with negative infinity before softmax (implemented via an upper-triangular mask with torch.triu(..., diagonal=1) and masked_fill(..., -inf)) so softmax is applied once."
+      },
+      {
+        "sentence_id": "ch03.s07.p04.r05",
+        "text": "In this method, the elements above the diagonal in the attention score matrix are replaced with negative infinity before softmax.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell106",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell99",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell46"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly states masking unnormalized attention scores above the diagonal with negative infinity before softmax."
+      },
+      {
+        "sentence_id": "ch03.s07.p04.r06",
+        "text": "Using an upper triangular matrix is appropriate here because the positions above the diagonal are the ones to be replaced.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell99",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell115",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell106"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference describes creating the causal mask with torch.tril (lower triangular kept; above-diagonal set to 0). Using an upper triangular matrix as the mask is not what the cited masking construction uses (it uses a lower-triangular keep-mask)."
+      },
+      {
+        "sentence_id": "ch03.s07.p04.r07",
+        "text": "The code constructs this mask from a 6 by 6 matrix of ones, takes its upper triangular part, and uses the ones as the positions to replace with negative infinity.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell106",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell115",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell100"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The negative-infinity masking code uses context_length and torch.triu(..., diagonal=1) to create the mask; it is not constructed as “take a 6x6 ones matrix, take its upper-triangular part, and use ones as fill positions.” The shown 6x6 ones matrix in cell115 is for a dropout example, not the attention mask."
+      },
+      {
+        "sentence_id": "ch03.s07.p04.r08",
+        "text": "The mask fill operation finds the positions where the mask is true or positive and replaces the corresponding attention-score entries with negative infinity.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell106",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell101",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell99"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references shown discuss tril-based masking and multiplying weights by a mask, but do not state the specific masked_fill criterion of “mask is true or positive” for replacing attention scores with -inf."
+      },
+      {
+        "sentence_id": "ch03.s07.p04.r09",
+        "text": "After masking, the attention scores are divided by the square root of the key dimension and then softmax is applied.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell79",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell27",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell103"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references mention scaling by sqrt(d_k) and discuss why masking after softmax is problematic, but they do not specify the exact ordering “after masking, divide by sqrt(d_k) and then softmax” for the negative-infinity masking approach."
+      },
+      {
+        "sentence_id": "ch03.s07.p04.r10",
+        "text": "Setting future-score entries to negative infinity makes their exponentials zero, so softmax turns those positions into zeros and automatically produces rows that sum to one.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell44"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No provided reference passage explains the softmax(-inf) -> 0 exponential behavior or the row-sum-to-one consequence."
+      },
+      {
+        "sentence_id": "ch03.s07.p04.r11",
+        "text": "Applying the negative-infinity mask before softmax avoids leakage because future-token influence is removed before normalization.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell106",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell94",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell99"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references state that masking with -inf happens before softmax, but they do not explicitly describe leakage avoidance as “future-token influence is removed before normalization.”"
+      },
+      {
+        "sentence_id": "ch03.s07.p04.r12",
+        "text": "Masking in transformers sets scores for future tokens to a very large negative value so their influence in softmax is effectively zero, and softmax then recalculates attention weights among the unmasked tokens.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell101",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell92",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell103"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss masking above-diagonal weights and note that masking after softmax disrupts the distribution, but they do not explicitly describe setting scores to a very large negative value so softmax makes them effectively zero and renormalizes over unmasked tokens."
+      },
+      {
+        "sentence_id": "ch03.s07.p04.r13",
+        "text": "This ensures no information leakage from masked tokens.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell105",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell108",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell102"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited cells show masking and normalization operations but do not explicitly state the claim about ensuring no information leakage."
+      },
+      {
+        "sentence_id": "ch03.s07.p04.r14",
+        "text": "Once the attention weight matrix is obtained, it is multiplied by the value matrix to get the context vector.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell77"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references shown focus on Q/K/V projections and a note about PyTorch matmul handling dimensions; they do not state that attention weights are multiplied by the value matrix to produce the context vector."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch03.s07.p04.r06",
+        "text": "Using an upper triangular matrix is appropriate here because the positions above the diagonal are the ones to be replaced.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell99",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell115",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell106"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference describes creating the causal mask with torch.tril (lower triangular kept; above-diagonal set to 0). Using an upper triangular matrix as the mask is not what the cited masking construction uses (it uses a lower-triangular keep-mask)."
+      },
+      {
+        "sentence_id": "ch03.s07.p04.r07",
+        "text": "The code constructs this mask from a 6 by 6 matrix of ones, takes its upper triangular part, and uses the ones as the positions to replace with negative infinity.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell106",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell115",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell100"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The negative-infinity masking code uses context_length and torch.triu(..., diagonal=1) to create the mask; it is not constructed as “take a 6x6 ones matrix, take its upper-triangular part, and use ones as fill positions.” The shown 6x6 ones matrix in cell115 is for a dropout example, not the attention mask."
+      }
+    ]
+  }
+}

@@ -420,8 +420,36 @@ table.plain th { font-size: 12px; color: var(--muted); font-weight: 600 }
       <div class="grid3">
         <div class="card"><h2>Reference cross-check</h2>${cr ? `<div style="display:grid;gap:6px"><div><span class="pill good">agrees</span> ${cr.agrees}</div><div><span class="pill bad">contradicts</span> ${cr.contradicts}</div><div><span class="pill mute">not covered</span> ${cr.not_covered}</div></div>` : '<div class="empty">Not run yet.</div>'}</div>
         <div class="card"><h2>Code run</h2>${code ? `<p style="margin:0">${code.listings_ran} of ${code.listings} listings ran</p><p style="margin:4px 0 0"><span class="pill good">${code.checks_passed} numbers confirmed</span> <span class="pill ${code.checks_failed ? "bad" : "mute"}">${code.checks_failed} disagree</span></p>` : `<div class="empty">${m.listings ? m.listings + " listings found; run <span class='mono'>coursebook run-code</span>" : "Not run yet."}</div>`}</div>
-        <div class="card"><h2>Board figures</h2>${boards ? `<p style="margin:0"><span class="hand" style="font-size:30px">${boards.kept}</span> kept of ${boards.looked_at} moments read</p><p class="muted" style="font-size:13px">Each checked against the frame and the speech.</p>` : '<div class="empty">Not run yet.</div>'}</div>
-      </div></section>`;
+        <div class="card"><h2>Board figures</h2>${boards ? `<p style="margin:0"><span class="hand" style="font-size:30px">${boards.kept}</span> kept of ${boards.looked_at} moments read</p><p class="muted" style="font-size:13px">Each checked against the frame and the speech. Details below.</p>` : '<div class="empty">Not run yet.</div>'}</div>
+      </div>
+      ${videoImages(boards)}</section>`;
+  }
+
+  /* ---------- images from the video ---------- */
+  function videoImages(boards) {
+    const found = [];
+    D.chapters.forEach((c, ci) => c.sections.forEach((s) => s.p.forEach((p) => (p.boards || []).forEach((b) => found.push({ ...b, where: `${ci + 1}. ${c.title} → ${s.title}` })))));
+    const steps = [["the lecturer points", "“as you can see here…” marks a moment worth a picture"], ["one frame is grabbed", "a single still from the video at that second (opt-in: it downloads video)"],
+      ["it is redrawn", "an AI with vision redraws the board as a clean diagram or equation"], ["it is checked twice", "against the frame itself and against what is said; anything invented is dropped"]];
+    const w = 190, gap = 22;
+    const sketch = `<svg viewBox="0 0 ${steps.length * (w + gap)} 120" role="img" aria-label="Four steps: the lecturer points at the screen, one frame is grabbed, it is redrawn, and it is checked against the image and the speech.">
+      ${steps.map(([t], i) => { const x = 6 + i * (w + gap); return `<g class="rough"><rect class="${i === 3 ? "bp" : "bx"}" x="${x}" y="22" width="${w}" height="56" rx="10"/></g>
+        <text class="t" x="${x + w / 2}" y="57" text-anchor="middle" style="font-size:18px">${t}</text>
+        ${i < steps.length - 1 ? `<path class="ln" d="M${x + w + 3},50 h${gap - 8}" marker-end="url(#ar)"/>` : ""}`; }).join("")}</svg>`;
+    return `<div class="card" style="display:grid;gap:14px">
+      <h2 style="margin:0">Images from the video</h2>
+      <p style="margin:0;max-width:72ch">The captions only carry what was said. When a lecture explains something on the screen, a diagram, an equation or a sketch, the book gets it this way:</p>
+      <div class="sk">${sketch}</div>
+      <ul class="clean">${steps.map(([t, d]) => `<li><b>${t}:</b> <span class="muted">${d}</span></li>`).join("")}</ul>
+      ${boards ? `<div class="tiles"><div class="tile"><b>${boards.looked_at}</b><span>moments looked at</span></div><div class="tile"><b>${boards.kept}</b><span>figures kept in the book</span></div>
+        <div class="tile"><b>${boards.looked_at - boards.kept}</b><span>not used: nothing clear to redraw, or a detail the board didn't show</span></div></div>` : ""}
+      ${found.length ? `<table class="plain"><thead><tr><th>From the video</th><th>What it shows</th><th>Where in the book</th></tr></thead><tbody>
+        ${found.map((b) => `<tr><td><a class="mono" href="${esc(b.u)}" target="_blank" rel="noopener">${esc(b.at)}</a></td><td>${esc(b.caption)}</td><td class="muted">${esc(b.where)}</td></tr>`).join("")}</tbody></table>` : ""}
+      <div class="box" style="margin:0;max-width:none"><div class="h">What this does not cover</div><ul>
+        <li>Only sampled moments are read, a few per chapter, so most of what appears on screen is not turned into figures. It reaches the book only through what the lecturer says.</li>
+        <li>Code on screen is not read from the video. Where the course has a companion repository, listings come from it word for word and are run.</li>
+        <li>Other diagrams in the book are drawn from the checked text, not from the video, and each arrow must match a checked sentence.</li></ul></div>
+    </div>`;
   }
 
   /* ---------- brief ---------- */

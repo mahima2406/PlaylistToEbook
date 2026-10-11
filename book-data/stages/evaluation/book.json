@@ -1,0 +1,3828 @@
+{
+  "stage": "evaluation",
+  "item": "book",
+  "inputs_hash": "71a2ef2fdfd24bb42c3d7b13542ac4ffb70725b116307be802b5727c568afed5",
+  "output_hash": "bc95339d7debfa0d6588febc2213dca9b8882c2921e7324a16740d4ae3770c98",
+  "output": {
+    "metrics": {
+      "grounding_sample": 200,
+      "grounding_votes": 3,
+      "grounding_self_disagreement": 0.1,
+      "independent_support": 0.965,
+      "material_errors_per_100": 1.5,
+      "agreement_with_judge": 0.935,
+      "coverage_clips": 20,
+      "core_ideas_seen": 141,
+      "core_ideas_missed": 0.0426,
+      "core_ideas_missed_near_clip": 0.1277,
+      "quality_average": 3.66
+    },
+    "checks": {
+      "independent_support": true,
+      "material_errors_per_100": true,
+      "core_ideas_missed": true,
+      "quality_average": true
+    },
+    "passed": true,
+    "grounding": [
+      {
+        "sentence_id": "ch03.s10.p01.06",
+        "text": "In GPT and modern transformer architectures, layer normalization is applied before multi-head attention, before the neural network module inside the transformer block, and once more outside the transformer block before the final output layer.",
+        "verdict": "partial",
+        "material": true,
+        "reason": "The cited lines support layer normalization before multi-head attention, before the neural network module, and once before the final output layer outside the transformer block. However, they do not explicitly state that the normalization before the neural network module is specifically 'inside the transformer block' as phrased, nor fully establish all placement details exactly as summarized.",
+        "votes": [
+          "supported",
+          "partial",
+          "partial"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s13.p01.04",
+        "text": "Top-k sampling is paired with it because, after temperature scaling, random tokens can still have an opportunity to become the next token, whereas top-k sampling restricts sampling to the top-k most likely tokens.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s12.p01.08",
+        "text": "The main distinction is that this version tracks the number of text examples rather than the number of tokens.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch06.s14.p04.r01",
+        "text": "The fine-tuning method used here was standard full fine-tuning: all parameters in the architecture were updated based on the specific dataset.",
+        "verdict": "partial",
+        "material": true,
+        "reason": "The lines say the demonstrated technique involved updating all parameters based on the dataset, but they do not explicitly call it 'standard full fine-tuning.' That terminology is added by the sentence.",
+        "votes": [
+          "supported",
+          "partial",
+          "partial"
+        ]
+      },
+      {
+        "sentence_id": "ch06.s13.p02.05",
+        "text": "During the download, instructions are printed in the terminal, and after success, right-side arrows appear to show that Llama 3 is loaded.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s12.p04.r02",
+        "text": "Instead of vanilla gradient descent, the optimization in practice uses a more complicated algorithm that keeps track of previous gradients and gradient squares so that optimization is done better and the model does not get stuck in local minima.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s03.p03.r01",
+        "text": "Softmax takes the exponent of each element and divides it by the sum of the exponents of all elements.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s05.p03.06",
+        "text": "Softmax is applied to each row, and the entries in each row of the resulting attention weight matrix sum to one.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch06.s13.p02.09",
+        "text": "Before using Ollama to evaluate test responses, run the verification code and confirm that it prints \"Ollama running = true\"; if it prints false, Ollama is not running successfully.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s06.p01.03",
+        "text": "For the sentence \"my hobby is playing cricket,\" this means tokens are individual characters such as \"m\", \"y\", \"h\", \"o\", and \"b\" instead of whole words.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s11.p03.04",
+        "text": "In this name, \"300\" is the embedding dimension: each word is mapped into a 300-dimensional vector space.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s10.p02.r03",
+        "text": "Training deep neural networks with many layers can be challenging because they can suffer from vanishing gradients or exploding gradients, which leads to unstable training dynamics.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s03.p03.r02",
+        "text": "This settings dictionary contains the information from hparams.json, including the vocabulary size, context length, embedding dimension, number of attention heads, and number of transformer blocks.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s14.p03.05",
+        "text": "Relative positional encoding is suitable for tasks like language modeling or long sequences where the same phrase can appear in different parts of the sequence.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch01.s11.p02.r03",
+        "text": "From lecture 7 onward, the material dives deeply into code and starts stage one.",
+        "verdict": "partial",
+        "material": false,
+        "reason": "The cited lines say they will be 'starting into stage one' and diving deep into code from lecture 7, but the sentence adds 'starts stage one' more definitively than the fragmentary caption supports.",
+        "votes": [
+          "partial",
+          "partial",
+          "partial"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s10.p07.r11",
+        "text": "Because the scale and shift vectors have the embedding dimension, they can be applied to the normalized output by element-wise multiplication and element-wise addition.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s09.p03.r08",
+        "text": "In the example, \"D_out\" is chosen to be 6, the same as \"D_in\", which is described as typical in GPT-based models.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s10.p08.04",
+        "text": "In large language models, using n instead of n minus 1 makes little practical difference because the embedding dimension is large.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s09.p01.r03",
+        "text": "The loss function is obtained by comparing the model output with the target value, and training and validation losses are then calculated.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "partial"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s09.p01.r05",
+        "text": "The first preprocessing step is to split this dataset into training and validation data with a training ratio of 0.9, using the initial 90% for training and the remaining 10% for validation.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch01.s04.p01.r06",
+        "text": "Generative AI is broader than language alone and includes video, audio, and 3D models.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s11.p02.02",
+        "text": "During backpropagation, gradient flow goes from the output of the network to the input, so later-layer gradients are used to compute earlier-layer gradients.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch01.s06.p01.02",
+        "text": "The specific secret sauce behind large language models is the Transformer architecture.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s08.p01.r06",
+        "text": "A more common choice is to apply dropout after calculating the attention weights or attention scores.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s14.p02.03",
+        "text": "There are two types of positional encoding: absolute positional encoding and relative positional encoding.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s11.p05.04",
+        "text": "Classification accuracy cannot be used directly as the loss, or inverted to form a loss, because accuracy is not differentiable.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch01.s06.p04.r03",
+        "text": "The model generates its output one word at a time.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch06.s11.p05.r02",
+        "text": "The fine-tuned model should be saved so the session can be resumed later without fine-tuning again.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch06.s07.p02.07",
+        "text": "Masking out instruction tokens trains the model to focus on generating accurate responses rather than memorizing instructions, which can help reduce overfitting.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch01.s01.p02.r01",
+        "text": "Many courses focus on building LLM apps or on large language model concepts, but they do not teach how to build a large language model from scratch.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s14.p01.04",
+        "text": "At this final stage, the fine-tuned GPT-based model is used to classify spam messages.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s10.p01.07",
+        "text": "Overall, layer normalization appears three times in the architecture being discussed: before the multi-head attention, after the multi-head attention, and once before the output.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "unsupported"
+        ]
+      },
+      {
+        "sentence_id": "ch06.s02.p02.02",
+        "text": "It reports 1100 entries and verifies the contents by printing the 50th and 999th examples and confirming that they match the dataset.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s07.p02.r03",
+        "text": "To balance the classes, 747 non-spam entries were randomly sampled so that spam and non-spam each had 747 examples.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s11.p06.r03",
+        "text": "To summarize gradient flow per layer, the backward pass computes gradients for all weights in a layer and then takes the mean of those values as that layer's mean gradient.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s08.p01.r05",
+        "text": "In transformer architectures, including GPT, dropout in the attention mechanism is usually applied either after calculating attention scores or after applying attention weights to the value vectors.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s05.p02.03",
+        "text": "The unknown token represents a word in the input text that the vocabulary does not know, and that word is mapped to the unknown token’s ID.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "The lines state that an unknown word is mapped to the unknown token and then the corresponding token ID, but they do not explicitly say the vocabulary does not know the word.",
+        "votes": [
+          "partial",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s08.p02.03",
+        "text": "With word-based tokenization, these would simply be four tokens, while character-level tokenization would make each character its own token.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s12.p05.06",
+        "text": "A useful way to think about it is as a lookup table: go to the row number associated with the token ID and retrieve that vector.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s08.p02.01",
+        "text": "An alternative approach is to use the longest email length and pad every shorter email with additional tokens until it reaches that length.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch01.s10.p06.r04",
+        "text": "Fine-tuning is generally needed for building production-ready LLM applications.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s11.p07.r01",
+        "text": "The mean gradient becomes much smaller in earlier layers, illustrating the vanishing gradient problem.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s11.p01.04",
+        "text": "Examples such as \"cat\" and \"kitten\" or \"dog\" and \"puppy\" show the kind of semantic closeness that should be represented.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s12.p07.r04",
+        "text": "The input token IDs from the data loader are passed into this token embedding layer to obtain the corresponding embedding vectors.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s08.p05.r05",
+        "text": "GPT-2 can handle sequences up to \"1024\" tokens because its context length is \"1024\", so the maximum length passed here can be at most \"1024\".",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s06.p03.r03",
+        "text": "The model’s parameters come from token embeddings, positional embeddings, Transformer block parameters, and the final layer before the logits.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s06.p06.r03",
+        "text": "This illustrates the relatively large storage capacity required to accommodate even relatively small LLMs, while extremely large models are described as impossible to run on local devices, which is why GPU access is needed.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s08.p02.r05",
+        "text": "When dropout with rate 0.5 is applied, the weights that are not switched off are rescaled by a factor of two.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s08.p05.r13",
+        "text": "Data preprocessing, data cleaning, datasets, and data loaders are usually very important before model training begins.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s07.p03.r05",
+        "text": "The code builds this mask by applying \"torch.tril\" to a square matrix of ones with shape context length by context length, which sets all entries above the diagonal to zero.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch06.s10.p02.04",
+        "text": "One detail matters for instruction-following: the generated text includes the original input together with the model's continuation.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "partial",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s03.p02.r01",
+        "text": "The first step is to map each input token to a token ID in the vocabulary.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s03.p02.05",
+        "text": "A better approach is to split not only on whitespace but also on punctuation and other special characters, and then remove the whitespace tokens afterward.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch01.s08.p01.04",
+        "text": "Attention mechanisms have become an integral part of sequence modeling because they allow modeling dependencies without regard to distance in the input or output sequences.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s11.p05.02",
+        "text": "The graph of negative log of x is used to show that the probability of the correct class should be as close to one as possible, so that the loss becomes as close to zero as possible.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s06.p05.03",
+        "text": "The token embedding layer has shape 50257 by 768, and the output layer has the same shape, which is why GPT-2 reuses those weights.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch06.s13.p05.r09",
+        "text": "That average is described as just above 50, around 55%, and not very good, because some answers are correct and some are wrong.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s04.p04.r06",
+        "text": "The Transformer block is the heart of the entire GPT architecture.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s12.p04.r03",
+        "text": "AdamW is used here, and it is described as a modification of the Adam optimizer with weight decay.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s02.p04.02",
+        "text": "The download_and_load_gpt2 function is imported from the Python file and then run.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s12.p04.02",
+        "text": "In a simplified example, the vocabulary size is 6 and the embedding dimension is 3, so each token is converted into a three-dimensional vector.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch01.s02.p05.07",
+        "text": "Large language models are then a subset of deep learning because deep learning also includes image-based work, while LLMs deal only with text.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s09.p10.r05",
+        "text": "The reason for this transpose is to bring number of heads and head dimension next to each other so they can be merged into \"D_out\" more easily.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s07.p03.r04",
+        "text": "With the labels encoded, the full dataset is split into training, validation, and testing data.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s08.p02.r02",
+        "text": "The probability tensor is indexed at the target positions, and those probabilities are collected together.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "partial"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s07.p01.02",
+        "text": "The dataset is downloaded from a machine learning repository.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s07.p01.05",
+        "text": "In this dataset, non-spam is also called ham.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s09.p01.08",
+        "text": "After initialization, these loaders make it easy to extract batches such as the first, second, or eighth batch.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s02.p01.r06",
+        "text": "Based on these attention weights, the context vector is derived and denoted by z.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s12.p07.r02",
+        "text": "A practical embedding layer is created using the same embedding function with GPT-2’s vocabulary size of 50,257 and a vector dimension of 256, giving an embedding matrix with 50,257 rows and 256 columns.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s10.p01.r03",
+        "text": "That layer is replaced with a classification head that still takes 768 inputs but produces 2 outputs, for spam or no spam.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "The cited lines state the neural network has 768 inputs and 2 outputs for spam or not spam, but they do not explicitly say the original layer itself is being replaced or identify it as 'that layer'.",
+        "votes": [
+          "partial",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s07.p04.r07",
+        "text": "The code constructs this mask as a matrix with ones above the diagonal and uses those ones as the positions to replace with negative infinity.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s09.p11.02",
+        "text": "In the demonstration, there are 3 tokens, embedding dimension 6, \"D_out\" equal to 6, context length equal to 6, dropout rate 0, and 2 heads.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "partial"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s15.p03.r03",
+        "text": "The same input-output pairs can be viewed either as token ID sequences or in textual format showing the corresponding outputs.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s10.p04.06",
+        "text": "The key takeaway is that vectors can capture semantic meaning.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch06.s05.p04.05",
+        "text": "In the draft two example, each target row is the corresponding input row shifted right by one position, with a \"50256\" token appended at the end.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s01.p01.05",
+        "text": "A big PDF file cannot be given directly as input to a large language model and needs further processing first.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s07.p03.r10",
+        "text": "Then multiply the attention weights by the values matrix to obtain the context vector matrix.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s04.p03.r05",
+        "text": "Layer normalization here includes a trainable scale parameter and a trainable shift parameter in addition to subtracting the mean and dividing by the square root of the variance.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s02.p05.05",
+        "text": "The word \"one\" has the lowest attention score for the query \"journey\" because its vector is almost at a 90 degree angle to the \"journey\" vector, so they are not aligned.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch06.s03.p02.01",
+        "text": "The first step in turning formatted data into a numerical representation is tokenization.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s10.p02.r05",
+        "text": "In Python, those gradients are computed with the method \"loss.backward()\".",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s03.p04.r05",
+        "text": "The vocabulary size shown here is 1130.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch06.s08.p04.r05",
+        "text": "The GPT-2 medium configuration has context size 1024, 24 transformer blocks, and 16 attention heads in each transformer block.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s03.p03.r01",
+        "text": "The code maintains a dictionary called \"settings\".",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch01.s06.p05.r05",
+        "text": "When predicting the next word, self-attention lets the model look at past context and weigh which words matter more for the prediction.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch06.s04.p02.04",
+        "text": "That last token corresponds to end of text, which marks that one text sample has ended and a new text sample begins.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch01.s08.p03.03",
+        "text": "That attention score is a matrix that tells the model which words should be given more importance in relation to other words.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s05.p01.02",
+        "text": "The earlier \"GPT config 124 million\" matched GPT-2 almost exactly, except that it used a context size of 256 while the actual GPT-2 context size is 1024.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s08.p05.r11",
+        "text": "The goal during training is to reduce this categorical cross-entropy loss as close to zero as possible.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch01.s01.p01.06",
+        "text": "The same wrong pattern appears when students become fascinated by applications, download code, run it, make small changes, and then write on a resume that they know about LLMs.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch06.s12.p01.r06",
+        "text": "MMLU consists of 57 tasks that cover STEM, humanities, social sciences, and other areas, with difficulty ranging from elementary to professional levels.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s08.p03.03",
+        "text": "The negative log-likelihood is the negative of the mean of the log target probabilities.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s04.p03.02",
+        "text": "Word-based tokenization produces shorter tokenized sequences because each word is one token.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s09.p01.04",
+        "text": "Here, the batch size is set to 8 and the number of workers is set to 0.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s08.p05.05",
+        "text": "This is why BPE is presented as the best of both worlds: it keeps vocabulary size efficient while retaining root-word meaning.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch01.s10.p04.r02",
+        "text": "Pre-training requires very large datasets, typically billions of words, and it is expensive.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s10.p01.03",
+        "text": "Layer normalization appears at multiple places inside the transformer block and also outside the transformer block in the GPT architecture.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s10.p03.r02",
+        "text": "The procedure is to take the last-token outputs, apply softmax to convert them into probabilities, and then choose the index with the highest value.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s06.p01.07",
+        "text": "It also removes the large-vocabulary problem of word-based tokenization, and the small vocabulary makes it computationally and memory efficient.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s06.p03.02",
+        "text": "Take the sentence \"the cat sat on the mat because it is warm\" and use \"warm\" as the query.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s14.p05.r03",
+        "text": "For example, the message \"you are a winner you have been specially selected to receive ,000 cash or $2,000 reward\" is passed through \"classify_review\", and the model predicts spam.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s13.p03.02",
+        "text": "On the full datasets, the training accuracy is 97%, the validation accuracy is 97%, and the test accuracy is 95%.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s03.p03.r10",
+        "text": "That positivity matters for interpretability, because attention can then be read as positive percentages assigned to tokens.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s08.p03.07",
+        "text": "Cross-entropy loss essentially measures the difference between two probability distributions, and in this setting it can be viewed as categorical cross-entropy.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s06.p01.r06",
+        "text": "Even a tiny mistake in this process would cause the model to fail.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s12.p05.04",
+        "text": "For example, the vector returned for token ID 3 is identical to the fourth row of the matrix because the IDs are zero-indexed.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s09.p03.r02",
+        "text": "In the GPT-2 byte pair tokenizer, the end-of-text token is the last token in the vocabulary, so it has the largest token ID, \"50256\".",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch01.s03.p02.r02",
+        "text": "A GPT trained for text completion can also work well for language translation.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s10.p02.r01",
+        "text": "The code takes a batch from the training loader and divides it into an input batch and a target batch.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "partial"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s08.p03.04",
+        "text": "The dataset defines how data is loaded and what the input-target pairs are, and only after that is defined is the data loader instantiated.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s04.p04.r06",
+        "text": "The feed-forward network inside each block has two layers, a fully connected layer and a projection layer, and both layers have weights and biases.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s13.p02.02",
+        "text": "Because the evaluation iteration was set to five, the plotted accuracy values are not representative of performance on the entire dataset.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s10.p06.r07",
+        "text": "Very small nonzero mean values after normalization are due to numerical errors in Python and are very close to zero.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch01.s07.p01.07",
+        "text": "Tokenization can be understood procedurally as breaking sentences into individual tokens and assigning each token a unique numerical ID.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch06.s10.p01.02",
+        "text": "Before fine-tuning, it is useful to check a pre-trained LLM on one validation task by comparing its output with the expected response, even though the model has not been trained or fine-tuned on this dataset yet.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch06.s03.p03.r02",
+        "text": "The token IDs for each prompt are then appended to that empty list.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch06.s13.p05.r02",
+        "text": "The evaluator is described as doing an awesome job at qualitative evaluation, and its quantitative scores kind of make sense even if the exact numbers are not fully clear.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch01.s02.p06.04",
+        "text": "So although the terms are often confused, LLMs are a specific text-focused application within deep learning, while generative AI extends across several media types.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s15.p06.02",
+        "text": "Batch size is how many input batches are processed at one time before updating the parameters, which is the same notion of batch size used in other machine learning frameworks.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s15.p01.02",
+        "text": "Creating input-target pairs is one part of data preprocessing.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s09.p02.r03",
+        "text": "In the GPT-2 tokenization scheme, token ID \"50256\" is the end-of-text token.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s07.p04.r01",
+        "text": "To get output token IDs, the inputs pass through the GPT architecture to produce logits, softmax is applied to obtain probabilities, and then the index with the highest probability is extracted from each row.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch01.s02.p05.05",
+        "text": "A neural network for handwritten digit classification is also an example of deep learning.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s08.p02.07",
+        "text": "In the GPT-2 vocabulary, token \"50256\" is the end-of-text token.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s04.p03.r07",
+        "text": "Layer normalization 1, layer normalization 2, and the final normalization layer all belong to the trainable-parameter category.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch06.s05.p03.07",
+        "text": "It may seem nonintuitive that the true values include the instruction and input as well as the response, but in next-word prediction the LLM learns to predict the response from the instruction and input.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s15.p05.06",
+        "text": "As the code runs, each iteration appends one row to the input tensor and the corresponding row to the target tensor, and looping over the whole text produces all training inputs and outputs.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s03.p01.03",
+        "text": "For this demonstration, a single book is enough to show the preprocessing steps, even though real large language models process millions of articles and hundreds of thousands of books.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "partial",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s08.p06.08",
+        "text": "For the input \"every effort moves\", that means the current model is at a stage where predicting the next token is like choosing among 48725 possible tokens, which indicates high uncertainty and poor performance.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch06.s05.p01.05",
+        "text": "If the input token IDs are \"56 50256 50256 50256\", the target is formed by removing the first token, keeping the remaining tokens, and padding with an extra \"50256\".",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s01.p01.02",
+        "text": "A large language model data pipeline first converts words into tokens, then tokens into token IDs, and then token IDs into vector embeddings.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch06.s07.p01.04",
+        "text": "First, the data is formatted using a prompt template and converted to the Alpaca prompt template.",
+        "verdict": "partial",
+        "material": false,
+        "reason": "The cited lines mention formatting data using a prompt template and elsewhere converting data to the Alpaca prompt template, but they do not clearly establish that the first formatting step specifically converts it to the Alpaca prompt template.",
+        "votes": [
+          "partial",
+          "supported",
+          "partial"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s01.p03.04",
+        "text": "At this stage, the GPT architecture that has been built takes input text and can predict next tokens or next words.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s07.p04.r13",
+        "text": "This ensures no information leakage from masked tokens.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s12.p01.03",
+        "text": "A token embedding converts each token ID into an embedding vector, and the matrix that stores these vectors is also called the embedding layer weight matrix.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s11.p05.r03",
+        "text": "To check relatedness in the embedding space, words are converted into vectors and their similarity is tested, described here as finding the distance between vectors.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s15.p06.07",
+        "text": "The input data is arranged in batches of eight with a context length of four, so each batch contains eight sequences of four tokens each.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch06.s09.p02.03",
+        "text": "This params dictionary consists of the transformer block parameters, token embeddings, positional embeddings, and final normalization layer parameters.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s09.p08.r05",
+        "text": "Before softmax, the scores are divided by the square root of the head dimension.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s09.p04.r05",
+        "text": "The tokenizer created with \"get_encoding\" can then be tested with both \"encode\" and \"decode\".",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s09.p03.r07",
+        "text": "The output is one context vector per token, so its shape is number of tokens by \"D_out\".",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch01.s04.p05.r03",
+        "text": "In another application, a lesson plan on \"gravity\" can be generated and aligned with the CBSE curriculum of India.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s10.p09.05",
+        "text": "The output of the layer normalization code has mean zero and variance one for both batch items, showing that the code works as expected.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s02.p04.06",
+        "text": "This download-and-load stage is the most time-consuming part, taking about 5 to 10 minutes for roughly 500 megabytes in the example, and better internet connectivity helps the process complete smoothly.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "partial"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s10.p02.r03",
+        "text": "The inputs are passed through the GPT model to get logits, softmax is applied, and then the cross-entropy loss between the output and the target is computed.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s14.p03.03",
+        "text": "Absolute positional encoding is well suited when the fixed order of tokens is crucial, such as sequence generation.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s09.p04.r02",
+        "text": "One batch from the training loader has shape 8 by 120, and with 130 such batches, the full training loader can be viewed as a three-dimensional tensor of shape 130 by 8 by 120.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s01.p04.05",
+        "text": "In that tensor, each row represents a token and each column represents a vector dimension, so with three dimensions there are three columns.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch01.s02.p02.06",
+        "text": "They are called language models because they deal with language rather than other modalities such as images or video.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s05.p02.r03",
+        "text": "The output head maps each 768-dimensional token representation to an output of size 50257.",
+        "verdict": "partial",
+        "material": false,
+        "reason": "The cited lines state that the neural network takes inputs of 768 dimensions and outputs 50257 dimensions, but they do not explicitly say this is the 'output head' or that it maps each token representation.",
+        "votes": [
+          "partial",
+          "partial",
+          "partial"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s11.p02.03",
+        "text": "The training signal comes from sentences in textual documents, because they reveal which words are closer or more similar and therefore should have similar vectors.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s11.p04.02",
+        "text": "If embeddings really encode meaning, then vector arithmetic should preserve semantic relationships, and the example \"king\" plus \"woman\" minus \"man\" should produce something similar to \"queen\".",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s09.p03.r03",
+        "text": "This input tensor has three dimensions: batch size, number of tokens, and input dimension.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s09.p07.r10",
+        "text": "An attention score exists between each token and every other token, so each head's attention matrix has a row and a column for every token.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s09.p03.03",
+        "text": "With batch size 8, the number of training batches is approximately 130, since 1045 divided by 8 is approximately 130.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s13.p04.r04",
+        "text": "An advantage is that the model works very well on the target dataset, here the spam collection, and can act as a spam classifier.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "partial"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s09.p04.r10",
+        "text": "In that shape, 1 is the batch size, 3 is the number of tokens, and D_out is the output dimension.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s11.p03.r05",
+        "text": "After the second epoch, the output was still incoherent, repeating tokens such as commas and \"and.\"",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s04.p02.r05",
+        "text": "In code, the layer normalization class does this for each token’s 768-dimensional representation and also includes trainable scale and shift parameters.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s10.p05.06",
+        "text": "The ReLU activation function outputs x when x is positive and zero when x is negative.",
+        "verdict": "partial",
+        "material": false,
+        "reason": "The cited lines state that ReLU outputs x when x is positive and zero when x is 'equal to negative,' but do not explicitly cover all negative values or the exact behavior at zero.",
+        "votes": [
+          "partial",
+          "partial",
+          "partial"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s05.p03.09",
+        "text": "For a two-dimensional attention score tensor, the last dimension is the columns, so \"dim = -1\" normalizes across the columns.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s06.p01.r03",
+        "text": "With the GPT-2 weights loaded, generation does not take much time because the model already has pretrained weights.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch06.s08.p04.r02",
+        "text": "A pre-trained LLM by itself does not follow instructions very well, which is why it must be trained with a specific dataset.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s07.p01.09",
+        "text": "From the prefix \"I\", the correct next token is \"really\".",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch01.s10.p04.r01",
+        "text": "Modern large language models are trained in two main steps: first, they are pre-trained on unlabeled data, and then they are fine-tuned.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s12.p04.04",
+        "text": "PyTorch describes the embedding as a simple lookup table that stores embeddings of a fixed dictionary and size.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s02.p01.r07",
+        "text": "For simplicity, one token is treated as one word in the running example.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s03.p03.05",
+        "text": "The preprocessed list contains 4690 tokens in total, including duplicates.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s08.p03.03",
+        "text": "The causal attention class follows the earlier self-attention structure but adds causal masking and dropout.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s12.p05.02",
+        "text": "A final function is written to generate the next token by combining temperature scaling and top-k sampling.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s14.p01.03",
+        "text": "Token embeddings convert token IDs into vectors, and these token IDs are encoded into a higher-dimensional vector space.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "partial"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s06.p05.04",
+        "text": "If the output-layer parameters are excluded because of weight tying, the total becomes 124 million parameters, matching the GPT-2 model size.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "partial"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s15.p01.03",
+        "text": "Large language models are trained to predict the next word.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "The cited lines say LLMs 'predict the next word' as their main task, but do not explicitly state they are trained to do so.",
+        "votes": [
+          "partial",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch06.s07.p02.03",
+        "text": "Here, masking the target token IDs means masking out the target token IDs that correspond to the instructions.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s06.p04.r08",
+        "text": "The final context vectors are obtained by multiplying the attention weight matrix by the values matrix.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s09.p02.03",
+        "text": "A data loader is the component that looks at the dataset and creates these input-target pairs.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch01.s04.p05.r05",
+        "text": "This can save teachers a great deal of time, and it is presented as something that was not possible five years earlier but is possible now with LLMs.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s05.p03.08",
+        "text": "Setting \"dim = -1\" applies the normalization along the last dimension of the attention score tensor.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s02.p05.03",
+        "text": "The code initializes an empty tensor for attention scores, loops over the input vectors, computes the dot product of each input vector with the query vector, and stores those dot products in the attention scores tensor.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s11.p03.r03",
+        "text": "If the earlier output is y_l and the later layer computes f(y_l), then with a shortcut connection the later output becomes f(y_l) + y_l.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch01.s11.p01.05",
+        "text": "To teach from the book in detail, detailed whiteboard notes are being prepared from the book so that understanding can be transferred in an interesting and fundamental way.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "partial",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s06.p01.05",
+        "text": "For English, the character count is stated as around 256, while the number of words is about 170,000 to 200,000.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s08.p05.01",
+        "text": "After the merges are constructed, tokens whose frequency has become zero can be removed to obtain the final token table.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s09.p02.r06",
+        "text": "In the illustrated small example, each head has dimension 2 and there are 2 heads, so the larger query matrix has \"D_out\" equal to 4.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s08.p05.r02",
+        "text": "The \"SpamDataset\" class loads data from CSV files, tokenizes the text using the GPT-2 tokenizer from \"tiktoken\", and pads or truncates sequences to a uniform length defined either by the longest sequence or by a predefined maximum length.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s10.p03.06",
+        "text": "The main idea of layer normalization is to take the outputs of a specific layer and adjust them so that they have mean zero and variance one.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s11.p03.02",
+        "text": "Because the model has not yet been optimized and backpropagation has not yet been implemented, the training, validation, and test accuracies are not expected to be good.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch05.s08.p02.03",
+        "text": "The tokenizer used here is the byte pair encoder tokenizer that GPT models use.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s07.p05.r01",
+        "text": "For the first batch, the target text is \"effort moves you\", but the decoded output is \"armed H\".",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s10.p08.02",
+        "text": "Setting unbiased to true in the variance calculation applies Bessel's correction, which divides by n minus 1 instead of n.",
+        "verdict": "unsupported",
+        "material": true,
+        "reason": "The cited lines state that unbiased=true applies Bessel's correction and divides by n-1 instead of n, but the sentence says setting unbiased to true whereas the lecture discussion is hypothetical ('what happens if unbiased equal to True') and earlier states they actually set unbiased=false.",
+        "votes": [
+          "supported",
+          "unsupported",
+          "unsupported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s12.p06.03",
+        "text": "You can pass either a single token ID or multiple token IDs to the embedding layer and get the corresponding vectors in one operation.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch02.s08.p04.r07",
+        "text": "That pair is merged into a new token, and then that token is merged with \"d\" to form another token that also appears 10 times.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "partial"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s05.p01.06",
+        "text": "Each token still has an embedding size of 768 after this step.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s10.p04.03",
+        "text": "The variance is computed as one fourth of the sum of the squared differences between each output and the mean.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch03.s09.p04.r03",
+        "text": "Their first dimension must equal \"D_in\" so that they are compatible with the input in matrix multiplication.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch06.s12.p03.r03",
+        "text": "This approach is fairly straightforward because it is fully automated.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch04.s06.p04.r04",
+        "text": "Adding 38.4 million embedding parameters, 85.2 million Transformer parameters, and 38.4 million final-layer parameters gives about 162 million parameters in total.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch01.s05.p03.03",
+        "text": "That book is also used as the reference material for this course.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      },
+      {
+        "sentence_id": "ch01.s11.p02.r04",
+        "text": "The approach combines whiteboard explanation with coding so that details and code are learned together, because theory and practical implementation are both treated as important.",
+        "verdict": "supported",
+        "material": false,
+        "reason": "",
+        "votes": [
+          "supported",
+          "supported",
+          "supported"
+        ]
+      }
+    ],
+    "coverage": [
+      {
+        "video_id": "bkUkcyL_Xxc",
+        "start": 936,
+        "end": 1056,
+        "ideas": [
+          {
+            "idea": "To construct the target sequence for fine-tuning, remove the first token from the input sequence, keep the remaining tokens, and append a padding token (50256) so the target and input have the same length.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Example: for an input like '56 50256 50256 50256', the target is built by dropping the first token, keeping the remaining tokens, and adding another 50256 token.",
+            "core": false,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "This target-construction step is described as the most important part of the fine-tuning process and can be difficult to understand initially.",
+            "core": false,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The target sequence is shifted by one position because the model is still performing next-token prediction.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The shifted input-target pairs mean the model learns mappings such as: input '0' predicts '1', input '0 1' predicts '2', and input '0 1 2' predicts '3'.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          }
+        ],
+        "core": 3,
+        "core_missed": 0,
+        "core_missed_near_clip": 0
+      },
+      {
+        "video_id": "__OiQznq4ao",
+        "start": 333,
+        "end": 453,
+        "ideas": [
+          {
+            "idea": "Loading a pre-trained LLM means using pretrained GPT-2 weights.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "A smaller GPT-2 model (124M/117M parameters) did not perform well for instruction fine-tuning, so a larger GPT-2 medium model with 355M parameters is used.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "GPT-2 medium has 355 million parameters.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Using the GPT-2 medium model requires approximately 1.42 GB of local storage space.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The instructor notes that no fancy GPU or high-performance computer is required and demonstrates on a 2020 MacBook Air.",
+            "core": false,
+            "in_book": false,
+            "near_clip": false
+          },
+          {
+            "idea": "GPT-2 medium configuration includes context size 1024, 24 transformer blocks, and 16 attention heads per block.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The base configuration includes vocabulary size 50,257, context length 1024, dropout rate 0, and query-key-value bias enabled.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          }
+        ],
+        "core": 6,
+        "core_missed": 0,
+        "core_missed_near_clip": 0
+      },
+      {
+        "video_id": "f6zqClXOh7Y",
+        "start": 1550,
+        "end": 1670,
+        "ideas": [
+          {
+            "idea": "The label tensor shown has size 8 because the batch contains 8 samples, and labels are binary values (0 or 1).",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The balanced dataset contains 747 spam examples and 747 non-spam examples, totaling 1494 examples.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The training split is 70% of 1494, giving 1045 training samples.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The training dataset overall has 1045 samples.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "A batch size of 8 means each batch contains 8 samples.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The number of training batches is computed as 1045 divided by 8, which is approximately 130 batches.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Printing the length of the training loader returns the number of training batches.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The observed training loader length is 130 batches, matching the earlier calculation and intuition.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          }
+        ],
+        "core": 8,
+        "core_missed": 0,
+        "core_missed_near_clip": 0
+      },
+      {
+        "video_id": "ghCSGRgVB_o",
+        "start": 1497,
+        "end": 1617,
+        "ideas": [
+          {
+            "idea": "The magnitude (norm) of the difference between two word vectors indicates how close or far the words are in meaning.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Words with similar meanings have smaller vector differences than unrelated words.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Vector/token embeddings retain or encode semantic meaning in the vectors.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Well-trained embeddings such as the Word2Vec Google News model can successfully encode meaning.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Feeding embeddings into a large language model is much better than using one-hot encodings.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The lecture gives numerical examples of vector distances (about 1.96 for a similar pair and 5.67 for a less related pair) to illustrate semantic closeness.",
+            "core": false,
+            "in_book": false,
+            "near_clip": false
+          },
+          {
+            "idea": "The process of creating token embeddings for LLMs starts with a vocabulary containing tokens and token IDs.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          }
+        ],
+        "core": 6,
+        "core_missed": 0,
+        "core_missed_near_clip": 0
+      },
+      {
+        "video_id": "Zxf-34voZss",
+        "start": 2075,
+        "end": 2195,
+        "ideas": [
+          {
+            "idea": "The full LLM training code could be run on a personal laptop in about 6.6 minutes for 10 epochs.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Training an LLM from scratch required understanding the dataset, preprocessing pipeline, transformer architecture components such as multi-head attention, dropout, and causal attention, and defining the loss function.",
+            "core": true,
+            "in_book": true,
+            "near_clip": false,
+            "found_at": "ch04.s09.p05.r05"
+          },
+          {
+            "idea": "The lecture emphasized that reaching the point of training an LLM from scratch was satisfying because many prerequisite concepts had been learned.",
+            "core": false,
+            "in_book": false,
+            "near_clip": false
+          },
+          {
+            "idea": "Training and validation losses were printed every five batches during training.",
+            "core": true,
+            "in_book": true,
+            "near_clip": false,
+            "found_at": "ch04.s10.p07.r04"
+          },
+          {
+            "idea": "The training loss decreased substantially from about 9.781 to about 3.91, indicating strong improvement during training.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The validation loss started around 9.933 and stagnated around 6.4–6.2, which was described as a classic sign of overfitting.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Generated text samples were printed after every epoch, with 50 tokens generated each time.",
+            "core": true,
+            "in_book": false,
+            "near_clip": false
+          },
+          {
+            "idea": "After the first epoch, the generated output consisted mostly of repeated commas, showing poor text generation quality early in training.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "As training progressed, generated samples gradually became more meaningful and began incorporating words from the training data.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          }
+        ],
+        "core": 8,
+        "core_missed": 1,
+        "core_missed_near_clip": 3
+      },
+      {
+        "video_id": "G3-JgHckzjw",
+        "start": 184,
+        "end": 304,
+        "ideas": [
+          {
+            "idea": "The lecture assembles the full GPT architecture step by step from input text/token IDs through tokenization, dropout, transformer blocks, and final output components.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The GPT model receives text tokens as input and produces a final output tensor/logits.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The model is trained for the next-word prediction task.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Example task: given input text such as 'every effort moves you', the model predicts the next word.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The next lecture will explain how to decode the final output tensor to obtain the predicted next word.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The lecture focuses on going from transformer outputs to the final GPT output tensor.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "A hands-on example will demonstrate how operations stack up throughout the GPT model.",
+            "core": false,
+            "in_book": false,
+            "near_clip": false
+          },
+          {
+            "idea": "Earlier in the lecture series, a dummy GPT model had missing components such as the transformer block and layer normalization that are now being filled in.",
+            "core": false,
+            "in_book": false,
+            "near_clip": false
+          }
+        ],
+        "core": 6,
+        "core_missed": 0,
+        "core_missed_near_clip": 0
+      },
+      {
+        "video_id": "G3W-LT79LSI",
+        "start": 560,
+        "end": 680,
+        "ideas": [
+          {
+            "idea": "Layer normalization normalizes the outputs coming from every layer.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Internal covariate shift is a problem where the input distribution to a layer changes across training iterations.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Changing input distributions make training difficult, make weight updates harder, and delay convergence to an optimal solution.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Layer normalization reduces or prevents internal covariate shift.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Layer normalization keeps the mean and standard deviation of layer outputs fixed by normalization (variance/std standardized, typically variance one).",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Reducing internal covariate shift accelerates convergence and leads to faster results.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "One main reason for using layer normalization is stabilizing training by preventing vanishing and exploding gradients.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Another main reason for using layer normalization is reducing internal covariate shift to speed convergence.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Layer normalization is widely used in GPT/LLM architectures and many deep learning architectures.",
+            "core": false,
+            "in_book": false,
+            "near_clip": false
+          },
+          {
+            "idea": "The main idea of layer normalization is to normalize the outputs of a specific layer.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          }
+        ],
+        "core": 9,
+        "core_missed": 0,
+        "core_missed_near_clip": 0
+      },
+      {
+        "video_id": "ghCSGRgVB_o",
+        "start": 3493,
+        "end": 3613,
+        "ideas": [
+          {
+            "idea": "An embedding layer is essentially just a lookup operation.",
+            "core": true,
+            "in_book": true,
+            "near_clip": false,
+            "found_at": "ch02.s12.p05.05"
+          },
+          {
+            "idea": "Anything an embedding layer does can also be implemented using a neural network linear layer.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Embedding layers are preferred over linear layers because they are much more computationally efficient.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The lecture did not cover how to train embeddings yet; later lectures will explain embedding training and pretraining methods used in models like GPT-2/3/4.",
+            "core": false,
+            "in_book": false,
+            "near_clip": false
+          },
+          {
+            "idea": "The example used pretrained word embeddings from Google News.",
+            "core": false,
+            "in_book": false,
+            "near_clip": false
+          },
+          {
+            "idea": "The next topic is positional embeddings.",
+            "core": true,
+            "in_book": true,
+            "near_clip": false,
+            "found_at": "ch02.s14.p01.02"
+          },
+          {
+            "idea": "Word position in a sentence matters in addition to semantic meaning.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Current vector embeddings shown so far do not encode positional information.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Positional relationships affect meaning, illustrated with examples about words being close together or far apart in a sentence.",
+            "core": true,
+            "in_book": true,
+            "near_clip": false,
+            "found_at": "ch01.s08.p01.05"
+          },
+          {
+            "idea": "The lecture compares exploiting semantic relationships in word embeddings with exploiting spatial properties in images, and says positional information in sentences will also be exploited.",
+            "core": false,
+            "in_book": false,
+            "near_clip": false
+          }
+        ],
+        "core": 7,
+        "core_missed": 0,
+        "core_missed_near_clip": 3
+      },
+      {
+        "video_id": "z9fgKz1Drlc",
+        "start": 38,
+        "end": 158,
+        "ideas": [
+          {
+            "idea": "GPT-3's total pre-training cost was around $4.6 million.",
+            "core": true,
+            "in_book": true,
+            "near_clip": false,
+            "found_at": "ch01.s10.p04.r03"
+          },
+          {
+            "idea": "Previous lectures covered concepts such as zero-shot vs. few-shot learning, attention and self-attention, next-word prediction, Transformer architecture basics, datasets for LLM pre-training, and the difference between pre-training and fine-tuning.",
+            "core": true,
+            "in_book": false,
+            "near_clip": false
+          },
+          {
+            "idea": "The series is moving from theory and intuition to hands-on aspects of building a large language model.",
+            "core": true,
+            "in_book": false,
+            "near_clip": false
+          },
+          {
+            "idea": "This lecture provides a roadmap of the stages involved in building a large language model.",
+            "core": true,
+            "in_book": true,
+            "near_clip": false,
+            "found_at": "ch01.s10.p01.03"
+          },
+          {
+            "idea": "The playlist is divided into three stages: stage one, stage two, and stage three.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          }
+        ],
+        "core": 5,
+        "core_missed": 2,
+        "core_missed_near_clip": 4
+      },
+      {
+        "video_id": "bkUkcyL_Xxc",
+        "start": 2701,
+        "end": 2821,
+        "ideas": [
+          {
+            "idea": "Padding tokens added to equalize sequence lengths in a batch should be ignored in loss computation using ignore index -100.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Keep the first 50256 end-of-text token in the targets even when replacing other 50256 padding tokens with -100.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The first retained 50256 helps the LLM learn to generate end-of-text tokens indicating the response is complete.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Target token IDs are created by shifting the input token IDs to the right by one.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Creating batches for instruction fine-tuning involves several detailed preprocessing steps that are important to understand.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The batching workflow: convert data to Alpaca prompt template, tokenize, append padding tokens per batch so sequences have equal length, create shifted target IDs, then replace extra 50256 tokens with -100 except the first.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Padding is performed separately for each batch so all sequences within that batch have the same length.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          }
+        ],
+        "core": 7,
+        "core_missed": 0,
+        "core_missed_near_clip": 0
+      },
+      {
+        "video_id": "f6zqClXOh7Y",
+        "start": 385,
+        "end": 505,
+        "ideas": [
+          {
+            "idea": "Text/email messages in the dataset have varying lengths, but batching requires all rows to have the same number of columns/sequence length.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "One approach to equalize sequence lengths is to find the shortest message and truncate all longer messages to that length.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The disadvantage of truncating to the shortest message is loss of information/data from longer texts, so this is not recommended.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "An alternative approach is to use the longest message length and pad shorter messages with additional tokens until they match that length.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Padding to the longest length is the approach that will actually be used because it avoids losing information.",
+            "core": true,
+            "in_book": true,
+            "near_clip": false,
+            "found_at": "ch05.s08.p02.01"
+          }
+        ],
+        "core": 5,
+        "core_missed": 0,
+        "core_missed_near_clip": 1
+      },
+      {
+        "video_id": "7m2jV7BOFkA",
+        "start": 1936,
+        "end": 2056,
+        "ideas": [
+          {
+            "idea": "A query_model function is used with Llama 3 or another LLM through Ollama.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The query_model function requires both a prompt/query and a model as inputs.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The function sends an API request to the selected model based on the prompt and returns the generated response.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Using the API function avoids manually running Llama 3 in the terminal each time and allows fetching results into a Jupyter notebook.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The lecture's main focus is model evaluation rather than detailed implementation of the query_model code.",
+            "core": false,
+            "in_book": false,
+            "near_clip": false
+          },
+          {
+            "idea": "The evaluation prompt instructs the model to compare the output and model response and assign a score.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Before running later code cells, confirm that Ollama is still running by checking that 'Ollama running = True'.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "A demo shows query_model being called with an input like 'what do llamas eat' and specifying a model such as Llama 3.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          }
+        ],
+        "core": 7,
+        "core_missed": 0,
+        "core_missed_near_clip": 0
+      },
+      {
+        "video_id": "7TKCrt--bWI",
+        "start": 2542,
+        "end": 2662,
+        "ideas": [
+          {
+            "idea": "torch.nn.functional.cross_entropy(logits_flat, targets_flat) computes the final loss between output logits and targets from flattened tensors.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The function internally applies softmax to logits to obtain probabilities.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The function selects probabilities corresponding to the target indices/classes.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Cross-entropy loss is computed by taking the negative log of the selected probabilities and averaging (mean) them.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "A single line/function call performs all these steps automatically.",
+            "core": false,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Inputs such as token sequences pass through the GPT architecture to produce a logits tensor.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The logits tensor is flattened/merged across batches into logits_flat before loss computation.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "In an ideal model, probabilities at target indices should be close to 1 because predictions match targets.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "In an unoptimized LLM, target probabilities are initially small, and training aims to increase them toward 1.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          }
+        ],
+        "core": 8,
+        "core_missed": 0,
+        "core_missed_near_clip": 0
+      },
+      {
+        "video_id": "3dWzNZXA8DY",
+        "start": 410,
+        "end": 530,
+        "ideas": [
+          {
+            "idea": "In the term 'large language model,' 'large' refers to the large number of parameters in the model.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Before LLMs, model sizes were not very big compared to modern LLMs.",
+            "core": true,
+            "in_book": false,
+            "near_clip": false
+          },
+          {
+            "idea": "Model size means the number of parameters in the model.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "LLMs typically have billions of parameters, and some have trillions of parameters.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Examples of GPT-3 model sizes include 125 million, 350 million, 760 million, 13 billion, and 175 billion parameters.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "In GPT model names such as '175B,' the suffix indicates the number of parameters (175 billion).",
+            "core": true,
+            "in_book": false,
+            "near_clip": false
+          },
+          {
+            "idea": "GPT-4 has even more parameters than GPT-3.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "As models progress from GPT-1 to GPT-2 to GPT-3, they become better and their parameter counts increase tremendously.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "From GPT-1 to GPT-2 the parameter count increased roughly from 100 million to almost 1 billion (about a 10x increase), and from GPT-2 to GPT-3 there was about a 100x increase.",
+            "core": true,
+            "in_book": false,
+            "near_clip": false
+          }
+        ],
+        "core": 9,
+        "core_missed": 3,
+        "core_missed_near_clip": 3
+      },
+      {
+        "video_id": "0PpxZ3kNPWo",
+        "start": 205,
+        "end": 325,
+        "ideas": [
+          {
+            "idea": "Original final output layer took 768-dimensional embeddings as input and produced 50,257 outputs corresponding to vocabulary size.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "For the classification task, the original output layer was replaced with a classification head.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The classification head takes 768 inputs and produces 2 outputs representing spam or no spam.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Given an input such as 'do you have time', each token produces two outputs corresponding to spam or no spam.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "For classification, only the output corresponding to the last token is used.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The last token representation contains information about previous tokens through attention weights.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "With batch size 1 and four tokens, the output tensor shape is 1 x 4 x 2.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "In the example sequence, the four tokens are 'do', 'you', 'have', and 'time'.",
+            "core": false,
+            "in_book": false,
+            "near_clip": false
+          }
+        ],
+        "core": 7,
+        "core_missed": 0,
+        "core_missed_near_clip": 0
+      },
+      {
+        "video_id": "7TKCrt--bWI",
+        "start": 349,
+        "end": 469,
+        "ideas": [
+          {
+            "idea": "The tokenizer creates a vocabulary of tokens; GPT-2 and the constructed model use a vocabulary size of 50,257.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "GPT-2 used a context length of 1024, while the example model uses 256 so it can train locally in a few minutes with lower compute requirements.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The same code can support longer context lengths if enough compute power and memory are available.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The embedding dimension projects token embeddings into a higher-dimensional space to capture semantic meaning.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The number of attention heads refers to the number of self-attention mechanism blocks within one transformer.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "There are many transformer blocks, and the layer count specifies how many transformer blocks the model has.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The dropout rate is a configurable dropout-layer parameter and can be set to zero.",
+            "core": true,
+            "in_book": true,
+            "near_clip": false,
+            "found_at": "ch06.s08.p04.r06"
+          },
+          {
+            "idea": "The query-key-value bias setting means no bias term is used when initializing the query, key, and value weight matrices.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The GPT model pipeline: input tokens are converted to token embeddings, positional embeddings are added, dropout is applied, the result passes through transformer blocks, then a final normalization layer produces logits.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The returned logits consist of outputs aligned with token positions and vocabulary entries.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          }
+        ],
+        "core": 10,
+        "core_missed": 0,
+        "core_missed_near_clip": 1
+      },
+      {
+        "video_id": "__OiQznq4ao",
+        "start": 327,
+        "end": 447,
+        "ideas": [
+          {
+            "idea": "Fine-tuning happens after pre-training: a model is first brought to a knowledgeable state, then trained on a specific dataset to further improve weights and parameters.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Loading a pre-trained LLM means using pretrained GPT-2 weights.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "A smaller GPT-2 model (~124M/117M parameters) did not perform well for instruction fine-tuning, so a larger model is needed.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The lecture chooses GPT-2 medium with 355 million parameters instead of the smallest model.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The GPT-2 medium model requires approximately 1.42 GB of storage space.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The instructor notes they are running the setup on a 2020 MacBook Air without a fancy GPU.",
+            "core": false,
+            "in_book": false,
+            "near_clip": false
+          },
+          {
+            "idea": "GPT-2 medium has context size 1024, 24 transformer blocks, and 16 attention heads per block.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The base configuration includes a vocabulary size of 50,257 and context length 1024.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          }
+        ],
+        "core": 7,
+        "core_missed": 0,
+        "core_missed_near_clip": 0
+      },
+      {
+        "video_id": "f6zqClXOh7Y",
+        "start": 893,
+        "end": 1013,
+        "ideas": [
+          {
+            "idea": "A maximum length parameter is used for encoded texts; by default it is the length of the longest email/text in the dataset, but the user can also externally specify a maximum length.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Texts shorter than the maximum length are padded using pad token ID 50256.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The first preprocessing step is tokenization.",
+            "core": true,
+            "in_book": true,
+            "near_clip": false,
+            "found_at": "ch05.s08.p02.02"
+          },
+          {
+            "idea": "A byte pair encoder (BPE) tokenizer is used.",
+            "core": true,
+            "in_book": true,
+            "near_clip": false,
+            "found_at": "ch02.s09.p01.r03"
+          },
+          {
+            "idea": "The tokenizer encodes each sentence/text by converting it into tokens and then mapping those tokens to token IDs using the vocabulary.",
+            "core": true,
+            "in_book": true,
+            "near_clip": false,
+            "found_at": "ch02.s08.p06.r06"
+          },
+          {
+            "idea": "The CSV file is read with pandas into a data object.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Every email or text message in the dataset is converted into a sequence of token IDs.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The longest_encoded_length functionality computes the maximum encoded length across all text messages in the dataset.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          }
+        ],
+        "core": 8,
+        "core_missed": 0,
+        "core_missed_near_clip": 3
+      },
+      {
+        "video_id": "K5u9eEaoxFg",
+        "start": 1184,
+        "end": 1304,
+        "ideas": [
+          {
+            "idea": "D_out equals head dimension multiplied by number of heads.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The last dimension of the keys, queries, and values tensors is reshaped/unrolled into separate number-of-heads and head-dimension dimensions.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Example: with D_out = 6 and number of heads = 2, the head dimension is 3.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Example reshape: tensors of shape 1 × 3 × 6 become 1 × 3 × 2 × 3 after splitting into heads and head dimensions.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Interpretation of a 1 × 3 × 2 × 3 tensor: ignore the batch dimension; the size 3 corresponds to tokens/rows, the size 2 corresponds to attention heads within each token, and the final size 3 corresponds to the vector dimension within each head.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          }
+        ],
+        "core": 5,
+        "core_missed": 0,
+        "core_missed_near_clip": 0
+      },
+      {
+        "video_id": "7TKCrt--bWI",
+        "start": 3045,
+        "end": 3165,
+        "ideas": [
+          {
+            "idea": "Categorical cross-entropy is computed by taking the probabilities at the target indices, applying log/negative log likelihood, and averaging them.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The training goal is to reduce categorical cross-entropy loss as close to zero as possible.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Perplexity is a modified form of cross-entropy loss.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Perplexity measures how well the model's predicted probability distribution matches the actual distribution of words in the dataset.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Perplexity is a more interpretable way to understand model uncertainty when predicting the next token.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Lower perplexity means better predictions.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "Perplexity is calculated as the exponent of the loss.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "A perplexity of 48725 means the model is as uncertain as randomly choosing the next token from about 48725 vocabulary tokens.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "The vocabulary size mentioned is about 50,257 tokens.",
+            "core": false,
+            "in_book": false,
+            "near_clip": false
+          },
+          {
+            "idea": "For the input 'every effort moves', a perplexity of 48725 means the model effectively must choose among 48725 possible next tokens, indicating high uncertainty and poor performance.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          },
+          {
+            "idea": "A perplexity score of 2 would indicate much lower uncertainty and good prediction quality.",
+            "core": true,
+            "in_book": true,
+            "near_clip": true
+          }
+        ],
+        "core": 10,
+        "core_missed": 0,
+        "core_missed_near_clip": 0
+      }
+    ],
+    "quality": [
+      {
+        "chapter": "ch01",
+        "title": "Foundations and Course Roadmap",
+        "scores": {
+          "clarity": {
+            "score": 4,
+            "evidence": "Core concepts such as Transformers, tokenization, embeddings, and fine-tuning are explained in accessible language with many examples for Python learners."
+          },
+          "flow": {
+            "score": 4,
+            "evidence": "The chapter generally progresses logically from motivation to architecture to training stages and prerequisites."
+          },
+          "book_voice": {
+            "score": 3,
+            "evidence": "Much of the text reads like transcribed lecture narration with repeated motivational phrasing rather than polished textbook prose."
+          },
+          "definitions_first": {
+            "score": 4,
+            "evidence": "Most major terms such as neural networks, attention, embeddings, and fine-tuning are introduced before being used heavily."
+          },
+          "concision": {
+            "score": 2,
+            "evidence": "Many ideas and motivational claims are repeated multiple times, especially around learning from scratch and interview readiness."
+          },
+          "reader_fit": {
+            "score": 4,
+            "evidence": "The material suits Python programmers new to LLMs by emphasizing conceptual foundations before implementation, though basic deep learning prerequisites are only lightly introduced."
+          },
+          "title_fit": {
+            "score": 5,
+            "evidence": "The chapter consistently delivers foundational explanations and a roadmap for the rest of the course."
+          }
+        },
+        "average": 3.71,
+        "improvements": [
+          "Condense repetitive motivational sections and reduce repeated claims about learning from scratch, interviews, and application-first approaches.",
+          "Add a short explicit prerequisites section covering assumed Python knowledge, basic linear algebra, and neural-network fundamentals before later coding stages.",
+          "Tighten and formalize explanations so the prose reads more like a polished technical book and less like spoken lecture transcription."
+        ]
+      },
+      {
+        "chapter": "ch02",
+        "title": "From Text to Model Inputs",
+        "scores": {
+          "clarity": {
+            "score": 4,
+            "evidence": "The chapter explains tokenization, embeddings, and preprocessing with many concrete examples and repeated restatements that help beginners follow the ideas."
+          },
+          "flow": {
+            "score": 4,
+            "evidence": "The material progresses logically from raw text to tokenization, embeddings, positional embeddings, and training examples."
+          },
+          "book_voice": {
+            "score": 3,
+            "evidence": "The chapter often reads like expanded lecture narration with repeated rhetorical questions and conversational repetition rather than polished textbook prose."
+          },
+          "definitions_first": {
+            "score": 4,
+            "evidence": "Most core terms such as vocabulary, token IDs, embeddings, stride, and positional encoding are introduced before later use."
+          },
+          "concision": {
+            "score": 2,
+            "evidence": "Many concepts and examples are restated multiple times, making sections significantly longer than necessary."
+          },
+          "reader_fit": {
+            "score": 4,
+            "evidence": "The Python-oriented explanations using regex, PyTorch embeddings, and tiktoken suit a Python programmer new to LLM preprocessing, though some assumed ML concepts like backpropagation are not introduced."
+          },
+          "title_fit": {
+            "score": 5,
+            "evidence": "All sections consistently focus on transforming text into model-ready inputs, matching the chapter title closely."
+          }
+        },
+        "average": 3.71,
+        "improvements": [
+          "Reduce repetition throughout the chapter by consolidating repeated definitions and examples, especially around token IDs, embeddings, and BPE advantages.",
+          "Add short code snippets or pseudocode for the tokenizer, embedding lookup, and sliding-window dataset construction to better support Python learners.",
+          "Introduce or briefly define prerequisite ML concepts such as one-hot encoding, backpropagation, and linear layers when they first appear."
+        ]
+      },
+      {
+        "chapter": "ch03",
+        "title": "Attention and Transformer Building Blocks",
+        "scores": {
+          "clarity": {
+            "score": 4,
+            "evidence": "The chapter explains attention step by step with repeated concrete examples such as the 'journey' token and tensor shapes."
+          },
+          "flow": {
+            "score": 4,
+            "evidence": "Concepts progress logically from embeddings to self-attention, masking, multi-head attention, and transformer training components."
+          },
+          "book_voice": {
+            "score": 3,
+            "evidence": "The text teaches concepts consistently, but frequent lecture-style rhetorical questions and repeated restatements make it feel somewhat spoken rather than polished prose."
+          },
+          "definitions_first": {
+            "score": 4,
+            "evidence": "Most terms such as embeddings, context vectors, attention weights, masking, and layer normalization are introduced before use."
+          },
+          "concision": {
+            "score": 2,
+            "evidence": "Many ideas are repeated multiple times, especially explanations of context vectors, attention weights summing to one, and gradient stability."
+          },
+          "reader_fit": {
+            "score": 4,
+            "evidence": "The chapter matches a Python programmer learning transformers by connecting intuition, PyTorch operations, and tensor shapes, though some linear algebra prerequisites are only briefly flagged."
+          },
+          "title_fit": {
+            "score": 5,
+            "evidence": "All sections directly support the stated focus on attention and transformer building blocks."
+          }
+        },
+        "average": 3.71,
+        "improvements": [
+          "Reduce repetition throughout the chapter by consolidating repeated explanations of attention weights, context vectors, and normalization behavior.",
+          "Introduce a short prerequisite sidebar or appendix on vectors, dot products, matrix multiplication, tensor dimensions, and softmax before relying heavily on them.",
+          "Tighten and standardize implementation descriptions so code behavior, operation ordering, and tensor shapes are explained once clearly instead of restated in multiple sections."
+        ]
+      },
+      {
+        "chapter": "ch04",
+        "title": "Assembling and Pretraining a GPT Model",
+        "scores": {
+          "clarity": {
+            "score": 3,
+            "evidence": "The chapter explains GPT pipeline stages in plain language with many shape examples, but repeated wording and occasional inaccuracies make some explanations harder to follow."
+          },
+          "flow": {
+            "score": 4,
+            "evidence": "The material progresses logically from architecture to training, evaluation, and decoding with generally sensible transitions."
+          },
+          "book_voice": {
+            "score": 3,
+            "evidence": "Most sections read like instructional prose, but frequent references to lectures, coding sessions, and narrated walkthroughs make parts feel like transcribed course notes."
+          },
+          "definitions_first": {
+            "score": 4,
+            "evidence": "Core concepts such as logits, embeddings, targets, and cross-entropy are usually introduced before being used extensively."
+          },
+          "concision": {
+            "score": 2,
+            "evidence": "Many ideas are restated multiple times almost verbatim, especially tensor shapes, dropout behavior, and next-token prediction tasks."
+          },
+          "reader_fit": {
+            "score": 4,
+            "evidence": "The chapter suits a Python programmer new to GPTs by emphasizing tensor dimensions, PyTorch workflow, and training mechanics, though it assumes some prior ML familiarity around gradients and optimization."
+          },
+          "title_fit": {
+            "score": 5,
+            "evidence": "The content consistently focuses on assembling, training, evaluating, and decoding a GPT-style model as promised by the title."
+          }
+        },
+        "average": 3.57,
+        "improvements": [
+          "Correct conceptual inaccuracies and ambiguities, especially the claim that decoding strategies solve overfitting, the inconsistent parameter counts, and the statement that separate output layers improve modern LLM performance.",
+          "Reduce repetition by consolidating repeated descriptions of tensor shapes, normalization, dropout, and next-token prediction into tighter explanations and diagrams.",
+          "Add clearer prerequisite support for readers new to deep learning by briefly introducing tensors, gradients, softmax, and why logits are preferred before cross-entropy."
+        ]
+      },
+      {
+        "chapter": "ch05",
+        "title": "Using Pretrained GPT-2 and Fine-Tuning for Classification",
+        "scores": {
+          "clarity": {
+            "score": 4,
+            "evidence": "The chapter explains GPT-2 loading, fine-tuning, and classification concepts in accessible language with concrete examples and tensor shapes."
+          },
+          "flow": {
+            "score": 4,
+            "evidence": "The material progresses logically from pretrained weights to dataset preparation, training, evaluation, and inference."
+          },
+          "book_voice": {
+            "score": 3,
+            "evidence": "The chapter often reads like expanded lecture narration with repeated rhetorical questions and conversational restatements rather than polished textbook prose."
+          },
+          "definitions_first": {
+            "score": 4,
+            "evidence": "Most important terms such as fine-tuning, BPE, padding, cross-entropy, and weight tying are introduced before use."
+          },
+          "concision": {
+            "score": 2,
+            "evidence": "Many ideas, counts, and explanations are repeated multiple times, including dataset sizes, split ratios, and loader behavior."
+          },
+          "reader_fit": {
+            "score": 4,
+            "evidence": "The content fits a Python programmer learning LLM fine-tuning, though some prerequisites like transformers, PyTorch modules, and tensor operations are assumed rather than introduced."
+          },
+          "title_fit": {
+            "score": 5,
+            "evidence": "The chapter consistently focuses on loading pretrained GPT-2 weights and fine-tuning for spam classification as promised by the title."
+          }
+        },
+        "average": 3.71,
+        "improvements": [
+          "Reduce repetition by consolidating repeated explanations of dataset splits, padding behavior, and evaluation logic into single concise sections.",
+          "Introduce missing prerequisites explicitly for the target reader, especially Transformer architecture basics, tensor dimensions, PyTorch modules, and attention terminology.",
+          "Standardize terminology and key names consistently (for example wpe/WP, attn/ATN/atn, WT/wte) to avoid confusion when mapping checkpoint parameters to the model."
+        ]
+      },
+      {
+        "chapter": "ch06",
+        "title": "Instruction Fine-Tuning and Evaluation",
+        "scores": {
+          "clarity": {
+            "score": 3,
+            "evidence": "The chapter explains core concepts like shifted targets and padding in plain language, but many sections are repetitive and occasionally imprecise, which obscures the main ideas."
+          },
+          "flow": {
+            "score": 4,
+            "evidence": "The material generally progresses logically from motivation to data preparation, batching, fine-tuning, and evaluation."
+          },
+          "book_voice": {
+            "score": 3,
+            "evidence": "The chapter often reads like a transcript of spoken instruction with repeated rhetorical questions and references to on-screen demonstrations rather than polished textbook prose."
+          },
+          "definitions_first": {
+            "score": 4,
+            "evidence": "Most important terms such as instruction fine-tuning, tokenization, padding, and ignore_index are introduced before being used."
+          },
+          "concision": {
+            "score": 2,
+            "evidence": "Many explanations repeat the same point multiple times, especially around Alpaca formatting, padding, and shifted targets."
+          },
+          "reader_fit": {
+            "score": 4,
+            "evidence": "The depth and examples are suitable for a Python programmer new to LLM fine-tuning, though some assumed PyTorch and tensor knowledge is not introduced."
+          },
+          "title_fit": {
+            "score": 5,
+            "evidence": "The content consistently focuses on instruction fine-tuning workflows and evaluation methods as promised by the chapter title."
+          }
+        },
+        "average": 3.57,
+        "improvements": [
+          "Reduce repetition throughout the chapter and replace transcript-style restatements with tighter explanations and diagrams or concise examples.",
+          "Correct inconsistencies and terminology issues such as 'alpaka' vs 'Alpaca', 'tick token' vs 'tiktoken', and the incorrect statement that only about 800 examples are used for training from an 85% split of 1100.",
+          "Add brief prerequisite explanations for PyTorch tensors, cross-entropy loss, logits, and dataset/collate functions so Python readers without deep ML background can follow the implementation details more confidently."
+        ]
+      }
+    ]
+  }
+}

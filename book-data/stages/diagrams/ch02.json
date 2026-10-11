@@ -1,0 +1,1008 @@
+{
+  "stage": "diagrams",
+  "item": "ch02",
+  "inputs_hash": "8b8704758924a0bdd501f4350c698ff1f3cc348a1a1e448dfdf73ba28390e5f8",
+  "output_hash": "16135efbca427e876b954d6b1813a49757ff4ba1125b5679e4284ff41353142b",
+  "output": {
+    "chapter": "ch02",
+    "diagrams": [
+      {
+        "id": "ch02.fig1",
+        "after_paragraph": "ch02.s01.p02",
+        "title": "Preprocessing pipeline from tokenization to model input",
+        "caption": "The preprocessing pipeline runs from tokenization through positional embeddings to input embeddings, which are then fed to the large language model.",
+        "mermaid": "flowchart LR\n  A[\"Tokenization\"] --> B[\"Token IDs\"]\n  B --> C[\"Token embeddings\"]\n  C --> D[\"Positional embeddings\"]\n  D --> E[\"Input embeddings\"]\n  E --> F[\"Large language model\"]",
+        "claims": [
+          {
+            "id": "ch02.fig1.c1",
+            "type": "F",
+            "text": "The complete pipeline runs from tokenization to token IDs.",
+            "sentences": [
+              "ch02.s01.p02.04"
+            ],
+            "cites": [
+              "mk-6cFebjis@5594",
+              "mk-6cFebjis@5596",
+              "mk-6cFebjis@5599",
+              "mk-6cFebjis@5602",
+              "mk-6cFebjis@5604",
+              "mk-6cFebjis@5606"
+            ],
+            "verdict": "supported",
+            "confidence": 0.9,
+            "reason": ""
+          },
+          {
+            "id": "ch02.fig1.c2",
+            "type": "F",
+            "text": "The complete pipeline runs from token IDs to token embeddings.",
+            "sentences": [
+              "ch02.s01.p02.04"
+            ],
+            "cites": [
+              "mk-6cFebjis@5594",
+              "mk-6cFebjis@5596",
+              "mk-6cFebjis@5599",
+              "mk-6cFebjis@5602",
+              "mk-6cFebjis@5604",
+              "mk-6cFebjis@5606"
+            ],
+            "verdict": "supported",
+            "confidence": 0.9,
+            "reason": ""
+          },
+          {
+            "id": "ch02.fig1.c3",
+            "type": "F",
+            "text": "The complete pipeline runs from token embeddings to positional embeddings.",
+            "sentences": [
+              "ch02.s01.p02.04"
+            ],
+            "cites": [
+              "mk-6cFebjis@5594",
+              "mk-6cFebjis@5596",
+              "mk-6cFebjis@5599",
+              "mk-6cFebjis@5602",
+              "mk-6cFebjis@5604",
+              "mk-6cFebjis@5606"
+            ],
+            "verdict": "supported",
+            "confidence": 0.9,
+            "reason": ""
+          },
+          {
+            "id": "ch02.fig1.c4",
+            "type": "F",
+            "text": "The complete pipeline runs from positional embeddings to input embeddings.",
+            "sentences": [
+              "ch02.s01.p02.04"
+            ],
+            "cites": [
+              "mk-6cFebjis@5594",
+              "mk-6cFebjis@5596",
+              "mk-6cFebjis@5599",
+              "mk-6cFebjis@5602",
+              "mk-6cFebjis@5604",
+              "mk-6cFebjis@5606"
+            ],
+            "verdict": "supported",
+            "confidence": 0.9,
+            "reason": ""
+          },
+          {
+            "id": "ch02.fig1.c5",
+            "type": "F",
+            "text": "The final input embeddings serve as inputs to the large language model.",
+            "sentences": [
+              "ch02.s01.p02.03",
+              "ch02.s01.p02.05"
+            ],
+            "cites": [
+              "mk-6cFebjis@119",
+              "mk-6cFebjis@121",
+              "mk-6cFebjis@123",
+              "mk-6cFebjis@5608",
+              "mk-6cFebjis@5610",
+              "mk-6cFebjis@5614"
+            ],
+            "verdict": "supported",
+            "confidence": 0.96,
+            "reason": ""
+          }
+        ],
+        "passed": true,
+        "repaired": true,
+        "first_attempt": [
+          {
+            "id": "ch02.fig1.c1",
+            "type": "F",
+            "text": "Text is tokenized into tokens.",
+            "sentences": [
+              "ch02.s01.p01.04",
+              "ch02.s01.p02.02",
+              "ch02.s01.p02.04"
+            ],
+            "cites": [
+              "mk-6cFebjis@101",
+              "mk-6cFebjis@104",
+              "mk-6cFebjis@107",
+              "mk-6cFebjis@110",
+              "mk-6cFebjis@112",
+              "mk-6cFebjis@115",
+              "mk-6cFebjis@117",
+              "mk-6cFebjis@119",
+              "mk-6cFebjis@5594",
+              "mk-6cFebjis@5596",
+              "mk-6cFebjis@5599",
+              "mk-6cFebjis@5602",
+              "mk-6cFebjis@5604",
+              "mk-6cFebjis@5606",
+              "mk-6cFebjis@74",
+              "mk-6cFebjis@76",
+              "mk-6cFebjis@79",
+              "mk-6cFebjis@92",
+              "mk-6cFebjis@94",
+              "mk-6cFebjis@98"
+            ],
+            "verdict": "partial",
+            "confidence": 0.78,
+            "reason": "The cited lines mention a step called \"tokenization\" in a text preprocessing pipeline, but they do not explicitly state that text is tokenized into tokens (i.e., the output units are tokens)."
+          },
+          {
+            "id": "ch02.fig1.c2",
+            "type": "F",
+            "text": "Tokens are converted into token IDs.",
+            "sentences": [
+              "ch02.s01.p02.04"
+            ],
+            "cites": [
+              "mk-6cFebjis@5594",
+              "mk-6cFebjis@5596",
+              "mk-6cFebjis@5599",
+              "mk-6cFebjis@5602",
+              "mk-6cFebjis@5604",
+              "mk-6cFebjis@5606"
+            ],
+            "verdict": "supported",
+            "confidence": 0.93,
+            "reason": ""
+          },
+          {
+            "id": "ch02.fig1.c3",
+            "type": "F",
+            "text": "Token IDs are converted into token embeddings.",
+            "sentences": [
+              "ch02.s01.p02.02",
+              "ch02.s01.p02.04"
+            ],
+            "cites": [
+              "mk-6cFebjis@101",
+              "mk-6cFebjis@104",
+              "mk-6cFebjis@107",
+              "mk-6cFebjis@110",
+              "mk-6cFebjis@112",
+              "mk-6cFebjis@115",
+              "mk-6cFebjis@117",
+              "mk-6cFebjis@119",
+              "mk-6cFebjis@5594",
+              "mk-6cFebjis@5596",
+              "mk-6cFebjis@5599",
+              "mk-6cFebjis@5602",
+              "mk-6cFebjis@5604",
+              "mk-6cFebjis@5606",
+              "mk-6cFebjis@92",
+              "mk-6cFebjis@94",
+              "mk-6cFebjis@98"
+            ],
+            "verdict": "partial",
+            "confidence": 0.72,
+            "reason": "The captions list steps including \"token IDs\" and \"token embeddings,\" but they do not explicitly state that token IDs are converted into token embeddings (a conversion relationship is implied by the pipeline but not directly stated)."
+          },
+          {
+            "id": "ch02.fig1.c4",
+            "type": "F",
+            "text": "Positional embeddings come after token embeddings in the preprocessing pipeline.",
+            "sentences": [
+              "ch02.s01.p02.02",
+              "ch02.s01.p02.04"
+            ],
+            "cites": [
+              "mk-6cFebjis@101",
+              "mk-6cFebjis@104",
+              "mk-6cFebjis@107",
+              "mk-6cFebjis@110",
+              "mk-6cFebjis@112",
+              "mk-6cFebjis@115",
+              "mk-6cFebjis@117",
+              "mk-6cFebjis@119",
+              "mk-6cFebjis@5594",
+              "mk-6cFebjis@5596",
+              "mk-6cFebjis@5599",
+              "mk-6cFebjis@5602",
+              "mk-6cFebjis@5604",
+              "mk-6cFebjis@5606",
+              "mk-6cFebjis@92",
+              "mk-6cFebjis@94",
+              "mk-6cFebjis@98"
+            ],
+            "verdict": "supported",
+            "confidence": 0.96,
+            "reason": ""
+          },
+          {
+            "id": "ch02.fig1.c5",
+            "type": "F",
+            "text": "The pipeline produces input embeddings.",
+            "sentences": [
+              "ch02.s01.p02.02",
+              "ch02.s01.p02.04"
+            ],
+            "cites": [
+              "mk-6cFebjis@101",
+              "mk-6cFebjis@104",
+              "mk-6cFebjis@107",
+              "mk-6cFebjis@110",
+              "mk-6cFebjis@112",
+              "mk-6cFebjis@115",
+              "mk-6cFebjis@117",
+              "mk-6cFebjis@119",
+              "mk-6cFebjis@5594",
+              "mk-6cFebjis@5596",
+              "mk-6cFebjis@5599",
+              "mk-6cFebjis@5602",
+              "mk-6cFebjis@5604",
+              "mk-6cFebjis@5606",
+              "mk-6cFebjis@92",
+              "mk-6cFebjis@94",
+              "mk-6cFebjis@98"
+            ],
+            "verdict": "supported",
+            "confidence": 0.95,
+            "reason": ""
+          },
+          {
+            "id": "ch02.fig1.c6",
+            "type": "F",
+            "text": "The final input embeddings serve as inputs to the large language model.",
+            "sentences": [
+              "ch02.s01.p02.03",
+              "ch02.s01.p02.05"
+            ],
+            "cites": [
+              "mk-6cFebjis@119",
+              "mk-6cFebjis@121",
+              "mk-6cFebjis@123",
+              "mk-6cFebjis@5608",
+              "mk-6cFebjis@5610",
+              "mk-6cFebjis@5614"
+            ],
+            "verdict": "supported",
+            "confidence": 0.98,
+            "reason": ""
+          }
+        ]
+      },
+      {
+        "id": "ch02.fig2",
+        "after_paragraph": "ch02.s05.p02",
+        "title": "Augmenting a vocabulary with special tokens",
+        "caption": "An augmented tokenizer maps unknown words to an unknown token and inserts an end-of-text token between documents.",
+        "mermaid": "flowchart TD\n  A[\"Input text with known and unknown words\"] --> B[\"Unknown words replaced with unknown token\"]\n  C[\"Multiple text sources\"] --> D[\"End of text token inserted between sources\"]\n  B --> E[\"Token IDs\"]",
+        "claims": [
+          {
+            "id": "ch02.fig2.c1",
+            "type": "F",
+            "text": "Unknown words in the input are replaced with the unknown token.",
+            "sentences": [
+              "ch02.s05.p02.03",
+              "ch02.s05.p03.02",
+              "ch02.s05.p03.06"
+            ],
+            "cites": [
+              "mk-6cFebjis@1371",
+              "mk-6cFebjis@1374",
+              "mk-6cFebjis@1376",
+              "mk-6cFebjis@1378",
+              "mk-6cFebjis@1381",
+              "mk-6cFebjis@1474",
+              "mk-6cFebjis@1478",
+              "mk-6cFebjis@1480",
+              "mk-6cFebjis@1482",
+              "mk-6cFebjis@1484",
+              "mk-6cFebjis@1486",
+              "mk-6cFebjis@1542",
+              "mk-6cFebjis@1545",
+              "mk-6cFebjis@1547",
+              "mk-6cFebjis@1549",
+              "mk-6cFebjis@1550",
+              "mk-6cFebjis@1553",
+              "mk-6cFebjis@1555",
+              "mk-6cFebjis@1557",
+              "mk-6cFebjis@1560",
+              "mk-6cFebjis@1564",
+              "mk-6cFebjis@1566",
+              "mk-6cFebjis@1568",
+              "mk-6cFebjis@1572",
+              "mk-6cFebjis@1574",
+              "mk-6cFebjis@1576",
+              "mk-6cFebjis@1579",
+              "mk-6cFebjis@1582",
+              "mk-6cFebjis@1584",
+              "mk-6cFebjis@1587",
+              "mk-6cFebjis@1589",
+              "mk-6cFebjis@1590",
+              "mk-6cFebjis@1592"
+            ],
+            "verdict": "supported",
+            "confidence": 0.96,
+            "reason": ""
+          },
+          {
+            "id": "ch02.fig2.c2",
+            "type": "F",
+            "text": "An end-of-text token is inserted between different text sources.",
+            "sentences": [
+              "ch02.s05.p02.04",
+              "ch02.s05.p02.05",
+              "ch02.s05.p03.02"
+            ],
+            "cites": [
+              "mk-6cFebjis@1383",
+              "mk-6cFebjis@1394",
+              "mk-6cFebjis@1397",
+              "mk-6cFebjis@1399",
+              "mk-6cFebjis@1401",
+              "mk-6cFebjis@1404",
+              "mk-6cFebjis@1405",
+              "mk-6cFebjis@1410",
+              "mk-6cFebjis@1412",
+              "mk-6cFebjis@1414",
+              "mk-6cFebjis@1416",
+              "mk-6cFebjis@1418",
+              "mk-6cFebjis@1420",
+              "mk-6cFebjis@1422",
+              "mk-6cFebjis@1424",
+              "mk-6cFebjis@1426",
+              "mk-6cFebjis@1428",
+              "mk-6cFebjis@1431",
+              "mk-6cFebjis@1433",
+              "mk-6cFebjis@1435",
+              "mk-6cFebjis@1437",
+              "mk-6cFebjis@1439",
+              "mk-6cFebjis@1441",
+              "mk-6cFebjis@1474",
+              "mk-6cFebjis@1478",
+              "mk-6cFebjis@1480",
+              "mk-6cFebjis@1482",
+              "mk-6cFebjis@1484",
+              "mk-6cFebjis@1486"
+            ],
+            "verdict": "supported",
+            "confidence": 0.93,
+            "reason": ""
+          },
+          {
+            "id": "ch02.fig2.c3",
+            "type": "F",
+            "text": "Words mapped to the unknown token are then mapped to token IDs.",
+            "sentences": [
+              "ch02.s05.p02.03",
+              "ch02.s05.p03.06"
+            ],
+            "cites": [
+              "mk-6cFebjis@1371",
+              "mk-6cFebjis@1374",
+              "mk-6cFebjis@1376",
+              "mk-6cFebjis@1378",
+              "mk-6cFebjis@1381",
+              "mk-6cFebjis@1542",
+              "mk-6cFebjis@1545",
+              "mk-6cFebjis@1547",
+              "mk-6cFebjis@1549",
+              "mk-6cFebjis@1550",
+              "mk-6cFebjis@1553",
+              "mk-6cFebjis@1555",
+              "mk-6cFebjis@1557",
+              "mk-6cFebjis@1560",
+              "mk-6cFebjis@1564",
+              "mk-6cFebjis@1566",
+              "mk-6cFebjis@1568",
+              "mk-6cFebjis@1572",
+              "mk-6cFebjis@1574",
+              "mk-6cFebjis@1576",
+              "mk-6cFebjis@1579",
+              "mk-6cFebjis@1582",
+              "mk-6cFebjis@1584",
+              "mk-6cFebjis@1587",
+              "mk-6cFebjis@1589",
+              "mk-6cFebjis@1590",
+              "mk-6cFebjis@1592"
+            ],
+            "verdict": "supported",
+            "confidence": 0.96,
+            "reason": ""
+          }
+        ],
+        "passed": true,
+        "repaired": true,
+        "first_attempt": [
+          {
+            "id": "ch02.fig2.c1",
+            "type": "F",
+            "text": "Unknown words in the input are replaced with the unknown token.",
+            "sentences": [
+              "ch02.s05.p02.03",
+              "ch02.s05.p03.02",
+              "ch02.s05.p03.06"
+            ],
+            "cites": [
+              "mk-6cFebjis@1371",
+              "mk-6cFebjis@1374",
+              "mk-6cFebjis@1376",
+              "mk-6cFebjis@1378",
+              "mk-6cFebjis@1381",
+              "mk-6cFebjis@1474",
+              "mk-6cFebjis@1478",
+              "mk-6cFebjis@1480",
+              "mk-6cFebjis@1482",
+              "mk-6cFebjis@1484",
+              "mk-6cFebjis@1486",
+              "mk-6cFebjis@1542",
+              "mk-6cFebjis@1545",
+              "mk-6cFebjis@1547",
+              "mk-6cFebjis@1549",
+              "mk-6cFebjis@1550",
+              "mk-6cFebjis@1553",
+              "mk-6cFebjis@1555",
+              "mk-6cFebjis@1557",
+              "mk-6cFebjis@1560",
+              "mk-6cFebjis@1564",
+              "mk-6cFebjis@1566",
+              "mk-6cFebjis@1568",
+              "mk-6cFebjis@1572",
+              "mk-6cFebjis@1574",
+              "mk-6cFebjis@1576",
+              "mk-6cFebjis@1579",
+              "mk-6cFebjis@1582",
+              "mk-6cFebjis@1584",
+              "mk-6cFebjis@1587",
+              "mk-6cFebjis@1589",
+              "mk-6cFebjis@1590",
+              "mk-6cFebjis@1592"
+            ],
+            "verdict": "supported",
+            "confidence": 0.96,
+            "reason": ""
+          },
+          {
+            "id": "ch02.fig2.c2",
+            "type": "F",
+            "text": "An end-of-text token is inserted between different text sources.",
+            "sentences": [
+              "ch02.s05.p02.04",
+              "ch02.s05.p02.05",
+              "ch02.s05.p03.02"
+            ],
+            "cites": [
+              "mk-6cFebjis@1383",
+              "mk-6cFebjis@1394",
+              "mk-6cFebjis@1397",
+              "mk-6cFebjis@1399",
+              "mk-6cFebjis@1401",
+              "mk-6cFebjis@1404",
+              "mk-6cFebjis@1405",
+              "mk-6cFebjis@1410",
+              "mk-6cFebjis@1412",
+              "mk-6cFebjis@1414",
+              "mk-6cFebjis@1416",
+              "mk-6cFebjis@1418",
+              "mk-6cFebjis@1420",
+              "mk-6cFebjis@1422",
+              "mk-6cFebjis@1424",
+              "mk-6cFebjis@1426",
+              "mk-6cFebjis@1428",
+              "mk-6cFebjis@1431",
+              "mk-6cFebjis@1433",
+              "mk-6cFebjis@1435",
+              "mk-6cFebjis@1437",
+              "mk-6cFebjis@1439",
+              "mk-6cFebjis@1441",
+              "mk-6cFebjis@1474",
+              "mk-6cFebjis@1478",
+              "mk-6cFebjis@1480",
+              "mk-6cFebjis@1482",
+              "mk-6cFebjis@1484",
+              "mk-6cFebjis@1486"
+            ],
+            "verdict": "supported",
+            "confidence": 0.95,
+            "reason": ""
+          },
+          {
+            "id": "ch02.fig2.c3",
+            "type": "F",
+            "text": "Words mapped to the unknown token are then mapped to token IDs.",
+            "sentences": [
+              "ch02.s05.p02.03",
+              "ch02.s05.p03.06"
+            ],
+            "cites": [
+              "mk-6cFebjis@1371",
+              "mk-6cFebjis@1374",
+              "mk-6cFebjis@1376",
+              "mk-6cFebjis@1378",
+              "mk-6cFebjis@1381",
+              "mk-6cFebjis@1542",
+              "mk-6cFebjis@1545",
+              "mk-6cFebjis@1547",
+              "mk-6cFebjis@1549",
+              "mk-6cFebjis@1550",
+              "mk-6cFebjis@1553",
+              "mk-6cFebjis@1555",
+              "mk-6cFebjis@1557",
+              "mk-6cFebjis@1560",
+              "mk-6cFebjis@1564",
+              "mk-6cFebjis@1566",
+              "mk-6cFebjis@1568",
+              "mk-6cFebjis@1572",
+              "mk-6cFebjis@1574",
+              "mk-6cFebjis@1576",
+              "mk-6cFebjis@1579",
+              "mk-6cFebjis@1582",
+              "mk-6cFebjis@1584",
+              "mk-6cFebjis@1587",
+              "mk-6cFebjis@1589",
+              "mk-6cFebjis@1590",
+              "mk-6cFebjis@1592"
+            ],
+            "verdict": "supported",
+            "confidence": 0.96,
+            "reason": ""
+          },
+          {
+            "id": "ch02.fig2.c4",
+            "type": "F",
+            "text": "Texts with inserted end-of-text tokens are then mapped to token IDs.",
+            "sentences": [
+              "ch02.s05.p02.05",
+              "ch02.s05.p03.03"
+            ],
+            "cites": [
+              "mk-6cFebjis@1410",
+              "mk-6cFebjis@1412",
+              "mk-6cFebjis@1414",
+              "mk-6cFebjis@1416",
+              "mk-6cFebjis@1418",
+              "mk-6cFebjis@1420",
+              "mk-6cFebjis@1422",
+              "mk-6cFebjis@1424",
+              "mk-6cFebjis@1426",
+              "mk-6cFebjis@1428",
+              "mk-6cFebjis@1431",
+              "mk-6cFebjis@1433",
+              "mk-6cFebjis@1435",
+              "mk-6cFebjis@1437",
+              "mk-6cFebjis@1439",
+              "mk-6cFebjis@1441",
+              "mk-6cFebjis@1489",
+              "mk-6cFebjis@1491",
+              "mk-6cFebjis@1494",
+              "mk-6cFebjis@1496",
+              "mk-6cFebjis@1498",
+              "mk-6cFebjis@1500",
+              "mk-6cFebjis@1503",
+              "mk-6cFebjis@1506"
+            ],
+            "verdict": "partial",
+            "confidence": 0.66,
+            "reason": "The lines support inserting end-of-text tokens between sources and having a token-to-ID mapping that includes the end-of-text token, but they do not explicitly state that the combined texts (with inserted end-of-text tokens) are then mapped to token IDs as a process step."
+          }
+        ]
+      },
+      {
+        "id": "ch02.fig3",
+        "after_paragraph": "ch02.s15.p05",
+        "title": "Sliding window creation of input target pairs",
+        "caption": "A sliding window over token IDs creates input chunks and target chunks, where each target chunk is the input chunk shifted by one token.",
+        "mermaid": "flowchart TD\n  A[\"Token ID sequence\"] --> B[\"Choose context length and stride\"]\n  B --> C[\"Input chunk\"]\n  B --> D[\"Target chunk shifted by one token\"]\n  C --> E[\"Input tensor\"]\n  D --> F[\"Target tensor\"]",
+        "claims": [
+          {
+            "id": "ch02.fig3.c1",
+            "type": "F",
+            "text": "The process starts from a token ID sequence.",
+            "sentences": [
+              "ch02.s15.p03.r05",
+              "ch02.s15.p05.04"
+            ],
+            "cites": [
+              "mk-6cFebjis@3401",
+              "mk-6cFebjis@3404",
+              "mk-6cFebjis@3406",
+              "mk-6cFebjis@3409",
+              "mk-6cFebjis@3411",
+              "mk-6cFebjis@3544",
+              "mk-6cFebjis@3547",
+              "mk-6cFebjis@3550",
+              "mk-6cFebjis@3552",
+              "mk-6cFebjis@3554",
+              "mk-6cFebjis@3557",
+              "mk-6cFebjis@3560",
+              "mk-6cFebjis@3562"
+            ],
+            "verdict": "supported",
+            "confidence": 0.9,
+            "reason": ""
+          },
+          {
+            "id": "ch02.fig3.c2",
+            "type": "F",
+            "text": "Input-output pairs are constructed using a context length and stride.",
+            "sentences": [
+              "ch02.s15.p01.05",
+              "ch02.s15.p01.06",
+              "ch02.s15.p04.r01",
+              "ch02.s15.p05.04"
+            ],
+            "cites": [
+              "mk-6cFebjis@3037",
+              "mk-6cFebjis@3039",
+              "mk-6cFebjis@3041",
+              "mk-6cFebjis@3043",
+              "mk-6cFebjis@3046",
+              "mk-6cFebjis@3048",
+              "mk-6cFebjis@3050",
+              "mk-6cFebjis@3053",
+              "mk-6cFebjis@3055",
+              "mk-6cFebjis@3448",
+              "mk-6cFebjis@3451",
+              "mk-6cFebjis@3497",
+              "mk-6cFebjis@3500",
+              "mk-6cFebjis@3502",
+              "mk-6cFebjis@3544",
+              "mk-6cFebjis@3547",
+              "mk-6cFebjis@3550",
+              "mk-6cFebjis@3552",
+              "mk-6cFebjis@3554",
+              "mk-6cFebjis@3557",
+              "mk-6cFebjis@3560",
+              "mk-6cFebjis@3562"
+            ],
+            "verdict": "supported",
+            "confidence": 0.9,
+            "reason": ""
+          },
+          {
+            "id": "ch02.fig3.c3",
+            "type": "F",
+            "text": "An input chunk is taken from one context window.",
+            "sentences": [
+              "ch02.s15.p05.04",
+              "ch02.s15.p05.05"
+            ],
+            "cites": [
+              "mk-6cFebjis@3544",
+              "mk-6cFebjis@3547",
+              "mk-6cFebjis@3550",
+              "mk-6cFebjis@3552",
+              "mk-6cFebjis@3554",
+              "mk-6cFebjis@3557",
+              "mk-6cFebjis@3560",
+              "mk-6cFebjis@3562",
+              "mk-6cFebjis@3565",
+              "mk-6cFebjis@3567",
+              "mk-6cFebjis@3569",
+              "mk-6cFebjis@3571",
+              "mk-6cFebjis@3573"
+            ],
+            "verdict": "supported",
+            "confidence": 0.74,
+            "reason": ""
+          },
+          {
+            "id": "ch02.fig3.c4",
+            "type": "F",
+            "text": "A target chunk is the same chunk shifted by one position.",
+            "sentences": [
+              "ch02.s15.p05.03",
+              "ch02.s15.p05.05"
+            ],
+            "cites": [
+              "mk-6cFebjis@3263",
+              "mk-6cFebjis@3265",
+              "mk-6cFebjis@3268",
+              "mk-6cFebjis@3271",
+              "mk-6cFebjis@3273",
+              "mk-6cFebjis@3275",
+              "mk-6cFebjis@3278",
+              "mk-6cFebjis@3283",
+              "mk-6cFebjis@3286",
+              "mk-6cFebjis@3288",
+              "mk-6cFebjis@3290",
+              "mk-6cFebjis@3292",
+              "mk-6cFebjis@3565",
+              "mk-6cFebjis@3567",
+              "mk-6cFebjis@3569",
+              "mk-6cFebjis@3571",
+              "mk-6cFebjis@3573"
+            ],
+            "verdict": "supported",
+            "confidence": 0.96,
+            "reason": ""
+          },
+          {
+            "id": "ch02.fig3.c5",
+            "type": "F",
+            "text": "Input chunks are appended to the input tensor.",
+            "sentences": [
+              "ch02.s15.p05.04",
+              "ch02.s15.p05.06"
+            ],
+            "cites": [
+              "mk-6cFebjis@3544",
+              "mk-6cFebjis@3547",
+              "mk-6cFebjis@3550",
+              "mk-6cFebjis@3552",
+              "mk-6cFebjis@3554",
+              "mk-6cFebjis@3557",
+              "mk-6cFebjis@3560",
+              "mk-6cFebjis@3562",
+              "mk-6cFebjis@3576",
+              "mk-6cFebjis@3578",
+              "mk-6cFebjis@3582",
+              "mk-6cFebjis@3584",
+              "mk-6cFebjis@3587",
+              "mk-6cFebjis@3588",
+              "mk-6cFebjis@3591",
+              "mk-6cFebjis@3592",
+              "mk-6cFebjis@3594",
+              "mk-6cFebjis@3597",
+              "mk-6cFebjis@3600",
+              "mk-6cFebjis@3602",
+              "mk-6cFebjis@3605",
+              "mk-6cFebjis@3607"
+            ],
+            "verdict": "supported",
+            "confidence": 0.96,
+            "reason": ""
+          },
+          {
+            "id": "ch02.fig3.c6",
+            "type": "F",
+            "text": "Target chunks are appended to the target tensor.",
+            "sentences": [
+              "ch02.s15.p05.04",
+              "ch02.s15.p05.06"
+            ],
+            "cites": [
+              "mk-6cFebjis@3544",
+              "mk-6cFebjis@3547",
+              "mk-6cFebjis@3550",
+              "mk-6cFebjis@3552",
+              "mk-6cFebjis@3554",
+              "mk-6cFebjis@3557",
+              "mk-6cFebjis@3560",
+              "mk-6cFebjis@3562",
+              "mk-6cFebjis@3576",
+              "mk-6cFebjis@3578",
+              "mk-6cFebjis@3582",
+              "mk-6cFebjis@3584",
+              "mk-6cFebjis@3587",
+              "mk-6cFebjis@3588",
+              "mk-6cFebjis@3591",
+              "mk-6cFebjis@3592",
+              "mk-6cFebjis@3594",
+              "mk-6cFebjis@3597",
+              "mk-6cFebjis@3600",
+              "mk-6cFebjis@3602",
+              "mk-6cFebjis@3605",
+              "mk-6cFebjis@3607"
+            ],
+            "verdict": "supported",
+            "confidence": 0.96,
+            "reason": ""
+          }
+        ],
+        "passed": true,
+        "repaired": true,
+        "first_attempt": [
+          {
+            "id": "ch02.fig3.c1",
+            "type": "F",
+            "text": "The process starts from a token ID sequence.",
+            "sentences": [
+              "ch02.s15.p03.r05",
+              "ch02.s15.p05.04"
+            ],
+            "cites": [
+              "mk-6cFebjis@3401",
+              "mk-6cFebjis@3404",
+              "mk-6cFebjis@3406",
+              "mk-6cFebjis@3409",
+              "mk-6cFebjis@3411",
+              "mk-6cFebjis@3544",
+              "mk-6cFebjis@3547",
+              "mk-6cFebjis@3550",
+              "mk-6cFebjis@3552",
+              "mk-6cFebjis@3554",
+              "mk-6cFebjis@3557",
+              "mk-6cFebjis@3560",
+              "mk-6cFebjis@3562"
+            ],
+            "verdict": "supported",
+            "confidence": 0.9,
+            "reason": ""
+          },
+          {
+            "id": "ch02.fig3.c2",
+            "type": "F",
+            "text": "Input-output pairs are constructed using a context length and stride.",
+            "sentences": [
+              "ch02.s15.p01.05",
+              "ch02.s15.p01.06",
+              "ch02.s15.p04.r01",
+              "ch02.s15.p05.04"
+            ],
+            "cites": [
+              "mk-6cFebjis@3037",
+              "mk-6cFebjis@3039",
+              "mk-6cFebjis@3041",
+              "mk-6cFebjis@3043",
+              "mk-6cFebjis@3046",
+              "mk-6cFebjis@3048",
+              "mk-6cFebjis@3050",
+              "mk-6cFebjis@3053",
+              "mk-6cFebjis@3055",
+              "mk-6cFebjis@3448",
+              "mk-6cFebjis@3451",
+              "mk-6cFebjis@3497",
+              "mk-6cFebjis@3500",
+              "mk-6cFebjis@3502",
+              "mk-6cFebjis@3544",
+              "mk-6cFebjis@3547",
+              "mk-6cFebjis@3550",
+              "mk-6cFebjis@3552",
+              "mk-6cFebjis@3554",
+              "mk-6cFebjis@3557",
+              "mk-6cFebjis@3560",
+              "mk-6cFebjis@3562"
+            ],
+            "verdict": "supported",
+            "confidence": 0.9,
+            "reason": ""
+          },
+          {
+            "id": "ch02.fig3.c3",
+            "type": "F",
+            "text": "An input chunk is taken from one context window.",
+            "sentences": [
+              "ch02.s15.p05.04",
+              "ch02.s15.p05.05"
+            ],
+            "cites": [
+              "mk-6cFebjis@3544",
+              "mk-6cFebjis@3547",
+              "mk-6cFebjis@3550",
+              "mk-6cFebjis@3552",
+              "mk-6cFebjis@3554",
+              "mk-6cFebjis@3557",
+              "mk-6cFebjis@3560",
+              "mk-6cFebjis@3562",
+              "mk-6cFebjis@3565",
+              "mk-6cFebjis@3567",
+              "mk-6cFebjis@3569",
+              "mk-6cFebjis@3571",
+              "mk-6cFebjis@3573"
+            ],
+            "verdict": "supported",
+            "confidence": 0.78,
+            "reason": ""
+          },
+          {
+            "id": "ch02.fig3.c4",
+            "type": "F",
+            "text": "A target chunk is the same chunk shifted by one position.",
+            "sentences": [
+              "ch02.s15.p05.03",
+              "ch02.s15.p05.05"
+            ],
+            "cites": [
+              "mk-6cFebjis@3263",
+              "mk-6cFebjis@3265",
+              "mk-6cFebjis@3268",
+              "mk-6cFebjis@3271",
+              "mk-6cFebjis@3273",
+              "mk-6cFebjis@3275",
+              "mk-6cFebjis@3278",
+              "mk-6cFebjis@3283",
+              "mk-6cFebjis@3286",
+              "mk-6cFebjis@3288",
+              "mk-6cFebjis@3290",
+              "mk-6cFebjis@3292",
+              "mk-6cFebjis@3565",
+              "mk-6cFebjis@3567",
+              "mk-6cFebjis@3569",
+              "mk-6cFebjis@3571",
+              "mk-6cFebjis@3573"
+            ],
+            "verdict": "supported",
+            "confidence": 0.95,
+            "reason": ""
+          },
+          {
+            "id": "ch02.fig3.c5",
+            "type": "F",
+            "text": "Input chunks are appended to the input tensor X.",
+            "sentences": [
+              "ch02.s15.p05.04",
+              "ch02.s15.p05.06"
+            ],
+            "cites": [
+              "mk-6cFebjis@3544",
+              "mk-6cFebjis@3547",
+              "mk-6cFebjis@3550",
+              "mk-6cFebjis@3552",
+              "mk-6cFebjis@3554",
+              "mk-6cFebjis@3557",
+              "mk-6cFebjis@3560",
+              "mk-6cFebjis@3562",
+              "mk-6cFebjis@3576",
+              "mk-6cFebjis@3578",
+              "mk-6cFebjis@3582",
+              "mk-6cFebjis@3584",
+              "mk-6cFebjis@3587",
+              "mk-6cFebjis@3588",
+              "mk-6cFebjis@3591",
+              "mk-6cFebjis@3592",
+              "mk-6cFebjis@3594",
+              "mk-6cFebjis@3597",
+              "mk-6cFebjis@3600",
+              "mk-6cFebjis@3602",
+              "mk-6cFebjis@3605",
+              "mk-6cFebjis@3607"
+            ],
+            "verdict": "partial",
+            "confidence": 0.7,
+            "reason": "the lines say input chunks are appended to an \"input tensor\" (and to an \"input id\" tensor), but they do not identify that tensor by the specific name \"X\" in the cited lines"
+          },
+          {
+            "id": "ch02.fig3.c6",
+            "type": "F",
+            "text": "Target chunks are appended to the target tensor Y.",
+            "sentences": [
+              "ch02.s15.p05.04",
+              "ch02.s15.p05.06"
+            ],
+            "cites": [
+              "mk-6cFebjis@3544",
+              "mk-6cFebjis@3547",
+              "mk-6cFebjis@3550",
+              "mk-6cFebjis@3552",
+              "mk-6cFebjis@3554",
+              "mk-6cFebjis@3557",
+              "mk-6cFebjis@3560",
+              "mk-6cFebjis@3562",
+              "mk-6cFebjis@3576",
+              "mk-6cFebjis@3578",
+              "mk-6cFebjis@3582",
+              "mk-6cFebjis@3584",
+              "mk-6cFebjis@3587",
+              "mk-6cFebjis@3588",
+              "mk-6cFebjis@3591",
+              "mk-6cFebjis@3592",
+              "mk-6cFebjis@3594",
+              "mk-6cFebjis@3597",
+              "mk-6cFebjis@3600",
+              "mk-6cFebjis@3602",
+              "mk-6cFebjis@3605",
+              "mk-6cFebjis@3607"
+            ],
+            "verdict": "partial",
+            "confidence": 0.7,
+            "reason": "the lines say target chunks are appended to the \"target\" tensor, but they do not identify that tensor by the specific name \"Y\" in the cited lines"
+          }
+        ]
+      }
+    ],
+    "dropped": []
+  }
+}

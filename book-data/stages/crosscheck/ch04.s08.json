@@ -1,0 +1,599 @@
+{
+  "stage": "crosscheck",
+  "item": "ch04.s08",
+  "inputs_hash": "e7c2eb38bc7c9c1a5ef75c0642d3aa8cc22903bdca1e27949cf03ed8f1ea17ed",
+  "output_hash": "2ff869347c2ebb5803ab969b15ac8474bb9c0fd24187063c61fb03759e64931f",
+  "output": {
+    "section_id": "ch04.s08",
+    "checked": 47,
+    "counts": {
+      "agrees": 33,
+      "contradicts": 2,
+      "not_covered": 12
+    },
+    "results": [
+      {
+        "sentence_id": "ch04.s08.p01.02",
+        "text": "In traditional machine learning, regression generally uses least-square or mean-squared-error losses, while classification uses losses such as cross-entropy or hinge loss.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell91"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited cells show plotting losses and training utilities but do not discuss traditional ML regression vs classification losses (MSE, cross-entropy, hinge)."
+      },
+      {
+        "sentence_id": "ch04.s08.p01.03",
+        "text": "A loss function is a quantitative metric that captures how good or bad the large language model's output is.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell16",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell29",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell58"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references describe capturing 'good text' numerically via a loss metric to track training progress and measuring distance from correct targets, consistent with loss quantifying output quality."
+      },
+      {
+        "sentence_id": "ch04.s08.p01.04",
+        "text": "If a loss function quantifies LLM performance, then training can aim to minimize that loss so the model does better and better.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell85",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell52",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell89"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references explicitly state the goal is to minimize loss and show computing train/val/test loss before training."
+      },
+      {
+        "sentence_id": "ch04.s08.p01.05",
+        "text": "Once a loss function is constructed, gradient-descent-based backpropagation algorithms can be used to train the model.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell89",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell86"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited cells show evaluation with torch.no_grad() and loss computation, but do not state or demonstrate gradient-descent/backprop training steps."
+      },
+      {
+        "sentence_id": "ch04.s08.p01.06",
+        "text": "Here, text evaluation means defining a loss function that compares what the model generated with the good output that is actually wanted.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell16",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell79",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell94"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references discuss measuring 'good text' numerically via loss metrics for generated outputs, implying comparison against desired/target outputs, which matches the statement at a high level."
+      },
+      {
+        "sentence_id": "ch04.s08.p01.07",
+        "text": "That loss is determined by the predicted values, the target values, and how close they are.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell90",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell72",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The perplexity note says lower values mean predictions are closer to the actual distribution, aligning with loss depending on predictions vs targets and their closeness; other cited snippets do not contradict."
+      },
+      {
+        "sentence_id": "ch04.s08.p01.08",
+        "text": "Because a randomly initialized LLM does not initially produce the outputs that are wanted, it must be trained.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell16"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly notes the model does not produce good text because it has not been trained yet, supporting the need for training from random/untrained initialization."
+      },
+      {
+        "sentence_id": "ch04.s08.p02.r01",
+        "text": "Before training, those correct-index probabilities are not necessarily the highest, because the model is not trained yet.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell29",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell83",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell16"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references state the model is not trained/finetuned yet and thus predictions/accuracies are not good, consistent with correct targets not having the highest probabilities initially."
+      },
+      {
+        "sentence_id": "ch04.s08.p02.r02",
+        "text": "To evaluate the model, the probability tensor is indexed at the target positions for each token prediction in each batch, and those probabilities are collected together.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell95",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell31"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references describe logits -> softmax probabilities and explicitly mention 'token probabilities corresponding to the target indices', which implies indexing probabilities at target positions and collecting them."
+      },
+      {
+        "sentence_id": "ch04.s08.p02.r03",
+        "text": "With two batches and three token predictions in each batch, there are six target probabilities in total: \"p11\", \"p12\", and \"p13\" from the first batch, and \"p21\", \"p22\", and \"p23\" from the second.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell69",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell80"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references show general loss computation (flattened cross-entropy) but do not specify a concrete example with exactly two batches, three token predictions each, and six named probabilities p11..p23."
+      },
+      {
+        "sentence_id": "ch04.s08.p02.r04",
+        "text": "The training goal is to make all six selected target probabilities as close to one as possible, because then the highest-probability output indices will line up with the target indices.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell31",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell37",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell85"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference goal is to make the average log probability as large as possible with a maximum of 0 (equivalently minimize negative log-likelihood/cross-entropy), not to make each selected probability 'as close to one as possible' as stated."
+      },
+      {
+        "sentence_id": "ch04.s08.p02.r05",
+        "text": "Conceptually, the workflow starts from the logits tensor, converts it to probabilities with softmax, identifies the target-index probabilities, and merges them together.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell31",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell114"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references outline the conceptual flow from logits to softmax probabilities and then selecting the probabilities at target indices, consistent with the described workflow."
+      },
+      {
+        "sentence_id": "ch04.s08.p03.01",
+        "text": "Because the problem is expressed in probabilities, logarithms and cross-entropy are the natural tools to use.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell31",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell48",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell42"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs discuss token probabilities, applying log (via cross-entropy), and relate cross-entropy to perplexity, consistent with using logarithms and cross-entropy for probabilistic modeling."
+      },
+      {
+        "sentence_id": "ch04.s08.p03.02",
+        "text": "Rather than working directly with the target probabilities, it is better mathematically and from an optimization perspective to take their logarithms, average them, and then negate the result.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell1",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell31"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The cited refs show extracting target probabilities but do not state the optimization/mathematical rationale that it is 'better' to take logs, average, and negate."
+      },
+      {
+        "sentence_id": "ch04.s08.p03.03",
+        "text": "The negative log-likelihood is the negative of the mean of the log target probabilities.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell34",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell36",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell38"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Code computes log of target probabilities, takes their mean, and then negates it; text explains minimizing the negative average log-probability (cross-entropy), matching the statement."
+      },
+      {
+        "sentence_id": "ch04.s08.p03.04",
+        "text": "For these six collected probabilities, the negative log-likelihood is the negative of the sum of log \"p11\" through log \"p23\" divided by 6.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell34",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell36",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell39"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Code concatenates the collected target probabilities (six values across two sequences), takes torch.mean of their logs (equivalent to sum divided by 6), then negates it."
+      },
+      {
+        "sentence_id": "ch04.s08.p03.05",
+        "text": "Using the negative form makes the objective intuitive, because the task becomes minimizing a loss instead of maximizing it.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell38"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref explicitly says deep learning convention is to minimize the negative average log-probability rather than maximize the average log-probability."
+      },
+      {
+        "sentence_id": "ch04.s08.p03.06",
+        "text": "This negative log-likelihood is also called cross-entropy loss.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell35",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell38",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell48"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref states the negative of the average log-probability value is also called cross-entropy loss."
+      },
+      {
+        "sentence_id": "ch04.s08.p03.07",
+        "text": "Cross-entropy loss essentially measures the difference between two probability distributions, and in this setting it can be viewed as categorical cross-entropy.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell48",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell17",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell42"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs mention cross-entropy and perplexity and applying cross_entropy, but do not explain cross-entropy as a difference between two distributions nor label it as (categorical) cross-entropy in this context."
+      },
+      {
+        "sentence_id": "ch04.s08.p03.08",
+        "text": "Minimizing cross-entropy pushes the target probabilities toward one, so the loss should be as low and as close to zero as possible.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell31",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell37",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell48"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref states the goal is to make average log probability as large as possible, with maximum 0, implying probabilities approach 1; minimizing the negated form drives loss toward 0."
+      },
+      {
+        "sentence_id": "ch04.s08.p03.09",
+        "text": "If the loss reaches zero, that indicates the mean is effectively at one and the target probabilities are at or near one, which is the training goal.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell85",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell83",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell31"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Refs mention minimizing loss but do not state that loss=0 implies mean probability is 1 or that target probabilities are near 1."
+      },
+      {
+        "sentence_id": "ch04.s08.p03.10",
+        "text": "When this loss is minimized, the predicted next-token indices align closely with the target indices, which indicates that the language model is performing well.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell31",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Refs connect lower loss/perplexity to predicted distributions being closer to actual distribution, and describe argmax producing predicted token IDs; consistent with minimized loss implying better alignment with targets."
+      },
+      {
+        "sentence_id": "ch04.s08.p04.02",
+        "text": "A first coding step is to explicitly find the target probabilities \"p11\", \"p12\", \"p13\", \"p21\", \"p22\", and \"p23\" from the model output probabilities.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell31",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell66",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell101"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Ref cell describes the token probabilities corresponding to target indices (i.e., explicitly extracting the target probabilities from model output probabilities), matching the described first coding step."
+      },
+      {
+        "sentence_id": "ch04.s08.p04.03",
+        "text": "For the first batch, the code looks at rows 0, 1, and 2 and picks the probability values at target indices 3626, 610, and 345.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell31",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell22",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell85"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided refs do not specify the exact rows (0,1,2) and target indices (3626, 610, 345) for the first batch; calc_loss_batch shown uses cross_entropy directly and does not document those specific indices."
+      },
+      {
+        "sentence_id": "ch04.s08.p04.04",
+        "text": "For the second batch, it again looks at rows 0, 1, and 2 and picks the probability values at target indices 1107, 588, and 11311.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell19",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell98",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell31"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The targets tensor’s second row is [1107, 588, 11311], corresponding to selecting target-index probabilities for batch 2 across its three token positions (rows 0–2 within that sequence)."
+      },
+      {
+        "sentence_id": "ch04.s08.p04.05",
+        "text": "After selecting them, the six probabilities are concatenated, their logarithms are taken, the mean of those log values is computed, and then the negative is taken to obtain the negative log-likelihood loss.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell36",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell34",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell37"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference code concatenates the selected target probabilities, takes log, averages the log values, and the accompanying text explains using the negative of this average log-probability as the loss (negative log-likelihood/cross-entropy)."
+      },
+      {
+        "sentence_id": "ch04.s08.p04.06",
+        "text": "In deep learning, it is conventional to use negative log-likelihood rather than positive log-likelihood so that the loss is minimized instead of maximized.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell38",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell36",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell34"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Cell 38 explicitly states the convention of minimizing the negative average log-probability instead of maximizing the average log-probability."
+      },
+      {
+        "sentence_id": "ch04.s08.p05.r02",
+        "text": "The logits are flattened from shape 2 by 3 by 50257 to shape 6 by 50257 by merging the batch and token dimensions.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell43",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell45",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell38"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference shows logits of shape (batch_size, num_tokens, vocab_size) and uses logits.flatten(0,1), which merges batch and token dimensions, yielding (2*3, vocab_size) = (6, 50257) in this example."
+      },
+      {
+        "sentence_id": "ch04.s08.p05.r03",
+        "text": "The target tensor is flattened from two rows and three columns into six values.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell25",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell64"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference code flattens targets via targets.flatten(), converting a (2,3) tensor into a length-6 vector."
+      },
+      {
+        "sentence_id": "ch04.s08.p05.r04",
+        "text": "After flattening, the target sequence is 3626, 610, 345, 107, 588, and 11311, and these indices identify the entries whose probabilities correspond to \"p11\" through \"p23\".",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell19",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell31",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell54"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Targets are [[3626, 6100, 345],[1107, 588, 11311]]. After flattening they would be 3626, 6100, 345, 1107, 588, 11311 (not 610, 107). Also the mapping to entries “p11” through “p23” is not supported by the provided references."
+      },
+      {
+        "sentence_id": "ch04.s08.p05.r05",
+        "text": "The call \"torch.nn.functional.cross_entropy(logits_flat, targets_flat)\" computes the loss from flattened logits and flattened targets.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell45",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell47",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell50"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly flattens logits and targets and then calls torch.nn.functional.cross_entropy(logits_flat, targets_flat) to compute the loss."
+      },
+      {
+        "sentence_id": "ch04.s08.p05.r06",
+        "text": "This function first applies softmax to the logits to convert them into probabilities, then finds the probabilities at the target indices, takes the negative log, and averages them.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell31",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell75",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell34"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Cross-entropy (as used for classification/next-token prediction) corresponds to applying log-softmax internally, selecting the target class log-probabilities, taking the negative, and averaging; the chapter text describes converting logits to probabilities and working with log-probabilities/negative average log-probability."
+      },
+      {
+        "sentence_id": "ch04.s08.p05.r07",
+        "text": "A single call performs all the required steps and returns the final loss between the output and the target.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell109",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell79",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell90"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While the reference shows a single call to cross_entropy producing a loss value, the provided passages do not explicitly state the general claim that “a single call performs all required steps and returns the final loss between the output and the target” as a conceptual summary."
+      },
+      {
+        "sentence_id": "ch04.s08.p05.r08",
+        "text": "Conceptually, inputs such as \"every effort moves\" and \"I really like\" pass through the GPT architecture to produce logits, the batches are merged into \"logits_flat\", the target-index probabilities are examined, and the cross-entropy loss is computed from them.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell47",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell31",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell45"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references show inputs/targets, logits being produced (implied by logits usage), logits flattened to logits_flat, and loss computed by cross_entropy; cell 31 discusses selecting target-index probabilities conceptually consistent with the described pipeline."
+      },
+      {
+        "sentence_id": "ch04.s08.p05.r09",
+        "text": "In an ideal model, the probabilities at the target indices would be close to one, but in an unoptimized LLM they are typically small, so training aims to increase them by minimizing cross-entropy.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell31",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell73",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell38"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The provided references show example target probabilities and discuss training/cross-entropy, but do not explicitly state that ideal probabilities are near 1, that unoptimized LLM probabilities are typically small, or that training aims to increase them framed in that way."
+      },
+      {
+        "sentence_id": "ch04.s08.p05.r10",
+        "text": "The function is described as finding the cross-entropy loss between the input logits and the target.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell42",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell48",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell31"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference discusses applying cross_entropy to logits/targets and refers to cross-entropy loss; describing it as finding the cross-entropy loss between logits and target is consistent with the material."
+      },
+      {
+        "sentence_id": "ch04.s08.p05.r11",
+        "text": "The goal during training is to reduce this categorical cross-entropy loss as close to zero as possible.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell37",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell48",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell85"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References describe the training goal as minimizing cross-entropy loss / maximizing average log probability whose maximum is 0, which is equivalent to driving cross-entropy toward 0."
+      },
+      {
+        "sentence_id": "ch04.s08.p06.02",
+        "text": "Perplexity is another measure of loss, described as a minor modification of cross-entropy that measures how well the model's predicted probability distribution matches the actual distribution of words in the dataset.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell48",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References define perplexity as exp(cross-entropy) and state it measures how well the predicted distribution matches the actual distribution; it is related to the loss and decreases as predictions improve."
+      },
+      {
+        "sentence_id": "ch04.s08.p06.03",
+        "text": "It is presented as a more interpretable way to understand model uncertainty in predicting the next token.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell56",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell85"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference explicitly says perplexity is often considered more interpretable and can be understood as an effective vocabulary size the model is uncertain about at each step."
+      },
+      {
+        "sentence_id": "ch04.s08.p06.04",
+        "text": "A lower perplexity score means better predictions.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell49",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell121"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference states that lower perplexity indicates predictions closer to the actual distribution (i.e., better predictions)."
+      },
+      {
+        "sentence_id": "ch04.s08.p06.05",
+        "text": "Perplexity is calculated as the exponent of the loss.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell48",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell49",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference explicitly: perplexity = exp(cross-entropy loss), with code `perplexity = torch.exp(loss)`."
+      },
+      {
+        "sentence_id": "ch04.s08.p06.06",
+        "text": "In the example, the loss is 10.79 and the perplexity is 48725.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell48",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell49",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "References mention an example perplexity of 48,725 but do not provide (in the quoted snippets) the specific loss value 10.79 paired with it."
+      },
+      {
+        "sentence_id": "ch04.s08.p06.07",
+        "text": "A perplexity of 48725 means the model is roughly as uncertain as if it had to choose the next token randomly from about 48725 tokens in the vocabulary.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell75",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell85"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference interprets perplexity as the effective vocabulary size the model is uncertain about (example: 48,725 tokens), consistent with the 'roughly like choosing among ~48,725 tokens' explanation."
+      },
+      {
+        "sentence_id": "ch04.s08.p06.08",
+        "text": "For the input \"every effort moves\", that means the current model is at a stage where predicting the next token is like choosing among 48725 possible tokens, which indicates high uncertainty and poor performance.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell91",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell67",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell103"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references include a toy example with the phrase \"every effort moves you\" and separate discussion of perplexity=48,725, but they do not tie that perplexity value specifically to the input \"every effort moves\" nor explicitly label it as poor performance for that input."
+      },
+      {
+        "sentence_id": "ch04.s08.p06.09",
+        "text": "If the perplexity were 2, the model would effectively need to choose between only two tokens, which would indicate a very accurate model.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell103",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell55",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell146"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "No reference passage explains how to interpret a perplexity of 2 or that it implies choosing between only two tokens / very high accuracy."
+      },
+      {
+        "sentence_id": "ch04.s08.p06.10",
+        "text": "A perplexity of 48725 also suggests that about 48000 tokens are effectively equally likely to be the next token, so the model is not good at all.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell49",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell5"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference frames perplexity as an effective vocabulary size the model is uncertain about (48,725 tokens), which aligns with the idea that many tokens are effectively in play and performance is poor at that stage."
+      },
+      {
+        "sentence_id": "ch04.s08.p06.11",
+        "text": "Perplexity is usually more interpretable than a raw categorical cross-entropy value such as 10, because it can be related directly to the vocabulary size.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell48",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell50",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell17"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference states perplexity is often more interpretable and can be understood as effective vocabulary size, supporting the claim it is more interpretable than raw cross-entropy values."
+      }
+    ],
+    "conflicts": [
+      {
+        "sentence_id": "ch04.s08.p02.r04",
+        "text": "The training goal is to make all six selected target probabilities as close to one as possible, because then the highest-probability output indices will line up with the target indices.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell31",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell37",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell85"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "The reference goal is to make the average log probability as large as possible with a maximum of 0 (equivalently minimize negative log-likelihood/cross-entropy), not to make each selected probability 'as close to one as possible' as stated."
+      },
+      {
+        "sentence_id": "ch04.s08.p05.r04",
+        "text": "After flattening, the target sequence is 3626, 610, 345, 107, 588, and 11311, and these indices identify the entries whose probabilities correspond to \"p11\" through \"p23\".",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell19",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell31",
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell54"
+        ],
+        "verdict": "contradicts",
+        "material": true,
+        "reason": "Targets are [[3626, 6100, 345],[1107, 588, 11311]]. After flattening they would be 3626, 6100, 345, 1107, 588, 11311 (not 610, 107). Also the mapping to entries “p11” through “p23” is not supported by the provided references."
+      }
+    ]
+  }
+}

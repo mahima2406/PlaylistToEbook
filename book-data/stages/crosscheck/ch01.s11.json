@@ -1,0 +1,94 @@
+{
+  "stage": "crosscheck",
+  "item": "ch01.s11",
+  "inputs_hash": "36dc5a92fb838f2ef79bc02b9e9065429147e2a4a1474c3415d5a1d7b0572873",
+  "output_hash": "3afbbff5b72d53bb4087772fd7b1b6a391d1e59b1af4d99e74475d3b4b10722f",
+  "output": {
+    "section_id": "ch01.s11",
+    "checked": 7,
+    "counts": {
+      "agrees": 2,
+      "contradicts": 0,
+      "not_covered": 5
+    },
+    "results": [
+      {
+        "sentence_id": "ch01.s11.p01.02",
+        "text": "A lack of familiarity with ChatGPT is not a problem, because the playlist builds its own GPT and explains it along the way.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell7",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell66"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The referenced cells are only section headers about modeling long sequences and coding the GPT model; they do not mention learner familiarity with ChatGPT, a playlist, or explaining GPT along the way."
+      },
+      {
+        "sentence_id": "ch01.s11.p01.03",
+        "text": "The reference book is used as course material, and the plan is to convert every aspect of its 48 pages into videos.",
+        "refs": [
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell95"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The reference note only states that evaluate_model in chapter 6 is the same as in chapter 5; it does not mention the book being course material, any page count, or a plan to convert 48 pages into videos."
+      },
+      {
+        "sentence_id": "ch01.s11.p01.05",
+        "text": "To teach from the book in detail, detailed whiteboard notes are being prepared from the book so that understanding can be transferred in an interesting and fundamental way.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell129"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The referenced 'What's next?' section discusses bonus materials after completing the book; it does not address preparing detailed whiteboard notes or teaching plans."
+      },
+      {
+        "sentence_id": "ch01.s11.p02.r02",
+        "text": "The first six lectures are introductory and are meant to give a feel for the whole series while building conceptual understanding at a fundamental level.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell6",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell52"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references cover word embeddings (chapter 2) and modifying a pretrained LLM for classification finetuning (chapter 6), but they do not describe lectures, their count, or that the first six are introductory."
+      },
+      {
+        "sentence_id": "ch01.s11.p02.r05",
+        "text": "The next stage starts with data preparation and sampling.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell4",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell78",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell98"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Chapter 2 explicitly states it covers data preparation and sampling, including a section on data sampling with a sliding window and example code iterating batches."
+      },
+      {
+        "sentence_id": "ch01.s11.p02.r06",
+        "text": "It begins by working with text data, including looking at datasets, loading a dataset, counting characters, and breaking data into tokens.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell1",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell57",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell13"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references explicitly cover working with text data, tokenizing text into smaller units, and code that counts characters and tokens via a tokenizer."
+      },
+      {
+        "sentence_id": "ch01.s11.p02.r07",
+        "text": "Jupyter notebooks are to be shared from that point onward so coding can begin in parallel with the explanations.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell66"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The referenced cell is only a section header about coding the GPT model and does not state anything about sharing Jupyter notebooks or parallel coding with explanations."
+      }
+    ],
+    "conflicts": []
+  }
+}

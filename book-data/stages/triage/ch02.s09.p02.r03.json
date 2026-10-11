@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch02.s09.p02.r03",
+  "inputs_hash": "01cc742ceae9df8006c514beaa0657c36c261505e96ceafcd34beb87b1562210",
+  "output_hash": "ba4a66830fdb5ff60410616d173cc974fae229af680aaaf15086912d09ccaf0c",
+  "output": {
+    "decision": "edit",
+    "text": "In the GPT-2 tokenization scheme, token ID \"50256\" is the end-of-text token.",
+    "reason": "The cited captions explicitly identify 50256 as the end-of-text token for GPT-2, but do not directly support extending that claim to GPT-3.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.97,
+      "reason": ""
+    },
+    "kind": "queue",
+    "sentence_hash": "3cf4238095ed67a848102e9e72d4b5188732277fe1005fb70093210057b8d79c"
+  }
+}

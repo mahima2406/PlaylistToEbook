@@ -1,0 +1,32 @@
+{
+  "stage": "listings",
+  "item": "ch04.s10",
+  "inputs_hash": "ccf8f89c78a6217439a4e6c7854c6857868725a06448a84aeca6445550c4a8b5",
+  "output_hash": "802f02860ed1647b9943c7483fb49b0e34b92b2daed454633b2d0092c5dbae11",
+  "output": {
+    "section_id": "ch04.s10",
+    "listings": [],
+    "rejected": [
+      {
+        "id": "ch04.s10.code1",
+        "ref": "ref:ch05/01_main-chapter-code/ch05.ipynb#cell75",
+        "path": "ch05/01_main-chapter-code/ch05.ipynb",
+        "caption": "This training loop iterates over epochs and batches, zeros old gradients, computes the batch loss, runs `loss.backward()`, updates parameters with `optimizer.step()`, and tracks tokens seen.",
+        "code": "def train_model_simple(model, train_loader, val_loader, optimizer, device, num_epochs,\n                       eval_freq, eval_iter, start_context, tokenizer):\n    # Initialize lists to track losses and tokens seen\n    train_losses, val_losses, track_tokens_seen = [], [], []\n    tokens_seen, global_step = 0, -1\n\n    # Main training loop\n    for epoch in range(num_epochs):\n        model.train()  # Set model to training mode\n        \n        for input_batch, target_batch in train_loader:\n            optimizer.zero_grad() # Reset loss gradients from previous batch iteration\n            loss = calc_loss_batch(input_batch, target_batch, model, device)\n            loss.backward() # Calculate loss gradients\n            optimizer.step() # Update model weights using loss gradients\n            tokens_seen += input_batch.numel()\n            global_step += 1\n\n            # Optional evaluation step\n            if global_step % eval_freq == 0:\n                train_loss, val_loss = evaluate_model(\n                    model, train_loader, val_loader, device, eval_iter)\n                train_losses.append(train_loss)\n                val_losses.append(val_loss)\n                track_tokens_seen.append(tokens_seen)\n                print(f\"Ep {epoch+1} (Step {global_step:06d}): \"\n                      f\"Train loss {train_loss:.3f}, Val loss {val_loss:.3f}\")\n\n        # Print a sample text after each epoch\n        generate_and_print_sample(",
+        "truncated": true,
+        "check": "partial",
+        "reason": "The loop matches the section’s description of batching, splitting into input/target, zeroing gradients, computing batch loss, calling loss.backward(), and updating parameters with optimizer.step(), and it also tracks tokens seen as the caption says. However, the caption/section also mention tracking training time (start/end time), which this excerpt does not implement. The code also doesn’t explicitly show the logits/softmax/cross-entropy details (they’re presumably inside calc_loss_batch), so that aspect is only implicit."
+      },
+      {
+        "id": "ch04.s10.code2",
+        "ref": "ref:ch05/01_main-chapter-code/ch05.ipynb#cell69",
+        "path": "ch05/01_main-chapter-code/ch05.ipynb",
+        "caption": "These functions move input and target batches to the device, run the model to get logits, compute cross-entropy loss for a batch, and average that loss over a data loader.",
+        "code": "def calc_loss_batch(input_batch, target_batch, model, device):\n    input_batch, target_batch = input_batch.to(device), target_batch.to(device)\n    logits = model(input_batch)\n    loss = torch.nn.functional.cross_entropy(logits.flatten(0, 1), target_batch.flatten())\n    return loss\n\n\ndef calc_loss_loader(data_loader, model, device, num_batches=None):\n    total_loss = 0.\n    if len(data_loader) == 0:\n        return float(\"nan\")\n    elif num_batches is None:\n        num_batches = len(data_loader)\n    else:\n        # Reduce the number of batches to match the total number of batches in the data loader\n        # if num_batches exceeds the number of batches in the data loader\n        num_batches = min(num_batches, len(data_loader))\n    for i, (input_batch, target_batch) in enumerate(data_loader):\n        if i < num_batches:\n            loss = calc_loss_batch(input_batch, target_batch, model, device)\n            total_loss += loss.item()\n        else:\n            break\n    return total_loss / num_batches",
+        "truncated": false,
+        "check": "partial",
+        "reason": "The code matches parts of the section about passing inputs through the model to get logits, computing batch cross-entropy loss against targets, and moving tensors to the device, and it does average loss over a data loader as the caption states. However, it does not perform backpropagation (no loss.backward()), parameter updates (no optimizer.step()), or any training loop/timing logic described in the section. It’s loss evaluation utilities rather than the full pre-training loop with gradient computation and weight updates."
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch06.s04.p01.03",
+  "inputs_hash": "71112528687ea98e02dd1e42e4e299852b1f16a7adb9d35aa311f1ccc96f8d74",
+  "output_hash": "cd0518e74cf0659676d8db260ff8298ab9fc87923ee34fabd5433b7699066ad5",
+  "output": {
+    "decision": "note",
+    "note": "Here the lecture describes per-batch padding; the reference implementation instead pads to the longest training sequence for the whole dataset.",
+    "reason": "The cited captions clearly support the sentence, but the reference code uses dataset-level rather than batch-level padding.",
+    "risk": "low",
+    "kind": "conflict",
+    "sentence_hash": "ce6fecdae865c1e7bf06746aed83b9ef61dedf9b506e711b3ee26902680ad0fb"
+  }
+}

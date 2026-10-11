@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch03.s08.p03.04",
+  "inputs_hash": "898ecdaebf5ffcd499e1564b2be914dee0d843133e5111f6f2c1a352cf24e7ca",
+  "output_hash": "70ba1047a4308e980097fb84b28d22f437ec8271943eb37ac62cd03122536cfb",
+  "output": {
+    "decision": "edit",
+    "text": "Its computation is: multiply the inputs by the query, key, and value weight matrices to obtain queries, keys, and values; multiply queries by keys transpose to get attention scores; mask out elements above the diagonal; scale by the square root of the dimension; apply softmax to obtain attention weights; apply dropout; and multiply those attention weights by the values to get the context vector matrix.",
+    "reason": "This keeps the caption-supported sequence while avoiding the reference conflict over minus-infinity masking and dropout placement.",
+    "risk": "low",
+    "check": {
+      "verdict": "supported",
+      "confidence": 0.93,
+      "reason": ""
+    },
+    "kind": "conflict",
+    "sentence_hash": "7f8c0685fd0cf21885aeac5f5a821752c23ff327e695caed1fef3287dfc7faf8"
+  }
+}

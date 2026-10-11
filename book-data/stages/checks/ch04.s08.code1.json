@@ -1,0 +1,96 @@
+{
+  "stage": "checks",
+  "item": "ch04.s08.code1",
+  "inputs_hash": "97503b22f18e9a529b694533d4268526bf932657aeec0d7b34a57760f8129931",
+  "output_hash": "cf3183df55d732e062406d85673acfbb3032275ffb8ebb1b02cd817f1872e689",
+  "output": [
+    {
+      "sentence_id": "ch04.s08.p05.r02",
+      "expected": 2,
+      "expression": "logits.shape[0]",
+      "tolerance": 0,
+      "check_id": "ch04.s08.code1.chk1",
+      "sentence_text": "The logits are flattened from shape 2 by 3 by 50257 to shape 6 by 50257 by merging the batch and token dimensions."
+    },
+    {
+      "sentence_id": "ch04.s08.p05.r02",
+      "expected": 3,
+      "expression": "logits.shape[1]",
+      "tolerance": 0,
+      "check_id": "ch04.s08.code1.chk2",
+      "sentence_text": "The logits are flattened from shape 2 by 3 by 50257 to shape 6 by 50257 by merging the batch and token dimensions."
+    },
+    {
+      "sentence_id": "ch04.s08.p05.r02",
+      "expected": 50257,
+      "expression": "logits.shape[2]",
+      "tolerance": 0,
+      "check_id": "ch04.s08.code1.chk3",
+      "sentence_text": "The logits are flattened from shape 2 by 3 by 50257 to shape 6 by 50257 by merging the batch and token dimensions."
+    },
+    {
+      "sentence_id": "ch04.s08.p05.r02",
+      "expected": 6,
+      "expression": "logits_flat.shape[0]",
+      "tolerance": 0,
+      "check_id": "ch04.s08.code1.chk4",
+      "sentence_text": "The logits are flattened from shape 2 by 3 by 50257 to shape 6 by 50257 by merging the batch and token dimensions."
+    },
+    {
+      "sentence_id": "ch04.s08.p05.r02",
+      "expected": 50257,
+      "expression": "logits_flat.shape[1]",
+      "tolerance": 0,
+      "check_id": "ch04.s08.code1.chk5",
+      "sentence_text": "The logits are flattened from shape 2 by 3 by 50257 to shape 6 by 50257 by merging the batch and token dimensions."
+    },
+    {
+      "sentence_id": "ch04.s08.p05.r04",
+      "expected": 3626,
+      "expression": "targets_flat[0]",
+      "tolerance": 0,
+      "check_id": "ch04.s08.code1.chk6",
+      "sentence_text": "After flattening, the target sequence is 3626, 610, 345, 107, 588, and 11311, and these indices identify the entries whose probabilities correspond to \"p11\" through \"p23\"."
+    },
+    {
+      "sentence_id": "ch04.s08.p05.r04",
+      "expected": 610,
+      "expression": "targets_flat[1]",
+      "tolerance": 0,
+      "check_id": "ch04.s08.code1.chk7",
+      "sentence_text": "After flattening, the target sequence is 3626, 610, 345, 107, 588, and 11311, and these indices identify the entries whose probabilities correspond to \"p11\" through \"p23\"."
+    },
+    {
+      "sentence_id": "ch04.s08.p05.r04",
+      "expected": 345,
+      "expression": "targets_flat[2]",
+      "tolerance": 0,
+      "check_id": "ch04.s08.code1.chk8",
+      "sentence_text": "After flattening, the target sequence is 3626, 610, 345, 107, 588, and 11311, and these indices identify the entries whose probabilities correspond to \"p11\" through \"p23\"."
+    },
+    {
+      "sentence_id": "ch04.s08.p05.r04",
+      "expected": 107,
+      "expression": "targets_flat[3]",
+      "tolerance": 0,
+      "check_id": "ch04.s08.code1.chk9",
+      "sentence_text": "After flattening, the target sequence is 3626, 610, 345, 107, 588, and 11311, and these indices identify the entries whose probabilities correspond to \"p11\" through \"p23\"."
+    },
+    {
+      "sentence_id": "ch04.s08.p05.r04",
+      "expected": 588,
+      "expression": "targets_flat[4]",
+      "tolerance": 0,
+      "check_id": "ch04.s08.code1.chk10",
+      "sentence_text": "After flattening, the target sequence is 3626, 610, 345, 107, 588, and 11311, and these indices identify the entries whose probabilities correspond to \"p11\" through \"p23\"."
+    },
+    {
+      "sentence_id": "ch04.s08.p05.r04",
+      "expected": 11311,
+      "expression": "targets_flat[5]",
+      "tolerance": 0,
+      "check_id": "ch04.s08.code1.chk11",
+      "sentence_text": "After flattening, the target sequence is 3626, 610, 345, 107, 588, and 11311, and these indices identify the entries whose probabilities correspond to \"p11\" through \"p23\"."
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "stage": "frames",
+  "item": "0PpxZ3kNPWo:p041",
+  "inputs_hash": "dc5cb41785dddc22018b6b6bee077eb8598484c693a7e46590f319a5297f27a3",
+  "output_hash": "c2a98064d56a19ae94bbf1912f3cc4ca35a136fbb41c6d19fcdfd5373abc5b5d",
+  "output": {
+    "point_id": "0PpxZ3kNPWo:p041",
+    "video_id": "0PpxZ3kNPWo",
+    "seconds": 1145,
+    "frame_sha256": "e809f96dc6116e48d02f2f44ed6bbe8f6875649dba7a19860e2981570293c7e3",
+    "status": "dropped (not visible in the frame)",
+    "kind": "diagram",
+    "title": "Axes for the graph of negative log of x",
+    "caption": "A pair of coordinate axes is drawn to illustrate the upcoming graph of negative log of x.",
+    "mermaid": "flowchart LR\n  X[\"x-axis\"] -->|intersects| Y[\"y-axis\"]",
+    "latex": "",
+    "claims": [
+      {
+        "text": "The figure shows two coordinate axes.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "The frame clearly shows an x-axis and y-axis drawn as perpendicular arrows."
+      },
+      {
+        "text": "The horizontal axis intersects the vertical axis.",
+        "visible": true,
+        "speech": "consistent",
+        "reason": "The horizontal and vertical axes cross at a single point (the origin) in the drawing."
+      },
+      {
+        "text": "The axes are intended for plotting a function, referred to in the surrounding text as negative log of x.",
+        "visible": false,
+        "speech": "consistent",
+        "reason": "While the lecturer talks about plotting negative log(x), the frame only shows unlabeled axes with no curve or label indicating negative log(x)."
+      }
+    ]
+  }
+}

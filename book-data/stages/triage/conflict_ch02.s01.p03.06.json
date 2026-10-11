@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "conflict_ch02.s01.p03.06",
+  "inputs_hash": "574b413f1654ab72271a28e68f41069dfa9a560ebc465efe48202d2f2001eb92",
+  "output_hash": "1ba42a6e559995fc1dd51687e7e5b899d53bad4170188b629fb9060ddf34fee9",
+  "output": {
+    "decision": "edit",
+    "text": "These token embeddings are then combined with positional embeddings to form the input embeddings used to train a large language model.",
+    "reason": "The cited caption supports token embeddings as inputs, but the reference shows the actual model input includes positional embeddings as well.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.62,
+      "reason": "The cited lines support that token embeddings serve as input to training a large language model, but they do not mention combining token embeddings with positional embeddings to form input embeddings."
+    },
+    "kind": "conflict",
+    "sentence_hash": "552bed4938d84131521eb1b63056bd96ab4e19380e9ace68761d9ea42bd84e5f"
+  }
+}

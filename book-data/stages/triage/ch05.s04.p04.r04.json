@@ -1,0 +1,19 @@
+{
+  "stage": "triage",
+  "item": "ch05.s04.p04.r04",
+  "inputs_hash": "e561381ff041c67a657d18af3f11068569a5873d0b12cddc42929399c220bc88",
+  "output_hash": "ca4c843956ad982e74556548d2871bb81f2b7986504d2bb888b410d9298efa6a",
+  "output": {
+    "decision": "edit",
+    "text": "To access the fused attention weights for the first block, follow the nested keys \"blocks\", \"transformer\", \"h0\", and \"atn\", then the \"cn\" entry and its weights.",
+    "reason": "The captions explicitly name the fused query-key-value entry as \"cn\", so the sentence should use that exact key.",
+    "risk": "high",
+    "check": {
+      "verdict": "partial",
+      "confidence": 0.72,
+      "reason": "The cited lines support navigating nested keys blocks → transformer → h0 → atn and then cn to get to the fused QKV matrix weights. However, they do not explicitly say 'fused attention weights' (as opposed to fused QKV weights) and do not clearly state 'cn entry and its weights' beyond generally saying they are looking at weights within the fused matrix."
+    },
+    "kind": "queue",
+    "sentence_hash": "10937338440533200ac2d45504adafa81505042be5f19f3ea550a4f9c5b225bc"
+  }
+}

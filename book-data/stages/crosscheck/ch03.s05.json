@@ -1,0 +1,402 @@
+{
+  "stage": "crosscheck",
+  "item": "ch03.s05",
+  "inputs_hash": "7668ecffdfeeecdc5fd174d577370f11e1829dc27dfef689f25cdebdba4ea3a0",
+  "output_hash": "2b3e6b7192bc64aba95371222476749e185ffe58f708afb048b01f811bf0f640",
+  "output": {
+    "section_id": "ch03.s05",
+    "checked": 32,
+    "counts": {
+      "agrees": 28,
+      "contradicts": 0,
+      "not_covered": 4
+    },
+    "results": [
+      {
+        "sentence_id": "ch03.s05.p01.02",
+        "text": "After computing the context vector for \"journey,\" the task is still incomplete, because a similar context vector is needed for all the other tokens in the six-word input \"your,\" \"journey,\" \"starts,\" \"with,\" \"one,\" and \"step.\"",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell27"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference explains computing context vector z^(2) (for token 2, \"journey\") as an example and then generalizing to compute all context vectors for the whole sequence."
+      },
+      {
+        "sentence_id": "ch03.s05.p01.03",
+        "text": "The same computation used for \"journey\" extends to every other input: for each token, compute attention scores, then attention weights, and then the context vector.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell27",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell42"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Cell42 explicitly says the computation (attention weights and context vectors) is generalized from input 2 to all tokens; cell44 describes the sequence: scores -> weights -> context vectors."
+      },
+      {
+        "sentence_id": "ch03.s05.p01.04",
+        "text": "The matrix used to organize these results is called the attention weight matrix.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell110",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell77"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "Provided references do not name the organizing matrix as the \"attention weight matrix\" (they discuss tensors/matrix multiplication and other unrelated matrices)."
+      },
+      {
+        "sentence_id": "ch03.s05.p01.05",
+        "text": "In that matrix, each row represents the attention weights for one particular query word.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell25",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell79"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference notes normalizing each row to sum to 1 when forming attention weights, consistent with each row corresponding to one query token’s weight distribution over tokens."
+      },
+      {
+        "sentence_id": "ch03.s05.p01.06",
+        "text": "For the query \"journey,\" its row contains the six attention weights between \"journey\" and each word in the sequence: \"your,\" \"journey,\" \"starts,\" \"with,\" \"one,\" and \"step.\"",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell73",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell24",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The example input is the 6-token sequence (Your, journey, starts, with, one, step) and attention scores/weights are computed for query x^(2) against each input token, yielding 6 values in that query’s row."
+      },
+      {
+        "sentence_id": "ch03.s05.p01.07",
+        "text": "In this example, every query token needs six attention weights, one for each of the six input words.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell95",
+          "ref:ch06/01_main-chapter-code/ch06.ipynb#cell67"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "In the 6-token example, attention connects each input token to each other input token (non-causal), implying 6 attention weights per query token over the 6 inputs."
+      },
+      {
+        "sentence_id": "ch03.s05.p01.08",
+        "text": "To handle all queries, repeat the same process for each token: if a token is the query, compute its attention weights with all other words and then form its context vector with the same summation operation used for \"journey.\"",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell27",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell44"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "References state that after illustrating z^(2), the method is generalized to all context vectors, and context vectors are computed via weighted summation using attention weights."
+      },
+      {
+        "sentence_id": "ch03.s05.p02.r02",
+        "text": "For a given query, an attention score is obtained by taking the dot product of that query with all the input vectors.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell27",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell28",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell77"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Cells27/28 show unnormalized attention scores computed as dot products between the query and each input token vector; cell77 shows the vectorized equivalent."
+      },
+      {
+        "sentence_id": "ch03.s05.p02.r03",
+        "text": "One way to compute all attention scores is to loop through the inputs twice and compute dot products.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell27",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell54",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell46"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference describes computing an unnormalized attention score matrix over all pairwise elements (cell46), which can be done via nested loops over queries and keys (even if later vectorized)."
+      },
+      {
+        "sentence_id": "ch03.s05.p02.r04",
+        "text": "With nested loops, one input is fixed as the query in the outer loop, the inner loop runs through all inputs to compute six dot products, and then the outer loop moves to the next query token.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell27",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell28",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell59"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The shown loop (cell28) fixes one query and iterates over all inputs computing dot products; generalizing to all queries corresponds to an outer loop over queries producing 6 dot products per query in this 6-token example."
+      },
+      {
+        "sentence_id": "ch03.s05.p02.r05",
+        "text": "The result is a 6x6 attention score matrix in which each element is an attention score between a pair of input tokens.",
+        "refs": [
+          "ref:ch07/01_main-chapter-code/ch07.ipynb#cell121",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell46",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Cell46 refers to computing the unnormalized attention score matrix for all pairwise elements; with 6 input tokens, this is a 6x6 matrix of pairwise attention scores."
+      },
+      {
+        "sentence_id": "ch03.s05.p02.r06",
+        "text": "Each row represents the dot products between that query and all the other input vectors.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell25",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell27",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Reference describes computing dot products between a query token and all other input tokens, and later normalizing each row; this matches the interpretation that each row contains dot products of that query with all inputs."
+      },
+      {
+        "sentence_id": "ch03.s05.p02.r07",
+        "text": "The second row matches the attention scores computed earlier for the second query, because it represents the dot products between that second query and all input vectors.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell98",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell25",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell140"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references mention computing attention scores between the second query x^(2) and all inputs, but they do not explicitly state that the “second row” of a shown matrix corresponds to those dot products (row/score-matrix mapping is not demonstrated in the cited cells)."
+      },
+      {
+        "sentence_id": "ch03.s05.p02.r08",
+        "text": "Using two for-loops for these dot products is not computationally efficient, and understanding matrix multiplication matters here because linear algebra is described as a core foundation of machine learning concepts.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell112",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell29"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references emphasize using matrix multiplication (handled efficiently by PyTorch across heads/dimensions) rather than more verbose per-head/per-token computations, and they motivate understanding dot products and matrix multiplication as foundational."
+      },
+      {
+        "sentence_id": "ch03.s05.p03.02",
+        "text": "If the input embeddings are arranged into an input matrix, multiplying that matrix by its transpose produces the same attention score matrix as the nested-loop dot products.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell77",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell48"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references state that the same computation done previously can be achieved more efficiently via matrix multiplication and discuss matrix multiplication across (num_tokens, head_dim), which is consistent with forming a score matrix via X @ X^T (or analogous QK^T) instead of nested-loop dot products."
+      },
+      {
+        "sentence_id": "ch03.s05.p03.03",
+        "text": "This works because matrix multiplication computes dot products between the rows of the first matrix and the columns of the second matrix.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell77",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell48"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "While matrix multiplication is referenced as the efficient method, the cited passages do not explicitly define matrix multiplication as computing dot products between rows of the first matrix and columns of the second."
+      },
+      {
+        "sentence_id": "ch03.s05.p03.04",
+        "text": "That matrix multiplication is much more efficient than using two for-loops.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell112",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell48"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The cited text explicitly contrasts earlier approaches with a “more efficient” matrix multiplication approach, implying it is more efficient than loop-based computation."
+      },
+      {
+        "sentence_id": "ch03.s05.p03.05",
+        "text": "Once the attention score matrix is available, normalize it by applying softmax to the attention scores matrix.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell104",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell46",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell31"
+        ],
+        "verdict": "not_covered",
+        "material": false,
+        "reason": "The references discuss normalizing attention scores so rows sum to 1, but the cited lines do not specifically say this normalization is done by applying softmax to the attention score matrix (they describe normalization in general)."
+      },
+      {
+        "sentence_id": "ch03.s05.p03.06",
+        "text": "Softmax is applied to each row, and the entries in each row of the resulting attention weight matrix sum to one.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell53",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell109"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references explicitly state that each row is normalized so values in each row sum to 1 and show row-sum checks confirming rows sum to 1 after normalization."
+      },
+      {
+        "sentence_id": "ch03.s05.p03.07",
+        "text": "In functions like \"torch.softmax,\" the \"dim\" parameter specifies the dimension of the input tensor along which the function is computed.",
+        "refs": [
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell24"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references explain that using dim=-1 applies the calculation across the last dimension rather than the row dimension, consistent with dim specifying the axis along which softmax is computed."
+      },
+      {
+        "sentence_id": "ch03.s05.p03.08",
+        "text": "Setting \"dim = -1\" applies the normalization along the last dimension of the attention score tensor.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell128"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The cited passage explicitly states that dim=-1 applies the calculation across the last dimension."
+      },
+      {
+        "sentence_id": "ch03.s05.p03.09",
+        "text": "For a two-dimensional attention score tensor, the last dimension is the columns, so \"dim = -1\" normalizes across the columns.",
+        "refs": [
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell25",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell25",
+          "ref:ch05/01_main-chapter-code/ch05.ipynb#cell20"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references state that dim=-1 applies across the last dimension and also use the row/column convention (rows are items, columns are features), which supports that for a 2D tensor the last dimension corresponds to columns/features."
+      },
+      {
+        "sentence_id": "ch03.s05.p03.10",
+        "text": "A simple check is to sum the entries of the second row and print the sums of all rows; if every row sums to one, the softmax has been applied correctly.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell53",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell105",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references show exactly this validation: summing the second row entries and printing sums across all rows to confirm each row sums to 1."
+      },
+      {
+        "sentence_id": "ch03.s05.p04.02",
+        "text": "Instead of looping over tokens to form one context vector at a time, all context vectors can be computed at once with a single matrix multiplication.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell42",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell57",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell54"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The references explicitly describe generalizing from computing the context vector for input 2 to computing all attention weights and all context vectors at once (via applying the step to all tokens), consistent with doing it with a single matrix multiplication."
+      },
+      {
+        "sentence_id": "ch03.s05.p04.03",
+        "text": "The simplified operation is to multiply the attention weight matrix by the input matrix.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139",
+          "ref:ch04/01_main-chapter-code/ch04.ipynb#cell77",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell101"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference describes computing context vectors via matrix multiplication between attention weights and the input (and notes PyTorch performs this over the last two dims for multi-head tensors), which is consistent with multiplying the attention weight matrix by the input matrix."
+      },
+      {
+        "sentence_id": "ch03.s05.p04.04",
+        "text": "That product gives the context vectors for all six tokens.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell54",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell27",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell42"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly generalizes the computation to compute all context vectors for the whole sequence, implying the product yields context vectors for all tokens (six in this example)."
+      },
+      {
+        "sentence_id": "ch03.s05.p04.05",
+        "text": "With attention weights of shape 6x6 and inputs of shape 6x3, the multiplication is valid and produces a 6x3 context matrix.",
+        "refs": [
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell110",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell129",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The described shapes are consistent with standard matrix multiplication: (6x6) attention weights times (6x3) inputs yields a (6x3) context matrix; the references discuss 6x3 matrices and performing the multiplication over (num_tokens, head_dim)."
+      },
+      {
+        "sentence_id": "ch03.s05.p04.06",
+        "text": "Each row of the final 6x3 matrix is the context vector for the corresponding token: the first row for the first token, the second row for the second token, and so on through the sixth row.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell50",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell53",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell115"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference treats attention weights row-wise (row sums to 1) and computes a context vector per input token, consistent with each output row corresponding to the context vector for the same token index."
+      },
+      {
+        "sentence_id": "ch03.s05.p04.07",
+        "text": "A row of the output can be viewed as a weighted sum of the rows of the input matrix using the attention weights from the corresponding row.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell53",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell109",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "Row-wise normalization (rows sum to 1) and the described step to multiply inputs by attention weights and sum aligns with interpreting each output row as a weighted sum of input token vectors using the corresponding attention-weight row."
+      },
+      {
+        "sentence_id": "ch03.s05.p04.08",
+        "text": "This is the same scaling-and-summing operation used earlier to compute a context vector manually.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell27",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell82",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference first computes a single context vector manually (multiply inputs by attention weights and sum) and then generalizes via matrix multiplication, which is the same scaling-and-summing operation."
+      },
+      {
+        "sentence_id": "ch03.s05.p04.09",
+        "text": "In code, an \"all_context_vectors\" tensor is created by multiplying the attention weight matrix with the input matrix.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell38",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell139",
+          "ref:ch02/01_main-chapter-code/ch02.ipynb#cell115"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference’s step for computing context vectors uses multiplication of embedded inputs with attention weights, and the later generalization uses matrix multiplication to compute all context vectors at once, matching creation of an all_context_vectors tensor via attn_weights @ inputs."
+      },
+      {
+        "sentence_id": "ch03.s05.p04.10",
+        "text": "The second row of \"all_context_vectors\" matches the previously computed context vector for \"journey,\" confirming that the matrix multiplication gives the correct result.",
+        "refs": [
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell56",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell42",
+          "ref:ch03/01_main-chapter-code/ch03.ipynb#cell19"
+        ],
+        "verdict": "agrees",
+        "material": false,
+        "reason": "The reference explicitly states as a sanity check that the previously computed z^(2) appears in the 2nd row of the generalized all-context-vectors result, confirming correctness of the matrix multiplication."
+      }
+    ],
+    "conflicts": []
+  }
+}

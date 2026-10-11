@@ -491,16 +491,18 @@ def front_matter(config, manifest, outline, m, reasons, status, missing, label, 
             f"{em['grounding_sample']} randomly sampled sentences"
             + (f" {em['grounding_votes']} times each" if em.get("grounding_votes", 1) > 1 else "")
             + f": {em['independent_support']:.1%} were supported by their captions, with "
-            f"{em['material_errors_per_100']:g} material errors per 100 sentences. "
-            f"Every sentence flagged along the way was decided by a human reviewer.")]
+            f"{em['material_errors_per_100']:g} material errors per 100 sentences."
+            + (" Every sentence flagged along the way was decided by a human reviewer." if m.get("review_queue_open") == 0
+               else f" {m.get('review_queue_open')} flagged sentences have not yet been reviewed by a person."))]
     if reasons:
         lines += [f"## Status: {status} {{.unnumbered}}", "", "This edition is a draft because:", ""]
         lines += [f"- {md(r)}" for r in reasons] + [""]
     edition = (config.get("edition") or {}).get("name")
     if edition:
         lines[4:4] = [f"This is the **{md(edition)}**: it covers {len(outline['lectures'])} of the playlist's "
-                      f"{len(manifest['entries'])} lectures. The others are listed below with the reason each "
-                      "one could not be used; nothing in the book is written from them.", ""]
+                      f"{len(manifest['entries'])} lectures"
+                      + (". The others are listed below with the reason each one could not be used; nothing in the "
+                         "book is written from them." if len(outline['lectures']) < len(manifest['entries']) else "."), ""]
     out = list(declared_out) + list(missing)
     if out:
         by_reason = {}

@@ -2,6 +2,7 @@
 import hashlib
 import json
 import math
+import os
 import re
 from pathlib import Path
 
@@ -65,10 +66,26 @@ def normalize_manifest(raw):
     return result
 
 
+def youtube_proxy():
+    """Proxy settings for YouTube requests, from the environment only (never config, logs or the repo).
+
+    WEBSHARE_PROXY_USERNAME / WEBSHARE_PROXY_PASSWORD   rotating residential proxy (recommended on servers)
+    COURSEBOOK_PROXY_URL                                 any http(s) proxy URL
+    Returns (transcript_proxy_config or None, yt_dlp_proxy_url or None)."""
+    from youtube_transcript_api.proxies import GenericProxyConfig, WebshareProxyConfig
+    user, password = os.environ.get("WEBSHARE_PROXY_USERNAME"), os.environ.get("WEBSHARE_PROXY_PASSWORD")
+    if user and password:
+        return (WebshareProxyConfig(proxy_username=user, proxy_password=password),
+                f"http://{user}-rotate:{password}@p.webshare.io:80")
+    url = os.environ.get("COURSEBOOK_PROXY_URL")
+    return (GenericProxyConfig(http_url=url, https_url=url), url) if url else (None, None)
+
+
 def inventory(root, config):
     import yt_dlp
-    with yt_dlp.YoutubeDL({"extract_flat": "in_playlist", "quiet": True,
-                           "socket_timeout": 25, "retries": 2}) as client:
+    _, proxy = youtube_proxy()
+    with yt_dlp.YoutubeDL({"extract_flat": "in_playlist", "quiet": True, "no_warnings": True, "noprogress": True,
+                           "socket_timeout": 25, "retries": 2, **({"proxy": proxy} if proxy else {})}) as client:
         raw = client.extract_info(config["playlist_url"], download=False)
         raw = client.sanitize_info(raw)
     source = snapshot(root, "playlist", raw)
@@ -100,6 +117,38 @@ def evidence_from_segments(video_id, segments):
     return evidence
 
 
+BLOCKED_ERRORS = {"RequestBlocked", "IpBlocked", "PoTokenRequired"}
+
+
+def captions_via_ytdlp(video_id, languages):
+    """Second route to the same timed captions: yt-dlp's subtitle download (json3), optionally signed in
+    with a YouTube session (COURSEBOOK_YT_COOKIES = path to a cookies.txt; never logged or copied)."""
+    import tempfile
+    import yt_dlp
+    cookies = os.environ.get("COURSEBOOK_YT_COOKIES")
+    _, proxy = youtube_proxy()
+    with tempfile.TemporaryDirectory() as tmp:
+        opts = {"skip_download": True, "writesubtitles": True, "writeautomaticsub": True,
+                "subtitleslangs": list(languages), "subtitlesformat": "json3", "quiet": True, "no_warnings": True,
+                "noprogress": True, "outtmpl": f"{tmp}/%(id)s.%(ext)s",
+                **({"cookiefile": cookies} if cookies and Path(cookies).exists() else {}), **({"proxy": proxy} if proxy else {})}
+        with yt_dlp.YoutubeDL(opts) as client:
+            info = client.extract_info(f"https://www.youtube.com/watch?v={video_id}", download=True)
+        files = sorted(Path(tmp).glob(f"{video_id}.*.json3"))
+        if not files:
+            raise LookupError("no captions in the configured language")
+        chosen = next((f for lang in languages for f in files if f.name.endswith(f".{lang}.json3")), files[0])
+        segments = []
+        for event in json.loads(chosen.read_text()).get("events", []):
+            text = "".join(seg.get("utf8", "") for seg in event.get("segs") or []).replace("\n", " ").strip()
+            if text:
+                segments.append({"text": text, "start": event.get("tStartMs", 0) / 1000,
+                                 "duration": event.get("dDurationMs", 0) / 1000})
+        manual = bool((info.get("subtitles") or {}).get(chosen.name.split(".")[-2]))
+        return {"video_id": video_id, "language": chosen.name.split(".")[-2], "is_generated": not manual,
+                "segments": segments, "via": "yt-dlp"}
+
+
 def capture(root, config, limit):
     from youtube_transcript_api import YouTubeTranscriptApi
     root = Path(root)
@@ -119,9 +168,17 @@ def capture(root, config, limit):
             reports.append({"video_id": video_id, "status": "captured", "segments": len(items), "reused": True})
             continue
         try:
-            transcript = YouTubeTranscriptApi().fetch(video_id, languages=config["languages"])
-            raw = {"video_id": video_id, "language": transcript.language_code,
-                   "is_generated": transcript.is_generated, "segments": transcript.to_raw_data()}
+            try:
+                transcript = YouTubeTranscriptApi(proxy_config=youtube_proxy()[0]).fetch(video_id, languages=config["languages"])
+                raw = {"video_id": video_id, "language": transcript.language_code,
+                       "is_generated": transcript.is_generated, "segments": transcript.to_raw_data()}
+            except Exception as first:  # blocked (e.g. a cloud server): try the subtitle route, signed in if configured
+                if type(first).__name__ not in BLOCKED_ERRORS:
+                    raise
+                try:
+                    raw = captions_via_ytdlp(video_id, config["languages"])
+                except Exception:
+                    raise first from None
             evidence = evidence_from_segments(video_id, raw["segments"])
             path = snapshot(root, "captions", raw)
             write(root / "evidence" / f"{video_id}.json",

@@ -586,6 +586,9 @@ def test_capture_names_why_each_lecture_is_missing(tmp_path, monkeypatch):
     from coursebook.core import capture, normalize_manifest
 
     class Api:
+        def __init__(self, proxy_config=None):
+            pass
+
         def fetch(self, video_id, languages):
             raise TranscriptsDisabled(video_id)
     monkeypatch.setattr(youtube_transcript_api, "YouTubeTranscriptApi", Api)
@@ -687,3 +690,41 @@ def test_citation_ids_typed_into_prose_never_reach_the_page():
     assert clean_text("A model.[3dWzNZXA8DY@153][3dWzNZXA8DY@157]") == "A model."
     assert clean_text("See [abcdefgh123@4, abcdefgh123@9] here.") == "See here."
     assert clean_text("Keep [1, 2] and x@5.") == "Keep [1, 2] and x@5."
+
+
+def test_youtube_proxy_comes_only_from_the_environment(monkeypatch):
+    from coursebook.core import youtube_proxy
+    for k in ("WEBSHARE_PROXY_USERNAME", "WEBSHARE_PROXY_PASSWORD", "COURSEBOOK_PROXY_URL"):
+        monkeypatch.delenv(k, raising=False)
+    assert youtube_proxy() == (None, None)
+    monkeypatch.setenv("WEBSHARE_PROXY_USERNAME", "u")
+    monkeypatch.setenv("WEBSHARE_PROXY_PASSWORD", "p")
+    config, url = youtube_proxy()
+    assert type(config).__name__ == "WebshareProxyConfig" and url == "http://u-rotate:p@p.webshare.io:80"
+
+
+def test_subtitle_route_turns_json3_into_timed_segments(monkeypatch, tmp_path):
+    import json as _json, yt_dlp
+    from coursebook.core import captions_via_ytdlp
+
+    class FakeDL:
+        def __init__(self, opts):
+            self.out = opts["outtmpl"].replace("%(id)s.%(ext)s", "")
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *a):
+            return False
+
+        def extract_info(self, url, download):
+            (__import__("pathlib").Path(self.out) / "vid12345678.en.json3").write_text(_json.dumps({"events": [
+                {"tStartMs": 1000, "dDurationMs": 2000, "segs": [{"utf8": "hello"}, {"utf8": " world"}]},
+                {"tStartMs": 3000, "dDurationMs": 500, "segs": [{"utf8": "\n"}]},
+                {"tStartMs": 3500, "dDurationMs": 1500, "segs": [{"utf8": "again"}]}]}))
+            return {"subtitles": {}}
+    monkeypatch.setattr(yt_dlp, "YoutubeDL", FakeDL)
+    raw = captions_via_ytdlp("vid12345678", ["en"])
+    assert raw["segments"] == [{"text": "hello world", "start": 1.0, "duration": 2.0},
+                               {"text": "again", "start": 3.5, "duration": 1.5}]
+    assert raw["is_generated"] is True and raw["language"] == "en"

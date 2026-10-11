@@ -3,4 +3,6 @@
 set -euo pipefail
 mkdir -p deploy/vercel/public
 cp src/coursebook/app/static/index.html deploy/vercel/public/index.html
-cd deploy/vercel && npx --yes vercel@latest deploy --prod --yes
+cd deploy/vercel
+[ -d .vercel ] || npx --yes vercel@latest link --yes --project coursebook   # same project, same public URL
+npx --yes vercel@latest deploy --prod --yes

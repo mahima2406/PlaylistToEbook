@@ -11,3 +11,10 @@ deploy/.build-code
 deploy/vercel/public/
 deploy/vercel/.vercel/
 deploy/showcase/
+deploy/.proxy.env
+deploy/.youtube-cookies.txt
+
+# never commit browser sessions or Mac folder files
+*cookies*.txt
+*cookies*.json
+.DS_Store

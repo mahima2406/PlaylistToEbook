@@ -38,10 +38,26 @@ def answer(body):
         first = re.findall(r"^\[([\w-]+@\w+)\]", user, re.M)[0]
         return {"paragraphs": [{"sentences": [{"text": "Next, a fact.", "type": "C", "cites": []},
                                               {"text": "A fictional fact.", "type": "F", "cites": [first]}]}]}
+    first_id = (re.findall(r"\[([\w-]+@\w+)\]", user) or [None])[0]
+    if system.startswith("You write the introduction"):
+        return {"paragraphs": [{"sentences": [{"text": "Chapter 1 covers the fixture.", "type": "R", "cites": []},
+                                              {"text": "An intro fact.", "type": "F", "cites": [first_id]}]}]}
+    if system.startswith("You write the opening"):
+        return {"opener": {"paragraphs": [{"sentences": [{"text": "This chapter covers one section.", "type": "R", "cites": []}]}]},
+                "at_a_glance": [{"text": f"Glance fact {n}.", "type": "F", "cites": [first_id]} for n in range(3)]}
+    if system.startswith('You write the "Key takeaways"'):
+        cite = re.findall(r"cites: ([\w-]+@\w+)", user)[0]
+        return {"takeaways": [{"text": f"Takeaway {n}.", "type": "F", "cites": [cite]} for n in range(5)]}
+    if system.startswith("You design explanatory diagrams"):
+        para = re.findall(r"^(ch\d+\.s\d+\.p\d+):", user, re.M)[0]
+        sentence = re.findall(r"^  (ch\d+\.s\d+\.p\d+\.\d+) \|", user, re.M)[0]
+        return {"diagrams": [{"after_paragraph": para, "title": "Flow", "caption": "Text becomes IDs.",
+                              "mermaid": 'flowchart LR\n  A["Text"] -->|"encode"| B["IDs"]',
+                              "claims": [{"text": "Text is encoded into IDs.", "sentences": [sentence]}]}]}
     if system.startswith("You are a strict fact-checker"):
         verdicts = []
         for sid, kind, text in re.findall(r"^(S\d+) \[(\w+)\] (.*)$", user, re.M):
-            if kind == "CONNECTIVE":
+            if kind in ("CONNECTIVE", "ROADMAP"):
                 verdicts.append({"id": sid, "verdict": "ok", "confidence": 0.9, "reason": ""})
             else:
                 bad = PLANT_MARK in text
@@ -86,6 +102,12 @@ def built(tmp_path, monkeypatch):
 
 def test_full_pipeline_produces_cited_verified_sections(built):
     root, outline = built
+    intro = runner.load(root, "frame", "intro")
+    assert intro["queue"] == [] and any(s["type"] == "R" for p in intro["paragraphs"] for s in p["sentences"])
+    opener = runner.load(root, "frame", "ch01")
+    assert len(opener["at_a_glance"]) == 3 and opener["opener"]
+    assert len(runner.load(root, "takeaways", "ch01")["paragraphs"]) == 5
+    assert len(runner.load(root, "diagrams", "ch01")["diagrams"]) == 1
     assert [c["title"] for c in outline["chapters"]] == ["Fixture chapter"]
     verified = runner.load(root, "verify", "ch01.s01")
     assert verified["queue"] == []
@@ -179,3 +201,27 @@ def test_source_key_merges_nearby_lines_and_links_seconds():
 
 def test_markdown_escaping_keeps_text_literal():
     assert md("a_b *c* $5 [x]") == "a\\_b \\*c\\* \\$5 \\[x\\]"
+
+
+def test_mermaid_validator_rejects_unsafe_or_malformed_sources():
+    from coursebook.stages.diagrams import validate_mermaid
+    assert validate_mermaid('flowchart LR\n  A["Text"] -->|"encode"| B["IDs"]') == []
+    assert validate_mermaid('graph LR\n A-->B')
+    assert validate_mermaid('flowchart LR\n  A["x"] --> B["y"]\n  click A "https://evil"')
+    assert validate_mermaid('flowchart LR\n  A["<b>x</b>"] --> B["y"]')
+    assert validate_mermaid('flowchart LR\n  A["x] --> B["y"]')
+
+
+def test_roadmap_sentences_only_allowed_in_framing():
+    roadmap = {"paragraphs": [{"sentences": [{"text": "Chapter 2 covers X.", "type": "R", "cites": []}]}]}
+    assert validate_section(roadmap, set(), roadmap=True) == []
+    assert validate_section(roadmap, set())
+
+
+def test_chapters_name_their_lectures_once_and_paragraphs_carry_no_inline_keys(built):
+    root, _ = built
+    book, _, _ = build_book(root, CONFIG, root / "out")
+    chapter = (book / "ch01.qmd").read_text()
+    assert chapter.count("*Based on [L01: Lecture A]") == 1
+    assert ".aside" not in chapter and "watch?v=vidA&t=" not in chapter
+    assert "watch?v=vidA&t=" in (book / "sources.qmd").read_text()

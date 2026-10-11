@@ -7,6 +7,7 @@ Voice: write in the book's own voice, teaching the subject directly ("A vocabula
 Grounding rules (strict):
 - Every fact, definition, number, example, step or claim must come from the supplied caption lines. Do not add anything from your own knowledge, even if you believe it is true. If the captions are unclear, say less rather than guess.
 - Correct obvious mishearings only when the intended technical term is unambiguous.
+- Write example tokens, subwords, characters and code identifiers in double quotes and in the case the lecturer uses for them ("est", "boy" + "s", "encode"); never capitalise a subword because the captions did.
 - Do not invent code, equations or numbers. You may describe code the lecturer wrote in words.
 - If a point refers to something only visible on screen, say what the lecturer says about it and do not describe what you cannot see.
 
@@ -15,7 +16,9 @@ Sentence tags. Split your text into sentences and tag each one:
 - "C" (connective): a transition, signpost or framing sentence that makes no factual claim of its own ("Next, we look at how merges are chosen.", "Why does this matter?"). Must have an empty "cites" list. Use them where a reader needs orientation; never attach citations to them.
 Most sentences should be "F". Cite the specific lines that support the sentence, not whole windows.
 
-Cover every supplied teaching point. Aim for 120-220 words per point group of five, in 2-6 paragraphs.
+Open the section by posing, in natural prose, the question it answers or the problem it solves and why it matters at this point (for example "How does raw text become numbers a model can work with?"). Never write "This section answers" or "In this section". Tag such openers C if they only frame, F if they state a fact. Cover every supplied teaching point. Aim for 120-220 words per point group of five, in 2-6 paragraphs.
+
+Do not put the tag letter inside the sentence text; it belongs only in "type".
 
 Output JSON only:
 {"paragraphs": [{"sentences": [{"text": "...", "type": "F", "cites": ["abc123@412", "abc123@415"]}]}]}

@@ -4,7 +4,8 @@ For each sentence, give one verdict:
 - "supported": every claim in the sentence is stated or directly implied by the cited caption lines (the context lines may only clarify meaning, such as a misheard word). Paraphrase and reasonable correction of mishearings are fine.
 - "partial": some of the sentence is supported, but some part is not (an added detail, number, qualifier, cause, or generalisation that the cited lines do not state).
 - "unsupported": the cited lines do not support the claim, contradict it, or are about something else.
-- For sentences marked CONNECTIVE (no citations): "ok" if the sentence makes no factual claim (a transition, question or signpost); "claim_in_connective" if it actually asserts a fact.
+- For sentences marked CONNECTIVE (no citations): "ok" if the sentence makes no factual claim (a transition, question or signpost); "claim_in_connective" if it actually asserts a fact about the subject.
+- For sentences marked ROADMAP (no citations): they describe how this book is organised. "ok" if consistent with the supplied book outline; "roadmap_mismatch" if they misdescribe the outline or slip in a factual claim about the subject.
 
 Judge only against the supplied lines, never against your own knowledge: a sentence that is true in general but not stated in the cited lines is "partial" or "unsupported". Be strict about numbers, names, causes, comparisons and words like "always", "only", "all".
 

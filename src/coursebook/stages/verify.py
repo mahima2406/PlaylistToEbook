@@ -11,12 +11,12 @@ from pathlib import Path
 from ..core import digest
 from .. import runner
 from .segment import format_lines
-from .write import validate_section, source_lines
+from .write import validate_section, source_lines, clean_text
 
 JUDGE_PROMPT = Path("prompts/judge.txt")
 REWRITE_PROMPT = Path("prompts/rewrite.txt")
 FACT_VERDICTS = {"supported", "partial", "unsupported"}
-CONNECTIVE_VERDICTS = {"ok", "claim_in_connective"}
+NO_CITE_VERDICTS = {"C": {"ok", "claim_in_connective"}, "R": {"ok", "roadmap_mismatch"}}
 CONTEXT_LINES = 2
 
 
@@ -42,11 +42,11 @@ class LineIndex:
         return out
 
 
-def judge_messages(sentences, index):
-    blocks = []
+def judge_messages(sentences, index, outline_text=None):
+    blocks = [f"Book outline (for ROADMAP sentences):\n{outline_text}"] if outline_text else []
     for n, sentence in enumerate(sentences, 1):
-        if sentence["type"] == "C":
-            blocks.append(f"S{n} [CONNECTIVE] {sentence['text']}")
+        if sentence["type"] in ("C", "R"):
+            blocks.append(f"S{n} [{'CONNECTIVE' if sentence['type'] == 'C' else 'ROADMAP'}] {sentence['text']}")
             continue
         cited = [index.lines[c] for c in sentence["cites"] if c in index.lines]
         context = [x for x in index.context(sentence["cites"]) if x["id"] not in set(sentence["cites"])]
@@ -72,7 +72,7 @@ def validate_verdicts(obj, sentences):
             errors.append(f"unknown sentence id {sid}")
             continue
         seen.add(sid)
-        allowed = CONNECTIVE_VERDICTS if expected[sid]["type"] == "C" else FACT_VERDICTS
+        allowed = NO_CITE_VERDICTS.get(expected[sid]["type"], FACT_VERDICTS)
         if verdict.get("verdict") not in allowed:
             errors.append(f"{sid}: verdict must be one of {sorted(allowed)}")
         confidence = verdict.get("confidence")
@@ -87,12 +87,12 @@ def validate_verdicts(obj, sentences):
 JUDGE_BATCH = 15  # larger batches made gpt-5.2 exceed the 300 s request timeout
 
 
-def judge(gateway, sentences, index, item):
+def judge(gateway, sentences, index, item, outline_text=None):
     """Verdict per sentence id, judged in batches of JUDGE_BATCH."""
     out = {}
     for start in range(0, len(sentences), JUDGE_BATCH):
         batch = sentences[start:start + JUDGE_BATCH]
-        result = gateway.call_json("judge", judge_messages(batch, index), stage="judge",
+        result = gateway.call_json("judge", judge_messages(batch, index, outline_text), stage="judge",
                                    input_id=f"{item}#{start // JUDGE_BATCH}",
                                    validate=lambda o, b=batch: validate_verdicts(o, b), max_completion_tokens=32000)
         by_n = {v["id"]: v for v in result["parsed"]["verdicts"]}
@@ -106,26 +106,29 @@ def passes(verdict, cutoff):
     return verdict["verdict"] in ("supported", "ok") and verdict["confidence"] >= cutoff
 
 
-def rewrite_paragraph(gateway, paragraph, verdicts, lines, item):
+def rewrite_paragraph(gateway, paragraph, verdicts, lines, item, outline_text=None):
     allowed = {x["id"] for x in lines}
     listing = "\n".join(f"- [{s['type']}] {s['text']} | cites: {', '.join(s['cites']) or '-'} | "
                         f"verdict: {verdicts[s['id']]['verdict']} {verdicts[s['id']]['reason']}"
                         for s in paragraph["sentences"])
     messages = [{"role": "system", "content": REWRITE_PROMPT.read_text()},
-                {"role": "user", "content": f"Paragraph with fact-check results:\n{listing}\n\n"
+                {"role": "user", "content": (f"Book outline:\n{outline_text}\n\n" if outline_text else "")
+                                            + f"Paragraph with fact-check results:\n{listing}\n\n"
                                             f"Source caption lines:\n{format_lines(lines, full_ids=True)}"}]
-    result = gateway.call_json("writer", messages, stage="rewrite", input_id=item,
-                               validate=lambda o: validate_section(o, allowed), max_completion_tokens=16000)
+    result = gateway.call_json("writer", messages, stage="rewrite", input_id=item, max_completion_tokens=16000,
+                               validate=lambda o: validate_section(o, allowed, roadmap=bool(outline_text)))
     sentences = [s for p in result["parsed"]["paragraphs"] for s in p["sentences"]]
     return {"id": paragraph["id"], "sentences": [
-        {"id": f"{paragraph['id']}.r{n:02d}", "text": " ".join(s["text"].split()), "type": s["type"], "cites": s["cites"]}
+        {"id": f"{paragraph['id']}.r{n:02d}", "text": clean_text(s["text"]), "type": s["type"], "cites": s["cites"]}
         for n, s in enumerate(sentences, 1)]}
 
 
-def verify_section(gateway, written, segments, index, cutoff):
+def verify_section(gateway, written, segments, index, cutoff, outline_text=None):
+    """Judge, rewrite failing paragraphs once, re-judge, queue what still fails.
+    `outline_text` is supplied for framing text that may contain ROADMAP sentences."""
     section_id = written["section_id"]
     all_sentences = [s for p in written["paragraphs"] for s in p["sentences"]]
-    verdicts = judge(gateway, all_sentences, index, section_id)
+    verdicts = judge(gateway, all_sentences, index, section_id, outline_text)
     lines = source_lines(segments, sorted({c for s in all_sentences for c in s["cites"] if c in index.lines},
                                           key=lambda c: (list(segments).index(c.split("@")[0]), index.lines[c]["start"])))
     final, rewritten, queue, first_pass = [], [], [], dict(verdicts)
@@ -133,8 +136,8 @@ def verify_section(gateway, written, segments, index, cutoff):
         if all(passes(verdicts[s["id"]], cutoff) for s in paragraph["sentences"]):
             final.append(paragraph)
             continue
-        revised = rewrite_paragraph(gateway, paragraph, verdicts, lines, paragraph["id"])
-        revised_verdicts = judge(gateway, revised["sentences"], index, paragraph["id"] + ":rejudge")
+        revised = rewrite_paragraph(gateway, paragraph, verdicts, lines, paragraph["id"], outline_text)
+        revised_verdicts = judge(gateway, revised["sentences"], index, paragraph["id"] + ":rejudge", outline_text)
         verdicts.update(revised_verdicts)
         rewritten.append(paragraph["id"])
         final.append(revised)

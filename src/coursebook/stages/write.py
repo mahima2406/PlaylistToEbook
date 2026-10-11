@@ -4,9 +4,12 @@ Sentence tags (citation contract):
     F  factual     must cite >= 1 caption line from the supplied source lines
     T  technical   like F, may also cite the reference pack (`ref:<path>#L<a>-<b>`)
     C  connective  no claim of its own; no citations (the judge checks this)
+    R  roadmap     describes this book's structure; no citations; judged against
+                   the outline (allowed only in framing text: intro, openers)
 Source lines given to the writer = every 30 s window that contains a line cited
 by one of the section's points, in lecture order, tagged with full line IDs.
 """
+import re
 from pathlib import Path
 from ..core import digest
 from ..llm import TruncatedOutput
@@ -14,10 +17,10 @@ from .. import runner
 from .segment import format_lines
 
 PROMPT = Path("prompts/write.txt")
-TAGS = {"F", "T", "C"}
+TAGS = {"F", "T", "C", "R"}
 
 
-def validate_section(obj, allowed_ids):
+def validate_section(obj, allowed_ids, roadmap=False):
     errors = []
     paragraphs = obj.get("paragraphs")
     if not isinstance(paragraphs, list) or not paragraphs:
@@ -32,13 +35,13 @@ def validate_section(obj, allowed_ids):
             tag, cites = sentence.get("type"), sentence.get("cites")
             if not str(sentence.get("text", "")).strip():
                 errors.append(f"{where}: empty text")
-            if tag not in TAGS:
-                errors.append(f"{where}: type must be F, T or C")
+            if tag not in TAGS or (tag == "R" and not roadmap):
+                errors.append(f"{where}: type must be F, T or C" + (" or R" if roadmap else ""))
             if not isinstance(cites, list):
                 errors.append(f"{where}: cites must be a list")
                 continue
-            if tag == "C" and cites:
-                errors.append(f"{where}: connective sentences must not cite")
+            if tag in ("C", "R") and cites:
+                errors.append(f"{where}: {'connective' if tag == 'C' else 'roadmap'} sentences must not cite")
             if tag in ("F", "T") and not cites:
                 errors.append(f"{where}: {tag} sentence needs at least one citation")
             unknown = [c for c in cites if c not in allowed_ids and not str(c).startswith("ref:")]
@@ -88,13 +91,26 @@ def write_section(gateway, config, chapter, section, neighbours, points, segment
         first = write_section(gateway, config, chapter, {**section, "id": section["id"] + "a"}, neighbours, points[:half], segments)
         second = write_section(gateway, config, chapter, {**section, "id": section["id"] + "b"}, neighbours, points[half:], segments)
         paragraphs = first["paragraphs"] + second["paragraphs"]
+    return {"section_id": section["id"], "paragraphs": assign_ids(paragraphs, section["id"])}
+
+
+TAG_IN_TEXT = re.compile(r"^\s*\[(?:F|T|C|R)\]\s*")
+
+
+def clean_text(text):
+    """Collapse whitespace and drop a tag the model wrote into the text itself ("[F] ...")."""
+    return TAG_IN_TEXT.sub("", " ".join(str(text).split()))
+
+
+def assign_ids(paragraphs, prefix):
+    """Stable IDs: <prefix>.pNN for paragraphs and <prefix>.pNN.NN for sentences."""
     out = []
     for p, paragraph in enumerate(paragraphs, 1):
-        pid = f"{section['id']}.p{p:02d}"
+        pid = f"{prefix}.p{p:02d}"
         out.append({"id": pid, "sentences": [
-            {"id": f"{pid}.{n:02d}", "text": " ".join(x["text"].split()), "type": x["type"], "cites": x["cites"]}
+            {"id": f"{pid}.{n:02d}", "text": clean_text(x["text"]), "type": x["type"], "cites": x["cites"]}
             for n, x in enumerate(paragraph["sentences"], 1)]})
-    return {"section_id": section["id"], "paragraphs": out}
+    return out
 
 
 def run_write(root, gateway, config, outline, only=None, workers=4):

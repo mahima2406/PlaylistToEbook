@@ -30,5 +30,12 @@
     8,
     10
   ],
-  "lectures_note": "Slice (plan D18). Remove to build every captured lecture."
+  "lectures_note": "Slice (plan D18). Remove to build every captured lecture.",
+  "frame": {
+    "intro_lecture": 1
+  },
+  "diagrams": {
+    "enabled": true,
+    "per_chapter": 3
+  }
 }

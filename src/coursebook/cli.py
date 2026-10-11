@@ -17,9 +17,10 @@ def main():
     sub.add_parser("inventory", help="Freeze playlist metadata with repository yt-dlp")
     cap = sub.add_parser("capture", help="Capture unchanged timed captions")
     cap.add_argument("--limit", type=int, default=1)
-    run = sub.add_parser("run", help="Segment, extract, outline, write, verify and plant-test")
+    run = sub.add_parser("run", help="Segment, extract, outline, frame, write, verify, takeaways, diagrams, plant test")
     run.add_argument("--lectures", type=lecture_list, help="playlist positions, e.g. 8,10 (default: config or all captured)")
-    run.add_argument("--until", choices=["segment", "extract", "outline", "write", "verify", "plants"], default="plants")
+    run.add_argument("--until", choices=["segment", "extract", "outline", "frame", "write", "verify",
+                                         "takeaways", "diagrams", "plants"], default="plants")
     run.add_argument("--only", help="limit write/verify to sections starting with this id, e.g. ch01 or ch01.s03")
     run.add_argument("--offline", action="store_true", help="replay from the model cache; never call the API")
     approve = sub.add_parser("approve", help="Approve the current outline")
@@ -67,7 +68,8 @@ def print_status(root, config):
     spent = Gateway(root, run_id="status").spent_usd()
     print("stages:", json.dumps(runner.counts(root)))
     print(f"spent: ${spent:.2f}" + (f" of ${budget:.2f} budget" if budget else ""))
-    queue = [q for p in (Path(root) / "stages" / "verify").glob("*.json") for q in read(p)["output"]["queue"]]
+    queue = [q for stage in ("verify", "frame", "takeaways")
+             for p in (Path(root) / "stages" / stage).glob("*.json") for q in read(p)["output"]["queue"]]
     print(f"review queue: {sum(q['status'] == 'open' for q in queue)} open of {len(queue)}")
     print("outline approval:", "current" if approval_is_current(root) else "missing or stale")
 

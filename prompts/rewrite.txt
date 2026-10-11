@@ -5,9 +5,12 @@ Rewrite the paragraph so that every factual sentence is fully supported by the l
 - If a sentence cannot be supported by the supplied lines, delete it.
 - Keep supported sentences as they are unless a small change is needed for flow.
 - A connective sentence (type "C") must make no factual claim; rewrite it as a pure transition or turn it into a cited "F" sentence.
+- A roadmap sentence (type "R") describes only how this book is organised; keep it consistent with the outline and free of claims about the subject.
 - Keep the book's voice: teach the subject directly, without mentioning the lecture or lecturer.
 
-Use the same tags and citation rules as before: "F" sentences cite exact caption line IDs from the supplied lines; "C" sentences cite nothing.
+Use the same tags and citation rules as before: "F" sentences cite exact caption line IDs from the supplied lines; "C" and "R" sentences cite nothing.
+
+Do not put the tag letter inside the sentence text; it belongs only in "type".
 
 Output JSON only:
 {"paragraphs": [{"sentences": [{"text": "...", "type": "F", "cites": ["abc123@412"]}]}]}

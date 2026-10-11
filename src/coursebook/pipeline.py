@@ -1,6 +1,7 @@
-"""Run stages 2-6 for a set of lectures. Each stage is skipped when its inputs are unchanged.
+"""Run the stages for a set of lectures. Each stage is skipped when its inputs are unchanged.
 
-    segment -> extract -> outline -> write -> verify -> plants -> (render)
+    segment -> extract -> outline -> frame (intro, openers, at a glance)
+      -> write -> verify -> takeaways -> diagrams -> plants -> (render)
 """
 from pathlib import Path
 from .core import read
@@ -10,8 +11,10 @@ from .stages.outline import run_outline
 from .stages.write import run_write
 from .stages.verify import run_verify
 from .stages.plants import run_plants
+from .stages.frame import run_frame, run_takeaways
+from .stages.diagrams import run_diagrams
 
-STAGES = ["segment", "extract", "outline", "write", "verify", "plants"]
+STAGES = ["segment", "extract", "outline", "frame", "write", "verify", "takeaways", "diagrams", "plants"]
 
 
 def select_entries(root, config, lectures=None):
@@ -43,13 +46,22 @@ def run(root, config, gateway, lectures=None, until="plants", only=None, log=pri
     outline = run_outline(root, gateway, config, entries)
     log(f"outline: {len(outline['chapters'])} chapters, "
         f"{sum(len(c['sections']) for c in outline['chapters'])} sections, {len(outline['dropped'])} points dropped")
-    if stop >= 3:
+    if stop >= 3 and not only:
+        framed = run_frame(root, gateway, config, outline, workers)
+        log(f"frame: intro + {len(framed) - 1} chapter openers, {sum(len(f['queue']) for f in framed)} queued")
+    if stop >= 4:
         written = run_write(root, gateway, config, outline, only, workers)
         log(f"write: {len(written)} sections")
-    if stop >= 4:
+    if stop >= 5:
         verified = run_verify(root, gateway, config, outline, only, workers)
         log(f"verify: {sum(len(v['queue']) for v in verified)} sentences in the review queue")
-    if stop >= 5 and not only:
+    if stop >= 6 and not only:
+        takeaways = run_takeaways(root, gateway, config, outline, workers)
+        log(f"takeaways: {sum(len(t['paragraphs']) for t in takeaways)} items, {sum(len(t['queue']) for t in takeaways)} queued")
+    if stop >= 7 and not only:
+        diagrams = run_diagrams(root, gateway, config, outline, workers)
+        log(f"diagrams: {sum(len(d['diagrams']) for d in diagrams)} kept, {sum(len(d['dropped']) for d in diagrams)} dropped")
+    if stop >= 8 and not only:
         planted = run_plants(root, gateway, config, outline, workers)
         log(f"plants: caught {sum(p['caught'] for p in planted)} / {sum(p['planted'] for p in planted)}")
     return outline
